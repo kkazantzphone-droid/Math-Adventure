@@ -1,0 +1,64 @@
+# Dependencies and build output
+node_modules/
+.pnpm-store/
+dist/
+build/
+coverage/
+.vite/
+.cache/
+*.tsbuildinfo
+target/
+src-tauri/target/
+
+# Credentials/environment/private configuration (no committed env samples yet)
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+private-config/
+*.local
+*.local.*
+
+# Runtime/private learner material; synthetic fixtures live in tests/fixtures/synthetic/
+local-data/
+private-data/
+learner-data/
+learner-exports/
+exports/
+backups/
+*.learner.json
+*.learner-export.json
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+*.log
+logs/
+
+# Captures and test artifacts can contain child information
+recordings/
+screenshots/
+captures/
+test-results/
+playwright-report/
+blob-report/
+*.har
+*.trace.zip
+
+# Editor, platform and temporary files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.temp
+*.bak
+*~
+tmp/
+temp/
