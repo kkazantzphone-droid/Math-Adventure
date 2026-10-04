@@ -1,6 +1,6 @@
 # Open-source governance and licensing
 
-Status: proposed public model; maintainer assignments, final license and publication are not performed. [CONTRIBUTING](../CONTRIBUTING.md) defines review expectations.
+Status: Apache-2.0 license choice accepted by the owner; public model remains proposed, with maintainer assignments and publication not performed. [CONTRIBUTING](../CONTRIBUTING.md) defines review expectations.
 
 ## Roles and decisions
 
@@ -25,12 +25,12 @@ This is a bounded reading of primary license texts, not legal advice, accessed 2
 | Trademark/assets | Does not supply unrelated asset rights | No general trademark permission or automatic third-party asset relicensing |
 | Suitability | Very simple for small project | Clearer patent/contributor terms for broader community; more notice administration |
 
-Sources: [MIT](https://opensource.org/license/mit), [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0). Recommendation: **Apache-2.0 for original code/documentation**, pending owner approval and review of contributor expectations. MIT remains reasonable if simplicity is prioritized. No final LICENSE is added in Phase 0. Until selection, this repository's open-source intent is not a granted final reuse license.
+Sources: [MIT](https://opensource.org/license/mit), [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0). Owner decision on 2026-10-05: **Apache-2.0 for original code and project documentation**, recorded in [LICENSE](../LICENSE). Third-party assets retain their own terms and require rights/provenance review.
 
-Neither permissive license legally guarantees downstreams preserve project privacy or educational principles. Those are project acceptance/release rules. Decide license and incoming-contribution notice before accepting public contributions. Proposed lightweight sign-off/DCO-style provenance is not adopted yet; a CLA is not presumed necessary. Changes to contribution rights need explicit owner decision.
+Neither permissive license legally guarantees downstreams preserve project privacy or educational principles. Those are project acceptance/release rules. Decide the incoming-contribution notice and sign-off/provenance process before accepting public contributions. Proposed lightweight sign-off/DCO-style provenance is not adopted yet; a CLA is not presumed necessary. Changes to contribution rights need explicit owner decision.
 
 ## Asset provenance
 
 Keep a future asset inventory: file, source URL, author/rightsholder, license/version, proof of redistribution/modification permission, changes, attribution placement and scope. Images/icons/fonts/sounds/prerecorded speech/translations can have distinct terms. Prefer original or clearly permissively licensed reviewed assets. Font redistribution and recorded voice performer consent need their own checks. No real child recordings. Do not assume code licensing covers every asset, and do not invent licenses for generated media.
 
-Public release needs adopted license/notices, asset audit, private security channel, maintainer roles/moderation process, synthetic-only repository review and required quality gates. [SECURITY](../SECURITY.md) response targets remain proposed, and remote publication requires separate authorization.
+Public contributor onboarding and release still need contribution notices, asset audit, an operational private security-reporting channel, named maintainer/security responsibilities, an adopted code of conduct/moderation process, synthetic-only repository review and required quality gates. [SECURITY](../SECURITY.md) response targets remain proposed, and remote publication requires separate authorization.

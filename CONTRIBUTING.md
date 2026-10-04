@@ -1,6 +1,6 @@
 # Contributing to Math Adventure
 
-The project is architecture/pre-alpha. No application, public release or final license exists yet. Phase 0 changes should improve specifications and evidence; implementation requires a later explicit phase request. Read [AGENTS.md](AGENTS.md), the relevant [ADRs](docs/adr/ADR-0001.md), [decision register](docs/DECISION_REGISTER.md) and [governance](docs/OPEN_SOURCE_GOVERNANCE.md).
+The project is architecture/pre-alpha. No application or public release exists yet. Original code and project documentation are licensed under [Apache-2.0](LICENSE); third-party assets retain their own terms. Phase 0 changes should improve specifications and evidence; implementation requires a later explicit phase request. Read [AGENTS.md](AGENTS.md), the relevant [ADRs](docs/adr/ADR-0001.md), [decision register](docs/DECISION_REGISTER.md) and [governance](docs/OPEN_SOURCE_GOVERNANCE.md).
 
 Use synthetic examples only. Never attach real child names, learner histories, exports, audio, screenshots, device logs or credentials to public discussion. A parent may describe an experience without identifying a child. If reproducibility needs a seed/spec, use a standalone synthetic reproduction and remove profile identifiers and timestamps.
 
@@ -21,4 +21,4 @@ Every proposal states the problem, intended behavior, scope, evidence/assumption
 
 When implementation is authorized, locked dependency installation, lint, typecheck, unit/property tests and relevant integration/E2E/privacy checks are merge gates described in [testing](docs/TESTING_STRATEGY.md). Passing code alone cannot substitute for mathematical, educational or language review.
 
-License terms for accepting public contributions remain an owner decision. Do not solicit public code/assets under ambiguous terms. A contributor agreement is not presumed; see [licensing analysis](docs/OPEN_SOURCE_GOVERNANCE.md).
+Contribution sign-off and incoming-contribution provenance remain owner decisions; a contributor agreement is not presumed. Public contributor onboarding also requires named maintainer/security responsibilities, an operational private security-reporting channel, an adopted code of conduct/moderation process and asset provenance/rights review. See [governance](docs/OPEN_SOURCE_GOVERNANCE.md).

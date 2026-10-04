@@ -1,0 +1,58 @@
+# Normalize repository text to LF; detect unlisted binary formats conservatively.
+* text=auto eol=lf
+
+# Source, documentation and configuration are text across platforms.
+*.ts text
+*.tsx text
+*.js text
+*.jsx text
+*.mjs text
+*.cjs text
+*.json text
+*.jsonc text
+*.yaml text
+*.yml text
+*.md text
+*.css text
+*.scss text
+*.html text
+*.xml text
+*.svg text
+*.toml text
+*.ini text
+*.conf text
+*.sh text
+*.bash text
+*.ps1 text
+.gitignore text
+.gitattributes text
+LICENSE text
+
+# Windows command scripts stay LF in Git and use CRLF on checkout.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Future binary assets must not undergo text conversion or textual diffs.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.bmp binary
+*.tif binary
+*.tiff binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.tgz binary
+*.bz2 binary
+*.xz binary
+*.7z binary
+*.rar binary

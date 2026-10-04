@@ -1,6 +1,6 @@
 # Security policy — proposed before public release
 
-Math Adventure is architecture/pre-alpha. There is no deployed application or defined supported release line. A maintainer-approved private reporting address or private GitHub vulnerability-reporting channel must be established before publication; none is invented here.
+Math Adventure is architecture/pre-alpha. There is no deployed application or defined supported release line. A maintainer-approved private reporting address or private GitHub vulnerability-reporting channel must be established before accepting public contributions or publication; none is invented here.
 
 **Do not publish sensitive exploit details, real child data, exports or secrets in an Issue.** Until a private channel is designated, keep sensitive findings local and notify the owner through an already trusted private contact. Do not send data to an unverified address.
 

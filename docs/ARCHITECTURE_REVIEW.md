@@ -40,7 +40,7 @@ Reconciliation updated vision, principles, scope, architecture, puzzle/adaptive/
 | 4 Educational quality | No age/speed/sibling/clinical gates or punitive rewards; assistance/exploration neutral. Thresholds/hints/schedules unvalidated; research disagreement about timed fluency preserved |
 | 5 Localisation/speech | Exact regional seven tags, contextual messages, separate settings, explicit local voice/fallback policy and native review. No universal offline voice promise |
 | 6 Accessibility | AA goal, 24px versus project44px distinction, keyboard/reader/touch/zoom/motion/audio, parent-gate alternative. Evidence cannot count leaked visual answers |
-| 7 Maintainability | Minimal provisional dependencies, internal modules, review gates, asset rights and licensing analysis. Owner approval remains advisable/required for license; no final LICENSE added |
+| 7 Maintainability | Minimal provisional dependencies, internal modules, review gates, asset rights and licensing analysis. At the initial review, owner license selection was pending and no LICENSE existed; the owner selected Apache-2.0 for original code/documentation on 2026-10-05. Contribution sign-off and third-party asset rights remain separate gates |
 | 8 Distribution | Parent needs no developer runtime/server/cloud account. Initial download/caches, all-tab updates/schema compatibility, eviction and origin migration limits explicit; no device certification |
 
 ## Cross-document canonical statements
@@ -49,7 +49,7 @@ Accepted runtime is React+TypeScript client-side PWA with no V1 backend/Python r
 
 Geometry/spatial reasoning, measurement and powers/roots are first-class alongside all other planned domains, not miscellaneous future extensions. Learner evidence/progression is independently scoped but related through canonical graph links, never a global math level. Number Lab exposure does not imply mastery. Vector/notation rendering and advanced natural speech remain adapters, never mathematical authority.
 
-Owner decisions do not imply Phase0 failure when explicitly gated: license, retention grace, legal/operator/profiling/storage rules, public maintainer/reporting roles, actual platform support and educator calibration. [Decision register](DECISION_REGISTER.md) and [open questions](OPEN_QUESTIONS.md) identify timing/authority. External evidence remains bounded; no claims of implemented controls, compliance or learning effectiveness.
+Remaining owner decisions do not imply Phase0 failure when explicitly gated: contribution sign-off/third-party asset rights, retention grace, legal/operator/profiling/storage rules, public maintainer/reporting roles, actual platform support and educator calibration. [Decision register](DECISION_REGISTER.md) and [open questions](OPEN_QUESTIONS.md) identify timing/authority. External evidence remains bounded; no claims of implemented controls, compliance or learning effectiveness.
 
 ## Complete-set recheck
 

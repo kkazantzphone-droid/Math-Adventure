@@ -4,7 +4,7 @@ Status: proposed, **not authorized or started by Phase 0**. The owner must expli
 
 ## Entry and boundaries
 
-Confirm scope/accepted ADRs and disposition of ADR-0006/0007 proposals. Choose which platform/dev environment will be supported for the skeleton; exact versions and minor adapter choices can be resolved at checkpoint 1 without overturning constraints. License selection is recommended before Phase 1 and required before public contributions/publication; legal/retention/education calibration decisions may remain open during synthetic-only skeleton work but block real learner use or launch.
+Confirm scope/accepted ADRs and disposition of ADR-0006/0007 proposals. Choose which platform/dev environment will be supported for the skeleton; exact versions and minor adapter choices can be resolved at checkpoint 1 without overturning constraints. The owner selected Apache-2.0 for original code and project documentation on 2026-10-05; contribution sign-off, third-party asset rights and publication governance remain separate gates. Legal/retention/education calibration decisions may remain open during synthetic-only skeleton work but block real learner use or launch.
 
 Phase 1 does not implement puzzle families, child-profile UX, production learner adaptation, real-data IndexedDB migrations, complete language packs, rewards, Number Lab, Tauri, backend, deployment or public GitHub resources. It may define contracts, implement narrow deterministic infrastructure utilities, use clearly synthetic fixtures and prove an empty offline shell. Future CI workflow creation/execution and dependency installation must be within the explicit implementation request; no external services are presumed authorized merely by this plan.
 

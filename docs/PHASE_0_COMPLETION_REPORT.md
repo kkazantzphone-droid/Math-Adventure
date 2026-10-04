@@ -1,6 +1,6 @@
 # Phase 0 completion report
 
-Date: 2026-10-04 · Status: **PASS WITH OPEN DECISIONS**.
+Original unattended run: 2026-10-04 · Status: **PASS WITH OPEN DECISIONS**. Owner review closure: 2026-10-05.
 
 ## Executive summary
 
@@ -12,7 +12,7 @@ The owner's in-run clarification is reconciled throughout: geometry/spatial reas
 
 ## Repository baseline
 
-Assigned root: C:/Users/k.kazantzoglou/.codex/worktrees/3859/Math_Adventure. Git HEAD: 05ecd05d1a1454e1afd3f0b3f49824182d7a469a, detached HEAD at the bootstrap commit also referenced by main; no branch was created. Commit subject: chore: bootstrap Math Adventure repository.
+Assigned root: Codex-managed Phase 0 worktree. At the start of the original unattended run, Git HEAD was 05ecd05d1a1454e1afd3f0b3f49824182d7a469a, detached at the bootstrap commit also referenced by main; that run created no branch. Commit subject: chore: bootstrap Math Adventure repository.
 
 Initial working tree was clean. Only tracked .gitignore, AGENTS.md and README.md existed, all empty. Root/HEAD/files were inspected before edits. No application/dependency/build configuration existed to preserve.
 
@@ -24,11 +24,15 @@ The [README index](../README.md), [traceability matrix](TRACEABILITY_MATRIX.md) 
 
 ## Accepted architecture decisions
 
+The independent owner review **APPROVES the Phase 0 architectural direction**: React+TypeScript client-side PWA with no required Python/backend runtime, local-first learner state, deterministic mathematical truth, one repository initially, explainable adaptation, independent related mathematical domains including first-class geometry/spatial reasoning, measurement and exponentiation/roots, Number Lab exploratory exposure distinct from demonstrated mastery, seven-locale architecture, speech-provider abstraction, offline-first design and synthetic-only public repository policy. This approval does not approve unvalidated adaptive numeric thresholds, legal compliance, educational effectiveness or actual-device support, and does not authorize Phase1.
+
 ADR-0001 accepts browser/PWA React+TypeScript runtime with no required Python/backend or end-user development tools. ADR-0002 sets pure domain/ports/adapter/UI boundaries and one repo initially. ADR-0003 accepts local-first minimised learner data; wrapper/retention details remain provisional. ADR-0004 owns exact deterministic truth, semantic tasks and replay. ADR-0005 separates exact locale/message/speech concerns. ADR-0008 forbids real learner material in the repository.
 
 ## Proposed architecture decisions
 
 ADR-0006 proposes a versioned rule state machine, scoped evidence and support/revisit flags, with unvalidated full-window thresholds/diversity and staged schedules. ADR-0007 proposes coherent offline resources, safe waiting-worker activation and coordinated migration.
+
+Both ADRs remain PROPOSED. ADR-0006 may inform contracts and synthetic tests; its numeric mastery/revisit thresholds are not approved for real learners. ADR-0007 remains subject to the planned Phase1 empty-shell service-worker/update lifecycle proof before being treated as implementation-proven.
 
 Vite/pnpm/Vitest/fast-check/Playwright/axe, idb, Intl MessageFormat, vite-plugin-pwa/Workbox and xoshiro128** are recommendations pending exact version/compatibility/proof checkpoints. SVG+semantic HTML is proposed for interactive geometry; native MathML is the first richer-notation proof candidate, while KaTeX/MathJax are deferred. WCAG2.2 AA is a release target, not achieved conformance. Tauri is a future candidate only.
 
@@ -38,7 +42,7 @@ Production host/custom origin, desktop packaging, broader family content and off
 
 ## Human decisions required
 
-Before Phase1: explicitly review this foundation and authorize a bounded implementation scope; license selection is recommended then and mandatory before public contributions/publication. Before real learner use: resolve retention/expiry grace, applicable legal/operator/profiling/storage rules and notices, consented evaluation, educator/math/accessibility/native-language review. Before public release: approve host metadata/security/update policy, asset/license inventory, maintainer/reporting/support roles and actual-device support evidence. See [open questions](OPEN_QUESTIONS.md); none required pausing the unattended specification run.
+Before Phase1: authorize a bounded implementation scope; owner architecture approval and Apache-2.0 selection do not authorize implementation. Before real learner use: resolve retention/expiry grace, applicable legal/operator/profiling/storage rules and notices, consented evaluation, educator/math/accessibility/native-language review. Bounded raw-evidence retention and the 12-month inactivity review remain proposals; the final grace period and any automatic complete-profile deletion require later privacy/legal/product review. Synthetic-only Phase1 work may test candidate contracts without activating an ambiguous real-learner retention policy. Before public contributions: establish a real private vulnerability-reporting channel, maintainer/security responsibilities, Code of Conduct/moderation policy and appropriate asset provenance review. These onboarding gates do not block separately authorized synthetic Phase1 engineering. Before public release: approve host metadata/security/update policy, asset/license inventory, maintainer/reporting/support roles and actual-device support evidence. See [open questions](OPEN_QUESTIONS.md); none required pausing the unattended specification run.
 
 ## Research performed
 
@@ -78,7 +82,7 @@ Actionable unit/property/boundary/independent-oracle/integration/E2E/accessibili
 
 ## Open-source/governance findings
 
-Contributor categories, role-based mathematical/educational/native/accessibility/security review, Issues/Discussions distinction, private security reporting proposal and asset provenance are documented. Apache-2.0 is recommended over MIT for explicit patent/contribution terms, pending owner approval. **No final LICENSE** was added.
+Contributor categories, role-based mathematical/educational/native/accessibility/security review, Issues/Discussions distinction, private security reporting proposal and asset provenance are documented. The owner has adopted **Apache-2.0 for original Math Adventure code and project documentation** (D17 ACCEPTED); the canonical [LICENSE](../LICENSE) is included in this closure. Contribution sign-off and asset-rights questions remain open. Third-party assets are not relicensed by this decision; no present NOTICE requirement has been identified and no NOTICE file is added.
 
 ## Phase1 recommendation
 
@@ -96,7 +100,7 @@ Proceed only on an explicit implementation request, using the eight [technical-s
 - Phase1 scaffolding, CI implementation/runs, deployment or desktop setup started: **No**.
 - Geometry/measurement/power/root implementations, SVG components, MathML/KaTeX/MathJax installation or advanced translations created: **No**.
 
-## Verification performed
+## Verification performed during the original unattended run
 
 All 38 expected files exist: 37 Markdown files and .gitignore. All 237 local Markdown links resolve. UTF-8/text/file inventory checks found no unexpected files, binary-NUL artifacts, dependency directories, executable application code, build outputs or trailing whitespace. No high-confidence secret-pattern matches were found; this is a bounded scan plus human content review, not a claim that regex can prove every privacy property. All learner examples are synthetic/abstract; no real learner histories/media were used.
 
@@ -126,8 +130,10 @@ The brief's 26 Phase 0 criteria are satisfied as architecture deliverables, with
 
 The authoritative clarification is additionally traced by R39–R45, reflected in D28–D31/relevant ADRs and verified in the final independent review. Passing Phase0 does not authorize Phase1 or certify proposed policies.
 
-## Git final state
+## Historical Git state and subsequent preservation
 
-Final verified state: same detached HEAD 05ecd05d1a1454e1afd3f0b3f49824182d7a469a, no staged changes and no new commits/branch. .gitignore, AGENTS.md and README.md are modified; CONTRIBUTING.md, SECURITY.md and all 33 docs/ADR files are untracked (35 additions total). All 38 changed files remain available for owner diff inspection in the assigned worktree. The main checkout and remotes were not modified.
+At the exact end of the original unattended Phase0 generation run, the verified state was the same detached HEAD 05ecd05d1a1454e1afd3f0b3f49824182d7a469a, no staged changes and no new commits/branch. .gitignore, AGENTS.md and README.md were modified; CONTRIBUTING.md, SECURITY.md and all 33 docs/ADR files were untracked (35 additions total). All 38 changed files were available for owner diff inspection in the assigned worktree. The main checkout and remotes were not modified by that run.
 
-Existing Git configuration emitted informational LF-to-CRLF conversion notices; no Git configuration was changed. For untracked diff inspection, per-command autocrlf=false suppressed conversion noise without modifying configuration. No push, merge, rebase, cleanup, PR or publication occurred. The run stops after Phase0.
+The foundation was subsequently preserved on branch `codex/phase-0-foundation` in commit `2c5ce3f0eb62897ea70fbfcffd1ed875d834fe57` (`docs: establish Math Adventure Phase 0 foundation`). That preservation introduced no Phase1 work and involved no remote operation; the original unattended run did not commit its own changes.
+
+During the original run, existing Git configuration emitted informational LF-to-CRLF conversion notices; no Git configuration was changed. For untracked diff inspection, per-command autocrlf=false suppressed conversion noise without modifying configuration. The owner-review closure adds a repository [.gitattributes](../.gitattributes) policy for LF-normalized text and binary assets; existing tracked files were already LF, so no repository-wide line-ending rewrite is needed. No push, merge, rebase, cleanup, PR or publication occurred. Phase1 remains unstarted.

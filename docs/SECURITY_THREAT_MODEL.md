@@ -32,4 +32,4 @@ Do not promise a signed release manifest against malicious hosting unless an ind
 
 No real learner information is needed for diagnostics. A standalone seed/spec/content version and synthetic reproduction suffice for most mathematical faults. Memory-only error codes may support local debugging without persisted child logs.
 
-Prioritise privacy leaks, wrong math and irreversible corruption as merge-blocking. Security reporting channel/maintenance window must be approved before public release; [SECURITY.md](../SECURITY.md) deliberately does not invent a contact. [Testing strategy](TESTING_STRATEGY.md) sets gates and [open questions](OPEN_QUESTIONS.md) records remaining decisions.
+Prioritise privacy leaks, wrong math and irreversible corruption as merge-blocking. A real private security-reporting channel and maintainer/security responsibilities must be established before accepting public contributions; the maintenance window must be approved before public release. [SECURITY.md](../SECURITY.md) deliberately does not invent a contact. [Testing strategy](TESTING_STRATEGY.md) sets gates and [open questions](OPEN_QUESTIONS.md) records remaining decisions.

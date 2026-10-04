@@ -1,6 +1,6 @@
 # Decision register
 
-As of 2026-10-04. ACCEPTED means an architecture/product constraint recorded in this Phase 0 run, **not implementation, owner license approval or educational validation**. PROPOSED details remain reviewable. IDs here are stable references; ADRs contain rationale.
+As of 2026-10-05. ACCEPTED means a recorded architecture/product constraint or explicit owner decision, **not implementation or educational validation**. D17 records the owner's license selection. PROPOSED details remain reviewable. IDs here are stable references; ADRs contain rationale.
 
 | ID | Decision | Status | Authority / next gate |
 | --- | --- | --- | --- |
@@ -20,12 +20,12 @@ As of 2026-10-04. ACCEPTED means an architecture/product constraint recorded in 
 | D14 | Dynamic plugin framework, CAS, monorepo, large state library, immediate Tauri/Electron | DEFERRED | No demonstrated present requirement |
 | D15 | Tauri preferred later packaging candidate | PROPOSED | Platform proof/new packaging ADR before use |
 | D16 | GitHub Pages or alternate static production host/custom origin | DEFERRED | Headers, metadata retention, availability/update/rollback/privacy review before deployment |
-| D17 | Apache-2.0 recommended; MIT valid alternative; no LICENSE yet | NEEDS HUMAN DECISION | Owner ideally before Phase1, required before public contributions/publication |
+| D17 | Apache-2.0 for original code and project documentation; third-party assets retain their own terms | ACCEPTED | Owner decision 2026-10-05; [LICENSE](../LICENSE); contribution sign-off and asset-rights questions remain open in Q02 |
 | D18 | Numeric adaptation/diversity/session/revisit thresholds | PROPOSED | Simulation + educator/native/accessibility review before real learners |
 | D19 | 10 observations/concept, 500/learner, 60d; bounded recovery | PROPOSED | Owner/privacy review before real-data storage |
 | D20 | Profile/summary inactivity purpose limit, final review grace and deletion behavior | NEEDS HUMAN DECISION | Review proposal12mo; resolve before real learner trials |
 | D21 | Operator/territories/lawful basis/profiling/ePrivacy/PECR/DPIA and notices | NEEDS HUMAN DECISION | Professional/owner review before trials/public launch as applicable |
-| D22 | Official-pack reviewers, accessibility/education maintainers, private security channel and maintenance window | NEEDS HUMAN DECISION | Roles/review capacity before official/public release |
+| D22 | Official-pack reviewers, accessibility/education maintainers, real private security channel, maintainer/security responsibilities, Code of Conduct/moderation and maintenance window | NEEDS HUMAN DECISION | Public-onboarding responsibilities before public contributions; specialist capacity before official support; maintenance window before release |
 | D23 | Browser/OS minimums and actual offline voice/storage capability | DEFERRED | Phase1 candidates, playable-slice actual-device tests |
 | D24 | Parent local export/import and shared-origin/custom-domain migration | DEFERRED | Contract now; implemented/reviewed before relying on backup/migration |
 | D25 | WCAG2.2 AA target with >=44px child targets and modality-scoped evidence | PROPOSED | Actual accessibility review before support claim |
