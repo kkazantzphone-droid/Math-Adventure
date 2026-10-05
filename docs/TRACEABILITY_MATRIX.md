@@ -54,7 +54,7 @@ All ADR references are in [docs/adr](adr/ADR-0001.md). Every planned test must b
 
 ## Phase 1D bounded implementation addendum
 
-This addendum records **ENGINEERING PASS — complete for bounded checkpoint 6** after preserved owner-confirmed Phase 1V. Required engineering and bounded browser checks passed; local preservation follows final staged review. Current evidence and limitations belong in the [Phase 1D report](PHASE_1D_COMPLETION_REPORT.md), governed by [ADR-0012](adr/ADR-0012.md).
+This addendum records **ENGINEERING PASS — complete for bounded checkpoint 6** after preserved owner-confirmed Phase 1V. Required engineering and bounded browser checks passed and were locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`. Evidence and limitations belong in the frozen [Phase 1D report](PHASE_1D_COMPLETION_REPORT.md), governed by [ADR-0012](adr/ADR-0012.md). [Phase 1E readiness](PHASE_1E_COMPLETION_REPORT.md) is **BLOCKED/PARTIAL — BROWSER LIFECYCLE EVIDENCE REQUIRED**, with no Phase 1E implementation. D39 separately authorizes current candidate publication and bounded Phase 1V/1D CI repairs. Earlier phase addenda retain their historical handoff scope and evidence limits.
 
 | Requirement | Implemented components/checks | Limit |
 | --- | --- | --- |
@@ -63,7 +63,7 @@ This addendum records **ENGINEERING PASS — complete for bounded checkpoint 6**
 | R20/R45 semantic speech | Fixed language-tagged instruction/hint/feedback/cardinal/multiplication/square/principal-root plans, unchanged generic port, browser infrastructure adapter and deterministic fakes | No glyph-based truth, arbitrary learner text or general spellout engine |
 | R20/R21 exact-local speech policy | Explicit localService === true and exact-region selection; delayed enumeration/voiceschanged, refresh, cancellation/watchdog/outcomes, deliberate adult diagnostics | No remote/default/region fallback, microphone, telemetry or tested-offline claim from provider flags |
 | R24 accessible visual/speech cooperation | Effective content language, explicit replay only for eligible capability, no duplicate live/TTS, audio-off/missing-voice use, preserved Space/Shapes/help/root checks | Source/SSR/fakes do not certify screen readers or actual-device comprehension |
-| R31/R35/R38 complete candidate gate | Independent review; remote-voice/coupled-preference mutation sensitivity/restoration; full/fresh verification, audit/lock/artifact/privacy review and bounded browser evidence | Bounded engineering PASS; local commit follows final staged review; no remote mutation or automatic Phase 1E entry |
+| R31/R35/R38 complete candidate gate | Independent review; remote-voice/coupled-preference mutation sensitivity/restoration; full/fresh verification, audit/lock/artifact/privacy review and bounded browser evidence | Bounded engineering PASS, locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`; D39 authorizes publication/CI repair, with no Phase 1E implementation or automatic merge |
 
 ## Phase 1A implementation addendum
 
