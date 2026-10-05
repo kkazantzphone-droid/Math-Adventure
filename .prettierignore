@@ -13,11 +13,14 @@
 !/docs/PHASE_1C_COMPLETION_REPORT.md
 !/docs/PHASE_1V_COMPLETION_REPORT.md
 !/docs/PHASE_1V_UAT_PROTOCOL.md
+!/docs/PHASE_1D_COMPLETION_REPORT.md
+!/docs/PHASE_1E_COMPLETION_REPORT.md
 !/docs/adr/
 /docs/adr/*
 !/docs/adr/ADR-0009.md
 !/docs/adr/ADR-0010.md
 !/docs/adr/ADR-0011.md
+!/docs/adr/ADR-0012.md
 LICENSE
 pnpm-lock.yaml
 node_modules/

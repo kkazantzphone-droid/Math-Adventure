@@ -52,6 +52,19 @@ Status: the main matrix retains Phase 0 requirements and planned later component
 
 All ADR references are in [docs/adr](adr/ADR-0001.md). Every planned test must be translated into an actual acceptance check when its component is implemented; this matrix alone is not test evidence.
 
+## Phase 1D bounded implementation addendum
+
+This addendum records **ENGINEERING PASS — complete for bounded checkpoint 6** after preserved owner-confirmed Phase 1V. Required engineering and bounded browser checks passed; local preservation follows final staged review. Current evidence and limitations belong in the [Phase 1D report](PHASE_1D_COMPLETION_REPORT.md), governed by [ADR-0012](adr/ADR-0012.md).
+
+| Requirement | Implemented components/checks | Limit |
+| --- | --- | --- |
+| R18 exact locales/independent choices | `src/presentation/localisation/` seven canonical manifests, uiLocale/instructionLocale/numberSpeechLocale, exact query/default/planned status and mixed-language tests | Transient preferences; four planned packs have no child translations |
+| R19 prototype message schemas | Stable typed IDs/arguments, draft el-GR/en-GB/de-DE required-schema checks, metadata/native-review pending, structured plural/select/native Intl | Complete prototype schema is not official linguistic review or seven-pack completeness |
+| R20/R45 semantic speech | Fixed language-tagged instruction/hint/feedback/cardinal/multiplication/square/principal-root plans, unchanged generic port, browser infrastructure adapter and deterministic fakes | No glyph-based truth, arbitrary learner text or general spellout engine |
+| R20/R21 exact-local speech policy | Explicit localService === true and exact-region selection; delayed enumeration/voiceschanged, refresh, cancellation/watchdog/outcomes, deliberate adult diagnostics | No remote/default/region fallback, microphone, telemetry or tested-offline claim from provider flags |
+| R24 accessible visual/speech cooperation | Effective content language, explicit replay only for eligible capability, no duplicate live/TTS, audio-off/missing-voice use, preserved Space/Shapes/help/root checks | Source/SSR/fakes do not certify screen readers or actual-device comprehension |
+| R31/R35/R38 complete candidate gate | Independent review; remote-voice/coupled-preference mutation sensitivity/restoration; full/fresh verification, audit/lock/artifact/privacy review and bounded browser evidence | Bounded engineering PASS; local commit follows final staged review; no remote mutation or automatic Phase 1E entry |
+
 ## Phase 1A implementation addendum
 
 | Phase 1A requirement | Current files / checks | Evidence and limit |

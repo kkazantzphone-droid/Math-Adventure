@@ -334,8 +334,8 @@ describe('independent scripted fixture and semantic review', () => {
     );
     expect(prototypeCopy.el.locale).toBe('el-GR');
     expect(prototypeCopy.en.locale).toBe('en-GB');
-    expect(Object.keys(prototypeCopy).sort()).toEqual(['el', 'en']);
-    for (const copy of [prototypeCopy.el, prototypeCopy.en]) {
+    expect(Object.keys(prototypeCopy).sort()).toEqual(['de', 'el', 'en']);
+    for (const copy of [prototypeCopy.el, prototypeCopy.en, prototypeCopy.de]) {
       expect(copy.shapeChoices).toHaveLength(3);
       expect(copy.representations).toHaveLength(3);
       const { exploreGuides, ...nonGuideCopy } = copy;
@@ -407,9 +407,9 @@ describe('bounded deterministic URL options', () => {
     ['?lang=%', 'el'],
     ['?lang=%ZZ', 'el'],
     ['?lang=en-GB', 'el'],
-    ['?lang=de', 'el'],
+    ['?lang=de', 'de'],
     ['?lang=de-DE', 'el'],
-    ['?variant=b&lang=de', 'el'],
+    ['?variant=b&lang=de', 'de'],
     ['?lang=de&lang=en', 'el'],
     ['?lang=en&lang=en', 'el'],
     ['?lang=en&lang=el', 'el'],

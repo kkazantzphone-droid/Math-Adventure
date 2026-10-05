@@ -1,13 +1,24 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from '../ui/App';
-import { prototypeCopy } from '../ui/prototype/copy';
-import { parsePrototypeLanguage } from '../ui/prototype/options';
+import { getPrototypeCopy } from '../presentation/localisation/format';
+import { parseLanguagePreferences } from '../presentation/localisation/preferences';
+import { createBrowserSpeechAdapter } from '../infrastructure/speech/browserSpeech';
 import '../ui/styles.css';
 
 const container = document.getElementById('root');
-const language = parsePrototypeLanguage(window.location.search);
-document.documentElement.lang = prototypeCopy[language].locale;
+const preferences = parseLanguagePreferences(window.location.search);
+const voiceCheckParameters = new URLSearchParams(window.location.search).getAll(
+  'voiceCheck',
+);
+const voiceCheck =
+  voiceCheckParameters.length === 1 && voiceCheckParameters[0] === '1';
+document.documentElement.lang = getPrototypeCopy(preferences.uiLocale).locale;
+const speech = createBrowserSpeechAdapter();
+window.addEventListener('pagehide', () => speech.cancel());
+const updateDocumentLanguage = (current: typeof preferences) => {
+  document.documentElement.lang = getPrototypeCopy(current.uiLocale).locale;
+};
 
 if (container === null) {
   throw new Error('The application root element is missing.');
@@ -15,6 +26,11 @@ if (container === null) {
 
 createRoot(container).render(
   <StrictMode>
-    <App language={language} />
+    <App
+      preferences={preferences}
+      speech={speech}
+      voiceCheck={voiceCheck}
+      onPreferencesChange={updateDocumentLanguage}
+    />
   </StrictMode>,
 );

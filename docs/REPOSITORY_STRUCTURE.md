@@ -1,6 +1,6 @@
 # Repository structure and versioning
 
-Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain modules, Phase 1C adds bounded application ports/integrity and synthetic conformance, and Phase 1V adds an isolated scripted visual prototype and bounded human-UAT reconciliation. Historical foundation reports remain unchanged; the Phase 1V report preserves its initial candidate evidence separately from remediation. The second tree describes the broader future application; empty conceptual layers are not scaffolded.
+Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain modules, Phase 1C adds bounded application ports/integrity and synthetic conformance, and preserved owner-confirmed Phase 1V adds an isolated scripted visual prototype. Phase 1D is ENGINEERING PASS for bounded checkpoint-6 localisation/local-only speech; local preservation follows final staged review. Historical reports/protocols remain unchanged. The second tree describes the broader future application; empty conceptual layers are not scaffolded.
 
 ```text
 /
@@ -12,6 +12,9 @@ Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain mod
   src/
     application/core/ ports/ repository/ # integrity and contracts only
     composition/main.tsx        # mounts the local visual prototype
+    presentation/localisation/ # exact manifests/preferences/schema/draft packs/native Intl
+    presentation/speech/       # fixed semantic nonpersonal prototype plans
+    infrastructure/speech/     # browser speech/capability adapter, no learner storage
     ui/App.tsx styles.css
     ui/prototype/              # scripted model/fixtures, tiny copy/options, selected Space view/CSS
     domain/
@@ -33,11 +36,14 @@ Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain mod
   docs/PHASE_1B_COMPLETION_REPORT.md docs/adr/ADR-0009.md
   docs/PHASE_1V_COMPLETION_REPORT.md docs/PHASE_1V_UAT_PROTOCOL.md
   docs/adr/ADR-0011.md          # owner-confirmed Space baseline and final visual gate
+  docs/PHASE_1D_COMPLETION_REPORT.md docs/adr/ADR-0012.md # candidate evidence/policies
 ```
 
 The root `pnpm-workspace.yaml` configures project-local installation policy; this remains one application, not a monorepo. `node_modules`, build outputs and local tool caches are untracked artifacts.
 
-Phase 1V's prototype directory is UI-only. It contains no production family, language pack, learner schema, application command or persistence adapter. Synthetic badges and all interactions remain React memory. Historical B/C themes are documented rather than retained as dead production code. The UAT document contains a procedure and only the owner's authorized aggregate findings; no individual sessions, identifying details, raw child notes or media are repository artifacts. **FINAL PASS — OWNER CONFIRMED** closes the human acceptance gate for Space, Shapes, Show me, Explore and the final one-top-side root view; this is bounded project design input. D37 separately authorizes later stages after complete preceding engineering/local preservation gates, without adding later-phase modules at this closure.
+The prototype still contains no production family, learner schema, application command or persistence adapter. Synthetic badges/interactions and Phase 1D preferences remain transient. Historical B/C themes are documented rather than retained as dead production code. The frozen Phase 1V UAT/report/ADR record only the authorized aggregate procedure/findings and owner acceptance, not individual sessions, identifying details, raw child notes or media. **FINAL PASS — OWNER CONFIRMED** closes its human gate for Space, Shapes, Show me, Explore and the final one-top-side root view.
+
+The Phase 1D presentation boundary owns exact seven-locale manifests and independent preferences, typed messages/draft el-GR/en-GB/de-DE packs, native Intl formatting and fixed semantic speech plans. Planned fr-FR/es-ES/it-IT/pt-PT manifests contain no fabricated translations. Infrastructure alone owns SpeechSynthesis/voice enumeration/timers behind the unchanged generic application speech port; composition injects it into UI. Tests use deterministic fake speech/capabilities and fixed nonpersonal data. These additions create no learner records/evidence/storage, remote TTS or worker/PWA module; bounded checkpoint-6 engineering gates have passed; local preservation follows final staged review.
 
 ## Proposed later application layout
 

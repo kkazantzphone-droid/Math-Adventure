@@ -1,12 +1,10 @@
-export type PrototypeLanguage = 'el' | 'en';
+import { prototypeLanguageForLocale } from '../../presentation/localisation/locales';
+import type { PrototypeLanguage } from '../../presentation/localisation/locales';
+import { parseLanguagePreferences } from '../../presentation/localisation/preferences';
 
-/** One deterministic query choice; absent, repeated or malformed values use the default. */
-function singleParameter(search: string, name: string): string | undefined {
-  const values = new URLSearchParams(search).getAll(name);
-  return values.length === 1 ? values[0] : undefined;
-}
+export type { PrototypeLanguage } from '../../presentation/localisation/locales';
 
-/** Prototype-only Greek default, including unsupported/repeated values. Legacy variant queries are ignored. */
+/** Compatibility alias; independent exact preferences are parsed at the bootstrap. */
 export function parsePrototypeLanguage(search: string): PrototypeLanguage {
-  return singleParameter(search, 'lang') === 'en' ? 'en' : 'el';
+  return prototypeLanguageForLocale(parseLanguagePreferences(search).uiLocale);
 }

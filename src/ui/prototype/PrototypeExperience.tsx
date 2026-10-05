@@ -1,5 +1,16 @@
-import { useEffect, useReducer, useRef } from 'react';
-import type { Ref } from 'react';
+import { useEffect, useReducer, useRef, useSyncExternalStore } from 'react';
+import type { ReactNode, Ref } from 'react';
+import {
+  formatMessage,
+  getPrototypeCopy,
+} from '../../presentation/localisation/format';
+import type { LanguagePreferences } from '../../presentation/localisation/preferences';
+import type { SpeechController } from '../../presentation/speech/controller';
+import { SpeechControls } from '../speech/SpeechControls';
+import {
+  dispatchPrototypeAction,
+  speechForPrototypeState,
+} from './speech-context';
 import { prototypeCopy } from './copy';
 import type { PrototypeCopy } from './copy';
 import {
@@ -168,6 +179,8 @@ interface PrototypeScreenProps {
   readonly language: PrototypeLanguage;
   readonly onAction: (action: PrototypeAction) => void;
   readonly headingRef?: Ref<HTMLHeadingElement>;
+  readonly preferences?: LanguagePreferences;
+  readonly speechControls?: ReactNode;
 }
 
 /** Scripted confirmation-UAT view. Space is the single visual baseline. */
@@ -176,8 +189,38 @@ export function PrototypeScreen({
   language,
   onAction,
   headingRef,
+  preferences,
+  speechControls,
 }: PrototypeScreenProps) {
-  const copy = prototypeCopy[language];
+  const uiCopy =
+    preferences === undefined
+      ? prototypeCopy[language]
+      : getPrototypeCopy(preferences.uiLocale);
+  const instruction =
+    preferences === undefined
+      ? uiCopy
+      : getPrototypeCopy(preferences.instructionLocale);
+  const copy = {
+    ...uiCopy,
+    numberHeading: instruction.numberHeading,
+    numberPrompt: instruction.numberPrompt,
+    shapePrompt: instruction.shapePrompt,
+    shapeReference: instruction.shapeReference,
+    targetDescription: instruction.targetDescription,
+    shapeChoices: instruction.shapeChoices,
+    numberHint: instruction.numberHint,
+    shapeHint: instruction.shapeHint,
+    retry: instruction.retry,
+    success: instruction.success,
+    exploreIntro: instruction.exploreIntro,
+    arrayDescription: instruction.arrayDescription,
+    arrayLabel: instruction.arrayLabel,
+    rootArrayLabel: instruction.rootArrayLabel,
+    rootNotation: instruction.rootNotation,
+    representations: instruction.representations,
+    representationCaptions: instruction.representationCaptions,
+    exploreGuides: instruction.exploreGuides,
+  };
   const heading =
     state.screen === 'badges'
       ? copy.badgesHeading
@@ -222,7 +265,11 @@ export function PrototypeScreen({
                 <span
                   className="selected-badge"
                   role="img"
-                  aria-label={`${copy.selectedBadge}: ${state.badge === 'star' ? copy.star : copy.triangle}`}
+                  aria-label={formatMessage(
+                    uiCopy.locale,
+                    'badge.description',
+                    { badge: state.badge },
+                  )}
                 >
                   <BadgeArt badge={state.badge} />
                 </span>
@@ -249,10 +296,30 @@ export function PrototypeScreen({
           </div>
         </header>
         <div className="prototype-content">
-          <h1 className="screen-heading" ref={headingRef} tabIndex={-1}>
+          <h1
+            id="prototype-screen-heading"
+            className="screen-heading"
+            ref={headingRef}
+            tabIndex={-1}
+            lang={
+              state.screen === 'activity' || state.screen === 'success'
+                ? instruction.locale
+                : uiCopy.locale
+            }
+          >
             {heading}
           </h1>
-          {intro !== null && <p className="screen-intro">{intro}</p>}
+          {intro !== null && (
+            <p
+              className="screen-intro"
+              lang={
+                state.screen === 'explore' ? instruction.locale : uiCopy.locale
+              }
+            >
+              {intro}
+            </p>
+          )}
+          {speechControls}
 
           {state.screen === 'badges' && (
             <div className="badge-choices">
@@ -330,6 +397,7 @@ export function PrototypeScreen({
           {state.screen === 'activity' && (
             <section
               className={`task-panel task-panel-${state.activity}`}
+              lang={instruction.locale}
               aria-label={heading}
             >
               {state.activity === 'number' ? (
@@ -354,6 +422,7 @@ export function PrototypeScreen({
               )}
               <button
                 className="hint-button"
+                lang={uiCopy.locale}
                 type="button"
                 aria-expanded={state.hintVisible}
                 aria-controls="prototype-hint"
@@ -440,7 +509,11 @@ export function PrototypeScreen({
           )}
 
           {state.screen === 'success' && (
-            <section className="success-panel" aria-label={heading}>
+            <section
+              className="success-panel"
+              aria-label={heading}
+              lang={instruction.locale}
+            >
               <div className="celebration" aria-hidden="true">
                 <span>✦</span>
                 <BadgeArt badge={state.badge} />
@@ -457,6 +530,7 @@ export function PrototypeScreen({
               </div>
               <button
                 className="primary-button"
+                lang={uiCopy.locale}
                 type="button"
                 onClick={() => onAction({ type: 'continue' })}
               >
@@ -467,7 +541,11 @@ export function PrototypeScreen({
           )}
 
           {state.screen === 'explore' && (
-            <section className="explore-panel" aria-label={heading}>
+            <section
+              className="explore-panel"
+              aria-labelledby="prototype-screen-heading"
+              lang={instruction.locale}
+            >
               {state.representation === null && (
                 <ArrayAnchor representation={null} copy={copy} />
               )}
@@ -560,12 +638,26 @@ export function PrototypeScreen({
 
 export function PrototypeExperience({
   language,
+  preferences,
+  speech,
 }: {
   readonly language: PrototypeLanguage;
+  readonly preferences?: LanguagePreferences;
+  readonly speech?: SpeechController;
 }) {
   const [state, dispatch] = useReducer(prototypeReducer, initialPrototypeState);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const previousScreen = useRef(state.screen);
+  const badge = state.screen === 'badges' ? null : state.badge;
+  const snapshot = useSyncExternalStore(
+    (listener) => speech?.subscribe(listener) ?? (() => undefined),
+    () => speech?.snapshot() ?? null,
+    () => speech?.snapshot() ?? null,
+  );
+  useEffect(() => {
+    speech?.cancel();
+    return () => speech?.cancel();
+  }, [speech, preferences, state.screen, badge]);
   useEffect(() => {
     // Focus the new heading only on screen navigation, never steal answer/hint focus.
     if (previousScreen.current !== state.screen) headingRef.current?.focus();
@@ -575,7 +667,20 @@ export function PrototypeExperience({
     <PrototypeScreen
       state={state}
       language={language}
-      onAction={dispatch}
+      {...(preferences === undefined ? {} : { preferences })}
+      speechControls={
+        speech !== undefined &&
+        snapshot !== null &&
+        preferences !== undefined ? (
+          <SpeechControls
+            speech={speech}
+            snapshot={snapshot}
+            plan={speechForPrototypeState(state, preferences)}
+            copy={getPrototypeCopy(preferences.uiLocale)}
+          />
+        ) : null
+      }
+      onAction={(action) => dispatchPrototypeAction(action, dispatch, speech)}
       headingRef={headingRef}
     />
   );

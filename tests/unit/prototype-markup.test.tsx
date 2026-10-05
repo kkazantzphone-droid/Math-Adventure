@@ -368,13 +368,8 @@ describe('actual child-facing SSR semantics across the reachable flow', () => {
     expect(css).toContain('--text: #f5f3ff');
   });
 
-  it.each([
-    '?lang=de',
-    '?lang=de-DE',
-    '?variant=c&lang=de',
-    '?lang=de&lang=en',
-  ])(
-    'uses the explicit deterministic Greek fallback for unsupported German URL %s',
+  it.each(['?lang=de-DE', '?lang=de&lang=en'])(
+    'uses the deterministic Greek default for invalid or repeated aliases %s',
     (query) => {
       expect(parsePrototypeLanguage(query)).toBe('el');
       const markup = renderToStaticMarkup(
@@ -383,6 +378,18 @@ describe('actual child-facing SSR semantics across the reachable flow', () => {
       expect(markup).toContain('lang="el-GR"');
       expect(accessibleText(markup)).toContain('Διάλεξε το σήμα σου');
       expect(markup).not.toMatch(/lang="de|Wähle|Deutsch/);
+    },
+  );
+
+  it.each(['?lang=de', '?variant=c&lang=de'])(
+    'renders the draft German prototype for %s',
+    (query) => {
+      expect(parsePrototypeLanguage(query)).toBe('de');
+      const markup = renderToStaticMarkup(
+        <App language={parsePrototypeLanguage(query)} />,
+      );
+      expect(markup).toContain('lang="de-DE"');
+      expect(accessibleText(markup)).toContain(prototypeCopy.de.badgesHeading);
     },
   );
 
