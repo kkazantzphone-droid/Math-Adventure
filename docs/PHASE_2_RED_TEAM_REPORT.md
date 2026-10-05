@@ -2,7 +2,7 @@
 
 Review date: **2026-10-06 (Europe/Athens)**. Candidate inspected: `480a01a56a9f08f29bf36da76ed31a5c3afc4350`, branch `codex/phase-2-deterministic-family-proof`, protected-main base `a286c97fc26e5b17fa7b6a8466825c15db86f0d7`. Parent PR #4 was already owner-merged. [Phase 2 PR #5](https://github.com/kkazantzphone-droid/Math-Adventure/pull/5) was open/non-draft with both required checks passing on the original candidate before this review.
 
-Status: **LOCAL RED-TEAM REVIEW AND REPAIR PASS**. The repaired full and fresh-install gates pass 514 tests/27 files; advisory, hygiene and artifact checks pass. The repaired-head hosted checks are the remaining publication gate; their actual results and commit SHA are recorded in the final handoff. Protected-main merge remains the owner's action.
+Status: **PHASE 2 CERTIFIED — READY FOR OWNER MERGE** for reviewed repair commit **`06330d6c738d5057000c9cc1673454c328b18ad4`**. Full/fresh verification, advisory/hygiene/artifact checks and both required hosted jobs pass. This versioned record closes the observed repair review; a following documentation-preservation head must also pass its own required checks before the final handoff. Protected-main merge remains the owner's action.
 
 ## Independence and method
 
@@ -81,6 +81,13 @@ The full Phase 2 candidate diff includes 43 files. Hygiene checks cover 481 loca
 | `dist/assets/index-CWKLmtyx.css` |  20515 | `C0A3571F9D8DCF5D415A37BA5910E81C32696C3191D2B6E46AD4A049CBD32AEA` |
 | `dist/THIRD_PARTY_NOTICES.txt`   |   1384 | `D79545965A59895FC431B6F519FE411BC32A26415C656B7D531DD7DFCD453AAB` |
 
-Original candidate required hosted run was [37374362103](https://github.com/kkazantzphone-droid/Math-Adventure/actions/runs/37374362103), both Ubuntu 24.04 and Windows 2025 successful at `480a01a`. That older run does not certify the repaired head. Exact-head hosted success must be observed after this review/repair commit is pushed; no pending hosted result is counted as a pass.
+Original candidate required hosted run was [37374362103](https://github.com/kkazantzphone-droid/Math-Adventure/actions/runs/37374362103), both Ubuntu 24.04 and Windows 2025 successful at `480a01a`. That older run was not counted as repair certification. The new exact repair head **`06330d6c738d5057000c9cc1673454c328b18ad4`** passed PR-specific [run 37377517175](https://github.com/kkazantzphone-droid/Math-Adventure/actions/runs/37377517175), observed through API metadata and both job logs:
 
-One coherent review/repair commit extends the original candidate on its authorized feature branch. The final handoff supplies its actual SHA, clean Git/upstream state and repaired-head required CI results. No protected-main merge, force push, tag, release or deployment is performed.
+| Required job            | Result  | Observed test gate                        |
+| ----------------------- | ------- | ----------------------------------------- |
+| `verify (ubuntu-24.04)` | SUCCESS | 514 tests / 27 files; full canonical gate |
+| `verify (windows-2025)` | SUCCESS | 514 tests / 27 files; full canonical gate |
+
+No hosted repair was needed. The first aggregate local formatting failure was corrected and reverified; every substantive mutation/regression failure was reproduced, repaired or exactly restored, then independently rechecked. All five material review findings are closed. The remaining device/native-language/educational/offline limitations above retain their separate future gates and do not establish a broader product certification.
+
+The coherent review/repair commit extends the original candidate on its authorized feature branch. A final documentation-only commit records these observed results without changing source, tests, dependencies or generated artifacts. The final handoff supplies the current exact SHA, clean Git/upstream state and its independently observed required CI results; a pending check never counts as success. No protected-main merge, force push, tag, release or deployment is performed.
