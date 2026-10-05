@@ -1,6 +1,6 @@
 # Architecture
 
-Status: accepted direction with a Phase 1A static shell. Only the composition root, React UI and development quality harness are implemented; interfaces below remain illustrative specification sketches. Domain, application, presentation and infrastructure behavior is not implemented. See [decision register](DECISION_REGISTER.md) and [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md).
+Status: accepted direction with an unchanged Phase 1A static shell and Phase 1B pure domain foundations. Exact values, replay/PRNG, concept graphs and semantic contracts are implemented; application, presentation, infrastructure, learner and game behavior remain prospective. Interfaces below describe the fuller target rather than implemented ports. See [decision register](DECISION_REGISTER.md) and [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md).
 
 ## Runtime and dependency direction
 
@@ -29,7 +29,7 @@ flowchart TD
 
 Arrows mean imports; dotted arrows mean contract implementation. UI imports application view models/commands, not concrete storage/speech adapters. The composition root wires adapters. Infrastructure may use domain values/contracts; domain never imports application, adapters, React, DOM, IndexedDB, speech synthesis, service workers or Tauri. No infrastructure module owns mastery or mathematical truth.
 
-The diagram describes the target architecture. Phase 1A mounts `src/ui/App.tsx` from `src/composition/main.tsx`; `src/domain/README.md` records the future pure boundary. Separate TypeScript projects check browser source with ES/DOM/Vite types and no ambient Node types, tests/build tooling with Node types, and domain code without DOM or ambient Node/framework types. The OWNER/QC correction adds browser Node-module/global lint guards and negative probes alongside the existing domain restrictions. These establish the initial import/platform boundary without introducing domain implementations or speculative ports. Gate results and remaining limits belong in the [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md).
+The diagram describes the target architecture. Phase 1A mounts `src/ui/App.tsx` from `src/composition/main.tsx`; `src/domain/README.md` records the implemented pure boundary and links the Phase 1B contracts. Separate TypeScript projects check browser source with ES/DOM/Vite types and no ambient Node types, tests/build tooling with Node types, and domain code without DOM or ambient Node/framework types. The OWNER/QC correction adds browser Node-module/global lint guards and negative probes alongside the existing domain restrictions. These establish the initial import/platform boundary with the Phase 1B implementations now checked under the same restrictions and no speculative ports. Gate results and remaining limits belong in the [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md).
 
 | Module | Owns | Cannot own |
 | --- | --- | --- |
@@ -85,3 +85,7 @@ Contributions are untrusted until reviewed/built; there is no runtime downloaded
 Client-side runtime satisfies offline local computation and privacy with little operational burden. Limits include browser eviction, origin-bound data, uncertain speech, device variance and constrained update headers. None currently requires a backend. [Technology evaluation](TECHNOLOGY_EVALUATION.md) compares frameworks and storage choices.
 
 Extract packages only when a second consumer or enforced reuse requires it. Future desktop reuse keeps domain/application contracts; replace persistence/speech/platform adapters as needed, with explicit export/import rather than assuming browser and desktop share storage. New requirements for collaboration, sync or remote AI require a new ADR and privacy review, not silent erosion of ADR-0001.
+
+## Phase 1B dependency direction
+
+`domain/core` owns data guards/results/IDs. Math imports core; random imports core; replay imports core/random; graph imports core; expression/geometry/measurement import core/math; puzzle contracts import these semantic modules and replay. The future executable family interface uses type-only imports. No domain module imports packages, UI, DOM, Node or infrastructure. The UI imports no domain module, preserving the shell bundle. [Value model](DOMAIN_VALUE_MODEL.md), [replay](DETERMINISTIC_REPLAY.md) and [completion report](PHASE_1B_COMPLETION_REPORT.md) maintain concrete contracts and evidence.

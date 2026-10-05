@@ -1,6 +1,6 @@
 # Domain boundary
 
-No production domain code exists in Phase 1A. Future exact mathematics, semantic puzzles, scoped evidence and game policy belong here, including geometry/spatial reasoning, measurement and powers/roots. Number Lab exposure remains separate from mastery.
+Phase 1B implements pure core results/IDs, bounded exact math/DTOs, replay/canonical serialization, xoshiro128ss-v1, concept graphs and semantic puzzle/expression/geometry/quantity contracts. No puzzle family, learner state, adaptation or game policy exists. Number Lab exposure remains structurally separate from assessment scopes, with no conversion or persistence. See [value rules](../../docs/DOMAIN_VALUE_MODEL.md), [replay rules](../../docs/DETERMINISTIC_REPLAY.md) and [measured evidence](../../docs/PHASE_1B_COMPLETION_REPORT.md).
 
 Domain modules may import only other domain modules through relative paths. They must not import UI, application, presentation, infrastructure, composition, shared browser utilities, external packages or platform APIs. `tsconfig.domain.json` omits DOM, Node and ambient framework types; lint also rejects imports leaving this folder, JSX, clock reads and production randomness. Positive and negative fixtures live under `tests/fixtures/architecture`, outside runtime source.
 

@@ -1,6 +1,6 @@
 # Phase 1 implementation plan — technical skeleton only
 
-Status: the owner authorized Phase 1A only on 2026-10-05, covering checkpoints 1–3 and the initial CI foundation from checkpoint 8. The static scaffold and development harness now exist; measured verification belongs in the [Phase 1A completion report](PHASE_1A_COMPLETION_REPORT.md). Checkpoints 4–7 and later checkpoint 8 browser/offline assurance remain future work requiring a separate explicit request. Phase 0 did not itself authorize implementation.
+Status: the owner authorized Phase 1A and then Phase 1B on 2026-10-05. Phase 1A covers checkpoints 1–3 and the initial CI foundation from checkpoint 8; Phase 1B completes checkpoint 4 locally and implements a bounded semantic-contract subset of checkpoint 5. The static scaffold and development harness now exist; measured verification belongs in the [Phase 1A completion report](PHASE_1A_COMPLETION_REPORT.md). Checkpoint 5 ports/fake repositories, checkpoints 6–7 and later checkpoint 8 browser/offline assurance remain future work requiring a separate explicit request. Phase 0 did not itself authorize implementation.
 
 ## Entry and boundaries
 
@@ -42,3 +42,9 @@ Phase 1A ends with the static shell, reproducible dependency metadata, quality h
 The later full Phase 1 skeleton target is to build, enforce imports, replay deterministic utility tests, expose fake persistence/speech contracts and demonstrate an empty offline shell without misrepresenting an implemented game. Document target browser minimum candidates from real capability checks; cannot certify speech/local data through mocks. Those later targets are not Phase 1A exit requirements.
 
 Owner reviews checkpoint evidence and decides whether to begin the first family proof. Real learner trials/public release remain blocked by legal/privacy/retention, native-language/accessibility and educational review gates listed in [open questions](OPEN_QUESTIONS.md). Phase 1 should end with a separate completion report, not automatic expansion into the complete game.
+
+## Phase 1B checkpoint disposition
+
+Checkpoint 4: **complete for local Phase 1B scope** — bounded values, immutable replay/version contracts, finalized algorithm/seed mapping, independent vectors, rejection sampling, graph validation and tests. The same ordinary tests remain intended for hosted Windows/Linux CI after owner QC; no remote run is claimed here.
+
+Checkpoint 5: **contract foundation implemented; checkpoint incomplete** — semantic tasks/answers/hints/evidence, exact geometry/quantities, expression AST and cross-domain graph contracts only. Application/storage/revision/epoch/speech/capability/rendering ports and fake repositories are absent. Checkpoints 6–7 and Phase 1C are unstarted. [The completion report](PHASE_1B_COMPLETION_REPORT.md) is the current handoff; the Phase 1A exit paragraphs above remain historical scope.

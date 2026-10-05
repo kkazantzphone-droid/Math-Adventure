@@ -1,0 +1,430 @@
+{
+  "schema": "math-adventure.xoshiro-golden-v1",
+  "algorithmId": "xoshiro128ss-v1",
+  "syntheticOnly": true,
+  "provenance": {
+    "authors": ["David Blackman", "Sebastiano Vigna"],
+    "referenceUrl": "https://prng.di.unimi.it/xoshiro128starstar.c",
+    "referenceVersion": "xoshiro128** 1.1",
+    "accessed": "2026-10-05",
+    "method": "Independent BigInt modulo/arithmetic-rotation reference model; no production import.",
+    "manualCrossCheck": "Seed words [1,2,3,4]: first output 11520, next state [7,0,1026,12288].",
+    "license": "Author public-domain dedication with unrestricted permission and warranty disclaimer; source does not name CC0."
+  },
+  "sequences": [
+    {
+      "label": "synthetic-low-words",
+      "seed": "00000001000000020000000300000004",
+      "initialState": [1, 2, 3, 4],
+      "draws": [
+        {
+          "value": 11520,
+          "nextState": [7, 0, 1026, 12288]
+        },
+        {
+          "value": 0,
+          "nextState": [12295, 1029, 1029, 25165824]
+        },
+        {
+          "value": 5927040,
+          "nextState": [25179138, 12295, 540162, 2107404]
+        },
+        {
+          "value": 70819200,
+          "nextState": [27274249, 25704967, 31982592, 12605441]
+        },
+        {
+          "value": 2031721883,
+          "nextState": [15224335, 29364750, 272377353, 1125134346]
+        },
+        {
+          "value": 1637235492,
+          "nextState": [1110993931, 286554632, 2431677446, 2165318166]
+        },
+        {
+          "value": 1287239034,
+          "nextState": [3527160853, 3286000133, 4198238221, 583070848]
+        },
+        {
+          "value": 3734860849,
+          "nextState": [857776784, 3957087773, 2428778008, 3837013768]
+        },
+        {
+          "value": 3729100597,
+          "nextState": [1011405701, 1211681429, 458796680, 1133029499]
+        },
+        {
+          "value": 4258142804,
+          "nextState": [939045227, 1864939416, 1451579149, 2199351389]
+        },
+        {
+          "value": 337829053,
+          "nextState": [3687282350, 240472574, 806540902, 4265488225]
+        },
+        {
+          "value": 2142557243,
+          "nextState": [732694577, 3850432822, 1098276040, 1542782851]
+        },
+        {
+          "value": 3576906021,
+          "nextState": [2513962628, 2405082575, 1798846713, 2692066803]
+        },
+        {
+          "value": 2006103318,
+          "nextState": [3136753336, 1908054962, 1269538941, 2017583481]
+        },
+        {
+          "value": 3870238204,
+          "nextState": [3003937907, 2162570615, 2221656773, 3688257615]
+        },
+        {
+          "value": 1001584594,
+          "nextState": [3896252747, 3078720449, 4211953846, 2204746457]
+        }
+      ]
+    },
+    {
+      "label": "synthetic-mixed-high-words",
+      "seed": "0123456789abcdefdeadbeeffedcba98",
+      "initialState": [19088743, 2309737967, 3735928559, 4275878552],
+      "draws": [
+        {
+          "value": 2576975000,
+          "nextState": [1985229328, 1445279335, 2283087240, 3149642683]
+        },
+        {
+          "value": 1162350735,
+          "nextState": [2613755852, 2825134591, 3022903704, 4100908908]
+        },
+        {
+          "value": 3439127236,
+          "nextState": [3351279967, 2273527723, 3886323796, 1446288096]
+        },
+        {
+          "value": 164399714,
+          "nextState": [376939540, 2816976544, 652982027, 3203030669]
+        },
+        {
+          "value": 3693416763,
+          "nextState": [259677241, 2541467071, 4291908383, 1874946248]
+        },
+        {
+          "value": 1601785290,
+          "nextState": [4156588366, 1741732505, 130052390, 3605774277]
+        },
+        {
+          "value": 3630592667,
+          "nextState": [1190888466, 2547010289, 1366671976, 3626689929]
+        },
+        {
+          "value": 3465949907,
+          "nextState": [151071594, 2153647243, 3072042106, 3581657727]
+        },
+        {
+          "value": 1142569408,
+          "nextState": [1545921950, 1044677531, 33790224, 779592361]
+        },
+        {
+          "value": 93397107,
+          "nextState": [1276626092, 1617166101, 3609217678, 2567540865]
+        },
+        {
+          "value": 3387645040,
+          "nextState": [3044911928, 4216615223, 1556718626, 1400678347]
+        },
+        {
+          "value": 3958593940,
+          "nextState": [492142020, 316702253, 1096179994, 1186456897]
+        },
+        {
+          "value": 3138844199,
+          "nextState": [1224926888, 1323524851, 2633975518, 3168494242]
+        },
+        {
+          "value": 4231159277,
+          "nextState": [3141199609, 2602484357, 322455158, 3221393297]
+        },
+        {
+          "value": 874033307,
+          "nextState": [3760630765, 857498122, 2508696207, 3798508248]
+        },
+        {
+          "value": 4271760759,
+          "nextState": [827484991, 1186816872, 1298470242, 2785449611]
+        }
+      ]
+    },
+    {
+      "label": "synthetic-all-ones",
+      "seed": "ffffffffffffffffffffffffffffffff",
+      "initialState": [4294967295, 4294967295, 4294967295, 4294967295],
+      "draws": [
+        {
+          "value": 4294962679,
+          "nextState": [4294967295, 4294967295, 4294966784, 0]
+        },
+        {
+          "value": 4294962679,
+          "nextState": [0, 4294966784, 4294967295, 4294967295]
+        },
+        {
+          "value": 4292019319,
+          "nextState": [511, 511, 262143, 1046528]
+        },
+        {
+          "value": 2943360,
+          "nextState": [1046528, 262143, 0, 2144335872]
+        },
+        {
+          "value": 1509943680,
+          "nextState": [2143551487, 788479, 133170688, 1614806014]
+        },
+        {
+          "value": 246671744,
+          "nextState": [535823358, 2017459712, 1614546943, 2682260225]
+        },
+        {
+          "value": 2681405836,
+          "nextState": [4163892991, 133429761, 3146753, 4289204030]
+        },
+        {
+          "value": 4051244843,
+          "nextState": [7603136, 4293658879, 535556350, 3752460226]
+        },
+        {
+          "value": 1053453815,
+          "nextState": [540144893, 3765697473, 3347975486, 800712962]
+        },
+        {
+          "value": 832600121,
+          "nextState": [4026263102, 130810370, 4750275, 1352015486]
+        },
+        {
+          "value": 1848454571,
+          "nextState": [3097623106, 3900678143, 2008521213, 3504595642]
+        },
+        {
+          "value": 932178925,
+          "nextState": [2151515911, 661257280, 808033727, 3823774148]
+        },
+        {
+          "value": 3500909426,
+          "nextState": [1153323651, 2541610744, 1676450488, 514598436]
+        },
+        {
+          "value": 2429341770,
+          "nextState": [3446641247, 2955882179, 3701422139, 2382816334]
+        },
+        {
+          "value": 630990200,
+          "nextState": [4081473746, 2715780263, 1336749156, 1314154993]
+        },
+        {
+          "value": 623423028,
+          "nextState": [483243396, 490008593, 65157814, 1600829308]
+        }
+      ]
+    }
+  ],
+  "bounded": [
+    {
+      "label": "bound-one",
+      "seed": "00000001000000020000000300000004",
+      "bound": 1,
+      "maxAttempts": 128,
+      "threshold": 4294967296,
+      "ok": true,
+      "value": 0,
+      "attempts": 1,
+      "nextState": [7, 0, 1026, 12288],
+      "draws": [
+        {
+          "value": 11520,
+          "nextState": [7, 0, 1026, 12288]
+        }
+      ]
+    },
+    {
+      "label": "power-two-small",
+      "seed": "00000001000000020000000300000004",
+      "bound": 2,
+      "maxAttempts": 128,
+      "threshold": 4294967296,
+      "ok": true,
+      "value": 0,
+      "attempts": 1,
+      "nextState": [7, 0, 1026, 12288],
+      "draws": [
+        {
+          "value": 11520,
+          "nextState": [7, 0, 1026, 12288]
+        }
+      ]
+    },
+    {
+      "label": "power-two-sixteen",
+      "seed": "0123456789abcdefdeadbeeffedcba98",
+      "bound": 16,
+      "maxAttempts": 128,
+      "threshold": 4294967296,
+      "ok": true,
+      "value": 8,
+      "attempts": 1,
+      "nextState": [1985229328, 1445279335, 2283087240, 3149642683],
+      "draws": [
+        {
+          "value": 2576975000,
+          "nextState": [1985229328, 1445279335, 2283087240, 3149642683]
+        }
+      ]
+    },
+    {
+      "label": "nonpower-three",
+      "seed": "00000001000000020000000300000004",
+      "bound": 3,
+      "maxAttempts": 128,
+      "threshold": 4294967295,
+      "ok": true,
+      "value": 0,
+      "attempts": 1,
+      "nextState": [7, 0, 1026, 12288],
+      "draws": [
+        {
+          "value": 11520,
+          "nextState": [7, 0, 1026, 12288]
+        }
+      ]
+    },
+    {
+      "label": "nonpower-ten",
+      "seed": "0123456789abcdefdeadbeeffedcba98",
+      "bound": 10,
+      "maxAttempts": 128,
+      "threshold": 4294967290,
+      "ok": true,
+      "value": 0,
+      "attempts": 1,
+      "nextState": [1985229328, 1445279335, 2283087240, 3149642683],
+      "draws": [
+        {
+          "value": 2576975000,
+          "nextState": [1985229328, 1445279335, 2283087240, 3149642683]
+        }
+      ]
+    },
+    {
+      "label": "maximum-bound",
+      "seed": "0123456789abcdefdeadbeeffedcba98",
+      "bound": 4294967296,
+      "maxAttempts": 128,
+      "threshold": 4294967296,
+      "ok": true,
+      "value": 2576975000,
+      "attempts": 1,
+      "nextState": [1985229328, 1445279335, 2283087240, 3149642683],
+      "draws": [
+        {
+          "value": 2576975000,
+          "nextState": [1985229328, 1445279335, 2283087240, 3149642683]
+        }
+      ]
+    },
+    {
+      "label": "near-maximum-bound",
+      "seed": "0123456789abcdefdeadbeeffedcba98",
+      "bound": 4294967295,
+      "maxAttempts": 128,
+      "threshold": 4294967295,
+      "ok": true,
+      "value": 2576975000,
+      "attempts": 1,
+      "nextState": [1985229328, 1445279335, 2283087240, 3149642683],
+      "draws": [
+        {
+          "value": 2576975000,
+          "nextState": [1985229328, 1445279335, 2283087240, 3149642683]
+        }
+      ]
+    },
+    {
+      "label": "forced-rejection",
+      "seed": "ffffffffffffffffffffffffffffffff",
+      "bound": 2147483649,
+      "maxAttempts": 128,
+      "threshold": 2147483649,
+      "ok": true,
+      "value": 2943360,
+      "attempts": 4,
+      "nextState": [1046528, 262143, 0, 2144335872],
+      "draws": [
+        {
+          "value": 4294962679,
+          "nextState": [4294967295, 4294967295, 4294966784, 0]
+        },
+        {
+          "value": 4294962679,
+          "nextState": [0, 4294966784, 4294967295, 4294967295]
+        },
+        {
+          "value": 4292019319,
+          "nextState": [511, 511, 262143, 1046528]
+        },
+        {
+          "value": 2943360,
+          "nextState": [1046528, 262143, 0, 2144335872]
+        }
+      ]
+    },
+    {
+      "label": "forced-exhaustion",
+      "seed": "ffffffffffffffffffffffffffffffff",
+      "bound": 2147483649,
+      "maxAttempts": 1,
+      "threshold": 2147483649,
+      "ok": false,
+      "value": null,
+      "attempts": 1,
+      "nextState": [4294967295, 4294967295, 4294966784, 0],
+      "draws": [
+        {
+          "value": 4294962679,
+          "nextState": [4294967295, 4294967295, 4294966784, 0]
+        }
+      ]
+    }
+  ],
+  "invalidSeeds": [
+    {
+      "label": "all-zero",
+      "seed": "00000000000000000000000000000000"
+    },
+    {
+      "label": "empty",
+      "seed": ""
+    },
+    {
+      "label": "short",
+      "seed": "0000000100000002000000030000000"
+    },
+    {
+      "label": "long",
+      "seed": "000000010000000200000003000000040"
+    },
+    {
+      "label": "prefix",
+      "seed": "0x00000001000000020000000300000004"
+    },
+    {
+      "label": "nonhex",
+      "seed": "0000000100000002000000030000000g"
+    },
+    {
+      "label": "leading-space",
+      "seed": " 00000001000000020000000300000004"
+    },
+    {
+      "label": "trailing-space",
+      "seed": "00000001000000020000000300000004 "
+    }
+  ]
+}

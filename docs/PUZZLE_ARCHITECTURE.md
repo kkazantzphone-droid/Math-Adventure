@@ -1,6 +1,6 @@
 # Puzzle and mathematical architecture
 
-Status: Phase 0 contracts; no executable generators or validators exist. Governed by [ADR-0004](adr/ADR-0004.md).
+Status: Phase 0 target architecture with Phase 1B bounded exact-value, replay/graph and semantic-contract implementations. No actual puzzle generators, answer validators or families exist. Governed by [ADR-0004](adr/ADR-0004.md).
 
 ## Mathematical values and truth
 
@@ -12,7 +12,7 @@ Approximate geometry/measurement requires an explicit quantity/unit/tolerance co
 
 ## Concept graph
 
-Stable language-neutral IDs identify knowledge, not ages or global levels. Directed prerequisite edges form a validated DAG; related-concept edges need not be acyclic. Each prerequisite declares whether it is necessary mathematical understanding or a recommended teaching path, with a rationale and alternate diagnostic probe. Readiness gates recommendations, not voluntary exploration. Curriculum/country/year mappings are optional metadata outside core policy.
+Stable language-neutral IDs identify knowledge, not ages or global levels. Directed necessary/gating prerequisite edges form a validated DAG; recommended teaching paths and related/inverse/representation edges need not be acyclic. Each prerequisite declares whether it is necessary mathematical understanding or a recommended teaching path, with a rationale and alternate diagnostic probe. Readiness gates recommendations, not voluntary exploration. Curriculum/country/year mappings are optional metadata outside core policy.
 
 Planned first-class domains are number sense, arithmetic, patterns/sequences, multiplication/division, geometry/spatial reasoning, measurement, exponentiation/roots, fractions, decimals/percentages, algebra, logic and probability/combinatorics. Concepts have one canonical ID and one or more domain memberships, not duplicated mastery per tag. Edges have kinds prerequisite, related, representationOf and inverseOf. Only justified prerequisite edges gate recommendation; other connections do not transfer mastery or create DAG cycles by treating an inverse relation as a prerequisite both ways.
 
@@ -74,7 +74,7 @@ interface PuzzleInstance {
 }
 ```
 
-The sketches name separate responsibilities; full union definitions follow when a family is implemented. A task might express an equation, ordered collection, pattern rule, target construction, spatial relation or measure. An answer contract declares membership/equivalence, allowed structure, order/multiplicity, unit/form restrictions and whether multiple solutions exist. Pattern tasks must constrain the rule enough to avoid pretending one continuation is uniquely determined.
+The sketches name separate responsibilities; Phase 1B implements bounded discriminated unions in `src/domain/puzzles/contracts.ts`, with future family-specific extensions still requiring their own scope. A task might express an equation, ordered collection, pattern rule, target construction, spatial relation or measure. An answer contract declares membership/equivalence, allowed structure, order/multiplicity, unit/form restrictions and whether multiple solutions exist. Pattern tasks must constrain the rule enough to avoid pretending one continuation is uniquely determined.
 
 Pure operations conceptually are generatePuzzle(spec, seed, versions), validateAnswer(task, structuredAnswer), deriveHint(task, level), classifyResult(validation, assistance), updateLearnerEvidence(snapshot, observation, policy) and selectNext(snapshot, catalog, intent, day, seed). Hints return semantic cue/representation/step data; localised prose is outside the domain. A valid generated puzzle must pass independent invariants before presentation.
 
@@ -82,7 +82,7 @@ Render the same semantic 6 + 3 task as symbols, quantity groups or an utterance 
 
 ## Deterministic replay and versioning
 
-A replay key comprises canonical spec, seed, algorithm ID, generator version and content/semantic versions. Proposed RNG is reviewed xoshiro128** with four unsigned 32-bit words encoded as exactly 32 hex characters, fixed word order, all-zero state rejected, specified rotation/overflow behavior and rejection sampling for bounded choices. This is a non-cryptographic content tool; final algorithm specification and cross-runtime golden vectors are a Phase 1 checkpoint, not verified here. If another algorithm is selected, record its own ID and never reuse an old ID for changed behavior.
+A replay key comprises canonical spec, seed, algorithm ID, generator version and content/semantic versions. Phase 1B finalizes xoshiro128** 1.1 as `xoshiro128ss-v1` with four unsigned 32-bit words encoded as exactly 32 hex characters, s0–s3 textual word order, all-zero rejection and bounded unbiased rejection sampling. [ADR-0009](adr/ADR-0009.md) and [deterministic replay](DETERMINISTIC_REPLAY.md) maintain the algorithm, seed mapping and independently established vector evidence. This is a noncryptographic content tool; local tests passed, while hosted Phase 1B execution remains future evidence. If another algorithm is selected, record its own ID and never reuse an old ID for changed behavior.
 
 No current time, Math.random(), locale, platform or iteration over unordered data affects generation. Catalog order is canonical and constraints bounded; failure to find a task within a documented attempt limit returns a typed unavailable result, not an infinite loop. Generation and selection have separate explicit seeds.
 
@@ -97,3 +97,7 @@ A new family needs mathematical review, graph/cycle review, educational review, 
 ## Independent correctness
 
 Generators and validators may share production math helpers, but their tests must also use an independent oracle: exhaustive small-range enumeration, hand-proved fixtures, a separate count/combinatorial model, exact cross-multiplication for rationals or independent solver for target constructions. Never make the sole test “generator answer passes its own validator.” Mutation tests or seeded deliberate defects should prove tests detect incorrect truth. See [testing strategy](TESTING_STRATEGY.md).
+
+## Implemented contract limits
+
+Phase 1B supplies exact rational/decimal/integer DTOs, principal perfect-root and integer-power operations, ordered exact scenes, quantities, bounded expression ASTs, graph validation and replay descriptors. Answers include exact values, inclusive classification, quantities, coordinates, expressions, alternatives and ordered/unordered collections. Hints are semantic data; evidence scopes declare explicit concepts/representations. `exploratoryExposure` is not assignable to an assessment scope and has no promotion route. No finite-pattern task exists; later pattern schemas must constrain the intended rule. Scene/unit structural validation does not establish shape predicates or a unit catalogue. See [value model](DOMAIN_VALUE_MODEL.md) and [report](PHASE_1B_COMPLETION_REPORT.md).

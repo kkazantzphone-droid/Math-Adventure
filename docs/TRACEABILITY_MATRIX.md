@@ -63,3 +63,14 @@ All ADR references are in [docs/adr](adr/ADR-0001.md). Every planned test must b
 | Deterministic quality harness | formatter, ESLint, strict compiler configs, Vitest unit tests and seeded fast-check harness example | `corepack pnpm verify`; mutation detection/replay validates the test harness only |
 | Initial CI quality file | `.github/workflows/ci.yml` | Linux/Windows matrix, pinned actions, read-only permissions, frozen install; static review does not prove remote execution |
 | Current-state handoff and bounded stop | [Development](DEVELOPMENT.md), [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md), D26/Q01 | Current gate results and residual risks; checkpoints 4–7 and actual game implementation remain outside scope |
+
+## Phase 1B implementation addendum
+
+| Requirement | Implemented files / evidence | Limit |
+| --- | --- | --- |
+| R13/R15 exact domain truth | `src/domain/core`, `math`; independent oracle/unit/property tests; [value model](DOMAIN_VALUE_MODEL.md) | Bounded primitives, no actual family |
+| R14 seeded replay | `random`, `replay`; 48 golden transitions/nine bounded vectors; [ADR-0009](adr/ADR-0009.md) | No generator/seed source; hosted Phase 1B tests unrun |
+| R39 canonical first-class domains | `concepts/graph.ts`, synthetic cross-domain fixture; bounded structural/cycle/property tests | No curriculum or learner state |
+| R40–R43 structured semantics | `geometry`, `measurement`, `expressions`, `puzzles`; DTO/contract tests | No predicates, renderer, unit catalogue, CAS or content |
+| R44 exploration separation | Literal assessment/exploratory scope types; runtime and compiler separation checks | No exposure history or promotion |
+| R31/R35/R38 quality/handoff | Unchanged aggregate gate, actual mathematical mutation checks, audit/install/hash/hygiene review; [report](PHASE_1B_COMPLETION_REPORT.md) | Local engineering evidence only; no remote mutation |

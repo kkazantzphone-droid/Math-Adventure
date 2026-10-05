@@ -72,4 +72,8 @@ Generate allowlisted markup only from app-authored typed scenes/expressions. No 
 
 ## Recommendation boundary
 
-Accept standards/domain constraints and the selected Phase 1A development pins; keep RNG implementation specification, browser minimums, adapter versions and worker integration provisional until their later proofs. Current dependency/license/advisory/install/build evidence is scoped in the [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md); maintainer longevity, future adapter compatibility and actual-device performance remain unverified. A source document is not a benchmark. [Phase 1 plan](PHASE_1_IMPLEMENTATION_PLAN.md) gives decision/rollback points.
+Accept standards/domain constraints and the selected Phase 1A development pins; retain the finalized Phase 1B RNG specification; keep browser minimums, adapter versions and worker integration provisional until their later proofs. Current dependency/license/advisory/install/build evidence is scoped in the [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md); maintainer longevity, future adapter compatibility and actual-device performance remain unverified. A source document is not a benchmark. [Phase 1 plan](PHASE_1_IMPLEMENTATION_PLAN.md) gives decision/rollback points.
+
+## Phase 1B reconciliation
+
+The dependency-free exact rational/decimal/integer foundation and RNG/replay detail are now implemented, with rules in [value model](DOMAIN_VALUE_MODEL.md) and [ADR-0009](adr/ADR-0009.md). No tool/dependency version changed. Browser minimums, storage/localisation/worker adapters and actual-device notation/speech remain provisional. Phase 0 comparisons above remain historical; current measured evidence belongs in [the Phase 1B report](PHASE_1B_COMPLETION_REPORT.md).

@@ -1,6 +1,6 @@
 # Development
 
-Phase 1A implements a static technical shell and its quality harness. It is not a playable game or an installable/offline PWA. There is no backend, learner data, persistence, adaptation, localisation, speech or service worker. Later checkpoints require another explicit owner request.
+Phase 1A implements a static technical shell and its quality harness; Phase 1B adds pure exact mathematical, replay/PRNG, graph and semantic contracts. It is not a playable game or an installable/offline PWA. There is no backend, learner data, persistence, adaptation, localisation, speech or service worker. Later checkpoints require another explicit owner request.
 
 ## Prerequisites and installation
 
@@ -76,7 +76,7 @@ Prettier covers source/config/tests and the new Phase 1A documents. Historical P
 
 ## Boundaries and test limits
 
-`src/composition/main.tsx` mounts React, while `src/ui/` contains the static semantic shell and local CSS. `src/domain/` documents the future pure boundary; it contains no production logic. Application, presentation and adapter folders will be introduced when needed by later approved work. See [repository structure](REPOSITORY_STRUCTURE.md) and [architecture](ARCHITECTURE.md).
+`src/composition/main.tsx` mounts React, while `src/ui/` contains the static semantic shell and local CSS. `src/domain/` implements the bounded pure Phase 1B foundation, documented in the [value model](DOMAIN_VALUE_MODEL.md), [replay contract](DETERMINISTIC_REPLAY.md) and [Phase 1B report](PHASE_1B_COMPLETION_REPORT.md). Application, presentation and adapter folders will be introduced when needed by later approved work. See [repository structure](REPOSITORY_STRUCTURE.md) and [architecture](ARCHITECTURE.md).
 
 All strict TypeScript checks are enabled, including indexed access, exact optional properties, unknown catch values, explicit return paths, fallthrough and unused-code checks. Library typechecking remains enabled. Relative imports suffice; no aliases or barrels are introduced.
 
@@ -86,7 +86,7 @@ Domain lint prevents imports from leaving that folder or importing packages, and
 
 The shell test uses `react-dom/server` to assert semantic markup and truthful status, without a DOM simulation package. Browser mounting/CSS/keyboard smoke is checked separately. This does not certify accessibility or browser/OS support. ES2023 is a technical output target, not a promised browser support floor.
 
-Property tests are labelled **HARNESS VALIDATION ONLY**. They test JSON/string preservation with seed `20261005` and 1,000 cases, plus a test-only lossy mutation and counterexample replay. They do not test future mathematical truth. fast-check reports seed and shrink path on failure; replay by setting the reported `seed` and `path` in its parameters. Future domain changes require independent mathematical ground truth.
+The original Phase 1A property tests remain labelled **HARNESS VALIDATION ONLY**. Phase 1B adds separate domain properties and independent oracle/exhaustive/golden tests covered by the same aggregate command. The original harness tests JSON/string preservation with seed `20261005` and 1,000 cases, plus a test-only lossy mutation and counterexample replay. They do not test future mathematical truth. fast-check reports seed and shrink path on failure; replay by setting the reported `seed` and `path` in its parameters. Future domain changes require independent mathematical ground truth.
 
 No arbitrary coverage threshold or browser/E2E dependency is imposed on this shell. Future domain, storage, accessibility and offline work will add checks at their approved checkpoints. A passing harness supplies no evidence about learner outcomes, translations, speech or offline operation.
 
