@@ -2,6 +2,8 @@
 
 Status: accepted separation/policy; provider behavior and language support need implementation/device validation. [ADR-0005](adr/ADR-0005.md) governs the boundary. Sources in [research evidence](RESEARCH_EVIDENCE.md), accessed 2026-10-04.
 
+Phase 1V is a separate scripted visual prototype, with tiny incomplete copy for el-GR/en-GB only and no speech. Founder-family UAT reported that the prototype Greek/English copy worked; this does not constitute official-pack completeness, native-review sign-off or general language support. German remains deferred to Phase 1D. Only one exact `lang=en` selects English; absent, unsupported, case-changed, malformed or repeated values select Greek, including `lang=de`, `lang=en-GB` and repeated `lang=en`. This documented nonpersistent UAT default creates no locale negotiation/fallback framework or stored preferences. The production official-pack policy below remains prospective and unchanged.
+
 ## Locale and pack model
 
 | Exact locale | Release target | Required linguistic review topics |

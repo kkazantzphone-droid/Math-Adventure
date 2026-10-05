@@ -1,9 +1,10 @@
-export function App() {
-  return (
-    <main>
-      <h1>Math Adventure</h1>
-      <p>Technical foundation — Phase 1A</p>
-      <p>The game is not implemented yet.</p>
-    </main>
-  );
+import { PrototypeExperience } from './prototype/PrototypeExperience';
+import type { PrototypeLanguage } from './prototype/options';
+
+export function App({
+  language = 'el',
+}: {
+  readonly language?: PrototypeLanguage;
+} = {}) {
+  return <PrototypeExperience language={language} />;
 }

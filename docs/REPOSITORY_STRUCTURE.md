@@ -1,6 +1,6 @@
 # Repository structure and versioning
 
-Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain modules and Phase 1C adds bounded application ports/integrity and synthetic conformance. Historical reports remain unchanged. The second tree describes the broader future application; empty conceptual layers are not scaffolded.
+Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain modules, Phase 1C adds bounded application ports/integrity and synthetic conformance, and Phase 1V adds an isolated scripted visual prototype and bounded human-UAT reconciliation. Historical foundation reports remain unchanged; the Phase 1V report preserves its initial candidate evidence separately from remediation. The second tree describes the broader future application; empty conceptual layers are not scaffolded.
 
 ```text
 /
@@ -11,14 +11,15 @@ Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain mod
   public/THIRD_PARTY_NOTICES.txt # exact bundled runtime license notice
   src/
     application/core/ ports/ repository/ # integrity and contracts only
-    composition/main.tsx        # mounts the static shell
+    composition/main.tsx        # mounts the local visual prototype
     ui/App.tsx styles.css
+    ui/prototype/              # scripted model/fixtures, tiny copy/options, selected Space view/CSS
     domain/
       core/ math/ random/ replay/ concepts/
       expressions/ geometry/ measurement/ puzzles/ # foundations/contracts only
   tests/
     fakes/ conformance/         # synthetic adapter and reusable suite
-    unit/                      # shell and architecture checks
+    unit/                      # prototype, shell composition and architecture checks
     property/                  # original harness + domain properties
     oracle/                    # independent math/RNG reference models
     fixtures/golden/           # synthetic vectors/provenance
@@ -30,9 +31,13 @@ Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain mod
   docs/DEVELOPMENT.md docs/PHASE_1A_COMPLETION_REPORT.md
   docs/DOMAIN_VALUE_MODEL.md docs/DETERMINISTIC_REPLAY.md
   docs/PHASE_1B_COMPLETION_REPORT.md docs/adr/ADR-0009.md
+  docs/PHASE_1V_COMPLETION_REPORT.md docs/PHASE_1V_UAT_PROTOCOL.md
+  docs/adr/ADR-0011.md          # owner-confirmed Space baseline and final visual gate
 ```
 
 The root `pnpm-workspace.yaml` configures project-local installation policy; this remains one application, not a monorepo. `node_modules`, build outputs and local tool caches are untracked artifacts.
+
+Phase 1V's prototype directory is UI-only. It contains no production family, language pack, learner schema, application command or persistence adapter. Synthetic badges and all interactions remain React memory. Historical B/C themes are documented rather than retained as dead production code. The UAT document contains a procedure and only the owner's authorized aggregate findings; no individual sessions, identifying details, raw child notes or media are repository artifacts. **FINAL PASS — OWNER CONFIRMED** closes the human acceptance gate for Space, Shapes, Show me, Explore and the final one-top-side root view; this is bounded project design input. D37 separately authorizes later stages after complete preceding engineering/local preservation gates, without adding later-phase modules at this closure.
 
 ## Proposed later application layout
 

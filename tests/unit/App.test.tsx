@@ -2,13 +2,14 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { App } from '../../src/ui/App';
 
-describe('technical application shell', () => {
-  it('renders a main landmark, a named heading and truthful phase status', () => {
-    const markup = renderToStaticMarkup(<App />);
-    expect(markup).toMatch(/^<main>/);
-    expect(markup).toContain('<h1>Math Adventure</h1>');
-    expect(markup).toContain('Technical foundation — Phase 1A');
-    expect(markup).toContain('The game is not implemented yet.');
-    expect(markup).not.toMatch(/<(button|a|input)\b/);
+describe('prototype application entry', () => {
+  it('renders a main landmark, badge selection and truthful unsaved prototype status', () => {
+    const markup = renderToStaticMarkup(<App language="en" />);
+    expect(markup).toMatch(/^<main\b/);
+    expect(markup).toContain('Math Adventure');
+    expect(markup).toContain('Choose your badge');
+    expect(markup).toContain('Prototype — progress is not saved');
+    expect(markup.match(/<button\b/g)).toHaveLength(2);
+    expect(markup).not.toContain('Technical foundation');
   });
 });
