@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "types": []
+  },
+  "include": [
+    "src/domain/**/*.ts",
+    "src/domain/**/*.tsx",
+    "tests/fixtures/architecture/domain/valid.ts"
+  ]
+}

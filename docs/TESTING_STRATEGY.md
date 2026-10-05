@@ -1,6 +1,12 @@
 # Testing and quality strategy
 
-Status: design only. No test harness, application tests, build or CI exists in Phase 0. Documentation/hygiene checks now are recorded in [completion report](PHASE_0_COMPLETION_REPORT.md).
+Status: Phase 1A supplies the initial scaffold quality harness; game/domain, adapter, E2E, offline, locale and full accessibility assurance below remains planned. Phase 0 documentation/hygiene evidence is historical in its [completion report](PHASE_0_COMPLETION_REPORT.md). Current commands and measured results are in [development](DEVELOPMENT.md) and the [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md).
+
+The current aggregate `corepack pnpm verify` gate checks formatting, ESLint, all three strict browser/domain/tooling TypeScript projects, Vitest unit/property harness tests and Vite production build. Unit tests cover static shell semantics and positive/negative browser and domain import/compiler fixtures. The seeded property example checks test-only JSON string preservation and detects/replays a deliberately lossy mutation; it demonstrates the harness, not independent mathematical truth, seeded puzzle generation or learner progression. No production domain utility is created to justify this example.
+
+OWNER/QC correction after the initial Phase 1A pass adds a DOM-positive compiler fixture and compiler-negative `process`/`Buffer`/`__dirname` fixture under browser options without Node ambient types. Browser lint probes reject `node:fs`, bare filesystem built-ins/subpaths, child-process imports, re-exports, dynamic/computed/template imports and import types; a React/DOM positive probe prevents blanket rejection. Negative fixtures remain test-only and excluded from ordinary project compilation. Existing pure-domain cases remain intact. Virtual lint probes disable type-aware rules only for virtual text; the actual production lint gate retains type checking across explicit projects.
+
+The same correction requires programmatic one-document YAML verification and whole-application-graph comparison after pinned-manager regeneration with `pmOnFail: ignore`, then fresh frozen installation, before/after hash equality, audit and the complete gate. Corepack selects pnpm; pnpm self-switching is disabled for external consumer/security-tool compatibility. Hosted GitHub dependency graph/Dependabot validation remains unperformed. See the completion report for measured counts and results.
 
 ## Assurance layers
 
@@ -41,10 +47,12 @@ Use a synthetic learner with advanced arithmetic, Emerging geometry/measurement 
 
 Network checks permit only declared same-origin installation/assets/update requests with no learner values; cached gameplay must work with network unavailable and no application gameplay fetch. Page request interception cannot prove OS voice privacy; use fixed synthetic speech plus actual disconnected device observation. Never upload child exports to diagnose failure.
 
-## Future CI design
+## Current CI foundation and later assurance
 
-After explicit Phase 1 approval, design a read-only untrusted-PR pipeline: checkout/pinned runner -> reviewed frozen dependency install -> format/lint/import-boundary checks -> strict tsc -> unit/property -> locale/schema/privacy/secret/license checks -> production build -> browser adapter/PWA/E2E/axe checks. Pin third-party Actions by reviewed commit and use least permissions; no secrets on fork code or privileged pull_request_target execution of contributed code. No remote CI runs or workflows are created now.
+The owner authorized `.github/workflows/ci.yml` for the Phase 1A foundation. It declares Linux and Windows runners, read-only repository permission, reviewed commit pins, a repository-local Corepack cache, frozen dependency installation and the local aggregate gate. Creating the file is not evidence of a remote CI run; no push or remote provisioning is authorized in this run.
+
+Later authorized components extend the pipeline with locale/schema/privacy/secret/license checks and browser adapter/PWA/E2E/axe tests. Keep least permissions; no secrets on fork code or privileged pull_request_target execution of contributed code. Static workflow review and local Linux/Windows coverage have separate limits documented in the Phase 1A report.
 
 All required gates block merge: mathematical failures, type/import errors, locale completeness for official packs, privacy regressions, migration/data-integrity failures, known exploitable dependencies without reviewed mitigation, broken build/offline essentials and serious accessibility failures. Human math/education/language/security review also blocks relevant changes. Do not retry away reproducible failures or waive gates silently; any scoped temporary exception needs rationale, owner, expiry and tracked remediation. Child-safety/math/data-loss violations cannot be casually waived.
 
-At Phase 1 only infrastructure/skeleton tests are in scope. Playable-task, educator/user and full-language reviews belong to later phases. Actual-device matrices and human evaluation cannot be replaced by mocked speech, headless WebKit or an automated accessibility score.
+At Phase 1A only static-shell and quality-harness tests are in scope; no domain, persistence, speech or offline implementation is authorized. Later technical checkpoints and playable-task, educator/user and full-language reviews require their own phase scope. Actual-device matrices and human evaluation cannot be replaced by mocked speech, headless WebKit or an automated accessibility score.

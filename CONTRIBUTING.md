@@ -1,6 +1,6 @@
 # Contributing to Math Adventure
 
-The project is architecture/pre-alpha. No application or public release exists yet. Original code and project documentation are licensed under [Apache-2.0](LICENSE); third-party assets retain their own terms. Phase 0 changes should improve specifications and evidence; implementation requires a later explicit phase request. Read [AGENTS.md](AGENTS.md), the relevant [ADRs](docs/adr/ADR-0001.md), [decision register](docs/DECISION_REGISTER.md) and [governance](docs/OPEN_SOURCE_GOVERNANCE.md).
+The project is pre-alpha with a Phase 1A static technical shell and development quality harness. No playable game, offline PWA or public release exists yet. Original code and project documentation are licensed under [Apache-2.0](LICENSE); third-party assets retain their own terms. Work beyond the bounded Phase 1A foundation requires a separate explicit phase request. Read [AGENTS.md](AGENTS.md), the relevant [ADRs](docs/adr/ADR-0001.md), [decision register](docs/DECISION_REGISTER.md), [development guide](docs/DEVELOPMENT.md) and [governance](docs/OPEN_SOURCE_GOVERNANCE.md).
 
 Use synthetic examples only. Never attach real child names, learner histories, exports, audio, screenshots, device logs or credentials to public discussion. A parent may describe an experience without identifying a child. If reproducibility needs a seed/spec, use a standalone synthetic reproduction and remove profile identifiers and timestamps.
 
@@ -19,6 +19,6 @@ Every proposal states the problem, intended behavior, scope, evidence/assumption
 - Security/storage/update: trust boundaries, minimisation, migration/recovery, network effects and abuse cases.
 - Assets: source, author, license/version, redistribution and modification rights, attribution and consent evidence where relevant. No unlicensed scraped media or child recordings.
 
-When implementation is authorized, locked dependency installation, lint, typecheck, unit/property tests and relevant integration/E2E/privacy checks are merge gates described in [testing](docs/TESTING_STRATEGY.md). Passing code alone cannot substitute for mathematical, educational or language review.
+For the current scaffold, use `corepack pnpm install --frozen-lockfile` and `corepack pnpm verify` following the [development guide](docs/DEVELOPMENT.md). The aggregate gate covers formatting, lint, typecheck, unit/property harness tests and production build. Relevant integration/E2E/privacy checks become required as later components are authorized, as described in [testing](docs/TESTING_STRATEGY.md). Passing code alone cannot substitute for mathematical, educational or language review.
 
 Contribution sign-off and incoming-contribution provenance remain owner decisions; a contributor agreement is not presumed. Public contributor onboarding also requires named maintainer/security responsibilities, an operational private security-reporting channel, an adopted code of conduct/moderation process and asset provenance/rights review. See [governance](docs/OPEN_SOURCE_GOVERNANCE.md).

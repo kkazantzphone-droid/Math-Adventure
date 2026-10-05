@@ -1,6 +1,6 @@
 # Requirement traceability
 
-Status: planned components/tests, not implemented coverage. “P1” here means Phase 1, not review severity. Request sections identify the supplied Phase 0 brief; architecture-specific acceptance links are reviewed in the completion report.
+Status: the main matrix retains Phase 0 requirements and planned later components/tests; it is not a claim of implemented game coverage. The Phase 1A addendum below identifies the current technical foundation. “P1” here means Phase 1, not review severity. Request sections identify the supplied Phase 0 brief; architecture-specific acceptance links are reviewed in the completion report.
 
 | ID / requirement (brief sections) | Architecture component | Governing document | ADR | Planned test / review | Phase |
 | --- | --- | --- | --- | --- | --- |
@@ -51,3 +51,15 @@ Status: planned components/tests, not implemented coverage. “P1” here means 
 | R45 Advanced natural speech and notation (clarification) | Locale semantic utterances/MathML adapter candidate | [Speech](LOCALISATION_AND_SPEECH.md), [technology](TECHNOLOGY_EVALUATION.md) | 0005 | Exact-locale native review of square/power/root/area/angle phrasing, AT/offline notation tests | 1contracts,5content |
 
 All ADR references are in [docs/adr](adr/ADR-0001.md). Every planned test must be translated into an actual acceptance check when its component is implemented; this matrix alone is not test evidence.
+
+## Phase 1A implementation addendum
+
+| Phase 1A requirement | Current files / checks | Evidence and limit |
+| --- | --- | --- |
+| Reproducible development toolchain | `.node-version`, `package.json`, `pnpm-lock.yaml`, project-local install policy | Installed Node/npm/Corepack/Git inventory and selected pnpm pin; frozen reinstall evidence in the [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md) |
+| Minimal static React/TypeScript shell | `index.html`, `src/composition/main.tsx`, `src/ui/App.tsx`, local CSS, Vite config | Unit rendering/build checks; no game, localisation, speech, storage or service worker |
+| Pure future domain boundary | `tsconfig.domain.json`, `eslint.config.mjs`, `scripts/domain-boundary.mjs`, technical fixtures | Positive/negative import/compiler checks; no production domain logic or mathematical oracle |
+| OWNER/QC browser and lockfile corrections | Separate browser/tool/domain configs, `scripts/browser-boundary.mjs`, test-only Node probes, `pmOnFail: ignore` | Browser Node exclusion and single-document unchanged application graph checked locally; hosted dependency-security processing remains unverified |
+| Deterministic quality harness | formatter, ESLint, strict compiler configs, Vitest unit tests and seeded fast-check harness example | `corepack pnpm verify`; mutation detection/replay validates the test harness only |
+| Initial CI quality file | `.github/workflows/ci.yml` | Linux/Windows matrix, pinned actions, read-only permissions, frozen install; static review does not prove remote execution |
+| Current-state handoff and bounded stop | [Development](DEVELOPMENT.md), [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md), D26/Q01 | Current gate results and residual risks; checkpoints 4–7 and actual game implementation remain outside scope |

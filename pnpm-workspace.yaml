@@ -1,0 +1,9 @@
+# pnpm 12 project settings; no packages field means this root application only.
+# Corepack selects the pinned pnpm; avoid redundant manager switching/env lockfile.
+pmOnFail: ignore
+engineStrict: true
+saveExact: true
+storeDir: .pnpm-store
+cacheDir: .cache/pnpm
+strictDepBuilds: true
+allowBuilds: {}

@@ -2,7 +2,7 @@
 
 ## Scope and authority
 
-Read `docs/DECISION_REGISTER.md`, relevant ADRs and the requested phase before work. The current repository is architecture/pre-alpha: Phase 0 contains documentation only. Do not begin application scaffolding, dependencies, CI, deployment or desktop packaging without an explicit later implementation request. User instructions take precedence over this guidance; explain significant changes to accepted decisions in an ADR.
+Read `docs/DECISION_REGISTER.md`, relevant ADRs and the requested phase before work. The repository is pre-alpha: the historical Phase 0 foundation contains documentation only; the owner authorized Phase 1A technical scaffolding, project dependencies, quality harness and a local CI workflow file. Later Phase 1 checkpoints, game logic, persistence, localisation/speech, service-worker behavior, deployment and desktop packaging require a separate explicit request. User instructions take precedence over this guidance; explain significant changes to accepted decisions in an ADR.
 
 ## Non-negotiable invariants
 
@@ -17,6 +17,8 @@ Read `docs/DECISION_REGISTER.md`, relevant ADRs and the requested phase before w
 ## Contribution and verification
 
 Prefer small typed internal modules and browser standards over speculative frameworks. Keep dependency direction documented and enforce it when tooling exists. Math changes need independent ground-truth tests; progression changes need proportional educational review; official translations need native-language review; accessibility and security changes need the corresponding review. Never silently bypass failing quality gates.
+
+Use the exact Node pin in `.node-version` and pnpm pin in `package.json`; preserve `pnpm-lock.yaml`. Canonical commands are `corepack pnpm install --frozen-lockfile` and `corepack pnpm verify`, with the repository-local Corepack cache setup in `docs/DEVELOPMENT.md`. Do not install pnpm globally, change the installed Node/npm/Corepack baseline, modify machine-wide configuration or use administrator elevation. Review the current completion report before claiming a gate or capability is verified.
 
 Distinguish verified facts, architectural inferences, recommendations and unresolved questions. Record primary-source URLs and access dates for time-sensitive claims. Do not claim features, legal compliance, platform support or educational effectiveness before evidence exists.
 
