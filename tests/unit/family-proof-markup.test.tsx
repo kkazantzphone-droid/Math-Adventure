@@ -245,16 +245,18 @@ describe('bounded deterministic family presentation', () => {
       preferences: parseLanguagePreferences('?lang=en'),
     };
     expect(render(input)).toContain(
-      '<p id="proof-unit-step">Beginning of the length</p>',
+      '<p id="proof-unit-step" aria-live="polite" aria-atomic="true">Beginning of the length</p>',
     );
     expect(render({ ...input, unitIndex: 0 })).toContain(
-      '<p id="proof-unit-step">One unit step: A → B</p>',
+      '<p id="proof-unit-step" aria-live="polite" aria-atomic="true">One unit step: A → B</p>',
     );
     expect(
       render({ ...input, unitIndex: input.proof?.units?.length ?? 0 }),
-    ).toContain('<p id="proof-unit-step">End of the length</p>');
+    ).toContain(
+      '<p id="proof-unit-step" aria-live="polite" aria-atomic="true">End of the length</p>',
+    );
     const markup = render(input);
-    expect(markup).toContain('aria-describedby="proof-unit-step"');
+    expect(markup).not.toContain('aria-describedby="proof-unit-step"');
     expect(markup).toContain('aria-hidden="true" focusable="false"><g>');
     expect(markup).not.toMatch(
       /<(?:ol|ul)\b|aria-setsize|aria-posinset| of [1-8]|total/i,

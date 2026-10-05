@@ -176,6 +176,8 @@ export function FamilyProofScreen({
               maxLength={32}
               autoComplete="off"
               spellCheck={false}
+              aria-invalid={proof === null}
+              aria-describedby={proof === null ? 'proof-feedback' : undefined}
               onChange={(event) => props.onSeed(event.currentTarget.value)}
             />
             <button className="nav-button" type="submit">
@@ -183,258 +185,278 @@ export function FamilyProofScreen({
             </button>
           </form>
           {props.speechControls}
-          {proof === null ? (
-            <p lang={instructionLocale}>{instruction('proof.unavailable')}</p>
-          ) : (
-            <section
-              className="task-panel proof-task"
-              lang={instructionLocale}
-              aria-labelledby="proof-task-heading"
-            >
-              <h2 id="proof-task-heading">{instruction(prompt)}</h2>
-              {addition !== null &&
-                addition.left.kind === 'literal' &&
-                addition.right.kind === 'literal' && (
-                  <p className="proof-expression">
-                    <span>{addition.left.value.numerator}</span>
-                    <span>{instruction('proof.plus')}</span>
-                    <span>{addition.right.value.numerator}</span>
-                    <span aria-hidden="true">= ?</span>
-                  </p>
-                )}
-              {polygon?.kind === 'polygon' && proof.geometry !== undefined && (
-                <div className="proof-geometry">
-                  <svg
-                    className="proof-scene"
-                    viewBox={viewport(polygon.vertices)}
-                    preserveAspectRatio="xMidYMid meet"
-                    role="img"
-                    aria-label={instruction('proof.outline')}
-                    focusable="false"
-                  >
-                    <polygon
-                      points={polygon.vertices
-                        .map((point) => coordinates(point).join(','))
-                        .join(' ')}
-                    />
-                    {polygon.vertices.map((point, index) => {
-                      const [x, y] = coordinates(point);
-                      return (
-                        <text
-                          x={x}
-                          y={y}
-                          fontSize={labelSize(polygon.vertices)}
-                          key={index}
-                          aria-hidden="true"
-                        >
-                          {String.fromCharCode(65 + index)}
-                        </text>
-                      );
-                    })}
-                  </svg>
-                  <section
-                    className="proof-attributes"
-                    aria-labelledby="proof-attributes-heading"
-                  >
-                    <h3 id="proof-attributes-heading">
-                      {instruction('proof.attributes')}
-                    </h3>
-                    {proof.geometry.sideLengthSquares.map((value, index) => (
-                      <p key={`side-${index}`}>
-                        {String.fromCharCode(65 + index)} →{' '}
-                        {String.fromCharCode(65 + ((index + 1) % 4))}:{' '}
-                        {instruction('proof.squaredSide')}{' '}
-                        {formatInteger(instructionLocale, value)}
-                      </p>
-                    ))}
-                    {proof.geometry.rightAngles.map((right, index) => (
-                      <p key={`angle-${index}`}>
-                        {String.fromCharCode(65 + index)}:{' '}
-                        {instruction(
-                          right ? 'proof.rightAngle' : 'proof.notRightAngle',
-                        )}
-                      </p>
-                    ))}
-                  </section>
-                </div>
-              )}
-              {task?.kind === 'measureGeometry' &&
-                firstUnit !== undefined &&
-                lastUnit !== undefined && (
-                  <div className="proof-measurement">
-                    <svg
-                      className="proof-scene"
-                      viewBox={viewport([firstUnit.start, lastUnit.end])}
-                      preserveAspectRatio="xMidYMid meet"
-                      aria-hidden="true"
-                      focusable="false"
-                    >
-                      {units.map((step, index) => {
-                        const [x1, y1] = coordinates(step.start);
-                        const [x2, y2] = coordinates(step.end);
-                        return (
-                          <g key={index}>
-                            <line x1={x1} y1={y1} x2={x2} y2={y2} />
-                            <circle cx={x1} cy={y1} r="0.1" />
-                            <circle cx={x2} cy={y2} r="0.1" />
-                          </g>
-                        );
-                      })}
-                    </svg>
-                    <div className="proof-unit-traversal">
-                      <p id="proof-unit-step">
-                        {props.unitIndex < 0 ? (
-                          instruction('proof.beginning')
-                        ) : unit === undefined ? (
-                          instruction('proof.end')
-                        ) : (
-                          <>
-                            {instruction('proof.unitStep')}:{' '}
-                            {String.fromCharCode(65 + props.unitIndex)} →{' '}
-                            {String.fromCharCode(66 + props.unitIndex)}
-                          </>
-                        )}
-                      </p>
-                      <button
-                        className="nav-button"
-                        type="button"
-                        aria-describedby="proof-unit-step"
-                        onClick={props.onNextUnit}
-                      >
-                        {ui('proof.nextUnit')}
-                      </button>
-                      <button
-                        className="nav-button"
-                        type="button"
-                        onClick={props.onStartUnits}
-                      >
-                        {ui('proof.startAgain')}
-                      </button>
-                    </div>
-                  </div>
-                )}
-              <button
-                className="hint-button"
-                type="button"
-                lang={uiLocale}
-                aria-expanded={props.hintVisible}
-                aria-controls="proof-hint"
-                onClick={props.onHint}
-              >
-                {ui('showMe')}
-              </button>
-              <div
-                id="proof-hint"
-                className="hint"
-                hidden={!props.hintVisible}
-                data-hint-kind={proof.hint.kind}
-              >
-                <p>{instruction(hint)}</p>
-                {props.hintVisible &&
-                  addition !== null &&
+          <section
+            className="task-panel proof-task"
+            lang={instructionLocale}
+            aria-labelledby={proof === null ? undefined : 'proof-task-heading'}
+          >
+            {proof !== null && (
+              <>
+                <h2 id="proof-task-heading">{instruction(prompt)}</h2>
+                {addition !== null &&
                   addition.left.kind === 'literal' &&
                   addition.right.kind === 'literal' && (
-                    <div className="dot-equation" aria-hidden="true">
-                      {[addition.left.value, addition.right.value].map(
-                        (value, index) => (
-                          <span className="dot-group-wrap" key={index}>
-                            {index === 1 && <span className="dot-plus">+</span>}
-                            <span className="dot-group">
-                              {Array.from(
-                                { length: Number(value.numerator) },
-                                (_, dot) => (
-                                  <span className="dot" key={dot} />
-                                ),
-                              )}
-                            </span>
-                          </span>
-                        ),
-                      )}
+                    <p className="proof-expression">
+                      <span>{addition.left.value.numerator}</span>
+                      <span>{instruction('proof.plus')}</span>
+                      <span>{addition.right.value.numerator}</span>
+                      <span aria-hidden="true">= ?</span>
+                    </p>
+                  )}
+                {polygon?.kind === 'polygon' &&
+                  proof.geometry !== undefined && (
+                    <div className="proof-geometry">
+                      <svg
+                        className="proof-scene"
+                        viewBox={viewport(polygon.vertices)}
+                        preserveAspectRatio="xMidYMid meet"
+                        role="img"
+                        aria-label={instruction('proof.outline')}
+                        focusable="false"
+                      >
+                        <polygon
+                          points={polygon.vertices
+                            .map((point) => coordinates(point).join(','))
+                            .join(' ')}
+                        />
+                        {polygon.vertices.map((point, index) => {
+                          const [x, y] = coordinates(point);
+                          return (
+                            <text
+                              x={x}
+                              y={y}
+                              fontSize={labelSize(polygon.vertices)}
+                              key={index}
+                              aria-hidden="true"
+                            >
+                              {String.fromCharCode(65 + index)}
+                            </text>
+                          );
+                        })}
+                      </svg>
+                      <section
+                        className="proof-attributes"
+                        aria-labelledby="proof-attributes-heading"
+                      >
+                        <h3 id="proof-attributes-heading">
+                          {instruction('proof.attributes')}
+                        </h3>
+                        {proof.geometry.sideLengthSquares.map(
+                          (value, index) => (
+                            <p key={`side-${index}`}>
+                              {String.fromCharCode(65 + index)} →{' '}
+                              {String.fromCharCode(65 + ((index + 1) % 4))}:{' '}
+                              {instruction('proof.squaredSide')}{' '}
+                              {formatInteger(instructionLocale, value)}
+                            </p>
+                          ),
+                        )}
+                        {proof.geometry.rightAngles.map((right, index) => (
+                          <p key={`angle-${index}`}>
+                            {String.fromCharCode(65 + index)}:{' '}
+                            {instruction(
+                              right
+                                ? 'proof.rightAngle'
+                                : 'proof.notRightAngle',
+                            )}
+                          </p>
+                        ))}
+                      </section>
                     </div>
                   )}
-              </div>
-              <form
-                className="proof-answer"
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  props.onSubmit();
-                }}
-              >
-                {props.familyId === 'geometry.quadrilateral' ? (
-                  <fieldset>
-                    <legend>{instruction('proof.geometryPrompt')}</legend>
-                    {PROOF_CLASS_IDS.map((classId, index) => (
-                      <label className="proof-class-choice" key={classId}>
-                        <input
-                          type="checkbox"
-                          value={classId}
-                          checked={props.selectedClasses.includes(classId)}
-                          onChange={(event) =>
-                            props.onClass(classId, event.currentTarget.checked)
-                          }
-                        />
-                        {instruction(
-                          index === 0
-                            ? 'proof.parallelogram'
-                            : index === 1
-                              ? 'proof.rectangle'
-                              : 'proof.square',
-                        )}
-                      </label>
-                    ))}
-                  </fieldset>
-                ) : (
-                  <label
-                    className="proof-number-response"
-                    htmlFor="proof-response"
-                  >
-                    {instruction(
-                      props.familyId === 'number.addition'
-                        ? 'proof.numberAnswer'
-                        : 'proof.lengthAnswer',
-                    )}
-                    <select
-                      id="proof-response"
-                      value={props.response}
-                      required
-                      onChange={(event) =>
-                        props.onResponse(event.currentTarget.value)
-                      }
-                    >
-                      <option value="">
-                        {instruction('proof.chooseAnswer')}
-                      </option>
-                      {Array.from(
-                        {
-                          length: props.familyId === 'number.addition' ? 11 : 8,
-                        },
-                        (_, index) =>
-                          props.familyId === 'number.addition'
-                            ? index
-                            : index + 1,
-                      ).map((value) => (
-                        <option key={value} value={value}>
-                          {formatInteger(instructionLocale, value)}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                )}
+                {task?.kind === 'measureGeometry' &&
+                  firstUnit !== undefined &&
+                  lastUnit !== undefined && (
+                    <div className="proof-measurement">
+                      <svg
+                        className="proof-scene"
+                        viewBox={viewport([firstUnit.start, lastUnit.end])}
+                        preserveAspectRatio="xMidYMid meet"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        {units.map((step, index) => {
+                          const [x1, y1] = coordinates(step.start);
+                          const [x2, y2] = coordinates(step.end);
+                          return (
+                            <g key={index}>
+                              <line x1={x1} y1={y1} x2={x2} y2={y2} />
+                              <circle cx={x1} cy={y1} r="0.1" />
+                              <circle cx={x2} cy={y2} r="0.1" />
+                            </g>
+                          );
+                        })}
+                      </svg>
+                      <div className="proof-unit-traversal">
+                        <p
+                          id="proof-unit-step"
+                          aria-live="polite"
+                          aria-atomic="true"
+                        >
+                          {props.unitIndex < 0 ? (
+                            instruction('proof.beginning')
+                          ) : unit === undefined ? (
+                            instruction('proof.end')
+                          ) : (
+                            <>
+                              {instruction('proof.unitStep')}:{' '}
+                              {String.fromCharCode(65 + props.unitIndex)} →{' '}
+                              {String.fromCharCode(66 + props.unitIndex)}
+                            </>
+                          )}
+                        </p>
+                        <button
+                          className="nav-button"
+                          type="button"
+                          lang={uiLocale}
+                          onClick={props.onNextUnit}
+                        >
+                          {ui('proof.nextUnit')}
+                        </button>
+                        <button
+                          className="nav-button"
+                          type="button"
+                          lang={uiLocale}
+                          onClick={props.onStartUnits}
+                        >
+                          {ui('proof.startAgain')}
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 <button
-                  className="primary-button"
-                  type="submit"
+                  className="hint-button"
+                  type="button"
                   lang={uiLocale}
+                  aria-expanded={props.hintVisible}
+                  aria-controls="proof-hint"
+                  onClick={props.onHint}
                 >
-                  {ui('proof.check')}
+                  {ui('showMe')}
                 </button>
-              </form>
-              <div
-                className="feedback"
-                role="status"
-                aria-live="polite"
-                aria-atomic="true"
-              >
-                {props.feedback !== 'none' &&
+                <div
+                  id="proof-hint"
+                  className="hint"
+                  hidden={!props.hintVisible}
+                  data-hint-kind={proof.hint.kind}
+                >
+                  <p>{instruction(hint)}</p>
+                  {props.hintVisible &&
+                    addition !== null &&
+                    addition.left.kind === 'literal' &&
+                    addition.right.kind === 'literal' && (
+                      <div className="dot-equation" aria-hidden="true">
+                        {[addition.left.value, addition.right.value].map(
+                          (value, index) => (
+                            <span className="dot-group-wrap" key={index}>
+                              {index === 1 && (
+                                <span className="dot-plus">+</span>
+                              )}
+                              <span className="dot-group">
+                                {Array.from(
+                                  { length: Number(value.numerator) },
+                                  (_, dot) => (
+                                    <span className="dot" key={dot} />
+                                  ),
+                                )}
+                              </span>
+                            </span>
+                          ),
+                        )}
+                      </div>
+                    )}
+                </div>
+                <form
+                  className="proof-answer"
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    props.onSubmit();
+                  }}
+                >
+                  {props.familyId === 'geometry.quadrilateral' ? (
+                    <fieldset>
+                      <legend>{instruction('proof.geometryPrompt')}</legend>
+                      {PROOF_CLASS_IDS.map((classId, index) => (
+                        <label className="proof-class-choice" key={classId}>
+                          <input
+                            type="checkbox"
+                            value={classId}
+                            checked={props.selectedClasses.includes(classId)}
+                            onChange={(event) =>
+                              props.onClass(
+                                classId,
+                                event.currentTarget.checked,
+                              )
+                            }
+                          />
+                          {instruction(
+                            index === 0
+                              ? 'proof.parallelogram'
+                              : index === 1
+                                ? 'proof.rectangle'
+                                : 'proof.square',
+                          )}
+                        </label>
+                      ))}
+                    </fieldset>
+                  ) : (
+                    <label
+                      className="proof-number-response"
+                      htmlFor="proof-response"
+                    >
+                      {instruction(
+                        props.familyId === 'number.addition'
+                          ? 'proof.numberAnswer'
+                          : 'proof.lengthAnswer',
+                      )}
+                      <select
+                        id="proof-response"
+                        value={props.response}
+                        required
+                        onChange={(event) =>
+                          props.onResponse(event.currentTarget.value)
+                        }
+                      >
+                        <option value="">
+                          {instruction('proof.chooseAnswer')}
+                        </option>
+                        {Array.from(
+                          {
+                            length:
+                              props.familyId === 'number.addition' ? 11 : 8,
+                          },
+                          (_, index) =>
+                            props.familyId === 'number.addition'
+                              ? index
+                              : index + 1,
+                        ).map((value) => (
+                          <option key={value} value={value}>
+                            {formatInteger(instructionLocale, value)}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+                  <button
+                    className="primary-button"
+                    type="submit"
+                    lang={uiLocale}
+                  >
+                    {ui('proof.check')}
+                  </button>
+                </form>
+              </>
+            )}
+            <div
+              id="proof-feedback"
+              className="feedback"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {proof === null
+                ? instruction('proof.unavailable')
+                : props.feedback !== 'none' &&
                   instruction(
                     props.feedback === 'correct'
                       ? 'success'
@@ -444,7 +466,8 @@ export function FamilyProofScreen({
                           ? 'proof.selectClasses'
                           : 'proof.unavailable',
                   )}
-              </div>
+            </div>
+            {proof !== null && (
               <button
                 className="nav-button"
                 type="button"
@@ -453,8 +476,8 @@ export function FamilyProofScreen({
               >
                 {ui('retry')}
               </button>
-            </section>
-          )}
+            )}
+          </section>
         </div>
         <footer className="prototype-footer">{ui('proof.intro')}</footer>
       </div>
