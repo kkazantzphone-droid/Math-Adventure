@@ -9,9 +9,12 @@
 !/docs/PHASE_1B_COMPLETION_REPORT.md
 !/docs/DOMAIN_VALUE_MODEL.md
 !/docs/DETERMINISTIC_REPLAY.md
+!/docs/APPLICATION_PORTS.md
+!/docs/PHASE_1C_COMPLETION_REPORT.md
 !/docs/adr/
 /docs/adr/*
 !/docs/adr/ADR-0009.md
+!/docs/adr/ADR-0010.md
 LICENSE
 pnpm-lock.yaml
 node_modules/

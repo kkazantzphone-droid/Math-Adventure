@@ -1,6 +1,6 @@
 # Phase 1 implementation plan — technical skeleton only
 
-Status: the owner authorized Phase 1A and then Phase 1B on 2026-10-05. Phase 1A covers checkpoints 1–3 and the initial CI foundation from checkpoint 8; Phase 1B completes checkpoint 4 locally and implements a bounded semantic-contract subset of checkpoint 5. The static scaffold and development harness now exist; measured verification belongs in the [Phase 1A completion report](PHASE_1A_COMPLETION_REPORT.md). Checkpoint 5 ports/fake repositories, checkpoints 6–7 and later checkpoint 8 browser/offline assurance remain future work requiring a separate explicit request. Phase 0 did not itself authorize implementation.
+Status: the owner authorized Phase 1A, Phase 1B and bounded Phase 1C on 2026-10-05. Phase 1A covers checkpoints 1–3 and initial CI; Phase 1B completes checkpoint 4 and semantic foundations. Phase 1C completes checkpoint 5 for contracts and synthetic conformance only. Checkpoints 6–7 and later browser/offline assurance remain unstarted and require another explicit request. Current evidence is in the [Phase 1C report](PHASE_1C_COMPLETION_REPORT.md); Phase 0 did not itself authorize implementation.
 
 ## Entry and boundaries
 
@@ -47,4 +47,10 @@ Owner reviews checkpoint evidence and decides whether to begin the first family 
 
 Checkpoint 4: **complete for local Phase 1B scope** — bounded values, immutable replay/version contracts, finalized algorithm/seed mapping, independent vectors, rejection sampling, graph validation and tests. The same ordinary tests remain intended for hosted Windows/Linux CI after owner QC; no remote run is claimed here.
 
-Checkpoint 5: **contract foundation implemented; checkpoint incomplete** — semantic tasks/answers/hints/evidence, exact geometry/quantities, expression AST and cross-domain graph contracts only. Application/storage/revision/epoch/speech/capability/rendering ports and fake repositories are absent. Checkpoints 6–7 and Phase 1C are unstarted. [The completion report](PHASE_1B_COMPLETION_REPORT.md) is the current handoff; the Phase 1A exit paragraphs above remain historical scope.
+Checkpoint 5 at the historical Phase 1B handoff was incomplete: semantic foundations existed, with application ports/fakes absent. [The Phase 1B report](PHASE_1B_COMPLETION_REPORT.md) and Phase 1A exit paragraphs preserve that evidence.
+
+## Phase 1C checkpoint disposition
+
+Checkpoint 5: **complete for bounded contract/synthetic scope** — generic atomic repository, revision/global epoch/operation IDs, runtime command/snapshot/receipt validation, test-only adapter, reusable conformance, independent two-client sequence model, cross-profile deletion fences, synthetic scoped observations and session-only exposure. Speech/platform/rendering ports and vocabulary exist without locale plans, detection or rendering. Application remains framework/platform independent and outside the unchanged shell bundle. See [application ports](APPLICATION_PORTS.md), [ADR-0010](adr/ADR-0010.md) and [completion evidence](PHASE_1C_COMPLETION_REPORT.md).
+
+Checkpoints 6–7 remain unstarted. Phase 1D, IndexedDB, adaptation, families/gameplay, localisation/speech, renderers, PWA/offline and deployment require new owner authorization after QC.

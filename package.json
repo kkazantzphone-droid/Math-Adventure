@@ -13,7 +13,7 @@
     "dev": "vite --host 127.0.0.1",
     "preview": "vite preview --host 127.0.0.1",
     "build": "vite build",
-    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.domain.json && tsc -p tsconfig.tools.json",
+    "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.domain.json && tsc -p tsconfig.application.json && tsc -p tsconfig.tools.json",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

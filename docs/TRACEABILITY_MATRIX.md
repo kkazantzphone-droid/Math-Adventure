@@ -74,3 +74,14 @@ All ADR references are in [docs/adr](adr/ADR-0001.md). Every planned test must b
 | R40–R43 structured semantics | `geometry`, `measurement`, `expressions`, `puzzles`; DTO/contract tests | No predicates, renderer, unit catalogue, CAS or content |
 | R44 exploration separation | Literal assessment/exploratory scope types; runtime and compiler separation checks | No exposure history or promotion |
 | R31/R35/R38 quality/handoff | Unchanged aggregate gate, actual mathematical mutation checks, audit/install/hash/hygiene review; [report](PHASE_1B_COMPLETION_REPORT.md) | Local engineering evidence only; no remote mutation |
+
+## Phase 1C implementation addendum
+
+| Requirement | Implemented files / evidence | Limit |
+| --- | --- | --- |
+| R13/R22 application integrity | `src/application/core`, `ports/repository`, `repository/validation`; [ADR-0010](adr/ADR-0010.md) | Generic contracts, no production learner schema/storage |
+| R05/R22 isolation/deletion | `tests/fakes`, `tests/conformance`, independent sequence oracle/properties | Record-local revisions, global epoch; real transactions unproved |
+| R31 testing/replayable QC | 1,000 generated + 729 exhaustive sequences; revision/epoch/dedup mutations; application compiler/import/cycle probes | Guardrails/fake semantics, no crash/device evidence |
+| R39/R44 scoped observations/exposure | Strict synthetic learner codec, compiler/runtime persistence rejection, bounded profile-cleared session slot | No mastery/adaptation, exposure history or retention policy |
+| R20/R28/R42/R45 capability seams | Generic speech, storage and exact geometry/notation capability contracts/readers | No locale/voice plans, detection, speech or renderer; D29/D30 proposed |
+| R35/R38 bounded handoff | [Phase 1C report](PHASE_1C_COMPLETION_REPORT.md), unchanged bundle/lock graph, scoped current docs | No remote mutation; Phase 1D unstarted |

@@ -1,6 +1,6 @@
 # Architecture
 
-Status: accepted direction with an unchanged Phase 1A static shell and Phase 1B pure domain foundations. Exact values, replay/PRNG, concept graphs and semantic contracts are implemented; application, presentation, infrastructure, learner and game behavior remain prospective. Interfaces below describe the fuller target rather than implemented ports. See [decision register](DECISION_REGISTER.md) and [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md).
+Status: accepted direction with the unchanged shell, pure Phase 1B domain and Phase 1C bounded application ports/integrity. Presentation, real infrastructure, learner and game behavior remain prospective. The diagram and answer/session flow below describe the fuller target; current ports are maintained in [application ports](APPLICATION_PORTS.md) and the [Phase 1C report](PHASE_1C_COMPLETION_REPORT.md).
 
 ## Runtime and dependency direction
 
@@ -62,7 +62,7 @@ interface SpeechService {
 }
 ```
 
-Names denote contracts specified in [learner data](LEARNER_DATA_MODEL.md) and [speech](LOCALISATION_AND_SPEECH.md); this is not a type-complete application. Application ports contain I/O; pure domain functions described in [puzzles](PUZZLE_ARCHITECTURE.md) and [adaptation](ADAPTIVE_LEARNING_MODEL.md) return values/events.
+These historical target sketches denote future learner/speech specializations, not the implemented protocol. Phase 1C uses `AtomicRecordRepository<T>`, application results, versioned commands/receipts, revision/epoch/operation IDs and runtime codecs; generic speech plans remain unspecified until Phase 1D. Application ports contain I/O; pure domain functions described in [puzzles](PUZZLE_ARCHITECTURE.md) and [adaptation](ADAPTIVE_LEARNING_MODEL.md) return values/events.
 
 Use React local state/reducers for transient UI and one application session controller. IndexedDB is durable authority; no parallel global store with separate mastery logic. Reconsider a larger state framework only after a measured coordination problem. Defer router complexity; initial screen navigation can be local state/hash navigation, avoiding static-host history fallback requirements.
 
@@ -86,6 +86,8 @@ Client-side runtime satisfies offline local computation and privacy with little 
 
 Extract packages only when a second consumer or enforced reuse requires it. Future desktop reuse keeps domain/application contracts; replace persistence/speech/platform adapters as needed, with explicit export/import rather than assuming browser and desktop share storage. New requirements for collaboration, sync or remote AI require a new ADR and privacy review, not silent erosion of ADR-0001.
 
-## Phase 1B dependency direction
+## Implemented dependency direction
 
 `domain/core` owns data guards/results/IDs. Math imports core; random imports core; replay imports core/random; graph imports core; expression/geometry/measurement import core/math; puzzle contracts import these semantic modules and replay. The future executable family interface uses type-only imports. No domain module imports packages, UI, DOM, Node or infrastructure. The UI imports no domain module, preserving the shell bundle. [Value model](DOMAIN_VALUE_MODEL.md), [replay](DETERMINISTIC_REPLAY.md) and [completion report](PHASE_1B_COMPLETION_REPORT.md) maintain concrete contracts and evidence.
+
+Phase 1C adds ES-only application compilation, application/domain-only imports and bounded cycle/inversion probes. Application core owns nonmathematical integrity/results, validation reuses canonical data, and ports declare async I/O/capability facts. The test-only adapter stays outside production source. No real adapter or session engine exists. See [application ports](APPLICATION_PORTS.md).

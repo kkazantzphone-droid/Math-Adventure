@@ -2,7 +2,7 @@
 
 ## Scope and authority
 
-Read `docs/DECISION_REGISTER.md`, relevant ADRs and the requested phase before work. The repository is pre-alpha: the historical Phase 0 foundation contains documentation only; the owner authorized Phase 1A technical scaffolding and Phase 1B deterministic domain foundations, bounded exact values, replay/PRNG and semantic contracts. Phase 1C, application ports, puzzle families, learner/adaptation behavior, persistence, localisation/speech, service-worker behavior, deployment and desktop packaging require a separate explicit request. User instructions take precedence over this guidance; explain significant changes to accepted decisions in an ADR.
+Read `docs/DECISION_REGISTER.md`, relevant ADRs and the requested phase before work. The repository is pre-alpha: the historical Phase 0 foundation contains documentation only; the owner authorized Phase 1A scaffolding, Phase 1B deterministic domain foundations and Phase 1C bounded application ports/integrity with synthetic conformance. Phase 1D, puzzle families, learner/adaptation behavior, real persistence, localisation/speech implementation, service-worker behavior, deployment and desktop packaging require a separate explicit request. User instructions take precedence over this guidance; explain significant changes to accepted decisions in an ADR.
 
 ## Non-negotiable invariants
 
@@ -25,3 +25,5 @@ Distinguish verified facts, architectural inferences, recommendations and unreso
 Inspect existing state before editing. Preserve unrelated changes. Use Git status/diff, whitespace checks and local-link checks. Do not push, merge, rewrite history, create external resources, install global tools or modify machine-wide settings without explicit authorization. No broad destructive cleanup. Keep review findings and remaining risks visible in the decision register and completion report.
 
 - Preserve `xoshiro128ss-v1` seed word mapping and transitions, versioned canonical JSON and exact-value DTO spellings; replay behavior IDs are immutable. See [ADR-0009](docs/adr/ADR-0009.md). Exact truth never uses float tolerance; serialization uses explicit bounded DTOs, never raw BigInt.
+- Application imports only application/domain, with no platform/framework/hidden time or randomness. Commands validate epoch before success-receipt deduplication and expected revision; exact retries never reapply. Delete atomically advances the global fence; stale writes never overwrite or upsert. See [ADR-0010](docs/adr/ADR-0010.md).
+- Record codecs preserve exact bounded wire data; validate adapter snapshots/receipts and expose only stable error codes. Test-only synthetic memory is not production persistence. Exploratory exposure stays session-only and cannot enter persistent assessment evidence.

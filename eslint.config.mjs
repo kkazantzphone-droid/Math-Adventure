@@ -3,6 +3,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import hooks from 'eslint-plugin-react-hooks';
 import refresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
+import applicationBoundary from './scripts/application-boundary.mjs';
 import browserBoundary from './scripts/browser-boundary.mjs';
 import domainBoundary from './scripts/domain-boundary.mjs';
 
@@ -42,6 +43,7 @@ export default defineConfig([
         project: [
           './tsconfig.json',
           './tsconfig.domain.json',
+          './tsconfig.application.json',
           './tsconfig.tools.json',
         ],
         tsconfigRootDir: import.meta.dirname,
@@ -67,6 +69,61 @@ export default defineConfig([
   {
     files: ['src/**/*.tsx'],
     extends: [hooks.configs.flat.recommended, refresh.configs.vite],
+  },
+  {
+    files: ['src/application/**/*.{ts,tsx}'],
+    plugins: { application: applicationBoundary },
+    rules: {
+      'application/port-imports': 'error',
+      'no-restricted-globals': [
+        'error',
+        ...nodeGlobals,
+        'window',
+        'document',
+        'navigator',
+        'location',
+        'localStorage',
+        'sessionStorage',
+        'indexedDB',
+        'caches',
+        'speechSynthesis',
+        'SpeechSynthesisUtterance',
+        'fetch',
+        'WebSocket',
+        'Date',
+        'performance',
+        'crypto',
+        'globalThis',
+        'setTimeout',
+        'clearTimeout',
+        'setInterval',
+        'clearInterval',
+        'requestAnimationFrame',
+        'cancelAnimationFrame',
+        'queueMicrotask',
+      ],
+      'no-eval': 'error',
+      'no-restricted-properties': [
+        'error',
+        {
+          object: 'Math',
+          property: 'random',
+          message:
+            'Supply explicit inputs through application ports or arguments.',
+        },
+      ],
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'JSXElement',
+          message: 'Application code cannot contain JSX.',
+        },
+        {
+          selector: 'JSXFragment',
+          message: 'Application code cannot contain JSX.',
+        },
+      ],
+    },
   },
   {
     files: ['src/domain/**/*.{ts,tsx}'],

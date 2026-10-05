@@ -1,21 +1,23 @@
 # Repository structure and versioning
 
-Status: Phase 1A creates the technical foundation and Phase 1B adds the pure domain/test modules below. Phase 0 reports/ADRs remain historical evidence. The fuller application layout in the second tree is still proposed; empty conceptual layers are not scaffolded.
+Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain modules and Phase 1C adds bounded application ports/integrity and synthetic conformance. Historical reports remain unchanged. The second tree describes the broader future application; empty conceptual layers are not scaffolded.
 
 ```text
 /
   package.json pnpm-lock.yaml pnpm-workspace.yaml .node-version
   index.html vite.config.ts eslint.config.mjs .prettierrc.json .prettierignore
-  tsconfig.base.json tsconfig.json tsconfig.domain.json tsconfig.tools.json
+  tsconfig.base.json tsconfig.json tsconfig.domain.json tsconfig.application.json tsconfig.tools.json
   .github/workflows/ci.yml       # workflow file; no remote run performed
   public/THIRD_PARTY_NOTICES.txt # exact bundled runtime license notice
   src/
+    application/core/ ports/ repository/ # integrity and contracts only
     composition/main.tsx        # mounts the static shell
     ui/App.tsx styles.css
     domain/
       core/ math/ random/ replay/ concepts/
       expressions/ geometry/ measurement/ puzzles/ # foundations/contracts only
   tests/
+    fakes/ conformance/         # synthetic adapter and reusable suite
     unit/                      # shell and architecture checks
     property/                  # original harness + domain properties
     oracle/                    # independent math/RNG reference models
@@ -24,6 +26,7 @@ Status: Phase 1A creates the technical foundation and Phase 1B adds the pure dom
     fixtures/architecture/     # positive/negative technical fixtures
   scripts/domain-boundary.mjs   # narrow lint rule
   scripts/browser-boundary.mjs  # excludes Node modules from production src
+  scripts/application-boundary.mjs # application/domain imports only
   docs/DEVELOPMENT.md docs/PHASE_1A_COMPLETION_REPORT.md
   docs/DOMAIN_VALUE_MODEL.md docs/DETERMINISTIC_REPLAY.md
   docs/PHASE_1B_COMPLETION_REPORT.md docs/adr/ADR-0009.md
@@ -62,7 +65,7 @@ The root `pnpm-workspace.yaml` configures project-local installation policy; thi
   scripts/                      # future narrow developer quality checks
 ```
 
-One application/lockfile is sufficient. Phase 1A supplies import restrictions and browser-free domain compilation without separate published packages. The domain TypeScript configuration excludes DOM libraries and ambient Node/framework types; `tsconfig.json` checks browser source with ES/DOM/Vite types and no Node ambient types; `tsconfig.tools.json` gives tests/Vite configuration Node types separately. The initial ESLint boundary permits only relative imports within domain and rejects JSX and hidden clocks/randomness. The OWNER/QC correction adds a browser Node-module/global guard and positive/negative technical fixtures. Broader application/adapter boundaries and circular-import checks remain later work. No domain access to persistence/global clocks is permitted.
+One application/lockfile is sufficient. Phase 1A supplies import restrictions and browser-free domain compilation without separate published packages. The domain TypeScript configuration excludes DOM libraries and ambient Node/framework types; `tsconfig.json` checks browser source with ES/DOM/Vite types and no Node ambient types; `tsconfig.tools.json` gives tests/Vite configuration Node types separately. The initial ESLint boundary permits only relative imports within domain and rejects JSX and hidden clocks/randomness. The OWNER/QC correction adds a browser Node-module/global guard and positive/negative technical fixtures. Phase 1C adds ES-only application compilation, application/domain-only imports, platform/global guards and bounded cycle/inversion tests. Real adapter boundaries remain later work. See [application ports](APPLICATION_PORTS.md). No domain access to persistence/global clocks is permitted.
 
 Migrate to workspace packages only when a real second consumer/desktop adapter/public library requires independent build/publishing, or import enforcement proves inadequate. Extract domain contracts first, keep internal APIs explicit and update ADR-0002; do not create a monorepo preemptively.
 
