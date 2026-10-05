@@ -1,6 +1,6 @@
 # Repository structure and versioning
 
-Status: Phase 1A creates only the current technical foundation below. Phase 0 reports/ADRs remain historical evidence. The fuller application layout in the second tree is still proposed; empty conceptual layers are not scaffolded.
+Status: Phase 1A creates the technical foundation and Phase 1B adds the pure domain/test modules below. Phase 0 reports/ADRs remain historical evidence. The fuller application layout in the second tree is still proposed; empty conceptual layers are not scaffolded.
 
 ```text
 /
@@ -12,14 +12,21 @@ Status: Phase 1A creates only the current technical foundation below. Phase 0 re
   src/
     composition/main.tsx        # mounts the static shell
     ui/App.tsx styles.css
-    domain/README.md            # boundary only; no production domain code
+    domain/
+      core/ math/ random/ replay/ concepts/
+      expressions/ geometry/ measurement/ puzzles/ # foundations/contracts only
   tests/
     unit/                      # shell and architecture checks
-    property/                  # harness validation only
+    property/                  # original harness + domain properties
+    oracle/                    # independent math/RNG reference models
+    fixtures/golden/           # synthetic vectors/provenance
+    fixtures/synthetic/        # cross-domain semantic contracts
     fixtures/architecture/     # positive/negative technical fixtures
   scripts/domain-boundary.mjs   # narrow lint rule
   scripts/browser-boundary.mjs  # excludes Node modules from production src
   docs/DEVELOPMENT.md docs/PHASE_1A_COMPLETION_REPORT.md
+  docs/DOMAIN_VALUE_MODEL.md docs/DETERMINISTIC_REPLAY.md
+  docs/PHASE_1B_COMPLETION_REPORT.md docs/adr/ADR-0009.md
 ```
 
 The root `pnpm-workspace.yaml` configures project-local installation policy; this remains one application, not a monorepo. `node_modules`, build outputs and local tool caches are untracked artifacts.

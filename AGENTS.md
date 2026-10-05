@@ -2,7 +2,7 @@
 
 ## Scope and authority
 
-Read `docs/DECISION_REGISTER.md`, relevant ADRs and the requested phase before work. The repository is pre-alpha: the historical Phase 0 foundation contains documentation only; the owner authorized Phase 1A technical scaffolding, project dependencies, quality harness and a local CI workflow file. Later Phase 1 checkpoints, game logic, persistence, localisation/speech, service-worker behavior, deployment and desktop packaging require a separate explicit request. User instructions take precedence over this guidance; explain significant changes to accepted decisions in an ADR.
+Read `docs/DECISION_REGISTER.md`, relevant ADRs and the requested phase before work. The repository is pre-alpha: the historical Phase 0 foundation contains documentation only; the owner authorized Phase 1A technical scaffolding and Phase 1B deterministic domain foundations, bounded exact values, replay/PRNG and semantic contracts. Phase 1C, application ports, puzzle families, learner/adaptation behavior, persistence, localisation/speech, service-worker behavior, deployment and desktop packaging require a separate explicit request. User instructions take precedence over this guidance; explain significant changes to accepted decisions in an ADR.
 
 ## Non-negotiable invariants
 
@@ -23,3 +23,5 @@ Use the exact Node pin in `.node-version` and pnpm pin in `package.json`; preser
 Distinguish verified facts, architectural inferences, recommendations and unresolved questions. Record primary-source URLs and access dates for time-sensitive claims. Do not claim features, legal compliance, platform support or educational effectiveness before evidence exists.
 
 Inspect existing state before editing. Preserve unrelated changes. Use Git status/diff, whitespace checks and local-link checks. Do not push, merge, rewrite history, create external resources, install global tools or modify machine-wide settings without explicit authorization. No broad destructive cleanup. Keep review findings and remaining risks visible in the decision register and completion report.
+
+- Preserve `xoshiro128ss-v1` seed word mapping and transitions, versioned canonical JSON and exact-value DTO spellings; replay behavior IDs are immutable. See [ADR-0009](docs/adr/ADR-0009.md). Exact truth never uses float tolerance; serialization uses explicit bounded DTOs, never raw BigInt.
