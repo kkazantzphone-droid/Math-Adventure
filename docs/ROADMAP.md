@@ -17,6 +17,8 @@ Current sequence: Phase 1C bounded contracts/synthetic proof → **Phase 1V FINA
 
 ## First genuinely playable slice
 
+The owner separately authorizes governance/developer tooling V1 under D42: [operating model](CODEX_OPERATING_MODEL.md), repository skills, synthetic behavior scenarios and [task templates](CODEX_TASK_TEMPLATES.md). This supporting work is outside the product-phase sequence. Standing Class A/B workflow authority does not start Phase 3, implement Phase 1E or accept a proposed ADR. An explicitly narrower task and its parent/base publication conditions take precedence. Protected-main merge and the other Class C decisions remain human; governance evidence is recorded in its [completion report](CODEX_AUTONOMY_V1_COMPLETION_REPORT.md).
+
 Start with one synthetic learner fixture (not one hard-coded architectural profile). Prove independent profile partitioning with two synthetic profiles in tests. Support reviewed el-GR, en-GB and de-DE prompts for a bounded catalog: numeral recognition, counting, comparison, simple addition/subtraction and missing number, plus one early shape/spatial activity and a concrete unit-length comparison. These minimal non-arithmetic proofs ensure independent pathways are exercised early. Keep task spaces small enough for exhaustive truth checks; stage families rather than build them simultaneously.
 
 Include replayable speech where a device exposes a tested local voice, visual equivalents when absent, progressive hints, skip/stop, a minimal discovery/cosmetic loop, explainable adaptation and local save/restart. Show truthful offline readiness and safe updates; no elaborate world, leaderboard, economies or rewards needed. A failure in rewards/audio must not block mathematical play.

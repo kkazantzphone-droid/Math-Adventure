@@ -21,7 +21,8 @@
     "test:run": "vitest run",
     "test:unit": "vitest run tests/unit",
     "test:property": "vitest run tests/property",
-    "verify": "corepack pnpm format:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test:run && corepack pnpm build"
+    "evals:validate": "node scripts/codex-behavior-evals.mjs validate",
+    "verify": "corepack pnpm format:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm evals:validate && corepack pnpm test:run && corepack pnpm build"
   },
   "dependencies": {
     "react": "19.3.0",

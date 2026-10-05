@@ -52,6 +52,14 @@ Status: the main matrix retains Phase 0 requirements and planned later component
 
 All ADR references are in [docs/adr](adr/ADR-0001.md). Every planned test must be translated into an actual acceptance check when its component is implemented; this matrix alone is not test evidence.
 
+## Codex autonomy governance addendum
+
+| Requirement | Implementation / authority | Evidence and limits |
+| --- | --- | --- |
+| Bounded autonomous engineering with human consequential gates | D42, [AGENTS](../AGENTS.md), [operating model](CODEX_OPERATING_MODEL.md), [templates](CODEX_TASK_TEMPLATES.md), contributor guidance | [Autonomy V1 report](CODEX_AUTONOMY_V1_COMPLETION_REPORT.md); independent consistency review; no new product phase or accepted product ADR |
+| Reusable quality, independent math and UI review workflows | Three instruction-only `.agents/skills/` skills linked from AGENTS | Frontmatter/discovery/local-link review and blinded forward exercise; does not waive human/device evidence |
+| Deterministic synthetic behavior specification and grading | [Behavior suite](../evals/codex-behavior/README.md), Node validator/grader, focused unit tests | Sixteen scenarios, negative rubric regressions, aggregate fixture validation; no live model execution or authenticated evidence-reference claim |
+
 ## Phase 2 bounded real-family candidate addendum
 
 [D40](DECISION_REGISTER.md) authorizes the first deterministic mathematical-content proof, not the playable learner loop. The [Phase 2 report](PHASE_2_COMPLETION_REPORT.md) records LOCAL ENGINEERING PASS: independent/full/fresh/browser evidence passed at 501 tests/24 files. The [design](PHASE_2_FAMILY_PROOF.md) preserves exact bounds, tuple counts, version identities and modality limits. Work began stacked on parent PR #4; after the owner merged it, tree equivalence was checked and the branch reconciled to protected main. The original candidate was published in open non-draft PR #5 with both required Ubuntu/Windows checks SUCCESS. The [red-team report](PHASE_2_RED_TEAM_REPORT.md) records subsequent 13 retained tests, three repaired accessibility findings, local full/fresh verification and both required hosted checks at 514 tests/27 files for the repair revision. Final documentation preservation and any subsequent PR head require their own verification/hosted checks. Phase 1E's separate lifecycle blocker remains unchanged.

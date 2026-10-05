@@ -57,18 +57,19 @@ Native pnpm 12 also creates per-user coordination locks in Windows LocalAppData,
 
 Use `corepack pnpm <script>` for every command. This guarantees the repository's pinned manager even when another pnpm is on PATH.
 
-| Script                        | Purpose                                                                      |
-| ----------------------------- | ---------------------------------------------------------------------------- |
-| `dev`                         | Local Vite development server                                                |
-| `preview`                     | Local preview of the production build                                        |
-| `format` / `format:check`     | Apply/check Prettier formatting                                              |
-| `lint`                        | Type-aware TypeScript/React lint, browser/domain restrictions, zero warnings |
-| `typecheck`                   | Separate strict browser, domain, application and test/tool compilations      |
-| `test`                        | Interactive Vitest watch mode                                                |
-| `test:run`                    | All unit and property tests, once                                            |
-| `test:unit` / `test:property` | Run a harness subset                                                         |
-| `build`                       | Static production output in ignored `dist/`                                  |
-| `verify`                      | Format check → lint → typecheck → tests → build; stops on first failure      |
+| Script                        | Purpose                                                                                |
+| ----------------------------- | -------------------------------------------------------------------------------------- |
+| `dev`                         | Local Vite development server                                                          |
+| `preview`                     | Local preview of the production build                                                  |
+| `format` / `format:check`     | Apply/check Prettier formatting                                                        |
+| `lint`                        | Type-aware TypeScript/React lint, browser/domain restrictions, zero warnings           |
+| `typecheck`                   | Separate strict browser, domain, application and test/tool compilations                |
+| `test`                        | Interactive Vitest watch mode                                                          |
+| `test:run`                    | All unit and property tests, once                                                      |
+| `test:unit` / `test:property` | Run a harness subset                                                                   |
+| `evals:validate`              | Validate sixteen synthetic agent-decision fixtures; no model call                      |
+| `build`                       | Static production output in ignored `dist/`                                            |
+| `verify`                      | Format → lint → typecheck → fixture validation → tests → build; stops on first failure |
 
 The canonical quality gate is:
 
@@ -79,6 +80,40 @@ corepack pnpm verify
 The `verify` script itself invokes Corepack for each stage, avoiding accidental fallback to an unrelated pnpm. It writes generated build output and ignored tool/test caches. CI uses the same gate after frozen-lockfile installation on Linux and Windows; hosted execution is not verified by local tests. No workflow deploys or publishes anything.
 
 Prettier covers source/config/tests and the new Phase 1A documents. Historical Phase 0 prose is excluded to preserve its existing tables/layout; review touched historical prose with Git diff, whitespace and local-link checks. LF remains authoritative under `.gitattributes`.
+
+## Codex governance tooling
+
+The [operating model](CODEX_OPERATING_MODEL.md) separates authorized engineering
+workflow from product scope. [Task templates](CODEX_TASK_TEMPLATES.md) and three
+instruction-only skills under `.agents/skills/` support recurring review. They
+change no Codex configuration, hooks, credentials, sandbox or application runtime.
+Required skill frontmatter is a YAML mapping with `name` and `description`; the
+repository path and discovery format follow OpenAI's
+[skills documentation](https://learn.chatgpt.com/docs/build-skills), accessed
+2026-10-06. Optional UI metadata is unnecessary for these instruction-only skills.
+
+The [behavior suite](../evals/codex-behavior/README.md) has sixteen synthetic
+scenarios and an offline Node fixture validator/structured decision grader:
+
+```sh
+corepack pnpm evals:validate
+node scripts/codex-behavior-evals.mjs grade evals/codex-behavior/self-authored-example.json
+corepack pnpm exec vitest run tests/unit/codex-behavior-evals.test.ts
+```
+
+The aggregate `verify` includes fixture validation and grader regressions. It
+does not execute a model or prove live agent behavior. Passing the self-authored
+example establishes rubric/format consistency only. Records must distinguish
+hypothetical completion from captured actions; references are not authenticated
+or opened by the grader. An independent forward exercise uses prompts/facts with
+`expectedDecision` removed, retains original responses and declares its method.
+
+Installed `codex-cli 0.160.0` help was inspected on 2026-10-06: `exec --json` and
+`--output-schema` capture model runs, but no top-level cost-free `eval` mechanism
+was established. No live run is invoked by repository gates; future runs need
+their own explicit execution/cost scope. Official
+[evaluation guidance](https://developers.openai.com/blog/eval-skills), accessed
+2026-10-06, distinguishes captured runs from deterministic scoring.
 
 ## Boundaries and test limits
 
