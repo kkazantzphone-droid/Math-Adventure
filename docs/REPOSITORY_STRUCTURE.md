@@ -1,6 +1,30 @@
 # Repository structure and versioning
 
-Status: proposed future layout. Only root governance files, docs and ADRs exist in Phase 0; the following tree is **not scaffolded**.
+Status: Phase 1A creates only the current technical foundation below. Phase 0 reports/ADRs remain historical evidence. The fuller application layout in the second tree is still proposed; empty conceptual layers are not scaffolded.
+
+```text
+/
+  package.json pnpm-lock.yaml pnpm-workspace.yaml .node-version
+  index.html vite.config.ts eslint.config.mjs .prettierrc.json .prettierignore
+  tsconfig.base.json tsconfig.json tsconfig.domain.json tsconfig.tools.json
+  .github/workflows/ci.yml       # workflow file; no remote run performed
+  public/THIRD_PARTY_NOTICES.txt # exact bundled runtime license notice
+  src/
+    composition/main.tsx        # mounts the static shell
+    ui/App.tsx styles.css
+    domain/README.md            # boundary only; no production domain code
+  tests/
+    unit/                      # shell and architecture checks
+    property/                  # harness validation only
+    fixtures/architecture/     # positive/negative technical fixtures
+  scripts/domain-boundary.mjs   # narrow lint rule
+  scripts/browser-boundary.mjs  # excludes Node modules from production src
+  docs/DEVELOPMENT.md docs/PHASE_1A_COMPLETION_REPORT.md
+```
+
+The root `pnpm-workspace.yaml` configures project-local installation policy; this remains one application, not a monorepo. `node_modules`, build outputs and local tool caches are untracked artifacts.
+
+## Proposed later application layout
 
 ```text
 /
@@ -31,7 +55,7 @@ Status: proposed future layout. Only root governance files, docs and ADRs exist 
   scripts/                      # future narrow developer quality checks
 ```
 
-One application/lockfile is sufficient. Module folders, import restrictions and browser-free domain compilation enforce boundaries without separate published packages. Proposed TypeScript domain compilation excludes DOM libraries; separate application/browser configs prevent accidentally hiding browser dependencies. ESLint restricted imports or equivalent graph checks enforce allowed direction. No circular imports or domain access to persistence/global clocks.
+One application/lockfile is sufficient. Phase 1A supplies import restrictions and browser-free domain compilation without separate published packages. The domain TypeScript configuration excludes DOM libraries and ambient Node/framework types; `tsconfig.json` checks browser source with ES/DOM/Vite types and no Node ambient types; `tsconfig.tools.json` gives tests/Vite configuration Node types separately. The initial ESLint boundary permits only relative imports within domain and rejects JSX and hidden clocks/randomness. The OWNER/QC correction adds a browser Node-module/global guard and positive/negative technical fixtures. Broader application/adapter boundaries and circular-import checks remain later work. No domain access to persistence/global clocks is permitted.
 
 Migrate to workspace packages only when a real second consumer/desktop adapter/public library requires independent build/publishing, or import enforcement proves inadequate. Extract domain contracts first, keep internal APIs explicit and update ADR-0002; do not create a monorepo preemptively.
 

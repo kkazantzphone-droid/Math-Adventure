@@ -1,10 +1,10 @@
 # Architecture
 
-Status: accepted direction; interfaces are illustrative specification sketches, not implementation. See [decision register](DECISION_REGISTER.md).
+Status: accepted direction with a Phase 1A static shell. Only the composition root, React UI and development quality harness are implemented; interfaces below remain illustrative specification sketches. Domain, application, presentation and infrastructure behavior is not implemented. See [decision register](DECISION_REGISTER.md) and [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md).
 
 ## Runtime and dependency direction
 
-Build a single application repository with internal TypeScript modules. Deliver static assets to a browser/PWA; run truth, adaptation and state locally. Node and pnpm are future developer/build tools only. Python/FastAPI, backend, account and cloud learner store are outside V1. Tauri is a preferred future packaging candidate, not a present dependency.
+Build a single application repository with internal TypeScript modules. Deliver static assets to a browser/PWA; run truth, adaptation and state locally. Node and pnpm are developer/build tools only, now pinned for Phase 1A. Python/FastAPI, backend, account and cloud learner store are outside V1. Tauri is a preferred future packaging candidate, not a present dependency.
 
 ```mermaid
 flowchart TD
@@ -28,6 +28,8 @@ flowchart TD
 ```
 
 Arrows mean imports; dotted arrows mean contract implementation. UI imports application view models/commands, not concrete storage/speech adapters. The composition root wires adapters. Infrastructure may use domain values/contracts; domain never imports application, adapters, React, DOM, IndexedDB, speech synthesis, service workers or Tauri. No infrastructure module owns mastery or mathematical truth.
+
+The diagram describes the target architecture. Phase 1A mounts `src/ui/App.tsx` from `src/composition/main.tsx`; `src/domain/README.md` records the future pure boundary. Separate TypeScript projects check browser source with ES/DOM/Vite types and no ambient Node types, tests/build tooling with Node types, and domain code without DOM or ambient Node/framework types. The OWNER/QC correction adds browser Node-module/global lint guards and negative probes alongside the existing domain restrictions. These establish the initial import/platform boundary without introducing domain implementations or speculative ports. Gate results and remaining limits belong in the [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md).
 
 | Module | Owns | Cannot own |
 | --- | --- | --- |

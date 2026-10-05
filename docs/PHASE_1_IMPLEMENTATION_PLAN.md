@@ -1,16 +1,18 @@
 # Phase 1 implementation plan — technical skeleton only
 
-Status: proposed, **not authorized or started by Phase 0**. The owner must explicitly request implementation after reviewing this foundation. No commands below have been executed; future tooling decisions must recheck current primary docs and machine constraints.
+Status: the owner authorized Phase 1A only on 2026-10-05, covering checkpoints 1–3 and the initial CI foundation from checkpoint 8. The static scaffold and development harness now exist; measured verification belongs in the [Phase 1A completion report](PHASE_1A_COMPLETION_REPORT.md). Checkpoints 4–7 and later checkpoint 8 browser/offline assurance remain future work requiring a separate explicit request. Phase 0 did not itself authorize implementation.
 
 ## Entry and boundaries
 
 Confirm scope/accepted ADRs and disposition of ADR-0006/0007 proposals. Choose which platform/dev environment will be supported for the skeleton; exact versions and minor adapter choices can be resolved at checkpoint 1 without overturning constraints. The owner selected Apache-2.0 for original code and project documentation on 2026-10-05; contribution sign-off, third-party asset rights and publication governance remain separate gates. Legal/retention/education calibration decisions may remain open during synthetic-only skeleton work but block real learner use or launch.
 
-Phase 1 does not implement puzzle families, child-profile UX, production learner adaptation, real-data IndexedDB migrations, complete language packs, rewards, Number Lab, Tauri, backend, deployment or public GitHub resources. It may define contracts, implement narrow deterministic infrastructure utilities, use clearly synthetic fixtures and prove an empty offline shell. Future CI workflow creation/execution and dependency installation must be within the explicit implementation request; no external services are presumed authorized merely by this plan.
+The fuller Phase 1 plan does not implement puzzle families, child-profile UX, production learner adaptation, real-data IndexedDB migrations, complete language packs, rewards, Number Lab, Tauri, backend, deployment or public GitHub resources. Its later checkpoints may define contracts, implement narrow deterministic infrastructure utilities, use clearly synthetic fixtures and prove an empty offline shell. **Phase 1A excludes those later contracts/utilities, learner persistence, localisation/speech and service-worker behavior.** Its request authorizes repository-local dependencies and a CI workflow file, with no push, deployment, remote CI run or external-resource mutation.
 
-Contracts must include first-class geometry/spatial reasoning, measurement and powers/roots alongside number/arithmetic/patterns/multiplication/fractions/decimals/algebra/logic/probability pathways. Use canonical multi-domain concept memberships and scoped evidence, no global math level. Specify typed geometry scenes/units/expression AST and SVG/semantic-DOM/notation adapter ports; do not turn this into implementing geometry puzzles or a typesetter. Synthetic fixtures include advanced arithmetic with developing geometry and unscored root exposure that leaves mastery unchanged.
+Later authorized contracts must include first-class geometry/spatial reasoning, measurement and powers/roots alongside number/arithmetic/patterns/multiplication/fractions/decimals/algebra/logic/probability pathways. Use canonical multi-domain concept memberships and scoped evidence, no global math level. Specify typed geometry scenes/units/expression AST and SVG/semantic-DOM/notation adapter ports; do not turn this into implementing geometry puzzles or a typesetter. Later synthetic learner fixtures include advanced arithmetic with developing geometry and unscored root exposure that leaves mastery unchanged; Phase 1A has only technical architecture/harness fixtures.
 
 ## Auditable checkpoints
+
+The table retains the full Phase 1 target; current Phase 1A scope is the subset identified above. The property example at checkpoint 3 is explicitly test-only harness validation, with no illustrative production mathematical utility.
 
 | Checkpoint | Files/components affected (future) | Acceptance criteria | Verification | Review / rollback |
 | --- | --- | --- | --- | --- |
@@ -27,12 +29,16 @@ A rollback is a reviewed reversal of that checkpoint's own changes; never reset 
 
 ## Proposed dev command contract
 
+Phase 1A implements the applicable scaffold commands, including format:check, lint, typecheck, test:unit, test:property, test:run, build and verify; [development](DEVELOPMENT.md) is the current command reference. The following broader contract remains prospective.
+
 Future project scripts should provide format:check, lint, typecheck, test:unit, test:property, check:locales, check:privacy, build and test:e2e. Exact command bodies depend on pinned tools. Avoid documentation recipes using floating latest, unreviewed install scripts or global security exclusions. Domain tests execute independently of React/browser mocks.
 
-Keep CI design separate from publication. If a workflow is later authorized, untrusted PR code gets read-only/no secrets, reviewed action pins and no privileged fork execution. No cloud CI is created during this phase.
+Keep CI design separate from publication. The authorized Phase 1A workflow gives untrusted PR code read-only/no secrets, reviewed action pins and no privileged fork execution. No remote CI provisioning or run is performed during this task.
 
 ## Exit
 
-The skeleton must build, enforce imports, replay deterministic utility tests, expose fake persistence/speech contracts and demonstrate an empty offline shell without misrepresenting an implemented game. Document target browser minimum candidates from real capability checks; cannot certify speech/local data through mocks.
+Phase 1A ends with the static shell, reproducible dependency metadata, quality harness, local gate evidence, static CI review, current development documentation and a separate completion report. It stops before Phase 1B or game implementation; unexecuted checks and remaining risks must be explicit.
+
+The later full Phase 1 skeleton target is to build, enforce imports, replay deterministic utility tests, expose fake persistence/speech contracts and demonstrate an empty offline shell without misrepresenting an implemented game. Document target browser minimum candidates from real capability checks; cannot certify speech/local data through mocks. Those later targets are not Phase 1A exit requirements.
 
 Owner reviews checkpoint evidence and decides whether to begin the first family proof. Real learner trials/public release remain blocked by legal/privacy/retention, native-language/accessibility and educational review gates listed in [open questions](OPEN_QUESTIONS.md). Phase 1 should end with a separate completion report, not automatic expansion into the complete game.
