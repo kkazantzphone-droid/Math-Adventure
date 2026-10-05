@@ -15,8 +15,8 @@ import type {
   StructuredAnswer,
 } from './contracts';
 
-// A later metadata validator must additionally prove minimum <= maximum and
-// nonempty/unique category values. No family metadata is authored in Phase 1B.
+// Executable catalogs additionally validate minimum <= maximum and nonempty,
+// unique category values. Phase 2 validates its bounded static proof catalog.
 export type DifficultyDimension =
   | {
       readonly id: RepresentationId;
@@ -41,8 +41,8 @@ export interface FamilyMetadata {
   readonly localisationKeyReferences: readonly string[];
 }
 
-// Internal executable interface, not a DTO/downloaded plugin. No registry or
-// family implementation exists. Tests/oracles are separately reviewed artifacts.
+// Internal executable interface, not a DTO/downloaded plugin. The bounded Phase 2
+// registry uses this contract; tests/oracles are separately reviewed artifacts.
 export interface PuzzleFamily {
   readonly metadata: FamilyMetadata;
   readonly generate: (replay: ReplayDescriptor) => DomainResult<PuzzleInstance>;

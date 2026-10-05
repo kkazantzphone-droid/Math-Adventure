@@ -60,8 +60,8 @@ describe('exact prototype locale architecture', () => {
       expect(isPrototypeLocale(locale)).toBe(true);
       expect(packManifests[locale]).toEqual({
         locale,
-        packVersion: '0.1.0-prototype',
-        messageSchemaVersion: 'prototype-messages-v1',
+        packVersion: '0.2.0-prototype',
+        messageSchemaVersion: 'prototype-messages-v2',
         contentVersion: 'scripted-prototype-v1',
         status: 'draft',
         completeness: 'complete-prototype',

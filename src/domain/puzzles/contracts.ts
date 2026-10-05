@@ -331,6 +331,28 @@ function answersFromDto(input: unknown): DomainResult<readonly AtomicAnswer[]> {
   return success(answers);
 }
 
+/** Decode an answer as bounded detached data; never coerce prose into truth. */
+export function structuredAnswerFromDto(
+  input: unknown,
+): DomainResult<StructuredAnswer> {
+  const canonical = canonicalize(input);
+  if (!canonical.ok) return canonical;
+  const detached = parseCanonicalData(canonical.value);
+  if (!detached.ok) return detached;
+  const record = dataRecord(detached.value);
+  if (!record) return failure('invalid_input');
+  if (
+    (record.kind === 'sequence' || record.kind === 'collection') &&
+    hasKeys(record, ['kind', 'items'])
+  ) {
+    const items = answersFromDto(record.items);
+    return items.ok
+      ? success({ kind: record.kind, items: items.value })
+      : items;
+  }
+  return atomicAnswerFromDto(record);
+}
+
 export function answerContractFromDto(
   input: unknown,
 ): DomainResult<AnswerContract> {
