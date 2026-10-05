@@ -1,6 +1,6 @@
 # Math Adventure
 
-**Pre-alpha — Phase 1B deterministic domain foundation. The game is not implemented.** The repository contains the approved Phase 0 foundation, the unchanged Phase 1A static React + TypeScript shell and tooling, plus bounded exact values, deterministic replay/PRNG and semantic contracts. This is not an installable PWA or playable game. Math Adventure is a working title, not a final brand.
+**Pre-alpha — Phase 1C application-port and integrity foundation. The game is not implemented.** The repository contains approved documentation, the unchanged static shell, pure exact-value/replay foundations and bounded application ports with synthetic repository conformance. This is not an installable PWA or playable game; real persistence, localisation, speech and adaptation remain unimplemented. Math Adventure is a working title, not a final brand.
 
 The planned project is an enjoyable mathematics exploration and puzzle game, initially for early-primary learners, including two independently supported six-year-old learners. Number sense, arithmetic, patterns, multiplication/division, geometry/spatial reasoning, measurement, exponentiation/roots, fractions, decimals/percentages, algebra, logic and probability/combinatorics are planned first-class domains. Learners progress independently across related domains, without one global math level. Readiness and prerequisite understanding guide recommendations; age and reading speed do not limit mathematical access. Mistakes lead to help, never shame or lost rewards. There are no sibling rankings, intelligence claims or clinical assessments.
 
@@ -12,6 +12,7 @@ Privacy defaults are local learner data, optional fictional nicknames, no accoun
 
 ## Read the foundation
 
+- [Phase 1C completion report](docs/PHASE_1C_COMPLETION_REPORT.md), [application ports](docs/APPLICATION_PORTS.md) and [atomic integrity decision](docs/adr/ADR-0010.md) describe current contracts and synthetic proof.
 - [Phase 1B completion report](docs/PHASE_1B_COMPLETION_REPORT.md), [exact value model](docs/DOMAIN_VALUE_MODEL.md) and [deterministic replay](docs/DETERMINISTIC_REPLAY.md) describe current domain code and its limits.
 - [Development setup and commands](docs/DEVELOPMENT.md) and [Phase 1A completion report](docs/PHASE_1A_COMPLETION_REPORT.md) describe the current scaffold and verification evidence.
 - [Phase 0 completion report](docs/PHASE_0_COMPLETION_REPORT.md), [architecture review](docs/ARCHITECTURE_REVIEW.md), [decision register](docs/DECISION_REGISTER.md) and [open questions](docs/OPEN_QUESTIONS.md)
@@ -24,6 +25,6 @@ Privacy defaults are local learner data, optional fictional nicknames, no accoun
 
 ## Roadmap and contribution status
 
-Phase 0 established and reviewed the foundation. The owner authorized Phase 1A and the bounded Phase 1B domain foundation. Phase 1C, application ports, learner/persistence, localisation/speech, offline behavior and all game implementation require a separate request. Later phases build and evaluate a small playable slice, expand content/languages, and investigate desktop packaging.
+Phase 0 established and reviewed the foundation. The owner authorized Phase 1A, Phase 1B and bounded Phase 1C checkpoint-5 completion. Phase 1D, real learner/persistence, localisation/speech implementation, offline behavior and all game implementation require a separate request. Later phases build and evaluate a small playable slice, expand content/languages, and investigate desktop packaging.
 
 The intent is a high-quality public open-source project welcoming mathematical, educational, accessibility, linguistic and engineering contributions. Public publication has not been performed during Phase 0. Original code and project documentation are licensed under [Apache-2.0](LICENSE), selected by the owner. Public contributions still require contribution sign-off/provenance decisions, asset-rights review, named maintainer/security responsibilities, an adopted code of conduct/moderation process and an operational private security-reporting channel. See [CONTRIBUTING](CONTRIBUTING.md), [governance](docs/OPEN_SOURCE_GOVERNANCE.md) and [SECURITY](SECURITY.md). Do not post child information or learner exports.

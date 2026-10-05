@@ -1,6 +1,6 @@
 # Local learner data model
 
-Status: local-first policy accepted; numeric retention and implementation mechanics proposed. [ADR-0003](adr/ADR-0003.md) and [privacy](CHILD_SAFETY_AND_PRIVACY.md) govern this model.
+Status: local-first policy accepted; numeric retention and production learner schema remain proposed. Phase 1C implements only generic integrity contracts and synthetic fixtures under [ADR-0010](adr/ADR-0010.md), with no real storage/adaptation. Records, migrations, retention and export/import below are fuller future requirements. [ADR-0003](adr/ADR-0003.md) and [privacy](CHILD_SAFETY_AND_PRIVACY.md) govern this model.
 
 ## Storage choice and records
 
@@ -35,6 +35,8 @@ Expiry is checked on startup/access and before adaptation, migration, export or 
 Browser best-effort storage can be evicted or cleared. Request persistent storage only with parent explanation; a grant does not ensure backup. Show transaction completion before “saved.” Storage estimates are advisory. Private mode/denial/quota errors require detection and an unsaved-session warning; browser data is not claimed cryptographically encrypted at rest.
 
 ## Atomicity, concurrency and migrations
+
+Current Phase 1C proof uses record-local revisions, a global synthetic epoch and globally scoped operation IDs per epoch. Validation/epoch precede success-receipt deduplication, then expected revision. Explicit create starts revision 1; update cannot create. Delete advances the fence atomically and clears old receipts while preserving surviving records. Failed commands have no receipts; destructive retries require reconciliation. The fake retains synthetic receipts for its test lifetime, with no production pruning threshold. [Application ports](APPLICATION_PORTS.md) separates implemented semantics from the proposals below; no migration, full clear, profile-ID reuse or import policy is implemented.
 
 Commit observation, concept transition, next recommendation metadata, progression and operation-ID receipt in one transaction. Check expected profile revision **inside the transaction** and reject stale writers. A tab lease or BroadcastChannel helps UX but is not the integrity check. Cap deduplication receipts consistently with supported retry lifetime; do not prune a receipt while its command may still retry. Proposal: 100 receipts/profile, retry commands expire at session end; if bound would evict an active receipt, reject/reconcile first.
 

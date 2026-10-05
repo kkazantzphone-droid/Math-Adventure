@@ -1,10 +1,10 @@
 # Open questions and human decisions
 
-Status: remaining questions deliberately unresolved; owner architecture approval, license selection and bounded Phase 1A/1B entry recorded on 2026-10-05. Safe defaults support the current scaffold/domain foundation only; real learner use and later checkpoints retain their gates.
+Status: remaining questions deliberately unresolved; owner architecture approval, license selection and bounded Phase 1A/1B/1C entry recorded on 2026-10-05. Safe defaults support the current scaffold/domain/application-contract foundation only; real learner use and later checkpoints retain their gates.
 
 | ID | Question / conservative default | Decision owner / deadline | Blocks |
 | --- | --- | --- | --- |
-| Q01 / D26-D32 | CLOSED for Phase 1A/1B: owner authorized scaffold plus checkpoint 4 and bounded semantic-contract subset of checkpoint 5; Phase 1C/ports/families remain unapproved | Human owner, before later implementation | Scope beyond Phase 1B |
+| Q01 / D26-D33 | CLOSED for Phase 1A/1B/1C: owner authorized scaffold, domain and bounded checkpoint-5 application contracts/synthetic proof; Phase 1D and families remain unapproved | Human owner, before later implementation | Scope beyond Phase 1C |
 | Q02 / D17 | License selection closed: owner selected Apache-2.0 for original code/project documentation. Contribution sign-off/provenance and asset-specific rights remain unresolved | Owner before public contribution/publication | Public contributor onboarding/asset reuse; license selection no longer blocks |
 | Q03 / D20 | Final summary/profile inactivity retention, grace/expiry/deletion, parent renewal and clock uncertainty notices; proposed12mo purpose limit remains incomplete | Owner + privacy/legal review before real data | Real learner persistence/trials |
 | Q04 / D21 | Operator/controller, territories, legal bases, child/parent notices/rights, profiling/default adaptation controls and DPIA need | Owner + qualified legal/privacy adviser before relevant trials/launch | Legal launch; local adaptation not exempt by assumption |

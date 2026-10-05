@@ -1,6 +1,6 @@
 # Development
 
-Phase 1A implements a static technical shell and its quality harness; Phase 1B adds pure exact mathematical, replay/PRNG, graph and semantic contracts. It is not a playable game or an installable/offline PWA. There is no backend, learner data, persistence, adaptation, localisation, speech or service worker. Later checkpoints require another explicit owner request.
+Phase 1A implements the static shell, Phase 1B pure exact mathematical/replay foundations and Phase 1C bounded application ports/integrity with a test-only synthetic repository. It is not a playable game or an installable/offline PWA. There is no backend, real learner data, production persistence, adaptation, localisation, speech provider or service worker. Later checkpoints require another explicit owner request.
 
 ## Prerequisites and installation
 
@@ -57,7 +57,7 @@ Use `corepack pnpm <script>` for every command. This guarantees the repository's
 | `preview`                     | Local preview of the production build                                        |
 | `format` / `format:check`     | Apply/check Prettier formatting                                              |
 | `lint`                        | Type-aware TypeScript/React lint, browser/domain restrictions, zero warnings |
-| `typecheck`                   | Separate strict browser, pure-domain and test/tool compilations              |
+| `typecheck`                   | Separate strict browser, domain, application and test/tool compilations      |
 | `test`                        | Interactive Vitest watch mode                                                |
 | `test:run`                    | All unit and property tests, once                                            |
 | `test:unit` / `test:property` | Run a harness subset                                                         |
@@ -76,13 +76,15 @@ Prettier covers source/config/tests and the new Phase 1A documents. Historical P
 
 ## Boundaries and test limits
 
-`src/composition/main.tsx` mounts React, while `src/ui/` contains the static semantic shell and local CSS. `src/domain/` implements the bounded pure Phase 1B foundation, documented in the [value model](DOMAIN_VALUE_MODEL.md), [replay contract](DETERMINISTIC_REPLAY.md) and [Phase 1B report](PHASE_1B_COMPLETION_REPORT.md). Application, presentation and adapter folders will be introduced when needed by later approved work. See [repository structure](REPOSITORY_STRUCTURE.md) and [architecture](ARCHITECTURE.md).
+`src/composition/main.tsx` mounts React, while `src/ui/` contains the static semantic shell and local CSS. `src/domain/` implements the bounded pure Phase 1B foundation, documented in the [value model](DOMAIN_VALUE_MODEL.md), [replay contract](DETERMINISTIC_REPLAY.md) and [Phase 1B report](PHASE_1B_COMPLETION_REPORT.md). Phase 1C introduces application core/ports/validation; presentation and real adapters remain absent. See [application ports](APPLICATION_PORTS.md). See [repository structure](REPOSITORY_STRUCTURE.md) and [architecture](ARCHITECTURE.md).
 
 All strict TypeScript checks are enabled, including indexed access, exact optional properties, unknown catch values, explicit return paths, fallthrough and unused-code checks. Library typechecking remains enabled. Relative imports suffice; no aliases or barrels are introduced.
 
-`tsconfig.json` checks production `src/` with ES2023, DOM/DOM.Iterable and `vite/client`, without ambient Node types. `tsconfig.tools.json` supplies Node types for tests and Vite configuration; imported UI is still checked independently by the browser project. `tsconfig.domain.json` retains ES-only compilation with no ambient package types or JSX. The canonical `typecheck` checks all three, and typed lint explicitly selects these projects. Removing Node ambient types rejects globals such as `process`, `Buffer` and `__dirname`; imported declarations are a separate concern, so browser lint also rejects `node:*` and bare Node built-ins across imports, re-exports, dynamic imports and import types. Nonliteral dynamic specifiers are rejected so this check cannot be silently skipped. Node tooling remains outside `src/`.
+`tsconfig.json` checks production `src/` with ES2023, DOM/DOM.Iterable and `vite/client`, without ambient Node types. `tsconfig.tools.json` supplies Node types for tests and Vite configuration; imported UI is still checked independently by the browser project. `tsconfig.domain.json` retains ES-only compilation with no ambient package types or JSX. `tsconfig.application.json` adds ES-only application compilation with no ambient types or JSX. The canonical `typecheck` checks all four, and typed lint explicitly selects these projects. Removing Node ambient types rejects globals such as `process`, `Buffer` and `__dirname`; imported declarations are a separate concern, so browser lint also rejects `node:*` and bare Node built-ins across imports, re-exports, dynamic imports and import types. Nonliteral dynamic specifiers are rejected so this check cannot be silently skipped. Node tooling remains outside `src/`.
 
 Domain lint prevents imports from leaving that folder or importing packages, and rejects browser/Node globals, clock/random reads and JSX. Test-only compiler/lint fixtures cover positive DOM/pure code, forbidden Node globals/modules and deliberate domain escapes. These controls are engineering guardrails, not a security sandbox for malicious code. The browser split and new negative probes are the second OWNER/QC correction after the initial completion pass.
+
+Phase 1C adds application-only/domain relative import rules, ES-only compilation, platform/clock/random/timer bans, positive/negative probes and bounded dependency-cycle review. Runtime data/codec validation and test-only synthetic repository conformance are described in [application ports](APPLICATION_PORTS.md). The independent sequence test has a 15-second per-test budget, fixed seed and 1,000 sequences; this preserves the case count under aggregate worker/compiler load.
 
 The shell test uses `react-dom/server` to assert semantic markup and truthful status, without a DOM simulation package. Browser mounting/CSS/keyboard smoke is checked separately. This does not certify accessibility or browser/OS support. ES2023 is a technical output target, not a promised browser support floor.
 
