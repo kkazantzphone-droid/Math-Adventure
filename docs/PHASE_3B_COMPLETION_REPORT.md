@@ -4,7 +4,8 @@ Date: **2026-10-06, Europe/Athens**. Authorized owner Goal is synthetic-only.
 Branch: `codex/phase-3b-explainable-adaptation`. Starting protected main after
 owner-merged Phase 3A:
 `9f60daf60ef0563682d6a2e498f95ea02f4cbe4e` (PR #10), verified by remote fetch.
-Candidate certification and current-head hosted checks are recorded below.
+Repository verification is recorded below. Current-head hosted results are
+recorded in the attached publication PR's check summary before certified handoff.
 Foundation bytes are preserved at `f363ef732b0ec7b53009af8f4dfc28149b920b97`;
 final independently reviewed identity/session guards and developer fixture are
 preserved at `bd5f2e9775d502a4cf4575d55efd8cb49971c08b`. The final mutation report
@@ -132,16 +133,16 @@ Case counts and assertions were retained.
 
 ## Verification and evidence
 
-| Gate                                | Observed result / evidence                                                                                                                                                                                                                                                   |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Focused adaptation proof            | 113 tests in six files: 32 state, 11 selection, 51 catalog, 9 independent sequences, 9 containment/scope, 1 developer summary                                                                                                                                                |
-| Exhaustive/independent scenarios    | 1,920 classifications; 1,972 actual generator tuples; seven attainable Secure witnesses; 243 support patterns; 1,024 ten-outcome masks; 1,750 fairness traces; 192 accessibility-support histories; labeled geometry metrics under all 24 vertex permutations                |
-| Canonical `corepack pnpm verify`    | PASS, 905 tests / 47 files; formatting, zero-warning lint, four TypeScript projects, 16 behaviour fixtures and production build                                                                                                                                              |
-| Six meaningful mutations            | [Sanitized results and source hashes](evidence/phase3b/mutations.json): six clean baseline assertions, six intended assertion failures; exact Buffer/SHA-256 restoration in every finally path; raw assertion diffs removed                                                  |
-| Native developer simulation         | [Chrome 154.0.8037.58](evidence/phase3b/chrome.json) and [Edge 154.0.4258.53](evidence/phase3b/msedge.json): fixed summary PASS, 30 observations/three Secure witnesses/three fair offers, zero IndexedDB opens and zero nonlocal requests in fresh browser contexts         |
-| Dependency audit                    | `corepack pnpm audit`, 2026-10-06: no known vulnerabilities; no dependency, package, pin or lockfile diff                                                                                                                                                                    |
-| Child artifacts                     | [Integrity inventory](evidence/phase3b/integrity.json): all eight production files byte-identical to the verified protected-main baseline, including worker, release manifest and retained notices                                                                           |
-| Privacy, links, candidate integrity | Complete new/touched source, synthetic provenance and artifacts reviewed; secret-pattern scan found no matches; 525 local file links checked before final report evidence links; Git whitespace clean; normal child/application/platform/UI/locale/workflow source unchanged |
+| Gate                                | Observed result / evidence                                                                                                                                                                                                                                                            |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Focused adaptation proof            | 113 tests in six files: 32 state, 11 selection, 51 catalog, 9 independent sequences, 9 containment/scope, 1 developer summary                                                                                                                                                         |
+| Exhaustive/independent scenarios    | 1,920 classifications; 1,972 actual generator tuples; seven attainable Secure witnesses; 243 support patterns; 1,024 ten-outcome masks; 1,750 fairness traces; 192 accessibility-support histories; labeled geometry metrics under all 24 vertex permutations                         |
+| Canonical `corepack pnpm verify`    | PASS, 905 tests / 47 files; formatting, zero-warning lint, four TypeScript projects, 16 behaviour fixtures and production build                                                                                                                                                       |
+| Six meaningful mutations            | [Sanitized results and source hashes](evidence/phase3b/mutations.json): six clean baseline assertions, six intended assertion failures; exact Buffer/SHA-256 restoration in every finally path; raw assertion diffs removed                                                           |
+| Native developer simulation         | [Chrome 154.0.8037.58](evidence/phase3b/chrome.json) and [Edge 154.0.4258.53](evidence/phase3b/msedge.json): fixed summary PASS, 30 observations/three Secure witnesses/three fair offers, zero IndexedDB opens and zero nonlocal requests in fresh browser contexts                  |
+| Dependency audit                    | `corepack pnpm audit`, 2026-10-06: no known vulnerabilities; no dependency, package, pin or lockfile diff                                                                                                                                                                             |
+| Child artifacts                     | [Integrity inventory](evidence/phase3b/integrity.json): all eight production files byte-identical to the verified protected-main baseline, including worker, release manifest and retained notices                                                                                    |
+| Privacy, links, candidate integrity | Complete 29-file candidate and synthetic provenance reviewed; secret-pattern scan found no matches; all 573 repository-document local links resolve; all 27 retained source hashes match; Git whitespace clean; normal child/application/platform/UI/locale/workflow source unchanged |
 
 The retained JSON contains hashes, counts and browser capability metadata only,
 never database rows, profiles, screenshots, speech or real learner records. Native
@@ -151,11 +152,14 @@ Snapshot inputs are trusted typed engine output; observation decoding is exact,
 but no production snapshot/import codec is claimed. Selection availability is an
 explicit finite input, not a newly integrated task-generation coordinator.
 
-An isolated fresh clone of the foundation passed canonical frozen install and
-verification at **905 tests / 47 files**, with no lockfile change. The final
-complete candidate repeats frozen installation/verification before publication;
-its result and the required `verify (ubuntu-24.04)` / `verify (windows-2025)` checks
-are observed for the final handoff, never inferred from that earlier foundation.
+The complete candidate at `3d327aedd01e7ba04c24839a64e0c52f69e68ba8` passed
+canonical verification and an isolated fresh clone's frozen install/verification
+at **905 tests / 47 files**, with no lockfile change and eight unchanged child
+artifacts in both checkouts. A separate final read-only integrity review found no
+actionable defect. Further documentation preservation repeats both full gates
+before publication. The required `verify (ubuntu-24.04)` / `verify (windows-2025)`
+results are recorded against the current PR head in its check summary before
+certified handoff; local success never substitutes for those hosted observations.
 The one-line formatter inventory update includes this new report in the canonical
 gate; historical reports and accepted ADRs remain frozen.
 
