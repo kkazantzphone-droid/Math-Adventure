@@ -12,6 +12,7 @@ Privacy defaults are local learner data, optional fictional nicknames, no accoun
 
 ## Read the foundation
 
+- [Codex operating model](docs/CODEX_OPERATING_MODEL.md), [task templates](docs/CODEX_TASK_TEMPLATES.md), [synthetic behavior scenarios](evals/codex-behavior/README.md) and [autonomy V1 completion evidence](docs/CODEX_AUTONOMY_V1_COMPLETION_REPORT.md) define bounded engineering authority and its verification; they authorize no new product phase.
 - [Phase 1V completion report](docs/PHASE_1V_COMPLETION_REPORT.md), [Space baseline decision](docs/adr/ADR-0011.md) and [private-safe confirmation UAT protocol](docs/PHASE_1V_UAT_PROTOCOL.md) distinguish historical candidate evidence, remediation and the completed final owner-confirmation gate.
 - [Phase 1D completion report](docs/PHASE_1D_COMPLETION_REPORT.md) and [localisation/local-only speech decision](docs/adr/ADR-0012.md) record bounded checkpoint-6 engineering PASS and its device-evidence limits; locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`.
 - [Phase 1E readiness report](docs/PHASE_1E_COMPLETION_REPORT.md) records **BLOCKED/PARTIAL — BROWSER LIFECYCLE EVIDENCE REQUIRED**; Phase 1E remains unimplemented.

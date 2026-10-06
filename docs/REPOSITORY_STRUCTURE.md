@@ -36,6 +36,11 @@ Phase 2 adds the first executable bounded family modules and a stateless applica
   scripts/domain-boundary.mjs   # narrow lint rule
   scripts/browser-boundary.mjs  # excludes Node modules from production src
   scripts/application-boundary.mjs # application/domain imports only
+  scripts/codex-behavior-evals.mjs # developer-only structured fixture validation/grading
+  evals/codex-behavior/           # sixteen synthetic scenarios, schema, example and limits
+  .agents/skills/                # three instruction-only repository Codex skills
+  docs/CODEX_OPERATING_MODEL.md docs/CODEX_TASK_TEMPLATES.md
+  docs/CODEX_AUTONOMY_V1_COMPLETION_REPORT.md # governance evidence, separate from product phases
   docs/DEVELOPMENT.md docs/PHASE_1A_COMPLETION_REPORT.md
   docs/DOMAIN_VALUE_MODEL.md docs/DETERMINISTIC_REPLAY.md
   docs/PHASE_1B_COMPLETION_REPORT.md docs/adr/ADR-0009.md
