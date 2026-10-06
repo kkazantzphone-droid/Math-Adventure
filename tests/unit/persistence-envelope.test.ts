@@ -490,5 +490,5 @@ describe('future synthetic envelope contract — no file or store operations', (
       ),
       { seed: 20261006, numRuns: 1000 },
     );
-  }, 15_000);
+  }, 30_000);
 });

@@ -223,6 +223,16 @@ installed its own 179 packages; it did not copy `node_modules`. Its name deliber
 retains `phase3`, exercising the repaired containment assertion. The final complete
 documentation candidate is rerun through both gates before feature publication.
 
+Hosted verification on `a369bee4a6cff040dd63bd5b062f06ee23c46762` passed both
+Linux jobs and the PR Windows job; the separate push Windows job exceeded the
+15-second envelope round-trip property's budget under aggregate load. Independent
+test review approved a **test-specific 30-second budget**, preserving seed
+`20261006`, all 1,000 cases, generator bounds and assertions. It changes no
+correctness, storage limit, global timeout, skip or retry. Full/fresh gates and
+both hosted platforms are repeated for the resulting head; a further timeout
+requires diagnosis. Current-head hosted results are recorded in the
+[Phase 3A PR](https://github.com/kkazantzphone-droid/Math-Adventure/pull/10).
+
 The audit on 2026-10-06 reported **No known vulnerabilities found**. No
 runtime/development dependency, install policy, exact tool pin or lockfile changed.
 The lockfile SHA-256 is
