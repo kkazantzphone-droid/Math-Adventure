@@ -2,6 +2,27 @@
 
 As of 2026-10-06. ACCEPTED means a recorded architecture/product constraint or explicit owner decision, **not implementation or educational validation**. D17 records the owner's license selection. PROPOSED details remain reviewable. IDs here are stable references; ADRs contain rationale.
 
+Current state: Phase 1A/1B/1C/owner-confirmed 1V/1D/1E are complete at the bounded
+gates in [Phase 1 closure](PHASE_1_COMPLETION_REPORT.md). Phase 1E is owner-merged
+into protected main `93db59893b076925b1fdb5fadfa5abb9dfb274ac`; Phase 2 proof,
+autonomy and proof-environment PRs are merged ancestors. D45 authorizes readiness
+only. [Phase 3 plan](PHASE_3_IMPLEMENTATION_PLAN.md) allows separately commissioned
+synthetic developer engineering without deciding real-child retention/profiling.
+No unresolved policy choice blocks that synthetic 3A scope. D06/ADR-0006 and
+numeric D18–D20 remain proposed/unresolved; old rows and paragraphs preserve the
+authority and evidence of their original tasks.
+
+D45 readiness has local plan certification evidence: 769 tests/38 files in full
+and isolated fresh gates, 46 proposed-policy scenarios plus three migration
+fixture checks, zero-advisory audit and five independent specialist scopes.
+Finite Secure coverage, Developing-priority starvation, historical-vs-current
+attainment interpretation and live receipt retirement remain explicit proposals
+or unresolved later design decisions. Tooling checkpoint/clock/distinct-coverage
+defects were repaired and independently rechecked. Production bytes, accepted
+ADRs and historical reports are unchanged; exact-head hosted publication is
+tracked separately in the [readiness report](PHASE_3_READINESS_REPORT.md)/PR.
+No Phase 3 implementation or real-child use follows from this certification.
+
 | ID | Decision | Status | Authority / next gate |
 | --- | --- | --- | --- |
 | D01 | React+TypeScript client-side PWA; no required backend/Python/dev tools for end users | ACCEPTED | User constraint; [ADR-0001](adr/ADR-0001.md) |
@@ -48,10 +69,13 @@ As of 2026-10-06. ACCEPTED means a recorded architecture/product constraint or e
 | D42 | Owner authorizes Codex autonomy operating system V1: governance/developer tooling only, durable Class A/B workflow authority within explicit objectives, Class C human gates, three repository skills, synthetic behavior evals and reusable templates | ACCEPTED, bounded owner workflow authorization; candidate verification/publication state recorded separately | Owner request 2026-10-06; [operating model](CODEX_OPERATING_MODEL.md), [templates](CODEX_TASK_TEMPLATES.md), [completion report](CODEX_AUTONOMY_V1_COMPLETION_REPORT.md). Logical local commits permitted; this task's publication requires merged parents and reconciliation onto current protected main. No protected-main merge, product feature, accepted product ADR change, real learner data, deployment or access expansion |
 | D43 | Owner authorizes Phase 1E DEV/TEST proof-environment enablement only: exact-pinned browser tooling, loopback root/subpath server, real offline/two-client/lifecycle evidence and synthetic fixture controls | ACCEPTED, bounded developer-tooling authorization; final evidence recorded separately | Owner queued request 2026-10-06, activated after D42 governance completion; [proof environment](PHASE_1E_PROOF_ENVIRONMENT.md). Preserved at `c9e3094`; owner resumed after governance PR #6 merged into protected main `d0d2828`. Normal reconciliation retains exact candidate bytes; final full/fresh/browser and current-head hosted checks gate publication readiness. No production worker/manifest/install UI, runtime dependency, Phase 1E completion, accepted product ADR change, protected-main merge or deployment |
 | D44 | Owner authorizes production Phase 1E checkpoint 7 after merging proof-environment PR #7 into protected main `ab734e1` | ACCEPTED task scope and Class A/B publication authority; candidate certification recorded separately | [Design](PHASE_1E_OFFLINE_DESIGN.md), [completion](PHASE_1E_COMPLETION_REPORT.md). Smallest coherent shell, explicit bounded all-client activation/recovery, failed-install preservation, root/subpath native evidence, three restored assertion mutations and five fresh specialist reviews. ADR-0007 may be accepted only after genuine required lifecycle evidence. No learner persistence/adaptation, Phase 3, backend, telemetry, public hosting, release, deployment or protected-main merge |
+| D45 | Owner authorizes Phase 1 formal closure and Phase 3 readiness: bounded 3A/3B/3C architecture, synthetic migration fixtures/adaptation simulations, threat/language/catalog/human-gate plans and fresh specialist review | ACCEPTED readiness scope only; certification and publication evidence in current report | Owner request 2026-10-06; base `93db59893b076925b1fdb5fadfa5abb9dfb274ac`; [plan](PHASE_3_IMPLEMENTATION_PLAN.md), [readiness evidence](PHASE_3_READINESS_REPORT.md), [persistence](PHASE_3_PERSISTENCE_DESIGN.md), [proposed-policy review](PHASE_3_ADAPTATION_REVIEW.md). No database created or runtime source wiring. Separate Goal required per implementation stage; no real trials, accepted numeric policy, deployment or protected-main merge |
 
-Current D44 evidence supersedes pre-D44 descriptions of an unimplemented worker
-or unavailable browser control. Earlier entries/paragraphs below preserve their
-historical scopes and recorded results; they do not authorize broader product work.
+Current D45 readiness and merged D44 evidence supersede pre-D44 descriptions of
+an unimplemented worker or unavailable browser control. D37–D43 record their
+historical task outcomes/publication states; the current merged state is above.
+The Phase 1A–2 paragraphs below are historical evidence summaries, not current
+dependency or lifecycle status, and do not authorize broader product work.
 
 See [open questions](OPEN_QUESTIONS.md) for owners/timing and [traceability](TRACEABILITY_MATRIX.md) for implementation/testing links. Phase 0 may pass with these open decisions; no open launch question is silently accepted.
 

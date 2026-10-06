@@ -1,10 +1,10 @@
 # Repository structure and versioning
 
-Current D44 additions: `public/manifest.webmanifest`, the original local icon, `scripts/pwa-build.ts`, `src/infrastructure/offline/`, `src/presentation/offline/`, `src/ui/offline/` and focused tests. Developer-only proof adds native production lifecycle assertions and an owned loopback transport gate outside shipped artifacts. See [design](PHASE_1E_OFFLINE_DESIGN.md) and [completion](PHASE_1E_COMPLETION_REPORT.md). Shell protocol/schema/release identities do not replace generator/content/semantic/canonicalization/application versions. The first two status paragraphs below preserve the historical pre-D44 handoff.
+Merged D44 additions: `public/manifest.webmanifest`, the original local icon, `scripts/pwa-build.ts`, `src/infrastructure/offline/`, `src/presentation/offline/`, `src/ui/offline/` and focused tests. Developer-only proof adds native production lifecycle assertions and an owned loopback transport gate outside shipped artifacts. See [design](PHASE_1E_OFFLINE_DESIGN.md) and [completion](PHASE_1E_COMPLETION_REPORT.md). Shell protocol/schema/release identities do not replace generator/content/semantic/canonicalization/application versions.
 
-Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain modules, Phase 1C adds bounded application ports/integrity and synthetic conformance, and preserved owner-confirmed Phase 1V adds an isolated scripted visual prototype. Phase 1D is ENGINEERING PASS for bounded checkpoint-6 localisation/local-only speech, locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`. Historical reports/protocols remain unchanged. [Phase 1E](PHASE_1E_COMPLETION_REPORT.md) is **BLOCKED/PARTIAL — BROWSER LIFECYCLE EVIDENCE REQUIRED** and remains unimplemented; only its readiness evidence is preserved. The second tree describes the broader future application; empty conceptual layers are not scaffolded.
+Status: the owner-supplied protected-main closure baseline `93db59893b076925b1fdb5fadfa5abb9dfb274ac` contains completed Phase 1A/1B/1C, owner-confirmed Phase 1V, bounded Phase 1D and production Phase 1E. Phase 2, proof enablement and autonomy governance are also merged. [Consolidated closure](PHASE_1_COMPLETION_REPORT.md) records exact revisions and evidence limits. The first tree describes implemented modules; the second describes the broader future application. Empty conceptual layers are not scaffolded.
 
-Phase 2 adds the first executable bounded family modules and a stateless application facade plus deliberate developer view, with LOCAL ENGINEERING PASS. [Design](PHASE_2_FAMILY_PROOF.md) records mathematical/version/representation bounds; [completion evidence](PHASE_2_COMPLETION_REPORT.md) records full/fresh 501-test, independent oracle/mutation and bounded browser results. The branch began stacked on parent PR #4; after the owner merged it, tree equivalence was confirmed and the branch reconciled to protected main. The original PR #5 candidate passed both required hosted checks. Subsequent independent review and three bounded presentation repairs passed local full/fresh verification at 514 tests/27 files; the [red-team report](PHASE_2_RED_TEAM_REPORT.md) records retained tests and both required hosted checks passing at 514 tests/27 files for the repair revision. Final documentation preservation and any subsequent PR head require their own verification/hosted checks.
+Merged Phase 2 supplies three bounded family modules, a stateless application facade and deliberate developer view. [Design](PHASE_2_FAMILY_PROOF.md), [original report](PHASE_2_COMPLETION_REPORT.md) and [red-team report](PHASE_2_RED_TEAM_REPORT.md) preserve exact mathematical/version/modality limits, 501-test original proof and 514-test review/repair proof. Their historical publication status does not describe the current merged dependency sequence; future candidates require their own checks.
 
 ```text
 /
@@ -13,16 +13,20 @@ Phase 2 adds the first executable bounded family modules and a stateless applica
   tsconfig.base.json tsconfig.json tsconfig.domain.json tsconfig.application.json tsconfig.tools.json
   .github/workflows/ci.yml       # unchanged required Ubuntu/Windows verification contexts
   public/THIRD_PARTY_NOTICES.txt # exact bundled runtime license notice
+  public/manifest.webmanifest icons/math-adventure.svg # local coherent PWA shell assets
   src/
     application/core/ ports/ repository/ # integrity and contracts only
     application/family-proof.ts # stateless public view/submit facade; no learner command
     composition/main.tsx        # mounts the local visual prototype
     presentation/localisation/ # exact manifests/preferences/schema/draft packs/native Intl
     presentation/speech/       # fixed semantic nonpersonal prototype plans
+    presentation/offline/      # shell capability/update contracts and draft status wording
     infrastructure/speech/     # browser speech/capability adapter, no learner storage
+    infrastructure/offline/    # native worker/cache/update shell effects
     ui/App.tsx styles.css
     ui/prototype/              # scripted model/fixtures, tiny copy/options, selected Space view/CSS
     ui/family-proof/           # deliberately enabled generated-task Space developer proof
+    ui/offline/                # truthful shell status and explicit adult Home update
     domain/
       core/ math/ random/ replay/ concepts/
       expressions/ geometry/ measurement/ puzzles/ # foundations/contracts only
@@ -35,10 +39,12 @@ Phase 2 adds the first executable bounded family modules and a stateless applica
     fixtures/golden/           # synthetic vectors/provenance
     fixtures/synthetic/        # cross-domain semantic contracts
     fixtures/architecture/     # positive/negative technical fixtures
+    e2e/                       # synthetic native browser/lifecycle proof and fixtures
   scripts/domain-boundary.mjs   # narrow lint rule
   scripts/browser-boundary.mjs  # excludes Node modules from production src
   scripts/application-boundary.mjs # application/domain imports only
   scripts/codex-behavior-evals.mjs # developer-only structured fixture validation/grading
+  scripts/pwa-build.ts          # bounded release/hash/worker output, no learner schema
   evals/codex-behavior/           # sixteen synthetic scenarios, schema, example and limits
   .agents/skills/                # three instruction-only repository Codex skills
   docs/CODEX_OPERATING_MODEL.md docs/CODEX_TASK_TEMPLATES.md
@@ -50,6 +56,8 @@ Phase 2 adds the first executable bounded family modules and a stateless applica
   docs/adr/ADR-0011.md          # owner-confirmed Space baseline and final visual gate
   docs/PHASE_1D_COMPLETION_REPORT.md docs/adr/ADR-0012.md # candidate evidence/policies
   docs/PHASE_2_FAMILY_PROOF.md docs/PHASE_2_COMPLETION_REPORT.md # design and actual evidence
+  docs/PHASE_1_COMPLETION_REPORT.md # consolidated merged closure and evidence limits
+  docs/PHASE_3_IMPLEMENTATION_PLAN.md # future synthetic-only 3A/3B/3C stage gates
 ```
 
 The root `pnpm-workspace.yaml` configures project-local installation policy; this remains one application, not a monorepo. `node_modules`, build outputs and local tool caches are untracked artifacts.

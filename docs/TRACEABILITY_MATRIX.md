@@ -1,6 +1,14 @@
 # Requirement traceability
 
-## Phase 1E checkpoint 7 candidate (D44)
+## Merged Phase 1 closure and Phase 1E checkpoint 7 (D44)
+
+Current owner-supplied closure baseline is
+`93db59893b076925b1fdb5fadfa5abb9dfb274ac`. Phase 1A/1B/1C, final owner-confirmed
+Phase 1V, bounded Phase 1D, Phase 2, autonomy governance, browser proof enablement
+and production Phase 1E are complete and merged. Exact revisions and inherited
+evidence limits belong in [consolidated closure](PHASE_1_COMPLETION_REPORT.md).
+The [Phase 3 plan](PHASE_3_IMPLEMENTATION_PLAN.md) maps staged future obligations;
+this matrix does not claim implemented learner storage/adaptation or child use.
 
 | Requirement | Implemented path / proof | Limit |
 | --- | --- | --- |
@@ -8,10 +16,12 @@
 | R27 safe update/recovery | Explicit Home control, bounded native all-client prepare/freeze/commit, waiting worker, coherent recovery and prior-owned delayed retirement | No learner writes/migration; native membership is not a browser-wide atomic transaction |
 | R18/R20 coherent resources | Cached bundled draft el-GR/en-GB/de-DE packs and speech plans | Official translations and tested-offline speech remain separate |
 | R21/R32/R35 privacy and containment | Declared same-origin resources only, release/schema-only ownership metadata; cross-origin/artifact/network/secret review | Compromised origin, host privacy and learner data retain their gates |
-| R24/R31/R38 acceptance | Focused unit/SSR, three restored assertion mutations, five fresh specialists, actual Chromium lifecycle, full/fresh/audit and current-head CI | [Completion](PHASE_1E_COMPLETION_REPORT.md) records observations and unavailable device/AT evidence |
+| R24/R31/R38 acceptance | Focused unit/SSR, four restored assertion mutations, five fresh specialists, actual Chromium lifecycle, full/fresh/audit and current-head CI | [Completion](PHASE_1E_COMPLETION_REPORT.md) records observations and unavailable device/AT evidence |
 
-Older Phase 1D/2 addenda below preserve their historical readiness statuses.
-D44 separately authorizes the implemented production shell candidate.
+Older phase addenda below retain original evidence and handoff scope. Any
+blocked/unimplemented Phase 1E status there is the historical pre-D44 state,
+preserved in [historical readiness](PHASE_1E_READINESS_REPORT.md), rather than
+current dependency status. D44's production shell completion supersedes it.
 
 Status: the main matrix retains Phase 0 requirements and planned later components/tests; it is not a claim of implemented game coverage. The Phase 1A addendum below identifies the current technical foundation. “P1” here means Phase 1, not review severity. Request sections identify the supplied Phase 0 brief; architecture-specific acceptance links are reviewed in the completion report.
 
@@ -73,7 +83,7 @@ All ADR references are in [docs/adr](adr/ADR-0001.md). Every planned test must b
 | Reusable quality, independent math and UI review workflows | Three instruction-only `.agents/skills/` skills linked from AGENTS | Frontmatter/discovery/local-link review and blinded forward exercise; does not waive human/device evidence |
 | Deterministic synthetic behavior specification and grading | [Behavior suite](../evals/codex-behavior/README.md), Node validator/grader, focused unit tests | Sixteen scenarios, negative rubric regressions, aggregate fixture validation; no live model execution or authenticated evidence-reference claim |
 
-## Phase 2 bounded real-family candidate addendum
+## Historical Phase 2 bounded real-family candidate addendum
 
 [D40](DECISION_REGISTER.md) authorizes the first deterministic mathematical-content proof, not the playable learner loop. The [Phase 2 report](PHASE_2_COMPLETION_REPORT.md) records LOCAL ENGINEERING PASS: independent/full/fresh/browser evidence passed at 501 tests/24 files. The [design](PHASE_2_FAMILY_PROOF.md) preserves exact bounds, tuple counts, version identities and modality limits. Work began stacked on parent PR #4; after the owner merged it, tree equivalence was checked and the branch reconciled to protected main. The original candidate was published in open non-draft PR #5 with both required Ubuntu/Windows checks SUCCESS. The [red-team report](PHASE_2_RED_TEAM_REPORT.md) records subsequent 13 retained tests, three repaired accessibility findings, local full/fresh verification and both required hosted checks at 514 tests/27 files for the repair revision. Final documentation preservation and any subsequent PR head require their own verification/hosted checks. Phase 1E's separate lifecycle blocker remains unchanged.
 
@@ -88,9 +98,9 @@ All ADR references are in [docs/adr](adr/ADR-0001.md). Every planned test must b
 | R18/R19/R20 localised proof/support | Three draft packs extend required schema; independent language roles and existing explicit fixed exact-local speech | Native review pending/official=false; four planned packs still incomplete; no arbitrary generated TTS/offline claim |
 | R31/R35/R38 independent proof and handoff | Original exhaustive tuples/properties/golden replays/mutations/full/fresh 501-test proof; PR #5 candidate required CI SUCCESS; independent red-team actual-generator coverage (2,027 tuples), 6,561 small-grid quadrilaterals, boundary/accessibility tests and full/fresh/required hosted 514-test gates for the recorded repair revision | Original evidence preserved in the completion report; review findings/repairs and observed repair-revision hosted success in the [red-team report](PHASE_2_RED_TEAM_REPORT.md); final documentation preservation and later PR heads require their own verification/hosted checks; no learner engine/adaptation/playable session/PWA/backend |
 
-## Phase 1D bounded implementation addendum
+## Historical Phase 1D bounded implementation addendum
 
-This addendum records **ENGINEERING PASS — complete for bounded checkpoint 6** after preserved owner-confirmed Phase 1V. Required engineering and bounded browser checks passed and were locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`. Evidence and limitations belong in the frozen [Phase 1D report](PHASE_1D_COMPLETION_REPORT.md), governed by [ADR-0012](adr/ADR-0012.md). [Phase 1E readiness](PHASE_1E_COMPLETION_REPORT.md) is **BLOCKED/PARTIAL — BROWSER LIFECYCLE EVIDENCE REQUIRED**, with no Phase 1E implementation. D39 separately authorizes current candidate publication and bounded Phase 1V/1D CI repairs. Earlier phase addenda retain their historical handoff scope and evidence limits.
+This addendum records **ENGINEERING PASS — complete for bounded checkpoint 6** after preserved owner-confirmed Phase 1V. Required engineering and bounded browser checks passed and were locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`. Evidence and limitations belong in the frozen [Phase 1D report](PHASE_1D_COMPLETION_REPORT.md), governed by [ADR-0012](adr/ADR-0012.md). At that historical handoff, [Phase 1E readiness](PHASE_1E_READINESS_REPORT.md) was **BLOCKED/PARTIAL — BROWSER LIFECYCLE EVIDENCE REQUIRED**, with no Phase 1E implementation. D39 separately authorized the then-current candidate publication and bounded Phase 1V/1D CI repairs. Earlier phase addenda retain their historical handoff scope and evidence limits.
 
 | Requirement | Implemented components/checks | Limit |
 | --- | --- | --- |
@@ -101,7 +111,7 @@ This addendum records **ENGINEERING PASS — complete for bounded checkpoint 6**
 | R24 accessible visual/speech cooperation | Effective content language, explicit replay only for eligible capability, no duplicate live/TTS, audio-off/missing-voice use, preserved Space/Shapes/help/root checks | Source/SSR/fakes do not certify screen readers or actual-device comprehension |
 | R31/R35/R38 complete candidate gate | Independent review; remote-voice/coupled-preference mutation sensitivity/restoration; full/fresh verification, audit/lock/artifact/privacy review and bounded browser evidence | Bounded engineering PASS, locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`; D39 authorizes publication/CI repair, with no Phase 1E implementation or automatic merge |
 
-## Phase 1A implementation addendum
+## Historical Phase 1A implementation addendum
 
 | Phase 1A requirement | Current files / checks | Evidence and limit |
 | --- | --- | --- |
@@ -113,7 +123,7 @@ This addendum records **ENGINEERING PASS — complete for bounded checkpoint 6**
 | Initial CI quality file | `.github/workflows/ci.yml` | Linux/Windows matrix, pinned actions, read-only permissions, frozen install; static review does not prove remote execution |
 | Current-state handoff and bounded stop | [Development](DEVELOPMENT.md), [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md), D26/Q01 | Current gate results and residual risks; checkpoints 4–7 and actual game implementation remain outside scope |
 
-## Phase 1B implementation addendum
+## Historical Phase 1B implementation addendum
 
 | Requirement | Implemented files / evidence | Limit |
 | --- | --- | --- |
@@ -124,7 +134,7 @@ This addendum records **ENGINEERING PASS — complete for bounded checkpoint 6**
 | R44 exploration separation | Literal assessment/exploratory scope types; runtime and compiler separation checks | No exposure history or promotion |
 | R31/R35/R38 quality/handoff | Unchanged aggregate gate, actual mathematical mutation checks, audit/install/hash/hygiene review; [report](PHASE_1B_COMPLETION_REPORT.md) | Local engineering evidence only; no remote mutation |
 
-## Phase 1C implementation addendum
+## Historical Phase 1C implementation addendum
 
 | Requirement | Implemented files / evidence | Limit |
 | --- | --- | --- |

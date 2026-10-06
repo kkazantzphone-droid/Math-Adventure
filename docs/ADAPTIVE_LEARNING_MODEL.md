@@ -2,6 +2,20 @@
 
 Status: PROPOSED rule policy under [ADR-0006](adr/ADR-0006.md). Product principles are accepted; all thresholds and schedules below are **unvalidated starting hypotheses**, versioned as policy-v1 and subject to educator review before child trials. This model reports observed task evidence, not intelligence, diagnosis or school grades.
 
+The [Phase 3 synthetic review](PHASE_3_ADAPTATION_REVIEW.md) exercises this proposal
+without accepting it. Default two-representation Secure coverage is not reachable
+from a Phase 2 family that declares only one representation. With at most two
+credits per evidence fingerprint, a universe of four fingerprints also cannot
+fill ten observations. Family coverage/diversity must be demonstrated and
+reviewed, not manufactured through cosmetic changes. Proposed corrections and
+ambiguous rule interpretations stay explicit in the review; no numeric policy
+is changed here. [Stage 3B](PHASE_3_IMPLEMENTATION_PLAN.md) remains a separately
+authorized synthetic implementation, not permission for real-child profiling.
+The review also identifies cross-priority starvation: strict Developing-before-new
+selection can alternate two Developing concepts while never offering a ready
+Unseen concept. A reviewed bounded lower-priority opportunity is a correction
+proposal; the rule below is preserved rather than silently amended.
+
 ## Alternatives and selection
 
 | Approach | Strength | Limitation here | Decision |

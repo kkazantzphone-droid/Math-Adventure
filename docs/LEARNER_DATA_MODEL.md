@@ -2,9 +2,23 @@
 
 Status: local-first policy accepted; numeric retention and production learner schema remain proposed. Phase 1C implements only generic integrity contracts and synthetic fixtures under [ADR-0010](adr/ADR-0010.md), with no real storage/adaptation. Records, migrations, retention and export/import below are fuller future requirements. [ADR-0003](adr/ADR-0003.md) and [privacy](CHILD_SAFETY_AND_PRIVACY.md) govern this model.
 
+Phase 3 readiness specifies a [synthetic-only IndexedDB design](PHASE_3_PERSISTENCE_DESIGN.md)
+and [staged implementation gates](PHASE_3_IMPLEMENTATION_PLAN.md). Raw IndexedDB
+is the smallest proposed implementation, without a new dependency. No database
+or production learner schema is implemented by readiness. The proposed
+100-receipt/session-expiry rule below is not compatible with unchanged exact
+retry semantics until an explicit retirement protocol exists; synthetic 3A
+must refuse capacity overflow rather than prune retryable receipts. Numeric
+retention/defaults remain human decisions before real-child use.
+
 ## Storage choice and records
 
-Use IndexedDB through a small typed adapter, provisionally idb. Raw IndexedDB is a viable fallback; localStorage is synchronous/string-based and unsuitable for transactional learner evidence. SQLite is a possible future desktop adapter, not a server or a browser requirement. IndexedDB stores are logically partitioned, not encrypted profiles or authentication.
+The Phase 3A proposal uses raw IndexedDB through a small typed adapter with no
+new dependency; the earlier provisional idb wrapper remains an alternative if
+measured implementation evidence later justifies it. localStorage is synchronous
+and string-based, unsuitable for transactional learner evidence. SQLite is a
+possible future desktop adapter, not a server or browser requirement. IndexedDB
+stores are logical partitions, not encrypted profiles or authentication.
 
 | Record/store | Necessary content | Avoid |
 | --- | --- | --- |

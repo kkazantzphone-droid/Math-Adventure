@@ -1,11 +1,13 @@
 # Offline operation and distribution
 
-Current D44 checkpoint 7 candidate implements the production shell/cache/update
+Merged D44 checkpoint 7 implements the production shell/cache/update
 strategy described in [design](PHASE_1E_OFFLINE_DESIGN.md), with required evidence
 recorded in [completion](PHASE_1E_COMPLETION_REPORT.md). [ADR-0007](adr/ADR-0007.md)
 accepts this bounded shell after independent root/subpath and fresh native gates. Public hosting,
 installed-device support, learner storage/migration and offline speech remain
-uncertified. Earlier research sources were accessed 2026-10-04.
+uncertified. [Phase 1 closure](PHASE_1_COMPLETION_REPORT.md) records the exact
+merged dependency sequence at `93db59893b076925b1fdb5fadfa5abb9dfb274ac`.
+Earlier research sources were accessed 2026-10-04.
 
 ## Distribution and host evaluation
 
