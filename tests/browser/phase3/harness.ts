@@ -33,6 +33,7 @@ import {
 } from '../../../src/application/repository/validation';
 import type { SyntheticLearnerRecord } from '../../fixtures/synthetic/learner-record';
 import { syntheticMigrationSource } from '../../fixtures/phase-3-readiness/migration-plans';
+import { runSyntheticAdaptationProof } from './adaptation-proof';
 
 declare const __PHASE3_SYNTHETIC_CAPABILITY__: boolean;
 const capable =
@@ -140,6 +141,7 @@ async function provision(
   });
 }
 export const harness = {
+  adaptationProof: runSyntheticAdaptationProof,
   async open(
     id: string,
     name: string,
