@@ -1,8 +1,9 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
+import { productionPwa } from './scripts/pwa-build.ts';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), productionPwa()],
   // Relative asset URLs keep the static shell portable at root or a subpath.
   base: './',
   build: {

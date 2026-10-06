@@ -1,6 +1,11 @@
 # Offline operation and distribution
 
-Status: PROPOSED strategy [ADR-0007](adr/ADR-0007.md); no PWA, hosting or device certification exists. Sources accessed 2026-10-04.
+Current D44 checkpoint 7 candidate implements the production shell/cache/update
+strategy described in [design](PHASE_1E_OFFLINE_DESIGN.md), with required evidence
+recorded in [completion](PHASE_1E_COMPLETION_REPORT.md). [ADR-0007](adr/ADR-0007.md)
+accepts this bounded shell after independent root/subpath and fresh native gates. Public hosting,
+installed-device support, learner storage/migration and offline speech remain
+uncertified. Earlier research sources were accessed 2026-10-04.
 
 ## Distribution and host evaluation
 
@@ -26,7 +31,11 @@ Manifest/worker/base path must share a reviewed configuration. Place a stable sw
 
 Installation is distinct from offline readiness: [Edge documentation](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps/how-to/) allows installation without a service worker. Readiness requires a controlling compatible worker, a validated complete essential-resource manifest and successful local data access. Essential cache includes shell, domain code, chosen UI/instruction packs, independently selected spoken-number/context-plan resources, required visual assets and licensed essential prerecorded audio if included. Optional languages/assets have their own ready state. Mixed el-GR UI/instructions with de-DE numbers must pass offline tests. Voice playback availability is a separate capability from plan-asset readiness. All assets are self-hosted; no remote fonts/CDN scripts/analytics.
 
-Proposed implementation: vite-plugin-pwa with a deliberately reviewed Workbox injectManifest worker, allowing explicit lifecycle/cache rules. Generated precache lists are build assistance, not proof of complete resources. Compare raw worker and generateSW at Phase 1; select the smallest option that passes lifecycle tests.
+Selected bounded shell implementation: browser-standard worker with a small
+pinned-Vite build hook, no new dependency. The [comparison](PHASE_1E_OFFLINE_DESIGN.md)
+explains why plugin/injectManifest assistance does not replace the required custom
+all-client and recovery policy. Build-generated hashes are declarations; native
+independent cache inspection is required evidence.
 
 Use release-namespaced app caches, content-hashed immutable assets, explicit locale/content manifests, stable worker URL and bounded cache inventories. Precache essential assets as a complete staged release; failed installation preserves old usable release. Cache navigation shell for offline and validate resource/version relationships. Do not store profile data in Cache API or cache learner-dependent URLs.
 
@@ -34,7 +43,18 @@ The [service-worker lifecycle](https://web.dev/articles/service-worker-lifecycle
 
 For normal cached play, application commands make no gameplay-dependent network request. A browser may independently check updates and vendors may have their own background traffic; this is not a universal zero-device-network promise. Explicitly local speech is required by V1 policy; its disconnected functionality is a separate readiness dimension. Missing voice does not falsify mathematical offline readiness, but must be visible to parents.
 
-## Update and migration protocol
+## Current shell lifecycle and future learner migration
+
+The implemented shell has no learner writes or migrations. An explicit Home
+request runs bounded native prepare/freeze/commit rounds; unknown, missing or
+unready clients block. A superseded waiting worker cancels while reversible.
+Authorized pages recover once into the exact compatible complete release. Old
+caches remain until every current in-scope document confirms its new shell marker;
+retirement affects only canonical prior IDs recorded before that release install.
+Only release/schema metadata persists, with no client IDs or personal values.
+
+The following fuller protocol remains a future learner-data design; it is not
+implemented or accepted as a migration policy by checkpoint 7.
 
 1. Online discovery stages a complete immutable release, with schema read/write range and content/generator compatibility metadata.
 2. New worker waits; current session continues on its pinned release. Notify locally “update ready” without pressure.

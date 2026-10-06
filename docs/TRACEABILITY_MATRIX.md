@@ -1,5 +1,18 @@
 # Requirement traceability
 
+## Phase 1E checkpoint 7 candidate (D44)
+
+| Requirement | Implemented path / proof | Limit |
+| --- | --- | --- |
+| R03/R26/R29 coherent portable shell | Local manifest/icon, pinned-Vite release build, strict hashed cache; real root/subpath first install and offline reload | No public host or installed-device claim |
+| R27 safe update/recovery | Explicit Home control, bounded native all-client prepare/freeze/commit, waiting worker, coherent recovery and prior-owned delayed retirement | No learner writes/migration; native membership is not a browser-wide atomic transaction |
+| R18/R20 coherent resources | Cached bundled draft el-GR/en-GB/de-DE packs and speech plans | Official translations and tested-offline speech remain separate |
+| R21/R32/R35 privacy and containment | Declared same-origin resources only, release/schema-only ownership metadata; cross-origin/artifact/network/secret review | Compromised origin, host privacy and learner data retain their gates |
+| R24/R31/R38 acceptance | Focused unit/SSR, three restored assertion mutations, five fresh specialists, actual Chromium lifecycle, full/fresh/audit and current-head CI | [Completion](PHASE_1E_COMPLETION_REPORT.md) records observations and unavailable device/AT evidence |
+
+Older Phase 1D/2 addenda below preserve their historical readiness statuses.
+D44 separately authorizes the implemented production shell candidate.
+
 Status: the main matrix retains Phase 0 requirements and planned later components/tests; it is not a claim of implemented game coverage. The Phase 1A addendum below identifies the current technical foundation. “P1” here means Phase 1, not review severity. Request sections identify the supplied Phase 0 brief; architecture-specific acceptance links are reviewed in the completion report.
 
 | ID / requirement (brief sections) | Architecture component | Governing document | ADR | Planned test / review | Phase |

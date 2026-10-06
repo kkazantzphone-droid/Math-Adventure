@@ -1,5 +1,7 @@
 # Phase 1E proof environment — developer tooling
 
+Historical enablement evidence follows with its original scope and counts. The owner merged PR #7 into protected main `ab734e1`, then separately authorized D44 production checkpoint 7. The current command also proves the production lifecycle and uses an owned loopback transport gate for browser-managed requests bypassing Chromium page/worker offline emulation. The gate denies traffic and never supplies cached responses. Current artifact/native/full/fresh/review results belong in the [production report](PHASE_1E_COMPLETION_REPORT.md); the former readiness report is preserved exactly as [historical readiness](PHASE_1E_READINESS_REPORT.md).
+
 Date: 2026-10-06. Owner scope: enable real browser evidence only. Production
 Phase 1E remains unimplemented; ADR-0007 remains proposed. No production worker,
 manifest, install UI, caching policy, learner storage or deployment is introduced.

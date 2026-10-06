@@ -1,0 +1,58 @@
+.offline-controls {
+  max-inline-size: 65rem;
+  min-inline-size: 0;
+  margin: 1rem auto;
+  padding: 1rem;
+  color: #f5f3ff;
+  background: #213252;
+  border: 1px solid #829dca;
+  border-radius: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.offline-controls h2 {
+  margin-block-start: 0;
+  font-size: 1.125rem;
+}
+
+.offline-controls summary,
+.offline-controls button {
+  min-block-size: 44px;
+  padding: 0.65rem;
+  cursor: pointer;
+}
+
+.offline-controls button {
+  max-inline-size: 100%;
+  color: #12352c;
+  background: #b9ecd8;
+  border: 2px solid #829dca;
+  border-radius: 0.65rem;
+  white-space: normal;
+}
+
+.offline-controls button:disabled {
+  cursor: default;
+}
+
+.offline-controls :focus-visible {
+  outline: 3px solid #ffe39a;
+  outline-offset: 4px;
+}
+
+/* Other ready tabs need a visible explanation while their Home is inert. */
+.offline-update-status[data-frozen='true'] {
+  position: fixed;
+  inset-block-start: 1rem;
+  inset-inline: 1rem;
+  z-index: 10;
+  max-inline-size: 45rem;
+  max-block-size: calc(100dvh - 2rem);
+  margin: 0 auto;
+  padding: 1rem;
+  overflow: auto;
+  color: #f5f3ff;
+  background: #213252;
+  border: 2px solid #829dca;
+  border-radius: 1rem;
+}

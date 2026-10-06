@@ -14,6 +14,8 @@ import { PrototypeExperience } from './prototype/PrototypeExperience';
 import type { PrototypeLanguage } from './prototype/options';
 import { FamilyProofExperience } from './family-proof/FamilyProofExperience';
 import type { FamilyProofOptions } from './family-proof/options';
+import type { OfflineController } from '../presentation/offline/controller';
+import { OfflineControls } from './offline/OfflineControls';
 
 export function App({
   language = 'el',
@@ -22,6 +24,7 @@ export function App({
   voiceCheck = false,
   familyProof,
   onPreferencesChange,
+  offline,
 }: {
   readonly language?: PrototypeLanguage;
   readonly preferences?: LanguagePreferences;
@@ -29,6 +32,7 @@ export function App({
   readonly voiceCheck?: boolean;
   readonly familyProof?: FamilyProofOptions;
   readonly onPreferencesChange?: (preferences: LanguagePreferences) => void;
+  readonly offline?: OfflineController;
 } = {}) {
   const [preferences, setPreferences] = useState<LanguagePreferences>(() => {
     if (initialPreferences !== undefined) return initialPreferences;
@@ -45,10 +49,21 @@ export function App({
     () => speech?.snapshot() ?? null,
     () => speech?.snapshot() ?? null,
   );
+  const offlineSnapshot = useSyncExternalStore(
+    (listener) => offline?.subscribe(listener) ?? (() => undefined),
+    () => offline?.snapshot() ?? null,
+    () => offline?.snapshot() ?? null,
+  );
   useEffect(() => {
     onPreferencesChange?.(preferences);
   }, [preferences, onPreferencesChange]);
-  return (
+  useEffect(() => {
+    if (familyProof?.enabled === true) offline?.setSafeBoundary(false);
+  }, [familyProof, offline]);
+  useEffect(() => {
+    if (offlineSnapshot?.frozen === true) speech?.cancel();
+  }, [offlineSnapshot?.frozen, speech]);
+  const experience = (
     <>
       {familyProof?.enabled === true ? (
         <FamilyProofExperience
@@ -61,6 +76,13 @@ export function App({
           language={prototypeLanguageForLocale(preferences.uiLocale)}
           preferences={preferences}
           {...(speech === undefined ? {} : { speech })}
+          {...(offline === undefined
+            ? {}
+            : {
+                onSafeBoundary: (safe: boolean) =>
+                  offline.setSafeBoundary(safe),
+                canInteract: () => offline.canInteract(),
+              })}
         />
       )}
       {voiceCheck && speech !== undefined && snapshot !== null && (
@@ -76,6 +98,21 @@ export function App({
           }}
         />
       )}
+    </>
+  );
+  if (offline === undefined || offlineSnapshot === null) return experience;
+  return (
+    <>
+      <div id="offline-interaction-surface" inert={offlineSnapshot.frozen}>
+        {experience}
+      </div>
+      <OfflineControls
+        locale={preferences.uiLocale}
+        snapshot={offlineSnapshot}
+        onUpdate={() => {
+          void offline.requestUpdate();
+        }}
+      />
     </>
   );
 }

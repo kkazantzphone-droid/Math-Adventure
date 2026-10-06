@@ -23,6 +23,8 @@ const mimeTypes = new Map([
   ['.ico', 'image/x-icon'],
   ['.woff', 'font/woff'],
   ['.woff2', 'font/woff2'],
+  ['.json', 'application/json; charset=utf-8'],
+  ['.webmanifest', 'application/manifest+json; charset=utf-8'],
 ]);
 
 function withinDirectory(directory, file) {
@@ -118,9 +120,31 @@ function route(path, distDirectory, fixtureDirectory, version) {
  * The cumulative receipt count includes aborted responses. The completed ledger
  * retains its first 4096 records and reports any dropped observations explicitly.
  */
-export async function startProofServer({ distDirectory, fixtureDirectory }) {
+export async function startProofServer({
+  distDirectory,
+  fixtureDirectory,
+  productionReleases = [],
+}) {
   const distRoot = await servingDirectory(distDirectory, 'production build');
   const fixtureRoot = await servingDirectory(fixtureDirectory, 'test fixture');
+  const releases = new Map();
+  const selectedReleases = new Map();
+  for (const release of productionReleases) {
+    if (
+      !release ||
+      !/^[a-z][a-z0-9-]{0,31}$/.test(release.name) ||
+      !['/', '/math-adventure/'].includes(release.prefix) ||
+      releases.has(release.name)
+    )
+      throw new Error('Invalid synthetic production release descriptor');
+    releases.set(release.name, {
+      prefix: release.prefix,
+      directory: await servingDirectory(release.directory, 'release build'),
+    });
+    if (!selectedReleases.has(release.prefix))
+      selectedReleases.set(release.prefix, release.name);
+  }
+  let failedAsset = null;
   const observations = [];
   let receivedRequestCount = 0;
   let droppedObservations = 0;
@@ -166,7 +190,18 @@ export async function startProofServer({ distDirectory, fixtureDirectory }) {
       return;
     }
 
-    const selected = route(path, distRoot, fixtureRoot, fixtureVersion);
+    if (path === failedAsset) {
+      send(404, 'Intentional synthetic required-asset failure\n');
+      return;
+    }
+    const productionPrefix = path.startsWith('/math-adventure/')
+      ? '/math-adventure/'
+      : '/';
+    const productionName = selectedReleases.get(productionPrefix);
+    const productionRoot = productionName
+      ? releases.get(productionName).directory
+      : distRoot;
+    const selected = route(path, productionRoot, fixtureRoot, fixtureVersion);
     const contentType = mimeTypes.get(extname(selected.file).toLowerCase());
     if (!contentType) {
       send(404, 'Not found\n');
@@ -225,6 +260,20 @@ export async function startProofServer({ distDirectory, fixtureDirectory }) {
     requestCount: () => receivedRequestCount,
     droppedObservationCount: () => droppedObservations,
     requestSnapshot: () => observations.map((record) => ({ ...record })),
+    setProductionRelease(prefix, name) {
+      if (!releases.has(name) || releases.get(name).prefix !== prefix)
+        throw new Error('Unknown production release for prefix');
+      selectedReleases.set(prefix, name);
+    },
+    setFailedAsset(path) {
+      if (
+        path !== null &&
+        (requestPath(path) !== path ||
+          fixturePrefixes.some((prefix) => path.startsWith(prefix)))
+      )
+        throw new Error('Only a canonical production asset path may fail');
+      failedAsset = path;
+    },
     setFixtureVersion(version) {
       if (version !== 'v1' && version !== 'v2')
         throw new Error(

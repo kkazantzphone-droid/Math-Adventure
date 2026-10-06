@@ -13,9 +13,9 @@ export async function writeEvidence(directory, report) {
 
 export async function beginEvidence(directory) {
   const report = {
-    schema: 'math-adventure-browser-proof-v1',
+    schema: 'math-adventure-browser-proof-v2',
     synthetic: true,
-    scope: 'test environment capability, not production Phase 1E',
+    scope: 'synthetic real-browser production shell and test capability proof',
     result: 'RUNNING',
   };
   await writeEvidence(directory, report);

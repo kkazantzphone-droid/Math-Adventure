@@ -1,14 +1,21 @@
 // Actual-browser assertions; this is neither a mock nor production PWA code.
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { assertCleanObservations } from '../../scripts/browser-proof/evidence.mjs';
 
 const timeout = 15_000;
-const appQuery = '?familyProof=1&lang=en&family=measurement.unit-length';
 
-async function newObservedContext(browser, server) {
+export async function newObservedContext(
+  browser,
+  server,
+  { allowedProbeURL, proxyServer, captureResponseBodies = false } = {},
+) {
   const context = await browser.newContext({
     serviceWorkers: 'allow',
     acceptDownloads: false,
+    ...(proxyServer
+      ? { proxy: { server: proxyServer, bypass: '<-loopback>' } }
+      : {}),
   });
   const observations = {
     phase: 'online',
@@ -18,30 +25,67 @@ async function newObservedContext(browser, server) {
     pageErrors: [],
     externalAttempts: [],
   };
+  const requestPhases = new WeakMap();
+  const bodyRecords = [];
+  context.on('request', (request) =>
+    requestPhases.set(request, observations.phase),
+  );
   context.on('requestfailed', (request) => {
     observations.failures.push({
       path: new URL(request.url()).pathname,
       error: request.failure()?.errorText,
-      phase: observations.phase,
+      phase: requestPhases.get(request) ?? observations.phase,
     });
   });
   context.on('response', (response) => {
+    const phase = requestPhases.get(response.request()) ?? observations.phase;
     observations.responses.push({
       path: new URL(response.url()).pathname,
       status: response.status(),
       worker: response.fromServiceWorker(),
-      phase: observations.phase,
+      phase,
     });
+    if (
+      captureResponseBodies &&
+      ['offline-production', 'old-release-offline'].includes(phase)
+    ) {
+      const url = new URL(response.url());
+      bodyRecords.push(
+        response
+          .body()
+          .then((body) => ({
+            phase,
+            origin: url.origin,
+            path: url.pathname,
+            status: response.status(),
+            worker: response.fromServiceWorker(),
+            bytes: body.byteLength,
+            sha256: createHash('sha256').update(body).digest('hex'),
+          }))
+          .catch(() => ({
+            phase,
+            origin: url.origin,
+            path: url.pathname,
+            error: 'Response body unavailable',
+          })),
+      );
+    }
   });
   context.on('page', (page) => {
     page.on('console', (message) => {
       if (message.type() === 'error') {
         const url = message.location().url;
+        const path = url ? new URL(url).pathname : null;
+        const correlated =
+          observations.failures.findLast((failure) => failure.path === path) ??
+          observations.responses.findLast(
+            (response) => response.path === path && response.status >= 400,
+          );
         observations.consoleErrors.push({
           text: message.text(),
-          path: url ? new URL(url).pathname : null,
+          path,
           source: 'page',
-          phase: observations.phase,
+          phase: correlated?.phase ?? observations.phase,
         });
       }
     });
@@ -64,15 +108,15 @@ async function newObservedContext(browser, server) {
   // This also disables HTTP cache, avoiding a false no-worker offline success.
   await context.route('**/*', async (route) => {
     const url = new URL(route.request().url());
-    if (url.origin !== server.origin) {
+    if (url.origin !== server.origin && url.href !== allowedProbeURL) {
       observations.externalAttempts.push(url.origin);
       await route.abort('blockedbyclient');
     } else await route.continue();
   });
-  return { context, observations };
+  return { context, observations, bodyRecords };
 }
 
-async function loadApplication(page, url) {
+async function loadWorkerlessFixture(page, url) {
   const response = await page.goto(url, { waitUntil: 'networkidle', timeout });
   assert(response, 'Online navigation must produce a response');
   assert.equal(response.status(), 200);
@@ -80,11 +124,11 @@ async function loadApplication(page, url) {
   await page.locator('main').waitFor({ timeout });
   assert(
     await page.locator('main').innerText(),
-    'Actual application must render',
+    'Actual workerless negative-control fixture must render',
   );
 }
 
-async function registrationSnapshot(page) {
+export async function registrationSnapshot(page) {
   return page.evaluate(async () => {
     const registrations = await navigator.serviceWorker.getRegistrations();
     const registration = await navigator.serviceWorker.getRegistration(
@@ -130,7 +174,7 @@ async function sendWorkerMessage(page, role, type) {
   );
 }
 
-async function waitForWorker(page, role, state) {
+export async function waitForWorker(page, role, state) {
   await page.evaluate(async () => {
     globalThis.proofRegistration =
       await navigator.serviceWorker.getRegistration(location.href);
@@ -142,7 +186,7 @@ async function waitForWorker(page, role, state) {
   );
 }
 
-async function waitForControl(page) {
+export async function waitForControl(page) {
   await page.waitForFunction(
     () => navigator.serviceWorker.controller?.state === 'activated',
     undefined,
@@ -165,10 +209,11 @@ async function proveNoWorker(browser, server, prefix) {
     const first = await context.newPage();
     const second = await context.newPage();
     const onlineControl = await control.context.newPage();
-    const appUrl = `${server.origin}${prefix}${appQuery}`;
-    await loadApplication(first, appUrl);
-    await loadApplication(second, appUrl);
-    await loadApplication(onlineControl, appUrl);
+    const controlPath = `${prefix}__browser-proof/no-worker.html`;
+    const appUrl = `${server.origin}${controlPath}`;
+    await loadWorkerlessFixture(first, appUrl);
+    await loadWorkerlessFixture(second, appUrl);
+    await loadWorkerlessFixture(onlineControl, appUrl);
     assert.equal(context.pages().length, 2);
     assert.notEqual(first, second);
     await first.evaluate(() => {
@@ -208,12 +253,12 @@ async function proveNoWorker(browser, server, prefix) {
     assert.equal(await first.evaluate(() => navigator.onLine), false);
     const uncachedFailure = await first.evaluate(async (path) => {
       try {
-        await fetch(`${path}index.html?offline-proof=1`, { cache: 'no-store' });
+        await fetch(`${path}?offline-proof=1`, { cache: 'no-store' });
         return false;
       } catch {
         return true;
       }
-    }, prefix);
+    }, controlPath);
     assert.equal(
       uncachedFailure,
       true,
@@ -237,7 +282,7 @@ async function proveNoWorker(browser, server, prefix) {
         (item) => item.error === 'net::ERR_INTERNET_DISCONNECTED',
       ).length >= 3,
     );
-    await loadApplication(onlineControl, appUrl);
+    await loadWorkerlessFixture(onlineControl, appUrl);
     assert.equal(
       await onlineControl.evaluate(() => navigator.onLine),
       true,
@@ -246,19 +291,19 @@ async function proveNoWorker(browser, server, prefix) {
 
     await context.setOffline(false);
     observations.phase = 'recovery';
-    await loadApplication(first, appUrl);
-    await loadApplication(second, appUrl);
+    await loadWorkerlessFixture(first, appUrl);
+    await loadWorkerlessFixture(second, appUrl);
     const recovery = await first.reload({ waitUntil: 'networkidle', timeout });
     assert.equal(recovery?.status(), 200);
     assert.equal(await first.evaluate(() => navigator.onLine), true);
     assert.equal((await registrationSnapshot(first)).registrations, 0);
     assertCleanObservations(observations, {
       missingPath,
-      offlinePaths: [prefix, `${prefix}index.html`],
+      offlinePaths: [controlPath],
     });
     assertCleanObservations(control.observations);
     return {
-      onlineProductionLoad: true,
+      onlineWorkerlessFixtureLoad: true,
       distinctPageDocuments: 2,
       registrations: 0,
       missingAssetDetected: 404,
@@ -464,7 +509,7 @@ export async function runBrowserProof(browser, server, prefix) {
   assert(['/', '/math-adventure/'].includes(prefix));
   return {
     prefix,
-    noWorkerApplication: await proveNoWorker(browser, server, prefix),
+    noWorkerNegativeControl: await proveNoWorker(browser, server, prefix),
     lifecycleFixture: await proveFixture(browser, server, prefix),
   };
 }
