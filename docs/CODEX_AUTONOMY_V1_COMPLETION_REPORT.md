@@ -12,8 +12,8 @@ The candidate starts from certified Phase 2 revision
 [PR #5](https://github.com/kkazantzphone-droid/Math-Adventure/pull/5) was open and
 unmerged; protected main was `a286c97fc26e5b17fa7b6a8466825c15db86f0d7`.
 This task expressly permits local commits and permits publication only after
-parent merge and reconciliation onto current protected main. The candidate is
-therefore dependent until that condition is observed. Protected-main merge stays
+parent merge and reconciliation onto current protected main. The candidate
+was therefore dependent until that condition was observed. Protected-main merge stays
 a human action.
 
 The [operating model](CODEX_OPERATING_MODEL.md) grants Class A reversible
@@ -153,19 +153,46 @@ logs, build output and isolated snapshots remain ignored local evidence.
 
 ## Publication and human gate
 
-The final parent-state recheck on 2026-10-06 still observed PR #5 OPEN/unmerged,
+The initial handoff recheck on 2026-10-06 observed PR #5 OPEN/unmerged,
 head `c62b27a05d665b9c0bb907b858ccf21209f9f910`, protected-main base
 `a286c97fc26e5b17fa7b6a8466825c15db86f0d7`, with no merge commit. The governance
-candidate remains local and STACKED / DEPENDENT. It has no governance PR or hosted
+candidate was local and STACKED / DEPENDENT. It had no governance PR or hosted
 CI result; parent success cannot substitute for this candidate's checks.
 
-Outcome: **HUMAN DECISION REQUIRED** for owner merge of the certified parent.
+Initial outcome: **HUMAN DECISION REQUIRED** for owner merge of the certified parent.
 This follows the owner's explicit publication condition and Class C protected-main
 boundary, not a request for normal coding approval. After an observed parent
 merge, reconcile onto current main, reverify, publish the authorized feature PR
 and repair/observe both required exact-head Ubuntu/Windows checks. Do not merge,
 tag, release or deploy. No AUTONOMY SYSTEM V1 — READY FOR OWNER MERGE claim is made
 before that publication evidence exists.
+
+On resumption, GitHub confirmed owner merge of PR #5 at 2026-10-06 03:37:38 UTC,
+commit `11a43414d1dcc869f1c815ed7adf72f3ee0c5218`. Fetched current main is
+byte-for-byte tree-equivalent to certified parent
+`c62b27a05d665b9c0bb907b858ccf21209f9f910`. A normal history-preserving merge
+reconciled the governance branch at `6029907`; six documentation conflicts were
+resolved with the already verified governance versions, and the index/worktree
+were proved identical to `3cb17fe` before preserving that merge. Current main is
+now an ancestor, and its comparison contains only the 24 governance files.
+
+The parent publication condition is satisfied. Resumed `corepack pnpm verify`
+passed 576 tests/28 files, sixteen fixtures, formatting, lint, strict type checks
+and build. A new isolated snapshot passed `corepack pnpm install --frozen-lockfile`
+and the same 576-test aggregate verification. Resumed `corepack pnpm audit --json`
+again reported zero advisories and the unchanged 203-entry graph. The lockfile and
+all four production artifacts remain byte-identical to the certified baseline.
+
+Fresh independent publication review of the complete 24-file current-main diff
+at `6029907` plus this report update found no actionable finding. Its probes
+rejected 272 dangerous additions, 37 required-evidence omissions, 37 stale-proof
+variants and inappropriate mock substitutions; 342 local links resolve. Product
+source/assets, pins, lockfile, workflow and accepted ADRs remain unchanged.
+
+Authorized feature publication can proceed after preserving this report. Both
+required PR-specific checks must be observed for the current head before the
+final READY claim; parent results cannot satisfy them. No protected-main merge,
+release, deployment or Phase 1E production action is performed by this task.
 
 ## Tooling and evidence limits
 
