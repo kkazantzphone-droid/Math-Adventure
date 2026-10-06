@@ -3,7 +3,8 @@
 Phase 3A adds `src/infrastructure/persistence/{adapter,layout,maintenance,envelope}.ts`,
 `vite.persistence.config.ts`, `tests/browser/phase3/`, `tests/integration/` and
 focused boundary/mutation tooling. The developer entry builds separately under
-ignored `.cache/`; normal composition and its production artifacts are unchanged.
+ignored `.cache/`; normal composition is unchanged and no synthetic artifacts ship
+in its production output.
 [Completion evidence](PHASE_3A_COMPLETION_REPORT.md) records exact synthetic schema
 and native gates. No `domain/learning` or adaptation engine is added.
 

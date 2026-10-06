@@ -4,9 +4,11 @@ Date: **2026-10-06, Europe/Athens**. Authorized base:
 `c82f4ca9ed27e35f6ccdad46cc56de2fc40c04ff`, observed on `origin/main` after
 fetch. Branch: `codex/phase-3a-local-data`. Implementation is preserved at
 `9d7babaabd42d5a977f302b8685a9ab1cd4a7679` (foundation `5116fd2` plus final
-review repairs); browser/mutation source hashes identify its exact bytes. Final
-certification/publication is conditional on the gates below. This report makes no
-real-child-readiness claim.
+review repairs), followed by the checkout-path-independent containment test at
+`e80190862868beec9aed0226619dca19b662d30b`. Browser/mutation source hashes identify
+their exact bytes. Local outcome: **PASS for the authorized synthetic-only 3A
+scope**, within the evidence limits below. This report makes no real-child-readiness
+claim. Exact-head hosted checks remain a separate publication gate.
 
 The owner's separate `/goal` authorizes only Stage 3A in the
 [plan](PHASE_3_IMPLEMENTATION_PLAN.md) and
@@ -138,7 +140,9 @@ migration certifying extra metadata that reopen rejected; full-clear metadata
 retention; Windows absolute path escape in the test server; insufficient synthetic
 provisioning restrictions; same-origin child proof; transport-masked alias tests;
 incomplete native evidence; and a retained prepared harness command after full
-clear. Retained native/pure regressions exercise the
+clear. A fresh checkout also caught an absolute-path containment assertion matching
+`phase3` in the checkout directory; it now examines repository-relative paths.
+Retained native/pure regressions exercise the
 material repairs. Implementers are not the sole certifiers. Specialist reviews
 remain engineering reviews, not professional privacy/education/device certification.
 
@@ -211,9 +215,39 @@ follows. Android/iPadOS/assistive technologies/real learners remain untested.
 
 ## Gates and publication
 
-Final full/fresh candidate gates and publication remain pending. The audit on
-2026-10-06 reported **No known vulnerabilities found**. No runtime/development
-dependency, install policy, exact tool pin or lockfile changed. Canonical commands:
+Full canonical verification and the isolated fresh frozen-install/verification
+both passed on `e80190862868beec9aed0226619dca19b662d30b`: **792 tests in 41 files**,
+16 synthetic evaluation fixtures, formatting, zero-warning lint, all four strict
+TypeScript projects and production build. The isolated checkout downloaded and
+installed its own 179 packages; it did not copy `node_modules`. Its name deliberately
+retains `phase3`, exercising the repaired containment assertion. The final complete
+documentation candidate is rerun through both gates before feature publication.
+
+The audit on 2026-10-06 reported **No known vulnerabilities found**. No
+runtime/development dependency, install policy, exact tool pin or lockfile changed.
+The lockfile SHA-256 is
+`62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964`.
+Complete source/config/test/documentation/evidence diff review, Git whitespace,
+278 local links, 28 retained source-hash checks and privacy/secret review passed.
+Only sanitized summaries are retained; disposable native profiles were removed.
+
+The production inventory contains eight artifacts. Main JS/CSS bytes and hash
+filenames match the initial protected-main build; no adapter/harness identifier is
+present in the output. Notices remain copied. The retained
+[inventory](evidence/phase3a/candidate-inventory.json) records every size/hash.
+
+| Artifact                    |   Bytes |
+| --------------------------- | ------: |
+| `index.html`                |     795 |
+| `manifest.webmanifest`      |     440 |
+| `release.json`              |   1,300 |
+| `sw.js`                     |  22,518 |
+| `THIRD_PARTY_NOTICES.txt`   |   1,384 |
+| `assets/index-Cqw6cjjL.css` |  21,440 |
+| `assets/index-ZAEB6tsz.js`  | 319,586 |
+| `icons/math-adventure.svg`  |     431 |
+
+Canonical commands:
 
 ```sh
 corepack pnpm install --frozen-lockfile
