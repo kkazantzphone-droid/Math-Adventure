@@ -1,12 +1,26 @@
 # Open questions and human decisions
 
-Current D44 scope: the owner authorizes production checkpoint 7 after merging proof-environment PR #7 into `ab734e1`. Custom worker/build tooling is resolved at this shell scope; [completion evidence](PHASE_1E_COMPLETION_REPORT.md) records closure and limits. Learner persistence, playable loop, adaptation, deployment, release, legal/retention decisions and actual-device/offline-speech support remain outside this authority. The next status paragraph preserves the historical Phase 2/D43 handoff; its unimplemented Phase 1E status is superseded.
+Current D45 scope: **Phase 1 is closed** through owner-merged Phase 1E at
+`93db59893b076925b1fdb5fadfa5abb9dfb274ac`; Phase 2, autonomy and proof-environment
+work are also merged. [Closure](PHASE_1_COMPLETION_REPORT.md) records bounded
+evidence. [Phase 3 readiness](PHASE_3_READINESS_REPORT.md) prepares three separately
+commissioned stages; no stage implementation or real-child use has started.
+There is **no unresolved product-policy decision needed before synthetic-only
+3A code** under its explicit future Goal. Local developer containment is required;
+“local” is not permission to use real learner data.
 
-Status: remaining questions deliberately unresolved; owner architecture approval, license selection and bounded phase entries are recorded in the register. Phase 1V is **FINAL PASS — OWNER CONFIRMED** and locally preserved, including Space, Shapes, Show me, Explore and the final one-top-side root view. Founder-family UAT is bounded project design input, not representative research, effectiveness, accessibility certification or ability evidence. Phase 1D passed bounded engineering gates and was locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`; the D39 pilot published parent PR #4, which the owner subsequently merged. D40 [Phase 2 local proof](PHASE_2_COMPLETION_REPORT.md) passed its engineering evidence and the branch is reconciled to the tree-equivalent protected-main parent. The original candidate was published in open non-draft PR #5 with both required checks passing. The [D41 red-team report](PHASE_2_RED_TEAM_REPORT.md) records bounded repairs, local full/fresh and both required hosted 514-test checks passing for the repair revision. Final documentation preservation and any subsequent PR head require their own verification/hosted checks. [Phase 1E](PHASE_1E_COMPLETION_REPORT.md) remains independently **BLOCKED/PARTIAL — BROWSER LIFECYCLE EVIDENCE REQUIRED** and unimplemented; real learner gameplay and remaining human/device/release decisions retain their gates.
+Remaining questions stay deliberately unresolved. The [implementation plan's
+human-gate table](PHASE_3_IMPLEMENTATION_PLAN.md) reduces them to retention,
+adaptation/control/educational policy and consented privacy/device/wording review
+before real-child use, followed by official-pack, host, backup and release
+decisions before public release. Founder-family Phase 1V confirmation remains
+bounded project design input, not research/effectiveness/accessibility evidence.
+The historical blocked Phase 1E readiness document remains frozen as
+[historical readiness](PHASE_1E_READINESS_REPORT.md).
 
 | ID | Question / conservative default | Decision owner / deadline | Blocks |
 | --- | --- | --- | --- |
-| Q01 / D26-D44 | CLOSED for authorized prior phases, governance and D44 production shell | Owner authority; evidence in phase reports and [operating model](CODEX_OPERATING_MODEL.md). Narrow task restrictions/publication conditions prevail | Human Class C gates remain, including protected-main merge. Playable loop, learner persistence, adaptation and deployment remain unauthorized |
+| Q01 / D26-D45 | CLOSED for prior phases, merged shell and current readiness/synthetic simulations | Owner authority; [staged plan](PHASE_3_IMPLEMENTATION_PLAN.md) requires a new explicit Goal per stage | Class C remains human; readiness does not start implementation, real-child use or deployment |
 | Q02 / D17 | License selection closed: owner selected Apache-2.0 for original code/project documentation. Contribution sign-off/provenance and asset-specific rights remain unresolved | Owner before public contribution/publication | Public contributor onboarding/asset reuse; license selection no longer blocks |
 | Q03 / D20 | Final summary/profile inactivity retention, grace/expiry/deletion, parent renewal and clock uncertainty notices; proposed12mo purpose limit remains incomplete | Owner + privacy/legal review before real data | Real learner persistence/trials |
 | Q04 / D21 | Operator/controller, territories, legal bases, child/parent notices/rights, profiling/default adaptation controls and DPIA need | Owner + qualified legal/privacy adviser before relevant trials/launch | Legal launch; local adaptation not exempt by assumption |

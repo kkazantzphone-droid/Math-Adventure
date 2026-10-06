@@ -1,5 +1,12 @@
 # Localisation and speech
 
+Phase 3 readiness inventories the [new slice message IDs and acceptance gates](PHASE_3_IMPLEMENTATION_PLAN.md)
+without writing translations or promoting packs. el-GR/en-GB/de-DE remain draft;
+the four planned locales remain incomplete. Independent UI/instruction/number
+speech roles and optional exact-local-only playback are preserved. Readiness
+does not add generated/arbitrary learner utterances, saved preferences or a voice
+claim; these require the bounded implementation and review stated in the plan.
+
 Status: accepted separation/policy and preserved **Phase 1D ENGINEERING PASS — bounded checkpoint 6 complete**. Phase 2 extends the prototype draft schema for its developer proof, with passing completeness and bounded browser results in the [Phase 2 report](PHASE_2_COMPLETION_REPORT.md). Actual observation exposed one exact local Greek voice and zero eligible English/German voices; explicit fixed Greek playback completed, with no pronunciation/offline certification. The proof Listen control is generic navigation support, not arbitrary generated math speech. [ADR-0005](adr/ADR-0005.md) governs the boundary; [ADR-0012](adr/ADR-0012.md) records bounded Phase 1D choices. Historical gates/browser findings remain in the frozen Phase 1D report. Earlier primary-source research is recorded in [research evidence](RESEARCH_EVIDENCE.md), accessed 2026-10-04; it is distinct from device evidence.
 
 The preserved owner-confirmed Phase 1V had tiny el-GR/en-GB-only copy, no speech and a documented Greek fallback for lang=de. That historical behavior and founder-family aggregate input remain in its frozen report/protocol; neither establishes official-pack quality or general language support. Phase 1D replaces the presentation boundary with draft current-prototype el-GR/en-GB/de-DE messages, exact seven-locale manifests, three independent transient language preferences and optional explicit local-only speech. German becomes prototype copy with native review pending, not official German support. Production pack promotion, general number wording and actual-device capabilities remain separate gates.
