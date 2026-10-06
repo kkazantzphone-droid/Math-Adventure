@@ -1,9 +1,9 @@
 # Roadmap
 
-Current staged implementation: Phase 3A is owner-merged in protected main
-`9f60daf`; D47 separately authorizes the synthetic-only Phase 3B foundation
-in the existing developer environment. Its [completion report](PHASE_3B_COMPLETION_REPORT.md)
-records candidate certification/publication. Normal child adaptation/save and
+Current staged implementation: synthetic-only Phase 3A/3B are owner-merged in
+protected main `fba77ed1da86944c3700aa74eaa68b50182f692b`; D47's Phase 3B foundation
+uses the existing developer environment. Its [completion report](PHASE_3B_COMPLETION_REPORT.md)
+preserves candidate certification/publication. Normal child adaptation/save and
 Phase 3C remain unwired and need a separate Goal; no educational policy or
 real-child use is accepted. Historical closure/planning baselines below remain
 evidence for their recorded stages.
@@ -43,7 +43,7 @@ Current sequence: completed Phase 1 technical skeleton and owner-confirmed visua
 
 ## First genuinely playable slice
 
-The owner separately authorized governance/developer tooling V1 under D42: [operating model](CODEX_OPERATING_MODEL.md), repository skills, synthetic behavior scenarios and [task templates](CODEX_TASK_TEMPLATES.md). This supporting work is complete and merged outside the product-phase sequence. Standing Class A/B workflow authority does not start a new Phase 3 implementation Goal or accept a proposed ADR. An explicitly narrower task and its parent/base publication conditions take precedence. Protected-main merge and other Class C decisions remain human.
+The owner separately authorized governance/developer tooling V1 under D42. D48 authorizes V2 conditional Class B protected squash merge under the [operating model](CODEX_OPERATING_MODEL.md), repository skills, synthetic behavior scenarios and [task templates](CODEX_TASK_TEMPLATES.md). This supporting work remains outside the product-phase sequence. V2 takes effect only after the owner manually squash-merges this governance PR; it must not self-merge. Future qualifying trusted Codex Class A/B PRs default to `automatic_when_eligible` after every exact-head local/independent/hosted and current-state gate passes. A narrower task and its parent/base publication conditions take precedence. Authority-expanding governance and consequential Class C decisions remain human; merge never starts an unauthorized phase or accepts a proposed ADR.
 
 Start with one synthetic learner fixture (not one hard-coded architectural profile). Prove independent profile partitioning with two synthetic profiles in tests. Support reviewed el-GR, en-GB and de-DE prompts for a bounded catalog: numeral recognition, counting, comparison, simple addition/subtraction and missing number, plus one early shape/spatial activity and a concrete unit-length comparison. These minimal non-arithmetic proofs ensure independent pathways are exercised early. Keep task spaces small enough for exhaustive truth checks; stage families rather than build them simultaneously.
 
@@ -51,4 +51,4 @@ Include replayable speech where a device exposes a tested local voice, visual eq
 
 Before real learner gameplay/evaluation: approve retention/default adaptation/profiling controls and consented evaluation; review messages/hints with native speakers and educators; verify actual target devices. The separately authorized Phase 1V founder-family UAT observes visual usability without learner records, evidence or saving; it does not satisfy these later gates. Learning impact needs a separate proportionate evaluation, not playtime analytics. Do not interpret family anecdotes as diagnoses or efficacy proof.
 
-Broader grouping/division, richer geometry/measurement, conceptual squares/powers/perfect roots, fractions and other domains are independent connected increments, not reasons to implement a general algebra platform immediately. Number Lab may expose bounded powers/roots ahead without formal mastery. Geometry is present from early learning. The merged Phase 2 proof supplies reusable bounded families; new candidates require their own independent/full/fresh/current-head checks. Merge, deployment, accounts, new GitHub setup and desktop tooling retain their separate human gates.
+Broader grouping/division, richer geometry/measurement, conceptual squares/powers/perfect roots, fractions and other domains are independent connected increments, not reasons to implement a general algebra platform immediately. Number Lab may expose bounded powers/roots ahead without formal mastery. Geometry is present from early learning. The merged Phase 2 proof supplies reusable bounded families; new candidates require their own independent/full/fresh/current-head checks. An eligible verified merge can satisfy the declared parent condition of an already owner-authorized queued Goal; it cannot invent the next roadmap phase. Deployment, accounts/access, repository protection and consequential desktop-tooling decisions retain their separate human gates.

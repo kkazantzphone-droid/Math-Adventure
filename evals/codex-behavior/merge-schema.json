@@ -1,0 +1,930 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Synthetic conditional squash merge decision facts",
+  "description": "All observations are supplied synthetic facts. This is not a GitHub executor or evidence attestation.",
+  "$defs": {
+    "observation": {
+      "type": "object",
+      "properties": {
+        "readImmediatelyBeforeAction": {
+          "type": "boolean"
+        },
+        "fetchedProtectedMain": {
+          "type": "boolean"
+        },
+        "headRevision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "mainRevision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "baseRevision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "strictBaseCurrent": {
+          "type": "boolean"
+        },
+        "hostedChecks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "enum": ["verify (ubuntu-24.04)", "verify (windows-2025)"]
+              },
+              "event": {
+                "enum": ["pull_request", "push"]
+              },
+              "prNumber": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              "repository": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "workflow": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "headRevision": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "status": {
+                "enum": ["queued", "in_progress", "completed"]
+              },
+              "conclusion": {
+                "enum": [
+                  "success",
+                  "failure",
+                  "cancelled",
+                  "skipped",
+                  "neutral",
+                  "timed_out",
+                  "action_required",
+                  "none"
+                ]
+              },
+              "runnerUnavailable": {
+                "type": "boolean"
+              },
+              "appId": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1000000
+              },
+              "currentAttempt": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "name",
+              "event",
+              "prNumber",
+              "repository",
+              "workflow",
+              "headRevision",
+              "status",
+              "conclusion",
+              "runnerUnavailable",
+              "appId",
+              "currentAttempt"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 8,
+          "uniqueItems": true
+        },
+        "pr": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "enum": ["OPEN", "CLOSED", "MERGED"]
+            },
+            "draft": {
+              "type": "boolean"
+            },
+            "mergeable": {
+              "type": "boolean"
+            },
+            "target": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "unresolvedReviewThreads": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "mergeConflict": {
+              "type": "boolean"
+            },
+            "requiredStatusesGreen": {
+              "type": "boolean"
+            },
+            "requiredApprovalsSatisfied": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "state",
+            "draft",
+            "mergeable",
+            "target",
+            "unresolvedReviewThreads",
+            "mergeConflict",
+            "requiredStatusesGreen",
+            "requiredApprovalsSatisfied"
+          ],
+          "additionalProperties": false
+        },
+        "protection": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "boolean"
+            },
+            "unchangedFromAcceptedPolicy": {
+              "type": "boolean"
+            },
+            "fingerprint": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "squashAllowed": {
+              "type": "boolean"
+            },
+            "bypassRequested": {
+              "type": "boolean"
+            },
+            "strictRequiredStatuses": {
+              "type": "boolean"
+            },
+            "requiredReviewResolution": {
+              "type": "boolean"
+            },
+            "bypassActorsPresent": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "active",
+            "unchangedFromAcceptedPolicy",
+            "fingerprint",
+            "squashAllowed",
+            "bypassRequested",
+            "strictRequiredStatuses",
+            "requiredReviewResolution",
+            "bypassActorsPresent"
+          ],
+          "additionalProperties": false
+        },
+        "completeChecksRead": {
+          "type": "boolean"
+        },
+        "completeReviewsRead": {
+          "type": "boolean"
+        },
+        "completeThreadsRead": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "readImmediatelyBeforeAction",
+        "fetchedProtectedMain",
+        "headRevision",
+        "mainRevision",
+        "baseRevision",
+        "strictBaseCurrent",
+        "hostedChecks",
+        "pr",
+        "protection",
+        "completeChecksRead",
+        "completeReviewsRead",
+        "completeThreadsRead"
+      ],
+      "additionalProperties": false
+    },
+    "facts": {
+      "type": "object",
+      "properties": {
+        "policyEffectiveOnProtectedMain": {
+          "type": "boolean"
+        },
+        "candidateRevision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "task": {
+          "type": "object",
+          "properties": {
+            "objectiveOwnerAuthorized": {
+              "type": "boolean"
+            },
+            "entirelyWithinAuthorizedScope": {
+              "type": "boolean"
+            },
+            "newPhaseAuthorizationRequired": {
+              "type": "boolean"
+            },
+            "implicitClassCDecision": {
+              "type": "boolean"
+            },
+            "mergePolicy": {
+              "enum": ["automatic_when_eligible", "owner_merge", "no_merge"]
+            }
+          },
+          "required": [
+            "objectiveOwnerAuthorized",
+            "entirelyWithinAuthorizedScope",
+            "newPhaseAuthorizationRequired",
+            "implicitClassCDecision",
+            "mergePolicy"
+          ],
+          "additionalProperties": false
+        },
+        "content": {
+          "type": "object",
+          "properties": {
+            "authorityExpansion": {
+              "type": "boolean"
+            },
+            "protectionChange": {
+              "type": "boolean"
+            },
+            "classCDecisions": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "accepted-adr-policy",
+                  "new-product-phase",
+                  "real-learner-data",
+                  "real-child-trial",
+                  "retention-privacy-legal",
+                  "deployment",
+                  "production-infrastructure",
+                  "release-tag",
+                  "credential-access",
+                  "authentication-security-policy",
+                  "backend-cloud-telemetry",
+                  "paid-service",
+                  "irreversible-data"
+                ]
+              },
+              "minItems": 0,
+              "maxItems": 40,
+              "uniqueItems": true
+            },
+            "approvedClassCImplementation": {
+              "type": "boolean"
+            },
+            "ownerDecisionRecorded": {
+              "type": "boolean"
+            },
+            "implementationExplicitlyAuthorized": {
+              "type": "boolean"
+            },
+            "implementationOnly": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "authorityExpansion",
+            "protectionChange",
+            "classCDecisions",
+            "approvedClassCImplementation",
+            "ownerDecisionRecorded",
+            "implementationExplicitlyAuthorized",
+            "implementationOnly"
+          ],
+          "additionalProperties": false
+        },
+        "origin": {
+          "type": "object",
+          "properties": {
+            "repository": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "headRepository": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "prNumber": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "branch": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "fork": {
+              "type": "boolean"
+            },
+            "thirdParty": {
+              "type": "boolean"
+            },
+            "codexOwnedOrAuthorized": {
+              "type": "boolean"
+            },
+            "taskProvenance": {
+              "type": "boolean"
+            },
+            "explicitNonstandardBranchAuthorization": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "repository",
+            "headRepository",
+            "prNumber",
+            "branch",
+            "fork",
+            "thirdParty",
+            "codexOwnedOrAuthorized",
+            "taskProvenance",
+            "explicitNonstandardBranchAuthorization"
+          ],
+          "additionalProperties": false
+        },
+        "candidate": {
+          "type": "object",
+          "properties": {
+            "clean": {
+              "type": "boolean"
+            },
+            "unrelatedChanges": {
+              "type": "boolean"
+            },
+            "realLearnerData": {
+              "type": "boolean"
+            },
+            "childMedia": {
+              "type": "boolean"
+            },
+            "credentialsSecrets": {
+              "type": "boolean"
+            },
+            "privateExportsDatabases": {
+              "type": "boolean"
+            },
+            "accidentalGeneratedEvidence": {
+              "type": "boolean"
+            },
+            "prohibitedExternalResources": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "clean",
+            "unrelatedChanges",
+            "realLearnerData",
+            "childMedia",
+            "credentialsSecrets",
+            "privateExportsDatabases",
+            "accidentalGeneratedEvidence",
+            "prohibitedExternalResources"
+          ],
+          "additionalProperties": false
+        },
+        "findings": {
+          "type": "object",
+          "properties": {
+            "unresolvedMaterial": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "humanDecisionOutstanding": {
+              "type": "boolean"
+            },
+            "evidenceUnavailable": {
+              "type": "boolean"
+            },
+            "limitationsAllowedAndRecorded": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "unresolvedMaterial",
+            "humanDecisionOutstanding",
+            "evidenceUnavailable",
+            "limitationsAllowedAndRecorded"
+          ],
+          "additionalProperties": false
+        },
+        "local": {
+          "type": "object",
+          "properties": {
+            "requirements": {
+              "type": "object",
+              "properties": {
+                "mathOracle": {
+                  "type": "boolean"
+                },
+                "browserDevice": {
+                  "type": "boolean"
+                },
+                "mutations": {
+                  "type": "boolean"
+                }
+              },
+              "required": ["mathOracle", "browserDevice", "mutations"],
+              "additionalProperties": false
+            },
+            "additionalRequiredChecks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "minItems": 0,
+              "maxItems": 40,
+              "uniqueItems": true
+            },
+            "checks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 240
+                  },
+                  "revision": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 240
+                  },
+                  "passed": {
+                    "type": "boolean"
+                  }
+                },
+                "required": ["name", "revision", "passed"],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 32,
+              "uniqueItems": true
+            },
+            "documentationCarry": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "governanceAllowsReuse": {
+                  "type": "boolean"
+                },
+                "policyReference": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "onlyDocumentationChanged": {
+                  "type": "boolean"
+                },
+                "completeSourceEvidencePassed": {
+                  "type": "boolean"
+                },
+                "documentationVerificationPassed": {
+                  "type": "boolean"
+                },
+                "reviewedDiffPassed": {
+                  "type": "boolean"
+                },
+                "headRevision": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "sourceRevision": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "changedPaths": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 240
+                  },
+                  "minItems": 0,
+                  "maxItems": 40,
+                  "uniqueItems": true
+                },
+                "mergeInstructionsOrPolicyChanged": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "enabled",
+                "governanceAllowsReuse",
+                "policyReference",
+                "onlyDocumentationChanged",
+                "completeSourceEvidencePassed",
+                "documentationVerificationPassed",
+                "reviewedDiffPassed",
+                "headRevision",
+                "sourceRevision",
+                "changedPaths",
+                "mergeInstructionsOrPolicyChanged"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "requirements",
+            "additionalRequiredChecks",
+            "checks",
+            "documentationCarry"
+          ],
+          "additionalProperties": false
+        },
+        "evidenceRecord": {
+          "type": "object",
+          "properties": {
+            "headRevision": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "objectiveScopeAccurate": {
+              "type": "boolean"
+            },
+            "verificationAccurate": {
+              "type": "boolean"
+            },
+            "hostedCiAccurate": {
+              "type": "boolean"
+            },
+            "limitationsAccurate": {
+              "type": "boolean"
+            },
+            "explicitExclusionsAccurate": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "headRevision",
+            "objectiveScopeAccurate",
+            "verificationAccurate",
+            "hostedCiAccurate",
+            "limitationsAccurate",
+            "explicitExclusionsAccurate"
+          ],
+          "additionalProperties": false
+        },
+        "observed": {
+          "$ref": "#/$defs/observation"
+        },
+        "final": {
+          "$ref": "#/$defs/observation"
+        },
+        "mergeResult": {
+          "enum": ["not-attempted", "reported-success", "ambiguous"]
+        },
+        "postMerge": {
+          "type": "object",
+          "properties": {
+            "fetchedProtectedMain": {
+              "type": "boolean"
+            },
+            "prState": {
+              "enum": ["OPEN", "MERGED", "UNKNOWN"]
+            },
+            "repository": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "prNumber": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "mergedHeadRevision": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "squashMethod": {
+              "type": "boolean"
+            },
+            "mergeCommitRevision": {
+              "type": "string",
+              "minLength": 0,
+              "maxLength": 240
+            },
+            "mainContainsMergeCommit": {
+              "type": "boolean"
+            },
+            "protectionActive": {
+              "type": "boolean"
+            },
+            "protectionFingerprint": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "requiredPostMergeCi": {
+              "type": "boolean"
+            },
+            "postMergeCiSucceeded": {
+              "type": "boolean"
+            },
+            "codexTriggeredReleaseDeploymentTag": {
+              "type": "boolean"
+            },
+            "protectionUnchangedFromAcceptedPolicy": {
+              "type": "boolean"
+            },
+            "strictRequiredStatuses": {
+              "type": "boolean"
+            },
+            "requiredReviewResolution": {
+              "type": "boolean"
+            },
+            "bypassActorsPresent": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "fetchedProtectedMain",
+            "prState",
+            "repository",
+            "prNumber",
+            "mergedHeadRevision",
+            "squashMethod",
+            "mergeCommitRevision",
+            "mainContainsMergeCommit",
+            "protectionActive",
+            "protectionFingerprint",
+            "requiredPostMergeCi",
+            "postMergeCiSucceeded",
+            "codexTriggeredReleaseDeploymentTag",
+            "protectionUnchangedFromAcceptedPolicy",
+            "strictRequiredStatuses",
+            "requiredReviewResolution",
+            "bypassActorsPresent"
+          ],
+          "additionalProperties": false
+        },
+        "queuedGoal": {
+          "type": "object",
+          "properties": {
+            "exists": {
+              "type": "boolean"
+            },
+            "ownerAuthorized": {
+              "type": "boolean"
+            },
+            "declaredParentSatisfied": {
+              "type": "boolean"
+            },
+            "requiresClassCDecision": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "exists",
+            "ownerAuthorized",
+            "declaredParentSatisfied",
+            "requiresClassCDecision"
+          ],
+          "additionalProperties": false
+        },
+        "mergeAction": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "enum": ["squash", "merge", "rebase"]
+            },
+            "expectedHeadRevision": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 240
+            },
+            "headPreconditionSupported": {
+              "type": "boolean"
+            },
+            "serverEnforcesProtection": {
+              "type": "boolean"
+            },
+            "noBypass": {
+              "type": "boolean"
+            },
+            "queuedAutoMerge": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "method",
+            "expectedHeadRevision",
+            "headPreconditionSupported",
+            "serverEnforcesProtection",
+            "noBypass",
+            "queuedAutoMerge"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "policyEffectiveOnProtectedMain",
+        "candidateRevision",
+        "task",
+        "content",
+        "origin",
+        "candidate",
+        "findings",
+        "local",
+        "evidenceRecord",
+        "observed",
+        "final",
+        "mergeResult",
+        "postMerge",
+        "queuedGoal",
+        "mergeAction"
+      ],
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "object",
+      "properties": {
+        "decision": {
+          "enum": [
+            "SQUASH MERGE ALLOWED",
+            "DO NOT MERGE",
+            "HUMAN DECISION REQUIRED",
+            "BLOCKED — EVIDENCE UNAVAILABLE",
+            "VERIFY MERGED STATE",
+            "MERGED STATE VERIFIED",
+            "INSPECT GITHUB — NO BLIND RETRY"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "minItems": 0,
+          "maxItems": 40,
+          "uniqueItems": true
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "minItems": 0,
+          "maxItems": 40,
+          "uniqueItems": true
+        },
+        "continueQueuedGoal": {
+          "type": "boolean"
+        }
+      },
+      "required": ["decision", "reasons", "actions", "continueQueuedGoal"],
+      "additionalProperties": false
+    },
+    "scenario": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240,
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "sourceExample": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1200
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240,
+                "pattern": "^[A-Za-z][A-Za-z0-9]*(?:\\.[A-Za-z0-9]+)*$"
+              },
+              "value": {
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 240
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000000
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 240
+                    },
+                    "minItems": 0,
+                    "maxItems": 40,
+                    "uniqueItems": true
+                  }
+                ]
+              }
+            },
+            "required": ["path", "value"],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 40,
+          "uniqueItems": true
+        },
+        "expectedDecision": {
+          "$ref": "#/$defs/decision"
+        }
+      },
+      "required": [
+        "id",
+        "sourceExample",
+        "prompt",
+        "changes",
+        "expectedDecision"
+      ],
+      "additionalProperties": false
+    },
+    "suite": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": "codex-merge-behavior-v2"
+        },
+        "synthetic": {
+          "const": true
+        },
+        "scope": {
+          "const": "developer-only-structured-merge-decisions"
+        },
+        "baseline": {
+          "$ref": "#/$defs/facts"
+        },
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scenario"
+          },
+          "minItems": 16,
+          "maxItems": 16,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "synthetic",
+        "scope",
+        "baseline",
+        "scenarios"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

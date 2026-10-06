@@ -1,9 +1,11 @@
 # Decision register
 
-Current task D47 authorizes synthetic-only Phase 3B after the owner's Phase 3A
-merge into protected main `9f60daf`. [Completion evidence](PHASE_3B_COMPLETION_REPORT.md)
-records candidate checks/publication separately. This task does not accept D18,
-ADR-0006, retention/default/profiling policy or authorize Phase 3C/real-child use.
+Current task D48 authorizes governance-only conditional squash auto-merge V2
+from protected-main baseline `fba77ed1da86944c3700aa74eaa68b50182f692b`, which
+contains owner-merged synthetic Phase 3B. [V2 evidence](CODEX_AUTOMERGE_GOVERNANCE_REPORT.md)
+records candidate checks/publication separately. This authority-expanding PR must
+not self-merge; the policy becomes effective only after its observed owner merge.
+No Phase 3C, product/accepted ADR change, real-child use, release or deployment.
 
 As of 2026-10-06. ACCEPTED means a recorded architecture/product constraint or explicit owner decision, **not implementation or educational validation**. D17 records the owner's license selection. PROPOSED details remain reviewable. IDs here are stable references; ADRs contain rationale.
 
@@ -80,6 +82,7 @@ No Phase 3 implementation or real-child use follows from this certification.
 | D45 | Owner authorizes Phase 1 formal closure and Phase 3 readiness: bounded 3A/3B/3C architecture, synthetic migration fixtures/adaptation simulations, threat/language/catalog/human-gate plans and fresh specialist review | ACCEPTED readiness scope only; certification and publication evidence in current report | Owner request 2026-10-06; base `93db59893b076925b1fdb5fadfa5abb9dfb274ac`; [plan](PHASE_3_IMPLEMENTATION_PLAN.md), [readiness evidence](PHASE_3_READINESS_REPORT.md), [persistence](PHASE_3_PERSISTENCE_DESIGN.md), [proposed-policy review](PHASE_3_ADAPTATION_REVIEW.md). No database created or runtime source wiring. Separate Goal required per implementation stage; no real trials, accepted numeric policy, deployment or protected-main merge |
 | D46 | Owner authorizes synthetic-only Phase 3A: raw IndexedDB port adapter, exact bounded stores, fencing/receipts, migration/recovery/full clear, native Chrome/Edge and independent certification | ACCEPTED task scope; certification/publication in current report | Owner Goal 2026-10-06; base `c82f4ca9ed27e35f6ccdad46cc56de2fc40c04ff`; [completion](PHASE_3A_COMPLETION_REPORT.md). Separate loopback developer build, fixed fixtures, no normal child persistence/adaptation, new dependency, real data, accepted policy change, merge/release/deployment |
 | D47 | Owner authorizes synthetic-only Phase 3B: pure explainable adaptation, bounded semantic catalog certification, explicit experimental policy, independent fairness/state/privacy/accessibility/testing review and mutation proof | ACCEPTED task scope only; educational policy remains proposed; certification/publication recorded separately | Owner Goal 2026-10-06; owner-merged 3A base `9f60daf60ef0563682d6a2e498f95ea02f4cbe4e`; [completion](PHASE_3B_COMPLETION_REPORT.md). Fixed synthetic profiles in existing separate developer build; no normal child selection/persistence/default enablement, new dependency, accepted ADR/policy, real data/trials, 3C, merge/release/deployment |
+| D48 | Owner permits autonomous squash merge of qualifying Class A/B Codex PRs only after exact-head local/independent/PR-specific hosted evidence and every operating-model eligibility condition | ACCEPTED explicit owner governance decision 2026-10-06; effective for future qualifying PRs only after observed manual owner merge of this V2 governance PR | [Operating model](CODEX_OPERATING_MODEL.md#automatic-squash-merge-eligibility), [templates](CODEX_TASK_TEMPLATES.md), [V2 report](CODEX_AUTOMERGE_GOVERNANCE_REPORT.md). Same-repository authorized objective/branch, current main/base, full/fresh proof, actual Ubuntu+Windows PR SUCCESS, clean/mergeable/resolved/protected PR and accurate evidence; fresh guarded squash and verified post-merge state. Excludes self-expanding governance, Class C decisions/actions, release/deployment and protection/access changes. This PR uses owner_merge; V1 remains in force until its owner merge. No new phase or product policy follows |
 
 Current D47 synthetic candidate evidence supersedes historical descriptions of
 unimplemented adaptation only within the developer proof; normal composition
