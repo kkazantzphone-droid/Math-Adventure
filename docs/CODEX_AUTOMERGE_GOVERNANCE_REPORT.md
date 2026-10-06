@@ -126,8 +126,14 @@ Entry frozen installation passed with Node 24.21.0, Corepack 0.36.0 and pnpm
 No global tool/machine configuration changed. After byte restoration, complete
 `corepack pnpm verify` passed: **1,076 tests / 48 files**, all 32 fixtures,
 formatting, zero-warning lint, all four TypeScript configurations and production
-build. Isolated fresh verification and final preserved-head gates are recorded
-below after execution.
+build. The preserved implementation head
+`db5d03465f9bc41b8a5d5d4509697607ddc335e2` also passed exact-head local verification
+and isolated fresh frozen installation + verification with **1,076 tests / 48
+files**. Every archived source file matched that commit, the frozen lock remained
+unchanged and all eight fresh artifact hashes matched baseline. Only the reviewed
+content-addressed package cache was shared; no installed dependency tree or test/
+build cache was copied. Installation used the normal repository-local cache
+override `--store-dir` with the canonical frozen-lockfile command.
 
 Read-only independent hygiene inspected the complete 21-file candidate. All 77
 tracked/new Markdown files were checked: 729 local inline links and all four
@@ -156,13 +162,34 @@ No runtime/worker/release artifact behavior changed.
 
 ## Candidate, publication and owner gate
 
-Candidate head and hosted results will be supplied only after preservation and
-observation. A report inside a commit cannot embed its own resulting SHA: the
-current PR body is the authoritative external exact-head/run record and identifies
-this report's committed tree. Any later report commit needs its own verification
-and exact-head hosted checks. No prior-head success certifies it automatically.
+Implementation candidate `db5d03465f9bc41b8a5d5d4509697607ddc335e2` was published
+in open non-draft [PR #12](https://github.com/kkazantzphone-droid/Math-Adventure/pull/12),
+targeting protected main. Its required PR-specific
+[run 37456141116, attempt 1](https://github.com/kkazantzphone-droid/Math-Adventure/actions/runs/37456141116)
+completed SUCCESS for that exact head, event pull_request, PR 12, ci.yml:
 
-Current outcome: work in progress; no READY FOR OWNER MERGE claim yet.
-This governance PR has not been self-merged. Stop at
-**AUTONOMOUS MERGE GOVERNANCE V2 — READY FOR OWNER MERGE** only when publication
-and both exact-head PR-specific hosted checks have actually succeeded.
+| Required job                                                                                                                               | Observed result     |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
+| [verify (ubuntu-24.04), job 112244115587](https://github.com/kkazantzphone-droid/Math-Adventure/actions/runs/37456141116/job/112244115587) | COMPLETED / SUCCESS |
+| [verify (windows-2025), job 112244115261](https://github.com/kkazantzphone-droid/Math-Adventure/actions/runs/37456141116/job/112244115261) | COMPLETED / SUCCESS |
+
+Push-run success was not used as a substitute. No CI repair or workflow/protection
+change was required. Main was re-fetched at the unchanged entry baseline; the
+active strict squash-only/no-bypass ruleset remained unchanged.
+
+Final evidence preservation changes only this report. Its resulting exact SHA
+and its own completed local/fresh/PR-specific hosted results belong in the current
+PR #12 body, the authoritative external exact-head/run record. A report inside a
+commit cannot embed its own resulting SHA. No earlier-head success certifies a
+later head automatically: final publication requires complete-head gates again,
+source-hash/diff/privacy/link/lock/artifact checks and observed current-head CI.
+
+Bounded implementation engineering and the recorded initial publication gates
+are **PASS**. The final handoff is
+**AUTONOMOUS MERGE GOVERNANCE V2 — READY FOR OWNER MERGE** only after the current
+PR body records both final exact-head PR-specific SUCCESS results. This governance
+PR has not been self-merged; no merge call, deferred auto-merge request, main push,
+release, tag or deployment was performed. Stop at that owner-merge handoff. The
+new policy remains ineffective until the owner's manual squash merge is positively
+observed on protected main. No product readiness, real-child effectiveness or new
+phase authority follows.
