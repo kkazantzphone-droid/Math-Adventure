@@ -1,0 +1,80 @@
+{
+  "scope": "standalone-domain-preparation-only",
+  "result": "PASS",
+  "sourceHashes": {
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "src/application/slice-family.ts": "e7b5632e6afb80b1af95d29aa86ecde36f8f91a4143a57d785b8bf4be727d7e5",
+    "tests/oracle/slice-families.ts": "63b32b0d3359fa66aa403eb413074a903cbabe5eb2f73e01fc1e7ce6867a0ce7",
+    "tests/unit/domain/slice-families.test.ts": "4aa57d50ffb479ca712e84641a117ab55cca44e8de1d2e735743e67efce804be",
+    "scripts/slice-mutations.mjs": "395f2b3b51c6199158b3c01ad7ca6cb5ee21f196a12c5cb0b59bed87ec414cb5"
+  },
+  "baselineAssertions": 25,
+  "mutations": [
+    {
+      "id": "numeral-wrong-quantity",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingAssertions": 3,
+      "tests": [
+        "exhausts every generated bounded parameter tuple with independent token truth: number.numeral",
+        "agrees with independent seeded draws and preserves canonical detached replay: number.numeral",
+        "application presentation omits expected answers and delegates validation: number.numeral"
+      ],
+      "mutantSha256": "53079228ceae4aa16b035214b4fd31330a2e368a53d8e9050797f17fd7e40963"
+    },
+    {
+      "id": "count-off-by-one",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingAssertions": 3,
+      "tests": [
+        "exhausts every generated bounded parameter tuple with independent token truth: number.counting",
+        "agrees with independent seeded draws and preserves canonical detached replay: number.counting",
+        "application presentation omits expected answers and delegates validation: number.counting"
+      ],
+      "mutantSha256": "d6d9305570440fa39a749760c8ce483fddb6047623f925730ff257aab8fd84c8"
+    },
+    {
+      "id": "comparison-inverted",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingAssertions": 4,
+      "tests": [
+        "exhausts every generated bounded parameter tuple with independent token truth: number.comparison",
+        "retains a fixed nonzero mixed-word replay anchor for all five families",
+        "agrees with independent seeded draws and preserves canonical detached replay: number.comparison",
+        "application presentation omits expected answers and delegates validation: number.comparison"
+      ],
+      "mutantSha256": "bc187099b6e095afe07dc1a260eaf65c32cce141d4da2e5001fd410ba1435bf5"
+    },
+    {
+      "id": "subtraction-adds-removed",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingAssertions": 2,
+      "tests": [
+        "exhausts every generated bounded parameter tuple with independent token truth: number.subtraction",
+        "agrees with independent seeded draws and preserves canonical detached replay: number.subtraction"
+      ],
+      "mutantSha256": "145564130d16672100ac46d547c42c49ace37f49d8cd3ad7a1c35c4dcf1a42e8"
+    },
+    {
+      "id": "missing-left-uses-right",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingAssertions": 1,
+      "tests": [
+        "exhausts every generated bounded parameter tuple with independent token truth: number.missing"
+      ],
+      "mutantSha256": "03632eada3665ce4a9b7b601c42422f6bfc425b89c1484930fc6983ae556eb98"
+    },
+    {
+      "id": "forged-instance-accepted",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingAssertions": 4,
+      "tests": [
+        "rejects changed task, answer, hints, evidence, modality, identity and replay: number.numeral",
+        "rejects changed task, answer, hints, evidence, modality, identity and replay: number.counting",
+        "rejects changed task, answer, hints, evidence, modality, identity and replay: number.subtraction",
+        "rejects changed task, answer, hints, evidence, modality, identity and replay: number.missing"
+      ],
+      "mutantSha256": "d83c537080cf438445601c652f8528fd3fa237f04b30186cab1756ae5ae19511"
+    }
+  ],
+  "exactRestoration": true
+}

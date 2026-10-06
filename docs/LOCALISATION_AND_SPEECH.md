@@ -1,5 +1,13 @@
 # Localisation and speech
 
+D49 [Phase 3C local preparation](PHASE_3C_COMPLETION_REPORT.md) adds no child
+copy or speech plans. Its new semantic hint IDs are not yet connected to the
+slice-required draft el-GR/en-GB/de-DE inventory. All three existing packs remain
+prototype-draft/native-review pending; four planned packs remain unchanged.
+Independent language roles and exact-region local-only explicit speech remain
+the integration requirements. Full loop/localisation and actual AT/offline
+device observations are unverified; no new language/speech support claim.
+
 Phase 3 readiness inventories the [new slice message IDs and acceptance gates](PHASE_3_IMPLEMENTATION_PLAN.md)
 without writing translations or promoting packs. el-GR/en-GB/de-DE remain draft;
 the four planned locales remain incomplete. Independent UI/instruction/number

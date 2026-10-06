@@ -1,5 +1,14 @@
 # Testing and quality strategy
 
+Current D49 [Phase 3C record](PHASE_3C_COMPLETION_REPORT.md) distinguishes pure
+five-family catalog preparation from the still unimplemented playable loop.
+Independent bounded enumeration/replay/answer tests and restored math mutations
+certify only those domain bytes. Actual target device/browser/AT delivery and an
+actual disconnected restart are mandatory complete-stage gates and unavailable
+through current permitted controls. Source/DOM checks, browser offline emulation
+and a stopped-listener restart cannot replace them. No Phase 3C E2E, atomic answer,
+update guard or end-to-end mutation PASS is implied by this local milestone.
+
 ## Synthetic Phase 3B candidate
 
 [Completion evidence](PHASE_3B_COMPLETION_REPORT.md) binds tests to the experimental

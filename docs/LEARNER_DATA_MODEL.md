@@ -1,5 +1,14 @@
 # Local learner data model
 
+D49 [Phase 3C work](PHASE_3C_COMPLETION_REPORT.md) is limited to pure catalog
+preparation and read-only integration design. No new aggregate codec, profile
+selector, answer transaction, pending journal or state persistence is implemented.
+The old synthetic 3A codec cannot represent a 3B/session aggregate; completed raw
+answer histories must not become a reconstruction store. Scoped observations,
+exact minimal derived state, transient pending reconciliation and committed-save
+feedback need their own bounded codec/native proof. No retention/default policy
+or real learner database is introduced; the full stage remains blocked.
+
 Status: local-first policy accepted; numeric retention and production learner schema remain proposed. Phase 1C implements only generic integrity contracts and synthetic fixtures under [ADR-0010](adr/ADR-0010.md), with no real storage/adaptation. Records, migrations, retention and export/import below are fuller future requirements. [ADR-0003](adr/ADR-0003.md) and [privacy](CHILD_SAFETY_AND_PRIVACY.md) govern this model.
 
 [Phase 3B](PHASE_3B_COMPLETION_REPORT.md) adds a pure, memory-only synthetic

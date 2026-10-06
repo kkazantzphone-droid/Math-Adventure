@@ -1,5 +1,13 @@
 # Architecture
 
+D49 Phase 3C has only [local domain catalog preparation](PHASE_3C_COMPLETION_REPORT.md)
+under `domain/families/slice.ts` and the answer-free `application/slice-family.ts`
+facade. Neither normal composition nor the developer browser entry imports them.
+New immutable IDs preserve old family/replay behavior; no persistence, adaptation
+or UI wiring is added. Full loop integration and synthetic learner-data lifecycle
+guards remain unimplemented; required actual device/AT and disconnected evidence
+blocks complete stage certification. No architectural or accepted-policy change.
+
 Merged checkpoint 7 (D44): composition injects a presentation-only offline port. Infrastructure owns native worker/cache/registration/update effects, presentation owns draft copy and capability contracts, and UI owns status and the explicit Home update control. `scripts/pwa-build.ts` emits the bounded hashed release and worker. Domain/application truth, replay and integrity remain unchanged. See [design](PHASE_1E_OFFLINE_DESIGN.md), [evidence](PHASE_1E_COMPLETION_REPORT.md) and [consolidated closure](PHASE_1_COMPLETION_REPORT.md).
 
 Status: accepted direction with completed merged Phase 1A/1B/1C foundations, owner-confirmed Phase 1V, bounded Phase 1D localisation/local-only speech and Phase 1E production offline shell. Phase 2 real-family proof and red-team repairs, browser proof tooling and autonomy governance are also merged in closure baseline `93db59893b076925b1fdb5fadfa5abb9dfb274ac`. Their original reports retain candidate-specific local/fresh/hosted/browser limits. Learner persistence, adaptation and the playable loop remain prospective. The diagram and answer/session flow below describe the fuller target; current ports are maintained in [application ports](APPLICATION_PORTS.md).

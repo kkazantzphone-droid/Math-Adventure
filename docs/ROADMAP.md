@@ -1,5 +1,14 @@
 # Roadmap
 
+Current D49 owner Goal authorizes synthetic Phase 3C after positively observed
+Governance V2 merge `be1bd7735491df8cc2abe19645ec65b393d0aa6b` (PR #12).
+**Full Phase 3C is BLOCKED — REQUIRED EVIDENCE UNAVAILABLE**: permitted tools
+cannot observe target AT delivery or an actual disconnected device restart.
+[Current report](PHASE_3C_COMPLETION_REPORT.md) records local bounded catalog
+preparation and all remaining loop/integration gates. No playable-loop completion,
+reduced-scope merge, real-child use, release or Phase 4 is authorized by that work.
+Older task summaries below retain their recorded authorization/evidence bounds.
+
 Current staged implementation: synthetic-only Phase 3A/3B are owner-merged in
 protected main `fba77ed1da86944c3700aa74eaa68b50182f692b`; D47's Phase 3B foundation
 uses the existing developer environment. Its [completion report](PHASE_3B_COMPLETION_REPORT.md)

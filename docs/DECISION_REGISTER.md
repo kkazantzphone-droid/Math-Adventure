@@ -1,5 +1,14 @@
 # Decision register
 
+Current owner Goal D49 authorizes synthetic Phase 3C after owner-merged Governance
+V2 `be1bd7735491df8cc2abe19645ec65b393d0aa6b` (PR #12), positively observed on
+protected main. [Current evidence](PHASE_3C_COMPLETION_REPORT.md) records
+**BLOCKED — REQUIRED EVIDENCE UNAVAILABLE** for full 3C: required target AT
+delivery and actual disconnected restart cannot be observed through permitted
+tools. Only local bounded catalog preparation is preserved; no full-stage PASS,
+publication or reduced-scope auto-merge. The D48 task wording below is historical;
+V2 is now effective within its unchanged eligibility contract.
+
 Current task D48 authorizes governance-only conditional squash auto-merge V2
 from protected-main baseline `fba77ed1da86944c3700aa74eaa68b50182f692b`, which
 contains owner-merged synthetic Phase 3B. [V2 evidence](CODEX_AUTOMERGE_GOVERNANCE_REPORT.md)
@@ -83,6 +92,14 @@ No Phase 3 implementation or real-child use follows from this certification.
 | D46 | Owner authorizes synthetic-only Phase 3A: raw IndexedDB port adapter, exact bounded stores, fencing/receipts, migration/recovery/full clear, native Chrome/Edge and independent certification | ACCEPTED task scope; certification/publication in current report | Owner Goal 2026-10-06; base `c82f4ca9ed27e35f6ccdad46cc56de2fc40c04ff`; [completion](PHASE_3A_COMPLETION_REPORT.md). Separate loopback developer build, fixed fixtures, no normal child persistence/adaptation, new dependency, real data, accepted policy change, merge/release/deployment |
 | D47 | Owner authorizes synthetic-only Phase 3B: pure explainable adaptation, bounded semantic catalog certification, explicit experimental policy, independent fairness/state/privacy/accessibility/testing review and mutation proof | ACCEPTED task scope only; educational policy remains proposed; certification/publication recorded separately | Owner Goal 2026-10-06; owner-merged 3A base `9f60daf60ef0563682d6a2e498f95ea02f4cbe4e`; [completion](PHASE_3B_COMPLETION_REPORT.md). Fixed synthetic profiles in existing separate developer build; no normal child selection/persistence/default enablement, new dependency, accepted ADR/policy, real data/trials, 3C, merge/release/deployment |
 | D48 | Owner permits autonomous squash merge of qualifying Class A/B Codex PRs only after exact-head local/independent/PR-specific hosted evidence and every operating-model eligibility condition | ACCEPTED explicit owner governance decision 2026-10-06; effective for future qualifying PRs only after observed manual owner merge of this V2 governance PR | [Operating model](CODEX_OPERATING_MODEL.md#automatic-squash-merge-eligibility), [templates](CODEX_TASK_TEMPLATES.md), [V2 report](CODEX_AUTOMERGE_GOVERNANCE_REPORT.md). Same-repository authorized objective/branch, current main/base, full/fresh proof, actual Ubuntu+Windows PR SUCCESS, clean/mergeable/resolved/protected PR and accurate evidence; fresh guarded squash and verified post-merge state. Excludes self-expanding governance, Class C decisions/actions, release/deployment and protection/access changes. This PR uses owner_merge; V1 remains in force until its owner merge. No new phase or product policy follows |
+
+Current D49 scope/evidence: the owner separately authorizes the synthetic-only
+first playable loop after V2 merge under `automatic_when_eligible`. Entry is
+verified at `be1bd77`; [3C evidence](PHASE_3C_COMPLETION_REPORT.md) is **BLOCKED**
+for mandatory target AT/disconnected observations. Pure five-family preparation
+is local-only. No narrow merge authorization, real learner use, accepted-policy
+change, release/deployment or next phase follows. Ordinary engineering authority
+continues within the existing Goal when the required observation is obtainable.
 
 Current D47 synthetic candidate evidence supersedes historical descriptions of
 unimplemented adaptation only within the developer proof; normal composition

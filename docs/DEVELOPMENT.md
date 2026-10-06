@@ -1,5 +1,14 @@
 # Development
 
+Phase 3C is blocked at its required device/AT and actual disconnected-restart
+gate. Its [current report](PHASE_3C_COMPLETION_REPORT.md) records local pure catalog
+preparation only. After source edits stop, verify the two `slice-*.test.ts` domain
+suites and `tests/unit/slice-containment.test.ts`; run serially
+`corepack pnpm exec node scripts/slice-mutations.mjs` for six assertion mutations
+with exact restoration. These are domain/containment checks, not playable E2E.
+Normal composition and the developer browser entry remain unchanged. Do not infer
+full 3C readiness or reduce the gate to merge this local milestone.
+
 Phase 3B exposes a fixed memory-only adaptation simulation through the same
 separate capability-gated Phase 3A developer entry. It adds no normal child
 selection or record writing. After the canonical gate, run serially

@@ -1,5 +1,13 @@
 # Offline operation and distribution
 
+D49 [Phase 3C audit](PHASE_3C_COMPLETION_REPORT.md) preserves the mandatory actual
+disconnected restart gate. Current tool inventory cannot obtain that observation;
+browser-engine offline simulation and stopped-loopback-listener process restart
+do not establish OS/device disconnection. New catalog preparation adds no worker
+or learner-data guard. Fencing/draining/reconciling transactions and validating
+record/epoch compatibility before activation and after restart remain unimplemented
+3C obligations. Shell readiness stays distinct from saved progress.
+
 Merged D44 checkpoint 7 implements the production shell/cache/update
 strategy described in [design](PHASE_1E_OFFLINE_DESIGN.md), with required evidence
 recorded in [completion](PHASE_1E_COMPLETION_REPORT.md). [ADR-0007](adr/ADR-0007.md)

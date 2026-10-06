@@ -1,5 +1,12 @@
 # Security threat model
 
+D49 [Phase 3C local milestone](PHASE_3C_COMPLETION_REPORT.md) is pure bounded
+catalog preparation, outside both normal composition and browser harness entry.
+It introduces no profile input, learner store, import, network, speech or telemetry.
+Only blank/synthetic capability inspection was used. Full playable-loop privacy,
+receipt/cache/trace/request inspection and learner-data update integrity are still
+unverified; actual device/AT and disconnected evidence blocks stage completion.
+
 Phase 3 readiness adds a [stage-specific threat review and controls](PHASE_3_IMPLEMENTATION_PLAN.md)
 for local learner data, stale tabs, receipts, eviction, migrations, deletion,
 exports, extensions, update/data compatibility and debugging artifacts. Its
