@@ -1,5 +1,10 @@
 # Decision register
 
+Current task D47 authorizes synthetic-only Phase 3B after the owner's Phase 3A
+merge into protected main `9f60daf`. [Completion evidence](PHASE_3B_COMPLETION_REPORT.md)
+records candidate checks/publication separately. This task does not accept D18,
+ADR-0006, retention/default/profiling policy or authorize Phase 3C/real-child use.
+
 As of 2026-10-06. ACCEPTED means a recorded architecture/product constraint or explicit owner decision, **not implementation or educational validation**. D17 records the owner's license selection. PROPOSED details remain reviewable. IDs here are stable references; ADRs contain rationale.
 
 Current state: Phase 1A/1B/1C/owner-confirmed 1V/1D/1E are complete at the bounded
@@ -74,8 +79,11 @@ No Phase 3 implementation or real-child use follows from this certification.
 | D44 | Owner authorizes production Phase 1E checkpoint 7 after merging proof-environment PR #7 into protected main `ab734e1` | ACCEPTED task scope and Class A/B publication authority; candidate certification recorded separately | [Design](PHASE_1E_OFFLINE_DESIGN.md), [completion](PHASE_1E_COMPLETION_REPORT.md). Smallest coherent shell, explicit bounded all-client activation/recovery, failed-install preservation, root/subpath native evidence, three restored assertion mutations and five fresh specialist reviews. ADR-0007 may be accepted only after genuine required lifecycle evidence. No learner persistence/adaptation, Phase 3, backend, telemetry, public hosting, release, deployment or protected-main merge |
 | D45 | Owner authorizes Phase 1 formal closure and Phase 3 readiness: bounded 3A/3B/3C architecture, synthetic migration fixtures/adaptation simulations, threat/language/catalog/human-gate plans and fresh specialist review | ACCEPTED readiness scope only; certification and publication evidence in current report | Owner request 2026-10-06; base `93db59893b076925b1fdb5fadfa5abb9dfb274ac`; [plan](PHASE_3_IMPLEMENTATION_PLAN.md), [readiness evidence](PHASE_3_READINESS_REPORT.md), [persistence](PHASE_3_PERSISTENCE_DESIGN.md), [proposed-policy review](PHASE_3_ADAPTATION_REVIEW.md). No database created or runtime source wiring. Separate Goal required per implementation stage; no real trials, accepted numeric policy, deployment or protected-main merge |
 | D46 | Owner authorizes synthetic-only Phase 3A: raw IndexedDB port adapter, exact bounded stores, fencing/receipts, migration/recovery/full clear, native Chrome/Edge and independent certification | ACCEPTED task scope; certification/publication in current report | Owner Goal 2026-10-06; base `c82f4ca9ed27e35f6ccdad46cc56de2fc40c04ff`; [completion](PHASE_3A_COMPLETION_REPORT.md). Separate loopback developer build, fixed fixtures, no normal child persistence/adaptation, new dependency, real data, accepted policy change, merge/release/deployment |
+| D47 | Owner authorizes synthetic-only Phase 3B: pure explainable adaptation, bounded semantic catalog certification, explicit experimental policy, independent fairness/state/privacy/accessibility/testing review and mutation proof | ACCEPTED task scope only; educational policy remains proposed; certification/publication recorded separately | Owner Goal 2026-10-06; owner-merged 3A base `9f60daf60ef0563682d6a2e498f95ea02f4cbe4e`; [completion](PHASE_3B_COMPLETION_REPORT.md). Fixed synthetic profiles in existing separate developer build; no normal child selection/persistence/default enablement, new dependency, accepted ADR/policy, real data/trials, 3C, merge/release/deployment |
 
-Current D46 synthetic implementation evidence is separate from D45 readiness.
+Current D47 synthetic candidate evidence supersedes historical descriptions of
+unimplemented adaptation only within the developer proof; normal composition
+remains unwired. D46 synthetic implementation evidence is separate from D45 readiness.
 Current D45 readiness and merged D44 evidence supersede pre-D44 descriptions of
 an unimplemented worker or unavailable browser control. D37–D43 record their
 historical task outcomes/publication states; the current merged state is above.

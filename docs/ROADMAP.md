@@ -1,5 +1,13 @@
 # Roadmap
 
+Current staged implementation: Phase 3A is owner-merged in protected main
+`9f60daf`; D47 separately authorizes the synthetic-only Phase 3B foundation
+in the existing developer environment. Its [completion report](PHASE_3B_COMPLETION_REPORT.md)
+records candidate certification/publication. Normal child adaptation/save and
+Phase 3C remain unwired and need a separate Goal; no educational policy or
+real-child use is accepted. Historical closure/planning baselines below remain
+evidence for their recorded stages.
+
 The owner separately authorizes Stage 3A synthetic implementation under D46 on
 readiness merge `c82f4ca9ed27e35f6ccdad46cc56de2fc40c04ff`. Its raw IndexedDB
 adapter runs only through a separate developer build/origin;

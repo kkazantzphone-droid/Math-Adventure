@@ -7,7 +7,7 @@
     "src/domain/adaptation/policy.ts": "816d4dd43a48e5b869d971a7a30dd09863678e0d0028d451ca7dedd48482d687",
     "src/domain/adaptation/types.ts": "8914c101ddecc93f266c813e403302227ab3c0aa9ae3d2902bc6970b312e1f1e",
     "tests/unit/adaptation-state.test.ts": "4a50c09f7665c6b74613648eb9de82b4064a1a83dff743d9289d527404505c08",
-    "tests/unit/adaptation-selection.test.ts": "46c7339d1632164d44bd2fe45a98f3f726acbf0670439a6a177be3d1781b7a6e",
+    "tests/unit/adaptation-selection.test.ts": "8130c9e162b8631f8bd9e31d1f4dc91e2405b3d7d39674f4ea88908bbb95add1",
     "tests/property/adaptation-catalog.test.ts": "21ecd8223589cafea0d4000f1968a663b73ff342b0e70eadee2cc3bdcbf23e41",
     "tests/property/adaptation-independent.test.ts": "36c33118e689b998a42e2e53c9481e8643a08d1030e1f79d587ac9f2f786d997",
     "tests/unit/adaptation-containment-review.test.ts": "61cdaac2227235271184ecd7e76db2ad4e20f971f3942075569873f7e68cd8da",
