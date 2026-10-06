@@ -284,6 +284,7 @@ export const harness = {
     return fullClearSyntheticDatabase(db(id), syntheticLearnerCodec, {
       quiesce: () => Promise.resolve(acknowledged && frozen),
       wipeMemory: () => {
+        prepared = undefined;
         show('UNSAVED — memory cleared');
       },
       cleanupCaches: async () => {

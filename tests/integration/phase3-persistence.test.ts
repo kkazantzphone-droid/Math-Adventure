@@ -650,8 +650,36 @@ describe('native IndexedDB integration', () => {
       )) as { receipts: unknown[] };
       expect(inventory.receipts).toHaveLength(1);
     }
+    const mixedUpdate = command(
+      syntheticLearnerCodec,
+      'update',
+      'synthetic-mixed-update',
+      profileB,
+      before.storageEpoch,
+      one,
+      syntheticLearnerRecord(1),
+    );
+    const [created, updated] = await Promise.all([
+      repo.execute(create('synthetic-mixed-create', profileB)),
+      bridge(b, 'b').execute(mixedUpdate),
+    ]);
+    expect(value(created).revision).toBe(1);
+    const mixedFinal = value(await repo.load(profileB));
+    if (updated.ok) {
+      expect(updated.value.revision).toBe(2);
+      expect(mixedFinal.revision).toBe(2);
+      expect(mixedFinal.payload).toEqual(syntheticLearnerRecord(1));
+    } else {
+      expect(updated).toEqual(check('record_not_found'));
+      expect(mixedFinal.revision).toBe(1);
+      expect(mixedFinal.payload).toEqual(syntheticLearnerRecord());
+    }
+    const mixedInventory = (await a.evaluate(() =>
+      window.phase3.inventory('a'),
+    )) as { receipts: unknown[] };
+    expect(mixedInventory.receipts).toHaveLength(updated.ok ? 3 : 2);
     (evidence.cases as string[]).push(
-      'competing-create-native-abort-injected-quota-native-request-error',
+      'competing-create-mixed-create-update-native-abort-injected-quota-native-request-error',
     );
   });
   it('preserves exact retries at capacity and supports checked delete/full clear with separate cleanup pending', async () => {
@@ -680,6 +708,12 @@ describe('native IndexedDB integration', () => {
       await repo.execute(create('synthetic-after-delete', profileB, epoch)),
     );
     const before = await repo.load(profileB);
+    value(
+      await a.evaluate(
+        (pending) => window.phase3.prepare(pending),
+        create('synthetic-delayed-clear', profileA, epoch),
+      ),
+    );
     await a.evaluate(() => window.phase3.freeze());
     const refused = await a.evaluate(() =>
       window.phase3.clear('a', false, true),
@@ -690,6 +724,10 @@ describe('native IndexedDB integration', () => {
       window.phase3.clear('a', true, false),
     );
     expect(cleared.database.ok).toBe(true);
+    expect(cleared.memoryCleared).toBe(true);
+    expect(await a.evaluate(() => window.phase3.releasePrepared('a'))).toEqual(
+      check('invalid_command'),
+    );
     expect(cleared.caches).toBe('pending');
     await a.evaluate(() => window.phase3.thaw());
     expect(
