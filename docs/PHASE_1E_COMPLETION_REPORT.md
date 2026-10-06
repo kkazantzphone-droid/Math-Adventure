@@ -57,16 +57,16 @@ Protected main was fetched/inspected again. Entry frozen install, full
 `corepack pnpm verify` (**612 tests / 30 files**) and merged native browser proof
 passed before implementation. Final verification results are reconciled below.
 
-| Gate                                                      | Observed result                                                                                                  |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Final canonical `corepack pnpm verify`                    | PASS, 720 tests / 36 files                                                                                       |
-| Isolated fresh `corepack pnpm install --frozen-lockfile`  | PASS; unchanged lock, original pinned cache/toolchain                                                            |
-| Final fresh full verify                                   | PASS, 720 tests / 36 files; byte-identical candidate snapshot after frozen install                               |
-| Canonical native production proof                         | PASS root/subpath; independent final canonical rerun also PASS                                                   |
-| Fresh native production proof                             | PASS root/subpath; A/B/C artifact and release declarations exactly match independent root proof                  |
-| `corepack pnpm audit --json`                              | Zero advisories, 204 graph entries: 3 runtime, 201 dev, 27 optional                                              |
-| Full diff, text/local links, lock/artifact/privacy review | PASS; 54 candidate files, 68 Markdown documents, 364 touched-document local links, one lock document, no finding |
-| Exact-head PR Ubuntu/Windows checks                       | Not yet published; neither local PASS nor an older head substitutes                                              |
+| Gate                                                      | Observed result                                                                                                                                                                 |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Final canonical `corepack pnpm verify`                    | PASS, 720 tests / 36 files                                                                                                                                                      |
+| Isolated fresh `corepack pnpm install --frozen-lockfile`  | PASS; unchanged lock, original pinned cache/toolchain                                                                                                                           |
+| Final fresh full verify                                   | PASS, 720 tests / 36 files; byte-identical candidate snapshot after frozen install                                                                                              |
+| Canonical native production proof                         | PASS root/subpath; independent final canonical rerun also PASS                                                                                                                  |
+| Fresh native production proof                             | PASS root/subpath; A/B/C artifact and release declarations exactly match independent root proof                                                                                 |
+| `corepack pnpm audit --json`                              | Zero advisories, 204 graph entries: 3 runtime, 201 dev, 27 optional                                                                                                             |
+| Full diff, text/local links, lock/artifact/privacy review | PASS; 54 candidate files, 68 Markdown documents, 364 touched-document local links, one lock document, no finding                                                                |
+| Exact-head PR Ubuntu/Windows checks                       | [PR #8](https://github.com/kkazantzphone-droid/Math-Adventure/pull/8) records the exact current head and observed PR-specific run; local PASS and older heads cannot substitute |
 
 Node **24.21.0**, npm **11.19.0**, Corepack **0.36.0** and pnpm **12.9.1** remain
 unchanged. No dependency, global installation, administrator configuration,
@@ -212,8 +212,17 @@ Local raw evidence is ignored and synthetic: `phase1e-final-root-verify.txt`,
 `phase1e-mutation-review-final.json` and `phase1e-hygiene.json` under
 `.cache/browser-proof/`. Failed/repaired earlier logs remain separately preserved.
 
-Publication requires PR-specific success for the exact current feature head in
-`verify (ubuntu-24.04)` and `verify (windows-2025)`. The reviewable PR supplies the
-head and hosted run; this document cannot contain its own final commit hash.
+Published non-draft [PR #8](https://github.com/kkazantzphone-droid/Math-Adventure/pull/8)
+targets protected `main`; the feature is based directly on the verified
+owner-merged baseline. Implementation is preserved in `dbc707a`, and the complete
+independently reviewed documentation/evidence in `3ab0a54`. This final publication
+pointer changes documentation only; production source and artifact identities
+remain those above.
+
+Owner-merge readiness requires PR-specific success for the exact current feature
+head in `verify (ubuntu-24.04)` and `verify (windows-2025)`. The PR verification
+record supplies that head and hosted run after observation, including any later
+documentation head; this report cannot contain its own final commit hash. Neither
+running jobs nor an older successful head close that gate.
 Protected-main merge remains human-only. No tag, release, deployment or next phase
 is authorized by completion.
