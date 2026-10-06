@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "baseRevision": "9f60daf60ef0563682d6a2e498f95ea02f4cbe4e",
+  "productionChildArtifactsEqual": true,
+  "productionArtifacts": [
+    {
+      "path": "dist/assets/index-Cqw6cjjL.css",
+      "hash": "0727E557389437B5E8347BBC13E789678FB843546F6BD11D83D5018DBD535584"
+    },
+    {
+      "path": "dist/assets/index-ZAEB6tsz.js",
+      "hash": "D2A867EF64FFC8159DFFC081C288E3C49E887BBC2F26C6BB6767631B16E211C5"
+    },
+    {
+      "path": "dist/icons/math-adventure.svg",
+      "hash": "A3149C53CE3DD32AC89CCE807B2C756B3E6BFE86AE13E941A437E8196F804DA6"
+    },
+    {
+      "path": "dist/index.html",
+      "hash": "81CC14D4F07655C226E8E8EF1EB281B4A10E36F4A0C69AD6C351D197C2BA5A66"
+    },
+    {
+      "path": "dist/manifest.webmanifest",
+      "hash": "4F45A4FF805E952157734F81F8501EBA54F4F2E5D0C8C0EF041C19F0657D034C"
+    },
+    {
+      "path": "dist/release.json",
+      "hash": "F307BF94DB750A1FC70EF4D2F5791ED3CD0679E0B7A046106AD9BF708FED618E"
+    },
+    {
+      "path": "dist/sw.js",
+      "hash": "F42AB8B59C24803C0CCC360608C4F6C67A8694D202DD3D5D03B7F4D111205458"
+    },
+    {
+      "path": "dist/THIRD_PARTY_NOTICES.txt",
+      "hash": "D79545965A59895FC431B6F519FE411BC32A26415C656B7D531DD7DFCD453AAB"
+    }
+  ],
+  "lockfileSha256": "62BDFC25B5442D746E019E83B4BBDCCBCE77E83C5EBC09C73AF482647C162964",
+  "packageJsonSha256": "1AED13D60F17D3F7E7C9D7E74DB60FC577B5D9983751B61D3A20F910CFFCA06A"
+}

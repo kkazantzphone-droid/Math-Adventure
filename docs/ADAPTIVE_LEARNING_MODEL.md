@@ -2,6 +2,45 @@
 
 Status: PROPOSED rule policy under [ADR-0006](adr/ADR-0006.md). Product principles are accepted; all thresholds and schedules below are **unvalidated starting hypotheses**, versioned as policy-v1 and subject to educator review before child trials. This model reports observed task evidence, not intelligence, diagnosis or school grades.
 
+Phase 3B implements a separate **experimental** `phase3b-synthetic-policy-v1`
+candidate in pure domain code, exercised only with fixed synthetic profiles in
+the separate Phase 3A developer environment. Its [completion evidence](PHASE_3B_COMPLETION_REPORT.md)
+records classification, concept/representation scope, attained versus recent
+sufficiency, clock suspension, support recovery and finite-catalog proof.
+The proposed rules below remain unchanged; ADR-0006 remains PROPOSED.
+
+The candidate resolves canonical concept aggregation and readiness-only
+diagnostics explicitly, freezes classification against the pre-event window,
+records the post-support activation boundary, and makes identical checkpoints
+idempotent. Attainment is retained separately from recent counts; an expired
+Developing summary grants no current Developing continuation. Exact old retries
+remain frozen, while new observations cannot reuse a backward session ordinal.
+Exploration/Number Lab return excluded session-only results with byte-identical
+mastery snapshots, including receipts, readiness, ordinals and clock metadata.
+
+Candidate fairness compares oldest-offered ordinals across all eligible classes;
+priority breaks age ties. With a fixed continuously available, eligible catalog
+of N concepts, persistent offer history and no explicit overrides, every concept
+gets an opportunity within N automatic concept offers. Scored repetition blocks
+are excluded until another scored concept or menu; the sole-concept menu clears
+the block. There is one automatic support block and one revisit block per explicit
+session. Only due-review recommendations set the recommendation revisit flag;
+state settlement separately enforces global once-per-session eligibility.
+Ordinary familiar offers are not extra review opportunities. This replaces strict
+priority **only in the named synthetic candidate**, without inventing a fairness
+quota or accepting an educational default.
+
+All current Phase 2 families have one representation. The candidate explicitly
+requires educator review for its single-representation scope; default two-family
+coverage rejects. Addition maximum 5 has 21 unordered operand-pair cases;
+quadrilateral maxima 1/2/3 have 2/5/12 exact similarity classes; logical unit-length
+maxima 1–8 have 1–8 cases. Shape rotation, uniform scale, vertex order and winding
+do not create evidence. Ten observations with at most two occurrences need five
+cases: geometry maximum 1 and unit maxima 1–4 reject. Each offered attainable
+scope has a genuine five-case plus delayed-practice witness. Similarity-class and
+quantity variation remain proposed assessment interpretations, not educator
+validation of transfer, unaided recognition, visual estimation or learning.
+
 The [Phase 3 synthetic review](PHASE_3_ADAPTATION_REVIEW.md) exercises this proposal
 without accepting it. Default two-representation Secure coverage is not reachable
 from a Phase 2 family that declares only one representation. With at most two

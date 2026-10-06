@@ -1,5 +1,16 @@
 # Requirement traceability
 
+## Synthetic-only Phase 3B (D47)
+
+| Requirement | Implementation and proof | Limit |
+| --- | --- | --- |
+| R05/R06/R07/R39 scoped adaptation | `src/domain/adaptation/state.ts`, exact structured inputs, concept attainment/recent state, separate representation counts, frozen retries | Experimental `phase3b-synthetic-policy-v1`; two fixed synthetic profiles; no global level/related evidence transfer |
+| R06/R24 accessible evidence | Mathematical help/solution exclusion, five neutral accessibility supports, inaccessible-scope exclusion, explicit single-representation candidate | No UI/AT/educator certification; attributed shape facts and logical units retain their original scope |
+| R07/R14 bounded deterministic selection | `selection.ts`, explicit seed/time/intent/catalog/history, canonical age ties, N-opportunity proof, global support/revisit caps, scored cap three | Fixed continuously eligible available catalog; explicit overrides and cap-blocked concepts excluded from N proof |
+| R13/R31 finite attainability | `catalog.ts`, independent similarity/distance oracle and actual generator tuples; reject impossible coverage/capacity; attainable delayed-practice witnesses | Semantic quotient is experimental and needs educator review; tuples are not distinct evidence |
+| R21/R35/R44 containment | Normal composition import proof/build equality; existing capability-gated developer entry; exploration byte equality; native fixed summary with no database opens/nonlocal requests | No learner persistence/integration/default enablement, real-child input, trial or profiling decision |
+| R31/R38 certification | Fresh specialist review, six restored assertion mutations, focused/full/fresh frozen gates, audit and diff/privacy review | Exact counts/revisions/hashes and hosted results belong in [completion](PHASE_3B_COMPLETION_REPORT.md); no accepted policy or 3C authorization |
+
 ## Synthetic-only Phase 3A (D46)
 
 | Requirement | Implemented path / proof | Limit |

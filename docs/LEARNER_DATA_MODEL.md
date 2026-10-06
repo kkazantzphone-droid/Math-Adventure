@@ -2,6 +2,17 @@
 
 Status: local-first policy accepted; numeric retention and production learner schema remain proposed. Phase 1C implements only generic integrity contracts and synthetic fixtures under [ADR-0010](adr/ADR-0010.md), with no real storage/adaptation. Records, migrations, retention and export/import below are fuller future requirements. [ADR-0003](adr/ADR-0003.md) and [privacy](CHILD_SAFETY_AND_PRIVACY.md) govern this model.
 
+[Phase 3B](PHASE_3B_COMPLETION_REPORT.md) adds a pure, memory-only synthetic
+adaptation candidate after owner-merged 3A. Its snapshot is **not** a production
+learner record codec and is not connected to the IndexedDB aggregate. Two fixed
+synthetic profile IDs, exact structured observations, independent concept summaries
+and bounded retry receipts support engineering proof only. The 10/concept,
+500/profile and 60-day evidence values remain experimental. Memory receipts refuse
+new normal observations at 1,024 entries rather than silently pruning frozen retries;
+this resource bound is not a production receipt-lifecycle or retention decision.
+Exploration never enters these snapshots. Synthetic clock resolution and session
+ordinals are explicit; no hidden platform time or automatic write queue exists.
+
 Phase 3 readiness specifies a [synthetic-only IndexedDB design](PHASE_3_PERSISTENCE_DESIGN.md)
 and [staged implementation gates](PHASE_3_IMPLEMENTATION_PLAN.md). Raw IndexedDB
 is the smallest proposed implementation, without a new dependency. No database

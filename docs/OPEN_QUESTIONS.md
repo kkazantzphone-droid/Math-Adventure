@@ -1,5 +1,15 @@
 # Open questions and human decisions
 
+Current implementation scope is D47, the explicitly authorized synthetic-only
+[Phase 3B candidate](PHASE_3B_COMPLETION_REPORT.md), after owner-merged Phase 3A
+at `9f60daf`. No policy decision blocks this contained engineering proof.
+Q03/Q04/Q05/Q08/Q10/Q13/Q16 stay open for retention, default/control/profiling,
+educator evidence/threshold/fairness approval and actual device/AT claims before
+real-child use. ADR-0006 stays PROPOSED; the experimental single-representation
+catalog and N-opportunity selector do not close Q08. The D45 readiness paragraph
+below describes its historical planning boundary, superseded for authorized 3A/3B
+only. Phase 3C still needs a separate Goal; no real-child use has started.
+
 Current D45 scope: **Phase 1 is closed** through owner-merged Phase 1E at
 `93db59893b076925b1fdb5fadfa5abb9dfb274ac`; Phase 2, autonomy and proof-environment
 work are also merged. [Closure](PHASE_1_COMPLETION_REPORT.md) records bounded

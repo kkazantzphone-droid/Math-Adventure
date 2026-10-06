@@ -1,5 +1,15 @@
 # Development
 
+Phase 3B exposes a fixed memory-only adaptation simulation through the same
+separate capability-gated Phase 3A developer entry. It adds no normal child
+selection or record writing. After the canonical gate, run serially
+`corepack pnpm exec node scripts/adaptation-mutations.mjs` and
+`corepack pnpm exec node scripts/adaptation-proof.mjs` (optionally
+`PHASE3_BROWSER=msedge`). Source must be stable and no other test/build running
+during mutation proof. [Completion evidence](PHASE_3B_COMPLETION_REPORT.md)
+records experimental policy, finite universes, review, restored assertions and
+native summary limits. Educator-approved policy and 3C remain separate gates.
+
 Phase 3A has a separate synthetic developer build and isolated loopback browser
 proof, with no entry in normal navigation. After `corepack pnpm verify`, run
 `corepack pnpm persistence:proof` once with `PHASE3_BROWSER=chrome` and once with

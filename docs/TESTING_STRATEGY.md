@@ -1,5 +1,29 @@
 # Testing and quality strategy
 
+## Synthetic Phase 3B candidate
+
+[Completion evidence](PHASE_3B_COMPLETION_REPORT.md) binds tests to the experimental
+policy/catalog and exact source hashes. Focused classification/state histories,
+independent finite geometry/quantity enumeration and independently authored
+fairness traces exercise the pure engine; no normal child integration or learner
+database is needed. The existing separate Phase 3A capability-gated entry exposes
+only a fixed adaptation proof summary. Run these serially after source edits:
+
+```powershell
+corepack pnpm exec vitest run tests/unit/adaptation-state.test.ts tests/unit/adaptation-selection.test.ts tests/property/adaptation-catalog.test.ts tests/property/adaptation-independent.test.ts tests/unit/adaptation-containment-review.test.ts tests/unit/adaptation-developer-proof.test.ts
+corepack pnpm exec node scripts/adaptation-mutations.mjs
+corepack pnpm exec node scripts/adaptation-proof.mjs
+```
+
+Use the process-local cache/pinned tools in [development](DEVELOPMENT.md). The
+browser proof uses a fresh installed Chrome or Edge context (`PHASE3_BROWSER`),
+fixed synthetic fixtures, zero database opens and zero nonlocal requests. Mutation
+proof requires a clean baseline, an intended assertion failure for all six defects,
+and exact Buffer/SHA-256 restoration; parser/type/runtime failure alone cannot count.
+Full canonical verification, isolated fresh frozen installation/verification,
+audit, privacy/artifact/diff review and current-head required hosted checks remain
+separate final gates. No trace is educational validation or native AT/device proof.
+
 Merged D44 checkpoint 7 supplements unit contracts with actual production Chromium lifecycle proof at root and `/math-adventure/`: independently hashed complete caches, native offline plus a non-fabricating loopback transport gate, uncached failure, independent online context, two clients, waiting/unready/missing/new-client barriers, explicit recovery, withheld recovery preserving prior caches, failed essential install and cross-origin exclusion. Four meaningful assertion mutations were restored exactly. Recorded full/fresh/native/audit and five specialist gates belong in [Phase 1E evidence](PHASE_1E_COMPLETION_REPORT.md); they do not establish physical disconnection, process cold restart, installed PWA, AT or offline speech.
 
 Status: Phase 1 and Phase 2 are complete and merged at owner-supplied closure baseline `93db59893b076925b1fdb5fadfa5abb9dfb274ac`. [Consolidated closure](PHASE_1_COMPLETION_REPORT.md) maps the exact merge sequence to frozen candidate-specific local/fresh/hosted/browser evidence. Autonomy governance and proof enablement are merged too. Production learner storage, adaptation, playable sessions, official locale packs and full accessibility assurance remain future stage obligations. Current readiness checks are distinct from inherited observations.
