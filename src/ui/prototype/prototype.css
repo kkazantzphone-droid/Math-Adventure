@@ -232,7 +232,7 @@
 
 .activity-cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
   gap: 1.25rem;
   inline-size: 100%;
   padding-block: 0.75rem;

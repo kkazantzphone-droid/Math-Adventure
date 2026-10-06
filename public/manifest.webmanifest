@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Math Adventure",
+  "short_name": "Math Adventure",
+  "description": "An offline mathematics prototype. Progress is not saved.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071a33",
+  "theme_color": "#071a33",
+  "icons": [
+    {
+      "src": "./icons/math-adventure.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

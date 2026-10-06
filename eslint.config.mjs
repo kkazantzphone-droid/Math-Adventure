@@ -59,10 +59,15 @@ export default defineConfig([
     },
   },
   {
-    files: ['tests/e2e/browser-proof.mjs'],
+    files: ['tests/e2e/*.mjs'],
     languageOptions: {
       globals: {
         navigator: 'readonly',
+        document: 'readonly',
+        window: 'readonly',
+        self: 'readonly',
+        crypto: 'readonly',
+        ServiceWorker: 'readonly',
         fetch: 'readonly',
         location: 'readonly',
         caches: 'readonly',

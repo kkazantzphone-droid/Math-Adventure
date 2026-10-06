@@ -317,5 +317,94 @@ describe('DEV/TEST loopback browser proof server', () => {
     await server.close();
     await expect(fetch(`${server.origin}/`)).rejects.toThrow();
   });
+
+  it('switches complete prevalidated release directories independently per hosting prefix', async () => {
+    await server.close();
+    const nextDirectory = join(testDirectory, 'next-release');
+    await mkdir(nextDirectory);
+    await writeFile(join(nextDirectory, 'index.html'), 'Synthetic next shell');
+    await writeFile(join(nextDirectory, 'release.json'), '{"release":"next"}');
+    await writeFile(
+      join(nextDirectory, 'manifest.webmanifest'),
+      '{"scope":"./"}',
+    );
+    server = await startProofServer({
+      distDirectory,
+      fixtureDirectory,
+      productionReleases: [
+        { name: 'root-old', prefix: '/', directory: distDirectory },
+        { name: 'root-next', prefix: '/', directory: nextDirectory },
+        {
+          name: 'subpath-old',
+          prefix: '/math-adventure/',
+          directory: distDirectory,
+        },
+      ],
+    });
+    server.setProductionRelease('/', 'root-next');
+    expect(await (await fetch(`${server.origin}/`)).text()).toBe(
+      'Synthetic next shell',
+    );
+    expect(await (await fetch(`${server.origin}/math-adventure/`)).text()).toBe(
+      '<p>Synthetic static shell</p>',
+    );
+    expect(
+      (await fetch(`${server.origin}/release.json`)).headers.get(
+        'content-type',
+      ),
+    ).toBe('application/json; charset=utf-8');
+    expect(
+      (await fetch(`${server.origin}/manifest.webmanifest`)).headers.get(
+        'content-type',
+      ),
+    ).toBe('application/manifest+json; charset=utf-8');
+    expect(
+      await (await fetch(`${server.origin}/__browser-proof/`)).text(),
+    ).toBe('<p>Synthetic worker client</p>');
+    expect(() => server.setProductionRelease('/', 'subpath-old')).toThrow(
+      'Unknown production release',
+    );
+    expect(() => server.setProductionRelease('/', '../private')).toThrow(
+      'Unknown production release',
+    );
+  });
+
+  it('injects only an explicit exact canonical production asset failure and restores it', async () => {
+    server.setFailedAsset('/assets/app.js');
+    expect((await fetch(`${server.origin}/assets/app.js`)).status).toBe(404);
+    expect(
+      (await fetch(`${server.origin}/math-adventure/assets/app.js`)).status,
+    ).toBe(200);
+    expect((await fetch(`${server.origin}/__browser-proof/`)).status).toBe(200);
+    server.setFailedAsset(null);
+    expect((await fetch(`${server.origin}/assets/app.js`)).status).toBe(200);
+    for (const path of [
+      '/../private.txt',
+      '/assets/app.js?query=1',
+      '/__browser-proof/sw.js',
+      '/math-adventure/__browser-proof/index.html',
+    ])
+      expect(() => server.setFailedAsset(path)).toThrow(
+        'Only a canonical production asset',
+      );
+  });
+
+  it('rejects malformed, duplicated and wrong-prefix release descriptors before serving', async () => {
+    for (const productionReleases of [
+      [{ name: '../private', prefix: '/' as const, directory: distDirectory }],
+      [{ name: 'invalid', prefix: '/other/' as '/', directory: distDirectory }],
+      [
+        { name: 'same', prefix: '/' as const, directory: distDirectory },
+        { name: 'same', prefix: '/' as const, directory: distDirectory },
+      ],
+    ])
+      await expect(
+        startProofServer({
+          distDirectory,
+          fixtureDirectory,
+          productionReleases,
+        }),
+      ).rejects.toThrow('Invalid synthetic production release');
+  });
 });
 import { once } from 'node:events';

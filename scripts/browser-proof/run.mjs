@@ -6,6 +6,7 @@ import { readFile, readdir } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { dirname, resolve, relative } from 'node:path';
 import { runBrowserProof } from '../../tests/e2e/browser-proof.mjs';
+import { runProductionProof } from '../../tests/e2e/production-proof.mjs';
 import { beginEvidence, writeEvidence } from './evidence.mjs';
 import { startProofServer } from './server.mjs';
 
@@ -53,11 +54,7 @@ async function execute() {
     { stdio: 'inherit' },
   );
   const artifacts = await inventory(resolve('dist'));
-  assert.equal(
-    artifacts.length,
-    4,
-    'Proof fixtures must stay out of production',
-  );
+  assert(artifacts.length > 4, 'Production PWA needs declared local artifacts');
   assert(artifacts.some((file) => file.path === 'index.html'));
   assert(artifacts.some((file) => file.path === 'THIRD_PARTY_NOTICES.txt'));
   assert(
@@ -66,10 +63,72 @@ async function execute() {
   assert(
     artifacts.some((file) => /^assets\/index-[\w-]+\.css$/.test(file.path)),
   );
+  assert(artifacts.some((file) => file.path === 'sw.js'));
+  assert(artifacts.some((file) => file.path === 'release.json'));
+  assert(artifacts.some((file) => file.path === 'manifest.webmanifest'));
+  assert(artifacts.every((file) => !file.path.includes('__browser-proof')));
+  const releases = [];
+  for (const [name, directory, label] of [
+    ['a', resolve('dist'), null],
+    ['b', resolve(evidenceDirectory, 'releases/b'), 'proof-v2'],
+    ['c', resolve(evidenceDirectory, 'releases/c'), 'proof-v3'],
+  ]) {
+    if (label)
+      execFileSync(
+        process.execPath,
+        [
+          resolve(dirname(require.resolve('vite/package.json')), 'bin/vite.js'),
+          'build',
+          '--outDir',
+          directory,
+        ],
+        { stdio: 'inherit', env: { ...process.env, PWA_RELEASE_LABEL: label } },
+      );
+    const descriptor = JSON.parse(
+      await readFile(resolve(directory, 'release.json'), 'utf8'),
+    );
+    const releaseArtifacts = await inventory(directory);
+    assert.equal(descriptor.protocolVersion, 1);
+    assert.match(descriptor.releaseId, /^sha256-[a-f0-9]{64}$/);
+    assert.match(descriptor.shellId, /^[a-f0-9]{64}$/);
+    assert.equal(descriptor.schemaVersion, 1);
+    assert.deepEqual(descriptor.prototypeLocales, ['el-GR', 'en-GB', 'de-DE']);
+    assert.deepEqual(
+      descriptor.essential.map((file) => file.path).sort(),
+      releaseArtifacts
+        .filter((file) => !['release.json', 'sw.js'].includes(file.path))
+        .map((file) => file.path)
+        .sort(),
+      'Every application artifact must belong to the coherent declared shell',
+    );
+    for (const file of descriptor.essential) {
+      const artifact = releaseArtifacts.find((item) => item.path === file.path);
+      assert(artifact);
+      assert.equal(artifact.sha256, file.sha256);
+      assert.equal(artifact.bytes, file.bytes);
+    }
+    releases.push({ name, directory, descriptor, artifacts: releaseArtifacts });
+  }
+  assert.equal(
+    new Set(releases.map((release) => release.descriptor.releaseId)).size,
+    3,
+  );
   const { chromium } = await import('playwright-core');
   const server = await startProofServer({
     distDirectory: resolve('dist'),
     fixtureDirectory: resolve('tests/e2e/fixtures'),
+    productionReleases: releases.flatMap((release) => [
+      {
+        name: `root-${release.name}`,
+        prefix: '/',
+        directory: release.directory,
+      },
+      {
+        name: `subpath-${release.name}`,
+        prefix: '/math-adventure/',
+        directory: release.directory,
+      },
+    ]),
   });
   let browser;
   try {
@@ -82,8 +141,17 @@ async function execute() {
       tracesDir: resolve(evidenceDirectory, 'traces'),
     });
     const cases = [];
-    for (const prefix of ['/', '/math-adventure/'])
-      cases.push(await runBrowserProof(browser, server, prefix));
+    for (const prefix of ['/', '/math-adventure/']) {
+      cases.push({
+        ...(await runBrowserProof(browser, server, prefix)),
+        productionLifecycle: await runProductionProof(
+          browser,
+          server,
+          prefix,
+          releases,
+        ),
+      });
+    }
     assert.equal(
       server.droppedObservationCount(),
       0,
@@ -99,6 +167,14 @@ async function execute() {
       },
       loopbackOnly: true,
       artifacts,
+      releaseVariants: releases.map(
+        ({ name, descriptor, artifacts: files }) => ({
+          name,
+          releaseId: descriptor.releaseId,
+          shellId: descriptor.shellId,
+          artifacts: files,
+        }),
+      ),
       cases,
       result: 'PASS',
     };

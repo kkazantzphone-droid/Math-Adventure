@@ -640,10 +640,14 @@ export function PrototypeExperience({
   language,
   preferences,
   speech,
+  onSafeBoundary,
+  canInteract,
 }: {
   readonly language: PrototypeLanguage;
   readonly preferences?: LanguagePreferences;
   readonly speech?: SpeechController;
+  readonly onSafeBoundary?: (safe: boolean) => void;
+  readonly canInteract?: () => boolean;
 }) {
   const [state, dispatch] = useReducer(prototypeReducer, initialPrototypeState);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -663,6 +667,9 @@ export function PrototypeExperience({
     if (previousScreen.current !== state.screen) headingRef.current?.focus();
     previousScreen.current = state.screen;
   }, [state.screen]);
+  useEffect(() => {
+    onSafeBoundary?.(state.screen === 'home');
+  }, [onSafeBoundary, state.screen]);
   return (
     <PrototypeScreen
       state={state}
@@ -680,7 +687,13 @@ export function PrototypeExperience({
           />
         ) : null
       }
-      onAction={(action) => dispatchPrototypeAction(action, dispatch, speech)}
+      onAction={(action) => {
+        if (canInteract?.() === false) return;
+        // Publish the next boundary before dispatch, so a worker handshake cannot
+        // mistake an already opened activity for a quiescent Home screen.
+        onSafeBoundary?.(prototypeReducer(state, action).screen === 'home');
+        dispatchPrototypeAction(action, dispatch, speech);
+      }}
       headingRef={headingRef}
     />
   );
