@@ -1,0 +1,57 @@
+{
+  "result": "PASS - narrower installed-browser engineering evidence only",
+  "command": "corepack pnpm exec vitest run --config vite.slice.config.ts",
+  "finalAfterRestoredMutations": true,
+  "chrome": {
+    "browserVersion": "154.0.8037.58",
+    "exitCode": 0,
+    "startup": {
+      "freshContexts": 8,
+      "beforeControllerSelections": 8,
+      "mechanism": "select as soon as initial UI thaws, without waiting for controller or shell readiness"
+    },
+    "tests": 36,
+    "allCasesPass": true,
+    "sourcesStable": true,
+    "durationSeconds": 81.17,
+    "network": {
+      "externalAttempts": 0,
+      "outboundLearnerRequests": 0,
+      "pageErrors": 0,
+      "receivedRequests": 569,
+      "droppedObservations": 0
+    }
+  },
+  "msedge": {
+    "browserVersion": "154.0.4258.53",
+    "exitCode": 0,
+    "startup": {
+      "freshContexts": 8,
+      "beforeControllerSelections": 8,
+      "mechanism": "select as soon as initial UI thaws, without waiting for controller or shell readiness"
+    },
+    "tests": 36,
+    "allCasesPass": true,
+    "sourcesStable": true,
+    "durationSeconds": 78.1,
+    "network": {
+      "externalAttempts": 0,
+      "outboundLearnerRequests": 0,
+      "pageErrors": 0,
+      "receivedRequests": 576,
+      "droppedObservations": 0
+    }
+  },
+  "sourceCount": 19,
+  "artifactCount": 27,
+  "sourceDifferencesAcrossChannels": 0,
+  "currentSourceDifferences": 0,
+  "artifactDifferencesAcrossChannels": 0,
+  "currentArtifactDifferences": 0,
+  "actualDeviceAT": "UNAVAILABLE: no observed target device/assistive technology combination",
+  "actualDisconnectedRestart": "UNAVAILABLE: browser network emulation is not physical disconnection",
+  "reports": [
+    "chrome-loop-evidence.json",
+    "msedge-loop-evidence.json"
+  ]
+}

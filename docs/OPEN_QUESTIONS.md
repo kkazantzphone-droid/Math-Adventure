@@ -4,8 +4,11 @@ Current D49 authorizes synthetic Phase 3C engineering after observed Governance
 V2 merge `be1bd77`. [Phase 3C report](PHASE_3C_COMPLETION_REPORT.md) records
 mandatory device/AT and actual disconnected-restart evidence unavailable in the
 current tools. This does not reopen the synthetic scope authorization, waive
-those gates or close Q10/Q13/Q16. Only bounded local catalog preparation exists;
-the playable loop and integration are still unimplemented. No reduced-scope merge
+those gates or close Q10/Q13/Q16. The separate fixed-profile developer loop is
+implemented, including eight families, bounded atomic save/recovery and guarded
+updates; final engineering results remain candidate-specific. Five new families
+remain `limitedEvidence`, the Phase 3B candidate remains proposed and all three
+current locale inventories remain native-review pending. No reduced-scope merge
 is authorized. Older authorization/dependency summaries below are historical.
 
 Current product baseline is owner-merged synthetic-only D47

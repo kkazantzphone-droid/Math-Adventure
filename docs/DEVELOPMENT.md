@@ -1,13 +1,30 @@
 # Development
 
-Phase 3C is blocked at its required device/AT and actual disconnected-restart
-gate. Its [current report](PHASE_3C_COMPLETION_REPORT.md) records local pure catalog
-preparation only. After source edits stop, verify the two `slice-*.test.ts` domain
-suites and `tests/unit/slice-containment.test.ts`; run serially
-`corepack pnpm exec node scripts/slice-mutations.mjs` for six assertion mutations
-with exact restoration. These are domain/containment checks, not playable E2E.
-Normal composition and the developer browser entry remain unchanged. Do not infer
-full 3C readiness or reduce the gate to merge this local milestone.
+Phase 3C has an implemented separate fixed-profile developer loop; its
+[current report](PHASE_3C_COMPLETION_REPORT.md) records final engineering evidence
+separately from the unavailable actual device/AT and disconnected-restart gates.
+Use the pinned process-local Corepack setup below. Launch only on the deliberate
+loopback origin with an explicit port; normal `dev`/`build` composition does not
+enable or silently open learner persistence. No free-text learner input is supported.
+
+```powershell
+corepack pnpm exec vite --config vite.slice.config.ts --host 127.0.0.1 --port 4178
+corepack pnpm exec vite build --config vite.slice.config.ts
+$env:PHASE3C_BROWSER = 'chrome'
+corepack pnpm exec vitest run --config vite.slice.config.ts
+$env:PHASE3C_BROWSER = 'msedge'
+corepack pnpm exec vitest run --config vite.slice.config.ts
+```
+
+The installed-browser suite builds real releases in fresh disposable synthetic
+contexts and owns its loopback servers/root/subpath checks. It retains sanitized
+counts/hashes rather than raw browser profiles, traces, screenshots/audio or
+database dumps. Once source is stable and no other builds/tests/proofs are running,
+run serially `corepack pnpm exec node scripts/slice-mutations.mjs` and
+`corepack pnpm exec node scripts/phase3c-loop-mutations.mjs`; every intended
+assertion defect must be detected and exact bytes restored. Canonical/full fresh
+verification and inherited Phase 1E/3A/3B regressions remain separate gates. Do not
+infer complete 3C certification or reduce the mandatory observation gate to merge.
 
 Phase 3B exposes a fixed memory-only adaptation simulation through the same
 separate capability-gated Phase 3A developer entry. It adds no normal child

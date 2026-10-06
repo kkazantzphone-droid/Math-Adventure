@@ -1,0 +1,330 @@
+{
+  "scope": "implemented synthetic developer-loop engineering only; actual device/AT and physical disconnected restart unavailable",
+  "result": "PASS",
+  "baseRevision": "be1bd7735491df8cc2abe19645ec65b393d0aa6b",
+  "recordedAt": "2026-10-06T14:06:46.328Z",
+  "previousPreservedHead": "766a3e416da12ba73f3b86db108af2563ebe8269",
+  "candidateFileCount": 67,
+  "candidateFiles": [
+    ".prettierignore",
+    "docs/ACCESSIBILITY.md",
+    "docs/ARCHITECTURE.md",
+    "docs/DECISION_REGISTER.md",
+    "docs/DEVELOPMENT.md",
+    "docs/LEARNER_DATA_MODEL.md",
+    "docs/LOCALISATION_AND_SPEECH.md",
+    "docs/OFFLINE_AND_DISTRIBUTION.md",
+    "docs/OPEN_QUESTIONS.md",
+    "docs/PHASE_3C_COMPLETION_REPORT.md",
+    "docs/ROADMAP.md",
+    "docs/SECURITY_THREAT_MODEL.md",
+    "docs/TESTING_STRATEGY.md",
+    "docs/TRACEABILITY_MATRIX.md",
+    "docs/evidence/phase3c/bridge-seed-review.json",
+    "docs/evidence/phase3c/browser-final-run.json",
+    "docs/evidence/phase3c/catalog-milestone.txt",
+    "docs/evidence/phase3c/domain-mutations.json",
+    "docs/evidence/phase3c/engineering-verification.json",
+    "docs/evidence/phase3c/independent-integrity.json",
+    "docs/evidence/phase3c/integrated-integrity.json",
+    "docs/evidence/phase3c/integrated-loop-chrome.json",
+    "docs/evidence/phase3c/integrated-loop-msedge.json",
+    "docs/evidence/phase3c/integrity.json",
+    "docs/evidence/phase3c/loop-mutations.json",
+    "docs/evidence/phase3c/native-privacy.json",
+    "docs/evidence/phase3c/regression-proofs.json",
+    "docs/evidence/phase3c/scheduled-verification.json",
+    "docs/evidence/phase3c/scheduling-review.json",
+    "scripts/phase3c-loop-mutations.mjs",
+    "scripts/pwa-build.ts",
+    "scripts/slice-mutations.mjs",
+    "src/application/slice-family.ts",
+    "src/application/synthetic-loop/answer.ts",
+    "src/application/synthetic-loop/index.ts",
+    "src/application/synthetic-loop/record.ts",
+    "src/application/synthetic-loop/seed.ts",
+    "src/application/synthetic-loop/session.ts",
+    "src/application/synthetic-loop/types.ts",
+    "src/domain/families/proof-evidence.ts",
+    "src/domain/families/slice.ts",
+    "src/infrastructure/offline/browserOffline.ts",
+    "src/infrastructure/persistence/synthetic-loop-database.ts",
+    "src/presentation/localisation/slice-copy.ts",
+    "src/ui/offline/OfflineControls.tsx",
+    "src/ui/synthetic-loop/TaskView.tsx",
+    "src/ui/synthetic-loop/slice.css",
+    "tests/browser/phase3c/index.html",
+    "tests/browser/phase3c/main.tsx",
+    "tests/browser/phase3c/runtime.ts",
+    "tests/browser/phase3c/shell.css",
+    "tests/integration/phase3c-loop.test.ts",
+    "tests/oracle/slice-families.ts",
+    "tests/unit/domain/proof-evidence.test.ts",
+    "tests/unit/domain/slice-families.test.ts",
+    "tests/unit/domain/slice-independent.test.ts",
+    "tests/unit/offline-learner-guard.test.ts",
+    "tests/unit/phase3c-mutation-boundaries.test.ts",
+    "tests/unit/slice-containment.test.ts",
+    "tests/unit/slice-localisation.test.ts",
+    "tests/unit/slice-task-markup.test.tsx",
+    "tests/unit/synthetic-loop-review.test.ts",
+    "tests/unit/synthetic-loop-seed.test.ts",
+    "tests/unit/synthetic-loop.test.ts",
+    "tsconfig.tools.json",
+    "vite.config.ts",
+    "vite.slice.config.ts"
+  ],
+  "localMarkdownFileLinks": 767,
+  "credentialPatternMatches": 0,
+  "sourceHashes": {
+    "scripts/phase3c-loop-mutations.mjs": "0a37cea07c72241a559bc29812784a9ea83e8a6a7afaf21c527d965dfbadbdff",
+    "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458",
+    "scripts/slice-mutations.mjs": "395f2b3b51c6199158b3c01ad7ca6cb5ee21f196a12c5cb0b59bed87ec414cb5",
+    "src/application/slice-family.ts": "e7b5632e6afb80b1af95d29aa86ecde36f8f91a4143a57d785b8bf4be727d7e5",
+    "src/application/synthetic-loop/answer.ts": "bfbfe1cd7ad660985afd6b338a858816969a5bf987eb0b70f2de926bf824d02b",
+    "src/application/synthetic-loop/index.ts": "13c892e7e6d47e68380c5d7844bb5af9e045c0fd024f312072e275b01261faa0",
+    "src/application/synthetic-loop/record.ts": "60e572d86215e2b4844cc28a8f3f9ced3d9aacfea1cf6d43716c33dbe32efde8",
+    "src/application/synthetic-loop/seed.ts": "8fba60803e697922951efc7f5f64d483c7a9b23e4b51ca8d590234ffbd9e8d0e",
+    "src/application/synthetic-loop/session.ts": "b712e0e19e0514f8392b531c96449e8b648ed53d2e771044492cd82b6a447dfe",
+    "src/application/synthetic-loop/types.ts": "dc2907228d92cec275d5ec9420b9f177dd7181a8347af1d0c4e85df1f7350b88",
+    "src/domain/families/proof-evidence.ts": "441facccaf5318daf45d0f422bb649cd636cbecf76c4092c0ec069a1c329483c",
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7c8e7867ec9b7fcec7bb3cbca7f42ce8b8e4d762b25ddc91a8595c836b629c4",
+    "src/presentation/localisation/slice-copy.ts": "047f47b13490a8f4cde1d7e2d65e1de5b499f340740f51c26ecd762540bbc299",
+    "src/ui/offline/OfflineControls.tsx": "3e4a56f4cf05764bacb44fbbb57a0610c886928dd280a57ad92691eaacdc69b8",
+    "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+    "src/ui/synthetic-loop/slice.css": "92a9f9913250ad7efa0ebaab8cd8dad3c079daec87aacc8fa2905c023b25ca90",
+    "tests/browser/phase3c/index.html": "e67f6d4eee41ad382233571c991a5ca3caa880422b79c98c2d22b51b15ee453b",
+    "tests/browser/phase3c/main.tsx": "3fd279391c26929bef8750b39b9cb79eba94c78db3bc246b311ac7ed49cb440f",
+    "tests/browser/phase3c/runtime.ts": "406c39c51c2f112cda6bddcbae5f36e823466d476b7b589ed8831284f6944508",
+    "tests/browser/phase3c/shell.css": "8818060ba4d6d3306e8c603a754354b264a443dd6a666a82a26d59ab33e0ed2d",
+    "tests/integration/phase3c-loop.test.ts": "6ea77cdf71fca413891bb96976b8a8e9ce54561b549724af9d20ab65920490c4",
+    "tests/oracle/slice-families.ts": "63b32b0d3359fa66aa403eb413074a903cbabe5eb2f73e01fc1e7ce6867a0ce7",
+    "tests/unit/domain/proof-evidence.test.ts": "42d62d3fa44fc56771923f86aaf5fa0052bd50895251de35925be2fe53f8c8cd",
+    "tests/unit/domain/slice-families.test.ts": "4aa57d50ffb479ca712e84641a117ab55cca44e8de1d2e735743e67efce804be",
+    "tests/unit/domain/slice-independent.test.ts": "3f8ea42d016aaf1b278042b78f25d258ffb1afc5a252b30b457c340c0c65a372",
+    "tests/unit/offline-learner-guard.test.ts": "a5db1063077f597304d83ea7584654439432f58e936c5aa2c9e9ae9dacddf4a2",
+    "tests/unit/phase3c-mutation-boundaries.test.ts": "a0275de5e18d90190f80844c4b4e64c8437fafbd0e6c289477cb5e29de9f5921",
+    "tests/unit/slice-containment.test.ts": "39dc06653daa78fc96ac66aedba303025ac9c43020015bfed7e7b02a2a532b0e",
+    "tests/unit/slice-localisation.test.ts": "6a2ee5b8b1e4e29c81b7f9bc9e7f8a13af613454d58e3378c888c9aeaf127c23",
+    "tests/unit/slice-task-markup.test.tsx": "1c25c6b38fa121953a86c6a606c178a1facd1bd43f585317edad78c3891bf3ee",
+    "tests/unit/synthetic-loop-review.test.ts": "f7698687d086c9a2b05d0175475fa5d361c78a19c38b24edf252a683f30904a9",
+    "tests/unit/synthetic-loop-seed.test.ts": "b70e323067c3d8feb177883a3890fa8753d11fb235b1d6046d27e60cf9f11c74",
+    "tests/unit/synthetic-loop.test.ts": "7c58b6e0507e886e4a4a0a0bf3ab71a44343cff2d139d9a5a04804c5c1dc68c4",
+    "tsconfig.tools.json": "14b3707e36c41867f45c4fbf14460533fd2d9cdc5ae4259ede45e9d73a196b0c",
+    "vite.config.ts": "84b8a31e9943ff8b0a825bb97bd381ef8f7723a7ebadfc94a103ba62e790b505",
+    "vite.slice.config.ts": "3fa799cc23368b4a4d2657c5fb7a05e91dd3508682309b612b6ee30f1f9b577f"
+  },
+  "sourceSetSha256": "ce901c3c9b5cd10f87d8383a800817bcb9a5dfc6e64279f7f20e726895813427",
+  "lockfileSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "packageJsonSha256": "1aed13d60f17d3f7e7c9d7e74db60fc577b5d9983751b61d3a20f910cffca06a",
+  "normalBuild": {
+    "releaseId": "sha256-323f3d4b5b58041a426c6f6f32e2adf12156dd5f96df3a3262969c7ba8eefdc4",
+    "shellId": "338cd4974deca0c041ad25a8e6d01a596e07c06e4366c52cfd3d2260d956b8d6",
+    "artifacts": [
+      {
+        "path": "dist/assets/index-Cqw6cjjL.css",
+        "bytes": 21440,
+        "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+      },
+      {
+        "path": "dist/assets/index-DJw206I7.js",
+        "bytes": 321818,
+        "sha256": "6514e1ede985cb11572b3d24ecf87bd63a1000d83c45b518851c9619b9880726"
+      },
+      {
+        "path": "dist/icons/math-adventure.svg",
+        "bytes": 431,
+        "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+      },
+      {
+        "path": "dist/index.html",
+        "bytes": 795,
+        "sha256": "1f278307b15adf847317fd5a9a78758199493bb8738736a69c9b7ecf7f7768f9"
+      },
+      {
+        "path": "dist/manifest.webmanifest",
+        "bytes": 440,
+        "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+      },
+      {
+        "path": "dist/release.json",
+        "bytes": 1300,
+        "sha256": "5b9e84bef4bd5c497baaf3ae01dcf7230c6742847df0a8f4f1bf0d9612a9bd26"
+      },
+      {
+        "path": "dist/sw.js",
+        "bytes": 22518,
+        "sha256": "5549814b0037e527cdfa3adc82e22ed7a4361f732e9722a41120d05a62a5836f"
+      },
+      {
+        "path": "dist/THIRD_PARTY_NOTICES.txt",
+        "bytes": 1384,
+        "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+      }
+    ]
+  },
+  "developerBuilds": [
+    {
+      "releaseId": "sha256-a8acb91823fb4ae2632ca07464603985046c8b0023e2d8f4325ac3ca0c105f40",
+      "shellId": "2a4dafc9dae801c0090cd5a7fa2139db260502006d9b37ec603dcd2c8cbd784c",
+      "artifacts": [
+        {
+          "path": ".cache/phase3c-browser/e2e-v1/assets/index-8DMwNj5o.js",
+          "bytes": 611816,
+          "sha256": "e890b09831581bb5025ccef686345578fe72e0becb689405e04e91fd115acb1f"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v1/assets/index-CA8A6Ank.css",
+          "bytes": 6640,
+          "sha256": "310d04ce80731a1a544abbc3cb5ad14f56ed6fa0a859a30954e5c5aa29017906"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v1/icons/math-adventure.svg",
+          "bytes": 431,
+          "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v1/index.html",
+          "bytes": 715,
+          "sha256": "132d8bec766454d40f538d3f4fc8e8217ca5c2eb361b225ec06c12058d741d72"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v1/learner-reader.json",
+          "bytes": 92,
+          "sha256": "ddf50ce505975737ab6c208383f265e16fcaba65d3560035fa2db7d5767a0447"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v1/manifest.webmanifest",
+          "bytes": 440,
+          "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v1/release.json",
+          "bytes": 1451,
+          "sha256": "71e06541b886b0e4f523127e7b6907ab8c5d2372fbf559bf5031794dbc441ada"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v1/sw.js",
+          "bytes": 22635,
+          "sha256": "00b51de1fc312aabf77d4ce40d3e79c8a3feec4265387b35eea3bdc96b794556"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v1/THIRD_PARTY_NOTICES.txt",
+          "bytes": 1384,
+          "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+        }
+      ]
+    },
+    {
+      "releaseId": "sha256-d127ec06ae03fc8d47bb1408455231542f84ba93ba680cc645097ae5728c9f93",
+      "shellId": "1ec41f5a63121aa566160f2904b3139ed9d35ea5a2fb05e5bee183e1556bd95b",
+      "artifacts": [
+        {
+          "path": ".cache/phase3c-browser/e2e-v2/assets/index-8DMwNj5o.js",
+          "bytes": 611816,
+          "sha256": "e890b09831581bb5025ccef686345578fe72e0becb689405e04e91fd115acb1f"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v2/assets/index-CA8A6Ank.css",
+          "bytes": 6640,
+          "sha256": "310d04ce80731a1a544abbc3cb5ad14f56ed6fa0a859a30954e5c5aa29017906"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v2/icons/math-adventure.svg",
+          "bytes": 431,
+          "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v2/index.html",
+          "bytes": 715,
+          "sha256": "950a7c75839b345c44fdca68584b91da8a7c0cd260c91bb4f5ac67547d24b1f4"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v2/learner-reader.json",
+          "bytes": 92,
+          "sha256": "ddf50ce505975737ab6c208383f265e16fcaba65d3560035fa2db7d5767a0447"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v2/manifest.webmanifest",
+          "bytes": 440,
+          "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v2/release.json",
+          "bytes": 1451,
+          "sha256": "e4af1500cad52ad9cc5ff50b1150c12def4740cd391d1f44bbce1ba5da5adb98"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v2/sw.js",
+          "bytes": 22635,
+          "sha256": "ab47b66335008daaa15d5a2089abd58c8b3a2d89b09cb47b24d74574837271fd"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-v2/THIRD_PARTY_NOTICES.txt",
+          "bytes": 1384,
+          "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+        }
+      ]
+    },
+    {
+      "releaseId": "sha256-44d5e1a33e617bf611c06d96f0d4e34dddf1fe8b60b37c5812ce3b76da898243",
+      "shellId": "62fea6d347bec13ba9ee00e317cd51973bebc87923423a9766b65391d0b898ac",
+      "artifacts": [
+        {
+          "path": ".cache/phase3c-browser/e2e-future/assets/index-8DMwNj5o.js",
+          "bytes": 611816,
+          "sha256": "e890b09831581bb5025ccef686345578fe72e0becb689405e04e91fd115acb1f"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-future/assets/index-CA8A6Ank.css",
+          "bytes": 6640,
+          "sha256": "310d04ce80731a1a544abbc3cb5ad14f56ed6fa0a859a30954e5c5aa29017906"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-future/icons/math-adventure.svg",
+          "bytes": 431,
+          "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-future/index.html",
+          "bytes": 719,
+          "sha256": "c8587e0d2ac2042a339eda811640fada493658b58a7cb7797debeefcd5ba5087"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-future/learner-reader.json",
+          "bytes": 86,
+          "sha256": "9f2460442a07af5913aed45b8736a4814c74f4ed64930ca6c080812542e162e1"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-future/manifest.webmanifest",
+          "bytes": 440,
+          "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-future/release.json",
+          "bytes": 1451,
+          "sha256": "13adb7e17f5c54c8d8e2d4deb39413aa940e1ca649f0d2da84e9c1ab4ac1c3c9"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-future/sw.js",
+          "bytes": 22635,
+          "sha256": "e87b70a5a83a8aca5277704059ab4c1510076a14958686739e89ba13b393465d"
+        },
+        {
+          "path": ".cache/phase3c-browser/e2e-future/THIRD_PARTY_NOTICES.txt",
+          "bytes": 1384,
+          "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+        }
+      ]
+    }
+  ],
+  "nativeSourcesAndArtifactsCurrent": true,
+  "normalSyntheticMarkersAbsent": true,
+  "mutationRestorationVerified": true,
+  "independentUiSourcesCurrent": true,
+  "retainedEvidenceContainsOnlySanitizedSyntheticSummaries": true,
+  "actualDeviceAT": "BLOCKED — EVIDENCE UNAVAILABLE",
+  "actualDisconnectedRestart": "BLOCKED — EVIDENCE UNAVAILABLE"
+}

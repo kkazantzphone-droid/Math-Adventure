@@ -1,0 +1,92 @@
+.synthetic-loop {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: clamp(0.75rem, 3vw, 2rem);
+}
+.slice-header {
+  padding: 1rem;
+  color: #fff;
+}
+.slice-brand {
+  color: #cbd7ff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.slice-panel {
+  margin-block: 1rem;
+  padding: clamp(0.75rem, 3vw, 1.5rem);
+  border: 1px solid #8da4d8;
+  border-radius: 1.25rem;
+  background: #17264d;
+  color: #fff;
+}
+.slice-actions,
+.slice-activities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1rem;
+}
+.slice-activities > button {
+  flex: 1 1 12rem;
+}
+.synthetic-loop button,
+.synthetic-loop select,
+.synthetic-loop summary {
+  min-height: 44px;
+  font: inherit;
+}
+.synthetic-loop button {
+  min-width: 44px;
+  padding: 0.65rem 1rem;
+  border: 2px solid #d3def9;
+  border-radius: 0.8rem;
+  color: #132043;
+  background: #e5edff;
+  cursor: pointer;
+}
+.synthetic-loop button[aria-pressed='true'] {
+  border-color: #ffdc76;
+  box-shadow: inset 0 0 0 2px #6c4c05;
+}
+.synthetic-loop button:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+.synthetic-loop :focus-visible {
+  outline: 3px solid #ffe381;
+  outline-offset: 4px;
+}
+.synthetic-loop label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-block: 1rem;
+  min-height: 44px;
+}
+.synthetic-loop input[type='checkbox'] {
+  width: 24px;
+  height: 24px;
+}
+.synthetic-loop select {
+  max-width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+}
+.synthetic-loop pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  font-size: 0.85em;
+}
+.synthetic-loop .slice-save-status {
+  border-inline-start: 0.3rem solid #dce6ff;
+  padding-inline-start: 0.8rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .synthetic-loop * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

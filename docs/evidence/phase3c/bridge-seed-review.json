@@ -1,0 +1,55 @@
+{
+  "scope": "independent exact bridge/seed assertions and meaningful mutation sensitivity only",
+  "result": "PASS — NARROWER MATHEMATICAL REVIEW ONLY",
+  "sourceHashes": {
+    "src/domain/families/proof-evidence.ts": "441facccaf5318daf45d0f422bb649cd636cbecf76c4092c0ec069a1c329483c",
+    "src/application/synthetic-loop/seed.ts": "8fba60803e697922951efc7f5f64d483c7a9b23e4b51ca8d590234ffbd9e8d0e",
+    "tests/unit/domain/proof-evidence.test.ts": "42d62d3fa44fc56771923f86aaf5fa0052bd50895251de35925be2fe53f8c8cd",
+    "tests/unit/synthetic-loop-seed.test.ts": "b70e323067c3d8feb177883a3890fa8753d11fb235b1d6046d27e60cf9f11c74",
+    "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "src/domain/adaptation/catalog.ts": "60fd387a5e3cc76b8ba7f420b4d000d9feb4efe9be3338117e0bbf2d1f7e6b3a",
+    "src/domain/random/xoshiro.ts": "dc16be244747b4a5b419050bd37091214bb272fa3269f339f123c3192b247e9a",
+    "tests/oracle/xoshiro-reference.ts": "077700eb339866f29a5581927197ebf6c8dcca4ae504cfd62a4aa42fb73338a3",
+    "src/application/synthetic-loop/types.ts": "dc2907228d92cec275d5ec9420b9f177dd7181a8347af1d0c4e85df1f7350b88",
+    "src/application/synthetic-loop/index.ts": "13c892e7e6d47e68380c5d7844bb5af9e045c0fd024f312072e275b01261faa0",
+    "src/application/synthetic-loop/session.ts": "b712e0e19e0514f8392b531c96449e8b648ed53d2e771044492cd82b6a447dfe",
+    "src/application/synthetic-loop/record.ts": "60e572d86215e2b4844cc28a8f3f9ced3d9aacfea1cf6d43716c33dbe32efde8",
+    "src/application/synthetic-loop/answer.ts": "bfbfe1cd7ad660985afd6b338a858816969a5bf987eb0b70f2de926bf824d02b",
+    "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7c8e7867ec9b7fcec7bb3cbca7f42ce8b8e4d762b25ddc91a8595c836b629c4",
+    "tests/browser/phase3c/main.tsx": "3fd279391c26929bef8750b39b9cb79eba94c78db3bc246b311ac7ed49cb440f",
+    "tests/browser/phase3c/runtime.ts": "406c39c51c2f112cda6bddcbae5f36e823466d476b7b589ed8831284f6944508",
+    "tests/integration/phase3c-loop.test.ts": "6ea77cdf71fca413891bb96976b8a8e9ce54561b549724af9d20ab65920490c4",
+    ".node-version": "73fb1b615e2043a933be1c0895cde4358036acc28d785692509b822aa53c761f",
+    "package.json": "1aed13d60f17d3f7e7c9d7e74db60fc577b5d9983751b61d3a20f910cffca06a",
+    "pnpm-lock.yaml": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964"
+  },
+  "baselineAssertions": 13,
+  "mutations": [
+    {
+      "id": "sheared-shape-loses-angle-evidence",
+      "result": "DETECTED_BY_INTENDED_ASSERTION",
+      "test": "all generated geometry tuples at maximum 2 map exactly to the independently equivalent catalog class",
+      "source": "src/domain/families/proof-evidence.ts",
+      "originalSha256": "441facccaf5318daf45d0f422bb649cd636cbecf76c4092c0ec069a1c329483c",
+      "mutantSha256": "d81dcf00eceec0bc590d4a957c432c5f770442f914f858408dee2fa1f04872db",
+      "failingAssertions": 1
+    },
+    {
+      "id": "workflow-first-output-word-ignores-ordinal",
+      "result": "DETECTED_BY_INTENDED_ASSERTION",
+      "test": "matches independent bigint modular arithmetic at ordinal boundaries",
+      "source": "src/application/synthetic-loop/seed.ts",
+      "originalSha256": "8fba60803e697922951efc7f5f64d483c7a9b23e4b51ca8d590234ffbd9e8d0e",
+      "mutantSha256": "e7c0f13077d45045253b96819692b7a1c810d4f584b1e5244225f9bfd43e648f",
+      "failingAssertions": 1
+    }
+  ],
+  "restoredAssertions": 13,
+  "exactRestoration": true,
+  "protectedSourcesStable": true,
+  "temporaryAssertionReportRemoved": true,
+  "actualAT": "UNAVAILABLE",
+  "actualPhysicalDisconnection": "UNAVAILABLE"
+}

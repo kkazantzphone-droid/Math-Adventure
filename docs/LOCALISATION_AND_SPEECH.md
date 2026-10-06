@@ -1,12 +1,16 @@
 # Localisation and speech
 
-D49 [Phase 3C local preparation](PHASE_3C_COMPLETION_REPORT.md) adds no child
-copy or speech plans. Its new semantic hint IDs are not yet connected to the
-slice-required draft el-GR/en-GB/de-DE inventory. All three existing packs remain
-prototype-draft/native-review pending; four planned packs remain unchanged.
-Independent language roles and exact-region local-only explicit speech remain
-the integration requirements. Full loop/localisation and actual AT/offline
-device observations are unverified; no new language/speech support claim.
+D49 [Phase 3C developer loop](PHASE_3C_COMPLETION_REPORT.md) adds the separate
+`slice-messages-v1` inventory for current task/help/feedback, profile/session,
+save/recovery/update and accessibility wording in el-GR/en-GB/de-DE. All remain
+prototype-draft/native-review pending; four planned packs retain explicit incomplete
+fallback. Stored preferences validate seven exact tags and preserve independent
+UI/instruction/number-speech roles. Optional explicit speech uses existing fixed
+generic instructions and visible numeral cardinal plans for 2–5, with exposed
+exact-region `localService === true` voices only. Profile/task/language changes
+cancel obsolete speech; missing speech preserves play. No arbitrary learner text,
+autoplay, official pack, pronunciation or tested-offline speech claim follows.
+Actual AT/disconnected observations remain unavailable full-stage gates.
 
 Phase 3 readiness inventories the [new slice message IDs and acceptance gates](PHASE_3_IMPLEMENTATION_PLAN.md)
 without writing translations or promoting packs. el-GR/en-GB/de-DE remain draft;

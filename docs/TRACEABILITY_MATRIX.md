@@ -1,12 +1,13 @@
 # Requirement traceability
 
-## Phase 3C local preparation (D49; full stage blocked)
+## Phase 3C synthetic developer integration (D49; full stage blocked)
 
 | Requirement | Current work | Unverified boundary |
 | --- | --- | --- |
-| R11/R13/R14/R31 bounded catalog | Five pure new family IDs, exact structured answers, immutable replay, semantic hints, independent finite oracle preparation | No rendered representations, new draft child copy or catalog evidence integration |
-| R05/R08/R22/R23/R27 playable persistence/adaptation/update | Read-only integration findings in [current report](PHASE_3C_COMPLETION_REPORT.md) | Loop/atomic codec/reconciliation/lifecycle wiring and corresponding E2E are unimplemented |
-| R24/R26/R28 required actual observations | Permitted hardware/browser/AT/network capability audit | Target AT delivery and actual disconnected device restart unavailable; full 3C blocked, no support claim or auto-merge |
+| R11/R13/R14/R31 bounded catalog | Eight deterministic families, new immutable IDs/replay/hints, answer-free facades, domain validation and independent bounded oracles | Five new families return `limitedEvidence`; no new mastery/educational certification |
+| R05/R08/R22/R23/R27 playable persistence/adaptation/update | Separate two-profile developer loop, bounded aggregate/pending reconciliation, final atomic observation/state/recommendation/receipt, truthful failure/recovery and optional learner-data lifecycle port | Final exact-candidate full/fresh/native/mutation/privacy gates are recorded in [current report](PHASE_3C_COMPLETION_REPORT.md); normal product composition remains unwired |
+| R18/R20/R24 draft interaction | Three current draft locale inventories, independent roles, optional fixed exact-local speech and bounded actual Chrome/Edge keyboard/reflow/focus/contrast review | Native-language review, AT delivery, pronunciation and tested-offline voice remain unverified |
+| R24/R26/R28 required actual observations | Permitted hardware/browser/AT/network capability audit; emulated browser offline/update proof is separately bounded | Target AT delivery and actual disconnected device restart unavailable; full 3C blocked, no complete-stage claim or auto-merge |
 
 Older stage addenda retain their original evidence. D49 authorizes synthetic 3C
 engineering, with no accepted-policy promotion or real-child-use permission.

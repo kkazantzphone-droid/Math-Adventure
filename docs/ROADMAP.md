@@ -2,11 +2,15 @@
 
 Current D49 owner Goal authorizes synthetic Phase 3C after positively observed
 Governance V2 merge `be1bd7735491df8cc2abe19645ec65b393d0aa6b` (PR #12).
+The separate synthetic developer loop now integrates eight deterministic families,
+two fixed profiles, atomic IndexedDB save/recovery, explicit proposed-policy mode,
+three draft locales, optional local speech and learner-data update guards.
 **Full Phase 3C is BLOCKED — REQUIRED EVIDENCE UNAVAILABLE**: permitted tools
 cannot observe target AT delivery or an actual disconnected device restart.
-[Current report](PHASE_3C_COMPLETION_REPORT.md) records local bounded catalog
-preparation and all remaining loop/integration gates. No playable-loop completion,
-reduced-scope merge, real-child use, release or Phase 4 is authorized by that work.
+[Current report](PHASE_3C_COMPLETION_REPORT.md) separates implemented engineering,
+final verification status and the unchanged complete-stage blockers. The previous
+catalog-only milestone is preserved there. No complete-stage claim, reduced-scope
+merge, real-child use, release or Phase 4 follows.
 Older task summaries below retain their recorded authorization/evidence bounds.
 
 Current staged implementation: synthetic-only Phase 3A/3B are owner-merged in

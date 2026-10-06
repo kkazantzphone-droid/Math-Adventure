@@ -60,14 +60,23 @@ function sourceDependencies(entry: string): ReadonlySet<string> {
   return seen;
 }
 
-describe('local Phase 3C catalog preservation containment', () => {
+describe('Phase 3C developer loop containment', () => {
   it.each(['src/composition/main.tsx', 'tests/browser/phase3/harness.ts'])(
-    '%s never transitively imports the unintegrated catalog',
+    '%s never transitively imports the separate synthetic loop',
     (entry) => {
       const dependencies = sourceDependencies(entry);
       expect(dependencies.size).toBeGreaterThan(20);
       expect(dependencies.has('src/application/slice-family.ts')).toBe(false);
       expect(dependencies.has('src/domain/families/slice.ts')).toBe(false);
+      expect(
+        dependencies.has('src/application/synthetic-loop/session.ts'),
+      ).toBe(false);
+      expect(
+        dependencies.has(
+          'src/infrastructure/persistence/synthetic-loop-database.ts',
+        ),
+      ).toBe(false);
+      expect(dependencies.has('tests/browser/phase3c/runtime.ts')).toBe(false);
     },
   );
 });

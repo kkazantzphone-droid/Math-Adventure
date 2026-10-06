@@ -9,7 +9,8 @@
     "tests/**/*.ts",
     "tests/**/*.tsx",
     "vite.config.ts",
-    "vite.persistence.config.ts"
+    "vite.persistence.config.ts",
+    "vite.slice.config.ts"
   ],
   "exclude": ["tests/fixtures/architecture"]
 }

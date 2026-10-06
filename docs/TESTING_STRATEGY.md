@@ -1,13 +1,26 @@
 # Testing and quality strategy
 
-Current D49 [Phase 3C record](PHASE_3C_COMPLETION_REPORT.md) distinguishes pure
-five-family catalog preparation from the still unimplemented playable loop.
-Independent bounded enumeration/replay/answer tests and restored math mutations
-certify only those domain bytes. Actual target device/browser/AT delivery and an
-actual disconnected restart are mandatory complete-stage gates and unavailable
-through current permitted controls. Source/DOM checks, browser offline emulation
-and a stopped-listener restart cannot replace them. No Phase 3C E2E, atomic answer,
-update guard or end-to-end mutation PASS is implied by this local milestone.
+Current D49 [Phase 3C record](PHASE_3C_COMPLETION_REPORT.md) distinguishes the
+implemented synthetic developer loop, final exact-candidate engineering gates and
+historical catalog-only proof. The separate installed Chrome/Edge suite covers
+all eight families/two profiles, atomic saves/retries/reload, mode/evidence isolation,
+language/speech, failure/deletion/stale-tab and root/subpath update compatibility:
+36 cases pass in each installed product. Eight loop mutations fail intended
+assertions and restore exact bytes/all 33 protected hashes; fresh bridge/workflow
+seed review adds 13 assertions and two meaningful mathematical defects.
+Independent truth/transaction/rendered/privacy reviews supplement the canonical
+PASS (1,188 tests/59 files, 32 governance fixtures). A reviewed test-only
+`maxWorkers: 2` repair bounds compiler/oracle contention with unchanged assertions,
+timeouts/enumerations; the canonical gate and all eight restored loop mutations
+pass after that change. Both products' native Phase 1E/3A/3B/3C input subsets remain
+unchanged. The initial 37-source frozen-install/full PASS is retained; the new
+clean 38-source scheduled candidate also passes frozen install/full verification,
+with matching pins/source bytes/eight normal artifacts and no copied dependencies.
+Exact source/artifact/tree
+bindings and command results belong in the report; this is not docs-only reuse.
+Actual target device/browser/AT delivery and an actual disconnected
+restart remain mandatory unavailable complete-stage gates. DOM checks, browser
+offline emulation and stopped-listener restart cannot replace them.
 
 ## Synthetic Phase 3B candidate
 

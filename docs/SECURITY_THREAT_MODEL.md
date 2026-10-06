@@ -1,11 +1,20 @@
 # Security threat model
 
-D49 [Phase 3C local milestone](PHASE_3C_COMPLETION_REPORT.md) is pure bounded
-catalog preparation, outside both normal composition and browser harness entry.
-It introduces no profile input, learner store, import, network, speech or telemetry.
-Only blank/synthetic capability inspection was used. Full playable-loop privacy,
-receipt/cache/trace/request inspection and learner-data update integrity are still
-unverified; actual device/AT and disconnected evidence blocks stage completion.
+D49 [Phase 3C developer integration](PHASE_3C_COMPLETION_REPORT.md) is a separate
+capability-gated `http://127.0.0.1`/explicit-port build with two fixed synthetic
+profiles and no name/nickname/arbitrary import. Normal product composition cannot
+open its namespace. Bounded validated aggregates/pending verdicts and receipts
+avoid raw answer/replay histories; epoch/revision and full-row validation prevent
+stale resurrection or silent schema reset. Learner update guards drain/fence work
+and validate a verified target reader before recovery. Optional speech remains
+fixed/exact-local/explicit; no telemetry, account, cloud or new runtime dependency
+is added. Independent native Chrome review observes two fixed records/five
+receipts, no raw answers/tasks/replay/personal keys, no cached learner identifiers
+and zero external/learner-bearing requests. Both 36-case browser suites also
+observe zero external attempts/outbound learner requests/page errors. Static
+integrity/privacy review has no finding; final candidate rebinding is recorded
+separately and only sanitized synthetic summaries are retained. Actual AT/disconnected
+observations remain unavailable, and no release/hosting/security certification follows.
 
 Phase 3 readiness adds a [stage-specific threat review and controls](PHASE_3_IMPLEMENTATION_PLAN.md)
 for local learner data, stale tabs, receipts, eviction, migrations, deletion,

@@ -1,12 +1,16 @@
 # Architecture
 
-D49 Phase 3C has only [local domain catalog preparation](PHASE_3C_COMPLETION_REPORT.md)
-under `domain/families/slice.ts` and the answer-free `application/slice-family.ts`
-facade. Neither normal composition nor the developer browser entry imports them.
-New immutable IDs preserve old family/replay behavior; no persistence, adaptation
-or UI wiring is added. Full loop integration and synthetic learner-data lifecycle
-guards remain unimplemented; required actual device/AT and disconnected evidence
-blocks complete stage certification. No architectural or accepted-policy change.
+D49 [Phase 3C integration](PHASE_3C_COMPLETION_REPORT.md) uses a separate
+capability-gated loopback developer entry/build, never normal product composition.
+Application session orchestration regenerates domain answers and commits the
+bounded `phase3c-synthetic-loop-v1` aggregate through Phase 3A; UI owns presentation.
+The unchanged Phase 3B engine applies only in explicit synthetic-policy mode, with
+the five new families limited to `limitedEvidence`. An optional learner-data
+lifecycle port fences/drains work and validates stored epoch/rows/receipts plus a
+verified target learner-reader declaration before update/recovery. Normal
+composition imports no learner database. All eight families/two fixed profiles
+remain synthetic; final gates and mandatory actual AT/disconnected blockers are
+separate from implementation. No accepted architecture/product-policy change.
 
 Merged checkpoint 7 (D44): composition injects a presentation-only offline port. Infrastructure owns native worker/cache/registration/update effects, presentation owns draft copy and capability contracts, and UI owns status and the explicit Home update control. `scripts/pwa-build.ts` emits the bounded hashed release and worker. Domain/application truth, replay and integrity remain unchanged. See [design](PHASE_1E_OFFLINE_DESIGN.md), [evidence](PHASE_1E_COMPLETION_REPORT.md) and [consolidated closure](PHASE_1_COMPLETION_REPORT.md).
 

@@ -1,11 +1,17 @@
 # Accessibility and child-centred interaction
 
-D49 [Phase 3C capability audit](PHASE_3C_COMPLETION_REPORT.md) found installed
-Chrome/Edge/Narrator but no permitted native AT output/control surface. The five
-new pure catalog declarations are not rendered/AT-certified; quantity descriptions
-cannot earn visual counting/numeral evidence. Target device/browser/AT delivery
-remains a mandatory full-stage gate, unavailable here. No accessible playable-loop
-or conformance claim follows from local domain preparation.
+D49 [Phase 3C evidence](PHASE_3C_COMPLETION_REPORT.md) records an implemented
+eight-family synthetic developer loop with native controls, semantic feedback,
+progressive help and non-leaking task alternatives. Bounded installed Chrome/Edge
+review observed keyboard/focus and deletion-confirmation focus, 320px reflow,
+200% text, portrait/landscape, mixed language, reduced motion, forced colours and
+adequate measured contrast. Expanded real E2E passes 36 cases in each installed
+Chrome/Edge product, with startup/profile-state coherence in all reviewed attempts.
+Quantity descriptions cannot earn visual numeral/
+counting evidence. Installed Narrator lacks a permitted native output/control
+surface, so actual target device/browser/AT delivery remains a mandatory unavailable
+full-stage gate. Rendered observations do not establish AT delivery or conformance;
+final candidate verification remains separately recorded.
 
 Merged D44 offline/update UI: concise shell status, native adult details and a Home-only explicit update button distinguish cached readiness from speech and unsaved progress. The all-tab boundary pauses interactions and cancels speech before acknowledgement, then recovers coherently. Blocked attempts restore the requesting control's focus. Draft el-GR/en-GB/de-DE copy is not an official language claim. Recorded rendered keyboard/reflow/text/contrast/focus observations and unavailable AT/device evidence belong in the [Phase 1E report](PHASE_1E_COMPLETION_REPORT.md).
 

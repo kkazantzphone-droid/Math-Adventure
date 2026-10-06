@@ -5,8 +5,10 @@ V2 `be1bd7735491df8cc2abe19645ec65b393d0aa6b` (PR #12), positively observed on
 protected main. [Current evidence](PHASE_3C_COMPLETION_REPORT.md) records
 **BLOCKED — REQUIRED EVIDENCE UNAVAILABLE** for full 3C: required target AT
 delivery and actual disconnected restart cannot be observed through permitted
-tools. Only local bounded catalog preparation is preserved; no full-stage PASS,
-publication or reduced-scope auto-merge. The D48 task wording below is historical;
+tools. The separate eight-family/two-profile developer loop, bounded atomic
+aggregate/recovery, unchanged proposed-policy adaptation and learner-data update
+guards are implemented; final engineering gates remain explicitly recorded.
+No full-stage PASS, publication or reduced-scope auto-merge. The D48 wording below is historical;
 V2 is now effective within its unchanged eligibility contract.
 
 Current task D48 authorizes governance-only conditional squash auto-merge V2
@@ -96,10 +98,14 @@ No Phase 3 implementation or real-child use follows from this certification.
 Current D49 scope/evidence: the owner separately authorizes the synthetic-only
 first playable loop after V2 merge under `automatic_when_eligible`. Entry is
 verified at `be1bd77`; [3C evidence](PHASE_3C_COMPLETION_REPORT.md) is **BLOCKED**
-for mandatory target AT/disconnected observations. Pure five-family preparation
-is local-only. No narrow merge authorization, real learner use, accepted-policy
-change, release/deployment or next phase follows. Ordinary engineering authority
-continues within the existing Goal when the required observation is obtainable.
+for mandatory target AT/disconnected observations. The earlier catalog-only
+milestone is preserved exactly; the current separate developer integration covers
+all eight families, fixed profiles, atomic persistence/reconciliation and guarded
+offline/update behavior. Manual activity adds no profiling evidence; the existing
+three-family proposed policy is unchanged and new families stay `limitedEvidence`.
+Final gate observations certify only their recorded candidate. No narrow merge
+authorization, real learner use, accepted-policy change, release/deployment or next
+phase follows. Ordinary engineering/review authority continues within this Goal.
 
 Current D47 synthetic candidate evidence supersedes historical descriptions of
 unimplemented adaptation only within the developer proof; normal composition

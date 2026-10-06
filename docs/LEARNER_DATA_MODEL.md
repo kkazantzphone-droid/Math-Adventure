@@ -1,13 +1,19 @@
 # Local learner data model
 
-D49 [Phase 3C work](PHASE_3C_COMPLETION_REPORT.md) is limited to pure catalog
-preparation and read-only integration design. No new aggregate codec, profile
-selector, answer transaction, pending journal or state persistence is implemented.
-The old synthetic 3A codec cannot represent a 3B/session aggregate; completed raw
-answer histories must not become a reconstruction store. Scoped observations,
-exact minimal derived state, transient pending reconciliation and committed-save
-feedback need their own bounded codec/native proof. No retention/default policy
-or real learner database is introduced; the full stage remains blocked.
+D49 [Phase 3C developer aggregate](PHASE_3C_COMPLETION_REPORT.md) implements
+`phase3c-synthetic-loop-v1` for two fixed visibly synthetic profiles in a separate
+loopback-only namespace/build. Its 64-event engineering cap bounds scoped
+observations/checkpoints and validated derived state, with independent preferences,
+session/progress and explicit proposed-policy recommendation metadata. Pending
+reconciliation stores a prepared verdict/minimal observation, never completed raw
+answer history; receipts contain no submitted raw answer/replay. Final outcome,
+state/recommendation/progress/receipt commit atomically through Phase 3A before
+saved feedback. Manual activity adds no observations; exploration is session-only.
+Epoch conflicts preserve stale survivors read-only for explicit recovery/deletion,
+without automatic replay/upsert/reset. Full namespace row/receipt validation and
+update fencing remain distinct from shell readiness. No accepted retention/default
+policy or real learner database is introduced; complete-stage AT/disconnected
+evidence remains unavailable and final engineering gates are separately recorded.
 
 Status: local-first policy accepted; numeric retention and production learner schema remain proposed. Phase 1C implements only generic integrity contracts and synthetic fixtures under [ADR-0010](adr/ADR-0010.md), with no real storage/adaptation. Records, migrations, retention and export/import below are fuller future requirements. [ADR-0003](adr/ADR-0003.md) and [privacy](CHILD_SAFETY_AND_PRIVACY.md) govern this model.
 
