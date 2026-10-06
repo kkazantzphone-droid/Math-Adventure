@@ -2,7 +2,7 @@
   "scope": "standalone-domain-preparation-only",
   "baseRevision": "be1bd7735491df8cc2abe19645ec65b393d0aa6b",
   "result": "PASS",
-  "localMarkdownFileLinks": 747,
+  "localMarkdownFileLinks": 749,
   "productionChildArtifactsEqual": true,
   "productionArtifacts": [
     {
@@ -48,7 +48,7 @@
   ],
   "lockfileSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
   "packageJsonSha256": "1aed13d60f17d3f7e7c9d7e74db60fc577b5d9983751b61d3a20f910cffca06a",
-  "candidateFileCount": 22,
+  "candidateFileCount": 23,
   "credentialPatternMatches": 0,
   "sourceHashes": {
     "scripts/slice-mutations.mjs": "395f2b3b51c6199158b3c01ad7ca6cb5ee21f196a12c5cb0b59bed87ec414cb5",

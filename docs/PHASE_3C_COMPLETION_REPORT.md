@@ -106,11 +106,39 @@ need fresh independent review once a runnable candidate exists.
 
 ## Verification record
 
-Local domain milestone verification is being completed before preservation.
-Results, exact source hashes, independent dispositions and the complete/fresh
-candidate gates will be recorded here. No Chrome/Edge playable E2E, IndexedDB
-integration, lifecycle proof, end-to-end mutations, actual AT or disconnected
-device observation is claimed for this milestone.
+The domain preparation and initial blocked report are preserved at
+`6b31e4977dbf2c226af5dc5ca33fa9007bd9fe16`. Complete source/build hashes bind the
+[integrity record](evidence/phase3c/integrity.json); its generated artifacts match
+the unchanged protected-main product baseline. Reporting-only follow-up bytes
+receive their own full/fresh verification before final local preservation, with
+unchanged source proof explicitly bounded below; prior-head success is no waiver.
+
+| Local preparation gate                    | Observed result                                                                                                                                                                                                                                                                                        |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Independent finite oracle                 | All 183 generated parameter tuples: numeral 6, counting 12, comparison 36, subtraction 21, missing number 108; 177 semantic fingerprints, with counting layouts collapsing to six cardinalities                                                                                                        |
+| Focused source/review tests               | 25 implementer tests, nine fresh reviewer adversarial tests, two independent transitive containment tests; all pass                                                                                                                                                                                    |
+| Independent review                        | Fresh mathematical/oracle/replay/resource/mutation reviewer and separate privacy/architecture/modality/documentation reviewer found no unresolved defect in this narrow scope                                                                                                                          |
+| Canonical verification                    | `corepack pnpm verify`: 1,112 tests / 51 files, 32 synthetic governance scenarios, formatting, zero-warning lint, all four TypeScript projects and production build PASS                                                                                                                               |
+| Isolated exact-commit frozen verification | Archive of `6b31e49`, separately downloaded pinned manager and 179 dependencies with `corepack pnpm install --frozen-lockfile`, then complete `corepack pnpm verify`: same 1,112 tests / 51 files PASS; no copied dependencies                                                                         |
+| Meaningful domain mutations               | [Six sanitized assertion detections](evidence/phase3c/domain-mutations.json): wrong numeral quantity, counting off by one, inverted comparison, addition instead of removal, wrong missing operand, forged instance acceptance; 3/3/4/2/1/4 failing assertions, exact original Buffer/hash restoration |
+| Audit and baseline                        | `corepack pnpm audit` on 2026-10-06: no known vulnerabilities; Node 24.21.0, pnpm 12.9.1, package/lock/dependencies unchanged                                                                                                                                                                          |
+| Candidate hygiene                         | Complete scoped diff, source/artifact provenance, Git whitespace, credential-pattern/privacy review and local Markdown file links checked; all eight product artifact paths/sizes/hashes unchanged; exact hashes/counts in the integrity record                                                        |
+
+The fresh reviewer oracle tests every competing bounded integer answer and every
+comparison relation against emitted task tokens rather than production expected
+answers. Seed witnesses use the independent BigInt RNG model; fixed low/mixed
+anchors and canonical replay/resource/accessor cases retain immutable behavior.
+These are finite mathematical bounds, not educational-diversity certification.
+The mutation runner deletes its temporary raw assertion report and retains only
+names/counts/hashes. No database, browser profile, screenshot, audio or learner log
+is retained. Frozen historical reports, accepted ADRs, normal composition, UI,
+locale/speech, adapter, adaptation policy and worker source are unchanged.
+
+No Chrome/Edge playable E2E, IndexedDB integration, learner-data lifecycle proof,
+end-to-end mutation, actual AT or disconnected device observation is claimed.
+Hosted CI is not run because this blocked local milestone is not published.
+Required full-stage specialist/E2E/device/hosted gates are open, distinct from the
+passing local domain preparation gates.
 
 ## Resume and publication
 
