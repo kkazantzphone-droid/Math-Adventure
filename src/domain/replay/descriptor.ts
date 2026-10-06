@@ -98,7 +98,7 @@ export interface ReplaySupport {
   readonly contentVersion: ContentVersion;
 }
 
-/** No registry or family exists yet. A later static registry must declare exact support. */
+/** A static registry declares exact supported family/generator/content triplets. */
 export function requireReplaySupport(
   descriptor: ReplayDescriptor,
   supported: readonly ReplaySupport[],

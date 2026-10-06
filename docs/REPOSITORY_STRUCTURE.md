@@ -2,24 +2,29 @@
 
 Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain modules, Phase 1C adds bounded application ports/integrity and synthetic conformance, and preserved owner-confirmed Phase 1V adds an isolated scripted visual prototype. Phase 1D is ENGINEERING PASS for bounded checkpoint-6 localisation/local-only speech, locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`. Historical reports/protocols remain unchanged. [Phase 1E](PHASE_1E_COMPLETION_REPORT.md) is **BLOCKED/PARTIAL — BROWSER LIFECYCLE EVIDENCE REQUIRED** and remains unimplemented; only its readiness evidence is preserved. The second tree describes the broader future application; empty conceptual layers are not scaffolded.
 
+Phase 2 adds the first executable bounded family modules and a stateless application facade plus deliberate developer view, with LOCAL ENGINEERING PASS. [Design](PHASE_2_FAMILY_PROOF.md) records mathematical/version/representation bounds; [completion evidence](PHASE_2_COMPLETION_REPORT.md) records full/fresh 501-test, independent oracle/mutation and bounded browser results. The branch began stacked on parent PR #4; after the owner merged it, tree equivalence was confirmed and the branch reconciled to protected main. The original PR #5 candidate passed both required hosted checks. Subsequent independent review and three bounded presentation repairs passed local full/fresh verification at 514 tests/27 files; the [red-team report](PHASE_2_RED_TEAM_REPORT.md) records retained tests and both required hosted checks passing at 514 tests/27 files for the repair revision. Final documentation preservation and any subsequent PR head require their own verification/hosted checks.
+
 ```text
 /
   package.json pnpm-lock.yaml pnpm-workspace.yaml .node-version
   index.html vite.config.ts eslint.config.mjs .prettierrc.json .prettierignore
   tsconfig.base.json tsconfig.json tsconfig.domain.json tsconfig.application.json tsconfig.tools.json
-  .github/workflows/ci.yml       # workflow file; no remote run performed
+  .github/workflows/ci.yml       # unchanged required Ubuntu/Windows verification contexts
   public/THIRD_PARTY_NOTICES.txt # exact bundled runtime license notice
   src/
     application/core/ ports/ repository/ # integrity and contracts only
+    application/family-proof.ts # stateless public view/submit facade; no learner command
     composition/main.tsx        # mounts the local visual prototype
     presentation/localisation/ # exact manifests/preferences/schema/draft packs/native Intl
     presentation/speech/       # fixed semantic nonpersonal prototype plans
     infrastructure/speech/     # browser speech/capability adapter, no learner storage
     ui/App.tsx styles.css
     ui/prototype/              # scripted model/fixtures, tiny copy/options, selected Space view/CSS
+    ui/family-proof/           # deliberately enabled generated-task Space developer proof
     domain/
       core/ math/ random/ replay/ concepts/
       expressions/ geometry/ measurement/ puzzles/ # foundations/contracts only
+      families/               # bounded executable proofs and static connected metadata graph
   tests/
     fakes/ conformance/         # synthetic adapter and reusable suite
     unit/                      # prototype, shell composition and architecture checks
@@ -37,11 +42,12 @@ Status: Phase 1A creates the technical foundation, Phase 1B adds pure domain mod
   docs/PHASE_1V_COMPLETION_REPORT.md docs/PHASE_1V_UAT_PROTOCOL.md
   docs/adr/ADR-0011.md          # owner-confirmed Space baseline and final visual gate
   docs/PHASE_1D_COMPLETION_REPORT.md docs/adr/ADR-0012.md # candidate evidence/policies
+  docs/PHASE_2_FAMILY_PROOF.md docs/PHASE_2_COMPLETION_REPORT.md # design and actual evidence
 ```
 
 The root `pnpm-workspace.yaml` configures project-local installation policy; this remains one application, not a monorepo. `node_modules`, build outputs and local tool caches are untracked artifacts.
 
-The prototype still contains no production family, learner schema, application command or persistence adapter. Synthetic badges/interactions and Phase 1D preferences remain transient. Historical B/C themes are documented rather than retained as dead production code. The frozen Phase 1V UAT/report/ADR record only the authorized aggregate procedure/findings and owner acceptance, not individual sessions, identifying details, raw child notes or media. **FINAL PASS — OWNER CONFIRMED** closes its human gate for Space, Shapes, Show me, Explore and the final one-top-side root view.
+The preserved scripted prototype still contains no mathematical family validator, learner schema, application command or persistence adapter. The separate Phase 2 path calls the stateless facade and domain families, with no attempt/evidence store. Synthetic badges/interactions and all preferences remain transient. Historical B/C themes are documented rather than retained as dead production code. The frozen Phase 1V UAT/report/ADR record only the authorized aggregate procedure/findings and owner acceptance, not individual sessions, identifying details, raw child notes or media. **FINAL PASS — OWNER CONFIRMED** closes its human gate for Space, Shapes, Show me, Explore and the final one-top-side root view.
 
 The Phase 1D presentation boundary owns exact seven-locale manifests and independent preferences, typed messages/draft el-GR/en-GB/de-DE packs, native Intl formatting and fixed semantic speech plans. Planned fr-FR/es-ES/it-IT/pt-PT manifests contain no fabricated translations. Infrastructure alone owns SpeechSynthesis/voice enumeration/timers behind the unchanged generic application speech port; composition injects it into UI. Tests use deterministic fake speech/capabilities and fixed nonpersonal data. These additions create no learner records/evidence/storage, remote TTS or worker/PWA module; bounded checkpoint-6 engineering gates passed and were locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`.
 

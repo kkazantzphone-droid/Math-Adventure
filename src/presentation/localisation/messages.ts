@@ -1,6 +1,6 @@
 import type { Locale, PrototypeLocale } from './locales';
 
-/** Stable, bounded schema for the current scripted prototype, not a V1 catalogue. */
+/** Bounded prototype/proof presentation schema, not a complete V1 catalogue. */
 export const SIMPLE_MESSAGE_IDS = [
   'badgesHeading',
   'badgesIntro',
@@ -45,6 +45,40 @@ export const SIMPLE_MESSAGE_IDS = [
   'prototypeNote',
   'listen',
   'mute',
+  'proof.heading',
+  'proof.intro',
+  'proof.familyLabel',
+  'proof.number',
+  'proof.geometry',
+  'proof.measurement',
+  'proof.seed',
+  'proof.replay',
+  'proof.check',
+  'proof.chooseAnswer',
+  'proof.additionPrompt',
+  'proof.geometryPrompt',
+  'proof.measurementPrompt',
+  'proof.plus',
+  'proof.numberAnswer',
+  'proof.lengthAnswer',
+  'proof.parallelogram',
+  'proof.rectangle',
+  'proof.square',
+  'proof.outline',
+  'proof.attributes',
+  'proof.squaredSide',
+  'proof.rightAngle',
+  'proof.notRightAngle',
+  'proof.beginning',
+  'proof.unitStep',
+  'proof.end',
+  'proof.nextUnit',
+  'proof.startAgain',
+  'proof.hintAddition',
+  'proof.hintGeometry',
+  'proof.hintMeasurement',
+  'proof.unavailable',
+  'proof.selectClasses',
 ] as const;
 
 export type SimpleMessageId = (typeof SIMPLE_MESSAGE_IDS)[number];
@@ -87,8 +121,8 @@ export type MessageArguments<Id extends MessageId> = Id extends 'tiles.count'
 
 export interface PackManifest {
   readonly locale: Locale;
-  readonly packVersion: '0.1.0-prototype' | null;
-  readonly messageSchemaVersion: 'prototype-messages-v1';
+  readonly packVersion: '0.2.0-prototype' | null;
+  readonly messageSchemaVersion: 'prototype-messages-v2';
   readonly contentVersion: 'scripted-prototype-v1';
   readonly status: 'draft' | 'planned';
   readonly completeness: 'complete-prototype' | 'incomplete';

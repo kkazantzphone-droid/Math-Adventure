@@ -5,9 +5,11 @@ import { getPrototypeCopy } from '../presentation/localisation/format';
 import { parseLanguagePreferences } from '../presentation/localisation/preferences';
 import { createBrowserSpeechAdapter } from '../infrastructure/speech/browserSpeech';
 import '../ui/styles.css';
+import { parseFamilyProofOptions } from '../ui/family-proof/options';
 
 const container = document.getElementById('root');
 const preferences = parseLanguagePreferences(window.location.search);
+const familyProof = parseFamilyProofOptions(window.location.search);
 const voiceCheckParameters = new URLSearchParams(window.location.search).getAll(
   'voiceCheck',
 );
@@ -30,6 +32,7 @@ createRoot(container).render(
       preferences={preferences}
       speech={speech}
       voiceCheck={voiceCheck}
+      familyProof={familyProof}
       onPreferencesChange={updateDocumentLanguage}
     />
   </StrictMode>,

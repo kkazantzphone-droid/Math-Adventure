@@ -12,18 +12,22 @@ import type { SpeechController } from '../presentation/speech/controller';
 import { VoiceCheck } from './speech/VoiceCheck';
 import { PrototypeExperience } from './prototype/PrototypeExperience';
 import type { PrototypeLanguage } from './prototype/options';
+import { FamilyProofExperience } from './family-proof/FamilyProofExperience';
+import type { FamilyProofOptions } from './family-proof/options';
 
 export function App({
   language = 'el',
   preferences: initialPreferences,
   speech,
   voiceCheck = false,
+  familyProof,
   onPreferencesChange,
 }: {
   readonly language?: PrototypeLanguage;
   readonly preferences?: LanguagePreferences;
   readonly speech?: SpeechController;
   readonly voiceCheck?: boolean;
+  readonly familyProof?: FamilyProofOptions;
   readonly onPreferencesChange?: (preferences: LanguagePreferences) => void;
 } = {}) {
   const [preferences, setPreferences] = useState<LanguagePreferences>(() => {
@@ -46,11 +50,19 @@ export function App({
   }, [preferences, onPreferencesChange]);
   return (
     <>
-      <PrototypeExperience
-        language={prototypeLanguageForLocale(preferences.uiLocale)}
-        preferences={preferences}
-        {...(speech === undefined ? {} : { speech })}
-      />
+      {familyProof?.enabled === true ? (
+        <FamilyProofExperience
+          options={familyProof}
+          preferences={preferences}
+          {...(speech === undefined ? {} : { speech })}
+        />
+      ) : (
+        <PrototypeExperience
+          language={prototypeLanguageForLocale(preferences.uiLocale)}
+          preferences={preferences}
+          {...(speech === undefined ? {} : { speech })}
+        />
+      )}
       {voiceCheck && speech !== undefined && snapshot !== null && (
         <VoiceCheck
           preferences={preferences}

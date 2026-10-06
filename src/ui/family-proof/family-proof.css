@@ -1,0 +1,153 @@
+/* Deliberate developer-only text enlargement for browser reflow review. */
+html:has(.family-proof[data-text-scale='200']) {
+  font-size: 200%;
+}
+
+.family-proof .proof-settings,
+.family-proof .proof-answer {
+  display: grid;
+  gap: 0.75rem;
+  inline-size: min(100%, 36rem);
+  min-inline-size: 0;
+}
+
+.family-proof input,
+.family-proof select {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 44px;
+  padding: 0.625rem;
+  border: 2px solid var(--border);
+  border-radius: 0.625rem;
+  color: var(--text);
+  background: var(--surface);
+  font: inherit;
+}
+
+.family-proof .proof-task {
+  inline-size: min(100%, 50rem);
+}
+
+.family-proof h2,
+.family-proof h3 {
+  margin: 0;
+  text-align: center;
+}
+
+.proof-expression {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.proof-geometry,
+.proof-measurement {
+  display: grid;
+  gap: 1rem;
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+
+.proof-scene {
+  display: block;
+  inline-size: min(100%, 24rem);
+  block-size: auto;
+  aspect-ratio: 1;
+  justify-self: center;
+  overflow: visible;
+  color: var(--accent);
+}
+
+.proof-scene polygon,
+.proof-scene line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.proof-scene circle {
+  fill: currentColor;
+}
+
+.proof-scene text {
+  fill: currentColor;
+  font-weight: 700;
+  dominant-baseline: hanging;
+  text-anchor: middle;
+}
+
+.proof-attributes {
+  display: grid;
+  gap: 0.5rem;
+  inline-size: 100%;
+  padding: 1rem;
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+}
+
+.proof-attributes p {
+  margin: 0;
+}
+
+.proof-unit-traversal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.proof-unit-traversal p {
+  inline-size: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.proof-answer fieldset {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+.proof-class-choice,
+.proof-number-response {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  min-block-size: 44px;
+}
+
+.proof-number-response {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.family-proof .proof-class-choice input {
+  flex: 0 0 24px;
+  inline-size: 24px;
+  block-size: 24px;
+  min-block-size: 24px;
+  accent-color: var(--accent);
+}
+
+@media (forced-colors: active) {
+  .family-proof input,
+  .family-proof select,
+  .proof-answer fieldset,
+  .proof-attributes {
+    color: CanvasText;
+    background: Canvas;
+    border-color: ButtonText;
+  }
+
+  .proof-scene {
+    color: CanvasText;
+  }
+}
