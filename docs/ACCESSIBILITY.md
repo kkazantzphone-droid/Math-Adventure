@@ -1,5 +1,7 @@
 # Accessibility and child-centred interaction
 
+Current D44 offline/update UI: concise shell status, native adult details and a Home-only explicit update button distinguish cached readiness from speech and unsaved progress. The all-tab boundary pauses interactions and cancels speech before acknowledgement, then recovers coherently. Blocked attempts restore the requesting control's focus. Draft el-GR/en-GB/de-DE copy is not an official language claim. Required rendered keyboard/reflow/text/contrast/focus observations and unavailable AT/device evidence belong in the [Phase 1E report](PHASE_1E_COMPLETION_REPORT.md). Older readiness statements below preserve the Phase 1D handoff.
+
 Status: proposed release target WCAG 2.2 AA, no current conformance claim. [WCAG 2.2](https://www.w3.org/TR/WCAG22/) is the normative reference, accessed 2026-10-04. Speech alone does not establish accessibility.
 
 | Area | Required design/test | WCAG reference |

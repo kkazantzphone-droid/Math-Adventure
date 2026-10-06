@@ -1,5 +1,11 @@
 # Technology evaluation
 
+Current D44 worker/build selection is a browser-standard worker with a small
+pinned-Vite hook and native cache lifetime coordination, with no new dependency.
+[Comparison](PHASE_1E_OFFLINE_DESIGN.md) and [evidence](PHASE_1E_COMPLETION_REPORT.md)
+supersede the older provisional plugin choice below for this shell scope. Future
+learner storage, migrations and broader device support remain separate decisions.
+
 Status: Phase 0 recommendations are reconciled with selected Phase 1A development pins. Public primary documentation and release pages inspected 2026-10-04 remain historical research; [research ledger](RESEARCH_EVIDENCE.md) records identities and limits. A visible release is evidence of activity, not a security/maintenance guarantee or a tested compatible stack.
 
 Phase 1A uses the independently verified installed DEV baseline: Node 24.21.0, npm 11.19.0, Corepack 0.36.0 and Git 2.56.0.windows.1. The selected project package manager is pnpm 12.9.1 through Corepack. `package.json`, `.node-version` and `pnpm-lock.yaml` record the exact project pins; [development](DEVELOPMENT.md) records safe commands and the [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md) records verification, package review and limitations. The installed Node/npm/Corepack baseline is preserved; no global pnpm installation is required.
