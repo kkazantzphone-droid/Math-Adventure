@@ -1,18 +1,25 @@
 # Localisation and speech
 
-D49 [Phase 3C developer loop](PHASE_3C_COMPLETION_REPORT.md) adds the separate
-`slice-messages-v1` inventory for current task/help/feedback, profile/session,
-save/recovery/update and accessibility wording in el-GR/en-GB/de-DE. All remain
-prototype-draft/native-review pending; four planned packs retain explicit incomplete
-fallback. Stored preferences validate seven exact tags and preserve independent
-UI/instruction/number-speech roles. Optional explicit speech uses existing fixed
-generic instructions and visible numeral cardinal plans for 2–5, with exposed
-exact-region `localService === true` voices only. Profile/task/language changes
-cancel obsolete speech; missing speech preserves play. No arbitrary learner text,
-autoplay, official pack, pronunciation or tested-offline speech claim follows.
-Actual AT/disconnected observations remain unavailable full-stage gates.
+D50 [Phase 3C child presentation](PHASE_3C_COMPLETION_REPORT.md) adds short task,
+visual-help and badge/navigation copy to the preserved developer inventory.
+el-GR/en-GB/de-DE stay prototype-draft/native-review pending; planned fr-FR/es-ES/
+it-IT/pt-PT preferences keep explicit incomplete Greek fallback. Child task
+instructions and UI chrome use their independent effective locales; number speech
+keeps its separate exact preference. Star/Triangle are fixed badge identities,
+with no learner names. Adult-only language/voice diagnostics remain inspectable in
+developer view. Optional explicit speech still uses existing fixed generic plans
+and visible numeral cardinals 2–5, accepting only exposed exact-region voices with
+`localService === true`. Badge/task/view/locale changes cancel obsolete speech;
+missing speech preserves play. No arbitrary utterance, autoplay, substitution,
+official pack, pronunciation or tested-offline voice claim follows. Shorter Greek
+matching/comparison captions and shared normal word boundaries repair observed
+narrow text reflow; accessible Left/Right labels remain localized behind visible
+side arrows. Mixed-role native tests pass in both products. Current status is
+**ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION**; native-language review and
+owner acceptance remain pending, and unavailable actual AT/disconnected proof
+retains its separate complete-stage gate.
 
-Phase 3 readiness inventories the [new slice message IDs and acceptance gates](PHASE_3_IMPLEMENTATION_PLAN.md)
+Historical Phase 3 readiness inventories the [new slice message IDs and acceptance gates](PHASE_3_IMPLEMENTATION_PLAN.md)
 without writing translations or promoting packs. el-GR/en-GB/de-DE remain draft;
 the four planned locales remain incomplete. Independent UI/instruction/number
 speech roles and optional exact-local-only playback are preserved. Readiness

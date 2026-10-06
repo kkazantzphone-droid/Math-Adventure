@@ -36,7 +36,10 @@ export default defineConfig({
   },
   test: {
     root: resolve('.'),
-    include: ['tests/integration/phase3c-loop.test.ts'],
+    include: [
+      'tests/integration/phase3c-loop.test.ts',
+      'tests/integration/phase3c-child-ux.test.ts',
+    ],
     testTimeout: 30_000,
     hookTimeout: 60_000,
     fileParallelism: false,

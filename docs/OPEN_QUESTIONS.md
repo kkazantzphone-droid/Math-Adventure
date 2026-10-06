@@ -1,23 +1,28 @@
 # Open questions and human decisions
 
-Current D49 authorizes synthetic Phase 3C engineering after observed Governance
-V2 merge `be1bd77`. [Phase 3C report](PHASE_3C_COMPLETION_REPORT.md) records
-mandatory device/AT and actual disconnected-restart evidence unavailable in the
-current tools. This does not reopen the synthetic scope authorization, waive
-those gates or close Q10/Q13/Q16. The separate fixed-profile developer loop is
-implemented, including eight families, bounded atomic save/recovery and guarded
-updates; final engineering results remain candidate-specific. Five new families
-remain `limitedEvidence`, the Phase 3B candidate remains proposed and all three
-current locale inventories remain native-review pending. No reduced-scope merge
-is authorized. Older authorization/dependency summaries below are historical.
+Current D50 owner steering continues the existing D49 Phase 3C Goal after the
+owner's material child UX finding. The preserved engine stays; all eight families
+receive direct child interaction/visual help and developer inspection remains
+separate. [Current report](PHASE_3C_COMPLETION_REPORT.md) records
+**ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION** after full/fresh, both native54
+matrices, 13 restored mutations and independent rendered/privacy review. Final
+documentation/evidence is reverified before preservation. **Q19 owner child UX
+confirmation remains PENDING**, with `owner_merge`, no automatic
+merge and no final Phase 3C publication. This does not reopen synthetic scope,
+authorize real-child trials or close Q10/Q13/Q16: actual device/AT output and actual
+disconnected restart remain unavailable. Five new families remain `limitedEvidence`,
+child shape recognition is excluded from full classification evidence, proposed
+policy remains proposed and draft locales still need native review. Older task
+authorization/dependency summaries below retain their historical bounds.
 
-Current product baseline is owner-merged synthetic-only D47
+Historical product baseline before D49 was owner-merged synthetic-only D47
 [Phase 3B](PHASE_3B_COMPLETION_REPORT.md) in protected main
 `fba77ed1da86944c3700aa74eaa68b50182f692b`, after Phase 3A at `9f60daf`.
-Current D48 work is governance only: conditional Class B protected squash merge
+Historical D48 work was governance only: conditional Class B protected squash merge
 under the [V2 operating model](CODEX_OPERATING_MODEL.md). This authority-expanding
-governance PR requires the owner's manual squash merge and cannot self-merge;
-the new permission becomes effective only on protected main. It closes no
+governance PR required the owner's manual squash merge and could not self-merge;
+its permission became effective on the observed merge recorded in D50's current
+report. It closes no
 product-policy question and authorizes no new phase. No policy decision blocked
 the contained synthetic 3B engineering proof.
 Q03/Q04/Q05/Q08/Q10/Q13/Q16 stay open for retention, default/control/profiling,
@@ -25,9 +30,10 @@ educator evidence/threshold/fairness approval and actual device/AT claims before
 real-child use. ADR-0006 stays PROPOSED; the experimental single-representation
 catalog and N-opportunity selector do not close Q08. The D45 readiness paragraph
 below describes its historical planning boundary, superseded for authorized 3A/3B
-only. Phase 3C still needs a separate Goal; no real-child use has started.
+only. Phase 3C required a separate Goal at that baseline; D49/D50 now supply its
+bounded synthetic authorization. No real-child use has started.
 
-Current D45 scope: **Phase 1 is closed** through owner-merged Phase 1E at
+Historical D45 scope: **Phase 1 is closed** through owner-merged Phase 1E at
 `93db59893b076925b1fdb5fadfa5abb9dfb274ac`; Phase 2, autonomy and proof-environment
 work are also merged. [Closure](PHASE_1_COMPLETION_REPORT.md) records bounded
 evidence. [Phase 3 readiness](PHASE_3_READINESS_REPORT.md) prepares three separately
@@ -65,6 +71,7 @@ The historical blocked Phase 1E readiness document remains frozen as
 | Q16 / D29-D30 | Validate SVG interactions/accessible geometry scopes and native MathML versus optional typesetter on actual target/AT surfaces | Math/accessibility/platform reviewers at first family proof | Representation/support claims, no library required now |
 | Q17 / D35-D36 | **CLOSED — OWNER SELECTED SPACE EXPLORER:** founder-family UAT of three equal-content alternatives is complete; Space is the primary project visual baseline under [ADR-0011](adr/ADR-0011.md). This is not representative preference research | Human owner decision 2026-10-05; final continued acceptance confirmed in Q18 | Theme selection resolved |
 | Q18 / D36 | **CLOSED — FINAL PASS — OWNER CONFIRMED:** owner accepts Space/dark blue/light typography, remediated Shapes, discoverable Show me, Explore and the final sixteen-tile square with one top bracket labelled 4 before √16 = 4 | Final human owner confirmation 2026-10-05 under the [confirmation protocol](PHASE_1V_UAT_PROTOCOL.md) | Phase 1V human gate closed; D37 separately authorizes later entry only after complete engineering/local preservation gates |
+| Q19 / D50 | **PENDING — CHILD UX CONFIRMATION:** does the concrete eight-family child presentation resolve the owner's material computer-literacy/diagnostic/prose-help finding? | Owner; ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION is reached on source gates, with final documentation gates before preservation | Phase 3C child UX acceptance; `owner_merge` remains. This confirmation alone cannot certify actual AT/device evidence, official locales, real-child use, release or deployment |
 
 Unknown facts include actual-device speech quality/offline exposure, storage durability/eviction experiences, host-specific metadata policy, future adapter compatibility and app learning effectiveness. Current local tooling evidence and unverified CI/platform outcomes are scoped in the [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md). Research establishes constraints/candidate paths, not these outcomes.
 

@@ -1,0 +1,277 @@
+{
+  "result": "PASS — CURRENT STATIC CHILD CANDIDATE INTEGRITY REVIEW ONLY",
+  "baseRevision": "6828919b22cc96a2e4d4aeddd24f2447248d90ef",
+  "recordedAt": "2026-10-06T17:20:31.990Z",
+  "reviewer": "/root/child_shell",
+  "independence": {
+    "independentlyReviewed": "Root-authored ChildTaskView/primitives/layout/answer mappings/copy and final task CSS repairs, separate native child suite/test oracle, independently authored contract/evidence regressions and executable child mutation runner; original-engine byte and assertion preservation checks.",
+    "authoredByReviewer": "Child shell/navigation/profile implementation and maintained documentation; these are author-review only and need separate independent child UX/accessibility review."
+  },
+  "scope": "Complete current base-to-working diff/untracked candidate, privacy/security/containment/evidence semantics; no final full/fresh/native claim.",
+  "finalDeveloperKeyboardReconciliation": {
+    "previousIndependentReviewSha256": "df7d3c0e046b11016bc127838711d350158d7f591ff4d0631fbe6c5d2d824f47",
+    "onlyChangedSourceSincePreviousReview": "tests/browser/phase3c/main.tsx",
+    "mainSha256": "7ebfeb119e25bfd78d22b4f2e56a362429ba4577ac2061658bc1be6d96f749fc",
+    "explanation": "The developer Back-to-play view switch moved from the header to the existing footer using the same native button and per-view text. This preserves the original first-profile Tab order without a tabindex workaround or old assertion change. All other sixteen non-document input hashes equal the preceding review; native serialized-stage test fix remains unchanged."
+  },
+  "candidateFileCount": 29,
+  "candidateFiles": [
+    "docs/ACCESSIBILITY.md",
+    "docs/ARCHITECTURE.md",
+    "docs/DECISION_REGISTER.md",
+    "docs/LEARNER_DATA_MODEL.md",
+    "docs/LOCALISATION_AND_SPEECH.md",
+    "docs/OPEN_QUESTIONS.md",
+    "docs/PHASE_3C_COMPLETION_REPORT.md",
+    "docs/ROADMAP.md",
+    "docs/SECURITY_THREAT_MODEL.md",
+    "docs/TESTING_STRATEGY.md",
+    "docs/TRACEABILITY_MATRIX.md",
+    "docs/evidence/phase3c/engine-milestone.txt",
+    "scripts/phase3c-child-ux-mutations.mjs",
+    "src/presentation/localisation/child-copy.ts",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx",
+    "src/ui/synthetic-loop/ChildTaskView.tsx",
+    "src/ui/synthetic-loop/child-answers.ts",
+    "src/ui/synthetic-loop/child-layout.ts",
+    "src/ui/synthetic-loop/child-task.css",
+    "tests/browser/phase3c/ChildShell.tsx",
+    "tests/browser/phase3c/main.tsx",
+    "tests/browser/phase3c/shell.css",
+    "tests/integration/helpers/phase3c-child-oracle.ts",
+    "tests/integration/phase3c-child-ux.test.ts",
+    "tests/integration/phase3c-loop.test.ts",
+    "tests/unit/child-shell-markup.test.tsx",
+    "tests/unit/child-ux-contract.test.ts",
+    "tests/unit/child-ux-evidence.test.ts",
+    "vite.slice.config.ts"
+  ],
+  "candidateHashes": {
+    "docs/ACCESSIBILITY.md": "ad3386256d8efac4bee13b732954cebda19367b8f6a3187ff1dab48cb969cf5b",
+    "docs/ARCHITECTURE.md": "8fc04fca8efc95c430d3e8d242aac19877eb711c70d4d5903d002dde5b1f3bd2",
+    "docs/DECISION_REGISTER.md": "bd460d071487c8a93c2bd716733e0a05a944103d630070be8df2c371f71c53f1",
+    "docs/LEARNER_DATA_MODEL.md": "c1a5e55e15b0126fb3b90996897b7e3f4b050f1f749760cec436550676615655",
+    "docs/LOCALISATION_AND_SPEECH.md": "65c692271fd53f7d4530c98048f83763397220f0dd8f23ed7c7f0b22eb55153b",
+    "docs/OPEN_QUESTIONS.md": "effd50fc56eb9b0a0a580fabb39721bb1c28713909c0911075b1eb29acb2809f",
+    "docs/PHASE_3C_COMPLETION_REPORT.md": "126bd43a73e00ff9a41faba89dd524170fccaa1ad4ba889e907263f9b747a7bc",
+    "docs/ROADMAP.md": "9c32d4b19c8bfde9f511a4c24961920167eddfb494a0b4d6e4ce6a00fe649b39",
+    "docs/SECURITY_THREAT_MODEL.md": "f2902b82a47d4a40a00bff4df96a1a8fb6bb8f9ab6de0210e9687c7471f9670c",
+    "docs/TESTING_STRATEGY.md": "305527c5a0ea0bde1263d04ef5418f55cf285d6b1f08eec6f896e278d8bf913a",
+    "docs/TRACEABILITY_MATRIX.md": "30cb9dd765b243318356467e117ad801eb2ad034f457cb23235e897ec38ba904",
+    "docs/evidence/phase3c/engine-milestone.txt": "414734153aba392429dc7a1eecdd0ecf18888fb70333a17b219e5435e0dbcf76",
+    "scripts/phase3c-child-ux-mutations.mjs": "6666dd7d2da2ac7643468a703e12018e2ab3c8a3569b831e0e78c68c2858d9c8",
+    "src/presentation/localisation/child-copy.ts": "051aa491c41e819122f48603a4fcd7ed6573c4e7265905dc328e411c1b49d68f",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+    "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+    "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+    "src/ui/synthetic-loop/child-task.css": "ff1834b75d6f0c5f373437e0f57fee08eb52b1964c72f74d76823247fbac774b",
+    "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+    "tests/browser/phase3c/main.tsx": "7ebfeb119e25bfd78d22b4f2e56a362429ba4577ac2061658bc1be6d96f749fc",
+    "tests/browser/phase3c/shell.css": "9ef2402c1fb1d411f0d9e1fa092fd62726effa0ecba66d6a9e439dc1c80a13a5",
+    "tests/integration/helpers/phase3c-child-oracle.ts": "fe6183322aef72b404397ce82b01219d2fb58dc739dd4c4e8eae955e4ec7bd51",
+    "tests/integration/phase3c-child-ux.test.ts": "51798fe07418584f5d06457657916e15fbf63b439cd18648db9bbf6640575775",
+    "tests/integration/phase3c-loop.test.ts": "34494709cd9a8bdace950455dcd9ba7986fa4b250e1db57725c1f132d1de40aa",
+    "tests/unit/child-shell-markup.test.tsx": "ae8649d5fd5947ae642c8768892003bf3055f11e7e73f2dd058811db0a2eb86a",
+    "tests/unit/child-ux-contract.test.ts": "7a47fdc98770b503fde66b02fa73074c3e9d429bba7efdd58bfaaf4b654fecb2",
+    "tests/unit/child-ux-evidence.test.ts": "053360da778760496861544f5f35d47029a15e67c0d7223adaaba0e91d3bca4d",
+    "vite.slice.config.ts": "7f951a6299853d46e2f3c04776cfacc22d2e10f918e9f00f1da0afb9db7eedbe"
+  },
+  "sourceHashes": {
+    "scripts/phase3c-child-ux-mutations.mjs": "6666dd7d2da2ac7643468a703e12018e2ab3c8a3569b831e0e78c68c2858d9c8",
+    "src/presentation/localisation/child-copy.ts": "051aa491c41e819122f48603a4fcd7ed6573c4e7265905dc328e411c1b49d68f",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+    "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+    "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+    "src/ui/synthetic-loop/child-task.css": "ff1834b75d6f0c5f373437e0f57fee08eb52b1964c72f74d76823247fbac774b",
+    "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+    "tests/browser/phase3c/main.tsx": "7ebfeb119e25bfd78d22b4f2e56a362429ba4577ac2061658bc1be6d96f749fc",
+    "tests/browser/phase3c/shell.css": "9ef2402c1fb1d411f0d9e1fa092fd62726effa0ecba66d6a9e439dc1c80a13a5",
+    "tests/integration/helpers/phase3c-child-oracle.ts": "fe6183322aef72b404397ce82b01219d2fb58dc739dd4c4e8eae955e4ec7bd51",
+    "tests/integration/phase3c-child-ux.test.ts": "51798fe07418584f5d06457657916e15fbf63b439cd18648db9bbf6640575775",
+    "tests/integration/phase3c-loop.test.ts": "34494709cd9a8bdace950455dcd9ba7986fa4b250e1db57725c1f132d1de40aa",
+    "tests/unit/child-shell-markup.test.tsx": "ae8649d5fd5947ae642c8768892003bf3055f11e7e73f2dd058811db0a2eb86a",
+    "tests/unit/child-ux-contract.test.ts": "7a47fdc98770b503fde66b02fa73074c3e9d429bba7efdd58bfaaf4b654fecb2",
+    "tests/unit/child-ux-evidence.test.ts": "053360da778760496861544f5f35d47029a15e67c0d7223adaaba0e91d3bca4d",
+    "vite.slice.config.ts": "7f951a6299853d46e2f3c04776cfacc22d2e10f918e9f00f1da0afb9db7eedbe"
+  },
+  "sourceSetSha256": "9500edfef957d714ae7860936a773c69f00a3f24fcb5e307ddf7e0613c87d72f",
+  "sourcesStableDuringReview": true,
+  "protectedFileCount": 242,
+  "protectedBaseRepositoryContentEqual": true,
+  "protectedBaseRawBytesEqual": false,
+  "protectedLineEndingOnlyDifferences": [
+    {
+      "path": "docs/evidence/phase3c/browser-final-run.json",
+      "workingBytes": 1818,
+      "repositoryBytes": 1761,
+      "workingSha256": "f3d0cae88ec9b14f36bb79885bc01a5b1a171ee29edc930f9d7f2ac2832a058e",
+      "repositorySha256": "a0ef43a67773e8bb3a3f2a08c77e01b98307eb2a612709e099bc95206b7ebde1"
+    }
+  ],
+  "originalNative36AssertionsEqual": true,
+  "originalNativePrivacyObserverEqual": true,
+  "engineMilestoneSha256": "414734153aba392429dc7a1eecdd0ecf18888fb70333a17b219e5435e0dbcf76",
+  "milestoneEqualsPreservedCommitBytes": true,
+  "credentialPatternMatches": 0,
+  "normalArtifacts": [
+    {
+      "path": "assets/index-Cqw6cjjL.css",
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    {
+      "path": "assets/index-DJw206I7.js",
+      "bytes": 321818,
+      "sha256": "6514e1ede985cb11572b3d24ecf87bd63a1000d83c45b518851c9619b9880726"
+    },
+    {
+      "path": "icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 795,
+      "sha256": "1f278307b15adf847317fd5a9a78758199493bb8738736a69c9b7ecf7f7768f9"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1300,
+      "sha256": "5b9e84bef4bd5c497baaf3ae01dcf7230c6742847df0a8f4f1bf0d9612a9bd26"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 22518,
+      "sha256": "5549814b0037e527cdfa3adc82e22ed7a4361f732e9722a41120d05a62a5836f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "ordinaryArtifactsContainSyntheticMarkers": false,
+  "dependencyAudit": {
+    "recordedAt": "2026-10-06T16:21:00Z",
+    "advisories": 0,
+    "total": 204,
+    "runtime": 3,
+    "development": 201,
+    "optionalIncluded": 27
+  },
+  "reviewedBoundaries": {
+    "domainApplicationInfrastructureOldTaskViewAcceptedAdrsPinsLockUnchanged": true,
+    "noNewRuntimeDependenciesOrBackendTelemetryAccountsExports": true,
+    "fixedTwoBadgeProfilesNoArbitraryLearnerInput": true,
+    "fragmentDeveloperSelectorOffWire": true,
+    "childDiagnosticsUnmounted": true,
+    "shapeRecognitionUsesExistingInaccessibleScopeExclusion": true,
+    "preparedRetryPreservesOriginalScopedRequest": "Static engine byte equality; rendered failure/retry proof remains separately required.",
+    "staticCardsDoNotConsultExpectedTruth": true,
+    "directNumbersUseBoundedExactWireAnswers": true,
+    "helpPreservesPublicTaskAndMaximumRecordedTier": true,
+    "replayStylingUsesCurrentVisualTierWhileMaximumEvidenceTierRemainsThree": true,
+    "interactiveHelpHasExplicitDarkBackgroundAndNumeralDescriptionsAreClipped": "Source repair reviewed; current installed-browser rendering remains a separate gate.",
+    "narrowKnownPartFramesKeepOriginalQuantitiesAndUnknownWithoutLetterSplitting": "Source repair reviewed; actual full-word range/native reflow proof remains separate.",
+    "shortVisibleComparisonSideArrowsRetainLocalizedAccessibleSideAndGroupLabels": true,
+    "mutationRunnerRestoresExactSourcesFullNativeReportsAndOwnedBuildArtifacts": "Static restoration/privacy review only; executable assertion detection and exact restoration remain a separate gate.",
+    "mutationRunnerRequiresCompletedBothProductEighteenCasePassReports": true,
+    "mutationRunnerNeverPublishesFilteredMutantReportsAsFullCertification": true,
+    "mutationRunnerStaticReviewedIds": [
+      "square-card-omits-inclusive-rectangle",
+      "length-card-uses-wrong-required-unit",
+      "child-shape-match-receives-full-classification-credit",
+      "unknown-missing-part-leaks-computed-answer",
+      "interactive-help-dots-lose-required-graphic-contrast"
+    ],
+    "contrastMutationMustFailActualInstalledProductComputedContrastAssertion": true,
+    "manualCompletionPreferencesDistinctFromAssessmentEvidence": true,
+    "fiveNewFamiliesRemainLimitedAndExploreSessionOnly": true,
+    "fixedSpeechPlansExactLocalExplicitOnly": true,
+    "noRetainedRawBrowserRecordsProfilesMediaLogs": "Source review of tests/evidence writers; actual candidate privacy/network review remains separate."
+  },
+  "findings": [
+    {
+      "id": "wire-selector",
+      "severity": "P2",
+      "state": "CLOSED — SOURCE REPAIR VERIFIED",
+      "detail": "Initial developer query conflicted with strict zero-query observer. Fixed #developer fragment preserves observer and sends no HTTP query; old assertions are byte-preserved apart from input inventory/navigation."
+    },
+    {
+      "id": "learning-progress-wording",
+      "severity": "precision",
+      "state": "CLOSED — SOURCE REPAIR VERIFIED",
+      "detail": "Child notice now distinguishes learning progress from permitted saved completion/session/preferences; draft language/native review remains pending."
+    },
+    {
+      "id": "disabled-answer-focus",
+      "severity": "P2",
+      "state": "SOURCE REPAIRED — RENDERED RECHECK PENDING",
+      "detail": "Root records native disable-to-BODY defect and adds session/seed-scoped useful feedback/retry/next focus preserving deliberate user navigation. Browser observation remains a separate gate."
+    },
+    {
+      "id": "interactive-help-contrast-and-hidden-description",
+      "severity": "P2",
+      "state": "SOURCE REPAIRED — RENDERED RECHECK PENDING",
+      "detail": "Independent rendered review found inherited pale token background and visible numeral alternative descriptions. Current root CSS gives interactive tokens an explicit dark background and clips screen-reader descriptions to one pixel; rendered product review remains separately required."
+    },
+    {
+      "id": "badge-label-reflow",
+      "severity": "P2",
+      "state": "SOURCE REPAIRED — INDEPENDENT RENDERED RECHECK PENDING",
+      "detail": "Reviewer-authored narrow badge stacking is supplemented by root final repair placing the selected tick outside flex flow and keeping labels unbroken at every width, including landscape 780px with 200% text. Separate native reviewer must certify actual rendering; reviewer-authored shell remains author-review only."
+    },
+    {
+      "id": "visual-replay-maximum-tier-mismatch",
+      "severity": "P2",
+      "state": "SOURCE REPAIRED — RENDERED RECHECK PENDING",
+      "detail": "Visual scaffolding styles now use effective data-child-visual-tier while mathematical help evidence uses nondecreasing data-child-hint-tier. Native test asserts replay stage styling without resetting recorded maximum."
+    },
+    {
+      "id": "mutation-artifact-json-overlap",
+      "severity": "verification",
+      "state": "CLOSED — SOURCE REPAIR VERIFIED",
+      "detail": "Runner separates artifactRoot descendants from immutable native JSON reports, snapshots artifacts independently, requires both completed 18-case product PASS reports and restores all source/report/artifact bytes before writing bounded mutation evidence."
+    },
+    {
+      "id": "narrow-mathematical-labels",
+      "severity": "P2",
+      "state": "SOURCE REPAIRED — INDEPENDENT RENDERED RECHECK PENDING",
+      "detail": "Actual review found letter splitting in known-part frames, comparison side labels, headings and captions at narrow text enlargement. Root stacks frames below 600px, reduces scaffold/illustration/card padding, applies normal word boundaries, shortens Greek numeral/comparison captions and uses shared visible side arrows with localized visually-hidden side text. Exact public quantities, unknown blanks, static relation mappings and accessible group labels are preserved; native checks now cover visible heading/help/card word ranges as well as mathematical frame labels. Separate product rendering remains a required gate."
+    },
+    {
+      "id": "browser-evaluate-stage-serialization",
+      "severity": "harness",
+      "state": "CLOSED — SOURCE REPAIR VERIFIED",
+      "detail": "A serialized browser predicate cannot capture the test-runner stage variable. Passing the exact stage === 3 boolean as evaluateAll argument keeps the existing dashed-border equivalence assertion executable without changing its truth condition."
+    },
+    {
+      "id": "developer-first-profile-tab-order",
+      "severity": "P2",
+      "state": "SOURCE REPAIRED — FULL NATIVE RERUN PENDING",
+      "detail": "The preserved native36 keyboard gate exposed the new developer header view switch preceding the first profile. Root moves that same switch to the existing footer, leaving child presentation, exact math/evidence behavior and original assertions unchanged. Root reports lightweight actual Tab validation; full post-restoration both-product native certification remains required."
+    }
+  ],
+  "remainingGates": [
+    "Current full/fresh verification",
+    "Post-repair installed Chrome/Edge child and preserved engine regressions",
+    "Relevant mutation assertion detections/exact restoration",
+    "Independent rendered child UX/accessibility review of authored shell and components",
+    "Owner child UX confirmation"
+  ],
+  "evidenceLimits": {
+    "actualAssistiveTechnology": "UNAVAILABLE",
+    "actualDisconnectedRestart": "UNAVAILABLE",
+    "nativeLanguageReview": "PENDING",
+    "ownerConfirmation": "PENDING",
+    "mergePolicy": "owner_merge",
+    "finalPhase3cPublication": "NOT AUTHORIZED"
+  }
+}

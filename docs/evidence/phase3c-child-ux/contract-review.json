@@ -1,0 +1,139 @@
+{
+  "scope": "Independent per-family child presentation truth, exact answers, evidence, source focus/replay and authored accessibility semantics",
+  "result": "PASS within source, pure contract and SSR bounds",
+  "sourceHashes": {
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+    "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+    "src/ui/synthetic-loop/child-task.css": "ff1834b75d6f0c5f373437e0f57fee08eb52b1964c72f74d76823247fbac774b",
+    "src/presentation/localisation/child-copy.ts": "051aa491c41e819122f48603a4fcd7ed6573c4e7265905dc328e411c1b49d68f",
+    "tests/browser/phase3c/main.tsx": "7ebfeb119e25bfd78d22b4f2e56a362429ba4577ac2061658bc1be6d96f749fc",
+    "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+    "tests/browser/phase3c/shell.css": "9ef2402c1fb1d411f0d9e1fa092fd62726effa0ecba66d6a9e439dc1c80a13a5",
+    "tests/unit/child-ux-contract.test.ts": "7a47fdc98770b503fde66b02fa73074c3e9d429bba7efdd58bfaaf4b654fecb2",
+    "tests/unit/child-ux-evidence.test.ts": "053360da778760496861544f5f35d47029a15e67c0d7223adaaba0e91d3bca4d",
+    "tests/unit/child-shell-markup.test.tsx": "ae8649d5fd5947ae642c8768892003bf3055f11e7e73f2dd058811db0a2eb86a",
+    "scripts/phase3c-child-ux-mutations.mjs": "6666dd7d2da2ac7643468a703e12018e2ab3c8a3569b831e0e78c68c2858d9c8",
+    "tests/integration/phase3c-child-ux.test.ts": "51798fe07418584f5d06457657916e15fbf63b439cd18648db9bbf6640575775"
+  },
+  "historicalReview": {
+    "artifact": "independent-contract-review-initial.json",
+    "sha256": "3e4d2a3678efed098af9f460705c99a1d596e6802d69f42535a4190ed3fa3e1c",
+    "focusedTests": 51,
+    "focusedFiles": 2
+  },
+  "focusedVerification": {
+    "shellTests": 9,
+    "durationSeconds": 1.46,
+    "exitCode": 0,
+    "command": "corepack pnpm exec vitest run tests/unit/child-ux-contract.test.ts tests/unit/child-ux-evidence.test.ts tests/unit/child-shell-markup.test.tsx",
+    "contractEvidenceTests": 52,
+    "testFiles": 3,
+    "tests": 61
+  },
+  "geometry": {
+    "childEvidence": "excluded / inaccessibleScope through unchanged application engine",
+    "windings": 2,
+    "variedValidReplaySeeds": 96,
+    "classifications": 3,
+    "independentOracle": "BigInt public coordinate dot products and squared edge lengths; no production truth predicate or diagnostic inputs",
+    "rotationQuadrants": 4,
+    "repeatedCorrectExcluded": 18
+  },
+  "review": {
+    "developerBoundary": "Explicit developer fragment is off-wire; child badges hide technical labels and developer diagnostics remain conditionally mounted; the native view switch is in the existing footer for both views, retaining child Grown-ups and developer Back-to-play labels while restoring original first-profile Tab order",
+    "subtraction": "Removed IDs remain crossed and separate; no computed remainder or resurrection",
+    "addition": "Public operand groups, joined visual help; no computed/preselected sum",
+    "helpReplay": "Enabled Show me cycles local visual stages while parent maximum mathematicalHintTier remains3; marks and walk reset without reducing evidence support",
+    "counting": "Public item identity retained through layout and marking help",
+    "shape": "Public polygon, neutral corner/opposite-edge scaffolding; static inclusive mappings, narrow matching evidence excluded",
+    "missing": "Known parts and whole only; unknown stays a question placeholder at every help tier; help counts only known data; narrow stacked frames and word-boundary headings preserve mathematical labels",
+    "numeral": "Public group choices and shortened Greek matching prompt; per-dot descriptions, no printed cardinality or selected solution; replay effective visual tier separate from maximum support",
+    "unitReplay": "Next stays enabled and restarts first unit after last; independent Restart restores beginning, no numerical total",
+    "focus": "Answer-origin focus restoration checks original session/seed and respects deliberate alternative focus; wrong response goes to Retry and correct to Next; retry/task/view navigation requests task heading",
+    "comparison": "Public left/right groups paired one-to-one; shared visual arrows preserve localized Left/Right accessible labels and exact group identities; concise Greek more-side cards retain exact relation mappings and unmatched-dot help",
+    "layout": "Shared reusable cards/tokens/layout; normal word wrapping and narrow answer padding; explicit card text and dot backgrounds; hidden descriptions use real visually-hidden utility; badge/nav and narrow mathematical labels repaired",
+    "unitLength": "Exact quantity magnitude/unit/dimension; public equal units; per-unit pressed state and distinct nonnumeric navigation announcements"
+  },
+  "repairedFindings": [
+    "Unit navigation initially changed SVG highlight without accessible state; restored per-unit controls and separate navigation purpose",
+    "Disabled max-help/unit-end controls could drop focus; controls stay enabled and replay without lowering evidence support",
+    "Actual answer activation lost focus to BODY; guarded response focus repair targets Retry/Next without stealing deliberate focus",
+    "Numeral visual replay initially followed maximum support tier; separate effective visual tier now drives visual CSS",
+    "Rendered review found missing hidden-description utility, dot graphic contrast and narrow badge/nav layout; root repaired CSS",
+    "Rendered review found broken words in narrow mathematical labels; missing frames now stack and comparison uses visual arrows with localized accessible side labels",
+    "Rendered review strengthened all visible word ranges; shortened Greek prompts and help preserve question/action truth while normal word wrapping avoids split mathematical words",
+    "Combined original-engine keyboard gate exposed an inserted developer header button before the first profile; the same switch now sits in the footer, preserving the exact original keyboard assertion"
+  ],
+  "mutationRunner": {
+    "execution": "PASS; preserved8 then child5 ran serially on footer-repaired final sources, both exit0",
+    "staticSyntax": "PASS",
+    "defects": 5,
+    "safeguards": "All non-doc candidate sources including child CSS, completed full native reports and owned native artifacts protected; exact bytes restoration and intended assertion failures only",
+    "path": "scripts/phase3c-child-ux-mutations.mjs",
+    "scopedLint": "PASS",
+    "graphicContrast": "Filtered installed Chrome Addition case requires nonempty interactive public dots and actual computed 3:1 contrast; fifth mutation must fail that specific assertion",
+    "historicalEvidence": {
+      "artifact": "mutations-before-developer-footer-repair.json",
+      "result": "PASS exit0; superseded main binding, rerun pending",
+      "sha256": "8c28565c8b74a2991137f7ad64c8ba02565040f5edab7cd01350593062f97fc7"
+    },
+    "evidence": {
+      "baselineAssertions": 5,
+      "protectedSources": 246,
+      "temporaryReportsRemoved": true,
+      "nativeArtifactsRestored": true,
+      "nativeReportsRestored": true,
+      "restoredBaselineAssertions": 5,
+      "protectedReports": 54,
+      "sha256": "91be014f34be36feb8e9904359f074ff95ca3c5e26d970d30b97463c977fb7a6",
+      "intendedAssertionDefects": 5,
+      "protectedSourcesStable": true,
+      "artifact": "mutations.json",
+      "exactRestoration": true,
+      "protectedArtifacts": 9
+    },
+    "preservedEngineMutationEvidence": {
+      "browserReportsRestored": true,
+      "exactRestoration": true,
+      "wrapperArtifact": "../phase3c-child-quality/preserved-mutation-binding.json",
+      "temporaryReportsRemoved": true,
+      "wrapperSha256": "afd06773ddf430cd97fed1a152b0b0d70612bfd172d5fb24e72409224bd55ed1",
+      "completeNonDocumentSourceBindings": 258,
+      "protectedSourcesStable": true,
+      "artifact": "../phase3c-loop-mutations/evidence.json",
+      "fullNativeRerun": "PENDING; these executable mutations preserve earlier full reports rather than certify final54",
+      "intendedAssertionDefects": 8,
+      "sha256": "3f825d839b4c03b7b6c5e1ebfdf256899d3561017875877a2c4d33af66b80b2e"
+    }
+  },
+  "unchanged": {
+    "adaptationEngine": true,
+    "workflowSeedMapping": true,
+    "persistenceEngine": true,
+    "domainEngine": true,
+    "originalEngineTests": true
+  },
+  "limits": [
+    "Rendered Chrome/Edge, reflow and keyboard behavior remain separate observations; CSS source inspection is not computed visual evidence",
+    "Actual assistive-technology delivery is not established by SSR or source",
+    "Owner child-UX confirmation and educational/native-language effectiveness are not claimed",
+    "Focused results do not substitute for final full/fresh candidate verification"
+  ],
+  "finalStyleRefresh": "Normal child word wrapping, narrow answer-card inline padding .25rem, stacked missing frames and concise Greek matching/comparison/missing help were source reviewed. Native regression walks visible text descendants and independently verifies clipped descriptions. Rendered review is separate evidence.",
+  "priorLabelRepairReview": {
+    "sha256": "4f118186ec9301147688017c8cfc239f509ba318d8cacd94689503ba688d090b",
+    "artifact": "independent-contract-review-before-math-label-repair.json"
+  },
+  "priorShortCopyReview": {
+    "artifact": "independent-contract-review-before-short-copy-repair.json",
+    "sha256": "30895aa156b11c16adba5bb363f6d5f4270399631de025553b78bbc02c999601"
+  },
+  "finalHarnessReview": "Native numeral replay assertion serializes stage===3 as an explicit evaluateAll argument; it still requires dashed rings exactly at effective visual stage3. No presentation, domain or evidence behavior changed.",
+  "developerFooterReview": "Only switch location/conditional footer rendering changed; the same native type=button, disabled condition, switchView handler and localized labels remain. Child mathematical answer, geometry exclusion, focus handlers and persistence boundaries are unchanged.",
+  "priorDeveloperFooterReview": {
+    "sha256": "24fa7a2f007827a272ef1557ad72bdf163bf876517e4d2656b2c45fff6a06cd0",
+    "artifact": "independent-contract-review-before-developer-footer-repair.json"
+  }
+}

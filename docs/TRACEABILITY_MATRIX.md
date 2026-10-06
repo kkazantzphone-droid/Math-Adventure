@@ -1,16 +1,18 @@
 # Requirement traceability
 
-## Phase 3C synthetic developer integration (D49; full stage blocked)
+## Phase 3C child UX reconciliation (D49/D50; owner confirmation pending)
 
 | Requirement | Current work | Unverified boundary |
 | --- | --- | --- |
-| R11/R13/R14/R31 bounded catalog | Eight deterministic families, new immutable IDs/replay/hints, answer-free facades, domain validation and independent bounded oracles | Five new families return `limitedEvidence`; no new mastery/educational certification |
-| R05/R08/R22/R23/R27 playable persistence/adaptation/update | Separate two-profile developer loop, bounded aggregate/pending reconciliation, final atomic observation/state/recommendation/receipt, truthful failure/recovery and optional learner-data lifecycle port | Final exact-candidate full/fresh/native/mutation/privacy gates are recorded in [current report](PHASE_3C_COMPLETION_REPORT.md); normal product composition remains unwired |
-| R18/R20/R24 draft interaction | Three current draft locale inventories, independent roles, optional fixed exact-local speech and bounded actual Chrome/Edge keyboard/reflow/focus/contrast review | Native-language review, AT delivery, pronunciation and tested-offline voice remain unverified |
-| R24/R26/R28 required actual observations | Permitted hardware/browser/AT/network capability audit; emulated browser offline/update proof is separately bounded | Target AT delivery and actual disconnected device restart unavailable; full 3C blocked, no complete-stage claim or auto-merge |
+| R11/R13/R14/R31 exact task contracts | Preserved eight-family engine/replay/answer-free facades; reusable direct child cards map to existing structured answers; progressive visual help preserves task data | Five new families remain `limitedEvidence`; child shape recognition is excluded from full attribute classification; no new mastery/educational claim |
+| R05/R08/R22/R23/R27 state and evidence honesty | Existing atomic adapter/codec/retry/delete/update tests retained; child mode preserves maximum help/attempts and narrowed scope through pending retry | Manual session/completion/preferences are distinct from assessment evidence; Explore is session-only; normal product composition remains unwired |
+| R18/R20/R24/R25 child interaction | Badge identities, Play/Shapes/Explore, no child select/small checkbox/radio, unmounted developer diagnostics, independent draft locales and optional fixed exact-local speech; both native54 matrices and independent rendered review pass | Actual target AT delivery, native-language certification and owner child UX confirmation remain separate pending/unavailable gates |
+| R31/R35/R38 verification and preservation | Full/fresh 1,249 tests/62 files/32 governance fixtures, original36 plus child18 per product, 13 restored assertion mutations, source/privacy review and normal eight-artifact equality in [report](PHASE_3C_COMPLETION_REPORT.md) | Final documentation/evidence reverified before preservation; test/development and production renderer artifacts have distinct bindings; earlier static29-file snapshot is not the final overall inventory |
+| R24/R26/R28 complete-stage observations | Existing permitted capability audit and bounded native lifecycle proof remain preserved | Actual target AT output/disconnected restart unavailable; engineering readiness does not close these gates or permit full-stage publication |
 
-Older stage addenda retain their original evidence. D49 authorizes synthetic 3C
-engineering, with no accepted-policy promotion or real-child-use permission.
+The owner sets `owner_merge`; the source gates attain **ENGINEERING PASS — READY FOR CHILD UX
+CONFIRMATION**. No automatic merge, final Phase 3C publication, real-child use or
+next phase follows. Older stage addenda retain their original evidence.
 
 ## Synthetic-only Phase 3B (D47)
 

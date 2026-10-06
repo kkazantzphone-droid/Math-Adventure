@@ -1,17 +1,26 @@
 # Accessibility and child-centred interaction
 
-D49 [Phase 3C evidence](PHASE_3C_COMPLETION_REPORT.md) records an implemented
-eight-family synthetic developer loop with native controls, semantic feedback,
-progressive help and non-leaking task alternatives. Bounded installed Chrome/Edge
-review observed keyboard/focus and deletion-confirmation focus, 320px reflow,
-200% text, portrait/landscape, mixed language, reduced motion, forced colours and
-adequate measured contrast. Expanded real E2E passes 36 cases in each installed
-Chrome/Edge product, with startup/profile-state coherence in all reviewed attempts.
-Quantity descriptions cannot earn visual numeral/
-counting evidence. Installed Narrator lacks a permitted native output/control
-surface, so actual target device/browser/AT delivery remains a mandatory unavailable
-full-stage gate. Rendered observations do not establish AT delivery or conformance;
-final candidate verification remains separately recorded.
+D50 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) responds to the owner's
+material child UX finding over the preserved engine. Child mode uses large direct
+native answer cards, one mathematical decision, Star/Triangle badges and short
+Play/Shapes/Explore navigation; developer controls/diagnostics are unmounted from
+its accessibility tree. Show me changes visual scaffolding progressively and
+retains help focus; keyboard answers reach useful retry/feedback/next actions.
+Replay cannot reduce the maximum recorded help. All eight families pass current
+rendered Chrome/Edge keyboard/focus, 320px,
+200% deliberate text scaling, portrait/landscape, mixed-language, forced-colour
+and reduced-motion review. Dark interactive-dot backgrounds, clipped semantic
+descriptions, readable badge/word wrapping and short accessible side labels repair
+observed findings. The unchanged developer first-profile Tab assertion passes
+after its view switch moves to the footer. Actual results remain candidate-specific
+in the report; test/development and production artifacts have separate bindings.
+Narrow child shape recognition is excluded from full classification assessment;
+counted descriptions do not establish visual numeral/counting skill. Native
+button/ARIA associations and browser accessibility snapshots cannot prove actual
+screen-reader delivery. Target device/browser/AT output remains unavailable, and
+no WCAG conformance claim follows. **ENGINEERING PASS — READY FOR CHILD UX
+CONFIRMATION** awaits owner child UX
+confirmation under `owner_merge`; this does not close complete-stage device gates.
 
 Merged D44 offline/update UI: concise shell status, native adult details and a Home-only explicit update button distinguish cached readiness from speech and unsaved progress. The all-tab boundary pauses interactions and cancels speech before acknowledgement, then recovers coherently. Blocked attempts restore the requesting control's focus. Draft el-GR/en-GB/de-DE copy is not an official language claim. Recorded rendered keyboard/reflow/text/contrast/focus observations and unavailable AT/device evidence belong in the [Phase 1E report](PHASE_1E_COMPLETION_REPORT.md).
 

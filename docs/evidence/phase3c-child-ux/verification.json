@@ -1,0 +1,109 @@
+{
+  "result": "PASS — SOURCE-BOUND FULL AND ISOLATED FRESH VERIFICATION",
+  "scope": "owner-directed synthetic child-UX engineering readiness only",
+  "observedAt": "2026-10-06T17:37:38.289Z",
+  "sourceMilestoneTree": "533d9f8903b6b296e0457fd4b8ee97c9419adbc1",
+  "sourceHashes": {
+    "scripts/phase3c-child-ux-mutations.mjs": "6666dd7d2da2ac7643468a703e12018e2ab3c8a3569b831e0e78c68c2858d9c8",
+    "src/presentation/localisation/child-copy.ts": "051aa491c41e819122f48603a4fcd7ed6573c4e7265905dc328e411c1b49d68f",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+    "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+    "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+    "src/ui/synthetic-loop/child-task.css": "ff1834b75d6f0c5f373437e0f57fee08eb52b1964c72f74d76823247fbac774b",
+    "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+    "tests/browser/phase3c/main.tsx": "7ebfeb119e25bfd78d22b4f2e56a362429ba4577ac2061658bc1be6d96f749fc",
+    "tests/browser/phase3c/shell.css": "9ef2402c1fb1d411f0d9e1fa092fd62726effa0ecba66d6a9e439dc1c80a13a5",
+    "tests/integration/helpers/phase3c-child-oracle.ts": "fe6183322aef72b404397ce82b01219d2fb58dc739dd4c4e8eae955e4ec7bd51",
+    "tests/integration/phase3c-child-ux.test.ts": "51798fe07418584f5d06457657916e15fbf63b439cd18648db9bbf6640575775",
+    "tests/integration/phase3c-loop.test.ts": "34494709cd9a8bdace950455dcd9ba7986fa4b250e1db57725c1f132d1de40aa",
+    "tests/unit/child-shell-markup.test.tsx": "ae8649d5fd5947ae642c8768892003bf3055f11e7e73f2dd058811db0a2eb86a",
+    "tests/unit/child-ux-contract.test.ts": "7a47fdc98770b503fde66b02fa73074c3e9d429bba7efdd58bfaaf4b654fecb2",
+    "tests/unit/child-ux-evidence.test.ts": "053360da778760496861544f5f35d47029a15e67c0d7223adaaba0e91d3bca4d",
+    "vite.slice.config.ts": "7f951a6299853d46e2f3c04776cfacc22d2e10f918e9f00f1da0afb9db7eedbe"
+  },
+  "sourceSetSha256": "9500edfef957d714ae7860936a773c69f00a3f24fcb5e307ddf7e0613c87d72f",
+  "pins": {
+    "node": "24.21.0",
+    "pnpm": "pnpm@12.9.1"
+  },
+  "lockSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "coldIsolatedInstall": {
+    "command": "corepack pnpm install --frozen-lockfile",
+    "exitCode": 0,
+    "downloaded": 179,
+    "reused": 0,
+    "copiedDependencies": false,
+    "durationSeconds": 9.3,
+    "method": "Git archive into owned isolated workspace, exact pins and unchanged lock; source-only refreshes followed by frozen reinstall"
+  },
+  "canonical": {
+    "command": "corepack pnpm verify",
+    "exitCode": 0,
+    "testFiles": 62,
+    "tests": 1249,
+    "governanceFixtures": 32,
+    "testDurationSeconds": 49.47,
+    "logSha256": "29c2924e0d6535f6fff4258b8f3d4c730519a9cd3024a56c93a24a9a7d758dfc"
+  },
+  "fresh": {
+    "command": "corepack pnpm verify",
+    "exitCode": 0,
+    "testFiles": 62,
+    "tests": 1249,
+    "governanceFixtures": 32,
+    "testDurationSeconds": 50.89,
+    "logSha256": "98926340cca055f358975ab5ed5a176246405594d354d7b4cc1b15b397098e7c",
+    "frozenReinstallExitCode": 0
+  },
+  "normalProductArtifacts": [
+    {
+      "path": "assets/index-Cqw6cjjL.css",
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    {
+      "path": "assets/index-DJw206I7.js",
+      "bytes": 321818,
+      "sha256": "6514e1ede985cb11572b3d24ecf87bd63a1000d83c45b518851c9619b9880726"
+    },
+    {
+      "path": "icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 795,
+      "sha256": "1f278307b15adf847317fd5a9a78758199493bb8738736a69c9b7ecf7f7768f9"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1300,
+      "sha256": "5b9e84bef4bd5c497baaf3ae01dcf7230c6742847df0a8f4f1bf0d9612a9bd26"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 22518,
+      "sha256": "5549814b0037e527cdfa3adc82e22ed7a4361f732e9722a41120d05a62a5836f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "normalRootFreshArtifactsByteEqual": true,
+  "normalProductByteEqualPreservedEngine": true,
+  "finalDocumentationGate": "The complete candidate including final documentation and retained evidence is verified locally and in the isolated checkout before preservation. Exact final tree belongs to Git metadata and the local final-binding record; this source-bound record does not claim its own future containing tree.",
+  "mergePolicy": "owner_merge",
+  "ownerConfirmation": "PENDING",
+  "actualAssistiveTechnology": "UNAVAILABLE",
+  "physicallyDisconnectedRestart": "UNAVAILABLE",
+  "noPublication": true
+}

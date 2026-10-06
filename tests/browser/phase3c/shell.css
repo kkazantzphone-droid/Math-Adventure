@@ -84,6 +84,127 @@
   border-inline-start: 0.3rem solid #dce6ff;
   padding-inline-start: 0.8rem;
 }
+.child-loop {
+  max-width: 64rem;
+}
+.child-loop .slice-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  padding-inline: 0;
+}
+.child-loop .slice-header h1 {
+  flex: 1 1 12rem;
+  margin: 0;
+}
+.child-loop .slice-brand {
+  flex-basis: 100%;
+  margin-block: 0;
+  letter-spacing: 0.04em;
+}
+.child-loop .slice-view-switch {
+  color: #f1f6ff;
+  background: #173057;
+  font-size: 0.875em;
+}
+.child-profiles h2 {
+  font-size: 1.25em;
+  margin-block: 0.75rem;
+}
+.child-badge-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.child-loop .child-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-block-size: 72px;
+  min-inline-size: min(100%, 10rem);
+  flex: 1 1 10rem;
+  font-weight: 700;
+}
+.child-badge svg {
+  inline-size: 3rem;
+  block-size: 3rem;
+  flex: 0 0 3rem;
+  fill: #173057;
+  stroke: #173057;
+  stroke-width: 2;
+}
+.child-badge span {
+  white-space: nowrap;
+}
+.child-loop .child-badge[aria-pressed='true']::after {
+  content: '✓';
+  position: absolute;
+  inset-block-start: 0.25rem;
+  inset-inline-end: 0.5rem;
+  font-size: 1rem;
+}
+.child-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1.25rem 0.75rem;
+}
+.child-loop .child-navigation button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex: 1 1 10rem;
+  min-block-size: 64px;
+  font-weight: 700;
+}
+.child-practice-notice {
+  margin-block: 0.75rem;
+}
+.child-loop .slice-panel {
+  padding: clamp(0.5rem, 2vw, 1.25rem);
+}
+.child-loop .slice-actions > button {
+  min-block-size: 56px;
+  flex: 1 1 8rem;
+}
+.child-loop .slice-save-status {
+  font-size: 0.875em;
+}
+.child-offline-status {
+  padding-inline: 0.75rem;
+}
+.child-grown-ups {
+  margin-block-start: 1.25rem;
+}
+@media (max-width: 600px) {
+  .child-loop .child-badge {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-inline: 0.5rem;
+  }
+  .child-badge svg {
+    inline-size: 2rem;
+    block-size: 2rem;
+    flex-basis: 2rem;
+  }
+  .child-loop .child-navigation button {
+    padding-inline: 0.5rem;
+  }
+}
+@media (forced-colors: active) {
+  .child-badge svg {
+    fill: ButtonText;
+    stroke: ButtonText;
+  }
+  .child-loop button[aria-pressed='true'] {
+    border-color: Highlight;
+    border-style: double;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .synthetic-loop * {
     animation: none !important;

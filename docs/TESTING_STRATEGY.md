@@ -1,26 +1,30 @@
 # Testing and quality strategy
 
-Current D49 [Phase 3C record](PHASE_3C_COMPLETION_REPORT.md) distinguishes the
-implemented synthetic developer loop, final exact-candidate engineering gates and
-historical catalog-only proof. The separate installed Chrome/Edge suite covers
-all eight families/two profiles, atomic saves/retries/reload, mode/evidence isolation,
-language/speech, failure/deletion/stale-tab and root/subpath update compatibility:
-36 cases pass in each installed product. Eight loop mutations fail intended
-assertions and restore exact bytes/all 33 protected hashes; fresh bridge/workflow
-seed review adds 13 assertions and two meaningful mathematical defects.
-Independent truth/transaction/rendered/privacy reviews supplement the canonical
-PASS (1,188 tests/59 files, 32 governance fixtures). A reviewed test-only
-`maxWorkers: 2` repair bounds compiler/oracle contention with unchanged assertions,
-timeouts/enumerations; the canonical gate and all eight restored loop mutations
-pass after that change. Both products' native Phase 1E/3A/3B/3C input subsets remain
-unchanged. The initial 37-source frozen-install/full PASS is retained; the new
-clean 38-source scheduled candidate also passes frozen install/full verification,
-with matching pins/source bytes/eight normal artifacts and no copied dependencies.
-Exact source/artifact/tree
-bindings and command results belong in the report; this is not docs-only reuse.
-Actual target device/browser/AT delivery and an actual disconnected
-restart remain mandatory unavailable complete-stage gates. DOM checks, browser
-offline emulation and stopped-listener restart cannot replace them.
+Current D50 [Phase 3C record](PHASE_3C_COMPLETION_REPORT.md) adds child UX regression
+and installed Chrome/Edge review over the preserved D49 engine. Retain every
+engine test and the original 36-case browser assertions; changing their entry to
+the explicit developer view does not weaken their checks. New child cases cover
+all eight direct answer contracts, no select/small checkbox/radio conventions,
+no child diagnostics/technical profile labels, truth-preserving visual help,
+geometry assessment exclusion, manual/Explore honesty, keyboard/focus/semantic
+names and 320px/200% text/portrait/landscape. Current full/fresh frozen verification
+passes 1,249 tests/62 files and 32 governance fixtures. Each installed product
+passes original36 plus child18; all 13 intended assertion mutations detect their
+defects and restore exact sources/reports/artifacts. Independent rendered review
+passes 16 family/product observations, 468 contrast checks, 32 reflow observations
+and 16 manually inspected narrow images. Current privacy/integrity and bounded
+contract/SSR review bind the new source candidate; historical
+1,188-test and 36-case observations certify the preserved engine only.
+The existing `maxWorkers: 2` resource bound remains, without weakened assertions,
+deadlines, enumeration, pins or lock. [Retained native matrix](evidence/phase3c-child-ux/native-matrix.json)
+uses `NODE_ENV=test` and React's development renderer; the separate production
+review binds its own production artifacts, without claiming bundle equality.
+Final documentation/evidence is reverified by canonical and isolated fresh gates
+before local preservation. Engineering readiness is
+**ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION**,
+with `owner_merge`, no final publication and no automatic merge. Actual target
+device/browser/AT output and actual disconnected restart remain unavailable
+complete-stage gates; DOM or emulation cannot replace them.
 
 ## Synthetic Phase 3B candidate
 

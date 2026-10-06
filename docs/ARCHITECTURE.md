@@ -1,20 +1,26 @@
 # Architecture
 
-D49 [Phase 3C integration](PHASE_3C_COMPLETION_REPORT.md) uses a separate
-capability-gated loopback developer entry/build, never normal product composition.
-Application session orchestration regenerates domain answers and commits the
-bounded `phase3c-synthetic-loop-v1` aggregate through Phase 3A; UI owns presentation.
-The unchanged Phase 3B engine applies only in explicit synthetic-policy mode, with
-the five new families limited to `limitedEvidence`. An optional learner-data
-lifecycle port fences/drains work and validates stored epoch/rows/receipts plus a
-verified target learner-reader declaration before update/recovery. Normal
-composition imports no learner database. All eight families/two fixed profiles
-remain synthetic; final gates and mandatory actual AT/disconnected blockers are
-separate from implementation. No accepted architecture/product-policy change.
+D49/D50 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) retains the
+separate capability-gated loopback build, outside normal product composition.
+Reusable child answer cards/tokens/shape/layout components adapt direct choices
+to existing structured answers; domain still regenerates replay and decides
+correctness. Child mode mounts badge identities and Play/Shapes/Explore; the exact
+diagnostic TaskView, settings and full family catalog remain in developer mode.
+Child shape recognition uses existing inaccessible-scope exclusion rather than
+full classification credit. The application aggregate, Phase 3A atomic adapter,
+proposed Phase 3B policy, replay and learner-data lifecycle port are preserved;
+five new families remain `limitedEvidence`. No ordinary product database import,
+backend or new dependency is introduced. Full/fresh source gates and both native
+54-case matrices pass; normal eight artifacts are byte-equal to the preserved
+engine. Native test/development rendering and the separately reviewed production
+renderer bind their own artifacts. **ENGINEERING PASS — READY FOR CHILD UX
+CONFIRMATION** leaves owner acceptance separate from unavailable complete-stage
+AT/disconnected proof; final documentation/evidence is reverified before preservation;
+`owner_merge` applies. No accepted architecture/ADR change follows.
 
 Merged checkpoint 7 (D44): composition injects a presentation-only offline port. Infrastructure owns native worker/cache/registration/update effects, presentation owns draft copy and capability contracts, and UI owns status and the explicit Home update control. `scripts/pwa-build.ts` emits the bounded hashed release and worker. Domain/application truth, replay and integrity remain unchanged. See [design](PHASE_1E_OFFLINE_DESIGN.md), [evidence](PHASE_1E_COMPLETION_REPORT.md) and [consolidated closure](PHASE_1_COMPLETION_REPORT.md).
 
-Status: accepted direction with completed merged Phase 1A/1B/1C foundations, owner-confirmed Phase 1V, bounded Phase 1D localisation/local-only speech and Phase 1E production offline shell. Phase 2 real-family proof and red-team repairs, browser proof tooling and autonomy governance are also merged in closure baseline `93db59893b076925b1fdb5fadfa5abb9dfb274ac`. Their original reports retain candidate-specific local/fresh/hosted/browser limits. Learner persistence, adaptation and the playable loop remain prospective. The diagram and answer/session flow below describe the fuller target; current ports are maintained in [application ports](APPLICATION_PORTS.md).
+Inherited foundation: accepted direction with completed merged Phase 1A/1B/1C foundations, owner-confirmed Phase 1V, bounded Phase 1D localisation/local-only speech and Phase 1E production offline shell. Phase 2 real-family proof and red-team repairs, browser proof tooling and autonomy governance are also merged in closure baseline `93db59893b076925b1fdb5fadfa5abb9dfb274ac`. Their original reports retain candidate-specific local/fresh/hosted/browser limits. D49/D50's separate synthetic loop is recorded above; normal product learner persistence and adaptation remain unwired. The diagram and answer/session flow below describe the fuller target; current ports are maintained in [application ports](APPLICATION_PORTS.md).
 
 ## Runtime and dependency direction
 

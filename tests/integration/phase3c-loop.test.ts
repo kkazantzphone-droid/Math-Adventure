@@ -63,6 +63,14 @@ const evidenceDirectory = resolve('.cache/phase3c-browser');
 const proofSources = [
   'tests/integration/phase3c-loop.test.ts',
   'tests/browser/phase3c/main.tsx',
+  'tests/browser/phase3c/ChildShell.tsx',
+  'tests/browser/phase3c/shell.css',
+  'src/ui/synthetic-loop/ChildTaskView.tsx',
+  'src/ui/synthetic-loop/ChildPrimitives.tsx',
+  'src/ui/synthetic-loop/child-layout.ts',
+  'src/ui/synthetic-loop/child-answers.ts',
+  'src/ui/synthetic-loop/child-task.css',
+  'src/presentation/localisation/child-copy.ts',
   'tests/browser/phase3c/runtime.ts',
   'src/ui/synthetic-loop/TaskView.tsx',
   'src/ui/offline/OfflineControls.tsx',
@@ -266,7 +274,7 @@ afterAll(async () => {
 
 async function open(prefix: '/' | '/math-adventure/' = '/'): Promise<Page> {
   const p = await context.newPage();
-  const response = await p.goto(`${server.origin}${prefix}`);
+  const response = await p.goto(`${server.origin}${prefix}#developer`);
   expect(response?.status()).toBe(200);
   await p.waitForFunction(
     () =>
@@ -444,7 +452,7 @@ describe(`installed ${channel} synthetic playable loop`, () => {
         context = await observedContext();
       }
       const p = await context.newPage();
-      await p.goto(`${server.origin}/`);
+      await p.goto(`${server.origin}/#developer`);
       await p.waitForFunction(
         () =>
           !!window.phase3cProof &&

@@ -1,23 +1,26 @@
 # Roadmap
 
-Current D49 owner Goal authorizes synthetic Phase 3C after positively observed
-Governance V2 merge `be1bd7735491df8cc2abe19645ec65b393d0aa6b` (PR #12).
-The separate synthetic developer loop now integrates eight deterministic families,
-two fixed profiles, atomic IndexedDB save/recovery, explicit proposed-policy mode,
-three draft locales, optional local speech and learner-data update guards.
-**Full Phase 3C is BLOCKED — REQUIRED EVIDENCE UNAVAILABLE**: permitted tools
-cannot observe target AT delivery or an actual disconnected device restart.
-[Current report](PHASE_3C_COMPLETION_REPORT.md) separates implemented engineering,
-final verification status and the unchanged complete-stage blockers. The previous
-catalog-only milestone is preserved there. No complete-stage claim, reduced-scope
-merge, real-child use, release or Phase 4 follows.
+Current D50 owner steering continues the existing D49 synthetic Phase 3C Goal
+from preserved engine `6828919b22cc96a2e4d4aeddd24f2447248d90ef`. The owner's
+material UX finding requires a child presentation for all eight families, with
+direct answer cards, progressive visual help, Star/Triangle badges and separate
+developer inspection. Mathematical, persistence, adaptation, replay and offline
+engines remain unchanged. `merge_policy: owner_merge` forbids automatic merge.
+[Current report](PHASE_3C_COMPLETION_REPORT.md) records attained source verification:
+**ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION**, with owner confirmation
+pending and the original engine/catalog reports preserved. Full/fresh 1,249-test
+gates, unchanged original36 plus child18 in each browser, 13 restored mutations
+and independent rendered review pass. Final documentation/evidence gates run
+before local preservation; no product phase advances. Actual AT delivery and
+actual disconnected restart remain unavailable complete-stage gates. No final
+Phase 3C publication, real-child use, release, deployment or Phase 4 follows.
 Older task summaries below retain their recorded authorization/evidence bounds.
 
-Current staged implementation: synthetic-only Phase 3A/3B are owner-merged in
+Historical baseline before D49: synthetic-only Phase 3A/3B were owner-merged in
 protected main `fba77ed1da86944c3700aa74eaa68b50182f692b`; D47's Phase 3B foundation
 uses the existing developer environment. Its [completion report](PHASE_3B_COMPLETION_REPORT.md)
-preserves candidate certification/publication. Normal child adaptation/save and
-Phase 3C remain unwired and need a separate Goal; no educational policy or
+preserves candidate certification/publication. At that baseline normal child
+adaptation/save and Phase 3C were unwired and required a separate Goal; no educational policy or
 real-child use is accepted. Historical closure/planning baselines below remain
 evidence for their recorded stages.
 
@@ -39,7 +42,7 @@ inherited evidence; [Phase 1E evidence](PHASE_1E_COMPLETION_REPORT.md) retains
 device/speech/hosting limits. Phase 3 readiness planning does not authorize its
 implementation, real learner trials, deployment or release.
 
-Current sequence: completed Phase 1 technical skeleton and owner-confirmed visual gate → completed Phase 2 deterministic-family proof → completed proof/governance enablement and merged Phase 1E offline shell → Phase 3 readiness → separately authorized staged implementation. Phase 1V's founder-family input remains bounded project design evidence, without representative preference, educational-effectiveness, accessibility-certification or mathematical-ability claims. Current planning and future stage gates belong in the [Phase 3 implementation plan](PHASE_3_IMPLEMENTATION_PLAN.md); the normal learner loop, persistence and adaptation remain unimplemented.
+Inherited sequence: completed Phase 1 technical skeleton and owner-confirmed visual gate → completed Phase 2 deterministic-family proof → completed proof/governance enablement and merged Phase 1E offline shell → Phase 3 readiness → separately authorized staged implementation. D49/D50's current synthetic child-loop engineering gate is recorded above. Phase 1V's founder-family input remains bounded project design evidence, without representative preference, educational-effectiveness, accessibility-certification or mathematical-ability claims. Future stage gates belong in the [Phase 3 implementation plan](PHASE_3_IMPLEMENTATION_PLAN.md); normal product learner persistence and adaptation remain unwired.
 
 | Phase | Deliverable | Exit gate |
 | --- | --- | --- |
@@ -56,7 +59,7 @@ Current sequence: completed Phase 1 technical skeleton and owner-confirmed visua
 
 ## First genuinely playable slice
 
-The owner separately authorized governance/developer tooling V1 under D42. D48 authorizes V2 conditional Class B protected squash merge under the [operating model](CODEX_OPERATING_MODEL.md), repository skills, synthetic behavior scenarios and [task templates](CODEX_TASK_TEMPLATES.md). This supporting work remains outside the product-phase sequence. V2 takes effect only after the owner manually squash-merges this governance PR; it must not self-merge. Future qualifying trusted Codex Class A/B PRs default to `automatic_when_eligible` after every exact-head local/independent/hosted and current-state gate passes. A narrower task and its parent/base publication conditions take precedence. Authority-expanding governance and consequential Class C decisions remain human; merge never starts an unauthorized phase or accepts a proposed ADR.
+The owner separately authorized governance/developer tooling V1 under D42. The historical D48 transition prepared V2 conditional Class B protected squash merge under the [operating model](CODEX_OPERATING_MODEL.md), repository skills, synthetic behavior scenarios and [task templates](CODEX_TASK_TEMPLATES.md). This supporting work remains outside the product-phase sequence. V2 became effective after the observed manual owner merge recorded above; the authority-expanding PR could not self-merge. Qualifying trusted Codex Class A/B PRs otherwise default to `automatic_when_eligible` after every exact-head local/independent/hosted and current-state gate passes. A narrower task and its parent/base publication conditions take precedence; current D50 sets `owner_merge`. Authority-expanding governance and consequential Class C decisions remain human; merge never starts an unauthorized phase or accepts a proposed ADR.
 
 Start with one synthetic learner fixture (not one hard-coded architectural profile). Prove independent profile partitioning with two synthetic profiles in tests. Support reviewed el-GR, en-GB and de-DE prompts for a bounded catalog: numeral recognition, counting, comparison, simple addition/subtraction and missing number, plus one early shape/spatial activity and a concrete unit-length comparison. These minimal non-arithmetic proofs ensure independent pathways are exercised early. Keep task spaces small enough for exhaustive truth checks; stage families rather than build them simultaneously.
 

@@ -1,26 +1,30 @@
 # Security threat model
 
-D49 [Phase 3C developer integration](PHASE_3C_COMPLETION_REPORT.md) is a separate
-capability-gated `http://127.0.0.1`/explicit-port build with two fixed synthetic
-profiles and no name/nickname/arbitrary import. Normal product composition cannot
-open its namespace. Bounded validated aggregates/pending verdicts and receipts
-avoid raw answer/replay histories; epoch/revision and full-row validation prevent
-stale resurrection or silent schema reset. Learner update guards drain/fence work
-and validate a verified target reader before recovery. Optional speech remains
-fixed/exact-local/explicit; no telemetry, account, cloud or new runtime dependency
-is added. Independent native Chrome review observes two fixed records/five
-receipts, no raw answers/tasks/replay/personal keys, no cached learner identifiers
-and zero external/learner-bearing requests. Both 36-case browser suites also
-observe zero external attempts/outbound learner requests/page errors. Static
-integrity/privacy review has no finding; final candidate rebinding is recorded
-separately and only sanitized synthetic summaries are retained. Actual AT/disconnected
-observations remain unavailable, and no release/hosting/security certification follows.
+D50 [Phase 3C child UX reconciliation](PHASE_3C_COMPLETION_REPORT.md) preserves
+the separate capability-gated loopback build, two fixed synthetic identities,
+bounded minimised aggregates and existing epoch/atomic/update boundaries. Badge
+names are presentation only, never arbitrary learner input. The deliberate
+grown-up/developer switch unmounts diagnostics in child mode; it is convenience,
+not authentication or a security boundary. Current review checks transitive
+ordinary-build containment, unchanged pins/lock and infrastructure, no answer
+leakage in child markup/labels, no new learner wire/storage fields, safe narrowed
+geometry scope and maximum-help preservation across view changes. Existing
+engineering assertions remain; both native54 matrices pass with zero external,
+learner-bearing outbound, page-error or dropped-observation counters. Current
+network/privacy observations are recorded separately from historical PASS.
+Source, pin/lock and normal eight-artifact equality pass. Only bounded synthetic hashes/counts
+and sanitised observations are retained, never raw records/profiles/media/logs.
+No backend, telemetry, cloud, access expansion, deployment or security assurance
+claim follows. **ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION** leaves owner
+acceptance pending; `owner_merge` forbids automatic merge/final publication. Final
+documentation/evidence integrity is checked again before local preservation.
 
-Phase 3 readiness adds a [stage-specific threat review and controls](PHASE_3_IMPLEMENTATION_PLAN.md)
+Historical Phase 3 readiness adds a [stage-specific threat review and controls](PHASE_3_IMPLEMENTATION_PLAN.md)
 for local learner data, stale tabs, receipts, eviction, migrations, deletion,
 exports, extensions, update/data compatibility and debugging artifacts. Its
-[IndexedDB design](PHASE_3_PERSISTENCE_DESIGN.md) remains unimplemented and the
-normal child composition remains unwired. Synthetic developer containment and
+[IndexedDB design](PHASE_3_PERSISTENCE_DESIGN.md) was unimplemented at that readiness
+gate; D46/D49 synthetic implementation is recorded in the current addendum above.
+Normal child composition remains unwired. Synthetic developer containment and
 real-child/public human gates are separate; readiness is not legal compliance.
 
 Merged checkpoint 7 (D44, 2026-10-06): production shell controls are implemented as described in [design](PHASE_1E_OFFLINE_DESIGN.md) and [completion evidence](PHASE_1E_COMPLETION_REPORT.md). Exact same-origin hash admission, failed-install preservation, explicit waiting activation, authenticated bounded all-client acknowledgement, superseded-attempt cancellation and release-owned delayed retirement address shell lifecycle threats. Metadata is release/schema-only. No learner storage, telemetry, new runtime dependency or public host exists. Hashes prove coherence, not authenticity against a compromised origin. Native Chromium loopback proof does not establish actual-device or hosting security.
