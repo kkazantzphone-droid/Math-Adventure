@@ -1,8 +1,14 @@
 # Open questions and human decisions
 
-Current implementation scope is D47, the explicitly authorized synthetic-only
-[Phase 3B candidate](PHASE_3B_COMPLETION_REPORT.md), after owner-merged Phase 3A
-at `9f60daf`. No policy decision blocks this contained engineering proof.
+Current product baseline is owner-merged synthetic-only D47
+[Phase 3B](PHASE_3B_COMPLETION_REPORT.md) in protected main
+`fba77ed1da86944c3700aa74eaa68b50182f692b`, after Phase 3A at `9f60daf`.
+Current D48 work is governance only: conditional Class B protected squash merge
+under the [V2 operating model](CODEX_OPERATING_MODEL.md). This authority-expanding
+governance PR requires the owner's manual squash merge and cannot self-merge;
+the new permission becomes effective only on protected main. It closes no
+product-policy question and authorizes no new phase. No policy decision blocked
+the contained synthetic 3B engineering proof.
 Q03/Q04/Q05/Q08/Q10/Q13/Q16 stay open for retention, default/control/profiling,
 educator evidence/threshold/fairness approval and actual device/AT claims before
 real-child use. ADR-0006 stays PROPOSED; the experimental single-representation
@@ -30,7 +36,7 @@ The historical blocked Phase 1E readiness document remains frozen as
 
 | ID | Question / conservative default | Decision owner / deadline | Blocks |
 | --- | --- | --- | --- |
-| Q01 / D26-D45 | CLOSED for prior phases, merged shell and current readiness/synthetic simulations | Owner authority; [staged plan](PHASE_3_IMPLEMENTATION_PLAN.md) requires a new explicit Goal per stage | Class C remains human; readiness does not start implementation, real-child use or deployment |
+| Q01 / D26-D48 | CLOSED for authorized prior phases, merged shell and synthetic 3A/3B proofs; D48 changes bounded workflow only | Owner authority; [staged plan](PHASE_3_IMPLEMENTATION_PLAN.md) requires a new explicit Goal per stage; V2 requires manual owner merge | Conditional Class B merge is not phase authorization; Class C, self-expanding governance, real-child use and deployment remain human |
 | Q02 / D17 | License selection closed: owner selected Apache-2.0 for original code/project documentation. Contribution sign-off/provenance and asset-specific rights remain unresolved | Owner before public contribution/publication | Public contributor onboarding/asset reuse; license selection no longer blocks |
 | Q03 / D20 | Final summary/profile inactivity retention, grace/expiry/deletion, parent renewal and clock uncertainty notices; proposed12mo purpose limit remains incomplete | Owner + privacy/legal review before real data | Real learner persistence/trials |
 | Q04 / D21 | Operator/controller, territories, legal bases, child/parent notices/rights, profiling/default adaptation controls and DPIA need | Owner + qualified legal/privacy adviser before relevant trials/launch | Legal launch; local adaptation not exempt by assumption |
@@ -52,3 +58,10 @@ The historical blocked Phase 1E readiness document remains frozen as
 Unknown facts include actual-device speech quality/offline exposure, storage durability/eviction experiences, host-specific metadata policy, future adapter compatibility and app learning effectiveness. Current local tooling evidence and unverified CI/platform outcomes are scoped in the [Phase 1A report](PHASE_1A_COMPLETION_REPORT.md). Research establishes constraints/candidate paths, not these outcomes.
 
 Defaults: no backend/network telemetry/cloud TTS; Apache-2.0 for original code/project documentation; only synthetic data; no real trials/public launch while relevant safety/legal decisions remain open. Review [decision register](DECISION_REGISTER.md) to avoid interpreting a proposal as an adopted release policy.
+
+For future ordinary authorized Class A/B PRs after V2 is on protected main,
+`automatic_when_eligible` is the default only when every current eligibility
+gate passes. `owner_merge` and `no_merge` narrow that authority. External/fork or
+unrelated PRs, missing exact-head evidence and unresolved Class C decisions
+cannot gain merge permission from green CI. Future authority expansion stays
+human-only; non-expanding corrections require independent governance review.

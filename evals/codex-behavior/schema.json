@@ -427,6 +427,10 @@
                     "merge-protected-main",
                     "change-accepted-adr"
                   ]
+                },
+                "mergePolicy": {
+                  "enum": ["owner_merge", "no_merge"],
+                  "description": "Protected-main merge in this older engineering fixture is task-specifically owner-controlled. Qualifying automatic merge is exercised by merge-schema.json."
                 }
               },
               "required": ["issue", "requestedAction"],

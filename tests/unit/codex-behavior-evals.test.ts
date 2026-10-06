@@ -74,6 +74,8 @@ describe('synthetic governance fixture validation', () => {
     const result = run('validate');
     expect(result.status).toBe(0);
     expect(result.output).toContain('"scenarioCount": 16');
+    expect(result.output).toContain('"mergeScenarioCount": 16');
+    expect(result.output).toContain('"totalScenarioCount": 32');
     expect(result.output).toContain('"modelExecution": false');
     expect(result.output).toContain('"behavioralClaim": "none"');
   });

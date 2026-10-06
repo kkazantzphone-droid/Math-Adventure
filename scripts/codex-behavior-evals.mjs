@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { readMergeSuite, validateMergeSuite } from './codex-behavior-merge.mjs';
 
 const directory = new URL('../evals/codex-behavior/', import.meta.url);
 const schema = JSON.parse(
@@ -258,6 +259,14 @@ function baseObligations(scenario) {
         ],
       };
     case 'class-c-request':
+      if (
+        facts.requestedAction === 'merge-protected-main' &&
+        !['owner_merge', 'no_merge'].includes(facts.mergePolicy)
+      ) {
+        throw new Error(
+          'Owner-gated merge scenario must declare its narrower task merge policy',
+        );
+      }
       return {
         authority: 'C',
         outcome: HUMAN,
@@ -725,7 +734,11 @@ function run() {
   const suite = readJson(new URL('scenarios.json', directory));
   const candidateSuite =
     command === 'validate' && path ? readJson(path) : suite;
-  const errors = validateSuite(candidateSuite);
+  const mergeSuite = readMergeSuite();
+  const errors = [
+    ...validateSuite(candidateSuite),
+    ...validateMergeSuite(mergeSuite),
+  ];
   if (errors.length) {
     console.log(
       JSON.stringify(
@@ -749,6 +762,9 @@ function run() {
           operation: 'fixture-validation',
           valid: true,
           scenarioCount: candidateSuite.scenarios.length,
+          mergeScenarioCount: mergeSuite.scenarios.length,
+          totalScenarioCount:
+            candidateSuite.scenarios.length + mergeSuite.scenarios.length,
           modelExecution: false,
           behavioralClaim: 'none',
         },

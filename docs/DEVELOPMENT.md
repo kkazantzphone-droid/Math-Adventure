@@ -92,7 +92,7 @@ Use `corepack pnpm <script>` for every command. This guarantees the repository's
 | `test`                        | Interactive Vitest watch mode                                                          |
 | `test:run`                    | All unit and property tests, once                                                      |
 | `test:unit` / `test:property` | Run a harness subset                                                                   |
-| `evals:validate`              | Validate sixteen synthetic agent-decision fixtures; no model call                      |
+| `evals:validate`              | Validate engineering and merge-governance synthetic fixtures; no model/network call    |
 | `build`                       | Static production output in ignored `dist/`                                            |
 | `verify`                      | Format → lint → typecheck → fixture validation → tests → build; stops on first failure |
 
@@ -117,21 +117,38 @@ repository path and discovery format follow OpenAI's
 [skills documentation](https://learn.chatgpt.com/docs/build-skills), accessed
 2026-10-06. Optional UI metadata is unnecessary for these instruction-only skills.
 
-The [behavior suite](../evals/codex-behavior/README.md) has sixteen synthetic
-scenarios and an offline Node fixture validator/structured decision grader:
+The [behavior suites](../evals/codex-behavior/README.md) have sixteen synthetic
+engineering scenarios and sixteen synthetic merge-governance scenarios, with
+an offline Node fixture validator/structured decision grader and merge guard:
 
 ```sh
 corepack pnpm evals:validate
 node scripts/codex-behavior-evals.mjs grade evals/codex-behavior/self-authored-example.json
-corepack pnpm exec vitest run tests/unit/codex-behavior-evals.test.ts
+corepack pnpm exec vitest run tests/unit/codex-behavior-evals.test.ts tests/unit/codex-behavior-merge.test.ts
 ```
 
-The aggregate `verify` includes fixture validation and grader regressions. It
-does not execute a model or prove live agent behavior. Passing the self-authored
+The aggregate `verify` includes both suites' fixture validation and regressions.
+The merge guard consumes supplied structured snapshots; it performs no network
+request, GitHub merge or protection enforcement, and cannot authenticate head,
+base, checks, reviews or authority. It does not execute a model or prove live
+agent behavior. Passing the self-authored
 example establishes rubric/format consistency only. Records must distinguish
 hypothetical completion from captured actions; references are not authenticated
 or opened by the grader. An independent forward exercise uses prompts/facts with
 `expectedDecision` removed, retains original responses and declares its method.
+
+V2 permits Class B protected-main squash merge only after every gate in the
+[operating model](CODEX_OPERATING_MODEL.md) passes, including exact-head
+local/independent evidence, both required PR-specific hosted checks, current
+protected main, trusted PR origin, clean candidate and fresh decisive PR state.
+Immediately re-read state before merge, stop/reconcile on changed facts and
+inspect GitHub before any retry after an ambiguous result. Verify actual merged
+state, squash SHA and unchanged protection before continuing an already
+authorized dependent Goal. Class C and future authority-expanding governance
+remain human-only. This governance PR itself requires manual owner squash merge;
+the new permission takes effect only when it is present on protected main.
+[V2 completion evidence](CODEX_AUTOMERGE_GOVERNANCE_REPORT.md) records observed
+gates and the transition separately from synthetic guard outcomes.
 
 Installed `codex-cli 0.160.0` help was inspected on 2026-10-06: `exec --json` and
 `--output-schema` capture model runs, but no top-level cost-free `eval` mechanism
