@@ -2,12 +2,12 @@
   "result": "PASS",
   "sourceHashes": {
     "src/domain/adaptation/state.ts": "754c638485e5f0c5f239b28fd542a5e19882d4ec74721d9d15a14ce9381cee77",
-    "src/domain/adaptation/selection.ts": "33abec77d93ef09fbb5971352ad2336f2a1b8e82e92c38d4ed2282f08bc443c2",
+    "src/domain/adaptation/selection.ts": "10819a7fac989461b899cd5e3789ba554307a84d1df30b32f4315cef6ba6cc5e",
     "src/domain/adaptation/catalog.ts": "60fd387a5e3cc76b8ba7f420b4d000d9feb4efe9be3338117e0bbf2d1f7e6b3a",
     "src/domain/adaptation/policy.ts": "816d4dd43a48e5b869d971a7a30dd09863678e0d0028d451ca7dedd48482d687",
     "src/domain/adaptation/types.ts": "8914c101ddecc93f266c813e403302227ab3c0aa9ae3d2902bc6970b312e1f1e",
     "tests/unit/adaptation-state.test.ts": "4a50c09f7665c6b74613648eb9de82b4064a1a83dff743d9289d527404505c08",
-    "tests/unit/adaptation-selection.test.ts": "ce9ef2dfe98ef598e86fa57709440499cdfcdd9acf1db2fcdd8bd3686d2518e2",
+    "tests/unit/adaptation-selection.test.ts": "46c7339d1632164d44bd2fe45a98f3f726acbf0670439a6a177be3d1781b7a6e",
     "tests/property/adaptation-catalog.test.ts": "21ecd8223589cafea0d4000f1968a663b73ff342b0e70eadee2cc3bdcbf23e41",
     "tests/property/adaptation-independent.test.ts": "36c33118e689b998a42e2e53c9481e8643a08d1030e1f79d587ac9f2f786d997",
     "tests/unit/adaptation-containment-review.test.ts": "61cdaac2227235271184ecd7e76db2ad4e20f971f3942075569873f7e68cd8da",
@@ -55,8 +55,8 @@
       "test": "offers the lower-priority ready concept within three offers even across one-offer sessions",
       "result": "DETECTED_BY_ASSERTION",
       "source": "src/domain/adaptation/selection.ts",
-      "originalSha256": "33abec77d93ef09fbb5971352ad2336f2a1b8e82e92c38d4ed2282f08bc443c2",
-      "mutantSha256": "08fb7199cbbfd89a53841f1a4c780bba8c45e7c3e7c9136840e34256635f890b"
+      "originalSha256": "10819a7fac989461b899cd5e3789ba554307a84d1df30b32f4315cef6ba6cc5e",
+      "mutantSha256": "9c8d71dc8da7f7ea8394a07b077b3c42d315176613e2dc6c37e5385b401b0eaf"
     },
     {
       "id": "number-lab-promotes-mastery",

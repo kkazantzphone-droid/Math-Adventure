@@ -1,6 +1,7 @@
 import { boundedChoice, parseSeed } from '../random/xoshiro';
 import { advanceSyntheticClock, getConceptState } from './state';
 import type { SyntheticSnapshot } from './types';
+import { SYNTHETIC_PROFILE_IDS } from './types';
 import { ADAPTATION_POLICY, SYNTHETIC_ENGINE_LIMITS } from './policy';
 import { certifyEvidenceCatalog } from './catalog';
 import type { SyntheticEvidenceCatalog } from './catalog';
@@ -154,6 +155,8 @@ export function recommendSynthetic(
   )
     return make(null, 'unsupportedPolicy');
   if (
+    snapshot.synthetic !== true ||
+    !SYNTHETIC_PROFILE_IDS.includes(snapshot.profileId) ||
     memory.profileId !== snapshot.profileId ||
     catalog.length > SELECTION_CATALOG_LIMIT ||
     new Set(catalog.map((c) => c.concept)).size !== catalog.length ||
@@ -175,6 +178,7 @@ export function recommendSynthetic(
     (memory.lastScoredConcept !== null &&
       !identifier(memory.lastScoredConcept)) ||
     input.sessionOrdinal < memory.sessionOrdinal ||
+    input.sessionOrdinal < snapshot.lastSessionOrdinal ||
     !ordinal(memory.nextOfferOrdinal) ||
     memory.nextOfferOrdinal === 0 ||
     memory.nextOfferOrdinal === Number.MAX_SAFE_INTEGER ||
@@ -302,6 +306,7 @@ export function recommendSynthetic(
       certain &&
       state.nextReviewDay !== null &&
       input.coarseDay >= state.nextReviewDay &&
+      input.sessionOrdinal !== snapshot.lastSettledReviewSessionOrdinal &&
       !session.reviewOffered
     )
       return 'reviewDue';

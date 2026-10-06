@@ -139,7 +139,7 @@ export function runSyntheticAdaptationProof() {
       policyVersion: ADAPTATION_POLICY.version,
       coarseDay: 60,
       clockCertain: true,
-      sessionOrdinal: i + 1,
+      sessionOrdinal: i + 3,
       seed: '00000001000000020000000300000004',
       memory,
     });

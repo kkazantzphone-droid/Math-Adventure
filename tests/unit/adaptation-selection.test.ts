@@ -564,6 +564,15 @@ describe('independent synthetic recommendation proof', () => {
       },
       { evidenceCatalog: { ...evidenceCatalog, scopes: [] } },
       { snapshot: { ...snapshot, catalogSignature: 'mismatched-catalog' } },
+      { snapshot: { ...snapshot, synthetic: false as unknown as true } },
+      {
+        snapshot: {
+          ...snapshot,
+          profileId: 'SYNTHETIC-arbitrary' as 'SYNTHETIC-PLAYER-1',
+        },
+        memory: { ...base.memory, profileId: 'SYNTHETIC-arbitrary' },
+      },
+      { snapshot: { ...snapshot, lastSessionOrdinal: 4 }, sessionOrdinal: 3 },
     ])
       expect(
         recommendSynthetic({ ...base, ...changes }).reasonCode,
