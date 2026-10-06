@@ -196,11 +196,39 @@ whitespace/secret-pattern/media finding. Source/public/accepted ADRs, Node/pnpm/
 Corepack baseline, runtime dependencies, install policy and hosted workflow remain
 unchanged. Caches, tarball, reports, profiles and build output are uncommitted.
 
-Local outcome: **PHASE 1E PROOF ENVIRONMENT READY**. Governance
-[PR #6](https://github.com/kkazantzphone-droid/Math-Adventure/pull/6) remains open and
-unmerged at the publication recheck, so this developer-tooling branch stays local
-and **STACKED / DEPENDENT**. No Phase 1E PR or hosted browser result is claimed.
-Protected-main merge remains human; no production phase starts automatically.
+Historical local outcome: **PHASE 1E PROOF ENVIRONMENT READY**, preserved at
+`c9e3094e642c6963ac8a11ec0052c3c9aec3719a`. Governance
+[PR #6](https://github.com/kkazantzphone-droid/Math-Adventure/pull/6) was then open,
+so publication stayed **STACKED / DEPENDENT**. No hosted result was claimed.
+
+## Resumed publication after owner merge
+
+The owner authorized resumption and publication on 2026-10-06 after merging PR #6.
+GitHub confirms its protected-main merge revision
+`d0d2828d022e1c17013b1abb544d8f8e36f6f166`. Its tree is exactly equal to the
+preserved governance parent `74498618534faa40813cd984f99fdc9ea02d5736`.
+Normal feature-branch merge `2313dfbab3f0b4222f0d221cd51b298704d9a7be`
+retains the original candidate history and includes current main as an ancestor.
+Three history-related conflicts were resolved to the previously reviewed files;
+the entire resulting tree is byte-identical to `c9e3094`.
+
+At that reconciliation revision, pinned frozen installation, complete
+`corepack pnpm verify` (**612 tests/30 files**), `corepack pnpm audit --json`
+(**zero advisories/204 entries**) and actual `corepack pnpm browser:proof` all
+passed again. Both paths demonstrated native offline failure/recovery, distinct
+clients and installing/active/waiting/controller/update/cache observations.
+The browser remained Chrome 154.0.8037.58; all four product artifacts remained
+byte-identical to the recorded baseline. No source, dependency or fixture repair
+was needed after reconciliation.
+
+Independent publication review also identified stale current-status wording in
+the register/roadmap. Those descriptions now distinguish removed DEV/TEST control
+limitations from outstanding production lifecycle gates; historical phase reports
+and accepted ADRs stay frozen. The complete documentation candidate requires its
+own final full/fresh gates and current-head hosted Ubuntu/Windows checks before
+owner-merge readiness. Exact final revision, commands/results and hosted run are
+recorded in the publication PR; a prior head's success does not certify a later
+head. Protected-main merge remains human. Production Phase 1E is not started.
 
 ## Evidence limits and production gate
 

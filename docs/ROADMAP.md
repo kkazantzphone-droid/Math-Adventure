@@ -2,6 +2,12 @@
 
 Status: planning, no dates/effort promises. Completion gates matter more than feature count.
 
+Phase 1E status clarification (2026-10-06): the separately authorized
+[DEV/TEST proof environment](PHASE_1E_PROOF_ENVIRONMENT.md) removes the historical
+browser-control limitation. Production Phase 1E remains unimplemented and its
+offline/device/update product gates remain outstanding. The owner merged governance
+PR #6 and authorized proof-tooling publication; this starts no production phase.
+
 Current sequence: Phase 1C bounded contracts/synthetic proof → **Phase 1V FINAL PASS — OWNER CONFIRMED, LOCALLY PRESERVED** → **Phase 1D localisation/local-only speech ENGINEERING PASS, LOCALLY PRESERVED** → **Phase 2 deterministic-family bounded review/repair PASS, required CI observed** → first genuine playable vertical slice. **Phase 1E remains independently BLOCKED/PARTIAL — BROWSER LIFECYCLE EVIDENCE REQUIRED**, with no implementation or weakened gate. The owner accepts Space's dark blue/light typography, Shapes, Show me, Explore and the final one-top-side root view. Founder-family UAT remains bounded project design input, not representative research, educational-effectiveness evidence, accessibility certification or ability evidence. Phase 1V is an interposed visual gate, not checkpoint 6 or 7. Its complete verification/local commit with clean status enabled Phase 1D, locally preserved at `56ad5182ee3364174c1d335f1d7f90ef8f1cbd8d`. Phase 2 began stacked on the D39 candidate. The owner merged parent PR #4 into `a286c97fc26e5b17fa7b6a8466825c15db86f0d7`; tree equivalence was confirmed and the branch reconciled to main. Independent/full/fresh/browser [completion evidence](PHASE_2_COMPLETION_REPORT.md) passed at 501 tests/24 files. The original candidate `480a01a56a9f08f29bf36da76ed31a5c3afc4350` is published in open non-draft [PR #5](https://github.com/kkazantzphone-droid/Math-Adventure/pull/5); both required checks passed in PR-specific run 37374362103. The [D41 red-team report](PHASE_2_RED_TEAM_REPORT.md) records subsequent bounded repairs, local full/fresh verification and both required hosted checks at 514 tests/27 files for the recorded repair revision. Final documentation preservation and any subsequent PR head require their own verification and hosted checks. Protected-main merge stays human; the playable learner loop is outside this goal.
 
 | Phase | Deliverable | Exit gate |
