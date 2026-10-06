@@ -5,6 +5,11 @@
     "jsx": "react-jsx",
     "types": ["node", "vite/client"]
   },
-  "include": ["tests/**/*.ts", "tests/**/*.tsx", "vite.config.ts"],
+  "include": [
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "vite.config.ts",
+    "vite.persistence.config.ts"
+  ],
   "exclude": ["tests/fixtures/architecture"]
 }

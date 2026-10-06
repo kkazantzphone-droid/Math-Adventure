@@ -1,5 +1,13 @@
 # Repository structure and versioning
 
+Phase 3A adds `src/infrastructure/persistence/{adapter,layout,maintenance,envelope}.ts`,
+`vite.persistence.config.ts`, `tests/browser/phase3/`, `tests/integration/` and
+focused boundary/mutation tooling. The developer entry builds separately under
+ignored `.cache/`; normal composition is unchanged and no synthetic artifacts ship
+in its production output.
+[Completion evidence](PHASE_3A_COMPLETION_REPORT.md) records exact synthetic schema
+and native gates. No `domain/learning` or adaptation engine is added.
+
 Merged D44 additions: `public/manifest.webmanifest`, the original local icon, `scripts/pwa-build.ts`, `src/infrastructure/offline/`, `src/presentation/offline/`, `src/ui/offline/` and focused tests. Developer-only proof adds native production lifecycle assertions and an owned loopback transport gate outside shipped artifacts. See [design](PHASE_1E_OFFLINE_DESIGN.md) and [completion](PHASE_1E_COMPLETION_REPORT.md). Shell protocol/schema/release identities do not replace generator/content/semantic/canonicalization/application versions.
 
 Status: the owner-supplied protected-main closure baseline `93db59893b076925b1fdb5fadfa5abb9dfb274ac` contains completed Phase 1A/1B/1C, owner-confirmed Phase 1V, bounded Phase 1D and production Phase 1E. Phase 2, proof enablement and autonomy governance are also merged. [Consolidated closure](PHASE_1_COMPLETION_REPORT.md) records exact revisions and evidence limits. The first tree describes implemented modules; the second describes the broader future application. Empty conceptual layers are not scaffolded.

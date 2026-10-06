@@ -1,5 +1,14 @@
 # Requirement traceability
 
+## Synthetic-only Phase 3A (D46)
+
+| Requirement | Implemented path / proof | Limit |
+| --- | --- | --- |
+| R05/R22 partitioning/atomic local integrity | Raw IndexedDB adapter, exact layout, unchanged reusable conformance, native two-client revision/epoch/receipt/delete/fullclear checks | Fixed developer fixtures; no child navigation/store opening or production learner schema |
+| R27 migration/recovery | Explicit bounded checkpoint, native versionchange/cancel/reopen/future refusal, fixed independent readiness source/target and restored mutations | Invented schemas; no downgrade/reset, real-data restore or crash-durability claim |
+| R21/R32 privacy | Separate build/capability/origin, fixed payload/ID allowlist, import/runtime containment and envelope fuzz | No real learners/private files, telemetry, retained raw browser profiles or live import UI |
+| R31/R35/R38 certification | Full/fresh canonical gates, distinct actual Windows Chrome/Edge, five fresh specialist scopes, six assertion mutations | Exact results, unavailable natural eviction/quota/device evidence and hosted head belong in [Phase 3A report](PHASE_3A_COMPLETION_REPORT.md); no 3B/3C authorization |
+
 ## Merged Phase 1 closure and Phase 1E checkpoint 7 (D44)
 
 Current owner-supplied closure baseline is

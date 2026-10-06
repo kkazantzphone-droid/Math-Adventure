@@ -1,5 +1,13 @@
 # Application ports
 
+Separately authorized Phase 3A implements this unchanged port in
+`src/infrastructure/persistence/adapter.ts`. Explicit bootstrap/migration/full
+clear remain outside it. Only the separate synthetic developer build uses the
+adapter; ordinary composition imports neither persistence nor adaptation.
+[Phase 3A evidence](PHASE_3A_COMPLETION_REPORT.md) records native transactions and
+the bounded version-1/version-2 rehearsal. The following Phase 1C descriptions
+preserve contract provenance; synthetic memory is not production storage.
+
 Phase 1C completes the bounded checkpoint-5 contracts and synthetic conformance proof. It implements no production learner schema, persistence, gameplay, localisation, speech provider, renderer or platform detection. [ADR-0010](adr/ADR-0010.md) records command integrity; [the completion report](PHASE_1C_COMPLETION_REPORT.md) records measured evidence.
 
 ## Dependency direction

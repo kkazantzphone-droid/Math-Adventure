@@ -1,0 +1,48 @@
+{
+  "checkedLinks": 278,
+  "missingLinks": 0,
+  "lockSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "productionArtifacts": [
+    {
+      "path": "assets/index-Cqw6cjjL.css",
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    {
+      "path": "assets/index-ZAEB6tsz.js",
+      "bytes": 319586,
+      "sha256": "d2a867ef64ffc8159dffc081c288e3c49e887bbc2f26c6bb6767631b16e211c5"
+    },
+    {
+      "path": "icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 795,
+      "sha256": "81cc14d4f07655c226e8e8ef1eb281b4a10e36f4a0c69ad6c351d197c2ba5a66"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1300,
+      "sha256": "f307bf94db750a1fc70ef4d2f5791ed3cd0679e0b7a046106ad9bf708fed618e"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 22518,
+      "sha256": "f42ab8b59c24803c0ccc360608c4f6c67a8694d202dd3d5d03b7f4d111205458"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "retainedSourceHashChecks": 28
+}

@@ -23,6 +23,9 @@
     "test:property": "vitest run tests/property",
     "evals:validate": "node scripts/codex-behavior-evals.mjs validate",
     "browser:proof": "node scripts/browser-proof/run.mjs",
+    "persistence:proof": "corepack pnpm exec vitest run --config vite.persistence.config.ts",
+    "persistence:mutations": "node scripts/persistence-mutations.mjs",
+    "persistence:offline-proof": "node scripts/persistence-offline-proof.mjs",
     "verify": "corepack pnpm format:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm evals:validate && corepack pnpm test:run && corepack pnpm build"
   },
   "dependencies": {

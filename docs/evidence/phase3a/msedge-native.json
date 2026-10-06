@@ -1,0 +1,72 @@
+{
+  "channel": "msedge",
+  "cases": [
+    "two-client-update-reopen-retry-delete-stale-epoch-isolation",
+    "native-same-realm-detachment-injected-response-loss",
+    "native-two-client-delete-write-race-delayed-prepared-command",
+    "competing-create-mixed-create-update-native-abort-injected-quota-native-request-error",
+    "capacity-retry-delete-full-clear-reopen-cleanup-pending",
+    "native-incompatible-migration-refusal-no-reset",
+    "native-forward-migration-fixed-independent-oracle",
+    "deterministic-checkpoint_abort-reopen-recovery",
+    "deterministic-upgrade_abort-reopen-recovery",
+    "deterministic-interrupt_prepared-reopen-recovery",
+    "deterministic-interrupt_unverified-reopen-recovery",
+    "native-versionchange-handle-revocation-inflight-settlement",
+    "injected-finalization-cancel-native-transaction-abort",
+    "native-blocked-upgrade-cancel-close-retry",
+    "actual-browser-process-restart-interrupt_prepared",
+    "actual-browser-process-restart-interrupt_unverified",
+    "simultaneous-exact-operation-two-client-quiescence-fullclear",
+    "native-corruption-refusal-extra-metadata",
+    "native-corruption-refusal-orphan-checkpoint",
+    "native-revision-corruption-interrupt_prepared",
+    "native-revision-corruption-interrupt_unverified",
+    "genuine-browser-engine-clear-revocation-missing-reopen",
+    "future-schema-missing-reopen-revoked-handle-refusal",
+    "capability-off-unsaved-genuine-opaque-origin-denial",
+    "genuine-estimate-persisted-child-no-indexeddb-runtime"
+  ],
+  "result": "PASS",
+  "browserVersion": "154.0.4258.53",
+  "origin": "isolated ephemeral loopback port",
+  "oracle": {
+    "seed": 20261006,
+    "sequences": 50,
+    "commands": 600
+  },
+  "storage": {
+    "indexedDB": true,
+    "estimate": {
+      "quota": 10737427782,
+      "usage": 9542,
+      "usageDetails": {
+        "caches": 1024,
+        "indexedDB": 8518
+      }
+    },
+    "persisted": false,
+    "persistentRequest": "not_requested"
+  },
+  "testsObserved": 35,
+  "failures": 0,
+  "sourceHashes": {
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+    "src/infrastructure/persistence/layout.ts": "ad3c8c253baa964cb569a4e612bd51c04a2d277ee3c00ba42cc0a4e5f9afd143",
+    "src/infrastructure/persistence/maintenance.ts": "50d51691846954ea724e80b7a4995096b53c18bf65d98b53a497b4927b4db3ca",
+    "tests/integration/phase3-persistence.test.ts": "d3a48206774ce8f5ccf68e9c28358d870e7399207854332459f2a8769974c2d4",
+    "tests/browser/phase3/harness.ts": "89b424ed682c5887d794ed129db1cdb483addf6141b57b50c7a70705839d71ea"
+  },
+  "shellAssets": [
+    {
+      "path": "assets/index-B0h0C8J-.js",
+      "bytes": 34969,
+      "sha256": "fa2414c216df6b489cbda78d89064315d0f3347ef5007aedbe0c7febec95c682"
+    },
+    {
+      "path": "index.html",
+      "bytes": 501,
+      "sha256": "87b826dc66d144fa4ad55abeb79f52fd669d8707280d53ccd95bb3544a6e5801"
+    }
+  ]
+}

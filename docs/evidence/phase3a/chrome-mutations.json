@@ -1,0 +1,67 @@
+{
+  "result": "PASS",
+  "channel": "chrome",
+  "sourceHashes": {
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+    "src/infrastructure/persistence/maintenance.ts": "50d51691846954ea724e80b7a4995096b53c18bf65d98b53a497b4927b4db3ca",
+    "src/infrastructure/persistence/layout.ts": "ad3c8c253baa964cb569a4e612bd51c04a2d277ee3c00ba42cc0a4e5f9afd143",
+    "tests/integration/phase3-persistence.test.ts": "d3a48206774ce8f5ccf68e9c28358d870e7399207854332459f2a8769974c2d4",
+    "tests/browser/phase3/harness.ts": "89b424ed682c5887d794ed129db1cdb483addf6141b57b50c7a70705839d71ea",
+    "tests/conformance/repository.ts": "225be246db85643f552701a5153ab96358ef88e575fdc26beca82923a39b13da"
+  },
+  "baseline": {
+    "result": "PASS",
+    "assertions": 5
+  },
+  "mutations": [
+    {
+      "id": "stale-revision-accepted",
+      "test": "two overlapping clients cannot overwrite a loaded revision",
+      "result": "DETECTED_BY_ASSERTION",
+      "source": "src/infrastructure/persistence/adapter.ts",
+      "originalSha256": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+      "mutantSha256": "b45fb5cd6fe3a1517034bad34fca3fc6611fe350a8ae04ac22a2f1f3b833d84c"
+    },
+    {
+      "id": "stale-epoch-accepted",
+      "test": "delete fences all old sessions, preserves survivor and forbids stale resurrection/dedup",
+      "result": "DETECTED_BY_ASSERTION",
+      "source": "src/infrastructure/persistence/adapter.ts",
+      "originalSha256": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+      "mutantSha256": "efd6c1f6454b5ebdec898173a0fd5386e8e426c9ca887e18bfb80504461a2f8f"
+    },
+    {
+      "id": "success-before-transaction-completion",
+      "test": "competing creates and native abort/failure never publish partial state or early saved success",
+      "result": "DETECTED_BY_ASSERTION",
+      "source": "src/infrastructure/persistence/adapter.ts",
+      "originalSha256": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+      "mutantSha256": "ac99c6c80c6b7c3f3b7e1e6b0fbf87c4e2c81bfbbf1dedbbe87edf89efc20b9f"
+    },
+    {
+      "id": "delete-fence-not-rotated",
+      "test": "delete fences all old sessions, preserves survivor and forbids stale resurrection/dedup",
+      "result": "DETECTED_BY_ASSERTION",
+      "source": "src/infrastructure/persistence/adapter.ts",
+      "originalSha256": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+      "mutantSha256": "5969ddb1296d25938216916bce8f332aebe6b9eafd63af4995db9ede9d8c9684"
+    },
+    {
+      "id": "exact-retry-receipt-ignored",
+      "test": "returns original create/update receipts after lost responses and later writes",
+      "result": "DETECTED_BY_ASSERTION",
+      "source": "src/infrastructure/persistence/adapter.ts",
+      "originalSha256": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+      "mutantSha256": "618c098ee37be7456ee14c5cb47787038428bef28567941c12687e4e84ebf221"
+    },
+    {
+      "id": "migration-silently-resets-incompatible-rows",
+      "test": "refuses incompatible migration input without resetting source data",
+      "result": "DETECTED_BY_ASSERTION",
+      "source": "src/infrastructure/persistence/maintenance.ts",
+      "originalSha256": "50d51691846954ea724e80b7a4995096b53c18bf65d98b53a497b4927b4db3ca",
+      "mutantSha256": "be071959ca707a5c8f64a5b9bd20c9b83a0717a510656c0df0b83ec743ff378a"
+    }
+  ],
+  "exactRestoration": true
+}
