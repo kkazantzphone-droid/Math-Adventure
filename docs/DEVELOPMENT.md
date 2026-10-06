@@ -1,5 +1,18 @@
 # Development
 
+Phase 3A has a separate synthetic developer build and isolated loopback browser
+proof, with no entry in normal navigation. After `corepack pnpm verify`, run
+`corepack pnpm persistence:proof` once with `PHASE3_BROWSER=chrome` and once with
+`PHASE3_BROWSER=msedge`. Each uses the installed exact browser product in a fresh
+disposable synthetic profile. `corepack pnpm persistence:mutations` runs the six
+restored assertion mutations serially; do not run other builds/proofs concurrently.
+Follow each channel's native proof with `corepack pnpm persistence:offline-proof`
+for the selected compatible synthetic shell, stopped-listener restart and owned
+cache cleanup. Its test worker is separate from the child PWA worker.
+No browser download, runtime dependency, arbitrary profile/file input or normal
+learner storage is enabled. [Phase 3A report](PHASE_3A_COMPLETION_REPORT.md) records
+layout, evidence and policy/device limits.
+
 Current merged Phase 1E shell uses unchanged exact pins. Run frozen install and `corepack pnpm verify`, then sequentially `corepack pnpm browser:proof`; browser proof owns three actual release builds and ephemeral loopback resources. An owned transport proxy complements native Chromium offline mode without fabricating cache responses. No global tool/browser installation is needed. [Design](PHASE_1E_OFFLINE_DESIGN.md) and [completion evidence](PHASE_1E_COMPLETION_REPORT.md) define bounded claims; [Phase 1 closure](PHASE_1_COMPLETION_REPORT.md) records merged dependency revisions.
 
 Phase 1 technical foundations, final owner-confirmed visual prototype, draft locale/local-only speech infrastructure and bounded offline shell are complete and merged at `93db59893b076925b1fdb5fadfa5abb9dfb274ac`. Phase 2's three deterministic families, autonomy governance and DEV/TEST browser proof enablement are also merged. Normal play and the deliberate family-proof path remain transient, with no learner records/evidence, persistence or adaptation. Historical full/fresh, hosted and browser observations retain their exact original candidates in the phase reports. Real storage and the first playable learner loop require the separately bounded Phase 3 stages; no real learner trials, public hosting, release or deployment follows from these foundations.

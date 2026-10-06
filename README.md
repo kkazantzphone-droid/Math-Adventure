@@ -1,5 +1,10 @@
 # Math Adventure
 
+Phase 3A now supplies a synthetic-only IndexedDB foundation through a separate
+developer build and loopback origin. [Completion evidence](docs/PHASE_3A_COMPLETION_REPORT.md)
+records native browser, migration, deletion and integrity gates. Normal child play
+remains transient; adaptation and real learner persistence are not enabled.
+
 Merged checkpoint 7 (D44, 2026-10-06): owner-merged proof tooling is
 the prerequisite for the implemented production offline shell and explicit safe
 all-client update. [Design](docs/PHASE_1E_OFFLINE_DESIGN.md) and

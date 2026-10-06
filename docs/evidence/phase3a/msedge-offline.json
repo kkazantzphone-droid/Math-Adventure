@@ -1,0 +1,52 @@
+{
+  "channel": "msedge",
+  "result": "PASS",
+  "phase": "complete",
+  "cases": [
+    "two-known-clients-freeze-before-selected-compatible-shell-migration",
+    "native-migration-preserves-data-and-revokes-old-client",
+    "native-abort-after-live-validation-before-cleanup-commit",
+    "actual-unavailable-loopback-cached-shell-process-restart-exact-data-reopen",
+    "process-restart-at-validated-before-cleanup-recovery-boundary",
+    "old-reader-roll-back-refusal-without-downgrade-or-reset",
+    "database-fence-commit-and-exact-owned-shell-cache-cleanup-separately-observed"
+  ],
+  "sourceHashes": {
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+    "src/infrastructure/persistence/layout.ts": "ad3c8c253baa964cb569a4e612bd51c04a2d277ee3c00ba42cc0a4e5f9afd143",
+    "src/infrastructure/persistence/maintenance.ts": "50d51691846954ea724e80b7a4995096b53c18bf65d98b53a497b4927b4db3ca",
+    "tests/integration/phase3-persistence.test.ts": "d3a48206774ce8f5ccf68e9c28358d870e7399207854332459f2a8769974c2d4",
+    "tests/browser/phase3/harness.ts": "89b424ed682c5887d794ed129db1cdb483addf6141b57b50c7a70705839d71ea",
+    "scripts/persistence-offline-proof.mjs": "3bf0423e49736b90980cd77309ea57a450d17220354ab2d1a479d1ff1c87c715"
+  },
+  "shellAssets": [
+    {
+      "path": "assets/index-B0h0C8J-.js",
+      "bytes": 34969,
+      "sha256": "fa2414c216df6b489cbda78d89064315d0f3347ef5007aedbe0c7febec95c682"
+    },
+    {
+      "path": "index.html",
+      "bytes": 501,
+      "sha256": "87b826dc66d144fa4ad55abeb79f52fd669d8707280d53ccd95bb3544a6e5801"
+    }
+  ],
+  "limitations": [
+    "test-only exact-asset service worker; no normal child integration",
+    "graceful browser-process restart; no abrupt crash proof",
+    "loopback listener stopped; no OS network disconnection or device certification",
+    "quota override is a controlled engine condition, never natural exhaustion"
+  ],
+  "buildBinding": "main-proof-exact-shell-asset-hash-match",
+  "browserVersion": "154.0.4258.53",
+  "quotaAttempts": 256,
+  "quotaEstimate": {
+    "quota": 10738604417,
+    "usage": 1186177,
+    "usageDetails": {
+      "indexedDB": 1186177
+    }
+  },
+  "quota": "BLOCKED-native-quota-not-observed-under-engine-override",
+  "testsObserved": 7
+}

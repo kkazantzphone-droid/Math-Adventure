@@ -1,5 +1,12 @@
 # Roadmap
 
+The owner separately authorizes Stage 3A synthetic implementation under D46 on
+readiness merge `c82f4ca9ed27e35f6ccdad46cc56de2fc40c04ff`. Its raw IndexedDB
+adapter runs only through a separate developer build/origin;
+[completion evidence](PHASE_3A_COMPLETION_REPORT.md) records actual-adapter gates.
+Normal child navigation remains transient. Stages 3B/3C, real-child policy and
+release remain separate authorization/review gates.
+
 Status: planning, no dates/effort promises. Completion gates matter more than feature count.
 
 Current closure baseline (2026-10-06): protected main
