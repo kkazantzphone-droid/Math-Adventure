@@ -117,6 +117,15 @@ their own explicit execution/cost scope. Official
 
 ## Boundaries and test limits
 
+The separately authorized [Phase 1E proof environment](PHASE_1E_PROOF_ENVIRONMENT.md)
+adds exact-pinned development-only `playwright-core` and an explicit
+`corepack pnpm browser:proof` command after the ordinary full gate. It reuses a
+supported existing Chrome channel in fresh synthetic contexts, or explicitly
+acquired local Chromium. No automatic download, production worker/manifest/install
+UI or runtime dependency is introduced. Actual offline controls and fixture
+lifecycle evidence remove the old environment limitation; product Phase 1E,
+installed-PWA/device/offline-speech and safe production update proof remain separate.
+
 `src/composition/main.tsx` mounts React and wires the Phase 1D presentation/speech boundary. `src/ui/prototype/` retains fixed Phase 1V fixtures/reducer and accepted Space/Shapes/help/root presentation; compatibility copy/options delegate typed locale/preference behavior. `src/presentation/localisation/` owns locale manifests, independent preferences, message schema/draft packs and bounded formatting; presentation speech plans remain fixed/nonpersonal. Browser SpeechSynthesis/timers belong only to infrastructure; the UI receives a port instead of calling browser speech globals. The normal scripted path never invokes domain/application truth. Phase 2 deliberately adds `src/ui/family-proof/` → `src/application/family-proof.ts` → `src/domain/families/` for generated content and pure validation, with no repository command or persistence/evidence behavior. Existing replay primitives and Phase 1C integrity/contracts remain protected. See [application ports](APPLICATION_PORTS.md), [repository structure](REPOSITORY_STRUCTURE.md) and [architecture](ARCHITECTURE.md).
 
 Enable the developer proof with exactly one `familyProof=1` query. Optional `family=number.addition`, `family=geometry.quadrilateral` or `family=measurement.unit-length` chooses the statically ordered catalog; optional `seed=` supplies the project 32-hex replay seed. Missing seed uses `0123456789abcdeffedcba9876543210`; invalid/repeated explicit seeds produce unavailable content, not hidden randomness or silent replacement. Existing `lang=el/en/de` and independent canonical `ui`/`instruction`/`speech` inputs keep their roles. For deliberate reflow review, the proof-only `textScale=200` query doubles root text; it is not a learner setting. Native family/seed/replay/answer/hint/retry controls remain unsaved and do not create a session engine.

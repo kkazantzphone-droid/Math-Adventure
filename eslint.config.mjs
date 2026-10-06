@@ -59,6 +59,34 @@ export default defineConfig([
     },
   },
   {
+    files: ['tests/e2e/browser-proof.mjs'],
+    languageOptions: {
+      globals: {
+        navigator: 'readonly',
+        fetch: 'readonly',
+        location: 'readonly',
+        caches: 'readonly',
+        MessageChannel: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+      },
+    },
+  },
+  {
+    files: ['tests/e2e/fixtures/sw-*.js'],
+    languageOptions: {
+      globals: {
+        self: 'readonly',
+        caches: 'readonly',
+        fetch: 'readonly',
+        Request: 'readonly',
+        Response: 'readonly',
+        Headers: 'readonly',
+        URL: 'readonly',
+      },
+    },
+  },
+  {
     files: ['src/**/*.{ts,tsx}'],
     plugins: { browser: browserBoundary },
     rules: {

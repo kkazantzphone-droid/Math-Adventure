@@ -4,6 +4,14 @@ Date: **2026-10-05, Europe/Athens**. Scope: conditional checkpoint 7 entry asses
 
 Record context: this report preserves the overnight readiness assessment. Statements below about its untracked handoff and the branch ending at Phase 1D describe that original handoff. The subsequent autonomy pilot preserves this evidence in the Phase 1V/1D publication candidate; it does not implement Phase 1E or claim a Phase 1E completion commit.
 
+Current proof-environment reassessment (2026-10-06): the separately authorized
+[DEV/TEST environment](PHASE_1E_PROOF_ENVIRONMENT.md) demonstrates real Chromium
+offline/reload control, two controlled clients, worker lifecycle observation and
+root/subpath hosting. This removes the original browser-control environment
+blocker after its final verification; the historical assessment below is retained.
+Phase 1E production remains unimplemented and its product proof matrix is not
+complete. Fixture lifecycle evidence is not product PWA acceptance.
+
 **ENGINEERING BLOCKED / PARTIAL — BROWSER LIFECYCLE EVIDENCE REQUIRED.** Readiness assessment was performed; Phase 1E production implementation was **not started**. No offline shell, worker, manifest, update UI or release-compatibility metadata was added. This report is an untracked, unstaged readiness artifact; there is no Phase 1E commit. The branch ends at the complete Phase 1D commit.
 
 ## Entry evidence and preserved result
