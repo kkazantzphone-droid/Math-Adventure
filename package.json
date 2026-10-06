@@ -22,6 +22,7 @@
     "test:unit": "vitest run tests/unit",
     "test:property": "vitest run tests/property",
     "evals:validate": "node scripts/codex-behavior-evals.mjs validate",
+    "browser:proof": "node scripts/browser-proof/run.mjs",
     "verify": "corepack pnpm format:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm evals:validate && corepack pnpm test:run && corepack pnpm build"
   },
   "dependencies": {
@@ -38,6 +39,7 @@
     "eslint-plugin-react-hooks": "7.1.1",
     "eslint-plugin-react-refresh": "0.5.7",
     "fast-check": "4.10.2",
+    "playwright-core": "1.63.0",
     "prettier": "3.9.9",
     "typescript": "6.0.3",
     "typescript-eslint": "8.71.0",
