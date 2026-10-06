@@ -1,15 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync, existsSync, statSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { resolve, dirname, relative } from 'node:path';
 import ts from 'typescript';
 
 describe('synthetic persistence containment', () => {
   it('ordinary composition transitively imports neither persistence nor adaptation', () => {
     const seen = new Set<string>();
+    const repositoryRoot = resolve('.');
     function visit(file: string): void {
       if (seen.has(file)) return;
       seen.add(file);
-      expect(file.replaceAll('\\', '/')).not.toMatch(
+      expect(relative(repositoryRoot, file).replaceAll('\\', '/')).not.toMatch(
         /persistence|phase3|adaptation/,
       );
       const source = readFileSync(file, 'utf8');
