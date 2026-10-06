@@ -189,10 +189,24 @@ rejected 272 dangerous additions, 37 required-evidence omissions, 37 stale-proof
 variants and inappropriate mock substitutions; 342 local links resolve. Product
 source/assets, pins, lockfile, workflow and accepted ADRs remain unchanged.
 
-Authorized feature publication can proceed after preserving this report. Both
-required PR-specific checks must be observed for the current head before the
-final READY claim; parent results cannot satisfy them. No protected-main merge,
-release, deployment or Phase 1E production action is performed by this task.
+The authorized feature branch is published in open, non-draft
+[PR #6](https://github.com/kkazantzphone-droid/Math-Adventure/pull/6), based on
+`11a43414d1dcc869f1c815ed7adf72f3ee0c5218`. Published head
+`0b26519446086ce30be999a54d75cffb30fcc265` passed complete local and isolated fresh
+verification at 576 tests/28 files; all 197 tracked snapshot files matched the
+candidate exactly. PR-specific
+[run 37411354109](https://github.com/kkazantzphone-droid/Math-Adventure/actions/runs/37411354109)
+observed both required checks SUCCESS: `verify (ubuntu-24.04)` completed at
+2026-10-06 03:57:40 UTC and `verify (windows-2025)` at 03:58:09 UTC. Both logs show
+576 tests/28 files, frozen installation and the full aggregate quality gate.
+
+This evidence-only report follow-up preserves those observed results; that prior
+head's success is not silently transferred to its later documentation head.
+Before final handoff, verify the complete report candidate locally/in the fresh
+snapshot and observe both required PR-specific checks for the final current head.
+The owner handoff must identify that exact head and its observed run. No
+protected-main merge, release, deployment or Phase 1E production action is
+performed by this task.
 
 ## Tooling and evidence limits
 
