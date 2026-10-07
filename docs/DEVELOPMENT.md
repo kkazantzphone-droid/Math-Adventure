@@ -1,5 +1,37 @@
 # Development
 
+Phase 3C has a separate fixed-profile synthetic playable loop with an
+owner-confirmed child presentation and separate developer diagnostics. D51's
+[current report](PHASE_3C_COMPLETION_REPORT.md) records the bounded
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS** milestone.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
+the unresolved actual device/browser/AT and disconnected-restart observations.
+Use the pinned process-local Corepack setup below. Launch only on the deliberate
+loopback origin with an explicit port; normal `dev`/`build` composition does not
+enable or silently open learner persistence. No free-text learner input is supported.
+
+```powershell
+corepack pnpm exec vite --config vite.slice.config.ts --host 127.0.0.1 --port 4178
+corepack pnpm exec vite build --config vite.slice.config.ts
+$env:PHASE3C_BROWSER = 'chrome'
+corepack pnpm exec vitest run --config vite.slice.config.ts
+$env:PHASE3C_BROWSER = 'msedge'
+corepack pnpm exec vitest run --config vite.slice.config.ts
+```
+
+The installed-browser suite builds real releases in fresh disposable synthetic
+contexts and owns its loopback servers/root/subpath checks. It retains sanitized
+counts/hashes rather than raw browser profiles, traces, screenshots/audio or
+database dumps. Once source is stable and no other builds/tests/proofs are running,
+run serially `corepack pnpm exec node scripts/slice-mutations.mjs` and
+`corepack pnpm exec node scripts/phase3c-loop-mutations.mjs`; every intended
+assertion defect must be detected and exact bytes restored. Canonical/full fresh
+verification and inherited Phase 1E/3A/3B regressions remain separate gates.
+D51 authorizes a non-draft feature PR for the narrowed engineering/owner milestone
+after current local/fresh verification and independent review, with `owner_merge`.
+Both PR-specific exact-head hosted checks must succeed before the owner-merge handoff.
+This does not certify full Phase 3C or waive its mandatory external observations.
+
 Phase 3B exposes a fixed memory-only adaptation simulation through the same
 separate capability-gated Phase 3A developer entry. It adds no normal child
 selection or record writing. After the canonical gate, run serially

@@ -1,0 +1,68 @@
+{
+  "scope": "independent disposable installed-Chrome native privacy review only",
+  "result": "PASS — NARROWER PRIVACY EVIDENCE ONLY",
+  "sourceHashes": {
+    "tests/integration/phase3c-loop.test.ts": "6ea77cdf71fca413891bb96976b8a8e9ce54561b549724af9d20ab65920490c4",
+    "tests/browser/phase3c/main.tsx": "3fd279391c26929bef8750b39b9cb79eba94c78db3bc246b311ac7ed49cb440f",
+    "tests/browser/phase3c/runtime.ts": "406c39c51c2f112cda6bddcbae5f36e823466d476b7b589ed8831284f6944508",
+    "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+    "src/ui/offline/OfflineControls.tsx": "3e4a56f4cf05764bacb44fbbb57a0610c886928dd280a57ad92691eaacdc69b8",
+    "src/application/synthetic-loop/session.ts": "b712e0e19e0514f8392b531c96449e8b648ed53d2e771044492cd82b6a447dfe",
+    "src/application/synthetic-loop/answer.ts": "bfbfe1cd7ad660985afd6b338a858816969a5bf987eb0b70f2de926bf824d02b",
+    "src/application/synthetic-loop/record.ts": "60e572d86215e2b4844cc28a8f3f9ced3d9aacfea1cf6d43716c33dbe32efde8",
+    "src/application/synthetic-loop/seed.ts": "8fba60803e697922951efc7f5f64d483c7a9b23e4b51ca8d590234ffbd9e8d0e",
+    "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+    "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7c8e7867ec9b7fcec7bb3cbca7f42ce8b8e4d762b25ddc91a8595c836b629c4",
+    "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+    "tests/oracle/slice-families.ts": "63b32b0d3359fa66aa403eb413074a903cbabe5eb2f73e01fc1e7ce6867a0ce7",
+    "vite.slice.config.ts": "3fa799cc23368b4a4d2657c5fb7a05e91dd3508682309b612b6ee30f1f9b577f",
+    "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458"
+  },
+  "artifactsBoundToFullBrowserProof": true,
+  "capturesRetained": false,
+  "rawDatabaseOrReceiptDumpRetained": false,
+  "actualAT": "UNAVAILABLE",
+  "actualPhysicalDisconnection": "UNAVAILABLE",
+  "priorProbe": "controlled-checkbox convenience assertion checked before asynchronous persistence settled; retried using native click followed by durable-state wait",
+  "browserVersion": "154.0.8037.58",
+  "native": {
+    "databaseCount": 1,
+    "recordCount": 2,
+    "receiptCount": 5,
+    "metadataCount": 1,
+    "migrationStagingCount": 0,
+    "fixedSyntheticRecordsOnly": true,
+    "rawAnswerReplayOrPersonalKeys": false,
+    "receiptProfilesFixed": true,
+    "cacheCount": 2,
+    "cacheEntryCount": 8,
+    "cacheLearnerIdentifiersAbsent": true,
+    "cacheMetadataKeys": [
+      [
+        "priorReleaseIds",
+        "protocolVersion",
+        "releaseId",
+        "schemaVersion"
+      ]
+    ],
+    "cachePaths": [
+      "/THIRD_PARTY_NOTICES.txt",
+      "/assets/index-8DMwNj5o.js",
+      "/assets/index-CA8A6Ank.css",
+      "/icons/math-adventure.svg",
+      "/index.html",
+      "/learner-reader.json",
+      "/manifest.webmanifest",
+      "/release.json"
+    ]
+  },
+  "network": {
+    "externalAttempts": 0,
+    "learnerBearingRequests": 0
+  },
+  "sourceBytesUnchanged": true
+}

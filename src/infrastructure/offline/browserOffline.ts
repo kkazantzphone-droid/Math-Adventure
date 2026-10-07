@@ -28,6 +28,37 @@ interface UpdateAttempt {
   committed: boolean;
 }
 
+export interface LearnerUpdateIdentity {
+  readonly releaseId: string;
+  readonly attemptId: string;
+}
+
+export interface LearnerShellIdentity {
+  readonly releaseId: string | null;
+  readonly shellId: string;
+}
+
+/** Injected only by a learner composition; this adapter never imports storage.
+ * Record/reader compatibility belongs to this port, not shell schemaVersion 1.
+ */
+export interface LearnerDataLifecycle {
+  /** Synchronously fence new commands for this exact reversible attempt. */
+  fence(identity: LearnerUpdateIdentity): void;
+  /** Drain/reconcile writes and receipts; verify epoch and target record reader.
+   * Discard late results after this identity is cancelled or superseded.
+   */
+  reconcile(
+    identity: LearnerUpdateIdentity,
+    shell: LearnerShellIdentity,
+  ): Promise<boolean>;
+  /** The same fence still holds, with no in-flight or unknown transaction. */
+  isReady(identity: LearnerUpdateIdentity): boolean;
+  /** Release only the matching reversible attempt; never revive stale commands. */
+  cancel(identity: LearnerUpdateIdentity): void;
+  /** Fence immediately, then reopen/revalidate before coherent interaction. */
+  reopen(shell: LearnerShellIdentity): Promise<boolean>;
+}
+
 export interface BrowserOfflineEnvironment {
   readonly serviceWorker: ServiceWorkerContainer | null;
   readonly baseURL: URL;
@@ -36,6 +67,7 @@ export interface BrowserOfflineEnvironment {
   readonly makeChannel?: () => MessageChannel;
   readonly onFreeze?: (frozen: boolean) => void;
   readonly online?: () => boolean;
+  readonly learnerData?: LearnerDataLifecycle;
 }
 
 function record(value: unknown): value is Record<string, unknown> {
@@ -105,7 +137,7 @@ export function createBrowserOfflineController(
   let snapshot: OfflineSnapshot = {
     shell: container === null ? 'unsupported' : 'checking',
     update: 'none',
-    frozen: container !== null,
+    frozen: container !== null || environment.learnerData !== undefined,
     safeBoundary: false,
     releaseId: null,
   };
@@ -119,10 +151,79 @@ export function createBrowserOfflineController(
   let requesting = false;
   let blockedWorker: ServiceWorker | null = null;
   let startupHold = container !== null;
+  let learnerFence: UpdateAttempt | null = null;
+  let learnerRecovered = environment.learnerData === undefined;
+  let learnerRecovery = 0;
   const baseURL = new URL(environment.baseURL.href);
   const workerURL = new URL('sw.js', baseURL);
   const makeChannel = environment.makeChannel ?? (() => new MessageChannel());
   const online = environment.online ?? (() => true);
+
+  function learnerReady(identity: UpdateAttempt): boolean {
+    try {
+      return (
+        environment.learnerData === undefined ||
+        (learnerFence === identity && environment.learnerData.isReady(identity))
+      );
+    } catch {
+      return false;
+    }
+  }
+
+  function releaseLearner(identity: UpdateAttempt): void {
+    if (learnerFence !== identity) return;
+    learnerFence = null;
+    try {
+      environment.learnerData?.cancel(identity);
+    } catch {
+      learnerRecovered = false;
+      publish({ frozen: true, update: 'blocked' });
+    }
+  }
+
+  async function reconcileLearner(
+    identity: UpdateAttempt,
+    staged: WorkerStatus,
+  ): Promise<boolean> {
+    if (environment.learnerData === undefined) return true;
+    try {
+      return await environment.learnerData.reconcile(identity, {
+        releaseId: staged.releaseId,
+        shellId: staged.shellId,
+      });
+    } catch {
+      return false;
+    }
+  }
+
+  async function reopenLearner(shell: LearnerShellIdentity): Promise<boolean> {
+    if (environment.learnerData === undefined) return true;
+    const recovery = ++learnerRecovery;
+    learnerRecovered = false;
+    try {
+      const ready = await environment.learnerData.reopen(shell);
+      if (disposed || recovery !== learnerRecovery) return false;
+      learnerRecovered = ready;
+      return ready;
+    } catch {
+      return false;
+    }
+  }
+
+  async function checkLearnerRound(identity: UpdateAttempt): Promise<boolean> {
+    if (environment.learnerData === undefined) return true;
+    const staged = await status(identity.worker);
+    if (
+      disposed ||
+      attempt !== identity ||
+      staged?.ready !== true ||
+      staged.releaseId !== identity.releaseId ||
+      identity.worker !== registration?.waiting ||
+      identity.worker.state !== 'installed'
+    )
+      return false;
+    return (await reconcileLearner(identity, staged)) && learnerReady(identity);
+  }
 
   function ownRegistration(candidate: ServiceWorkerRegistration) {
     const workers = [
@@ -242,6 +343,30 @@ export function createBrowserOfflineController(
         removers.push(() => clearTimeout(timer));
         return;
       }
+      if (!learnerRecovered) {
+        const ready = await reopenLearner({
+          releaseId: current?.releaseId ?? null,
+          shellId: environment.shellId,
+        });
+        if (
+          disposed ||
+          generation !== refreshing ||
+          controlling !== ownController(container.controller)
+        )
+          return;
+        if (!ready) {
+          publish({
+            frozen: true,
+            update: 'recovering',
+            shell:
+              current?.ready === true && current.shellId === environment.shellId
+                ? 'ready'
+                : 'unavailable',
+            releaseId: current?.releaseId ?? null,
+          });
+          return;
+        }
+      }
       startupHold = false;
       publish({ frozen: false });
     }
@@ -264,7 +389,7 @@ export function createBrowserOfflineController(
           }
         : {}),
     });
-    if (controlling !== null && current !== null)
+    if (controlling !== null && current !== null && learnerRecovered)
       recovered(controlling, current);
   }
 
@@ -299,9 +424,10 @@ export function createBrowserOfflineController(
       message.attemptId === preparation.attemptId
     ) {
       blockedWorker = preparation.worker;
+      releaseLearner(preparation);
       preparation = null;
       if (startupHold) await refresh();
-      else publish({ frozen: false, update: 'blocked' });
+      else publish({ frozen: !learnerRecovered, update: 'blocked' });
       return;
     }
     if (
@@ -330,16 +456,41 @@ export function createBrowserOfflineController(
       };
       // Reserve before async status: cancellation may arrive while it is pending.
       preparation = prepared;
+      if (environment.learnerData !== undefined) {
+        learnerFence = prepared;
+        try {
+          environment.learnerData.fence(prepared);
+        } catch {
+          releaseLearner(prepared);
+          preparation = null;
+          acknowledge(message, waiting, false, 'UPDATE_READY');
+          return;
+        }
+      }
       const staged = await status(waiting);
       if (disposed || preparation !== prepared) return;
-      preparation = null;
-      if (waiting !== registration.waiting) return;
-      const ready =
+      if (waiting !== registration.waiting) {
+        releaseLearner(prepared);
+        preparation = null;
+        return;
+      }
+      let ready =
         snapshot.safeBoundary &&
         !snapshot.frozen &&
         waiting.state === 'installed' &&
         staged?.ready === true &&
         staged.releaseId === message.releaseId;
+      if (ready && staged !== null)
+        ready = await reconcileLearner(prepared, staged);
+      if (disposed || preparation !== prepared) return;
+      preparation = null;
+      ready =
+        ready &&
+        snapshot.safeBoundary &&
+        !snapshot.frozen &&
+        waiting === registration.waiting &&
+        waiting.state === 'installed' &&
+        learnerReady(prepared);
       if (ready) {
         attempt = prepared;
         const stateChanged = () => {
@@ -352,8 +503,9 @@ export function createBrowserOfflineController(
           )
             return;
           blockedWorker = waiting;
+          releaseLearner(prepared);
           attempt = null;
-          publish({ frozen: false, update: 'blocked' });
+          publish({ frozen: !learnerRecovered, update: 'blocked' });
           void refresh();
         };
         waiting.addEventListener('statechange', stateChanged);
@@ -361,7 +513,7 @@ export function createBrowserOfflineController(
           waiting.removeEventListener('statechange', stateChanged),
         );
         publish({ update: 'preparing' });
-      }
+      } else releaseLearner(prepared);
       acknowledge(message, waiting, ready, 'UPDATE_READY');
       return;
     }
@@ -373,20 +525,28 @@ export function createBrowserOfflineController(
     )
       return;
     if (message.type === 'CANCEL_UPDATE') {
+      if (attempt.committed && container?.controller === attempt.worker) return;
       // A cancelled worker transaction cannot authorize later controller recovery.
       blockedWorker = attempt.worker;
+      releaseLearner(attempt);
       attempt = null;
-      publish({ frozen: false, update: 'blocked' });
+      publish({ frozen: !learnerRecovered, update: 'blocked' });
       return;
     }
     if (message.type === 'FREEZE_UPDATE') {
-      const ready = snapshot.safeBoundary && !snapshot.frozen;
+      const identity = attempt;
+      const dataReady = await checkLearnerRound(identity);
+      if (disposed || attempt !== identity) return;
+      const ready = snapshot.safeBoundary && !snapshot.frozen && dataReady;
       if (ready) publish({ frozen: true, update: 'preparing' });
       acknowledge(message, attempt.worker, ready, 'UPDATE_FROZEN');
       return;
     }
     if (message.type === 'ACTIVATING_UPDATE') {
-      const ready = snapshot.frozen && snapshot.safeBoundary;
+      const identity = attempt;
+      const dataReady = await checkLearnerRound(identity);
+      if (disposed || attempt !== identity) return;
+      const ready = snapshot.frozen && snapshot.safeBoundary && dataReady;
       if (ready) {
         attempt.committed = true;
         publish({ update: 'recovering' });
@@ -404,9 +564,24 @@ export function createBrowserOfflineController(
       if (
         !disposed &&
         attempt === authorized &&
+        current === ownController(container.controller) &&
         installed?.ready === true &&
         installed.releaseId === authorized.releaseId
       ) {
+        const dataReady = await reopenLearner({
+          releaseId: installed.releaseId,
+          shellId: installed.shellId,
+        });
+        if (
+          disposed ||
+          attempt !== authorized ||
+          current !== ownController(container.controller)
+        )
+          return;
+        if (!dataReady) {
+          publish({ shell: 'unavailable' });
+          return;
+        }
         if (!reloadIssued) {
           reloadIssued = true;
           environment.reload();
@@ -416,6 +591,27 @@ export function createBrowserOfflineController(
       // Keep the accepted safe boundary frozen on a mismatched/incomplete controller.
       publish({ shell: 'unavailable' });
       return;
+    }
+    if (environment.learnerData !== undefined) {
+      learnerRecovered = false;
+      publish({ frozen: true, update: 'recovering' });
+      if (learnerFence !== null || current === null) return;
+      const installed = await status(current);
+      if (disposed || current !== ownController(container.controller)) return;
+      if (
+        installed?.ready !== true ||
+        installed.shellId !== environment.shellId
+      ) {
+        publish({ shell: 'unavailable' });
+        return;
+      }
+      const ready = await reopenLearner({
+        releaseId: installed.releaseId,
+        shellId: installed.shellId,
+      });
+      if (disposed || current !== ownController(container.controller)) return;
+      if (!ready) return;
+      publish({ frozen: false });
     }
     await refresh();
   }
@@ -437,8 +633,16 @@ export function createBrowserOfflineController(
       return () => listeners.delete(listener);
     },
     async start() {
-      if (started || disposed || container === null) return;
+      if (started || disposed) return;
       started = true;
+      if (container === null) {
+        const ready = await reopenLearner({
+          releaseId: null,
+          shellId: environment.shellId,
+        });
+        if (!disposed) publish({ frozen: !ready });
+        return;
+      }
       const changed = () => {
         void controllerChanged();
       };
@@ -464,7 +668,11 @@ export function createBrowserOfflineController(
           });
         } else {
           startupHold = false;
-          publish({ shell: 'unavailable', frozen: false });
+          const ready = await reopenLearner({
+            releaseId: null,
+            shellId: environment.shellId,
+          });
+          publish({ shell: 'unavailable', frozen: !ready });
           return;
         }
         if (disposed) return;
@@ -485,19 +693,29 @@ export function createBrowserOfflineController(
         }
       } catch {
         startupHold = false;
-        publish({ shell: 'unavailable', frozen: false });
+        const ready = await reopenLearner({
+          releaseId: null,
+          shellId: environment.shellId,
+        });
+        publish({ shell: 'unavailable', frozen: !ready });
       }
     },
     setSafeBoundary(safe) {
       // A frozen page cannot open a task between acknowledgement and recovery.
       if (!snapshot.frozen) publish({ safeBoundary: safe });
     },
-    canInteract: () => !snapshot.frozen,
+    canInteract: () =>
+      !disposed &&
+      !snapshot.frozen &&
+      learnerRecovered &&
+      learnerFence === null,
     async requestUpdate() {
       if (
         disposed ||
         !snapshot.safeBoundary ||
         snapshot.frozen ||
+        !learnerRecovered ||
+        learnerFence !== null ||
         requesting ||
         registration?.waiting === null ||
         registration?.waiting === undefined
@@ -510,7 +728,9 @@ export function createBrowserOfflineController(
         waiting !== registration.waiting ||
         requesting ||
         !snapshot.safeBoundary ||
-        snapshot.frozen
+        snapshot.frozen ||
+        !learnerRecovered ||
+        learnerFence !== null
       )
         return;
       if (staged?.ready !== true) {
@@ -539,10 +759,12 @@ export function createBrowserOfflineController(
         // The worker sends CANCEL_UPDATE to every prepared/frozen participant on failure.
         // Do not independently unlock a committed page while activation can still complete.
         if (attempt?.committed !== true) {
+          if (preparation !== null) releaseLearner(preparation);
+          if (attempt !== null) releaseLearner(attempt);
           preparation = null;
           blockedWorker = waiting;
           attempt = null;
-          publish({ frozen: false, update: 'blocked' });
+          publish({ frozen: !learnerRecovered, update: 'blocked' });
         }
       }
     },

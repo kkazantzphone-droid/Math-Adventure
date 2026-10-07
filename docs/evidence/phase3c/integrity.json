@@ -1,0 +1,62 @@
+{
+  "scope": "standalone-domain-preparation-only",
+  "baseRevision": "be1bd7735491df8cc2abe19645ec65b393d0aa6b",
+  "result": "PASS",
+  "localMarkdownFileLinks": 749,
+  "productionChildArtifactsEqual": true,
+  "productionArtifacts": [
+    {
+      "path": "dist/assets/index-Cqw6cjjL.css",
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    {
+      "path": "dist/assets/index-ZAEB6tsz.js",
+      "bytes": 319586,
+      "sha256": "d2a867ef64ffc8159dffc081c288e3c49e887bbc2f26c6bb6767631b16e211c5"
+    },
+    {
+      "path": "dist/icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 795,
+      "sha256": "81cc14d4f07655c226e8e8ef1eb281b4a10e36f4a0c69ad6c351d197c2ba5a66"
+    },
+    {
+      "path": "dist/manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "dist/release.json",
+      "bytes": 1300,
+      "sha256": "f307bf94db750a1fc70ef4d2f5791ed3cd0679e0b7a046106ad9bf708fed618e"
+    },
+    {
+      "path": "dist/sw.js",
+      "bytes": 22518,
+      "sha256": "f42ab8b59c24803c0ccc360608c4f6c67a8694d202dd3d5d03b7f4d111205458"
+    },
+    {
+      "path": "dist/THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "lockfileSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "packageJsonSha256": "1aed13d60f17d3f7e7c9d7e74db60fc577b5d9983751b61d3a20f910cffca06a",
+  "candidateFileCount": 23,
+  "credentialPatternMatches": 0,
+  "sourceHashes": {
+    "scripts/slice-mutations.mjs": "395f2b3b51c6199158b3c01ad7ca6cb5ee21f196a12c5cb0b59bed87ec414cb5",
+    "src/application/slice-family.ts": "e7b5632e6afb80b1af95d29aa86ecde36f8f91a4143a57d785b8bf4be727d7e5",
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "tests/oracle/slice-families.ts": "63b32b0d3359fa66aa403eb413074a903cbabe5eb2f73e01fc1e7ce6867a0ce7",
+    "tests/unit/domain/slice-families.test.ts": "4aa57d50ffb479ca712e84641a117ab55cca44e8de1d2e735743e67efce804be",
+    "tests/unit/domain/slice-independent.test.ts": "3f8ea42d016aaf1b278042b78f25d258ffb1afc5a252b30b457c340c0c65a372",
+    "tests/unit/slice-containment.test.ts": "25fb755a3bb4596cfa2a83a7b10f412bb4dda34ac8efd80f3d3adc9f3cf62924"
+  }
+}

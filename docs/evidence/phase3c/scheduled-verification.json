@@ -1,0 +1,118 @@
+{
+  "scope": "Current 38-source test-scheduled synthetic engineering verification only; required actual AT and physical disconnection remain unavailable",
+  "result": "PASS — NARROWER ENGINEERING EVIDENCE ONLY",
+  "recordedAt": "2026-10-06T14:04:18.098Z",
+  "sourceSetSha256": "ce901c3c9b5cd10f87d8383a800817bcb9a5dfc6e64279f7f20e726895813427",
+  "sourceFiles": 38,
+  "isolatedInstallTree": "f069ee596cf7a7e1f1d64650c3f1c64e2c485127",
+  "testConfiguration": {
+    "path": "vite.config.ts",
+    "sha256": "84b8a31e9943ff8b0a825bb97bd381ef8f7723a7ebadfc94a103ba62e790b505",
+    "maxWorkers": 2,
+    "assertionsAndTimeLimitsUnchanged": true
+  },
+  "installation": {
+    "command": "corepack pnpm install --frozen-lockfile --state-dir .cache/pnpm-state",
+    "exitCode": 0,
+    "downloadedPackages": 179,
+    "reusedPackages": 0,
+    "addedPackages": 179,
+    "copiedDependencies": false,
+    "lockfileUnchanged": true
+  },
+  "localVerification": {
+    "command": "corepack pnpm verify",
+    "exitCode": 0,
+    "tests": 1188,
+    "testFiles": 59,
+    "governanceFixtures": 32,
+    "transformedModules": 58,
+    "testDurationSeconds": 63.01,
+    "timeouts": 0
+  },
+  "isolatedVerification": {
+    "command": "corepack pnpm verify",
+    "exitCode": 0,
+    "tests": 1188,
+    "testFiles": 59,
+    "governanceFixtures": 32,
+    "transformedModules": 58,
+    "testDurationSeconds": 61.46,
+    "timeouts": 0,
+    "all38SourceFileBytesEqual": true
+  },
+  "execution": "Local and isolated full suites ran sequentially",
+  "supersededFailedAttempts": {
+    "concurrentLocalTimeoutFailures": 7,
+    "concurrentIsolatedTimeoutFailures": 7,
+    "subsequentUncappedIsolatedTimeoutFailures": 2,
+    "outcome": "FAIL; never represented as successful verification"
+  },
+  "pins": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "corepack": "0.36.0",
+    "pnpm": "12.9.1"
+  },
+  "lockfileSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "normalArtifactsEqual": true,
+  "normalArtifacts": [
+    {
+      "path": "assets/index-Cqw6cjjL.css",
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    {
+      "path": "assets/index-DJw206I7.js",
+      "bytes": 321818,
+      "sha256": "6514e1ede985cb11572b3d24ecf87bd63a1000d83c45b518851c9619b9880726"
+    },
+    {
+      "path": "icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 795,
+      "sha256": "1f278307b15adf847317fd5a9a78758199493bb8738736a69c9b7ecf7f7768f9"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1300,
+      "sha256": "5b9e84bef4bd5c497baaf3ae01dcf7230c6742847df0a8f4f1bf0d9612a9bd26"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 22518,
+      "sha256": "5549814b0037e527cdfa3adc82e22ed7a4361f732e9722a41120d05a62a5836f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "rerunMutations": {
+    "evidence": "loop-mutations.json",
+    "sha256": "57f66d7a03fbbe5c9731b6f314a4e9b630bb6bd431b8cb55c7a7267d17f77620",
+    "detectedByAssertions": 8,
+    "protectedInputs": 33,
+    "exactRestoration": true
+  },
+  "priorEvidence": {
+    "initial37SourceFrozenGate": "engineering-verification.json",
+    "preservedUnmodified": true,
+    "nativeLoopScope": "Current exact 19-source/27-artifact subset; test-only normal config is outside those inputs",
+    "publicationPriorHeadDocumentationOnlyExceptionApplicable": false
+  },
+  "completePhase3C": "BLOCKED — REQUIRED EVIDENCE UNAVAILABLE",
+  "actualDeviceAT": "BLOCKED — EVIDENCE UNAVAILABLE",
+  "actualDisconnectedRestart": "BLOCKED — EVIDENCE UNAVAILABLE",
+  "publication": "No push, PR or merge"
+}

@@ -1,6 +1,31 @@
 # Localisation and speech
 
-Phase 3 readiness inventories the [new slice message IDs and acceptance gates](PHASE_3_IMPLEMENTATION_PLAN.md)
+D50 [Phase 3C child presentation](PHASE_3C_COMPLETION_REPORT.md) adds short task,
+visual-help and badge/navigation copy to the preserved developer inventory.
+el-GR/en-GB/de-DE stay prototype-draft/native-review pending; planned fr-FR/es-ES/
+it-IT/pt-PT preferences keep explicit incomplete Greek fallback. Child task
+instructions and UI chrome use their independent effective locales; number speech
+keeps its separate exact preference. Star/Triangle are fixed badge identities,
+with no learner names. Adult-only language/voice diagnostics remain inspectable in
+developer view. Optional explicit speech still uses existing fixed generic plans
+and visible numeral cardinals 2–5, accepting only exposed exact-region voices with
+`localService === true`. Badge/task/view/locale changes cancel obsolete speech;
+missing speech preserves play. No arbitrary utterance, autoplay, substitution,
+official pack, pronunciation or tested-offline voice claim follows. Shorter Greek
+matching/comparison captions and shared normal word boundaries repair observed
+narrow text reflow; accessible Left/Right labels remain localized behind visible
+side arrows. Preserved mixed-role native tests pass in both products. D51 records
+bounded owner product confirmation on 2026-10-07, including eight-family direct
+answers, visual help, badge identities/navigation and separate adult diagnostics:
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+Native-language review remains pending; owner acceptance does not certify
+translations, pronunciation, WCAG, research or educational effectiveness.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
+actual AT/disconnected proof. Current full/fresh and independent review precede
+the authorized narrowed feature PR. Both PR-specific exact-head CI checks must
+succeed before the owner-merge handoff; `owner_merge` remains.
+
+Historical Phase 3 readiness inventories the [new slice message IDs and acceptance gates](PHASE_3_IMPLEMENTATION_PLAN.md)
 without writing translations or promoting packs. el-GR/en-GB/de-DE remain draft;
 the four planned locales remain incomplete. Independent UI/instruction/number
 speech roles and optional exact-local-only playback are preserved. Readiness

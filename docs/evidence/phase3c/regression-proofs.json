@@ -1,0 +1,701 @@
+{
+  "scope": "current synthetic regression engineering only; no actual AT or physical disconnected restart",
+  "result": "PASS",
+  "recordedAt": "2026-10-06T13:31:56.631Z",
+  "initialRestrictedLaunch": "Original Chromium-sandbox-enabled commands stalled before first context page; bounded paired probes reproduced this permitted-execution limit. Unchanged commands passed under scoped tool permission, without administrator access, browser installation, machine or flag changes.",
+  "phase1E": [
+    {
+      "channel": "chrome",
+      "result": "PASS",
+      "technology": {
+        "package": "playwright-core",
+        "version": "1.63.0",
+        "channel": "chrome",
+        "browserVersion": "154.0.8037.58"
+      },
+      "reportSha256": "7745090b0df3f006aa58cfd014a9b6773e8dbf461011e8db8fbcbf9fad2c8d41",
+      "mechanism": "unchanged corepack pnpm browser:proof; chromiumSandbox:true; scoped tool permission",
+      "artifacts": [
+        {
+          "path": "assets/index-Cqw6cjjL.css",
+          "bytes": 21440,
+          "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+        },
+        {
+          "path": "assets/index-DJw206I7.js",
+          "bytes": 321818,
+          "sha256": "6514e1ede985cb11572b3d24ecf87bd63a1000d83c45b518851c9619b9880726"
+        },
+        {
+          "path": "icons/math-adventure.svg",
+          "bytes": 431,
+          "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+        },
+        {
+          "path": "index.html",
+          "bytes": 795,
+          "sha256": "1f278307b15adf847317fd5a9a78758199493bb8738736a69c9b7ecf7f7768f9"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 440,
+          "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+        },
+        {
+          "path": "release.json",
+          "bytes": 1300,
+          "sha256": "5b9e84bef4bd5c497baaf3ae01dcf7230c6742847df0a8f4f1bf0d9612a9bd26"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 22518,
+          "sha256": "5549814b0037e527cdfa3adc82e22ed7a4361f732e9722a41120d05a62a5836f"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.txt",
+          "bytes": 1384,
+          "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+        }
+      ],
+      "cases": [
+        {
+          "prefix": "/",
+          "noWorkerNegativeControl": {
+            "onlineWorkerlessFixtureLoad": true,
+            "distinctPageDocuments": 2,
+            "registrations": 0,
+            "missingAssetDetected": 404,
+            "nativeOfflineFetchFailed": true,
+            "nativeOfflineReloadsFailed": 2,
+            "offlineServerRequests": 0,
+            "separateContextRemainedOnline": true,
+            "onlineReloadRecovered": true,
+            "unexpectedConsoleOrScriptErrors": 0
+          },
+          "lifecycleFixture": {
+            "fixtureOnlyScope": "/__browser-proof/",
+            "installingObserved": true,
+            "activeAndControlledObserved": true,
+            "distinctControlledClients": 2,
+            "cacheStorageInspected": true,
+            "cachedOfflineReload": true,
+            "newOfflineDocument": true,
+            "waitingObservedWithOldController": true,
+            "explicitUpdateActivation": true,
+            "controllerChangesBeforeRecovery": 2,
+            "recoveredClientsOnV2": 2,
+            "unexpectedConsoleOrScriptErrors": 0
+          },
+          "productionLifecycle": {
+            "firstInstallComplete": true,
+            "declaredRequiredResources": 6,
+            "cacheBytesIndependentlyHashed": true,
+            "actualOfflineServedBodiesIndependentlyHashed": 12,
+            "actualSurvivingOfflineServedBodiesIndependentlyHashed": 3,
+            "exactReleaseOwnershipMetadataInspected": true,
+            "repeatedImmutableArtifactLifecycle": true,
+            "distinctNativeClients": 2,
+            "offlineReloadFromDeclaredShell": true,
+            "newOfflineDocument": true,
+            "offlinePrototypeLocales": [
+              "el-GR",
+              "en-GB",
+              "de-DE"
+            ],
+            "offlineProofOriginRequestReceipts": 0,
+            "nativeOfflineAndOwnedTransportGate": true,
+            "uncachedOfflineFetchFailed": true,
+            "separateContextRemainedOnline": true,
+            "blockedNativeControlPlanePaths": [
+              "/sw.js"
+            ],
+            "actualCrossOriginProbeRequests": 1,
+            "rejectedNativeConnectAttempts": {
+              "ownedLoopback": 0,
+              "external": 30,
+              "forwarded": 0
+            },
+            "crossOriginResponseExcluded": true,
+            "waitingWithOldActiveController": true,
+            "unreadyClientPreventedActivation": true,
+            "missingReadinessAcknowledgementBlockedWithinBound": true,
+            "changedNativeClientMembershipPreventedActivation": true,
+            "noMidTaskForcedReload": true,
+            "explicitAllReadyActivation": true,
+            "coherentlyRecoveredClients": 2,
+            "missingRecoveryAcknowledgementPreservedOldCache": true,
+            "cleanupAfterAllClientRecovery": true,
+            "repeatedOldRecoveryPreservedWaitingRelease": true,
+            "requiredResourceFailure": "/index.html",
+            "failedInstallNeverReady": true,
+            "existingReleaseStillUsableOffline": true,
+            "unexpectedConsoleScriptOrNetworkErrors": 0
+          }
+        },
+        {
+          "prefix": "/math-adventure/",
+          "noWorkerNegativeControl": {
+            "onlineWorkerlessFixtureLoad": true,
+            "distinctPageDocuments": 2,
+            "registrations": 0,
+            "missingAssetDetected": 404,
+            "nativeOfflineFetchFailed": true,
+            "nativeOfflineReloadsFailed": 2,
+            "offlineServerRequests": 0,
+            "separateContextRemainedOnline": true,
+            "onlineReloadRecovered": true,
+            "unexpectedConsoleOrScriptErrors": 0
+          },
+          "lifecycleFixture": {
+            "fixtureOnlyScope": "/math-adventure/__browser-proof/",
+            "installingObserved": true,
+            "activeAndControlledObserved": true,
+            "distinctControlledClients": 2,
+            "cacheStorageInspected": true,
+            "cachedOfflineReload": true,
+            "newOfflineDocument": true,
+            "waitingObservedWithOldController": true,
+            "explicitUpdateActivation": true,
+            "controllerChangesBeforeRecovery": 2,
+            "recoveredClientsOnV2": 2,
+            "unexpectedConsoleOrScriptErrors": 0
+          },
+          "productionLifecycle": {
+            "firstInstallComplete": true,
+            "declaredRequiredResources": 6,
+            "cacheBytesIndependentlyHashed": true,
+            "actualOfflineServedBodiesIndependentlyHashed": 12,
+            "actualSurvivingOfflineServedBodiesIndependentlyHashed": 3,
+            "exactReleaseOwnershipMetadataInspected": true,
+            "repeatedImmutableArtifactLifecycle": true,
+            "distinctNativeClients": 2,
+            "offlineReloadFromDeclaredShell": true,
+            "newOfflineDocument": true,
+            "offlinePrototypeLocales": [
+              "el-GR",
+              "en-GB",
+              "de-DE"
+            ],
+            "offlineProofOriginRequestReceipts": 0,
+            "nativeOfflineAndOwnedTransportGate": true,
+            "uncachedOfflineFetchFailed": true,
+            "separateContextRemainedOnline": true,
+            "blockedNativeControlPlanePaths": [
+              "/math-adventure/sw.js"
+            ],
+            "actualCrossOriginProbeRequests": 1,
+            "rejectedNativeConnectAttempts": {
+              "ownedLoopback": 0,
+              "external": 30,
+              "forwarded": 0
+            },
+            "crossOriginResponseExcluded": true,
+            "waitingWithOldActiveController": true,
+            "unreadyClientPreventedActivation": true,
+            "missingReadinessAcknowledgementBlockedWithinBound": true,
+            "changedNativeClientMembershipPreventedActivation": true,
+            "noMidTaskForcedReload": true,
+            "explicitAllReadyActivation": true,
+            "coherentlyRecoveredClients": 2,
+            "missingRecoveryAcknowledgementPreservedOldCache": true,
+            "cleanupAfterAllClientRecovery": true,
+            "repeatedOldRecoveryPreservedWaitingRelease": true,
+            "requiredResourceFailure": "/math-adventure/index.html",
+            "failedInstallNeverReady": true,
+            "existingReleaseStillUsableOffline": true,
+            "unexpectedConsoleScriptOrNetworkErrors": 0
+          }
+        }
+      ],
+      "limitations": [
+        "native offline mode and owned transport gate are not physical device disconnection",
+        "the controlled cross-origin probe is owned loopback; forbidden CONNECT attempts are rejected and not forwarded"
+      ]
+    },
+    {
+      "channel": "msedge",
+      "result": "PASS",
+      "technology": {
+        "package": "playwright-core",
+        "version": "1.63.0",
+        "channel": "msedge",
+        "browserVersion": "154.0.4258.53"
+      },
+      "reportSha256": "90b05838bab0cfec2c526f12396f7efebb820f91163510d228f97bb348ce8e0b",
+      "mechanism": "unchanged corepack pnpm browser:proof; chromiumSandbox:true; scoped tool permission",
+      "artifacts": [
+        {
+          "path": "assets/index-Cqw6cjjL.css",
+          "bytes": 21440,
+          "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+        },
+        {
+          "path": "assets/index-DJw206I7.js",
+          "bytes": 321818,
+          "sha256": "6514e1ede985cb11572b3d24ecf87bd63a1000d83c45b518851c9619b9880726"
+        },
+        {
+          "path": "icons/math-adventure.svg",
+          "bytes": 431,
+          "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+        },
+        {
+          "path": "index.html",
+          "bytes": 795,
+          "sha256": "1f278307b15adf847317fd5a9a78758199493bb8738736a69c9b7ecf7f7768f9"
+        },
+        {
+          "path": "manifest.webmanifest",
+          "bytes": 440,
+          "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+        },
+        {
+          "path": "release.json",
+          "bytes": 1300,
+          "sha256": "5b9e84bef4bd5c497baaf3ae01dcf7230c6742847df0a8f4f1bf0d9612a9bd26"
+        },
+        {
+          "path": "sw.js",
+          "bytes": 22518,
+          "sha256": "5549814b0037e527cdfa3adc82e22ed7a4361f732e9722a41120d05a62a5836f"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.txt",
+          "bytes": 1384,
+          "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+        }
+      ],
+      "cases": [
+        {
+          "prefix": "/",
+          "noWorkerNegativeControl": {
+            "onlineWorkerlessFixtureLoad": true,
+            "distinctPageDocuments": 2,
+            "registrations": 0,
+            "missingAssetDetected": 404,
+            "nativeOfflineFetchFailed": true,
+            "nativeOfflineReloadsFailed": 2,
+            "offlineServerRequests": 0,
+            "separateContextRemainedOnline": true,
+            "onlineReloadRecovered": true,
+            "unexpectedConsoleOrScriptErrors": 0
+          },
+          "lifecycleFixture": {
+            "fixtureOnlyScope": "/__browser-proof/",
+            "installingObserved": true,
+            "activeAndControlledObserved": true,
+            "distinctControlledClients": 2,
+            "cacheStorageInspected": true,
+            "cachedOfflineReload": true,
+            "newOfflineDocument": true,
+            "waitingObservedWithOldController": true,
+            "explicitUpdateActivation": true,
+            "controllerChangesBeforeRecovery": 2,
+            "recoveredClientsOnV2": 2,
+            "unexpectedConsoleOrScriptErrors": 0
+          },
+          "productionLifecycle": {
+            "firstInstallComplete": true,
+            "declaredRequiredResources": 6,
+            "cacheBytesIndependentlyHashed": true,
+            "actualOfflineServedBodiesIndependentlyHashed": 12,
+            "actualSurvivingOfflineServedBodiesIndependentlyHashed": 3,
+            "exactReleaseOwnershipMetadataInspected": true,
+            "repeatedImmutableArtifactLifecycle": true,
+            "distinctNativeClients": 2,
+            "offlineReloadFromDeclaredShell": true,
+            "newOfflineDocument": true,
+            "offlinePrototypeLocales": [
+              "el-GR",
+              "en-GB",
+              "de-DE"
+            ],
+            "offlineProofOriginRequestReceipts": 0,
+            "nativeOfflineAndOwnedTransportGate": true,
+            "uncachedOfflineFetchFailed": true,
+            "separateContextRemainedOnline": true,
+            "blockedNativeControlPlanePaths": [
+              "/sw.js"
+            ],
+            "actualCrossOriginProbeRequests": 1,
+            "rejectedNativeConnectAttempts": {
+              "ownedLoopback": 0,
+              "external": 27,
+              "forwarded": 0
+            },
+            "crossOriginResponseExcluded": true,
+            "waitingWithOldActiveController": true,
+            "unreadyClientPreventedActivation": true,
+            "missingReadinessAcknowledgementBlockedWithinBound": true,
+            "changedNativeClientMembershipPreventedActivation": true,
+            "noMidTaskForcedReload": true,
+            "explicitAllReadyActivation": true,
+            "coherentlyRecoveredClients": 2,
+            "missingRecoveryAcknowledgementPreservedOldCache": true,
+            "cleanupAfterAllClientRecovery": true,
+            "repeatedOldRecoveryPreservedWaitingRelease": true,
+            "requiredResourceFailure": "/index.html",
+            "failedInstallNeverReady": true,
+            "existingReleaseStillUsableOffline": true,
+            "unexpectedConsoleScriptOrNetworkErrors": 0
+          }
+        },
+        {
+          "prefix": "/math-adventure/",
+          "noWorkerNegativeControl": {
+            "onlineWorkerlessFixtureLoad": true,
+            "distinctPageDocuments": 2,
+            "registrations": 0,
+            "missingAssetDetected": 404,
+            "nativeOfflineFetchFailed": true,
+            "nativeOfflineReloadsFailed": 2,
+            "offlineServerRequests": 0,
+            "separateContextRemainedOnline": true,
+            "onlineReloadRecovered": true,
+            "unexpectedConsoleOrScriptErrors": 0
+          },
+          "lifecycleFixture": {
+            "fixtureOnlyScope": "/math-adventure/__browser-proof/",
+            "installingObserved": true,
+            "activeAndControlledObserved": true,
+            "distinctControlledClients": 2,
+            "cacheStorageInspected": true,
+            "cachedOfflineReload": true,
+            "newOfflineDocument": true,
+            "waitingObservedWithOldController": true,
+            "explicitUpdateActivation": true,
+            "controllerChangesBeforeRecovery": 2,
+            "recoveredClientsOnV2": 2,
+            "unexpectedConsoleOrScriptErrors": 0
+          },
+          "productionLifecycle": {
+            "firstInstallComplete": true,
+            "declaredRequiredResources": 6,
+            "cacheBytesIndependentlyHashed": true,
+            "actualOfflineServedBodiesIndependentlyHashed": 12,
+            "actualSurvivingOfflineServedBodiesIndependentlyHashed": 3,
+            "exactReleaseOwnershipMetadataInspected": true,
+            "repeatedImmutableArtifactLifecycle": true,
+            "distinctNativeClients": 2,
+            "offlineReloadFromDeclaredShell": true,
+            "newOfflineDocument": true,
+            "offlinePrototypeLocales": [
+              "el-GR",
+              "en-GB",
+              "de-DE"
+            ],
+            "offlineProofOriginRequestReceipts": 0,
+            "nativeOfflineAndOwnedTransportGate": true,
+            "uncachedOfflineFetchFailed": true,
+            "separateContextRemainedOnline": true,
+            "blockedNativeControlPlanePaths": [
+              "/math-adventure/sw.js"
+            ],
+            "actualCrossOriginProbeRequests": 1,
+            "rejectedNativeConnectAttempts": {
+              "ownedLoopback": 0,
+              "external": 28,
+              "forwarded": 0
+            },
+            "crossOriginResponseExcluded": true,
+            "waitingWithOldActiveController": true,
+            "unreadyClientPreventedActivation": true,
+            "missingReadinessAcknowledgementBlockedWithinBound": true,
+            "changedNativeClientMembershipPreventedActivation": true,
+            "noMidTaskForcedReload": true,
+            "explicitAllReadyActivation": true,
+            "coherentlyRecoveredClients": 2,
+            "missingRecoveryAcknowledgementPreservedOldCache": true,
+            "cleanupAfterAllClientRecovery": true,
+            "repeatedOldRecoveryPreservedWaitingRelease": true,
+            "requiredResourceFailure": "/math-adventure/index.html",
+            "failedInstallNeverReady": true,
+            "existingReleaseStillUsableOffline": true,
+            "unexpectedConsoleScriptOrNetworkErrors": 0
+          }
+        }
+      ],
+      "limitations": [
+        "native offline mode and owned transport gate are not physical device disconnection",
+        "the controlled cross-origin probe is owned loopback; forbidden CONNECT attempts are rejected and not forwarded"
+      ]
+    }
+  ],
+  "phase3A": [
+    {
+      "channel": "chrome",
+      "result": "PASS",
+      "browserVersion": "154.0.8037.58",
+      "testsObserved": 35,
+      "failures": 0,
+      "cases": [
+        "two-client-update-reopen-retry-delete-stale-epoch-isolation",
+        "native-same-realm-detachment-injected-response-loss",
+        "native-two-client-delete-write-race-delayed-prepared-command",
+        "competing-create-mixed-create-update-native-abort-injected-quota-native-request-error",
+        "capacity-retry-delete-full-clear-reopen-cleanup-pending",
+        "native-incompatible-migration-refusal-no-reset",
+        "native-forward-migration-fixed-independent-oracle",
+        "deterministic-checkpoint_abort-reopen-recovery",
+        "deterministic-upgrade_abort-reopen-recovery",
+        "deterministic-interrupt_prepared-reopen-recovery",
+        "deterministic-interrupt_unverified-reopen-recovery",
+        "native-versionchange-handle-revocation-inflight-settlement",
+        "injected-finalization-cancel-native-transaction-abort",
+        "native-blocked-upgrade-cancel-close-retry",
+        "actual-browser-process-restart-interrupt_prepared",
+        "actual-browser-process-restart-interrupt_unverified",
+        "simultaneous-exact-operation-two-client-quiescence-fullclear",
+        "native-corruption-refusal-extra-metadata",
+        "native-corruption-refusal-orphan-checkpoint",
+        "native-revision-corruption-interrupt_prepared",
+        "native-revision-corruption-interrupt_unverified",
+        "genuine-browser-engine-clear-revocation-missing-reopen",
+        "future-schema-missing-reopen-revoked-handle-refusal",
+        "capability-off-unsaved-genuine-opaque-origin-denial",
+        "genuine-estimate-persisted-child-no-indexeddb-runtime"
+      ],
+      "independentCommandOracle": {
+        "seed": 20261006,
+        "sequences": 50,
+        "commands": 600
+      },
+      "reportSha256": "bbd634e63a7a0c08f3e749cc4df8907c46c7ca0bcf0afc09301de63ee4d65c7e",
+      "shellAssets": [
+        {
+          "path": "assets/index-8hsFTaD_.js",
+          "bytes": 58030,
+          "sha256": "41b667ffc8bf2b2074569441d21910320eeea388351362c63db71e3d59de6c6c"
+        },
+        {
+          "path": "index.html",
+          "bytes": 501,
+          "sha256": "42c21175cf07af2726daba20802f82f3a4d9c55325b593b6d9ab1a7d76855773"
+        }
+      ],
+      "normalChildIndexedDb": "tested native child composition opens no IndexedDB"
+    },
+    {
+      "channel": "msedge",
+      "result": "PASS",
+      "browserVersion": "154.0.4258.53",
+      "testsObserved": 35,
+      "failures": 0,
+      "cases": [
+        "two-client-update-reopen-retry-delete-stale-epoch-isolation",
+        "native-same-realm-detachment-injected-response-loss",
+        "native-two-client-delete-write-race-delayed-prepared-command",
+        "competing-create-mixed-create-update-native-abort-injected-quota-native-request-error",
+        "capacity-retry-delete-full-clear-reopen-cleanup-pending",
+        "native-incompatible-migration-refusal-no-reset",
+        "native-forward-migration-fixed-independent-oracle",
+        "deterministic-checkpoint_abort-reopen-recovery",
+        "deterministic-upgrade_abort-reopen-recovery",
+        "deterministic-interrupt_prepared-reopen-recovery",
+        "deterministic-interrupt_unverified-reopen-recovery",
+        "native-versionchange-handle-revocation-inflight-settlement",
+        "injected-finalization-cancel-native-transaction-abort",
+        "native-blocked-upgrade-cancel-close-retry",
+        "actual-browser-process-restart-interrupt_prepared",
+        "actual-browser-process-restart-interrupt_unverified",
+        "simultaneous-exact-operation-two-client-quiescence-fullclear",
+        "native-corruption-refusal-extra-metadata",
+        "native-corruption-refusal-orphan-checkpoint",
+        "native-revision-corruption-interrupt_prepared",
+        "native-revision-corruption-interrupt_unverified",
+        "genuine-browser-engine-clear-revocation-missing-reopen",
+        "future-schema-missing-reopen-revoked-handle-refusal",
+        "capability-off-unsaved-genuine-opaque-origin-denial",
+        "genuine-estimate-persisted-child-no-indexeddb-runtime"
+      ],
+      "independentCommandOracle": {
+        "seed": 20261006,
+        "sequences": 50,
+        "commands": 600
+      },
+      "reportSha256": "4b12fbafe02066a3a10baa18a90ed66d40c58e6ad948eb3a858349654a7f79ec",
+      "shellAssets": [
+        {
+          "path": "assets/index-8hsFTaD_.js",
+          "bytes": 58030,
+          "sha256": "41b667ffc8bf2b2074569441d21910320eeea388351362c63db71e3d59de6c6c"
+        },
+        {
+          "path": "index.html",
+          "bytes": 501,
+          "sha256": "42c21175cf07af2726daba20802f82f3a4d9c55325b593b6d9ab1a7d76855773"
+        }
+      ],
+      "normalChildIndexedDb": "tested native child composition opens no IndexedDB"
+    }
+  ],
+  "phase3AOffline": [
+    {
+      "channel": "chrome",
+      "result": "PASS",
+      "browserVersion": "154.0.8037.58",
+      "testsObserved": 7,
+      "cases": [
+        "two-known-clients-freeze-before-selected-compatible-shell-migration",
+        "native-migration-preserves-data-and-revokes-old-client",
+        "native-abort-after-live-validation-before-cleanup-commit",
+        "actual-unavailable-loopback-cached-shell-process-restart-exact-data-reopen",
+        "process-restart-at-validated-before-cleanup-recovery-boundary",
+        "old-reader-roll-back-refusal-without-downgrade-or-reset",
+        "database-fence-commit-and-exact-owned-shell-cache-cleanup-separately-observed"
+      ],
+      "quota": "BLOCKED-native-quota-not-observed-under-engine-override",
+      "limitations": [
+        "test-only exact-asset service worker; no normal child integration",
+        "graceful browser-process restart; no abrupt crash proof",
+        "loopback listener stopped; no OS network disconnection or device certification",
+        "quota override is a controlled engine condition, never natural exhaustion"
+      ],
+      "buildBinding": "main-proof-exact-shell-asset-hash-match",
+      "shellAssets": [
+        {
+          "path": "assets/index-8hsFTaD_.js",
+          "bytes": 58030,
+          "sha256": "41b667ffc8bf2b2074569441d21910320eeea388351362c63db71e3d59de6c6c"
+        },
+        {
+          "path": "index.html",
+          "bytes": 501,
+          "sha256": "42c21175cf07af2726daba20802f82f3a4d9c55325b593b6d9ab1a7d76855773"
+        }
+      ],
+      "reportSha256": "5e22100c1dd7e9c3da9fd8d3fc2a4fd4921d0e48aa315cd0401a21d2bba70f10"
+    },
+    {
+      "channel": "msedge",
+      "result": "PASS",
+      "browserVersion": "154.0.4258.53",
+      "testsObserved": 7,
+      "cases": [
+        "two-known-clients-freeze-before-selected-compatible-shell-migration",
+        "native-migration-preserves-data-and-revokes-old-client",
+        "native-abort-after-live-validation-before-cleanup-commit",
+        "actual-unavailable-loopback-cached-shell-process-restart-exact-data-reopen",
+        "process-restart-at-validated-before-cleanup-recovery-boundary",
+        "old-reader-roll-back-refusal-without-downgrade-or-reset",
+        "database-fence-commit-and-exact-owned-shell-cache-cleanup-separately-observed"
+      ],
+      "quota": "BLOCKED-native-quota-not-observed-under-engine-override",
+      "limitations": [
+        "test-only exact-asset service worker; no normal child integration",
+        "graceful browser-process restart; no abrupt crash proof",
+        "loopback listener stopped; no OS network disconnection or device certification",
+        "quota override is a controlled engine condition, never natural exhaustion"
+      ],
+      "buildBinding": "main-proof-exact-shell-asset-hash-match",
+      "shellAssets": [
+        {
+          "path": "assets/index-8hsFTaD_.js",
+          "bytes": 58030,
+          "sha256": "41b667ffc8bf2b2074569441d21910320eeea388351362c63db71e3d59de6c6c"
+        },
+        {
+          "path": "index.html",
+          "bytes": 501,
+          "sha256": "42c21175cf07af2726daba20802f82f3a4d9c55325b593b6d9ab1a7d76855773"
+        }
+      ],
+      "reportSha256": "0225ac83fed5841352f2ad144275cd39792e8e84957a78ebab4828959b37f865"
+    }
+  ],
+  "phase3B": [
+    {
+      "result": "PASS",
+      "channel": "chrome",
+      "browserVersion": "154.0.8037.58",
+      "summary": {
+        "synthetic": true,
+        "policyVersion": "phase3b-synthetic-policy-v1",
+        "status": "experimental",
+        "educatorReview": "required",
+        "concepts": 3,
+        "meaningfulCases": [
+          21,
+          12,
+          8
+        ],
+        "secureWitnesses": 3,
+        "observations": 30,
+        "exposureNeutral": true,
+        "rotationOffers": 3
+      },
+      "indexedDbOpens": 0,
+      "nonlocalRequests": 0,
+      "sourceHashes": {
+        "src/domain/adaptation/state.ts": "754c638485e5f0c5f239b28fd542a5e19882d4ec74721d9d15a14ce9381cee77",
+        "src/domain/adaptation/catalog.ts": "60fd387a5e3cc76b8ba7f420b4d000d9feb4efe9be3338117e0bbf2d1f7e6b3a",
+        "src/domain/adaptation/selection.ts": "10819a7fac989461b899cd5e3789ba554307a84d1df30b32f4315cef6ba6cc5e",
+        "src/domain/adaptation/policy.ts": "816d4dd43a48e5b869d971a7a30dd09863678e0d0028d451ca7dedd48482d687",
+        "src/domain/adaptation/types.ts": "8914c101ddecc93f266c813e403302227ab3c0aa9ae3d2902bc6970b312e1f1e",
+        "tests/browser/phase3/adaptation-proof.ts": "2e5b0443f29f9f804791ae2ef8bc4cf0ffcebbb27fba8418073759b335be4304",
+        "tests/browser/phase3/harness.ts": "7fcfc79d60eeb69a187e6794e30480ce29cc112264e9055a9538578e86956efd",
+        "scripts/adaptation-proof.mjs": "27d5f64533e560fc41f257e28e7b908bf37308a25539d3167b5fea9029e31fc2"
+      },
+      "reportSha256": "a871bcb15bda950e9495d701e9e5d5642baebf0ec82063f9099fb66003c9cfec"
+    },
+    {
+      "result": "PASS",
+      "channel": "msedge",
+      "browserVersion": "154.0.4258.53",
+      "summary": {
+        "synthetic": true,
+        "policyVersion": "phase3b-synthetic-policy-v1",
+        "status": "experimental",
+        "educatorReview": "required",
+        "concepts": 3,
+        "meaningfulCases": [
+          21,
+          12,
+          8
+        ],
+        "secureWitnesses": 3,
+        "observations": 30,
+        "exposureNeutral": true,
+        "rotationOffers": 3
+      },
+      "indexedDbOpens": 0,
+      "nonlocalRequests": 0,
+      "sourceHashes": {
+        "src/domain/adaptation/state.ts": "754c638485e5f0c5f239b28fd542a5e19882d4ec74721d9d15a14ce9381cee77",
+        "src/domain/adaptation/catalog.ts": "60fd387a5e3cc76b8ba7f420b4d000d9feb4efe9be3338117e0bbf2d1f7e6b3a",
+        "src/domain/adaptation/selection.ts": "10819a7fac989461b899cd5e3789ba554307a84d1df30b32f4315cef6ba6cc5e",
+        "src/domain/adaptation/policy.ts": "816d4dd43a48e5b869d971a7a30dd09863678e0d0028d451ca7dedd48482d687",
+        "src/domain/adaptation/types.ts": "8914c101ddecc93f266c813e403302227ab3c0aa9ae3d2902bc6970b312e1f1e",
+        "tests/browser/phase3/adaptation-proof.ts": "2e5b0443f29f9f804791ae2ef8bc4cf0ffcebbb27fba8418073759b335be4304",
+        "tests/browser/phase3/harness.ts": "7fcfc79d60eeb69a187e6794e30480ce29cc112264e9055a9538578e86956efd",
+        "scripts/adaptation-proof.mjs": "27d5f64533e560fc41f257e28e7b908bf37308a25539d3167b5fea9029e31fc2"
+      },
+      "reportSha256": "4ba5790bc21a424365607fb89c60ac19933e9a7ac2ef1346b988737cdefd8020"
+    }
+  ],
+  "sourceHashes": {
+    "scripts/browser-proof/run.mjs": "1bff15a106380f041303a084852e015ee172b9dd528a73bb4da8ec0983cf8b69",
+    "scripts/browser-proof/server.mjs": "8c918b0bd4d351cbb2baa1680c5bd1605eb5635937fad551611b8ea200facf24",
+    "scripts/browser-proof/evidence.mjs": "4d9555c45dabd54a8060c144e535e586cbbce0741fa165fefc35240c66d09ba4",
+    "tests/e2e/browser-proof.mjs": "7f339d7bd484e461fcc7f840f3a6b37bd0cfb6a75e5b35429a63fbf109bf4bd3",
+    "tests/e2e/production-proof.mjs": "0863e219d2b6ca1723904845c33481f8abf8891e832a7f460de73744d9a7c4d1",
+    "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+    "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+    "src/infrastructure/offline/worker-entry.ts": "ecd4027b108cf27afd8908a3880299c6faa0e9c747de9627fcf4098e179f4bbc",
+    "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458",
+    "src/ui/offline/OfflineControls.tsx": "3e4a56f4cf05764bacb44fbbb57a0610c886928dd280a57ad92691eaacdc69b8",
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+    "src/infrastructure/persistence/layout.ts": "ad3c8c253baa964cb569a4e612bd51c04a2d277ee3c00ba42cc0a4e5f9afd143",
+    "src/infrastructure/persistence/maintenance.ts": "50d51691846954ea724e80b7a4995096b53c18bf65d98b53a497b4927b4db3ca",
+    "tests/integration/phase3-persistence.test.ts": "d3a48206774ce8f5ccf68e9c28358d870e7399207854332459f2a8769974c2d4",
+    "tests/browser/phase3/harness.ts": "7fcfc79d60eeb69a187e6794e30480ce29cc112264e9055a9538578e86956efd",
+    "scripts/persistence-offline-proof.mjs": "3bf0423e49736b90980cd77309ea57a450d17220354ab2d1a479d1ff1c87c715",
+    "src/domain/adaptation/state.ts": "754c638485e5f0c5f239b28fd542a5e19882d4ec74721d9d15a14ce9381cee77",
+    "src/domain/adaptation/catalog.ts": "60fd387a5e3cc76b8ba7f420b4d000d9feb4efe9be3338117e0bbf2d1f7e6b3a",
+    "src/domain/adaptation/selection.ts": "10819a7fac989461b899cd5e3789ba554307a84d1df30b32f4315cef6ba6cc5e",
+    "src/domain/adaptation/policy.ts": "816d4dd43a48e5b869d971a7a30dd09863678e0d0028d451ca7dedd48482d687",
+    "src/domain/adaptation/types.ts": "8914c101ddecc93f266c813e403302227ab3c0aa9ae3d2902bc6970b312e1f1e",
+    "tests/browser/phase3/adaptation-proof.ts": "2e5b0443f29f9f804791ae2ef8bc4cf0ffcebbb27fba8418073759b335be4304",
+    "scripts/adaptation-proof.mjs": "27d5f64533e560fc41f257e28e7b908bf37308a25539d3167b5fea9029e31fc2"
+  }
+}

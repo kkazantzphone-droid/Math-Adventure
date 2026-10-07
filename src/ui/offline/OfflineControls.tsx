@@ -9,12 +9,14 @@ export function OfflineControls({
   locale,
   snapshot,
   onUpdate,
+  copyOverride,
 }: {
   readonly locale: Locale;
   readonly snapshot: OfflineSnapshot;
   readonly onUpdate: () => void;
+  readonly copyOverride?: ReturnType<typeof offlineCopy>;
 }) {
-  const copy = offlineCopy(locale);
+  const copy = copyOverride ?? offlineCopy(locale);
   const updateButton = useRef<HTMLButtonElement>(null);
   const initiatedHere = useRef(false);
   useEffect(() => {

@@ -13,5 +13,7 @@ export default defineConfig({
     environment: 'node',
     include: ['tests/unit/**/*.test.{ts,tsx}', 'tests/property/**/*.test.ts'],
     clearMocks: true,
+    // Bound compiler/oracle contention without changing assertions or deadlines.
+    maxWorkers: 2,
   },
 });

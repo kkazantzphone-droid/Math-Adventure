@@ -1,5 +1,34 @@
 # Offline operation and distribution
 
+D51's owner-confirmed synthetic playable/child UX milestone is bounded in the
+[current report](PHASE_3C_COMPLETION_REPORT.md). The documentation-only owner
+confirmation leaves the lifecycle implementation and its source-bound proofs
+unchanged. Actual target device/browser/AT observation and an actual disconnected
+device restart remain **PENDING EXTERNAL EVIDENCE** for full Phase 3C certification;
+the authorized `owner_merge` milestone PR does not supply those observations.
+
+D49 [Phase 3C integration](PHASE_3C_COMPLETION_REPORT.md) adds an optional
+learner-data lifecycle port to the existing shell controller. Only the separate
+synthetic runtime injects persistence: it fences/drains commands/selections,
+checks every fixed profile's pending state and epoch/row/receipt compatibility,
+and checks the target worker's verified cached learner-reader declaration before
+readiness. Initial controller acquisition and recovery revalidate compatible
+storage; unknown/future layouts preserve recovery or explicit unsaved play. Any
+pending/unresolved work or unsaved client blocks activation. Shell schema `1`
+does not certify learner schema, and cached readiness remains distinct from saved
+progress. Root/subpath learner update/offline cases pass within the 36-case
+installed Chrome and Edge suites; inherited Phase 3A stopped-listener/offline
+proof also passes seven cases in each. The unchanged Phase 1E shell proof passes
+at root/subpath in both installed products under scoped tool permission, with
+Chromium sandbox retained and no flag/machine/security changes. Exact source/
+artifact bindings and the complete integrated scan are recorded separately.
+The engine milestone's test-only worker scheduling repair leaves its native runtime/build
+input subsets unchanged. Initial isolated verification remains bounded to its
+earlier source set; the new clean scheduled candidate passes frozen install/full
+verification with matching 38-source/pin/normal-artifact bytes.
+Mandatory actual disconnected restart is still unavailable: native offline
+emulation and stopped-listener restart cannot prove OS/device disconnection.
+
 Merged D44 checkpoint 7 implements the production shell/cache/update
 strategy described in [design](PHASE_1E_OFFLINE_DESIGN.md), with required evidence
 recorded in [completion](PHASE_1E_COMPLETION_REPORT.md). [ADR-0007](adr/ADR-0007.md)

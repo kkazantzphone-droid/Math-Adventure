@@ -67,7 +67,9 @@ export function declareRelease(
   return { ...body, releaseId: `sha256-${identity}` };
 }
 
-export function productionPwa(): Plugin {
+export function productionPwa(
+  options: { readonly workerEntry?: string } = {},
+): Plugin {
   let projectRoot = '';
   let outputDirectory = '';
   const label = process.env.PWA_RELEASE_LABEL ?? 'phase1e-v1';
@@ -123,10 +125,12 @@ export function productionPwa(): Plugin {
           minify: false,
           target: 'es2023',
           lib: {
-            entry: resolve(
-              projectRoot,
-              'src/infrastructure/offline/worker-entry.ts',
-            ),
+            entry:
+              options.workerEntry ??
+              resolve(
+                projectRoot,
+                'src/infrastructure/offline/worker-entry.ts',
+              ),
             name: 'MathAdventureWorker',
             formats: ['iife'],
           },

@@ -1,5 +1,40 @@
 # Testing and quality strategy
 
+D50's preserved [Phase 3C record](PHASE_3C_COMPLETION_REPORT.md) adds child UX regression
+and installed Chrome/Edge review over the preserved D49 engine. Retain every
+engine test and the original 36-case browser assertions; changing their entry to
+the explicit developer view does not weaken their checks. New child cases cover
+all eight direct answer contracts, no select/small checkbox/radio conventions,
+no child diagnostics/technical profile labels, truth-preserving visual help,
+geometry assessment exclusion, manual/Explore honesty, keyboard/focus/semantic
+names and 320px/200% text/portrait/landscape. Retained source-bound full/fresh frozen verification
+passes 1,249 tests/62 files and 32 governance fixtures. Each installed product
+passes original36 plus child18; all 13 intended assertion mutations detect their
+defects and restore exact sources/reports/artifacts. Independent rendered review
+passes 16 family/product observations, 468 contrast checks, 32 reflow observations
+and 16 manually inspected narrow images. Preserved privacy/integrity and bounded
+contract/SSR review bind that source candidate; historical
+1,188-test and 36-case observations certify the preserved engine only.
+The existing `maxWorkers: 2` resource bound remains, without weakened assertions,
+deadlines, enumeration, pins or lock. [Retained native matrix](evidence/phase3c-child-ux/native-matrix.json)
+uses `NODE_ENV=test` and React's development renderer; the separate production
+review binds its own production artifacts, without claiming bundle equality.
+D51 records bounded owner child UX confirmation on 2026-10-07:
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+The current documentation/evidence candidate requires canonical and isolated fresh
+gates and independent review before narrowed feature-PR publication. Both required
+`verify (ubuntu-24.04)` and `verify (windows-2025)` must be observed SUCCESS at the
+exact PR head before owner-merge handoff. The
+[publication gates](evidence/phase3c-child-ux/owner-publication-gates.json) record
+observed local/fresh verification and unchanged engineering proof inputs; the live
+PR body records final head/tree and actual hosted run/job identities after publication.
+Owner confirmation does not substitute for those gates. `owner_merge` remains;
+no automatic merge or full-stage publication follows.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
+actual target device/browser/AT output and disconnected restart; DOM or emulation
+cannot replace them. Owner review supplies no representative child research,
+educational effectiveness, WCAG or native-language certification.
+
 ## Synthetic Phase 3B candidate
 
 [Completion evidence](PHASE_3B_COMPLETION_REPORT.md) binds tests to the experimental

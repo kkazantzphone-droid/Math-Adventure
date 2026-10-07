@@ -1,10 +1,36 @@
 # Local learner data model
 
+D49/D50/D51 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) preserves the exact
+bounded `phase3c-synthetic-loop-v1` aggregate and separate loopback-only namespace.
+The same two fixed synthetic profiles display Star/Triangle badges in child view;
+technical identities remain in developer inspection. No codec/schema, event cap,
+raw-answer minimisation, atomic save/receipt, epoch/delete or recovery semantics
+change. Manual activity may retain permitted completion/session/preferences but
+adds no assessment observations or recommendation credit. Child shape recognition
+sets the existing inaccessible-scope exclusion before preparation; saved retry
+cannot upgrade it to full attribute classification. Mathematical help records its
+maximum used tier even when visual stages replay. Five new families remain
+`limitedEvidence`; Explore/Number Lab stays session-only. No real learner data,
+retention/default-policy decision or storage-access expansion follows. Preserved
+source-bound full/fresh and native54-per-product gates plus restored mutations pass.
+D51 records bounded owner child UX confirmation on 2026-10-07:
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+This accepts the eight-family presentation, direct answers, visual help,
+badges/navigation and separate diagnostics without upgrading assessment scopes
+or authorizing real-child use. Current documentation/full/fresh and independent
+review precede narrowed feature publication. Both PR-specific exact-head CI checks
+must succeed before the owner-merge handoff under `owner_merge`.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** remains
+separate. Retained proof hashes/counts are synthetic engineering metadata, with
+no raw learner aggregates or browser profiles.
+
 Status: local-first policy accepted; numeric retention and production learner schema remain proposed. Phase 1C implements only generic integrity contracts and synthetic fixtures under [ADR-0010](adr/ADR-0010.md), with no real storage/adaptation. Records, migrations, retention and export/import below are fuller future requirements. [ADR-0003](adr/ADR-0003.md) and [privacy](CHILD_SAFETY_AND_PRIVACY.md) govern this model.
 
-[Phase 3B](PHASE_3B_COMPLETION_REPORT.md) adds a pure, memory-only synthetic
-adaptation candidate after owner-merged 3A. Its snapshot is **not** a production
-learner record codec and is not connected to the IndexedDB aggregate. Two fixed
+Before D49, [Phase 3B](PHASE_3B_COMPLETION_REPORT.md) added a pure, memory-only
+synthetic adaptation candidate after owner-merged 3A. Its snapshot is **not** a
+production learner record codec and was not yet connected to the IndexedDB
+aggregate; the preserved Phase 3C aggregate described above supplies that bounded
+synthetic integration. Two fixed
 synthetic profile IDs, exact structured observations, independent concept summaries
 and bounded retry receipts support engineering proof only. The 10/concept,
 500/profile and 60-day evidence values remain experimental. Memory receipts refuse
@@ -13,7 +39,7 @@ this resource bound is not a production receipt-lifecycle or retention decision.
 Exploration never enters these snapshots. Synthetic clock resolution and session
 ordinals are explicit; no hidden platform time or automatic write queue exists.
 
-Phase 3 readiness specifies a [synthetic-only IndexedDB design](PHASE_3_PERSISTENCE_DESIGN.md)
+Historical Phase 3 readiness specifies a [synthetic-only IndexedDB design](PHASE_3_PERSISTENCE_DESIGN.md)
 and [staged implementation gates](PHASE_3_IMPLEMENTATION_PLAN.md). Raw IndexedDB
 is the smallest proposed implementation, without a new dependency. No database
 or production learner schema is implemented by readiness. The proposed

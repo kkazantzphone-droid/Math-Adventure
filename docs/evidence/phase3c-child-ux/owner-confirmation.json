@@ -1,0 +1,46 @@
+{
+  "recordType": "bounded-owner-product-confirmation",
+  "ownerDecisionDate": "2026-10-07",
+  "authority": "Owner's explicit Phase 3C child UX confirmation in this task",
+  "reviewedSourceRevision": "115e427a94c4cb46fbe9e793299dfff29a453830",
+  "reviewedSourceTree": "a8a9aa104cf8ca11fe6268389ec67440210bb1e8",
+  "childUXConfirmation": "PASS",
+  "acceptedPresentation": [
+    "Revised child experience substantially improved",
+    "Direct answer interaction appropriate",
+    "Dropdown and computer-literacy barriers removed from child mode",
+    "Progressive visual help appropriate",
+    "Star and Triangle child identities accepted",
+    "Play, Shapes and Explore mental model accepted",
+    "All eight family presentations suitable for the intended six-year-old-first direction",
+    "Adult and developer diagnostics appropriately separate"
+  ],
+  "milestone": "PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS",
+  "fullCertification": "FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE",
+  "scopeExclusions": [
+    "Representative child research",
+    "Educational effectiveness",
+    "WCAG certification",
+    "Native-language certification",
+    "Real-child trial evidence",
+    "Full Phase 3C completion"
+  ],
+  "pendingExternalEvidence": [
+    "Actual target device, browser and assistive-technology observation",
+    "Actual disconnected-device restart"
+  ],
+  "mergePolicy": "owner_merge",
+  "authorizedWorkflow": [
+    "Reconcile current documentation",
+    "Run complete local and isolated fresh gates",
+    "Push the preserved Phase 3C feature branch",
+    "Open or update a non-draft PR for this narrowed milestone",
+    "Repair ordinary CI issues until both required PR checks succeed for the exact head"
+  ],
+  "stopAt": "PHASE 3C OWNER-CONFIRMED ENGINEERING MILESTONE — READY FOR OWNER MERGE",
+  "protectedMainMergeAuthorized": false,
+  "releaseOrDeploymentAuthorized": false,
+  "phase4Authorized": false,
+  "realChildDataAuthorized": false,
+  "historicalEvidenceDisposition": "Preserved unchanged; earlier PENDING owner confirmation records describe their earlier candidates and are superseded only by this bounded owner decision."
+}

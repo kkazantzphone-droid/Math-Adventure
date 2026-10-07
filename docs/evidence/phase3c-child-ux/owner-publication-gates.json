@@ -1,0 +1,258 @@
+{
+  "result": "PASS — OBSERVED OWNER-CONFIRMATION LOCAL AND ISOLATED FRESH GATES",
+  "scope": "Owner-confirmed synthetic playable and child UX engineering milestone only",
+  "observedAt": "2026-10-07T05:05:38.836Z",
+  "ownerConfirmation": "PASS",
+  "mergePolicy": "owner_merge",
+  "documentationFollowup": {
+    "priorRevision": "115e427a94c4cb46fbe9e793299dfff29a453830",
+    "priorTree": "a8a9aa104cf8ca11fe6268389ec67440210bb1e8",
+    "changedPaths": [
+      "docs/ACCESSIBILITY.md",
+      "docs/ARCHITECTURE.md",
+      "docs/DECISION_REGISTER.md",
+      "docs/DEVELOPMENT.md",
+      "docs/LEARNER_DATA_MODEL.md",
+      "docs/LOCALISATION_AND_SPEECH.md",
+      "docs/OFFLINE_AND_DISTRIBUTION.md",
+      "docs/OPEN_QUESTIONS.md",
+      "docs/PHASE_3C_COMPLETION_REPORT.md",
+      "docs/ROADMAP.md",
+      "docs/SECURITY_THREAT_MODEL.md",
+      "docs/TESTING_STRATEGY.md",
+      "docs/TRACEABILITY_MATRIX.md",
+      "docs/evidence/phase3c-child-ux/owner-confirmation.json",
+      "docs/evidence/phase3c-child-ux/owner-publication-gates.json"
+    ],
+    "executablePolicyConfigEvalSkillChanges": false,
+    "allPriorSourceBuildTestMutationInputsUnchanged": true,
+    "historicalEvidenceUnchanged": true,
+    "scope": "Owner decision and current-state records; no merge eligibility logic or accepted policy changed"
+  },
+  "preservedSourceTree": "a8a9aa104cf8ca11fe6268389ec67440210bb1e8",
+  "unchangedNonDocumentationGitBlobs": 258,
+  "observedDocumentationGateTree": "e727db9f4693e2f998a840f0717345daeb265d64",
+  "observedDocumentationGateFiles": 366,
+  "freshArchiveEqualsEveryGitBlob": true,
+  "frozenInstall": {
+    "command": "corepack pnpm install --frozen-lockfile",
+    "exitCode": 0,
+    "copiedDependencies": false,
+    "method": "New owned isolated Git archive; repository-local Corepack/cache/store; exact unchanged pins and lock",
+    "logSha256": "ffb0e83ce0e8eea241c628345e6cf15cc17d2499ab20e0f27f6af075d7506062"
+  },
+  "pins": {
+    "node": "24.21.0",
+    "pnpm": "pnpm@12.9.1"
+  },
+  "lockSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "canonical": {
+    "command": "corepack pnpm verify",
+    "exitCode": 0,
+    "tests": 1249,
+    "testFiles": 62,
+    "governanceFixtures": 32,
+    "logSha256": "167d8f22674097ea047e8df3de5f610008066fa1036134bfa0c034c4b2946ff3"
+  },
+  "fresh": {
+    "command": "corepack pnpm verify",
+    "exitCode": 0,
+    "tests": 1249,
+    "testFiles": 62,
+    "governanceFixtures": 32,
+    "logSha256": "a0d635f66a9e1574cee3b740591a928073273facd0161424ecb9d4f2f6b20a6a"
+  },
+  "finalDocumentationGate": {
+    "requiredBeforeFeaturePush": "Rerun complete canonical and isolated fresh frozen-install verification after final documentation and this receipt; bind every fresh Git blob and normal artifacts to the final containing tree",
+    "exactFinalIdentityLocation": "Containing Git commit/tree and live PR body with final local/fresh and hosted identities; this receipt does not claim its own future containing tree or CI"
+  },
+  "audit": {
+    "command": "corepack pnpm audit --json",
+    "observedDate": "2026-10-07",
+    "exitCode": 0,
+    "advisories": 0,
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0
+    },
+    "totalDependencies": 204,
+    "logSha256": "d85df20759ecad78d6e265310bfa46418090ab78d5a8e672f1a7f523d8a72e06"
+  },
+  "integrity": {
+    "fullMainCandidateReviewed": true,
+    "localMarkdownFileLinks": 771,
+    "credentialPatternMatches": 0,
+    "preservedEnginePolicyPinsLockHistoricalEvidence": true,
+    "historicalPreservationMeaning": "Prior committed Git blobs unchanged; browser-final-run.json retains its pre-existing working-tree CRLF representation with identical normalized content",
+    "normalProductArtifactsByteEqual": true
+  },
+  "normalArtifacts": [
+    {
+      "path": "assets/index-Cqw6cjjL.css",
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    {
+      "path": "assets/index-DJw206I7.js",
+      "bytes": 321818,
+      "sha256": "6514e1ede985cb11572b3d24ecf87bd63a1000d83c45b518851c9619b9880726"
+    },
+    {
+      "path": "icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 795,
+      "sha256": "1f278307b15adf847317fd5a9a78758199493bb8738736a69c9b7ecf7f7768f9"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1300,
+      "sha256": "5b9e84bef4bd5c497baaf3ae01dcf7230c6742847df0a8f4f1bf0d9612a9bd26"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 22518,
+      "sha256": "5549814b0037e527cdfa3adc82e22ed7a4361f732e9722a41120d05a62a5836f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "normalRootFreshArtifactsByteEqual": true,
+  "carriedEngineeringProofs": {
+    "method": "Explicit documentation-only task-governance proof; every prior source/test/build/mutation input unchanged; source and native artifact hashes checked before reuse",
+    "priorSourceRevision": "115e427a94c4cb46fbe9e793299dfff29a453830",
+    "proofBindings": [
+      {
+        "path": "docs/evidence/phase3c-child-ux/verification.json",
+        "sha256": "dc9d556d699a65755968b0773abdfaeffad333189aa59ec29e48da5f6bd669d8",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/native-matrix.json",
+        "sha256": "f0de2a49fa18e6fe932f1b001e5c94e88e6200ddee755b264e8c95676f95424d",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/chrome-child.json",
+        "sha256": "edcdb9dedc7b188d8f600a32fe2b3f956ea20c91c32c3b841539345a6ec01661",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/edge-child.json",
+        "sha256": "1969573718d48ddd7e942eeb4e98c08150086f8d8666e3f3dfdf3d99c6de9568",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/chrome-engine.json",
+        "sha256": "cf3edab93c1fbb58bec788ff5d1c30dd5ccfbe213113d785f49dad517e0027e2",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/edge-engine.json",
+        "sha256": "61c048eb2efb4a05dd5de0b9aa09abfada914b9426d755d059c039afd6d17aeb",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/contract-review.json",
+        "sha256": "52d7947c2bb3266db487faa38dca3e5e56e385752d2dbb6f2355a11ec5e9a57f",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/static-review.json",
+        "sha256": "76a4a40737b796c97f58a3d585f98057f6293e794a70b906381555261ef33b15",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/candidate-integrity.json",
+        "sha256": "2cfc7b3781ba3af3dbe8ddb75b1aaa66eceade415669e0ba033d8f225fe242b8",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/rendered-review.json",
+        "sha256": "ef314d8633c9cdeb347abb4ce434dfc8ecb49683b90a06ffe3245058c552d7d8",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/production-rendered-review.json",
+        "sha256": "31352a62603823fb1606db2c346d3a79b63feec3ef23c273e3ac988ac059aae8",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/child-mutations.json",
+        "sha256": "91be014f34be36feb8e9904359f074ff95ca3c5e26d970d30b97463c977fb7a6",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/engine-mutations.json",
+        "sha256": "3f825d839b4c03b7b6c5e1ebfdf256899d3561017875877a2c4d33af66b80b2e",
+        "unchanged": true
+      },
+      {
+        "path": "docs/evidence/phase3c-child-ux/audit.json",
+        "sha256": "eb650db0036d722aa6eda4b266f735b3b2210422e47ce30241eec2a430a17ed7",
+        "unchanged": true
+      }
+    ],
+    "nativeChrome": {
+      "passed": 54,
+      "total": 54
+    },
+    "nativeEdge": {
+      "passed": 54,
+      "total": 54
+    },
+    "restoredMutations": 13,
+    "rendererScopes": "Native matrix uses test/development renderer; separate production-renderer review binds its own different artifacts to the same source. Neither establishes actual target AT/native browser zoom or physical restart."
+  },
+  "independentReview": {
+    "result": "PASS — BOUNDED INDEPENDENT CONTRACT AND FULL-CANDIDATE INTEGRITY REVIEW",
+    "reviewDate": "2026-10-07",
+    "roles": [
+      "Independent child contract and evidence-scope reviewer",
+      "Independent browser and full-candidate privacy/integrity reviewer"
+    ],
+    "resolvedFinding": "Overview wording aligned: local/fresh and independent gates before feature publication; PR-specific exact-head CI before owner-merge handoff",
+    "noNewSourceOrRuntimeCertificationClaim": true
+  },
+  "publication": {
+    "featureBranch": "codex/phase-3c-synthetic-loop",
+    "baseBranch": "main",
+    "observedBaseRevision": "be1bd7735491df8cc2abe19645ec65b393d0aa6b",
+    "authorized": true,
+    "snapshot": "Before feature push; actual non-draft PR identity and exact-head checks are recorded in the live PR body",
+    "exactHeadChecksRequired": [
+      "verify (ubuntu-24.04)",
+      "verify (windows-2025)"
+    ],
+    "expectedIntegrationId": 15368,
+    "bothSuccessRequiredBeforeOwnerMergeHandoff": true,
+    "ownFutureCIClaimed": false
+  },
+  "fullPhase3CDeviceATCertification": "PENDING EXTERNAL EVIDENCE",
+  "actualDisconnectedDeviceRestart": "PENDING EXTERNAL EVIDENCE",
+  "boundedOwnerProductConfirmationOnly": true,
+  "excludedClaims": [
+    "Representative child research",
+    "Educational effectiveness",
+    "WCAG certification",
+    "Native-language certification",
+    "Real-child trial evidence",
+    "Full Phase 3C completion"
+  ],
+  "automaticMergeAuthorized": false,
+  "releaseDeploymentPhase4OrRealChildDataAuthorized": false
+}

@@ -1,5 +1,33 @@
 # Accessibility and child-centred interaction
 
+D50 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) responds to the owner's
+material child UX finding over the preserved engine. Child mode uses large direct
+native answer cards, one mathematical decision, Star/Triangle badges and short
+Play/Shapes/Explore navigation; developer controls/diagnostics are unmounted from
+its accessibility tree. Show me changes visual scaffolding progressively and
+retains help focus; keyboard answers reach useful retry/feedback/next actions.
+Replay cannot reduce the maximum recorded help. All eight families pass retained source-bound
+rendered Chrome/Edge keyboard/focus, 320px,
+200% deliberate text scaling, portrait/landscape, mixed-language, forced-colour
+and reduced-motion review. Dark interactive-dot backgrounds, clipped semantic
+descriptions, readable badge/word wrapping and short accessible side labels repair
+observed findings. The unchanged developer first-profile Tab assertion passes
+after its view switch moves to the footer. Actual results remain candidate-specific
+in the report; test/development and production artifacts have separate bindings.
+Narrow child shape recognition is excluded from full classification assessment;
+counted descriptions do not establish visual numeral/counting skill. Native
+button/ARIA associations and browser accessibility snapshots cannot prove actual
+screen-reader delivery. D51 records the owner's 2026-10-07 manual acceptance of
+the eight-family direct interaction, visual help, badge identities, navigation
+and separate diagnostics within bounded owner product review:
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
+target device/browser/AT output and actual disconnected restart. No WCAG,
+representative child research, educational or native-language certification follows.
+Current full/fresh and independent review precede the authorized narrowed feature
+publication. Both PR-specific exact-head hosted checks must succeed before the
+owner-merge handoff; `owner_merge` remains.
+
 Merged D44 offline/update UI: concise shell status, native adult details and a Home-only explicit update button distinguish cached readiness from speech and unsaved progress. The all-tab boundary pauses interactions and cancels speech before acknowledgement, then recovers coherently. Blocked attempts restore the requesting control's focus. Draft el-GR/en-GB/de-DE copy is not an official language claim. Recorded rendered keyboard/reflow/text/contrast/focus observations and unavailable AT/device evidence belong in the [Phase 1E report](PHASE_1E_COMPLETION_REPORT.md).
 
 Status: proposed release target WCAG 2.2 AA, no current conformance claim. [WCAG 2.2](https://www.w3.org/TR/WCAG22/) is the normative reference, accessed 2026-10-04. Speech alone does not establish accessibility.

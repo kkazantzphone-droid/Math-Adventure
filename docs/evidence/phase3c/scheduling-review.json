@@ -1,0 +1,199 @@
+{
+  "scope": "fresh independent review of test-worker scheduling repair; no product change or full-stage certification",
+  "result": "PASS — NARROWER SCHEDULING AND CURRENT-SOURCE REVIEW ONLY",
+  "observedAtUTC": "2026-10-06T14:03:58.208Z",
+  "findingCount": 0,
+  "findings": [],
+  "classification": "Class A routine reversible test-harness resource repair within authorized Phase 3C objective",
+  "oldConfigSHA256": "c33b8f62b9f1effff72bdb23015f53501707e7d6274e94865e20e4beeeca5496",
+  "newConfigSHA256": "84b8a31e9943ff8b0a825bb97bd381ef8f7723a7ebadfc94a103ba62e790b505",
+  "rawConfigChange": {
+    "path": "vite.config.ts",
+    "onlyAddedCommentAndTestMaxWorkers2": true,
+    "unchangedAfterRemovingThoseTwoLines": true,
+    "assertionsChanged": false,
+    "timeLimitsChanged": false,
+    "testInclusionChanged": false,
+    "enumerationChanged": false,
+    "runtimeBuildConfigurationChanged": false,
+    "securityAccessPolicyChanged": false
+  },
+  "reason": "Concurrent/full-auto file worker pools timed out bounded compiler and exact-oracle assertions under resource contention, while unchanged assertions also passed. Limiting test files to at most two workers reduces contention without weakening mathematical/behavioral checks.",
+  "api": {
+    "package": "vitest",
+    "pin": "5.0.3",
+    "meaning": "Pinned installed type docs describe maxWorkers as maximum number/percentage of workers to run tests in."
+  },
+  "pins": {
+    "unchangedExactHEADBytes": true,
+    "node": "24.21.0",
+    "pnpm": "pnpm@12.9.1",
+    "packageSHA256": "1aed13d60f17d3f7e7c9d7e74db60fc577b5d9983751b61d3a20f910cffca06a",
+    "lockSHA256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964"
+  },
+  "immutableAndIndependentSourceHashes": {
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+    "src/domain/random/xoshiro.ts": "dc16be244747b4a5b419050bd37091214bb272fa3269f339f123c3192b247e9a",
+    "src/domain/adaptation/policy.ts": "816d4dd43a48e5b869d971a7a30dd09863678e0d0028d451ca7dedd48482d687",
+    "src/domain/families/proof-evidence.ts": "441facccaf5318daf45d0f422bb649cd636cbecf76c4092c0ec069a1c329483c",
+    "src/application/synthetic-loop/seed.ts": "8fba60803e697922951efc7f5f64d483c7a9b23e4b51ca8d590234ffbd9e8d0e",
+    "tests/unit/domain/proof-evidence.test.ts": "42d62d3fa44fc56771923f86aaf5fa0052bd50895251de35925be2fe53f8c8cd",
+    "tests/unit/synthetic-loop-seed.test.ts": "b70e323067c3d8feb177883a3890fa8753d11fb235b1d6046d27e60cf9f11c74",
+    "vite.slice.config.ts": "3fa799cc23368b4a4d2657c5fb7a05e91dd3508682309b612b6ee30f1f9b577f"
+  },
+  "browserProofSubset": [
+    {
+      "channel": "chrome",
+      "reportPath": "docs/evidence/phase3c/integrated-loop-chrome.json",
+      "reportSHA256": "575cfb243514280014e41349a3080a80f75abafb5a4ec602db53561af1eac2ad",
+      "recordedResult": "PASS — NARROWER ENGINEERING EVIDENCE ONLY",
+      "caseCount": 36,
+      "sourceHashCount": 19,
+      "artifactCount": 27,
+      "normalViteConfigIsRecordedInput": false,
+      "browserConfigSHA256": "3fa799cc23368b4a4d2657c5fb7a05e91dd3508682309b612b6ee30f1f9b577f",
+      "postMutationSourceArtifactCheck": "PASS: all 19 recorded sources and all 27 built artifacts match exact current bytes"
+    },
+    {
+      "channel": "msedge",
+      "reportPath": "docs/evidence/phase3c/integrated-loop-msedge.json",
+      "reportSHA256": "3323ff1097845c5b8a27d0b3c375b13db05f2ad424c43c6d2f7b667e6c17f660",
+      "recordedResult": "PASS — NARROWER ENGINEERING EVIDENCE ONLY",
+      "caseCount": 36,
+      "sourceHashCount": 19,
+      "artifactCount": 27,
+      "normalViteConfigIsRecordedInput": false,
+      "browserConfigSHA256": "3fa799cc23368b4a4d2657c5fb7a05e91dd3508682309b612b6ee30f1f9b577f",
+      "postMutationSourceArtifactCheck": "PASS: all 19 recorded sources and all 27 built artifacts match exact current bytes"
+    }
+  ],
+  "mathBridgeSubset": {
+    "reportPath": "docs/evidence/phase3c/bridge-seed-review.json",
+    "reportSHA256": "f27c50d929996daf89e25348dca6f92f3737bce792f235a6455ca206b329467c",
+    "recordedResult": "PASS — NARROWER MATHEMATICAL REVIEW ONLY",
+    "recordedSourceHashCount": 22,
+    "normalViteConfigIsRecordedInput": false,
+    "bridgeSeedOracleAndPrimitiveBytesUnchanged": true
+  },
+  "normalContainment": {
+    "priorClosureCount": 46,
+    "priorArtifactCount": 8,
+    "closureSourceHashesStillMatch": true,
+    "finalRebuildArtifactEquality": "PASS: all eight root and new isolated normal artifacts byte-identical to earlier independently reviewed normal/native build inventory"
+  },
+  "evidenceBoundary": {
+    "notADocumentationOnlyChange": true,
+    "priorHeadDocsOnlyPublicationExceptionApplicable": false,
+    "oldReportsPreserved": true,
+    "oldConfigObservationsRemainAccuratelyBounded": true,
+    "loopMutationNewConfigRerun": {
+      "result": "PASS",
+      "evidencePath": "docs/evidence/phase3c/loop-mutations.json",
+      "evidenceSHA256": "57f66d7a03fbbe5c9731b6f314a4e9b630bb6bd431b8cb55c7a7267d17f77620",
+      "mutations": 8,
+      "protectedInputs": 33,
+      "currentNormalViteHash": "84b8a31e9943ff8b0a825bb97bd381ef8f7723a7ebadfc94a103ba62e790b505",
+      "allProtectedInputsMatch": true,
+      "exactRestoration": true,
+      "temporaryReportsRemoved": true,
+      "browserEvidenceRestored": true
+    },
+    "native1EConfigBinding": "Earlier native1E observations retain their recorded driver/config bounds; unchanged runtime artifact hashes map all eight shell files to final root/fresh builds. This is a narrowed source/artifact proof, not documentation-only publication reuse or actual-device proof.",
+    "finalCanonicalFresh": "PASS: final scheduled local full gate and brand-new isolated frozen install/full gate; independently checked exact 38 sources, pins/configs and eight normal artifacts",
+    "actualAT": "UNAVAILABLE",
+    "actualPhysicalDisconnection": "UNAVAILABLE",
+    "fullStageOutcome": "BLOCKED — REQUIRED EVIDENCE UNAVAILABLE",
+    "publicationMergeEligibility": false
+  },
+  "currentSourceSet": {
+    "evidencePath": ".cache/phase3c-integrated-integrity/integrity.json",
+    "evidenceSHA256": "2750f7f39549d1e7eeea0318cace705b36ad357542ff5645110d33e73dee1405",
+    "sourceSetSha256": "ce901c3c9b5cd10f87d8383a800817bcb9a5dfc6e64279f7f20e726895813427",
+    "sourceFiles": 38,
+    "allCurrentSourceHashMatches": true,
+    "candidateFiles": 66,
+    "localLinks": 764
+  },
+  "finalCanonicalObservation": {
+    "reportedBy": "root task actual corepack pnpm verify",
+    "exitCode": 0,
+    "tests": 1188,
+    "testFiles": 59,
+    "governanceFixtures": 32,
+    "transformedModules": 58,
+    "normalArtifacts": 8,
+    "testDurationSeconds": 63.01,
+    "timeouts": 0
+  },
+  "finalFreshObservation": {
+    "actualCommandResultsObservedBy": "root task",
+    "snapshotTree": "f069ee596cf7a7e1f1d64650c3f1c64e2c485127",
+    "relativeDirectory": ".cache/phase3c-scheduled-fresh",
+    "frozenInstall": {
+      "exitCode": 0,
+      "downloadedPackages": 179,
+      "reusedPackages": 0,
+      "addedPackages": 179,
+      "copiedDependencies": false
+    },
+    "verification": {
+      "exitCode": 0,
+      "tests": 1188,
+      "testFiles": 59,
+      "governanceFixtures": 32,
+      "testDurationSeconds": 61.46,
+      "timeouts": 0,
+      "failures": 0,
+      "transformedModules": 58
+    },
+    "independentlyCheckedSourceSetSha256": "ce901c3c9b5cd10f87d8383a800817bcb9a5dfc6e64279f7f20e726895813427",
+    "independentlyCheckedSourceFiles": 38,
+    "sourceByteDifferences": [],
+    "pinsAndConfigsEqual": true,
+    "normalArtifactCount": 8,
+    "normalArtifactsEqual": true,
+    "normalArtifacts": [
+      {
+        "path": "assets/index-Cqw6cjjL.css",
+        "bytes": 21440,
+        "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+      },
+      {
+        "path": "assets/index-DJw206I7.js",
+        "bytes": 321818,
+        "sha256": "6514e1ede985cb11572b3d24ecf87bd63a1000d83c45b518851c9619b9880726"
+      },
+      {
+        "path": "icons/math-adventure.svg",
+        "bytes": 431,
+        "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+      },
+      {
+        "path": "index.html",
+        "bytes": 795,
+        "sha256": "1f278307b15adf847317fd5a9a78758199493bb8738736a69c9b7ecf7f7768f9"
+      },
+      {
+        "path": "manifest.webmanifest",
+        "bytes": 440,
+        "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+      },
+      {
+        "path": "release.json",
+        "bytes": 1300,
+        "sha256": "5b9e84bef4bd5c497baaf3ae01dcf7230c6742847df0a8f4f1bf0d9612a9bd26"
+      },
+      {
+        "path": "sw.js",
+        "bytes": 22518,
+        "sha256": "5549814b0037e527cdfa3adc82e22ed7a4361f732e9722a41120d05a62a5836f"
+      },
+      {
+        "path": "THIRD_PARTY_NOTICES.txt",
+        "bytes": 1384,
+        "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+      }
+    ]
+  }
+}
