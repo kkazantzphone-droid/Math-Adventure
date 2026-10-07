@@ -1,5 +1,12 @@
 # Requirement traceability
 
+Current D52 [closure reconciliation](PHASE_3_COMPLETION_REPORT.md) follows merged
+PR #13. Full Phase 3C/Phase 3 remain blocked by mandatory actual AT delivery and
+physical disconnected restart. Added layout/touch coverage and actual Chrome
+zoom are bounded engineering evidence; the [prepared protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md)
+supplies no external observation. All V2 eligibility gates still apply. The
+D49–D51 milestone/publication descriptions below retain their historical scope.
+
 ## Phase 3C playable synthetic loop and owner-confirmed child UX (D49/D50/D51)
 
 | Requirement | Current work | Unverified boundary |

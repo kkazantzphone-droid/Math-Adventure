@@ -183,6 +183,9 @@
   grid-template-columns: repeat(auto-fit, minmax(min(6rem, 100%), 1fr));
   gap: 0.75rem;
 }
+.child-task[data-child-kind='classifyGeometry'] .child-answer-cards {
+  grid-template-columns: repeat(auto-fit, minmax(min(7.5rem, 100%), 1fr));
+}
 .child-task .child-answer-card {
   display: grid;
   align-content: center;

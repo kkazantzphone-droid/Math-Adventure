@@ -1,5 +1,12 @@
 # Localisation and speech
 
+Current D52 [Phase 3 closure](PHASE_3_COMPLETION_REPORT.md) follows merged PR #13.
+Actual AT delivery and physical disconnected restart remain unobserved;
+native-language review and tested-offline product voices remain separate gates.
+The [prepared protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md) keeps all locale
+roles and evidence bounds explicit. D51's owner-merge handoff below is historical;
+the new Goal uses unchanged V2 eligibility, which currently lacks mandatory proof.
+
 D50 [Phase 3C child presentation](PHASE_3C_COMPLETION_REPORT.md) adds short task,
 visual-help and badge/navigation copy to the preserved developer inventory.
 el-GR/en-GB/de-DE stay prototype-draft/native-review pending; planned fr-FR/es-ES/

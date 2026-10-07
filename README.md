@@ -1,5 +1,16 @@
 # Math Adventure
 
+Current Phase 3 state: the eight-family synthetic playable loop and owner-approved
+child presentation are merged in [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13).
+The owner's new Goal requests full Phase 3C/Phase 3 closure. Both remain
+**BLOCKED — EVIDENCE UNAVAILABLE**: actual target screen-reader delivery and a
+physically disconnected restart are required. [Closure evidence](docs/PHASE_3_COMPLETION_REPORT.md)
+and the [prepared observation protocol](docs/PHASE_3_TARGET_OBSERVATION_PROTOCOL.md)
+record the exact scope and remaining action. Normal product composition remains
+transient; the separate loopback build alone enables fixed synthetic profiles.
+No real-child use, release, deployment or Phase 4 is authorized. Earlier checkpoint
+summaries below describe their historical scope rather than undoing merged work.
+
 Phase 3A now supplies a synthetic-only IndexedDB foundation through a separate
 developer build and loopback origin. [Completion evidence](docs/PHASE_3A_COMPLETION_REPORT.md)
 records native browser, migration, deletion and integrity gates. Normal child play

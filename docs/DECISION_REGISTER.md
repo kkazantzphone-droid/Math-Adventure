@@ -1,6 +1,16 @@
 # Decision register
 
-Current owner decision D51 confirms the reconciled D49/D50 child surface on
+Current Goal **D52** requests full evidence-backed Phase 3C and Phase 3 closure
+after observed owner merge of PR #13 at protected-main
+`ce4eccb87b731a15034950db66c01be9d94e07c8`. [Closure evidence](PHASE_3_COMPLETION_REPORT.md)
+keeps both stages open: actual delivered AT output and a physical disconnected
+restart remain required and unobserved. The child UX owner gate stays closed.
+Qualifying Class A/B merge may follow unchanged V2 governance, but this full-closure
+candidate currently fails required-evidence eligibility. No policy waiver or new
+phase is authorized. D49–D51 publication summaries below retain their historical
+milestone scope and do not govern the new closure task.
+
+Historical owner decision D51 confirms the reconciled D49/D50 child surface on
 2026-10-07, after the owner's manual review of all eight families. Direct answers,
 progressive visual help, Star/Triangle badges, Play/Shapes/Explore and separate
 adult diagnostics resolve the material product finding within bounded owner
@@ -107,6 +117,7 @@ No Phase 3 implementation or real-child use follows from this certification.
 | D49 | Owner authorizes the synthetic-only first playable Phase 3C loop after positively observed Governance V2 merge | ACCEPTED bounded task scope; engine preserved at `6828919b22cc96a2e4d4aeddd24f2447248d90ef`; complete-stage device/AT evidence unavailable | [Engine milestone](evidence/phase3c/engine-milestone.txt) preserves original verification. Eight families/two fixed profiles, exact replay, atomic state, explicit proposed-policy adaptation and update guards; no real learners, final certification or next phase. D50 narrows the current merge policy |
 | D50 | Owner's material UX finding requires a genuine child presentation over the preserved Phase 3C engine, with all eight families reviewed individually and developer diagnostics separate | ACCEPTED owner finding/task steer 2026-10-06; historical engineering readiness preserved at `115e427`; owner confirmation subsequently recorded under D51 | [Current report](PHASE_3C_COMPLETION_REPORT.md). Direct answer cards, one decision at a time, progressive visual Show me, Star/Triangle badges, Play/Shapes/Explore and conservative shape evidence. Original full/fresh, both 54-case matrices, 13 restored mutations and bounded independent reviews remain source-bound. `owner_merge`; no engine redesign, automatic merge, real-child use or Phase 4 |
 | D51 | Owner confirms the reconciled eight-family child presentation and authorizes publication of the narrowed playable synthetic loop plus child UX milestone | ACCEPTED bounded owner product confirmation and workflow authorization 2026-10-07; PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS; Q19 closed | [Owner confirmation](evidence/phase3c-child-ux/owner-confirmation.json), [current report](PHASE_3C_COMPLETION_REPORT.md). Direct answers, progressive visual help, badge identities, simple navigation and separate adult diagnostics accepted. Reconcile docs, rerun current full/fresh, push existing feature branch, open/update non-draft PR and repair ordinary CI until exact-head `verify (ubuntu-24.04)` and `verify (windows-2025)` both SUCCESS. `owner_merge` remains; FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE. No representative child research, educational/WCAG/native-language/real-child certification, automatic merge, release/deployment or next phase |
+| D52 | Owner requests full evidence-backed Phase 3C completion and formal Phase 3 closure after the owner-confirmed milestone is merged | ACCEPTED task scope 2026-10-07; full closure BLOCKED — required actual AT delivery and disconnected restart are unavailable | [Closure report](PHASE_3_COMPLETION_REPORT.md), [prepared observation protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md). Preserve approved UX/engine and accepted gates; repair ordinary coverage and run full/fresh, independent and publication gates. Qualifying Class A/B work follows unchanged V2 automatic eligibility; missing mandatory evidence forbids full-closure merge. No Phase 4, real-child use, release/deployment, telemetry/backend or policy/access expansion |
 
 D49's initial automatic-when-eligible scope is preserved in the engine milestone;
 D50 set `owner_merge` and required child UX reconciliation; D51 records the later

@@ -1,5 +1,20 @@
 # Testing and quality strategy
 
+D52's [current Phase 3 closure audit](PHASE_3_COMPLETION_REPORT.md) follows the
+positively observed owner merge of [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13)
+at protected-main `ce4eccb87b731a15034950db66c01be9d94e07c8`. Full Phase 3C and
+Phase 3 closure are **BLOCKED — EVIDENCE UNAVAILABLE** pending actual target
+device/browser/AT delivery and physically disconnected-device restart. The
+[prepared protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md) requests observed
+output for all eight child tasks and a physical restart with the listener stopped;
+source/DOM, native zoom, browser touch emulation and stopped-listener checks cannot
+replace those observations. Current source/test/layout repairs require their own
+full/fresh, native, mutation, independent, privacy/artifact and exact-head gates;
+historical source-bound counts remain historical. D51's `owner_merge` publication
+workflow is complete; D52 uses unchanged V2 Class A/B eligibility with no eligible
+automatic merge while mandatory evidence is missing. No gate is weakened and no
+Phase 4 or real-child use is authorized.
+
 D50's preserved [Phase 3C record](PHASE_3C_COMPLETION_REPORT.md) adds child UX regression
 and installed Chrome/Edge review over the preserved D49 engine. Retain every
 engine test and the original 36-case browser assertions; changing their entry to
@@ -21,15 +36,15 @@ uses `NODE_ENV=test` and React's development renderer; the separate production
 review binds its own production artifacts, without claiming bundle equality.
 D51 records bounded owner child UX confirmation on 2026-10-07:
 **PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
-The current documentation/evidence candidate requires canonical and isolated fresh
+The D51 documentation/evidence candidate required canonical and isolated fresh
 gates and independent review before narrowed feature-PR publication. Both required
-`verify (ubuntu-24.04)` and `verify (windows-2025)` must be observed SUCCESS at the
-exact PR head before owner-merge handoff. The
+`verify (ubuntu-24.04)` and `verify (windows-2025)` had to be observed SUCCESS at the
+exact PR head before that owner-merge handoff. The
 [publication gates](evidence/phase3c-child-ux/owner-publication-gates.json) record
 observed local/fresh verification and unchanged engineering proof inputs; the live
-PR body records final head/tree and actual hosted run/job identities after publication.
-Owner confirmation does not substitute for those gates. `owner_merge` remains;
-no automatic merge or full-stage publication follows.
+PR body recorded final head/tree and actual hosted run/job identities after publication.
+Owner confirmation did not substitute for those gates. `owner_merge` applied to
+that milestone; no automatic merge or full-stage publication followed from D51.
 **FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
 actual target device/browser/AT output and disconnected restart; DOM or emulation
 cannot replace them. Owner review supplies no representative child research,

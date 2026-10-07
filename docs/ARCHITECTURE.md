@@ -1,5 +1,17 @@
 # Architecture
 
+D52's [Phase 3 closure audit](PHASE_3_COMPLETION_REPORT.md) follows the positively
+observed owner merge of [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13)
+at protected-main `ce4eccb87b731a15034950db66c01be9d94e07c8`. The accepted child
+interaction and domain/application boundaries remain. Full Phase 3C and Phase 3
+closure are **BLOCKED — EVIDENCE UNAVAILABLE**: actual target device/browser/AT
+delivery and physically disconnected-device restart remain mandatory and
+unobserved. The [prepared protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md) does
+not substitute for those observations. D51's milestone publication workflow is
+historical; the new Goal uses the unchanged V2 eligibility contract for qualifying
+Class A/B work, with no eligible automatic merge while required evidence is
+missing. No accepted architecture change, Phase 4 or real-child use follows.
+
 D49/D50/D51 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) retains the
 separate capability-gated loopback build, outside normal product composition.
 Reusable child answer cards/tokens/shape/layout components adapt direct choices
@@ -16,8 +28,8 @@ engine. Native test/development rendering and the separately reviewed production
 renderer bind their own artifacts. On 2026-10-07 the owner confirmed the direct
 eight-family child answers, visual help, badges/navigation and separate diagnostics:
 **PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
-The documentation-only publication continuation requires new full/fresh and
-exact-head required CI evidence; `owner_merge` applies.
+That D51 documentation-only publication continuation required new full/fresh and
+exact-head required CI evidence; `owner_merge` applied to the now-merged milestone.
 **FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** remains
 distinct. No accepted architecture/ADR, real-child use or next-phase change follows.
 

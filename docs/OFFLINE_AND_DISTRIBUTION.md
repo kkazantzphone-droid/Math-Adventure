@@ -1,11 +1,24 @@
 # Offline operation and distribution
 
+D52's [full Phase 3 audit](PHASE_3_COMPLETION_REPORT.md) begins after the positively
+observed owner merge of [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13)
+at protected-main `ce4eccb87b731a15034950db66c01be9d94e07c8`. Full Phase 3C and
+Phase 3 closure are **BLOCKED — EVIDENCE UNAVAILABLE**: actual target
+device/browser/AT delivery and physically disconnected-device restart remain
+unobserved. The [prepared protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md) uses
+production synthetic output, a retained exact loopback origin/profile and a
+stopped owned listener before physical disconnection and device restart. Those
+preparations, cached-shell checks and browser emulation do not establish physical
+observation. D51's `owner_merge` workflow is historical; D52 uses the unchanged
+V2 Class A/B eligibility contract, with no eligible automatic merge while required
+evidence is missing. No deployment, offline-voice claim, release or Phase 4 follows.
+
 D51's owner-confirmed synthetic playable/child UX milestone is bounded in the
 [current report](PHASE_3C_COMPLETION_REPORT.md). The documentation-only owner
 confirmation leaves the lifecycle implementation and its source-bound proofs
 unchanged. Actual target device/browser/AT observation and an actual disconnected
 device restart remain **PENDING EXTERNAL EVIDENCE** for full Phase 3C certification;
-the authorized `owner_merge` milestone PR does not supply those observations.
+the now-merged `owner_merge` milestone PR did not supply those observations.
 
 D49 [Phase 3C integration](PHASE_3C_COMPLETION_REPORT.md) adds an optional
 learner-data lifecycle port to the existing shell controller. Only the separate

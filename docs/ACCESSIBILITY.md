@@ -1,5 +1,13 @@
 # Accessibility and child-centred interaction
 
+Current D52 [closure evidence](PHASE_3_COMPLETION_REPORT.md) records native Chrome
+200% zoom separately from CSS text scaling and adds the plan's 375/768/1024px
+and touch-emulation coverage. Delivered target AT output remains unobserved;
+Narrator's higher Windows integrity and unavailable output observation are
+explicit limits. The [owner protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md)
+prepares that mandatory observation. No WCAG or general device certification is
+claimed. D51's publication workflow below is historical after merged PR #13.
+
 D50 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) responds to the owner's
 material child UX finding over the preserved engine. Child mode uses large direct
 native answer cards, one mathematical decision, Star/Triangle badges and short

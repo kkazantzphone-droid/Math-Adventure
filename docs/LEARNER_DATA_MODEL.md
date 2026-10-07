@@ -1,5 +1,17 @@
 # Local learner data model
 
+D52's [current Phase 3 audit](PHASE_3_COMPLETION_REPORT.md) starts from the
+positively observed owner merge of [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13),
+protected-main `ce4eccb87b731a15034950db66c01be9d94e07c8`. Full Phase 3C and
+Phase 3 closure are **BLOCKED — EVIDENCE UNAVAILABLE** pending actual target
+device/browser/AT delivery and physically disconnected-device restart. The
+[prepared synthetic observation protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md)
+retains manual/no-evidence, conservative geometry scopes and separate shell/save
+checks. No retention, production default or real-data policy changes. D51's
+`owner_merge` publication was the historical milestone workflow; the new Goal
+uses unchanged V2 Class A/B eligibility, with no eligible automatic merge while
+mandatory evidence remains missing. No Phase 4, release or real-child use follows.
+
 D49/D50/D51 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) preserves the exact
 bounded `phase3c-synthetic-loop-v1` aggregate and separate loopback-only namespace.
 The same two fixed synthetic profiles display Star/Triangle badges in child view;
@@ -17,9 +29,9 @@ D51 records bounded owner child UX confirmation on 2026-10-07:
 **PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
 This accepts the eight-family presentation, direct answers, visual help,
 badges/navigation and separate diagnostics without upgrading assessment scopes
-or authorizing real-child use. Current documentation/full/fresh and independent
-review precede narrowed feature publication. Both PR-specific exact-head CI checks
-must succeed before the owner-merge handoff under `owner_merge`.
+or authorizing real-child use. D51 documentation/full/fresh and independent
+review preceded narrowed feature publication. Both PR-specific exact-head CI checks
+were required before its owner-merge handoff under `owner_merge`.
 **FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** remains
 separate. Retained proof hashes/counts are synthetic engineering metadata, with
 no raw learner aggregates or browser profiles.

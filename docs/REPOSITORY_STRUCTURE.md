@@ -1,5 +1,19 @@
 # Repository structure and versioning
 
+D52's [Phase 3 closure audit](PHASE_3_COMPLETION_REPORT.md) begins from the
+positively observed owner merge of [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13)
+at protected-main `ce4eccb87b731a15034950db66c01be9d94e07c8`. The contained loop
+uses `src/application/synthetic-loop/`, `src/domain/adaptation/`,
+`src/ui/synthetic-loop/`, `tests/browser/phase3c/` and `vite.slice.config.ts`;
+production synthetic output remains ignored and separate from normal composition.
+Full Phase 3C and Phase 3 closure are **BLOCKED — EVIDENCE UNAVAILABLE** pending
+actual target device/browser/AT delivery and physically disconnected-device
+restart. The [prepared protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md) and its
+unfilled template are preparation, not observation evidence. D51's `owner_merge`
+publication workflow is historical; D52 uses unchanged V2 Class A/B eligibility,
+with no eligible automatic merge while required evidence is missing. No accepted
+version/architecture policy or Phase 4 change follows.
+
 Phase 3A adds `src/infrastructure/persistence/{adapter,layout,maintenance,envelope}.ts`,
 `vite.persistence.config.ts`, `tests/browser/phase3/`, `tests/integration/` and
 focused boundary/mutation tooling. The developer entry builds separately under

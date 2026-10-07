@@ -1,6 +1,15 @@
 # Open questions and human decisions
 
-Current D51 records the owner's 2026-10-07 manual confirmation of the reconciled
+Current D52 [closure attempt](PHASE_3_COMPLETION_REPORT.md) starts from owner-merged
+PR #13 and leaves full Phase 3C/Phase 3 **BLOCKED — EVIDENCE UNAVAILABLE**.
+Q19's bounded owner child UX PASS is preserved. Actual delivered AT output on one
+target combination and physical disconnected restart require the
+[prepared owner observation](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md).
+No accepted requirement is waived. V2 permits qualifying Class A/B merge under
+the new Goal; missing required proof currently prevents it. D51's owner-merge
+publication description below is historical after that milestone's merge.
+
+Historical D51 records the owner's 2026-10-07 manual confirmation of the reconciled
 eight-family child presentation. Direct answers, progressive visual help,
 Star/Triangle badges, Play/Shapes/Explore and separate adult diagnostics are
 accepted within bounded owner product review. **Q19 is CLOSED — OWNER CHILD UX

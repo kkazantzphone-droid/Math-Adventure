@@ -1,5 +1,13 @@
 # Development
 
+Current D52 [Phase 3 closure work](PHASE_3_COMPLETION_REPORT.md) follows the observed
+owner merge of PR #13. Full closure remains blocked by actual AT delivery and
+physical disconnected restart. Use the [production observation protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md)
+for that remaining synthetic-only session; the development server below is not
+an offline observation substitute. D51's publication instructions below are
+historical. Qualifying work may merge only under all unchanged V2 gates; this
+full-closure candidate currently lacks required evidence.
+
 Phase 3C has a separate fixed-profile synthetic playable loop with an
 owner-confirmed child presentation and separate developer diagnostics. D51's
 [current report](PHASE_3C_COMPLETION_REPORT.md) records the bounded

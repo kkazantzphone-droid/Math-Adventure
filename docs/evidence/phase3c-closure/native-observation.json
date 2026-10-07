@@ -1,0 +1,80 @@
+{
+  "schema": "phase3c-native-capability-observation-v1",
+  "observationDate": "2026-10-07",
+  "candidateApplicability": "Historical merged ce4 build; later geometry-card CSS repair requires a new production binding and repeated native zoom",
+  "sourceAtProductionBuild": "ce4eccb87b731a15034950db66c01be9d94e07c8",
+  "sourceTreeAtProductionBuild": "6ed58ac5e332340940017665fbbdd95433a7d88e",
+  "releaseId": "sha256-a426a3491b365b0011e0724561f1c6d3a3f1332d7baeb19ff0d26836eb334f13",
+  "shellId": "09c11e048bd90f2ca297d2f4277fb978acc2a16eafd3454278bc5e346e4ddd8b",
+  "origin": "http://127.0.0.1:65065/",
+  "environment": {
+    "operatingSystem": "Windows 10.0.26200.0",
+    "browser": "Google Chrome 154.0.8037.58",
+    "nativeControlTool": "Windows Computer Use @oai/sky",
+    "domMeasurementTool": "Chrome extension browser control",
+    "containment": "New isolated loopback origin, fixed synthetic Star/Triangle profiles; native tab in existing browser profile, not a fresh dedicated browser profile",
+    "mediaOrRawTreesRetained": false
+  },
+  "nativeZoom": {
+    "status": "OBSERVED — BOUNDED CHROME PRODUCTION REVIEW",
+    "mechanism": "Native Chrome Control+plus, visible 200% toolbar indication; read-only DOM measurements",
+    "baseline": {
+      "devicePixelRatio": 1,
+      "width": 929,
+      "height": 861,
+      "rootFontPx": 16
+    },
+    "zoomed": {
+      "devicePixelRatio": 2,
+      "width": 464,
+      "height": 430,
+      "rootFontPx": 16,
+      "documentWidth": 457
+    },
+    "familiesObserved": [
+      "number.addition",
+      "geometry.quadrilateral",
+      "measurement.unit-length",
+      "number.numeral",
+      "number.counting",
+      "number.comparison",
+      "number.subtraction",
+      "number.missing"
+    ],
+    "initialAndFirstVisualHelpObserved": true,
+    "allVisibleMainButtonBoundsHorizontallyContained": true,
+    "minimumObservedMainButtonDimensionCssPx": 45.796875,
+    "childSelectCount": 0,
+    "helpRetainedKeyboardFocus": true,
+    "additionDirectKeyboardAnswerCorrectFeedbackAndContinueFocusObserved": true,
+    "uiAndInstructionLocale": "el-GR",
+    "limitations": "One desktop window at the recorded effective viewport; not all locales, physical orientations, touch hardware or AT delivery",
+    "restored": {
+      "devicePixelRatio": 1,
+      "width": 929,
+      "height": 861,
+      "rootFontPx": 16
+    }
+  },
+  "assistiveTechnology": {
+    "status": "REQUIRED — DELIVERY UNOBSERVED",
+    "attempt": "Launched preinstalled Windows Narrator through the native app API; refreshed inventory after the launch did not initially expose a targetable window",
+    "processAndWindowSubsequentlyObserved": true,
+    "observationLimit": "Accessibility is limited because the target window has higher Windows integrity than the Computer Use helper.",
+    "startupNoticeObserved": true,
+    "actualOutputHeardOrRead": false,
+    "liveTranscriptionAlternative": "Microsoft documents Narrator+Alt+X speech recap; follow-up Computer Use was stopped with physical Escape before this alternative could be observed",
+    "elevationInstallationRecordingOrSecurityChanges": false,
+    "cleanup": "Documented Narrator+Esc exit sent via native keyboard; subsequent window inventory contained no Narrator window",
+    "keyboardCommandSource": "https://support.microsoft.com/en-us/accessibility/windows/narrator/appendix-b-narrator-keyboard-commands-and-touch-gestures",
+    "sourceAccessDate": "2026-10-07"
+  },
+  "physicalDisconnectedRestart": {
+    "status": "REQUIRED — UNOBSERVED",
+    "physicalDisconnectionObserved": false,
+    "physicalDeviceRestartObserved": false,
+    "networkOrMachinePermissionsExpanded": false,
+    "browserOfflineOrStoppedListenerIsPhysicalEvidence": false
+  },
+  "fullPhase3Closure": "BLOCKED — REQUIRED EXTERNAL OBSERVATIONS ABSENT"
+}

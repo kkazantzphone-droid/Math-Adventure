@@ -28,7 +28,7 @@ import {
 import type { ChildAnswerKey } from './helpers/phase3c-child-oracle';
 
 const channel = process.env.PHASE3C_BROWSER ?? 'chrome';
-const expectedCaseCount = CHILD_FAMILIES.length + 10;
+const expectedCaseCount = CHILD_FAMILIES.length + 11;
 const evidenceDirectory = resolve('.cache/phase3c-child-browser');
 const artifactDirectory = resolve(evidenceDirectory, 'child-site');
 const proofSources = [
@@ -61,8 +61,7 @@ const evidence: Record<string, unknown> = {
   channel,
   result: 'PENDING',
   scope:
-    'synthetic child presentation in installed desktop Chrome/Edge; owner confirmation remains required',
-  mergePolicy: 'owner_merge',
+    'synthetic child presentation in installed desktop Chrome/Edge; bounded owner confirmation is recorded separately, and actual device/AT and physical restart observations remain required',
   actualAssistiveTechnology:
     'UNAVAILABLE: DOM/ARIA/keyboard checks do not establish delivered screen-reader output',
   actualDisconnectedRestart:
@@ -131,15 +130,16 @@ beforeAll(async () => {
     'playwright-core installed channel; no browser download';
 });
 
-beforeEach(async () => {
-  context = await browser.newContext({
+async function syntheticContext(hasTouch = false): Promise<BrowserContext> {
+  const fresh = await browser.newContext({
     serviceWorkers: 'allow',
     acceptDownloads: false,
     viewport: { width: 960, height: 800 },
     reducedMotion: 'reduce',
+    hasTouch,
   });
-  context.on('page', (page) => page.on('pageerror', () => pageErrors++));
-  context.on('request', (request) => {
+  fresh.on('page', (page) => page.on('pageerror', () => pageErrors++));
+  fresh.on('request', (request) => {
     const url = new URL(request.url());
     if (url.origin !== server.origin) externalAttempts++;
     if (
@@ -149,11 +149,16 @@ beforeEach(async () => {
     )
       outboundLearnerRequests++;
   });
-  await context.route('**/*', async (route) => {
+  await fresh.route('**/*', async (route) => {
     if (new URL(route.request().url()).origin !== server.origin)
       await route.abort('blockedbyclient');
     else await route.continue();
   });
+  return fresh;
+}
+
+beforeEach(async () => {
+  context = await syntheticContext();
 });
 
 afterEach(async (task) => {
@@ -235,8 +240,14 @@ async function presentation(page: Page): Promise<LoopPresentation> {
   return task;
 }
 
-async function profile(page: Page, index = 0): Promise<void> {
-  await page.locator('[data-profile]').nth(index).click();
+async function profile(
+  page: Page,
+  index = 0,
+  input: 'click' | 'tap' = 'click',
+): Promise<void> {
+  const badge = page.locator('[data-profile]').nth(index);
+  if (input === 'tap') await badge.tap();
+  else await badge.click();
   await page.waitForFunction(
     (profileId) =>
       window.phase3cProof.state().record?.profileId === profileId &&
@@ -918,8 +929,121 @@ describe(`installed ${channel} child presentation`, () => {
     ).toBe(true);
   });
 
+  it('accepts touch-emulated direct answers in all eight families without duplicate completions or assessment evidence in manual mode', async () => {
+    await context.close();
+    context = await syntheticContext(true);
+    const page = await open();
+    expect(
+      await page.evaluate(
+        () =>
+          navigator.maxTouchPoints > 0 &&
+          matchMedia('(pointer: coarse)').matches,
+      ),
+    ).toBe(true);
+    await profile(page, 0, 'tap');
+    expect((await state(page)).record?.profileId).toBe('SYNTHETIC-PLAYER-1');
+    expect(
+      await page
+        .locator('#slice-task-heading')
+        .evaluate((heading) => document.activeElement === heading),
+    ).toBe(true);
+    const samples: { family: LoopFamilyId; completedCommands: number }[] = [];
+    for (const family of CHILD_FAMILIES) {
+      // Developer selection is setup only; every child answer/help/retry below
+      // uses actual browser touch events rather than the mouse-click helper.
+      await activity(page, family);
+      await childContract(page);
+      const task = await presentation(page),
+        expected = childAnswerKey(task),
+        before = (await state(page)).record;
+      expect(before?.mode).toBe('manual');
+      await page
+        .locator(`[data-child-answer="${wrongChildAnswer(expected)}"]`)
+        .tap();
+      await settled(page);
+      expect((await state(page)).record?.lastCompletion).toMatchObject({
+        correct: false,
+        evidence: 'manual',
+      });
+      expect((await state(page)).record?.completedCount).toBe(
+        (before?.completedCount ?? 0) + 1,
+      );
+      expect((await state(page)).record?.events).toHaveLength(0);
+      await page.locator('[data-child-retry]').tap();
+      expect(await presentation(page)).toEqual(task);
+      expect(await page.locator('#slice-feedback').textContent()).toBe('');
+      expect(
+        await page
+          .locator('#slice-task-heading')
+          .evaluate((heading) => document.activeElement === heading),
+      ).toBe(true);
+      const beforeHelp = (await state(page)).record,
+        help = page.locator('.hint-button');
+      for (const tier of [1, 2, 3]) {
+        await help.tap();
+        expect(await presentation(page)).toEqual(task);
+        expect((await state(page)).record).toEqual(beforeHelp);
+        expect(await page.locator('#slice-feedback').textContent()).toBe('');
+        expect(await page.locator('#slice-hint').isVisible()).toBe(true);
+        expect(
+          await page.locator('#slice-hint').getAttribute('data-hint-tier'),
+        ).toBe(String(tier));
+        expect(
+          await page.locator('.child-task [data-visual-help]').count(),
+        ).toBe(1);
+        expect(
+          await help.evaluate((button) => document.activeElement === button),
+        ).toBe(true);
+      }
+      await page.locator(`[data-child-answer="${expected}"]`).tap();
+      await settled(page);
+      const completed = (await state(page)).record;
+      expect(completed?.lastCompletion).toMatchObject({
+        correct: true,
+        evidence: 'manual',
+      });
+      expect(completed?.completedCount).toBe((before?.completedCount ?? 0) + 2);
+      expect(completed?.events).toHaveLength(0);
+      expect(completed?.derived.recommendation).toBeNull();
+      expect((await state(page)).saved).toBe(true);
+      expect(await page.locator('#slice-feedback').getAttribute('role')).toBe(
+        'status',
+      );
+      expect(await page.locator('#slice-feedback').textContent()).not.toBe('');
+      await page.locator('[data-action=next]').tap();
+      await settled(page);
+      expect(
+        await page
+          .locator('#slice-task-heading')
+          .evaluate((heading) => document.activeElement === heading),
+      ).toBe(true);
+      samples.push({ family, completedCommands: 2 });
+    }
+    await page.locator('[data-child-nav=shapes]').tap();
+    await settled(page);
+    expect((await state(page)).record?.selectedFamily).toBe(
+      'geometry.quadrilateral',
+    );
+    await page.locator('[data-child-nav=play]').tap();
+    await settled(page);
+    expect((await state(page)).record?.selectedFamily).toBe('number.addition');
+    await childContract(page);
+    evidence.touch = {
+      mechanism:
+        'Installed browser hasTouch context and locator.tap input; fixed synthetic profile and independent public-task oracle',
+      samples,
+      wrongRejected: true,
+      oracleAccepted: true,
+      oneCompletionPerAnswerGesture: true,
+      visualHelpPreservesTaskAndRecord: true,
+      helpRetryAndNextFocus: true,
+      manualObservations: 0,
+      physicalTouchDevice: 'UNOBSERVED: browser emulation only',
+    };
+  }, 60_000);
+
   for (const prefix of ['/', '/math-adventure/'] as const)
-    it(`reflows all eight families at ${prefix} in narrow portrait, landscape and 200% text`, async () => {
+    it(`reflows all eight families at ${prefix} at 320/375/768/1024px, portrait, landscape and 200% text`, async () => {
       const page = await open(prefix);
       await profile(page);
       const observations: {
@@ -934,6 +1058,12 @@ describe(`installed ${channel} child presentation`, () => {
         for (const size of [
           { width: 320, height: 780, rootTextPx: 16 },
           { width: 320, height: 780, rootTextPx: 32 },
+          { width: 375, height: 812, rootTextPx: 16 },
+          { width: 375, height: 812, rootTextPx: 32 },
+          { width: 768, height: 1024, rootTextPx: 16 },
+          { width: 768, height: 1024, rootTextPx: 32 },
+          { width: 1024, height: 768, rootTextPx: 16 },
+          { width: 1024, height: 768, rootTextPx: 32 },
           { width: 780, height: 320, rootTextPx: 32 },
           { width: 960, height: 800, rootTextPx: 32 },
         ]) {
@@ -1003,6 +1133,21 @@ describe(`installed ${channel} child presentation`, () => {
                   card.scrollWidth <= card.clientWidth + 1 &&
                   card.scrollHeight <= card.clientHeight + 1,
               ),
+              clippedCards: cards.flatMap((card, index) =>
+                card.scrollWidth > card.clientWidth + 1 ||
+                card.scrollHeight > card.clientHeight + 1
+                  ? [
+                      {
+                        index,
+                        className: card.className,
+                        clientWidth: card.clientWidth,
+                        scrollWidth: card.scrollWidth,
+                        clientHeight: card.clientHeight,
+                        scrollHeight: card.scrollHeight,
+                      },
+                    ]
+                  : [],
+              ),
               badgeLabelsReadable: [
                 ...document.querySelectorAll('.child-badge > span'),
               ].every((label) => {
@@ -1022,12 +1167,16 @@ describe(`installed ${channel} child presentation`, () => {
                 .matches,
             };
           });
-          expect(measured).toEqual({
+          expect(
+            measured,
+            `Rendered child layout ${JSON.stringify({ family, prefix, ...size })}; measured ${JSON.stringify({ clippedCards: measured.clippedCards, noClippedAnswerText: measured.noClippedAnswerText })}`,
+          ).toEqual({
             overflow: false,
             rootTextPx: size.rootTextPx,
             minimumTarget: true,
             horizontallyContained: true,
             noClippedAnswerText: true,
+            clippedCards: [],
             badgeLabelsReadable: true,
             mathematicalLabelsReadable: true,
             accessibilityDescriptionsClipped: true,

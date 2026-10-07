@@ -1,5 +1,18 @@
 # Security threat model
 
+D52's [Phase 3 closure audit](PHASE_3_COMPLETION_REPORT.md) follows the positively
+observed owner merge of [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13),
+protected-main `ce4eccb87b731a15034950db66c01be9d94e07c8`. Full Phase 3C and
+Phase 3 closure are **BLOCKED — EVIDENCE UNAVAILABLE** pending actual target
+device/browser/AT delivery and physically disconnected-device restart. The
+[prepared protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md) remains adult-operated,
+synthetic-only and sanitized; no media, raw learner records or identifying machine
+information is evidence. It grants no new OS/network/security access. D51's
+`owner_merge` publication workflow is historical; D52 uses unchanged V2 Class A/B
+eligibility, with no eligible automatic merge while required evidence is missing.
+Accepted security/privacy controls remain; no release, deployment, real-child use
+or Phase 4 is authorized.
+
 D50 [Phase 3C child UX reconciliation](PHASE_3C_COMPLETION_REPORT.md) preserves
 the separate capability-gated loopback build, two fixed synthetic identities,
 bounded minimised aggregates and existing epoch/atomic/update boundaries. Badge
@@ -19,11 +32,11 @@ claim follows. D51 records the owner's bounded 2026-10-07 acceptance of the
 eight-family child presentation and separate adult diagnostics:
 **PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
 New owner-confirmation/publication receipts retain only bounded decisions and
-engineering metadata; historical proofs remain frozen. Current diff/privacy/
-integrity and full/fresh gates precede the authorized narrowed feature PR.
-Both PR-specific exact-head CI checks must succeed before the owner-merge handoff.
-`owner_merge` forbids automatic merge; no full-stage, real-child
-use, release or deployment authority follows.
+engineering metadata; historical proofs remain frozen. D51 diff/privacy/
+integrity and full/fresh gates preceded its authorized narrowed feature PR.
+Both PR-specific exact-head CI checks were required before its owner-merge handoff.
+`owner_merge` forbade automatic merge for that milestone; no full-stage, real-child
+use, release or deployment authority followed from D51.
 **FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
 unresolved target AT and disconnected-restart observations.
 

@@ -123,7 +123,7 @@ for (const channel of ['chrome', 'msedge']) {
   assert(
     report.result.startsWith('PASS') &&
       report.sourcesStable === true &&
-      report.cases.length === 18 &&
+      report.cases.length === 19 &&
       report.cases.every((item) => item.outcome === 'pass'),
     'Both native child suites must have completed PASS before filtered mutation tests',
   );
@@ -189,13 +189,28 @@ const mutations = [
     after:
       '.child-task button.child-token {\n  background: #e5edff;\n  color: #b6f4dc;\n}',
   },
+  {
+    id: 'geometry-answer-cards-clip-at-375px',
+    file: targets[3],
+    browser: true,
+    test: 'reflows all eight families at / at 320/375/768/1024px, portrait, landscape and 200% text',
+    mechanism:
+      'installed-chrome-measured-375px-geometry-answer-clipping-assertion',
+    assertionMessage:
+      'Rendered child layout {"family":"geometry.quadrilateral","prefix":"/","width":375,"height":812,"rootTextPx":16}',
+    assertionDetails: ['clippedCards', 'clientWidth', 'scrollWidth'],
+    failurePattern: /noClippedAnswerText["']?\s*:\s*false/,
+    before:
+      ".child-task[data-child-kind='classifyGeometry'] .child-answer-cards {\n  grid-template-columns: repeat(auto-fit, minmax(min(7.5rem, 100%), 1fr));\n}",
+    after: '',
+  },
 ];
 
 const evidence = {
   schema: 'phase3c-child-mutations-v1',
   result: 'PENDING',
   scope:
-    'Five executable child presentation defects; exact card/unit/unknown-part assertions and installed Chrome child evidence and computed graphic contrast guards',
+    'Six executable child presentation defects; exact card/unit/unknown-part assertions and installed Chrome child evidence, computed graphic contrast and measured 375px geometry clipping guards',
   channel: 'chrome',
   sourceHashes,
   protectedSourceCount: protectedFiles.length,
@@ -214,6 +229,7 @@ const evidence = {
   ],
 };
 let activeMutation = null;
+let primaryFailure = false;
 
 function stableSources(allowed) {
   for (const file of protectedFiles) {
@@ -391,7 +407,18 @@ try {
           intended.failureMessages.some((message) =>
             message.includes(mutation.assertionMessage),
           ),
-          'A visual mutant must fail its actual computed graphic contrast assertion',
+          'A visual mutant must fail its declared rendered assertion',
+        );
+      if (mutation.failurePattern)
+        assert(
+          intended.failureMessages.some(
+            (message) =>
+              mutation.failurePattern.test(message) &&
+              mutation.assertionDetails.every((detail) =>
+                message.includes(detail),
+              ),
+          ),
+          'A geometry layout mutant must fail with measured clipped-card dimensions and noClippedAnswerText false',
         );
       evidence.mutations.push({
         id: mutation.id,
@@ -413,6 +440,7 @@ try {
   stableSources();
   evidence.result = 'PASS';
 } catch (error) {
+  primaryFailure = true;
   evidence.result = 'FAIL';
   throw error;
 } finally {
@@ -447,8 +475,10 @@ try {
   )
     evidence.result = 'FAIL';
   writeFileSync(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`);
-  assert.equal(evidence.result, 'PASS');
+  // Retain the original assertion/detection error after restoring all owned
+  // inputs. With no earlier error, restoration failures must still fail the run.
+  if (!primaryFailure) assert.equal(evidence.result, 'PASS');
 }
 process.stdout.write(
-  'PASS five child-UX assertion mutations; exact source, reports and native build restored\n',
+  'PASS six child-UX assertion mutations; exact source, reports and native build restored\n',
 );

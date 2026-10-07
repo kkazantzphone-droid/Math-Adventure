@@ -1,0 +1,148 @@
+{
+  "result": "PASS",
+  "scope": "synthetic-loop mutation sensitivity; application boundaries plus installed Chrome rendered feedback",
+  "channel": "chrome",
+  "sourceHashes": {
+    "src/application/synthetic-loop/session.ts": "b712e0e19e0514f8392b531c96449e8b648ed53d2e771044492cd82b6a447dfe",
+    "src/application/synthetic-loop/answer.ts": "bfbfe1cd7ad660985afd6b338a858816969a5bf987eb0b70f2de926bf824d02b",
+    "tests/browser/phase3c/main.tsx": "7ebfeb119e25bfd78d22b4f2e56a362429ba4577ac2061658bc1be6d96f749fc",
+    "tests/unit/synthetic-loop.test.ts": "7c58b6e0507e886e4a4a0a0bf3ab71a44343cff2d139d9a5a04804c5c1dc68c4",
+    "tests/unit/phase3c-mutation-boundaries.test.ts": "a0275de5e18d90190f80844c4b4e64c8437fafbd0e6c289477cb5e29de9f5921",
+    "tests/integration/phase3c-loop.test.ts": "34494709cd9a8bdace950455dcd9ba7986fa4b250e1db57725c1f132d1de40aa",
+    "tests/browser/phase3c/runtime.ts": "406c39c51c2f112cda6bddcbae5f36e823466d476b7b589ed8831284f6944508",
+    "src/application/synthetic-loop/record.ts": "60e572d86215e2b4844cc28a8f3f9ced3d9aacfea1cf6d43716c33dbe32efde8",
+    "src/application/synthetic-loop/seed.ts": "8fba60803e697922951efc7f5f64d483c7a9b23e4b51ca8d590234ffbd9e8d0e",
+    "src/application/synthetic-loop/index.ts": "13c892e7e6d47e68380c5d7844bb5af9e045c0fd024f312072e275b01261faa0",
+    "src/application/synthetic-loop/types.ts": "dc2907228d92cec275d5ec9420b9f177dd7181a8347af1d0c4e85df1f7350b88",
+    "src/application/family-proof.ts": "cbe111a42fb46f57b4de70bfee2ceebf51b9e8b366cf98c79dbb9ccb9daf95ee",
+    "src/application/slice-family.ts": "e7b5632e6afb80b1af95d29aa86ecde36f8f91a4143a57d785b8bf4be727d7e5",
+    "src/domain/families/proof-evidence.ts": "441facccaf5318daf45d0f422bb649cd636cbecf76c4092c0ec069a1c329483c",
+    "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+    "tests/oracle/slice-families.ts": "63b32b0d3359fa66aa403eb413074a903cbabe5eb2f73e01fc1e7ce6867a0ce7",
+    "src/domain/adaptation/state.ts": "754c638485e5f0c5f239b28fd542a5e19882d4ec74721d9d15a14ce9381cee77",
+    "src/domain/adaptation/policy.ts": "816d4dd43a48e5b869d971a7a30dd09863678e0d0028d451ca7dedd48482d687",
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7c8e7867ec9b7fcec7bb3cbca7f42ce8b8e4d762b25ddc91a8595c836b629c4",
+    "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+    "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+    "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+    "src/ui/offline/OfflineControls.tsx": "3e4a56f4cf05764bacb44fbbb57a0610c886928dd280a57ad92691eaacdc69b8",
+    "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458",
+    "vite.config.ts": "84b8a31e9943ff8b0a825bb97bd381ef8f7723a7ebadfc94a103ba62e790b505",
+    "vite.slice.config.ts": "7f951a6299853d46e2f3c04776cfacc22d2e10f918e9f00f1da0afb9db7eedbe",
+    "scripts/phase3c-loop-mutations.mjs": "0a37cea07c72241a559bc29812784a9ea83e8a6a7afaf21c527d965dfbadbdff",
+    ".node-version": "73fb1b615e2043a933be1c0895cde4358036acc28d785692509b822aa53c761f",
+    "package.json": "1aed13d60f17d3f7e7c9d7e74db60fc577b5d9983751b61d3a20f910cffca06a",
+    "pnpm-lock.yaml": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964"
+  },
+  "baselines": [
+    {
+      "mechanism": "application-assertions",
+      "result": "PASS",
+      "assertions": 5,
+      "tests": [
+        "does not show saved success before both journal and terminal transactions complete",
+        "exact retry returns one logical completion and changed retry refuses",
+        "switching unsaved profiles resets identity, progress and exploratory memory",
+        "new families report limitedEvidence and exploratory exposure stays session-only",
+        "mathematical help changes classification while neutral accessibility support does not"
+      ]
+    },
+    {
+      "mechanism": "installed-chrome-rendered-feedback",
+      "result": "PASS",
+      "assertions": 1,
+      "tests": [
+        "renders number.addition, rejects an independent wrong answer, and accepts the oracle"
+      ]
+    }
+  ],
+  "mutations": [
+    {
+      "id": "ui-wrong-answer-shows-correct",
+      "test": "renders number.addition, rejects an independent wrong answer, and accepts the oracle",
+      "result": "DETECTED_BY_ASSERTION",
+      "mechanism": "installed-chrome-rendered-feedback",
+      "source": "tests/browser/phase3c/main.tsx",
+      "originalSha256": "7ebfeb119e25bfd78d22b4f2e56a362429ba4577ac2061658bc1be6d96f749fc",
+      "mutantSha256": "e481a868e893d2618b788eb46642f95e118ede3aafcd99b95be872e325f5f689",
+      "failingAssertions": 1
+    },
+    {
+      "id": "save-success-before-transaction-completion",
+      "test": "does not show saved success before both journal and terminal transactions complete",
+      "result": "DETECTED_BY_ASSERTION",
+      "mechanism": "application-delayed-transaction-integration",
+      "source": "src/application/synthetic-loop/session.ts",
+      "originalSha256": "b712e0e19e0514f8392b531c96449e8b648ed53d2e771044492cd82b6a447dfe",
+      "mutantSha256": "8a8497bee237cd5a61c671d7bf00b8c526059c0a1920cb0d90eb800c18d4c8b6",
+      "failingAssertions": 1
+    },
+    {
+      "id": "exact-retry-duplicates-logical-evidence",
+      "test": "exact retry returns one logical completion and changed retry refuses",
+      "result": "DETECTED_BY_ASSERTION",
+      "mechanism": "application-retry-integration",
+      "source": "src/application/synthetic-loop/session.ts",
+      "originalSha256": "b712e0e19e0514f8392b531c96449e8b648ed53d2e771044492cd82b6a447dfe",
+      "mutantSha256": "c578f45bf1bf1e998f7f4649469058522529948c42364f5efbe20bbf55d78b2c",
+      "failingAssertions": 1
+    },
+    {
+      "id": "manual-mode-creates-profiling-evidence",
+      "test": "renders number.addition, rejects an independent wrong answer, and accepts the oracle",
+      "result": "DETECTED_BY_ASSERTION",
+      "mechanism": "installed-chrome-manual-persisted-evidence",
+      "source": "src/application/synthetic-loop/session.ts",
+      "originalSha256": "b712e0e19e0514f8392b531c96449e8b648ed53d2e771044492cd82b6a447dfe",
+      "mutantSha256": "d6038e4d7d1db2b605fc2dd1ddeae77a92a1155dca639c2809cc81ddba379af0",
+      "failingAssertions": 1
+    },
+    {
+      "id": "profile-switch-leaks-initial-profile-state",
+      "test": "switching unsaved profiles resets identity, progress and exploratory memory",
+      "result": "DETECTED_BY_ASSERTION",
+      "mechanism": "application-unsaved-profile-integration",
+      "source": "src/application/synthetic-loop/session.ts",
+      "originalSha256": "b712e0e19e0514f8392b531c96449e8b648ed53d2e771044492cd82b6a447dfe",
+      "mutantSha256": "961195a4627fe6b4e22e7e316105a7e99978ddbfb6c330835bf5da33b5e14f9d",
+      "failingAssertions": 1
+    },
+    {
+      "id": "exploration-promotes-persistent-mastery",
+      "test": "new families report limitedEvidence and exploratory exposure stays session-only",
+      "result": "DETECTED_BY_ASSERTION",
+      "mechanism": "application-exploration-integration",
+      "source": "src/application/synthetic-loop/answer.ts",
+      "originalSha256": "bfbfe1cd7ad660985afd6b338a858816969a5bf987eb0b70f2de926bf824d02b",
+      "mutantSha256": "e740fa2fe9780de65699773651aad1cf9b2312494023a964711eee94dd87a2f2",
+      "failingAssertions": 1
+    },
+    {
+      "id": "unresolved-transaction-reports-update-ready",
+      "test": "does not show saved success before both journal and terminal transactions complete",
+      "result": "DETECTED_BY_ASSERTION",
+      "mechanism": "application-delayed-transaction-readiness-guard",
+      "source": "src/application/synthetic-loop/session.ts",
+      "originalSha256": "b712e0e19e0514f8392b531c96449e8b648ed53d2e771044492cd82b6a447dfe",
+      "mutantSha256": "486613342b971753837e48d4acfe969a0d5b1ac23010d5f0a31b92c878bdc821",
+      "failingAssertions": 1
+    },
+    {
+      "id": "inaccessible-representation-receives-evidence-credit",
+      "test": "mathematical help changes classification while neutral accessibility support does not",
+      "result": "DETECTED_BY_ASSERTION",
+      "mechanism": "application-evidence-scope-integration",
+      "source": "src/application/synthetic-loop/answer.ts",
+      "originalSha256": "bfbfe1cd7ad660985afd6b338a858816969a5bf987eb0b70f2de926bf824d02b",
+      "mutantSha256": "3194ba36b865ac16d713dad505122d9e779e0f6bd98ad6c6d5184f8df8947415",
+      "failingAssertions": 1
+    }
+  ],
+  "exactRestoration": true,
+  "protectedSourcesStable": true,
+  "temporaryReportsRemoved": true,
+  "browserEvidenceRestored": true
+}

@@ -1,6 +1,17 @@
 # Roadmap
 
-Current D51 records the owner's bounded child UX PASS on 2026-10-07 after manual
+Current **D52** Goal requests full Phase 3C completion and Phase 3 closure after
+observed owner merge of [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13)
+at `ce4eccb87b731a15034950db66c01be9d94e07c8`. Both remain
+**BLOCKED — EVIDENCE UNAVAILABLE** in the [closure report](PHASE_3_COMPLETION_REPORT.md).
+Owner-approved child UX is preserved; actual AT delivery and physically
+disconnected restart remain mandatory. The [observation protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md)
+prepares the precise remaining owner action. The new Goal permits qualifying
+Class A/B merge under unchanged V2, but missing required proof forbids current
+full-closure merge. Phase 4 is not authorized. D51's publication summaries below
+are historical descriptions of the now-merged milestone.
+
+Historical D51 records the owner's bounded child UX PASS on 2026-10-07 after manual
 review of the existing D49/D50 synthetic Phase 3C surface. All eight families'
 direct answers and progressive visual help, Star/Triangle badges,
 Play/Shapes/Explore and separate adult diagnostics are accepted for the
