@@ -1,0 +1,496 @@
+{
+  "channel": "chrome",
+  "result": "PASS — NARROWER ENGINEERING EVIDENCE ONLY",
+  "scope": "installed desktop synthetic developer loop only",
+  "actualDeviceAT": "UNAVAILABLE: no observed target device/assistive technology combination",
+  "actualDisconnectedRestart": "UNAVAILABLE: browser network emulation is not physical disconnection",
+  "cases": [
+    {
+      "name": "preserves an immediate first profile selection across initial worker controller acquisition",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps storage unopened until explicit fixed-profile selection",
+      "outcome": "pass"
+    },
+    {
+      "name": "reaches every numeral/count quantity in sixteen deterministic examples for each fixed profile",
+      "outcome": "pass"
+    },
+    {
+      "name": "renders number.addition, rejects an independent wrong answer, and accepts the oracle",
+      "outcome": "pass"
+    },
+    {
+      "name": "renders geometry.quadrilateral, rejects an independent wrong answer, and accepts the oracle",
+      "outcome": "pass"
+    },
+    {
+      "name": "renders measurement.unit-length, rejects an independent wrong answer, and accepts the oracle",
+      "outcome": "pass"
+    },
+    {
+      "name": "renders number.numeral, rejects an independent wrong answer, and accepts the oracle",
+      "outcome": "pass"
+    },
+    {
+      "name": "renders number.counting, rejects an independent wrong answer, and accepts the oracle",
+      "outcome": "pass"
+    },
+    {
+      "name": "renders number.comparison, rejects an independent wrong answer, and accepts the oracle",
+      "outcome": "pass"
+    },
+    {
+      "name": "renders number.subtraction, rejects an independent wrong answer, and accepts the oracle",
+      "outcome": "pass"
+    },
+    {
+      "name": "renders number.missing, rejects an independent wrong answer, and accepts the oracle",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps mathematical hint support distinct from accessible unit traversal",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps all five catalog increments limitedEvidence in proposed-policy mode",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps exploration transient and clears its memory across profiles and reload",
+      "outcome": "pass"
+    },
+    {
+      "name": "isolates evidence, adaptation, preferences and pending callbacks during profile switch",
+      "outcome": "pass"
+    },
+    {
+      "name": "persists completion after commit, reloads without advancing session, and starts explicitly",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps independent locale roles and truthful planned-locale fallback",
+      "outcome": "pass"
+    },
+    {
+      "name": "reconciles a durable pending completion on reload with exactly one explicit retry",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps speech explicit and cancels changed contexts using only exposed exact local voices",
+      "outcome": "pass"
+    },
+    {
+      "name": "honours explicit unsaved selection even after a saved profile was opened",
+      "outcome": "pass"
+    },
+    {
+      "name": "fences a native committed answer with withheld completion delivery across profile switch and update",
+      "outcome": "pass"
+    },
+    {
+      "name": "reflows all eight families at 320px with deliberate 200% text and reduced motion",
+      "outcome": "pass"
+    },
+    {
+      "name": "selects, hints and answers through keyboard with visible focus and semantic outcome",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps quota failure unsaved and resumes only by explicit choice",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps abort failure unsaved and resumes only by explicit choice",
+      "outcome": "pass"
+    },
+    {
+      "name": "rejects a stale tab and reconciles explicitly without duplicating observations",
+      "outcome": "pass"
+    },
+    {
+      "name": "fences a held answer on deletion and preserves the surviving profile",
+      "outcome": "pass"
+    },
+    {
+      "name": "falls back visibly when IndexedDB is unavailable without claiming a save",
+      "outcome": "pass"
+    },
+    {
+      "name": "refuses a future native database schema and leaves it untouched",
+      "outcome": "pass"
+    },
+    {
+      "name": "handles an actually blocked native upgrade without erasing the old store",
+      "outcome": "pass"
+    },
+    {
+      "name": "reloads cached / shell offline with separately saved learner state",
+      "outcome": "pass"
+    },
+    {
+      "name": "blocks / activation while another client holds a learner write, then recovers coherently",
+      "outcome": "pass"
+    },
+    {
+      "name": "blocks / update with incompatible learner reader declaration",
+      "outcome": "pass"
+    },
+    {
+      "name": "reloads cached /math-adventure/ shell offline with separately saved learner state",
+      "outcome": "pass"
+    },
+    {
+      "name": "blocks /math-adventure/ activation while another client holds a learner write, then recovers coherently",
+      "outcome": "pass"
+    },
+    {
+      "name": "blocks /math-adventure/ update with incompatible learner reader declaration",
+      "outcome": "pass"
+    }
+  ],
+  "browserVersion": "154.0.8037.58",
+  "browserMechanism": "playwright-core installed channel; no browser download",
+  "startup": {
+    "freshContexts": 8,
+    "beforeControllerSelections": 8,
+    "mechanism": "select as soon as initial UI thaws, without waiting for controller or shell readiness"
+  },
+  "workflowVariation": {
+    "samples": [
+      {
+        "profile": 1,
+        "family": "number.numeral",
+        "examples": 16,
+        "quantities": [0, 1, 2, 3, 4, 5]
+      },
+      {
+        "profile": 1,
+        "family": "number.counting",
+        "examples": 16,
+        "quantities": [0, 1, 2, 3, 4, 5]
+      },
+      {
+        "profile": 2,
+        "family": "number.numeral",
+        "examples": 16,
+        "quantities": [0, 1, 2, 3, 4, 5]
+      },
+      {
+        "profile": 2,
+        "family": "number.counting",
+        "examples": 16,
+        "quantities": [0, 1, 2, 3, 4, 5]
+      }
+    ],
+    "evidenceScope": "finite synthetic generation/representation only; no mastery or educational-effectiveness claim"
+  },
+  "speech": {
+    "exactGreekLocalExposed": 1,
+    "pronunciation": "UNAVAILABLE",
+    "offlinePlayback": "UNAVAILABLE"
+  },
+  "speechReplay": {
+    "exactLocalLocale": "el-GR",
+    "explicitSpeakCount": 2,
+    "eligibleOnly": true,
+    "actualPronunciation": "UNAVAILABLE",
+    "actualOfflinePlayback": "UNAVAILABLE"
+  },
+  "nativeCompletionLoss": "native final commit independently read before withheld completion delivery; profile switch and update fence; explicit reload restores one scoped observation",
+  "reflow": {
+    "mechanism": "320 CSS px and 800x320; root font-size 200% (deliberate text scaling, not native zoom)",
+    "samples": [
+      {
+        "family": "number.addition",
+        "width": 320,
+        "height": 800,
+        "overflow": 0,
+        "minimumTarget": 44
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 320,
+        "height": 800,
+        "overflow": 0,
+        "minimumTarget": 93.59375
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 320,
+        "height": 800,
+        "overflow": 0,
+        "minimumTarget": 93.59375
+      },
+      {
+        "family": "number.numeral",
+        "width": 320,
+        "height": 800,
+        "overflow": 0,
+        "minimumTarget": 93.59375
+      },
+      {
+        "family": "number.counting",
+        "width": 320,
+        "height": 800,
+        "overflow": 0,
+        "minimumTarget": 44
+      },
+      {
+        "family": "number.comparison",
+        "width": 320,
+        "height": 800,
+        "overflow": 0,
+        "minimumTarget": 44
+      },
+      {
+        "family": "number.subtraction",
+        "width": 320,
+        "height": 800,
+        "overflow": 0,
+        "minimumTarget": 44
+      },
+      {
+        "family": "number.missing",
+        "width": 320,
+        "height": 800,
+        "overflow": 0,
+        "minimumTarget": 93.59375
+      },
+      {
+        "family": "number.addition",
+        "width": 800,
+        "height": 320,
+        "overflow": 0,
+        "minimumTarget": 44
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 800,
+        "height": 320,
+        "overflow": 0,
+        "minimumTarget": 93.59375
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 800,
+        "height": 320,
+        "overflow": 0,
+        "minimumTarget": 93.59375
+      },
+      {
+        "family": "number.numeral",
+        "width": 800,
+        "height": 320,
+        "overflow": 0,
+        "minimumTarget": 93.59375
+      },
+      {
+        "family": "number.counting",
+        "width": 800,
+        "height": 320,
+        "overflow": 0,
+        "minimumTarget": 44
+      },
+      {
+        "family": "number.comparison",
+        "width": 800,
+        "height": 320,
+        "overflow": 0,
+        "minimumTarget": 44
+      },
+      {
+        "family": "number.subtraction",
+        "width": 800,
+        "height": 320,
+        "overflow": 0,
+        "minimumTarget": 93.59375
+      },
+      {
+        "family": "number.missing",
+        "width": 800,
+        "height": 320,
+        "overflow": 0,
+        "minimumTarget": 93.59375
+      }
+    ],
+    "submitTextContrast": 13.337448036819248,
+    "actualAT": "UNAVAILABLE"
+  },
+  "keyboard": "native Tab/Enter/Space/select arrows, focus outline, stop/resume focus and status semantics; no actual screen-reader delivery claim",
+  "sourceHashes": {
+    "tests/integration/phase3c-loop.test.ts": "34494709cd9a8bdace950455dcd9ba7986fa4b250e1db57725c1f132d1de40aa",
+    "tests/browser/phase3c/main.tsx": "7ebfeb119e25bfd78d22b4f2e56a362429ba4577ac2061658bc1be6d96f749fc",
+    "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+    "tests/browser/phase3c/shell.css": "9ef2402c1fb1d411f0d9e1fa092fd62726effa0ecba66d6a9e439dc1c80a13a5",
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+    "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+    "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+    "src/presentation/localisation/child-copy.ts": "051aa491c41e819122f48603a4fcd7ed6573c4e7265905dc328e411c1b49d68f",
+    "tests/browser/phase3c/runtime.ts": "406c39c51c2f112cda6bddcbae5f36e823466d476b7b589ed8831284f6944508",
+    "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+    "src/ui/offline/OfflineControls.tsx": "3e4a56f4cf05764bacb44fbbb57a0610c886928dd280a57ad92691eaacdc69b8",
+    "src/application/synthetic-loop/session.ts": "b712e0e19e0514f8392b531c96449e8b648ed53d2e771044492cd82b6a447dfe",
+    "src/application/synthetic-loop/answer.ts": "bfbfe1cd7ad660985afd6b338a858816969a5bf987eb0b70f2de926bf824d02b",
+    "src/application/synthetic-loop/record.ts": "60e572d86215e2b4844cc28a8f3f9ced3d9aacfea1cf6d43716c33dbe32efde8",
+    "src/application/synthetic-loop/seed.ts": "8fba60803e697922951efc7f5f64d483c7a9b23e4b51ca8d590234ffbd9e8d0e",
+    "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+    "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7c8e7867ec9b7fcec7bb3cbca7f42ce8b8e4d762b25ddc91a8595c836b629c4",
+    "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+    "tests/oracle/slice-families.ts": "63b32b0d3359fa66aa403eb413074a903cbabe5eb2f73e01fc1e7ce6867a0ce7",
+    "vite.slice.config.ts": "7f951a6299853d46e2f3c04776cfacc22d2e10f918e9f00f1da0afb9db7eedbe",
+    "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458"
+  },
+  "sourcesStable": true,
+  "artifacts": [
+    {
+      "path": "e2e-v1/assets/index-CkwAVZ0F.js",
+      "bytes": 646625,
+      "sha256": "22c94486a95b7c7896b022ebd2cf7595ed7ec6ec05ddb0ad2615638d9301e545"
+    },
+    {
+      "path": "e2e-v1/assets/index-CR5vbDeH.css",
+      "bytes": 14365,
+      "sha256": "9af6dfbaa7d5139cb7cfb082f993986a7d25e08cd32b90e802e5775ad59849b8"
+    },
+    {
+      "path": "e2e-v1/icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "e2e-v1/index.html",
+      "bytes": 715,
+      "sha256": "6c214c1c9ec3bba98aac18882dcf39ca4435edc2db5ab1fb4a1750ad57efa368"
+    },
+    {
+      "path": "e2e-v1/learner-reader.json",
+      "bytes": 92,
+      "sha256": "ddf50ce505975737ab6c208383f265e16fcaba65d3560035fa2db7d5767a0447"
+    },
+    {
+      "path": "e2e-v1/manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "e2e-v1/release.json",
+      "bytes": 1452,
+      "sha256": "5ac9b4acd335a1285bbcba3ec25ca5fa932864783d72cbeaebcc506c2e0cbdd3"
+    },
+    {
+      "path": "e2e-v1/sw.js",
+      "bytes": 22636,
+      "sha256": "a3eb4fcb6177185e24aed271bf7f84008add848e90daa1ef9a463b90fbac40a4"
+    },
+    {
+      "path": "e2e-v1/THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    },
+    {
+      "path": "e2e-v2/assets/index-CkwAVZ0F.js",
+      "bytes": 646625,
+      "sha256": "22c94486a95b7c7896b022ebd2cf7595ed7ec6ec05ddb0ad2615638d9301e545"
+    },
+    {
+      "path": "e2e-v2/assets/index-CR5vbDeH.css",
+      "bytes": 14365,
+      "sha256": "9af6dfbaa7d5139cb7cfb082f993986a7d25e08cd32b90e802e5775ad59849b8"
+    },
+    {
+      "path": "e2e-v2/icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "e2e-v2/index.html",
+      "bytes": 715,
+      "sha256": "ddb46c832e3b00c8c8acad8d6a4387b29c4d42b689ee79a96ae7f35ff26e221b"
+    },
+    {
+      "path": "e2e-v2/learner-reader.json",
+      "bytes": 92,
+      "sha256": "ddf50ce505975737ab6c208383f265e16fcaba65d3560035fa2db7d5767a0447"
+    },
+    {
+      "path": "e2e-v2/manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "e2e-v2/release.json",
+      "bytes": 1452,
+      "sha256": "3fa7026fdd852e5f1df3be52304d5dc49d210650348834ee50a9c1a4ad319242"
+    },
+    {
+      "path": "e2e-v2/sw.js",
+      "bytes": 22636,
+      "sha256": "142f6e9af7e61d59bb6c80a4410ebb58e466ff8c6fd6df6a2accb84887c2ec2e"
+    },
+    {
+      "path": "e2e-v2/THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    },
+    {
+      "path": "e2e-future/assets/index-CkwAVZ0F.js",
+      "bytes": 646625,
+      "sha256": "22c94486a95b7c7896b022ebd2cf7595ed7ec6ec05ddb0ad2615638d9301e545"
+    },
+    {
+      "path": "e2e-future/assets/index-CR5vbDeH.css",
+      "bytes": 14365,
+      "sha256": "9af6dfbaa7d5139cb7cfb082f993986a7d25e08cd32b90e802e5775ad59849b8"
+    },
+    {
+      "path": "e2e-future/icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "e2e-future/index.html",
+      "bytes": 719,
+      "sha256": "bc9c663a271937c6c40aa75bbc161b8edba8d8ab3b397d7fa322095ecbfd4e0a"
+    },
+    {
+      "path": "e2e-future/learner-reader.json",
+      "bytes": 86,
+      "sha256": "9f2460442a07af5913aed45b8736a4814c74f4ed64930ca6c080812542e162e1"
+    },
+    {
+      "path": "e2e-future/manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "e2e-future/release.json",
+      "bytes": 1452,
+      "sha256": "3094cb79de2e6733560272a48c1d12a315b643adfa0555d610dfda0c1bc33955"
+    },
+    {
+      "path": "e2e-future/sw.js",
+      "bytes": 22636,
+      "sha256": "69401803d46855f2a23c63bec434afe39e0f4e28aa362fb483a040c3c945cf7e"
+    },
+    {
+      "path": "e2e-future/THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "network": {
+    "externalAttempts": 0,
+    "outboundLearnerRequests": 0,
+    "pageErrors": 0,
+    "receivedRequests": 568,
+    "droppedObservations": 0
+  }
+}

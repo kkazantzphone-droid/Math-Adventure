@@ -1,11 +1,25 @@
 # Offline operation and distribution
 
+Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
+The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
+reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator
+content and focus, and an actual externally disconnected-device restart with
+synthetic persistence/reopen checks all PASS on the bound production surface.
+[Closure evidence](PHASE_3_COMPLETION_REPORT.md) retains the precise limits.
+Final closure requires this candidate's complete local/fresh, independent,
+exact-head hosted and protected merge gates; actual final results and merge state
+are recorded in PR #14. Unchanged V2 automatic_when_eligible applies to D52;
+D51's owner_merge milestone is historical after merged PR #13. Owner-approved
+UX, exact engine and conservative evidence scopes remain. No broader device,
+WCAG, language, educational or real-child certification, release, deployment or
+Phase 4 follows. Earlier checkpoint descriptions below retain historical scope.
+
 D51's owner-confirmed synthetic playable/child UX milestone is bounded in the
 [current report](PHASE_3C_COMPLETION_REPORT.md). The documentation-only owner
 confirmation leaves the lifecycle implementation and its source-bound proofs
 unchanged. Actual target device/browser/AT observation and an actual disconnected
 device restart remain **PENDING EXTERNAL EVIDENCE** for full Phase 3C certification;
-the authorized `owner_merge` milestone PR does not supply those observations.
+the now-merged `owner_merge` milestone PR did not supply those observations.
 
 D49 [Phase 3C integration](PHASE_3C_COMPLETION_REPORT.md) adds an optional
 learner-data lifecycle port to the existing shell controller. Only the separate

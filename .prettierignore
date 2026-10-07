@@ -31,6 +31,11 @@
 !/docs/PHASE_3A_COMPLETION_REPORT.md
 !/docs/PHASE_3B_COMPLETION_REPORT.md
 !/docs/PHASE_3C_COMPLETION_REPORT.md
+!/docs/PHASE_3_COMPLETION_REPORT.md
+!/docs/PHASE_3_TARGET_OBSERVATION_PROTOCOL.md
+!/docs/evidence/
+/docs/evidence/*
+!/docs/evidence/phase3c-closure/
 !/docs/adr/
 /docs/adr/*
 !/docs/adr/ADR-0009.md

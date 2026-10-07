@@ -1,0 +1,152 @@
+{
+  "schema": "phase3c-closure-engineering-verification-v1",
+  "observedOn": "2026-10-07",
+  "result": "PASS — BOUNDED ENGINEERING PREPARATION",
+  "sourceCommit": "14fe8e10e90472b7cbaa2b6c7e827220fd530620",
+  "candidateTree": "8f3a10bcc8c7a9adeca7192684b64fbac5faf118",
+  "candidateFiles": 376,
+  "fullPhase3": "BLOCKED — REQUIRED DEVICE EVIDENCE ABSENT",
+  "commands": {
+    "canonical": "corepack pnpm verify",
+    "freshInstall": "corepack pnpm install --frozen-lockfile",
+    "fresh": "corepack pnpm verify"
+  },
+  "verification": {
+    "tests": 1249,
+    "testFiles": 62,
+    "governanceFixtures": 32,
+    "canonicalExit": 0,
+    "freshExit": 0,
+    "frozenInstallExit": 0
+  },
+  "pins": {
+    "node": "24.21.0",
+    "pnpm": "pnpm@12.9.1"
+  },
+  "lockSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "freshEqualsEveryGitBlob": true,
+  "normalArtifacts": [
+    {
+      "path": "assets/index-Cqw6cjjL.css",
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    {
+      "path": "assets/index-DJw206I7.js",
+      "bytes": 321818,
+      "sha256": "6514e1ede985cb11572b3d24ecf87bd63a1000d83c45b518851c9619b9880726"
+    },
+    {
+      "path": "icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 795,
+      "sha256": "1f278307b15adf847317fd5a9a78758199493bb8738736a69c9b7ecf7f7768f9"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1300,
+      "sha256": "5b9e84bef4bd5c497baaf3ae01dcf7230c6742847df0a8f4f1bf0d9612a9bd26"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 22518,
+      "sha256": "5549814b0037e527cdfa3adc82e22ed7a4361f732e9722a41120d05a62a5836f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "normalArtifactsRootFreshAndMergedBaselineEqual": true,
+  "audit": {
+    "date": "2026-10-07",
+    "exit": 0,
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0
+    },
+    "dependencies": 3,
+    "devDependencies": 201,
+    "optionalDependencies": 27,
+    "totalDependencies": 204
+  },
+  "logSha256": {
+    "canonical": "fcb9cbb21d615a42d6ebdc1241318e5439e13bac6865b3fc7850d3d0166cb0ca",
+    "fresh": "173a727cb45f912b2998f5b51ea5f797670ed58075b98d8c04b76ebd0d924976",
+    "fresh-install": "043a22330178588185b58620c25323221e8ad5996c7fab51d4e7c874e68ee660"
+  },
+  "native": [
+    {
+      "channel": "chrome",
+      "kind": "engine",
+      "path": "docs/evidence/phase3c-closure/chrome-engine.json",
+      "sha256": "c93f01320887fd7c65ec36742613cb5060d5f7f70c1269c90c02ed7e54051bad",
+      "cases": 36,
+      "browserVersion": "154.0.8037.58"
+    },
+    {
+      "channel": "chrome",
+      "kind": "child",
+      "path": "docs/evidence/phase3c-closure/chrome-child.json",
+      "sha256": "8da3b75b01aca0d3aa6ff2879e78815fa27c1b70fc279d2491fd27ba09c9301e",
+      "cases": 19,
+      "browserVersion": "154.0.8037.58"
+    },
+    {
+      "channel": "msedge",
+      "kind": "engine",
+      "path": "docs/evidence/phase3c-closure/msedge-engine.json",
+      "sha256": "0810c8976910befe0c5ff1ba16d2d3e6eb00da5c1b6a42410c3533df2807ad20",
+      "cases": 36,
+      "browserVersion": "154.0.4258.62"
+    },
+    {
+      "channel": "msedge",
+      "kind": "child",
+      "path": "docs/evidence/phase3c-closure/msedge-child.json",
+      "sha256": "0d8361f7d601bf6c9860009856b219b1f14cdde16c4ace05a9c22e5b4c12fa4d",
+      "cases": 19,
+      "browserVersion": "154.0.4258.62"
+    }
+  ],
+  "mutations": {
+    "engine": 8,
+    "child": 6,
+    "allDetectedByIntendedAssertion": true,
+    "exactSourcesReportsAndArtifactsRestored": true
+  },
+  "independentReview": {
+    "result": "PASS — CODE-BEARING PREPARATION ONLY",
+    "sourceBindingsMatched": 377,
+    "artifactEntriesMatched": 72,
+    "noUnresolvedCodePrivacyIntegrityOrGovernanceFinding": true
+  },
+  "integrity": {
+    "changedFiles": 30,
+    "localLinksChecked": 820,
+    "pinsDependenciesLockCIAndAcceptedPolicyUnchanged": true,
+    "historicalReportsAndEvidenceUnchanged": true,
+    "onlySyntheticCountsHashesAndFixedCasesRetained": true
+  },
+  "productionBinding": "docs/evidence/phase3c-closure/production-binding.json",
+  "limits": {
+    "actualAssistiveTechnology": "UNOBSERVED",
+    "physicalDisconnectedDeviceRestart": "UNOBSERVED",
+    "currentNativeBrowserZoom": "UNOBSERVED — COMPUTER USE STOPPED",
+    "physicalTouchDevice": "UNOBSERVED — EMULATION ONLY",
+    "hostedCI": "NOT COVERED BY THIS CODE-BEARING LOCAL RECEIPT; final containing head requires observed PR-specific Ubuntu/Windows SUCCESS recorded in PR"
+  }
+}

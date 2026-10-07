@@ -1,5 +1,19 @@
 # Architecture
 
+Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
+The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
+reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator
+content and focus, and an actual externally disconnected-device restart with
+synthetic persistence/reopen checks all PASS on the bound production surface.
+[Closure evidence](PHASE_3_COMPLETION_REPORT.md) retains the precise limits.
+Final closure requires this candidate's complete local/fresh, independent,
+exact-head hosted and protected merge gates; actual final results and merge state
+are recorded in PR #14. Unchanged V2 automatic_when_eligible applies to D52;
+D51's owner_merge milestone is historical after merged PR #13. Owner-approved
+UX, exact engine and conservative evidence scopes remain. No broader device,
+WCAG, language, educational or real-child certification, release, deployment or
+Phase 4 follows. Earlier checkpoint descriptions below retain historical scope.
+
 D49/D50/D51 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) retains the
 separate capability-gated loopback build, outside normal product composition.
 Reusable child answer cards/tokens/shape/layout components adapt direct choices
@@ -16,8 +30,8 @@ engine. Native test/development rendering and the separately reviewed production
 renderer bind their own artifacts. On 2026-10-07 the owner confirmed the direct
 eight-family child answers, visual help, badges/navigation and separate diagnostics:
 **PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
-The documentation-only publication continuation requires new full/fresh and
-exact-head required CI evidence; `owner_merge` applies.
+That D51 documentation-only publication continuation required new full/fresh and
+exact-head required CI evidence; `owner_merge` applied to the now-merged milestone.
 **FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** remains
 distinct. No accepted architecture/ADR, real-child use or next-phase change follows.
 

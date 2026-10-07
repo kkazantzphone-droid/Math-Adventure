@@ -1,5 +1,19 @@
 # Local learner data model
 
+Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
+The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
+reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator
+content and focus, and an actual externally disconnected-device restart with
+synthetic persistence/reopen checks all PASS on the bound production surface.
+[Closure evidence](PHASE_3_COMPLETION_REPORT.md) retains the precise limits.
+Final closure requires this candidate's complete local/fresh, independent,
+exact-head hosted and protected merge gates; actual final results and merge state
+are recorded in PR #14. Unchanged V2 automatic_when_eligible applies to D52;
+D51's owner_merge milestone is historical after merged PR #13. Owner-approved
+UX, exact engine and conservative evidence scopes remain. No broader device,
+WCAG, language, educational or real-child certification, release, deployment or
+Phase 4 follows. Earlier checkpoint descriptions below retain historical scope.
+
 D49/D50/D51 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) preserves the exact
 bounded `phase3c-synthetic-loop-v1` aggregate and separate loopback-only namespace.
 The same two fixed synthetic profiles display Star/Triangle badges in child view;
@@ -17,9 +31,9 @@ D51 records bounded owner child UX confirmation on 2026-10-07:
 **PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
 This accepts the eight-family presentation, direct answers, visual help,
 badges/navigation and separate diagnostics without upgrading assessment scopes
-or authorizing real-child use. Current documentation/full/fresh and independent
-review precede narrowed feature publication. Both PR-specific exact-head CI checks
-must succeed before the owner-merge handoff under `owner_merge`.
+or authorizing real-child use. D51 documentation/full/fresh and independent
+review preceded narrowed feature publication. Both PR-specific exact-head CI checks
+were required before its owner-merge handoff under `owner_merge`.
 **FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** remains
 separate. Retained proof hashes/counts are synthetic engineering metadata, with
 no raw learner aggregates or browser profiles.

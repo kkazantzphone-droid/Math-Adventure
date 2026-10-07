@@ -1,0 +1,192 @@
+{
+  "schema": "phase3c-target-observation-v1",
+  "status": "PENDING — HUMAN OBSERVATION REQUIRED",
+  "isUnfilledTemplate": true,
+  "observationOccurred": false,
+  "observedAtUTC": null,
+  "observerRole": null,
+  "protocol": "docs/PHASE_3_TARGET_OBSERVATION_PROTOCOL.md",
+  "privacy": {
+    "adultOperatedSyntheticOnlyObserved": null,
+    "noRealLearnerMaterialObserved": null,
+    "noMediaRawLogsDatabaseExportsOrProfilesRetained": null,
+    "sanitizedEvidenceReviewed": null
+  },
+  "buildBinding": {
+    "sourceCommit": null,
+    "sourceTree": null,
+    "shellId": null,
+    "releaseId": null,
+    "origin": null,
+    "productionRendererConfirmed": null,
+    "artifactInventory": null,
+    "laterCandidateEquivalence": {
+      "comparisonBaseCommit": null,
+      "comparisonCandidateCommit": null,
+      "applicationAndBuildInputDifferences": null,
+      "artifactHashComparisons": null,
+      "equivalenceVerified": null
+    }
+  },
+  "environment": {
+    "genericDeviceClass": null,
+    "operatingSystemName": null,
+    "operatingSystemVersion": null,
+    "browserName": null,
+    "browserVersion": null,
+    "assistiveTechnologyName": null,
+    "assistiveTechnologyVersion": null,
+    "dedicatedSyntheticBrowserProfileUsed": null,
+    "uiLocale": null,
+    "instructionLocale": null,
+    "numberSpeechLocale": null,
+    "observationInputMethod": null
+  },
+  "actualAssistiveTechnologyDelivery": {
+    "status": "PENDING — UNOBSERVED",
+    "deliveryChannelActuallyHeardOrRead": null,
+    "badgeAndNavigationNamesAndSelectedStates": null,
+    "keyboardFocusOrder": null,
+    "childDiagnosticsAbsent": null,
+    "families": [
+      {
+        "familyId": "number.addition",
+        "status": "PENDING — UNOBSERVED",
+        "promptAndIllustrationAlternative": null,
+        "answerNamesRolesAndKeyboardActivation": null,
+        "helpStageDelivery": { "stage1": null, "stage2": null, "stage3": null },
+        "focusAfterFeedback": null,
+        "taskTruthAndEvidenceLimitObservation": null,
+        "issue": null
+      },
+      {
+        "familyId": "geometry.quadrilateral",
+        "status": "PENDING — UNOBSERVED",
+        "promptAndIllustrationAlternative": null,
+        "answerNamesRolesAndKeyboardActivation": null,
+        "helpStageDelivery": { "stage1": null, "stage2": null, "stage3": null },
+        "focusAfterFeedback": null,
+        "taskTruthAndEvidenceLimitObservation": null,
+        "issue": null
+      },
+      {
+        "familyId": "measurement.unit-length",
+        "status": "PENDING — UNOBSERVED",
+        "promptAndIllustrationAlternative": null,
+        "answerNamesRolesAndKeyboardActivation": null,
+        "helpStageDelivery": { "stage1": null, "stage2": null, "stage3": null },
+        "focusAfterFeedback": null,
+        "taskTruthAndEvidenceLimitObservation": null,
+        "issue": null
+      },
+      {
+        "familyId": "number.numeral",
+        "status": "PENDING — UNOBSERVED",
+        "promptAndIllustrationAlternative": null,
+        "answerNamesRolesAndKeyboardActivation": null,
+        "helpStageDelivery": { "stage1": null, "stage2": null, "stage3": null },
+        "focusAfterFeedback": null,
+        "taskTruthAndEvidenceLimitObservation": null,
+        "issue": null
+      },
+      {
+        "familyId": "number.counting",
+        "status": "PENDING — UNOBSERVED",
+        "promptAndIllustrationAlternative": null,
+        "answerNamesRolesAndKeyboardActivation": null,
+        "helpStageDelivery": { "stage1": null, "stage2": null, "stage3": null },
+        "focusAfterFeedback": null,
+        "taskTruthAndEvidenceLimitObservation": null,
+        "issue": null
+      },
+      {
+        "familyId": "number.comparison",
+        "status": "PENDING — UNOBSERVED",
+        "promptAndIllustrationAlternative": null,
+        "answerNamesRolesAndKeyboardActivation": null,
+        "helpStageDelivery": { "stage1": null, "stage2": null, "stage3": null },
+        "focusAfterFeedback": null,
+        "taskTruthAndEvidenceLimitObservation": null,
+        "issue": null
+      },
+      {
+        "familyId": "number.subtraction",
+        "status": "PENDING — UNOBSERVED",
+        "promptAndIllustrationAlternative": null,
+        "answerNamesRolesAndKeyboardActivation": null,
+        "helpStageDelivery": { "stage1": null, "stage2": null, "stage3": null },
+        "focusAfterFeedback": null,
+        "taskTruthAndEvidenceLimitObservation": null,
+        "issue": null
+      },
+      {
+        "familyId": "number.missing",
+        "status": "PENDING — UNOBSERVED",
+        "promptAndIllustrationAlternative": null,
+        "answerNamesRolesAndKeyboardActivation": null,
+        "helpStageDelivery": { "stage1": null, "stage2": null, "stage3": null },
+        "focusAfterFeedback": null,
+        "taskTruthAndEvidenceLimitObservation": null,
+        "issue": null
+      }
+    ],
+    "retryAndCorrectFeedbackActuallyDelivered": null,
+    "savingStatusActuallyDelivered": null,
+    "skipStopAndSessionRestartDelivery": null,
+    "geometryEvidenceExclusionVerifiedByEngineeringOperator": null,
+    "manualAndExploreAssessmentCountsVerifiedByEngineeringOperator": null,
+    "issue": null
+  },
+  "actualNativeBrowserZoom": {
+    "status": "PENDING — UNOBSERVED",
+    "actualBrowserZoomPercent": null,
+    "allEightInitialAndHelpTasksUsable": null,
+    "noHorizontallyClippedAnswers": null,
+    "priorZoomRestored": null,
+    "issue": null
+  },
+  "actualDisconnectedDeviceRestart": {
+    "status": "PENDING — UNOBSERVED",
+    "shellReadyMessageObservedBeforeDisconnect": null,
+    "savedMessageObservedBeforeDisconnect": null,
+    "syntheticBaseline": {
+      "fixedBadge": null,
+      "familyId": null,
+      "uiLocale": null,
+      "instructionLocale": null,
+      "numberSpeechLocale": null,
+      "manualMode": null,
+      "completedCount": null
+    },
+    "ownedListenerStoppedAndConfirmed": null,
+    "physicalDisconnectionMethod": null,
+    "allExternalInterfacesDisconnected": null,
+    "deviceRestartActuallyCompletedWhileDisconnected": null,
+    "sameExactOriginAndBrowserProfileUsed": null,
+    "listenerRemainedStopped": null,
+    "surfaceRenderedWhilePhysicallyDisconnected": null,
+    "savedBaselineMatchedAfterExplicitBadgeSelection": null,
+    "furtherSyntheticTaskSavedWhileDisconnected": null,
+    "newCompletedCount": null,
+    "browserClosedAndReopenedWhileDisconnected": null,
+    "newCountAndPreferencesPersisted": null,
+    "reconnectedOnlyAfterRecordingResults": null,
+    "issue": null
+  },
+  "engineeringReview": {
+    "reviewOccurred": false,
+    "reviewedAtUTC": null,
+    "result": "PENDING — UNREVIEWED",
+    "unresolvedFindings": null,
+    "observedDeviceBuildScope": null,
+    "finalCandidateGatesEvidence": null
+  },
+  "scopeLimits": [
+    "An unfilled template supplies no observation or pass.",
+    "Accessibility trees or application speech do not establish actual screen-reader delivery.",
+    "Browser offline emulation, a proxy or a stopped listener alone do not establish physical disconnection and device restart.",
+    "Only the actually observed device/browser/AT and bound build may receive an observation claim.",
+    "No WCAG, native-language, offline-voice, educational-effectiveness, representative-child or real-child-trial certification follows.",
+    "No accepted-policy change, release, deployment or Phase 4 authority follows."
+  ]
+}

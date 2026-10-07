@@ -1,5 +1,19 @@
 # Security threat model
 
+Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
+The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
+reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator
+content and focus, and an actual externally disconnected-device restart with
+synthetic persistence/reopen checks all PASS on the bound production surface.
+[Closure evidence](PHASE_3_COMPLETION_REPORT.md) retains the precise limits.
+Final closure requires this candidate's complete local/fresh, independent,
+exact-head hosted and protected merge gates; actual final results and merge state
+are recorded in PR #14. Unchanged V2 automatic_when_eligible applies to D52;
+D51's owner_merge milestone is historical after merged PR #13. Owner-approved
+UX, exact engine and conservative evidence scopes remain. No broader device,
+WCAG, language, educational or real-child certification, release, deployment or
+Phase 4 follows. Earlier checkpoint descriptions below retain historical scope.
+
 D50 [Phase 3C child UX reconciliation](PHASE_3C_COMPLETION_REPORT.md) preserves
 the separate capability-gated loopback build, two fixed synthetic identities,
 bounded minimised aggregates and existing epoch/atomic/update boundaries. Badge
@@ -19,11 +33,11 @@ claim follows. D51 records the owner's bounded 2026-10-07 acceptance of the
 eight-family child presentation and separate adult diagnostics:
 **PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
 New owner-confirmation/publication receipts retain only bounded decisions and
-engineering metadata; historical proofs remain frozen. Current diff/privacy/
-integrity and full/fresh gates precede the authorized narrowed feature PR.
-Both PR-specific exact-head CI checks must succeed before the owner-merge handoff.
-`owner_merge` forbids automatic merge; no full-stage, real-child
-use, release or deployment authority follows.
+engineering metadata; historical proofs remain frozen. D51 diff/privacy/
+integrity and full/fresh gates preceded its authorized narrowed feature PR.
+Both PR-specific exact-head CI checks were required before its owner-merge handoff.
+`owner_merge` forbade automatic merge for that milestone; no full-stage, real-child
+use, release or deployment authority followed from D51.
 **FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
 unresolved target AT and disconnected-restart observations.
 
