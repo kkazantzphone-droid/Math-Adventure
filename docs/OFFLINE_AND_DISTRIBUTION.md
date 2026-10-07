@@ -1,17 +1,18 @@
 # Offline operation and distribution
 
-D52's [full Phase 3 audit](PHASE_3_COMPLETION_REPORT.md) begins after the positively
-observed owner merge of [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13)
-at protected-main `ce4eccb87b731a15034950db66c01be9d94e07c8`. Full Phase 3C and
-Phase 3 closure are **BLOCKED — EVIDENCE UNAVAILABLE**: actual target
-device/browser/AT delivery and physically disconnected-device restart remain
-unobserved. The [prepared protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md) uses
-production synthetic output, a retained exact loopback origin/profile and a
-stopped owned listener before physical disconnection and device restart. Those
-preparations, cached-shell checks and browser emulation do not establish physical
-observation. D51's `owner_merge` workflow is historical; D52 uses the unchanged
-V2 Class A/B eligibility contract, with no eligible automatic merge while required
-evidence is missing. No deployment, offline-voice claim, release or Phase 4 follows.
+Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
+The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
+reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator
+content and focus, and an actual externally disconnected-device restart with
+synthetic persistence/reopen checks all PASS on the bound production surface.
+[Closure evidence](PHASE_3_COMPLETION_REPORT.md) retains the precise limits.
+Final closure requires this candidate's complete local/fresh, independent,
+exact-head hosted and protected merge gates; actual final results and merge state
+are recorded in PR #14. Unchanged V2 automatic_when_eligible applies to D52;
+D51's owner_merge milestone is historical after merged PR #13. Owner-approved
+UX, exact engine and conservative evidence scopes remain. No broader device,
+WCAG, language, educational or real-child certification, release, deployment or
+Phase 4 follows. Earlier checkpoint descriptions below retain historical scope.
 
 D51's owner-confirmed synthetic playable/child UX milestone is bounded in the
 [current report](PHASE_3C_COMPLETION_REPORT.md). The documentation-only owner

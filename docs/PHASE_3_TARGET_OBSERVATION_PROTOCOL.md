@@ -1,15 +1,29 @@
 # Phase 3 target observation protocol
 
-Status: **HUMAN OBSERVATION REQUIRED — PENDING**. Prepared on 2026-10-07.
+Status: **COMPLETED — BOUNDED OWNER-REPORTED OBSERVATION PASS**.
+Prepared on 2026-10-07; owner completion reported on 2026-10-07 is recorded
+separately in the
+[bounded owner observation](evidence/phase3c-closure/owner-observation.json).
 The [current production binding](evidence/phase3c-closure/production-binding.json)
 records the repaired code-bearing preparation and nine verified production files.
-Actual current native zoom, AT delivery and physical restart remain unobserved.
-Rebuilding for the owner session must reproduce the bound files before observation.
-This protocol prepares the two mandatory observations in the
+The owner reports PASS for actual current Chrome 200% zoom, Windows 11/Chrome/
+Narrator delivery and focus without unintended duplicate application
+announcements, and
+physically disconnected-device restart at the exact origin with preview stopped
+and the required synthetic local-state persistence/reopen checks passed. This is
+owner-reported physical evidence, not an agent-heard recording or emulation.
+It is an aggregate protocol-completion attestation, without independently reported
+individual subresults. No unreported versions, raw counts or operator identity
+are inferred.
+
+The completed protocol supplies the two mandatory observations in the
 [Phase 3C exit criteria](PHASE_3_IMPLEMENTATION_PLAN.md): actual delivery on one
 device/browser/assistive-technology combination and an actual disconnected-device
-restart. It supplies no observation or pass by itself. The accepted child surface
-and its conservative evidence scopes remain unchanged.
+restart. Its written steps alone supplied no observation; the separate owner
+report supplies the bounded PASS. The accepted child surface and its conservative
+evidence scopes remain unchanged. Final containing-head verification and protected
+merge gates remain required. The directions below are retained for reproducibility;
+they do not ask the owner to repeat the completed session on unchanged inputs.
 
 Use only an adult-operated synthetic session with the existing Star and Triangle
 badges. Do not involve a child or enter names, imports or real learner material.
@@ -25,7 +39,8 @@ names and network identifiers. [ADR-0008](adr/ADR-0008.md) remains applicable.
 
 ## Production preparation and exact origin
 
-The engineering operator prepares this before the owner observation. Use the
+This preparation reference defines the bound production surface and origin used
+in the completed owner report. Retain the reproducible directions below. Use the
 pinned Node and pnpm versions and repository-local Corepack setup from
 [development](DEVELOPMENT.md). Run these commands in the repository root:
 
@@ -98,6 +113,16 @@ separately binds full/fresh verification, audit and independent preparation revi
 to that code-bearing commit. This is a production-renderer build, separate from
 the test/development renderer used by the automated native suite.
 
+The prepared documentation head `f6c6328ed1950e94042fa241281897dc66bdaf59`, tree
+`b28ee24f6af76ad6d101a8d935114309a4c803ec`, changed only seven
+documentation/evidence files relative to that code-bearing commit. Its explicit
+proof mapping checked 377 source bindings and all nine rebuilt production files
+unchanged, with zero executable/build-input differences. The owner
+observation therefore applies to the bound repaired production surface; it does
+not certify later documentation, CI or merge state. The production record's
+earlier unobserved fields remain historical; the owner record supplies the later
+observations without rewriting that preparation receipt.
+
 - Shell ID: `16c1a51db6e8b19ee208ff149ededf86ecaf4ac7cd2316f5202de5b40ada1009`.
 - Release ID: `sha256-5c30f781bd75ed2981a8fc97b5d285bd26ea6043d70154a3ee06142a316ddec7`.
 - The release declares seven essential files; `release.json` and `sw.js` bring
@@ -129,7 +154,8 @@ the phrase “same candidate” is insufficient evidence.
 ## Current actual browser zoom
 
 The earlier merged-ce4 [native zoom receipt](evidence/phase3c-closure/native-observation.json)
-is historical. The repaired current production build requires its own observation.
+is historical. The owner's completed current-build observation supplies the
+separate native 200% Chrome zoom PASS. The checklist below is retained reference.
 
 1. On the bound current surface, use the browser's native zoom control to set
    **200%**. Record the actual setting; CSS text scaling is separate evidence.
@@ -142,6 +168,11 @@ is historical. The repaired current production build requires its own observatio
    is required. This observation does not establish AT delivery or physical restart.
 
 ## Actual screen-reader delivery
+
+The completed owner report supplies actual Windows 11/Chrome/Narrator delivery
+and useful focus, without unintended duplicate application announcements, for
+the bound
+production surface. The following checklist remains the bounded protocol reference.
 
 The owner observes one named combination, such as the current Windows device,
 installed Chrome and an available screen reader. Use an existing permitted AT;
@@ -196,6 +227,12 @@ screen-reader process presence or application speech is not delivered AT evidenc
 
 ## Actual physically disconnected-device restart
 
+The owner reports completing the physical restart with external networking
+disconnected, preview stopped and the prepared exact origin; the application
+remained usable after the real restart and required synthetic persistence/reopen
+checks passed. The checklist
+below preserves the observation method, without new device or durability claims.
+
 The owner performs the physical actions. Browser offline emulation, an owned
 proxy or a stopped local listener alone cannot satisfy this observation.
 
@@ -232,5 +269,7 @@ An actual observation can support only the recorded device/browser/AT and build.
 It is not WCAG certification, a supported-device floor, native-language review,
 offline-voice certification, educational effectiveness, representative child
 research or real-child trial evidence. It grants no release, deployment, policy
-change or Phase 4 authority. Phase 3 remains open until its required observations,
-remaining engineering checks and publication/merge gates are genuinely satisfied.
+change or Phase 4 authority. The required bounded observations have now been
+reported; formal Phase 3 closure still requires the final exact-head engineering,
+publication and protected-merge gates. This protocol makes no future CI or
+already-merged claim.

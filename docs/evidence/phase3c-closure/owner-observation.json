@@ -1,0 +1,131 @@
+{
+  "schema": "phase3c-owner-target-observation-v1",
+  "status": "PASS — BOUNDED OWNER OBSERVATION",
+  "isUnfilledTemplate": false,
+  "reportedOn": "2026-10-07",
+  "actualObservationTimestampUTC": null,
+  "provenance": {
+    "source": "Direct owner message in the existing Phase 3 closure Goal",
+    "ownerReportedPreparedProtocolCompleted": true,
+    "agentObservedThePhysicalSession": false
+  },
+  "sourceStatement": "I completed the prepared Phase 3 target observation protocol on the current bound production surface.\n\nObserved results:\n\n- Chrome native 200% zoom: PASS.\n  The child experience remained readable and operable across the activity families and help flow, with no material clipping or unusable layout observed.\n\n- Actual assistive-technology delivery: PASS.\n  Windows 11 + Google Chrome + Windows Narrator.\n  Math Adventure controls, navigation, task content, answer controls, help and feedback were delivered intelligibly.\n  Focus remained usable.\n  No unintended duplicate application announcements were observed.\n  Normal Chrome/browser UI announcements were distinguishable from the Math Adventure content.\n\n- Actual physically disconnected-device restart: PASS.\n  The observation was completed using the prepared exact origin with the local preview stopped and the device externally disconnected.\n  The application remained usable after the real device restart and the required synthetic local-state persistence/reopen checks passed.\n\nThis is a bounded owner observation only for the actual tested environment.\nDo not generalize it into broader device, WCAG, language, educational or real-child certification.",
+  "protocol": "docs/PHASE_3_TARGET_OBSERVATION_PROTOCOL.md",
+  "productionBinding": {
+    "path": "docs/evidence/phase3c-closure/production-binding.json",
+    "sha256": "f4f3c1f068514c4dbfadb06f9a58a797a86c760967be44ed95b75934d345f695",
+    "sourceCommit": "14fe8e10e90472b7cbaa2b6c7e827220fd530620",
+    "sourceTree": "8f3a10bcc8c7a9adeca7192684b64fbac5faf118",
+    "shellId": "16c1a51db6e8b19ee208ff149ededf86ecaf4ac7cd2316f5202de5b40ada1009",
+    "releaseId": "sha256-5c30f781bd75ed2981a8fc97b5d285bd26ea6043d70154a3ee06142a316ddec7",
+    "artifacts": [
+      {
+        "path": "assets/index-B3cGK_KG.js",
+        "bytes": 421394,
+        "sha256": "d7d5313cbcf5549bfdec96fd21c06f81ed7a985bd9a425d1282e594304125ad4"
+      },
+      {
+        "path": "assets/index-CR5vbDeH.css",
+        "bytes": 14365,
+        "sha256": "9af6dfbaa7d5139cb7cfb082f993986a7d25e08cd32b90e802e5775ad59849b8"
+      },
+      {
+        "path": "icons/math-adventure.svg",
+        "bytes": 431,
+        "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+      },
+      {
+        "path": "index.html",
+        "bytes": 709,
+        "sha256": "6df77855d213a4ae16b4eac9c95e082b11f72c7bc34cade594cf80e9ddc74690"
+      },
+      {
+        "path": "learner-reader.json",
+        "bytes": 92,
+        "sha256": "ddf50ce505975737ab6c208383f265e16fcaba65d3560035fa2db7d5767a0447"
+      },
+      {
+        "path": "manifest.webmanifest",
+        "bytes": 440,
+        "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+      },
+      {
+        "path": "release.json",
+        "bytes": 1452,
+        "sha256": "c8a6f9eb0e6382f51c6837bf50422057d6d8bbca4411b52863c812fb087141c1"
+      },
+      {
+        "path": "sw.js",
+        "bytes": 22636,
+        "sha256": "42d08017a5eb3c2504962f6932f43be6b1141fa9cd3c4cecf17958141bcb3b4d"
+      },
+      {
+        "path": "THIRD_PARTY_NOTICES.txt",
+        "bytes": 1384,
+        "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+      }
+    ],
+    "preparedOrigin": "http://127.0.0.1:4178/",
+    "originBasis": "Engineering protocol supplies this literal origin; owner reports use of the prepared exact origin without separately spelling the URL",
+    "preparedContainingHead": "f6c6328ed1950e94042fa241281897dc66bdaf59",
+    "preparedContainingTree": "b28ee24f6af76ad6d101a8d935114309a4c803ec",
+    "equivalence": "The prepared containing head changes only five Markdown documents and two inert evidence JSON files from the bound code commit; 377 source bindings and all nine rebuilt production files were checked unchanged. The final closure head requires its own explicit proof mapping and gates."
+  },
+  "environment": {
+    "operatingSystem": "Windows 11",
+    "browser": "Google Chrome",
+    "assistiveTechnology": "Windows Narrator",
+    "operatingSystemBuild": null,
+    "browserVersion": null,
+    "assistiveTechnologyVersion": null,
+    "deviceModel": null,
+    "metadataLimit": "Exact builds, model, locale roles and physical interface method were not separately reported; none are inferred from earlier agent observations"
+  },
+  "nativeBrowserZoom": {
+    "result": "PASS",
+    "percent": 200,
+    "reportedReadableAndOperableAcrossFamiliesAndHelp": true,
+    "reportedNoMaterialClippingOrUnusableLayout": true
+  },
+  "deliveredAssistiveTechnology": {
+    "result": "PASS",
+    "reportedIntelligible": [
+      "controls",
+      "navigation",
+      "task content",
+      "answer controls",
+      "help",
+      "feedback"
+    ],
+    "reportedUsableFocus": true,
+    "reportedNoUnintendedDuplicateApplicationAnnouncements": true,
+    "reportedBrowserAnnouncementsDistinguishable": true
+  },
+  "physicallyDisconnectedDeviceRestart": {
+    "result": "PASS",
+    "reportedPreparedExactOrigin": true,
+    "reportedLocalPreviewStopped": true,
+    "reportedExternalDisconnection": true,
+    "reportedRealDeviceRestart": true,
+    "reportedApplicationUsableAfterRestart": true,
+    "reportedRequiredSyntheticPersistenceAndReopenChecksPassed": true
+  },
+  "granularity": "Aggregate protocol-completion attestation with the explicit results above; no independently reported per-family subresults, counts, task values, profile details, cache measurements or timestamps are manufactured",
+  "privacy": {
+    "retainedMaterial": "Owner statement, generic environment, existing production hashes and bounded results only",
+    "realLearnerMaterialRetained": false,
+    "mediaRawDatabaseExportsProfilesAndIdentifyingLogsRetained": false
+  },
+  "exclusions": [
+    "Broader device support or certification",
+    "WCAG certification",
+    "Native-language certification",
+    "Educational effectiveness",
+    "Representative child research",
+    "Real-child trial evidence",
+    "Offline product-voice certification",
+    "Release or deployment",
+    "Phase 4 or new product/privacy/educational policy"
+  ],
+  "remainingConditions": "Final candidate local/fresh, independent, integrity/audit, exact-head PR-specific hosted and protected merge gates remain mandatory; this observation supplies no verification of those later gates"
+}

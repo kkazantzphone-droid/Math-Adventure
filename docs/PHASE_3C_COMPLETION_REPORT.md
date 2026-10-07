@@ -1,13 +1,18 @@
 # Phase 3C — closure evidence and preserved child UX milestone
 
-Current D52 Goal: **FULL PHASE 3C / PHASE 3 — BLOCKED — EVIDENCE UNAVAILABLE**.
+Current D52/D53 acceptance: **PHASE 3C / PHASE 3 — PASS, BOUNDED SYNTHETIC SCOPE**.
 The owner-confirmed milestone below is now merged in [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13)
 at protected-main squash `ce4eccb87b731a15034950db66c01be9d94e07c8`.
 The [Phase 3 closure report](PHASE_3_COMPLETION_REPORT.md) records acceptance
 reconciliation, added width/touch coverage, historical ce4 native Chrome zoom, remaining
-AT/physical-restart limits and the [prepared owner protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md).
-No full completion is claimed. The new Goal permits qualifying Class A/B merge
-under unchanged V2 governance; missing required evidence currently forbids it.
+AT/physical-restart limits and the [completed owner protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md).
+The [owner observation](evidence/phase3c-closure/owner-observation.json) now supplies
+current native zoom, actual Windows 11 / Chrome / Narrator delivery and physical
+disconnected restart/persistence PASS. Full closure requires the final candidate's
+own local/fresh, independent, exact-head hosted and protected merge gates; their
+actual results and merge state belong in PR #14. Unchanged V2 eligibility applies.
+This is contained synthetic closure, with no broader device, WCAG, language,
+educational or real-child certification, release, deployment or Phase 4.
 
 ## Historical D50/D51 owner-confirmed milestone record
 

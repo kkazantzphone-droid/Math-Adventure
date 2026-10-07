@@ -1,12 +1,18 @@
 # Development
 
-Current D52 [Phase 3 closure work](PHASE_3_COMPLETION_REPORT.md) follows the observed
-owner merge of PR #13. Full closure remains blocked by actual AT delivery and
-physical disconnected restart. Use the [production observation protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md)
-for that remaining synthetic-only session; the development server below is not
-an offline observation substitute. D51's publication instructions below are
-historical. Qualifying work may merge only under all unchanged V2 gates; this
-full-closure candidate currently lacks required evidence.
+Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
+The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
+reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator
+content and focus, and an actual externally disconnected-device restart with
+synthetic persistence/reopen checks all PASS on the bound production surface.
+[Closure evidence](PHASE_3_COMPLETION_REPORT.md) retains the precise limits.
+Final closure requires this candidate's complete local/fresh, independent,
+exact-head hosted and protected merge gates; actual final results and merge state
+are recorded in PR #14. Unchanged V2 automatic_when_eligible applies to D52;
+D51's owner_merge milestone is historical after merged PR #13. Owner-approved
+UX, exact engine and conservative evidence scopes remain. No broader device,
+WCAG, language, educational or real-child certification, release, deployment or
+Phase 4 follows. Earlier checkpoint descriptions below retain historical scope.
 
 Phase 3C has a separate fixed-profile synthetic playable loop with an
 owner-confirmed child presentation and separate developer diagnostics. D51's

@@ -1,12 +1,18 @@
 # Requirement traceability
 
-Current D52 [closure reconciliation](PHASE_3_COMPLETION_REPORT.md) follows merged
-PR #13. Full Phase 3C/Phase 3 remain blocked by mandatory actual AT delivery and
-physical disconnected restart. Added layout/touch coverage and historical ce4
-Chrome zoom are bounded engineering evidence; repaired-source native zoom remains
-pending. The [prepared protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md)
-supplies no external observation. All V2 eligibility gates still apply. The
-D49–D51 milestone/publication descriptions below retain their historical scope.
+Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
+The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
+reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator
+content and focus, and an actual externally disconnected-device restart with
+synthetic persistence/reopen checks all PASS on the bound production surface.
+[Closure evidence](PHASE_3_COMPLETION_REPORT.md) retains the precise limits.
+Final closure requires this candidate's complete local/fresh, independent,
+exact-head hosted and protected merge gates; actual final results and merge state
+are recorded in PR #14. Unchanged V2 automatic_when_eligible applies to D52;
+D51's owner_merge milestone is historical after merged PR #13. Owner-approved
+UX, exact engine and conservative evidence scopes remain. No broader device,
+WCAG, language, educational or real-child certification, release, deployment or
+Phase 4 follows. Earlier checkpoint descriptions below retain historical scope.
 
 ## Phase 3C playable synthetic loop and owner-confirmed child UX (D49/D50/D51)
 
@@ -14,9 +20,9 @@ D49–D51 milestone/publication descriptions below retain their historical scope
 | --- | --- | --- |
 | R11/R13/R14/R31 exact task contracts | Preserved eight-family engine/replay/answer-free facades; reusable direct child cards map to existing structured answers; progressive visual help preserves task data | Five new families remain `limitedEvidence`; child shape recognition is excluded from full attribute classification; no new mastery/educational claim |
 | R05/R08/R22/R23/R27 state and evidence honesty | Existing atomic adapter/codec/retry/delete/update tests retained; child mode preserves maximum help/attempts and narrowed scope through pending retry | Manual session/completion/preferences are distinct from assessment evidence; Explore is session-only; normal product composition remains unwired |
-| R18/R20/R24/R25 child interaction | Owner manually confirms all eight families' direct answers, visual help, Star/Triangle badges, Play/Shapes/Explore and separate adult diagnostics on 2026-10-07; preserved native54 matrices and rendered review remain source-bound | Bounded owner product confirmation only; actual target AT delivery, native-language/WCAG certification and representative child/effectiveness evidence remain separate |
+| R18/R20/R24/R25 child interaction | Owner manually confirms all eight families' direct answers, visual help, Star/Triangle badges, Play/Shapes/Explore and separate adult diagnostics on 2026-10-07; preserved native54 matrices and rendered review remain source-bound | Bounded owner product confirmation; actual AT delivery is separately owner-observed for Windows 11 / Chrome / Narrator. Native-language/WCAG certification and representative child/effectiveness evidence remain separate |
 | R31/R35/R38 verification and preservation | Preserved full/fresh 1,249 tests/62 files/32 governance fixtures, original36 plus child18 per product, 13 restored mutations, source/privacy review and normal eight-artifact equality in [report](PHASE_3C_COMPLETION_REPORT.md) | Current documentation/publication requires new full/fresh, independent review and both exact-head required CI successes; test/development and production artifacts bind separately; earlier static29-file snapshot is not the final inventory |
-| R24/R26/R28 complete-stage observations | Existing permitted capability audit and bounded native lifecycle proof remain preserved | Actual target AT output/disconnected restart are PENDING EXTERNAL EVIDENCE; owner UX PASS does not close them or permit full-stage publication |
+| R24/R26/R28 complete-stage observations | Existing permitted capability audit and bounded native lifecycle proof remain preserved | Current bound target observations are supplied separately by the [owner receipt](evidence/phase3c-closure/owner-observation.json); final complete local/fresh, independent and protected publication/merge gates remain required |
 
 The attained milestone is
 **PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS** under D51.

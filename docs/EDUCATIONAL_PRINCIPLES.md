@@ -2,18 +2,19 @@
 
 Status: accepted product constraints; instructional details remain hypotheses to evaluate.
 
-D52's [Phase 3 closure audit](PHASE_3_COMPLETION_REPORT.md) follows the positively
-observed owner merge of [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13)
-at protected-main `ce4eccb87b731a15034950db66c01be9d94e07c8`. The owner-approved
-child presentation remains bounded product confirmation, without educational
-effectiveness or representative child evidence. Full Phase 3C and Phase 3 closure
-are **BLOCKED — EVIDENCE UNAVAILABLE** pending actual target device/browser/AT
-delivery and physically disconnected-device restart under the
-[prepared protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md). D51's `owner_merge`
-publication workflow is historical; D52 uses unchanged V2 eligibility for
-qualifying Class A/B work, with no eligible automatic merge while mandatory
-evidence is missing. Educational policy stays proposed where already proposed;
-no real-child use, release or Phase 4 is authorized.
+Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
+The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
+reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator
+content and focus, and an actual externally disconnected-device restart with
+synthetic persistence/reopen checks all PASS on the bound production surface.
+[Closure evidence](PHASE_3_COMPLETION_REPORT.md) retains the precise limits.
+Final closure requires this candidate's complete local/fresh, independent,
+exact-head hosted and protected merge gates; actual final results and merge state
+are recorded in PR #14. Unchanged V2 automatic_when_eligible applies to D52;
+D51's owner_merge milestone is historical after merged PR #13. Owner-approved
+UX, exact engine and conservative evidence scopes remain. No broader device,
+WCAG, language, educational or real-child certification, release, deployment or
+Phase 4 follows. Earlier checkpoint descriptions below retain historical scope.
 
 | Principle | Required design consequence |
 | --- | --- |

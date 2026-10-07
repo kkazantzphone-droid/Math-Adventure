@@ -1,15 +1,18 @@
 # Roadmap
 
-Current **D52** Goal requests full Phase 3C completion and Phase 3 closure after
-observed owner merge of [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13)
-at `ce4eccb87b731a15034950db66c01be9d94e07c8`. Both remain
-**BLOCKED — EVIDENCE UNAVAILABLE** in the [closure report](PHASE_3_COMPLETION_REPORT.md).
-Owner-approved child UX is preserved; actual AT delivery and physically
-disconnected restart remain mandatory. The [observation protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md)
-prepares the precise remaining owner action. The new Goal permits qualifying
-Class A/B merge under unchanged V2, but missing required proof forbids current
-full-closure merge. Phase 4 is not authorized. D51's publication summaries below
-are historical descriptions of the now-merged milestone.
+Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
+The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
+reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator
+content and focus, and an actual externally disconnected-device restart with
+synthetic persistence/reopen checks all PASS on the bound production surface.
+[Closure evidence](PHASE_3_COMPLETION_REPORT.md) retains the precise limits.
+Final closure requires this candidate's complete local/fresh, independent,
+exact-head hosted and protected merge gates; actual final results and merge state
+are recorded in PR #14. Unchanged V2 automatic_when_eligible applies to D52;
+D51's owner_merge milestone is historical after merged PR #13. Owner-approved
+UX, exact engine and conservative evidence scopes remain. No broader device,
+WCAG, language, educational or real-child certification, release, deployment or
+Phase 4 follows. Earlier checkpoint descriptions below retain historical scope.
 
 Historical D51 records the owner's bounded child UX PASS on 2026-10-07 after manual
 review of the existing D49/D50 synthetic Phase 3C surface. All eight families'
