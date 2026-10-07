@@ -6,7 +6,7 @@ native answer cards, one mathematical decision, Star/Triangle badges and short
 Play/Shapes/Explore navigation; developer controls/diagnostics are unmounted from
 its accessibility tree. Show me changes visual scaffolding progressively and
 retains help focus; keyboard answers reach useful retry/feedback/next actions.
-Replay cannot reduce the maximum recorded help. All eight families pass current
+Replay cannot reduce the maximum recorded help. All eight families pass retained source-bound
 rendered Chrome/Edge keyboard/focus, 320px,
 200% deliberate text scaling, portrait/landscape, mixed-language, forced-colour
 and reduced-motion review. Dark interactive-dot backgrounds, clipped semantic
@@ -17,10 +17,16 @@ in the report; test/development and production artifacts have separate bindings.
 Narrow child shape recognition is excluded from full classification assessment;
 counted descriptions do not establish visual numeral/counting skill. Native
 button/ARIA associations and browser accessibility snapshots cannot prove actual
-screen-reader delivery. Target device/browser/AT output remains unavailable, and
-no WCAG conformance claim follows. **ENGINEERING PASS — READY FOR CHILD UX
-CONFIRMATION** awaits owner child UX
-confirmation under `owner_merge`; this does not close complete-stage device gates.
+screen-reader delivery. D51 records the owner's 2026-10-07 manual acceptance of
+the eight-family direct interaction, visual help, badge identities, navigation
+and separate diagnostics within bounded owner product review:
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
+target device/browser/AT output and actual disconnected restart. No WCAG,
+representative child research, educational or native-language certification follows.
+Current full/fresh and independent review precede the authorized narrowed feature
+publication. Both PR-specific exact-head hosted checks must succeed before the
+owner-merge handoff; `owner_merge` remains.
 
 Merged D44 offline/update UI: concise shell status, native adult details and a Home-only explicit update button distinguish cached readiness from speech and unsaved progress. The all-tab boundary pauses interactions and cancels speech before acknowledgement, then recovers coherently. Blocked attempts restore the requesting control's focus. Draft el-GR/en-GB/de-DE copy is not an official language claim. Recorded rendered keyboard/reflow/text/contrast/focus observations and unavailable AT/device evidence belong in the [Phase 1E report](PHASE_1E_COMPLETION_REPORT.md).
 

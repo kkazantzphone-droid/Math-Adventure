@@ -5,19 +5,27 @@ the separate capability-gated loopback build, two fixed synthetic identities,
 bounded minimised aggregates and existing epoch/atomic/update boundaries. Badge
 names are presentation only, never arbitrary learner input. The deliberate
 grown-up/developer switch unmounts diagnostics in child mode; it is convenience,
-not authentication or a security boundary. Current review checks transitive
+not authentication or a security boundary. Preserved review checks transitive
 ordinary-build containment, unchanged pins/lock and infrastructure, no answer
 leakage in child markup/labels, no new learner wire/storage fields, safe narrowed
 geometry scope and maximum-help preservation across view changes. Existing
-engineering assertions remain; both native54 matrices pass with zero external,
-learner-bearing outbound, page-error or dropped-observation counters. Current
+engineering assertions remain; both retained native54 matrices pass with zero external,
+learner-bearing outbound, page-error or dropped-observation counters. Those
 network/privacy observations are recorded separately from historical PASS.
 Source, pin/lock and normal eight-artifact equality pass. Only bounded synthetic hashes/counts
 and sanitised observations are retained, never raw records/profiles/media/logs.
 No backend, telemetry, cloud, access expansion, deployment or security assurance
-claim follows. **ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION** leaves owner
-acceptance pending; `owner_merge` forbids automatic merge/final publication. Final
-documentation/evidence integrity is checked again before local preservation.
+claim follows. D51 records the owner's bounded 2026-10-07 acceptance of the
+eight-family child presentation and separate adult diagnostics:
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+New owner-confirmation/publication receipts retain only bounded decisions and
+engineering metadata; historical proofs remain frozen. Current diff/privacy/
+integrity and full/fresh gates precede the authorized narrowed feature PR.
+Both PR-specific exact-head CI checks must succeed before the owner-merge handoff.
+`owner_merge` forbids automatic merge; no full-stage, real-child
+use, release or deployment authority follows.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
+unresolved target AT and disconnected-restart observations.
 
 Historical Phase 3 readiness adds a [stage-specific threat review and controls](PHASE_3_IMPLEMENTATION_PLAN.md)
 for local learner data, stale tabs, receipts, eviction, migrations, deletion,

@@ -1,6 +1,6 @@
 # Architecture
 
-D49/D50 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) retains the
+D49/D50/D51 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) retains the
 separate capability-gated loopback build, outside normal product composition.
 Reusable child answer cards/tokens/shape/layout components adapt direct choices
 to existing structured answers; domain still regenerates replay and decides
@@ -10,13 +10,16 @@ Child shape recognition uses existing inaccessible-scope exclusion rather than
 full classification credit. The application aggregate, Phase 3A atomic adapter,
 proposed Phase 3B policy, replay and learner-data lifecycle port are preserved;
 five new families remain `limitedEvidence`. No ordinary product database import,
-backend or new dependency is introduced. Full/fresh source gates and both native
+backend or new dependency is introduced. Preserved full/fresh source gates and both native
 54-case matrices pass; normal eight artifacts are byte-equal to the preserved
 engine. Native test/development rendering and the separately reviewed production
-renderer bind their own artifacts. **ENGINEERING PASS — READY FOR CHILD UX
-CONFIRMATION** leaves owner acceptance separate from unavailable complete-stage
-AT/disconnected proof; final documentation/evidence is reverified before preservation;
-`owner_merge` applies. No accepted architecture/ADR change follows.
+renderer bind their own artifacts. On 2026-10-07 the owner confirmed the direct
+eight-family child answers, visual help, badges/navigation and separate diagnostics:
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+The documentation-only publication continuation requires new full/fresh and
+exact-head required CI evidence; `owner_merge` applies.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** remains
+distinct. No accepted architecture/ADR, real-child use or next-phase change follows.
 
 Merged checkpoint 7 (D44): composition injects a presentation-only offline port. Infrastructure owns native worker/cache/registration/update effects, presentation owns draft copy and capability contracts, and UI owns status and the explicit Home update control. `scripts/pwa-build.ts` emits the bounded hashed release and worker. Domain/application truth, replay and integrity remain unchanged. See [design](PHASE_1E_OFFLINE_DESIGN.md), [evidence](PHASE_1E_COMPLETION_REPORT.md) and [consolidated closure](PHASE_1_COMPLETION_REPORT.md).
 

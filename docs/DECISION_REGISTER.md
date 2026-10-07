@@ -1,18 +1,21 @@
 # Decision register
 
-Current owner steer D50 continues D49 Phase 3C from preserved engine
-`6828919b22cc96a2e4d4aeddd24f2447248d90ef`. The owner found the real playable
-presentation too dependent on computer literacy and requires a child layer for
-all eight families: direct cards, visual help, Star/Triangle badges and separate
-developer inspection. `merge_policy: owner_merge` supersedes D49's initial
-automatic-when-eligible policy. [Current evidence](PHASE_3C_COMPLETION_REPORT.md)
-records **ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION** after observed
-full/fresh 1,249-test/62-file gates, both native 54-case matrices, 13 restored
-assertion mutations and independent rendered/privacy review. Final maintained
-documentation/evidence is reverified before local preservation; owner confirmation
-remains pending. Full-stage
-target AT delivery and actual disconnected restart remain unavailable; no full
-Phase 3C PASS, automatic merge, final publication or real-child use follows.
+Current owner decision D51 confirms the reconciled D49/D50 child surface on
+2026-10-07, after the owner's manual review of all eight families. Direct answers,
+progressive visual help, Star/Triangle badges, Play/Shapes/Explore and separate
+adult diagnostics resolve the material product finding within bounded owner
+confirmation. [Current evidence](PHASE_3C_COMPLETION_REPORT.md) records
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+The engine remains `6828919b22cc96a2e4d4aeddd24f2447248d90ef`, with the reconciled
+presentation preserved at `115e427a94c4cb46fbe9e793299dfff29a453830`.
+D51 authorizes current documentation/full/fresh verification, feature push and
+a non-draft PR for this narrowed milestone, including ordinary CI repair until
+both required Ubuntu/Windows jobs succeed at the exact PR head. Those new gates
+must be observed; the retained 1,249-test/62-file, native54, mutation and rendered
+proofs certify their original sources. `merge_policy: owner_merge` remains.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** covers
+unresolved target AT delivery and actual disconnected restart. No automatic
+merge, full-stage completion, real-child research/use, release or next phase follows.
 The original engine report/evidence remain frozen. V2 is effective after the
 positively observed owner merge `be1bd7735491df8cc2abe19645ec65b393d0aa6b` (PR #12),
 within its unchanged eligibility contract and this narrower owner policy.
@@ -23,9 +26,9 @@ contains owner-merged synthetic Phase 3B. [V2 evidence](CODEX_AUTOMERGE_GOVERNAN
 records candidate checks/publication separately. That authority-expanding PR
 required owner merge; the policy became effective on the observed merge recorded
 above. D48 itself authorized no Phase 3C, product/accepted ADR change, real-child
-use, release or deployment; D49/D50 carry the current bounded product task.
+use, release or deployment; D49/D50/D51 carry the current bounded product task.
 
-As of 2026-10-06. ACCEPTED means a recorded architecture/product constraint or explicit owner decision, **not implementation or educational validation**. D17 records the owner's license selection. PROPOSED details remain reviewable. IDs here are stable references; ADRs contain rationale.
+As of 2026-10-07. ACCEPTED means a recorded architecture/product constraint or explicit owner decision, **not implementation or educational validation**. D17 records the owner's license selection. PROPOSED details remain reviewable. IDs here are stable references; ADRs contain rationale.
 
 Current state: Phase 1A/1B/1C/owner-confirmed 1V/1D/1E are complete at the bounded
 gates in [Phase 1 closure](PHASE_1_COMPLETION_REPORT.md). Phase 1E is owner-merged
@@ -102,21 +105,24 @@ No Phase 3 implementation or real-child use follows from this certification.
 | D47 | Owner authorizes synthetic-only Phase 3B: pure explainable adaptation, bounded semantic catalog certification, explicit experimental policy, independent fairness/state/privacy/accessibility/testing review and mutation proof | ACCEPTED task scope only; educational policy remains proposed; certification/publication recorded separately | Owner Goal 2026-10-06; owner-merged 3A base `9f60daf60ef0563682d6a2e498f95ea02f4cbe4e`; [completion](PHASE_3B_COMPLETION_REPORT.md). Fixed synthetic profiles in existing separate developer build; no normal child selection/persistence/default enablement, new dependency, accepted ADR/policy, real data/trials, 3C, merge/release/deployment |
 | D48 | Owner permits autonomous squash merge of qualifying Class A/B Codex PRs only after exact-head local/independent/PR-specific hosted evidence and every operating-model eligibility condition | ACCEPTED explicit owner governance decision 2026-10-06; effective for future qualifying PRs only after observed manual owner merge of this V2 governance PR | [Operating model](CODEX_OPERATING_MODEL.md#automatic-squash-merge-eligibility), [templates](CODEX_TASK_TEMPLATES.md), [V2 report](CODEX_AUTOMERGE_GOVERNANCE_REPORT.md). Same-repository authorized objective/branch, current main/base, full/fresh proof, actual Ubuntu+Windows PR SUCCESS, clean/mergeable/resolved/protected PR and accurate evidence; fresh guarded squash and verified post-merge state. Excludes self-expanding governance, Class C decisions/actions, release/deployment and protection/access changes. This PR uses owner_merge; V1 remains in force until its owner merge. No new phase or product policy follows |
 | D49 | Owner authorizes the synthetic-only first playable Phase 3C loop after positively observed Governance V2 merge | ACCEPTED bounded task scope; engine preserved at `6828919b22cc96a2e4d4aeddd24f2447248d90ef`; complete-stage device/AT evidence unavailable | [Engine milestone](evidence/phase3c/engine-milestone.txt) preserves original verification. Eight families/two fixed profiles, exact replay, atomic state, explicit proposed-policy adaptation and update guards; no real learners, final certification or next phase. D50 narrows the current merge policy |
-| D50 | Owner's material UX finding requires a genuine child presentation over the preserved Phase 3C engine, with all eight families reviewed individually and developer diagnostics separate | ACCEPTED owner finding/task steer 2026-10-06; ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION; owner confirmation pending | [Current report](PHASE_3C_COMPLETION_REPORT.md). Direct answer cards, one decision at a time, progressive visual Show me, Star/Triangle badges, Play/Shapes/Explore and conservative shape evidence. Full/fresh, both 54-case matrices, 13 restored mutations and bounded independent reviews pass; final documentation gates precede preservation. `owner_merge`; no engine redesign, final publication, auto-merge, real-child use or Phase 4 |
+| D50 | Owner's material UX finding requires a genuine child presentation over the preserved Phase 3C engine, with all eight families reviewed individually and developer diagnostics separate | ACCEPTED owner finding/task steer 2026-10-06; historical engineering readiness preserved at `115e427`; owner confirmation subsequently recorded under D51 | [Current report](PHASE_3C_COMPLETION_REPORT.md). Direct answer cards, one decision at a time, progressive visual Show me, Star/Triangle badges, Play/Shapes/Explore and conservative shape evidence. Original full/fresh, both 54-case matrices, 13 restored mutations and bounded independent reviews remain source-bound. `owner_merge`; no engine redesign, automatic merge, real-child use or Phase 4 |
+| D51 | Owner confirms the reconciled eight-family child presentation and authorizes publication of the narrowed playable synthetic loop plus child UX milestone | ACCEPTED bounded owner product confirmation and workflow authorization 2026-10-07; PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS; Q19 closed | [Owner confirmation](evidence/phase3c-child-ux/owner-confirmation.json), [current report](PHASE_3C_COMPLETION_REPORT.md). Direct answers, progressive visual help, badge identities, simple navigation and separate adult diagnostics accepted. Reconcile docs, rerun current full/fresh, push existing feature branch, open/update non-draft PR and repair ordinary CI until exact-head `verify (ubuntu-24.04)` and `verify (windows-2025)` both SUCCESS. `owner_merge` remains; FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE. No representative child research, educational/WCAG/native-language/real-child certification, automatic merge, release/deployment or next phase |
 
 D49's initial automatic-when-eligible scope is preserved in the engine milestone;
-the latest D50 owner steering sets `owner_merge` and requires child UX
-reconciliation before owner confirmation. The engine and existing tests remain.
+D50 set `owner_merge` and required child UX reconciliation; D51 records the later
+bounded owner confirmation and narrowed feature-publication authority without
+changing that merge policy. The engine and existing tests remain.
 Manual activity adds no assessment observations, the existing three-family
 proposed policy remains unchanged and the five new families stay `limitedEvidence`.
 Child shape matching is narrower than full attribute classification and uses the
 existing inaccessible-scope exclusion; failed-save retry preserves that scope.
 Full/fresh, native Chrome/Edge, mutations, privacy and independent child review
-bind the current source candidate. Repaired contrast, semantic descriptions,
+bind their preserved source candidate. Repaired contrast, semantic descriptions,
 word reflow, visual replay and keyboard order retain the original assertions;
 test/development and production renderer artifacts have distinct evidence.
-Actual target AT/disconnected evidence remains
-unavailable; engineering readiness does not close those complete-stage gates.
+Current documentation/publication requires its own observed full/fresh, independent
+review and exact-head hosted jobs. Actual target AT/disconnected evidence remains
+pending externally; owner product confirmation does not close those complete-stage gates.
 
 Preserved D47 synthetic candidate evidence supersedes earlier descriptions of
 unimplemented adaptation only within the developer proof; normal composition

@@ -1,9 +1,10 @@
 # Phase 3C — child UX reconciliation
 
-Date: **2026-10-06, Europe/Athens**. Current engineering status:
-**ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION**.
-Owner confirmation is **PENDING**. `merge_policy: owner_merge` applies;
-there is no automatic merge or final Phase 3C publication.
+Updated: **2026-10-07, Europe/Athens**. Bounded milestone status:
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+The owner manually reviewed and confirmed the reconciled child surface on
+2026-10-07. `merge_policy: owner_merge` remains; feature-branch publication of
+this narrowed milestone is authorized after the current verification gates.
 
 The owner manually reviewed the real synthetic playable surface and found the
 engine substantially complete, while dropdowns, small selection conventions,
@@ -11,17 +12,29 @@ adult geometry diagnostics, prose-led help and the eight-family catalog made the
 presentation too dependent on computer literacy. This material product finding
 supersedes the previous automatic-when-eligible task policy. The reconciliation
 preserves the engine and adds a child presentation layer for every existing family.
+The subsequent [owner confirmation](evidence/phase3c-child-ux/owner-confirmation.json)
+accepts all eight families for the six-year-old-first presentation: direct answers,
+removal of dropdown/computer-literacy barriers, progressive visual help,
+Star/Triangle identities, Play/Shapes/Explore and separate adult diagnostics.
+This is bounded owner product confirmation, not representative child research,
+educational-effectiveness evidence, WCAG or native-language certification, or
+real-child trial evidence.
 
-Full-stage certification remains distinct: actual target device/browser/assistive
-technology delivery and an actual disconnected device restart remain
-**BLOCKED — REQUIRED EVIDENCE UNAVAILABLE**. The new engineering/owner-confirmation
-gate does not claim those observations or waive the complete-stage requirements.
+Full-stage status is
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE**.
+Actual target device/browser/assistive-technology delivery and an actual
+disconnected device restart remain unresolved. The engineering/owner milestone
+does not claim those observations or waive the complete-stage requirements.
 
 ## Authority and preserved engine
 
 The owner expressly continues the existing D49 Goal on
 `codex/phase-3c-synthetic-loop`, with no restart, discarded work or domain redesign.
-D50 records the owner UX finding and child-interaction reconciliation. No real
+D50 records the owner UX finding and child-interaction reconciliation. D51 records
+the 2026-10-07 bounded owner confirmation and authorizes documentation
+reconciliation, current full/fresh verification, feature-branch push and a
+non-draft PR for this milestone, with ordinary CI repair until exact-head
+`verify (ubuntu-24.04)` and `verify (windows-2025)` both succeed. No real
 child data/trial, accepted ADR change, release, deployment, Phase 4 or other phase
 is authorized. The [operating model](CODEX_OPERATING_MODEL.md) and
 [merged staged plan](PHASE_3_IMPLEMENTATION_PLAN.md) retain their broader boundaries.
@@ -42,8 +55,12 @@ at `2026-10-06T11:51:25Z`, protected-main squash
 `be1bd7735491df8cc2abe19645ec65b393d0aa6b`, after Phase 3B
 `fba77ed1da86944c3700aa74eaa68b50182f692b`. That history establishes authorized
 entry; it grants no merge permission against the latest `owner_merge` instruction.
-No push, PR, merge, release or deployment is part of this reconciliation handoff.
-Final candidate/tree/commit identities belong in Git metadata and bound evidence.
+D51 supersedes the earlier handoff's no-push/no-PR restriction only for this
+narrowed milestone's feature publication. The reconciled presentation is preserved
+at `115e427a94c4cb46fbe9e793299dfff29a453830`; this continuation changes maintained
+documentation and bounded confirmation/publication evidence. No automatic merge,
+release, deployment or Phase 4 is authorized. Final candidate/tree/commit identities
+belong in Git metadata and bound evidence.
 
 ## Child presentation and developer inspection
 
@@ -137,19 +154,21 @@ pronunciation certification or tested-offline speech.
 Native buttons retain keyboard activation and accessible names; decorative badge
 and choice artwork does not announce an expected answer. One task outcome status
 purpose remains distinct from unit traversal, saving and update/recovery status.
-Current rendered acceptance exercised initial/help/retry/success, mode/profile
+Retained rendered acceptance exercised initial/help/retry/success, mode/profile
 changes, focus, 320px, 200% deliberate text scaling, portrait/landscape, mixed
 languages, forced colours and reduced motion in installed Chrome and Edge.
 Source/SSR associations and browser DOM checks do not establish delivered
-screen-reader output or WCAG conformance. Owner UX confirmation remains separate.
+screen-reader output or WCAG conformance. The owner's 2026-10-07 product confirmation
+is separate from those certification and representative-use claims.
 
-## Current-candidate verification
+## Preserved engineering evidence and current publication gates
 
 The previous engine's canonical 1,188 tests/59 files and 32 governance fixtures,
 36-case Chrome/Edge loop observations, eight restored loop mutations, exact
 math/bridge/seed reviews and clean isolated gates are preserved in the engine
 milestone and original evidence. Existing tests remain; this reconciliation adds
-child regressions and must pass its own full/fresh gates. A developer-fragment-only
+child regressions. Its 2026-10-06 engineering observations below remain bound to
+their recorded sources and artifacts. A developer-fragment-only
 navigation adjustment keeps the original 36-case engineering assertions active;
 the final reruns pass all of them in both products.
 
@@ -159,7 +178,7 @@ advisories across 204 dependencies (3 runtime, 201 development, with 27 optional
 dependencies included). It remains a dated advisory observation rather than a
 general security assurance.
 
-| Gate                                               | Current candidate observation                                                                                                                                                                                                                                                                                                                |
+| Gate                                               | Preserved engineering observation                                                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Canonical full verification                        | **PASS**, `corepack pnpm verify` exit 0; 1,249 tests/62 files, 32 governance fixtures; test duration 49.47s. [Source-bound verification](evidence/phase3c-child-ux/verification.json)                                                                                                                                                        |
 | Isolated fresh frozen install/full verification    | **PASS**, frozen install and verify exit 0; 1,249 tests/62 files, 32 fixtures; test duration 50.89s. Same staged source milestone, exact pins/lock; normal eight artifacts byte-equal to local and preserved engine                                                                                                                          |
@@ -169,9 +188,9 @@ general security assurance.
 | Relevant assertion mutations                       | **PASS**, all 13 intended assertions detected: preserved [engine eight](evidence/phase3c-child-ux/engine-mutations.json), then [child five](evidence/phase3c-child-ux/child-mutations.json), serially; exact source/report/artifact restoration and clean restored baselines                                                                 |
 | Independent contract/child UX/accessibility review | **PASS** within stated bounds: [contract/SSR review](evidence/phase3c-child-ux/contract-review.json), 61 focused tests; [final artifact-bound rendered review](evidence/phase3c-child-ux/rendered-review.json), 16 family/product observations, 468 contrast checks, 32 reflow observations and 16 manually inspected narrow images          |
 | Privacy/candidate integrity/audit                  | **PASS**, [independent source snapshot](evidence/phase3c-child-ux/static-review.json) and [overall candidate integrity](evidence/phase3c-child-ux/candidate-integrity.json); 17 current source bindings, unchanged engine/history/pins/lock and eight normal artifacts, zero credential matches; bounded retained proofs reviewed separately |
-| Owner child UX confirmation                        | **PENDING**; engineering readiness prepares a concrete surface for the owner's confirmation                                                                                                                                                                                                                                                  |
-| Actual target device/browser/AT output             | **UNAVAILABLE**; existing permitted-tool capability audit remains bounded                                                                                                                                                                                                                                                                    |
-| Actual disconnected device restart                 | **UNAVAILABLE**; browser offline emulation or stopped listener is insufficient                                                                                                                                                                                                                                                               |
+| Owner child UX confirmation                        | **PASS**, bounded manual owner product confirmation on 2026-10-07; [decision evidence](evidence/phase3c-child-ux/owner-confirmation.json)                                                                                                                                                                                                    |
+| Actual target device/browser/AT output             | **PENDING EXTERNAL EVIDENCE**; existing permitted-tool capability audit remains bounded                                                                                                                                                                                                                                                      |
+| Actual disconnected device restart                 | **PENDING EXTERNAL EVIDENCE**; browser offline emulation or stopped listener is insufficient                                                                                                                                                                                                                                                 |
 
 The source-bound full/fresh milestone is staged tree
 `533d9f8903b6b296e0457fd4b8ee97c9419adbc1`, with source-set SHA-256
@@ -179,11 +198,30 @@ The source-bound full/fresh milestone is staged tree
 Node `24.21.0`, pnpm `12.9.1` and the lockfile are unchanged. The cold isolated
 install downloaded 179 packages, reused zero and copied no dependencies (9.3s);
 later source-only archive refreshes used frozen reinstalls against that same
-dependency graph. These observed source gates precede final documentation.
-The complete final documentation/evidence candidate is staged and both canonical
-and isolated fresh gates are rerun before local preservation. Its exact final
-tree/commit belongs in Git metadata and the final binding, rather than a claim
-that this report certifies its own future containing tree.
+dependency graph. These observed source gates preceded the 2026-10-06 final
+documentation gates and preservation at `115e427a94c4cb46fbe9e793299dfff29a453830`;
+they do not establish verification or hosted success for this new documentation
+continuation. The current complete candidate requires canonical and isolated fresh
+verification before publication. Its exact final tree/commit belongs in Git
+metadata and the current binding, rather than a claim that this report certifies
+its own future containing tree.
+
+| Current publication requirement                   | Observation and evidence location                                                                                                                                                                                                                                                                  |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Complete current candidate canonical verification | **PASS**, observed 2026-10-07: `corepack pnpm verify`, 1,249 tests/62 files and 32 governance fixtures; [publication gates](evidence/phase3c-child-ux/owner-publication-gates.json) records the observed documentation tree. Complete verification is repeated after the final records before push |
+| Isolated fresh frozen install and verification    | **PASS**, observed 2026-10-07: new isolated archive, frozen install and complete verify; every Git blob and eight normal artifacts match. Final source-only archive refresh and frozen verification precede push                                                                                   |
+| Independent current diff/privacy/integrity review | **PASS**, independent contract and full-candidate privacy/integrity reviews on 2026-10-07; all 258 prior non-documentation Git blobs and 14 retained proof bindings unchanged; chronology wording repaired                                                                                         |
+| Feature push and non-draft PR                     | Authorized for this bounded milestone after local gates; actual PR identity, final containing commit/tree and verification belong in the live PR body                                                                                                                                              |
+| Exact-head required hosted verification           | **NOT CLAIMED BY THIS PRE-PUSH RECORD**; after publication, both `verify (ubuntu-24.04)` and `verify (windows-2025)` must be SUCCESS for the exact PR head before owner-merge handoff. The live PR body records observed run/job identities                                                        |
+
+The table records local observations before feature publication. The exact final
+containing candidate is verified after these records and before push; the live PR
+body supplies its head/tree binding and subsequent PR-specific hosted results.
+No containing commit claims its own future CI result.
+
+The owner-confirmation and publication-gate records are new evidence. Earlier
+JSON snapshots retain their original pending owner finding and capability limits;
+they are not rewritten to imply that the later confirmation existed at the time.
 
 The final native matrix uses `NODE_ENV=test` and React's development renderer.
 Its [rendered review](evidence/phase3c-child-ux/rendered-review.json) binds the
@@ -219,16 +257,22 @@ profiles, traces, real child material or personal logs belong in the candidate.
 Historical evidence files remain frozen; current source/config/test changes cannot
 reuse old-head proof as current full certification.
 
-## Handoff and remaining human boundary
+## Publication handoff and remaining human boundary
 
-The attained source engineering gate is
-**ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION**, with final documentation
-verification before local preservation. The owner confirms whether this concrete child surface resolves the material
-UX finding. Engineering tests cannot supply that product confirmation or general
-six-year-old comprehension/effectiveness evidence.
+The attained milestone is
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+D51 closes Q19's owner child UX gate on 2026-10-07. Current full/fresh and
+independent review precede feature push and non-draft PR creation. Both PR-specific
+exact-head required hosted jobs must succeed before the requested
+**PHASE 3C OWNER-CONFIRMED ENGINEERING MILESTONE — READY FOR OWNER MERGE** handoff.
+Owner confirmation resolves the material presentation finding within its bounded
+product scope; it does not establish general child comprehension or effectiveness.
 
 `merge_policy: owner_merge` remains in force even after local gates pass.
-Do not auto-merge or publish Phase 3C as final. Actual AT/disconnected observations,
+Do not auto-merge or publish Phase 3C as final. The authorized non-draft feature PR
+must state the narrowed milestone and
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE**.
+Actual AT/disconnected observations,
 official language/educational/accessibility claims and real-child policy/trials
 retain their own unresolved gates. No release, deployment, accepted-policy change
 or next phase follows from this reconciliation.

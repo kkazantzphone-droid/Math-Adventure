@@ -1,8 +1,11 @@
 # Development
 
-Phase 3C has an implemented separate fixed-profile developer loop; its
-[current report](PHASE_3C_COMPLETION_REPORT.md) records final engineering evidence
-separately from the unavailable actual device/AT and disconnected-restart gates.
+Phase 3C has a separate fixed-profile synthetic playable loop with an
+owner-confirmed child presentation and separate developer diagnostics. D51's
+[current report](PHASE_3C_COMPLETION_REPORT.md) records the bounded
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS** milestone.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
+the unresolved actual device/browser/AT and disconnected-restart observations.
 Use the pinned process-local Corepack setup below. Launch only on the deliberate
 loopback origin with an explicit port; normal `dev`/`build` composition does not
 enable or silently open learner persistence. No free-text learner input is supported.
@@ -23,8 +26,11 @@ database dumps. Once source is stable and no other builds/tests/proofs are runni
 run serially `corepack pnpm exec node scripts/slice-mutations.mjs` and
 `corepack pnpm exec node scripts/phase3c-loop-mutations.mjs`; every intended
 assertion defect must be detected and exact bytes restored. Canonical/full fresh
-verification and inherited Phase 1E/3A/3B regressions remain separate gates. Do not
-infer complete 3C certification or reduce the mandatory observation gate to merge.
+verification and inherited Phase 1E/3A/3B regressions remain separate gates.
+D51 authorizes a non-draft feature PR for the narrowed engineering/owner milestone
+after current local/fresh verification and independent review, with `owner_merge`.
+Both PR-specific exact-head hosted checks must succeed before the owner-merge handoff.
+This does not certify full Phase 3C or waive its mandatory external observations.
 
 Phase 3B exposes a fixed memory-only adaptation simulation through the same
 separate capability-gated Phase 3A developer entry. It adds no normal child

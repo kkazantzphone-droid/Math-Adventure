@@ -1,6 +1,6 @@
 # Local learner data model
 
-D49/D50 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) preserves the exact
+D49/D50/D51 [Phase 3C reconciliation](PHASE_3C_COMPLETION_REPORT.md) preserves the exact
 bounded `phase3c-synthetic-loop-v1` aggregate and separate loopback-only namespace.
 The same two fixed synthetic profiles display Star/Triangle badges in child view;
 technical identities remain in developer inspection. No codec/schema, event cap,
@@ -11,11 +11,18 @@ sets the existing inaccessible-scope exclusion before preparation; saved retry
 cannot upgrade it to full attribute classification. Mathematical help records its
 maximum used tier even when visual stages replay. Five new families remain
 `limitedEvidence`; Explore/Number Lab stays session-only. No real learner data,
-retention/default-policy decision or storage-access expansion follows. Current
-full/fresh and native54-per-product gates plus restored evidence mutations pass;
-**ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION** is separate from owner
-acceptance and full-stage device gates. Retained proof hashes/counts are synthetic
-engineering metadata, with no raw learner aggregates or browser profiles.
+retention/default-policy decision or storage-access expansion follows. Preserved
+source-bound full/fresh and native54-per-product gates plus restored mutations pass.
+D51 records bounded owner child UX confirmation on 2026-10-07:
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+This accepts the eight-family presentation, direct answers, visual help,
+badges/navigation and separate diagnostics without upgrading assessment scopes
+or authorizing real-child use. Current documentation/full/fresh and independent
+review precede narrowed feature publication. Both PR-specific exact-head CI checks
+must succeed before the owner-merge handoff under `owner_merge`.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** remains
+separate. Retained proof hashes/counts are synthetic engineering metadata, with
+no raw learner aggregates or browser profiles.
 
 Status: local-first policy accepted; numeric retention and production learner schema remain proposed. Phase 1C implements only generic integrity contracts and synthetic fixtures under [ADR-0010](adr/ADR-0010.md), with no real storage/adaptation. Records, migrations, retention and export/import below are fuller future requirements. [ADR-0003](adr/ADR-0003.md) and [privacy](CHILD_SAFETY_AND_PRIVACY.md) govern this model.
 

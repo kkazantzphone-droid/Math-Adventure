@@ -14,10 +14,16 @@ missing speech preserves play. No arbitrary utterance, autoplay, substitution,
 official pack, pronunciation or tested-offline voice claim follows. Shorter Greek
 matching/comparison captions and shared normal word boundaries repair observed
 narrow text reflow; accessible Left/Right labels remain localized behind visible
-side arrows. Mixed-role native tests pass in both products. Current status is
-**ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION**; native-language review and
-owner acceptance remain pending, and unavailable actual AT/disconnected proof
-retains its separate complete-stage gate.
+side arrows. Preserved mixed-role native tests pass in both products. D51 records
+bounded owner product confirmation on 2026-10-07, including eight-family direct
+answers, visual help, badge identities/navigation and separate adult diagnostics:
+**PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+Native-language review remains pending; owner acceptance does not certify
+translations, pronunciation, WCAG, research or educational effectiveness.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
+actual AT/disconnected proof. Current full/fresh and independent review precede
+the authorized narrowed feature PR. Both PR-specific exact-head CI checks must
+succeed before the owner-merge handoff; `owner_merge` remains.
 
 Historical Phase 3 readiness inventories the [new slice message IDs and acceptance gates](PHASE_3_IMPLEMENTATION_PLAN.md)
 without writing translations or promoting packs. el-GR/en-GB/de-DE remain draft;

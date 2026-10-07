@@ -1,19 +1,21 @@
 # Roadmap
 
-Current D50 owner steering continues the existing D49 synthetic Phase 3C Goal
-from preserved engine `6828919b22cc96a2e4d4aeddd24f2447248d90ef`. The owner's
-material UX finding requires a child presentation for all eight families, with
-direct answer cards, progressive visual help, Star/Triangle badges and separate
-developer inspection. Mathematical, persistence, adaptation, replay and offline
-engines remain unchanged. `merge_policy: owner_merge` forbids automatic merge.
-[Current report](PHASE_3C_COMPLETION_REPORT.md) records attained source verification:
-**ENGINEERING PASS — READY FOR CHILD UX CONFIRMATION**, with owner confirmation
-pending and the original engine/catalog reports preserved. Full/fresh 1,249-test
-gates, unchanged original36 plus child18 in each browser, 13 restored mutations
-and independent rendered review pass. Final documentation/evidence gates run
-before local preservation; no product phase advances. Actual AT delivery and
-actual disconnected restart remain unavailable complete-stage gates. No final
-Phase 3C publication, real-child use, release, deployment or Phase 4 follows.
+Current D51 records the owner's bounded child UX PASS on 2026-10-07 after manual
+review of the existing D49/D50 synthetic Phase 3C surface. All eight families'
+direct answers and progressive visual help, Star/Triangle badges,
+Play/Shapes/Explore and separate adult diagnostics are accepted for the
+six-year-old-first presentation. [Current report](PHASE_3C_COMPLETION_REPORT.md)
+records **PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS**.
+Engine `6828919b22cc96a2e4d4aeddd24f2447248d90ef` and reconciled presentation
+`115e427a94c4cb46fbe9e793299dfff29a453830` remain preserved. Earlier full/fresh,
+both native54 matrices, 13 mutations and rendered review remain source-bound.
+D51 authorizes current full/fresh verification and narrowed non-draft feature PR
+publication, with both exact-head Ubuntu/Windows required jobs observed before
+handoff. `merge_policy: owner_merge` forbids automatic merge.
+**FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE** retains
+actual AT delivery and disconnected restart. No representative research,
+educational/WCAG/native-language certification, real-child use, full-stage
+publication, release, deployment or Phase 4 follows.
 Older task summaries below retain their recorded authorization/evidence bounds.
 
 Historical baseline before D49: synthetic-only Phase 3A/3B were owner-merged in
@@ -42,7 +44,7 @@ inherited evidence; [Phase 1E evidence](PHASE_1E_COMPLETION_REPORT.md) retains
 device/speech/hosting limits. Phase 3 readiness planning does not authorize its
 implementation, real learner trials, deployment or release.
 
-Inherited sequence: completed Phase 1 technical skeleton and owner-confirmed visual gate → completed Phase 2 deterministic-family proof → completed proof/governance enablement and merged Phase 1E offline shell → Phase 3 readiness → separately authorized staged implementation. D49/D50's current synthetic child-loop engineering gate is recorded above. Phase 1V's founder-family input remains bounded project design evidence, without representative preference, educational-effectiveness, accessibility-certification or mathematical-ability claims. Future stage gates belong in the [Phase 3 implementation plan](PHASE_3_IMPLEMENTATION_PLAN.md); normal product learner persistence and adaptation remain unwired.
+Inherited sequence: completed Phase 1 technical skeleton and owner-confirmed visual gate → completed Phase 2 deterministic-family proof → completed proof/governance enablement and merged Phase 1E offline shell → Phase 3 readiness → separately authorized staged implementation. D49/D50/D51's bounded synthetic loop and owner-confirmed child UX milestone is recorded above. Phase 1V's founder-family input remains bounded project design evidence, without representative preference, educational-effectiveness, accessibility-certification or mathematical-ability claims. Future stage gates belong in the [Phase 3 implementation plan](PHASE_3_IMPLEMENTATION_PLAN.md); normal product learner persistence and adaptation remain unwired.
 
 | Phase | Deliverable | Exit gate |
 | --- | --- | --- |
@@ -52,14 +54,14 @@ Inherited sequence: completed Phase 1 technical skeleton and owner-confirmed vis
 | 2 — deterministic family proof | Small reviewed connected graph, bounded addition, inclusive quadrilateral and exact unit-length proofs; typed powers/root readiness | **COMPLETE, MERGED** at `11a43414d1dcc869f1c815ed7adf72f3ee0c5218`; original 501-test and reviewed 514-test evidence remains candidate-specific; no learner-loop/effectiveness claim |
 | 3A — local data foundation | Real IndexedDB adapter, versioning, atomic integrity, partitioning, migration/recovery, deletion/full clear and multi-tab failure handling | Separately authorized synthetic-only implementation; full real-adapter conformance/native failure evidence under the [stage plan](PHASE_3_IMPLEMENTATION_PLAN.md) |
 | 3B — explainable adaptation foundation | Deterministic proposed-policy state machine, scoped evidence/reasons/support/revisit and anti-repetition | Separately authorized synthetic simulations; independent review and attainable finite-concept criteria; no silent threshold acceptance |
-| 3C — first playable child loop | Narrow synthetic/local developer profile loop, three draft locales, task/answer/hint/replay, save/restart, recommendation, offline/update/help/recovery | Separately authorized synthetic E2E and data/update/privacy checks; real-child use waits for precise policy/legal/native/device gates |
+| 3C — first playable child loop | Eight-family synthetic loop plus owner-confirmed direct child answers, visual help, badges/navigation and separate diagnostics; engine/replay/state/update preserved | **PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS** under D51; current full/fresh and independent review precede narrowed PR publication; PR-specific exact-head CI must succeed before owner-merge handoff; full device/AT certification remains **PENDING EXTERNAL EVIDENCE**, with real-child use behind its separate gates |
 | 4 — consented evaluation/public readiness | Usability improvements, legal/retention/privacy notices, backup/recovery, license/security governance | Owner launch approval, no unresolved safety/truth/data-loss blocker |
 | 5 — incremental content/language | Expand first-class geometry/measurement/powers-roots alongside other pathways; Number Lab, planned official locales and later exact content | Per-family independent tests, cross-domain links, language/accessibility and education review |
 | 6 — packaging investigation | Windows Tauri feasibility, then macOS/Linux if justified | Separate packaging ADR/security/signing/storage/speech matrix |
 
 ## First genuinely playable slice
 
-The owner separately authorized governance/developer tooling V1 under D42. The historical D48 transition prepared V2 conditional Class B protected squash merge under the [operating model](CODEX_OPERATING_MODEL.md), repository skills, synthetic behavior scenarios and [task templates](CODEX_TASK_TEMPLATES.md). This supporting work remains outside the product-phase sequence. V2 became effective after the observed manual owner merge recorded above; the authority-expanding PR could not self-merge. Qualifying trusted Codex Class A/B PRs otherwise default to `automatic_when_eligible` after every exact-head local/independent/hosted and current-state gate passes. A narrower task and its parent/base publication conditions take precedence; current D50 sets `owner_merge`. Authority-expanding governance and consequential Class C decisions remain human; merge never starts an unauthorized phase or accepts a proposed ADR.
+The owner separately authorized governance/developer tooling V1 under D42. The historical D48 transition prepared V2 conditional Class B protected squash merge under the [operating model](CODEX_OPERATING_MODEL.md), repository skills, synthetic behavior scenarios and [task templates](CODEX_TASK_TEMPLATES.md). This supporting work remains outside the product-phase sequence. V2 became effective after the observed manual owner merge recorded above; the authority-expanding PR could not self-merge. Qualifying trusted Codex Class A/B PRs otherwise default to `automatic_when_eligible` after every exact-head local/independent/hosted and current-state gate passes. A narrower task and its parent/base publication conditions take precedence; D51 retains D50's `owner_merge`. Authority-expanding governance and consequential Class C decisions remain human; merge never starts an unauthorized phase or accepts a proposed ADR.
 
 Start with one synthetic learner fixture (not one hard-coded architectural profile). Prove independent profile partitioning with two synthetic profiles in tests. Support reviewed el-GR, en-GB and de-DE prompts for a bounded catalog: numeral recognition, counting, comparison, simple addition/subtraction and missing number, plus one early shape/spatial activity and a concrete unit-length comparison. These minimal non-arithmetic proofs ensure independent pathways are exercised early. Keep task spaces small enough for exhaustive truth checks; stage families rather than build them simultaneously.
 
