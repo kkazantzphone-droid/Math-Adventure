@@ -1,7 +1,8 @@
 # Accessibility and child-centred interaction
 
-Current D52 [closure evidence](PHASE_3_COMPLETION_REPORT.md) records native Chrome
-200% zoom separately from CSS text scaling and adds the plan's 375/768/1024px
+Current D52 [closure evidence](PHASE_3_COMPLETION_REPORT.md) records historical ce4
+native Chrome 200% zoom separately from CSS text scaling; current-source native
+zoom remains pending after the geometry CSS repair. It adds the plan's 375/768/1024px
 and touch-emulation coverage. Delivered target AT output remains unobserved;
 Narrator's higher Windows integrity and unavailable output observation are
 explicit limits. The [owner protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md)

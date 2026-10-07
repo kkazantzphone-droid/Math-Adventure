@@ -4,7 +4,7 @@ Current D52 Goal: **FULL PHASE 3C / PHASE 3 — BLOCKED — EVIDENCE UNAVAILABLE
 The owner-confirmed milestone below is now merged in [PR #13](https://github.com/kkazantzphone-droid/Math-Adventure/pull/13)
 at protected-main squash `ce4eccb87b731a15034950db66c01be9d94e07c8`.
 The [Phase 3 closure report](PHASE_3_COMPLETION_REPORT.md) records acceptance
-reconciliation, added width/touch coverage, actual native Chrome zoom, remaining
+reconciliation, added width/touch coverage, historical ce4 native Chrome zoom, remaining
 AT/physical-restart limits and the [prepared owner protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md).
 No full completion is claimed. The new Goal permits qualifying Class A/B merge
 under unchanged V2 governance; missing required evidence currently forbids it.

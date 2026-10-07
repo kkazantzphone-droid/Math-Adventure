@@ -50,6 +50,13 @@ all previously retained evidence remain untouched.
 
 ## Current engineering verification
 
+The [engineering record](evidence/phase3c-closure/engineering-verification.json)
+binds observed preparation gates to code-bearing commit
+`14fe8e10e90472b7cbaa2b6c7e827220fd530620`, tree
+`8f3a10bcc8c7a9adeca7192684b64fbac5faf118`. Its isolated fresh checkout matched
+all 376 Git blobs. These facts certify that preparation, not this report's future
+containing commit or a future PR head.
+
 The new layout checks detected Greek geometry-card overflow at 375px: two cards
 had 90px client widths and 93/95px scroll widths. A geometry-only 7.5rem grid
 minimum repairs that defect without changing other families or mathematical
@@ -58,34 +65,41 @@ semantics. The targeted Chrome touch and root/subpath layout checks then passed
 passed all 55 cases in each product: the retained 36 engine cases and 19 child
 cases, including the added layout/touch coverage. Both commands exited 0.
 
-| Current gate                               | Observed result and retained sanitized evidence                                                                                                                                                                                                                      |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Installed Chrome                           | **PASS**, 55 cases, 150.21 seconds; [engine record](evidence/phase3c-closure/chrome-engine.json) and [child record](evidence/phase3c-closure/chrome-child.json).                                                                                                     |
-| Installed Edge                             | **PASS**, 55 cases, 152.60 seconds; [engine record](evidence/phase3c-closure/msedge-engine.json) and [child record](evidence/phase3c-closure/msedge-child.json).                                                                                                     |
-| Relevant mutations                         | **PASS**, all 14 defects were `DETECTED_BY_ASSERTION`: [six child mutations](evidence/phase3c-closure/child-mutations.json) and [eight retained engine mutations](evidence/phase3c-closure/engine-mutations.json). Exact source/report/artifact bytes were restored. |
-| Dependency audit                           | Observed **2026-10-07**, zero known advisories; a dated advisory result, not general security certification.                                                                                                                                                         |
-| Canonical and isolated fresh verification  | **PENDING** for the complete current candidate.                                                                                                                                                                                                                      |
-| Current production binding and native zoom | **PENDING** after the geometry CSS repair.                                                                                                                                                                                                                           |
-| Required exact-head hosted verification    | **PENDING**; local browser success does not establish either required PR-specific CI job.                                                                                                                                                                            |
+| Current gate                                           | Observed result and retained sanitized evidence                                                                                                                                                                                                                                                                                          |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Installed Chrome                                       | **PASS**, 55 cases, 150.21 seconds; [engine record](evidence/phase3c-closure/chrome-engine.json) and [child record](evidence/phase3c-closure/chrome-child.json).                                                                                                                                                                         |
+| Installed Edge                                         | **PASS**, 55 cases, 152.60 seconds; [engine record](evidence/phase3c-closure/msedge-engine.json) and [child record](evidence/phase3c-closure/msedge-child.json).                                                                                                                                                                         |
+| Relevant mutations                                     | **PASS**, all 14 defects were `DETECTED_BY_ASSERTION`: [six child mutations](evidence/phase3c-closure/child-mutations.json) and [eight retained engine mutations](evidence/phase3c-closure/engine-mutations.json). Exact source/report/artifact bytes were restored.                                                                     |
+| Dependency audit                                       | Observed **2026-10-07**, zero known advisories; a dated advisory result, not general security certification.                                                                                                                                                                                                                             |
+| Code-bearing canonical and isolated fresh verification | **PASS**, frozen install and both `corepack pnpm verify` commands exited 0; 1,249 tests/62 files and 32 governance fixtures. All 376 Git blobs matched the fresh checkout, and eight normal artifacts matched root/fresh/merged baseline.                                                                                                |
+| Independent preparation/privacy/integrity review       | **PASS** for the code-bearing preparation: 377 source bindings and 72 artifact entries matched, with no unresolved code/privacy/integrity/governance finding. Pins, dependencies, lock, CI and accepted policy remain unchanged.                                                                                                         |
+| Current production binding                             | **PASS**, [production binding](evidence/phase3c-closure/production-binding.json) records the current source/tree, shell/release and all nine root/fresh byte-identical production files. Strict 4178 preview served matching bytes, then its owned listener was stopped. No browser cache or synthetic state was prepared by this check. |
+| Current native zoom, actual AT and physical restart    | **PENDING / UNOBSERVED**. Production hashes and engineering checks do not establish native delivery or physical observations.                                                                                                                                                                                                            |
+| Final documentation-only containing candidate          | This code-bearing receipt makes no verification claim for a future containing head. Its own complete canonical/fresh/independent verification and explicit unchanged application/build-input and production-byte proof are required; record the observed exact-head results in the live PR before handoff.                               |
+| Required exact-head hosted verification                | This local receipt makes no hosted claim. Observe final-head PR-specific `verify (ubuntu-24.04)` and `verify (windows-2025)` SUCCESS and record the exact SHA/run/job identities in the live PR before handoff. Missing proof forbids merge.                                                                                             |
 
 Raw current source hashes were checked against the four browser and two mutation
 records before their sanitized retention under `docs/evidence/phase3c-closure/`.
 They bind their actual proof inputs and artifacts; they do not certify future
-containing documentation, the pending production rebinding or a future CI head.
+containing documentation or a future CI head. Actual final-head hosted results
+belong in the live PR after publication, never as a prediction in this record.
 
-The recorded native zoom and prepared production identities belong to merged
-`ce4eccb`; the CSS repair changes production bytes. They are historical evidence,
-not certification of the repaired candidate. Rebuild/rebind the production site
-and repeat current-source native zoom before claiming its result. Computer Use
+The retained [native zoom receipt](evidence/phase3c-closure/native-observation.json)
+belongs to merged `ce4eccb`; the CSS repair changes production bytes. That receipt
+is historical, not certification of the repaired candidate. The current
+production binding above replaces the earlier build identities; current-source
+native zoom remains unobserved. Computer Use
 was stopped with the physical Escape key during the subsequent AT investigation;
 no further native/browser-control action was performed in that turn. The
 documented Narrator live-transcription alternative therefore remains untested.
 No unavailable observation is inferred as PASS.
 
-Verification is in progress. Final canonical/fresh, independent, artifact/privacy
-and publication results must be observed and bound before preservation/publication.
-The current browser, mutation and audit observations above do not resolve those
-pending gates, actual AT delivery or physical restart. Pending results are not PASS.
+Code-bearing full/fresh, browser, mutation, audit, independent and production
+preparation gates above passed within their stated bounds. Every later
+documentation-only containing head requires its own complete
+canonical/fresh/independent and publication verification; the live PR must record
+observed results and required hosted jobs at that exact final head. Neither current native zoom, actual
+AT delivery nor physical restart is resolved. Pending results are not PASS.
 The unchanged engine's prior full/fresh 1,249 tests/62 files, native 54 per
 product, 13 restored mutations and production-renderer review remain historical.
 The enlarged native matrix requires 36 engine plus 19 child cases per product.
@@ -94,14 +108,17 @@ The enlarged native matrix requires 36 engine plus 19 child cases per product.
 
 The [prepared observation protocol](PHASE_3_TARGET_OBSERVATION_PROTOCOL.md) and
 [unfilled sanitized template](evidence/phase3c-closure/target-observation-template.json)
-provide the production build's exact source, shell/release and nine artifact
-hashes, stable-origin preview commands and all-eight task checklist. They contain
+provide the bound current production build's exact source, shell/release and nine
+artifact hashes, rebuild comparison, stable-origin foreground preview commands
+and all-eight task checklist. Start the owned 4178 preview for the session, then
+stop it with Ctrl+C before the physical restart. They contain
 no claimed external observation. Use only an adult-operated fixed synthetic
 session; retain no media, raw database, profile, export or identifying log.
 
 One bounded observation session can supply the remaining native observations:
 
-1. On the rebuilt and bound current production surface, set actual browser zoom
+1. On the prepared current production surface, after any rebuild has matched
+   all nine bound files, set actual browser zoom
    to **200%** using the browser's native zoom control. Inspect all eight child
    tasks and visual help for usable reflow, and keyboard answer/feedback focus.
    Record the actual zoom setting; CSS text scaling alone does not supply this

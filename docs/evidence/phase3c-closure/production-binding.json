@@ -1,0 +1,116 @@
+{
+  "sourceCommit": "14fe8e10e90472b7cbaa2b6c7e827220fd530620",
+  "sourceTree": "8f3a10bcc8c7a9adeca7192684b64fbac5faf118",
+  "release": {
+    "protocolVersion": 1,
+    "shellId": "16c1a51db6e8b19ee208ff149ededf86ecaf4ac7cd2316f5202de5b40ada1009",
+    "schemaVersion": 1,
+    "compatibleSchema": {
+      "min": 1,
+      "max": 1
+    },
+    "prototypeLocales": ["el-GR", "en-GB", "de-DE"],
+    "essential": [
+      {
+        "path": "THIRD_PARTY_NOTICES.txt",
+        "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab",
+        "bytes": 1384
+      },
+      {
+        "path": "assets/index-B3cGK_KG.js",
+        "sha256": "d7d5313cbcf5549bfdec96fd21c06f81ed7a985bd9a425d1282e594304125ad4",
+        "bytes": 421394
+      },
+      {
+        "path": "assets/index-CR5vbDeH.css",
+        "sha256": "9af6dfbaa7d5139cb7cfb082f993986a7d25e08cd32b90e802e5775ad59849b8",
+        "bytes": 14365
+      },
+      {
+        "path": "icons/math-adventure.svg",
+        "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6",
+        "bytes": 431
+      },
+      {
+        "path": "index.html",
+        "sha256": "6df77855d213a4ae16b4eac9c95e082b11f72c7bc34cade594cf80e9ddc74690",
+        "bytes": 709
+      },
+      {
+        "path": "learner-reader.json",
+        "sha256": "ddf50ce505975737ab6c208383f265e16fcaba65d3560035fa2db7d5767a0447",
+        "bytes": 92
+      },
+      {
+        "path": "manifest.webmanifest",
+        "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c",
+        "bytes": 440
+      }
+    ],
+    "releaseId": "sha256-5c30f781bd75ed2981a8fc97b5d285bd26ea6043d70154a3ee06142a316ddec7"
+  },
+  "artifacts": [
+    {
+      "path": "assets/index-B3cGK_KG.js",
+      "bytes": 421394,
+      "sha256": "d7d5313cbcf5549bfdec96fd21c06f81ed7a985bd9a425d1282e594304125ad4"
+    },
+    {
+      "path": "assets/index-CR5vbDeH.css",
+      "bytes": 14365,
+      "sha256": "9af6dfbaa7d5139cb7cfb082f993986a7d25e08cd32b90e802e5775ad59849b8"
+    },
+    {
+      "path": "icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 709,
+      "sha256": "6df77855d213a4ae16b4eac9c95e082b11f72c7bc34cade594cf80e9ddc74690"
+    },
+    {
+      "path": "learner-reader.json",
+      "bytes": 92,
+      "sha256": "ddf50ce505975737ab6c208383f265e16fcaba65d3560035fa2db7d5767a0447"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1452,
+      "sha256": "c8a6f9eb0e6382f51c6837bf50422057d6d8bbca4411b52863c812fb087141c1"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 22636,
+      "sha256": "42d08017a5eb3c2504962f6932f43be6b1141fa9cd3c4cecf17958141bcb3b4d"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "rendering": "production",
+  "actualAT": "UNOBSERVED",
+  "physicalDisconnectedRestart": "UNOBSERVED",
+  "currentNativeZoom": "UNOBSERVED — COMPUTER USE STOPPED",
+  "schema": "phase3c-current-production-binding-v1",
+  "preparedOn": "2026-10-07",
+  "origin": "http://127.0.0.1:4178/",
+  "outputDirectory": ".cache/phase3c-closure/current-device-site",
+  "rootAndIsolatedFreshArtifactsByteEqual": true,
+  "sourceScope": "Code-bearing preparation commit; later documentation-only head requires explicit unchanged-input proof and its own local/fresh/hosted verification",
+  "observationOccurred": false,
+  "previewPreparation": {
+    "strictLoopbackLauncherVerified": true,
+    "allNineHttpResponsesMatchPreparedArtifactBytes": true,
+    "ownedListenerStoppedAfterVerification": true,
+    "browserCacheAndSyntheticStatePrepared": false
+  }
+}
