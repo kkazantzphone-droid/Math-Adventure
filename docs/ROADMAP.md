@@ -1,5 +1,13 @@
 # Roadmap
 
+Current owner Goal D54 is the [focused multilingual child increment](MULTILINGUAL_CHILD_DESIGN.md)
+over the existing synthetic eight-family Space journey. It authorizes draft
+el-GR/en-GB/de-DE child operation, retained independent language roles and bounded
+verification, without starting general Phase 4/5 work. Its
+[completion record](MULTILINGUAL_CHILD_COMPLETION_REPORT.md) carries current
+candidate/evidence and language-review limits; historical phase rows below remain
+source-bound.
+
 Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
 The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
 reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator

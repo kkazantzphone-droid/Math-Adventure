@@ -1,0 +1,23 @@
+{
+  "schema": "multilingual-dependency-audit-v1",
+  "date": "2026-10-09",
+  "command": "corepack pnpm audit --json",
+  "exitCode": 0,
+  "scope": "Observed known advisories for unchanged pinned dependency graph; no general security certification",
+  "observation": {
+    "advisories": {},
+    "metadata": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "dependencies": 3,
+      "devDependencies": 201,
+      "optionalDependencies": 27,
+      "totalDependencies": 204
+    }
+  }
+}

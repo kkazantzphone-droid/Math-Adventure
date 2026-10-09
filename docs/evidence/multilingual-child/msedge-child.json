@@ -1,0 +1,1321 @@
+{
+  "channel": "msedge",
+  "result": "PASS — CHILD PRESENTATION ENGINEERING ONLY",
+  "scope": "synthetic child presentation in installed desktop Chrome/Edge; bounded owner confirmation is recorded separately, and actual device/AT and physical restart observations remain required",
+  "actualAssistiveTechnology": "UNAVAILABLE: DOM/ARIA/keyboard checks do not establish delivered screen-reader output",
+  "actualDisconnectedRestart": "UNAVAILABLE: this presentation proof makes no physical-disconnection claim",
+  "nativeLanguageReview": "PENDING: three prototype-draft locales only",
+  "cases": [
+    {
+      "name": "starts with fixed badge identities and no learner store, catalog or diagnostics",
+      "outcome": "pass"
+    },
+    {
+      "name": "number.addition uses immediate direct cards, independent truth and progressive visual help",
+      "outcome": "pass"
+    },
+    {
+      "name": "geometry.quadrilateral uses immediate direct cards, independent truth and progressive visual help",
+      "outcome": "pass"
+    },
+    {
+      "name": "measurement.unit-length uses immediate direct cards, independent truth and progressive visual help",
+      "outcome": "pass"
+    },
+    {
+      "name": "number.numeral uses immediate direct cards, independent truth and progressive visual help",
+      "outcome": "pass"
+    },
+    {
+      "name": "number.counting uses immediate direct cards, independent truth and progressive visual help",
+      "outcome": "pass"
+    },
+    {
+      "name": "number.comparison uses immediate direct cards, independent truth and progressive visual help",
+      "outcome": "pass"
+    },
+    {
+      "name": "number.subtraction uses immediate direct cards, independent truth and progressive visual help",
+      "outcome": "pass"
+    },
+    {
+      "name": "number.missing uses immediate direct cards, independent truth and progressive visual help",
+      "outcome": "pass"
+    },
+    {
+      "name": "never credits child shape matching as full quadrilateral classification evidence",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps mathematical visual help separate from neutral unit traversal",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps all five increments limited and a fresh other badge manual with no evidence",
+      "outcome": "pass"
+    },
+    {
+      "name": "uses Explore as honest session-only exposure without storing an observation",
+      "outcome": "pass"
+    },
+    {
+      "name": "supports keyboard cards, visible focus, safe retry and simple navigation",
+      "outcome": "pass"
+    },
+    {
+      "name": "accepts touch-emulated direct answers in all eight families without duplicate completions or assessment evidence in manual mode",
+      "outcome": "pass"
+    },
+    {
+      "name": "reflows all eight families at / at 320/375/768/1024px, portrait, landscape and 200% text",
+      "outcome": "pass"
+    },
+    {
+      "name": "reflows all eight families at /math-adventure/ at 320/375/768/1024px, portrait, landscape and 200% text",
+      "outcome": "pass"
+    },
+    {
+      "name": "keeps three draft locales and UI/instruction roles independent without child settings controls",
+      "outcome": "pass"
+    },
+    {
+      "name": "retains exact quadrilateral diagnostics behind deliberate developer entry",
+      "outcome": "pass"
+    }
+  ],
+  "browserVersion": "154.0.4258.62",
+  "browserMechanism": "playwright-core installed channel; no browser download",
+  "number.addition": {
+    "wrongRejected": true,
+    "oracleAccepted": true,
+    "directSingleAction": true,
+    "visualHelpTiers": 3,
+    "evidence": "manual",
+    "developerDiagnosticHidden": true
+  },
+  "geometry.quadrilateral": {
+    "wrongRejected": true,
+    "oracleAccepted": true,
+    "directSingleAction": true,
+    "visualHelpTiers": 3,
+    "evidence": "manual",
+    "developerDiagnosticHidden": true
+  },
+  "measurement.unit-length": {
+    "wrongRejected": true,
+    "oracleAccepted": true,
+    "directSingleAction": true,
+    "visualHelpTiers": 3,
+    "evidence": "manual",
+    "developerDiagnosticHidden": true
+  },
+  "number.numeral": {
+    "wrongRejected": true,
+    "oracleAccepted": true,
+    "directSingleAction": true,
+    "visualHelpTiers": 3,
+    "evidence": "manual",
+    "developerDiagnosticHidden": true
+  },
+  "number.counting": {
+    "wrongRejected": true,
+    "oracleAccepted": true,
+    "directSingleAction": true,
+    "visualHelpTiers": 3,
+    "evidence": "manual",
+    "developerDiagnosticHidden": true
+  },
+  "number.comparison": {
+    "wrongRejected": true,
+    "oracleAccepted": true,
+    "directSingleAction": true,
+    "visualHelpTiers": 3,
+    "evidence": "manual",
+    "developerDiagnosticHidden": true
+  },
+  "number.subtraction": {
+    "wrongRejected": true,
+    "oracleAccepted": true,
+    "directSingleAction": true,
+    "visualHelpTiers": 3,
+    "evidence": "manual",
+    "developerDiagnosticHidden": true
+  },
+  "number.missing": {
+    "wrongRejected": true,
+    "oracleAccepted": true,
+    "directSingleAction": true,
+    "visualHelpTiers": 3,
+    "evidence": "manual",
+    "developerDiagnosticHidden": true
+  },
+  "geometrySearch": {
+    "sampleLimit": 512,
+    "observedSamples": 284,
+    "uniqueReplayHashes": 284,
+    "sampleSequenceHash": "9efe416991ca11d623feda22df8090638a42fe51fc37bdec9559fb7a59f7f1aa",
+    "firstClassWitnesses": [
+      {
+        "ordinal": 3,
+        "shape": "parallelogram",
+        "replayHash": "6b61ea932ddc4ceb42671f716648f93012ef81a1f533a074aaa5d6fb91fbdf29"
+      },
+      {
+        "ordinal": 286,
+        "shape": "rectangle",
+        "replayHash": "fefdee6d21c403632679058ac59791e8e17fa62e9c20d391238e8f87351e7497"
+      },
+      {
+        "ordinal": 1,
+        "shape": "square",
+        "replayHash": "449dd3925d66afe3ecb7dbb95cf9e2611150e828b0ae68900ded73eecfe0a444"
+      }
+    ],
+    "profileOrdinal": 2,
+    "storage": "explicit unsaved synthetic session; this case does not certify rectangle persistence"
+  },
+  "geometryEvidence": {
+    "observedMatchKinds": [
+      "parallelogram",
+      "rectangle",
+      "square"
+    ],
+    "correctMatchesExcluded": true,
+    "fullClassificationCredit": 0
+  },
+  "keyboard": {
+    "nativeEnterAndSpace": true,
+    "navigationHeadingFocus": true,
+    "stoppedResumeFocus": true,
+    "usefulRetry": true,
+    "actualScreenReaderDelivery": "UNAVAILABLE",
+    "answerFeedbackFocus": {
+      "wrong": {
+        "useful": true,
+        "tag": "BUTTON"
+      },
+      "correct": {
+        "useful": true,
+        "tag": "BUTTON"
+      }
+    }
+  },
+  "touch": {
+    "mechanism": "Installed browser hasTouch context and locator.tap input; fixed synthetic profile and independent public-task oracle",
+    "samples": [
+      {
+        "family": "number.addition",
+        "completedCommands": 2
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "completedCommands": 2
+      },
+      {
+        "family": "measurement.unit-length",
+        "completedCommands": 2
+      },
+      {
+        "family": "number.numeral",
+        "completedCommands": 2
+      },
+      {
+        "family": "number.counting",
+        "completedCommands": 2
+      },
+      {
+        "family": "number.comparison",
+        "completedCommands": 2
+      },
+      {
+        "family": "number.subtraction",
+        "completedCommands": 2
+      },
+      {
+        "family": "number.missing",
+        "completedCommands": 2
+      }
+    ],
+    "wrongRejected": true,
+    "oracleAccepted": true,
+    "oneCompletionPerAnswerGesture": true,
+    "visualHelpPreservesTaskAndRecord": true,
+    "helpRetryAndNextFocus": true,
+    "manualObservations": 0,
+    "physicalTouchDevice": "UNOBSERVED: browser emulation only"
+  },
+  "layout/": {
+    "observations": [
+      {
+        "family": "number.addition",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.addition",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.addition",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.addition",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.addition",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.addition",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.addition",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.addition",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.addition",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.addition",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.numeral",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.numeral",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.numeral",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.numeral",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.counting",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.counting",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.counting",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.counting",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.comparison",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.comparison",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.comparison",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.comparison",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.subtraction",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.subtraction",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.subtraction",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.subtraction",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.missing",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.missing",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.missing",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.missing",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      }
+    ],
+    "mechanism": "CSS root font-size 16px to 32px; 200% text mechanism, not native browser zoom",
+    "forcedColoursKeyboardFocus": true
+  },
+  "layout/math-adventure/": {
+    "observations": [
+      {
+        "family": "number.addition",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.addition",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.addition",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.addition",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.addition",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.addition",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.addition",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.addition",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.addition",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.addition",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "geometry.quadrilateral",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "measurement.unit-length",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.numeral",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.numeral",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.numeral",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.numeral",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.numeral",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.counting",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.counting",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.counting",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.counting",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.counting",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.comparison",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.comparison",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.comparison",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.comparison",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.comparison",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.subtraction",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.subtraction",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.subtraction",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.subtraction",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.subtraction",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.missing",
+        "width": 320,
+        "height": 780,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.missing",
+        "width": 375,
+        "height": 812,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.missing",
+        "width": 768,
+        "height": 1024,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 16
+      },
+      {
+        "family": "number.missing",
+        "width": 1024,
+        "height": 768,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 780,
+        "height": 320,
+        "rootTextPx": 32
+      },
+      {
+        "family": "number.missing",
+        "width": 960,
+        "height": 800,
+        "rootTextPx": 32
+      }
+    ],
+    "mechanism": "CSS root font-size 16px to 32px; 200% text mechanism, not native browser zoom",
+    "forcedColoursKeyboardFocus": true
+  },
+  "localeRoles": {
+    "observations": [
+      {
+        "ui": "el-GR",
+        "instruction": "en-GB"
+      },
+      {
+        "ui": "en-GB",
+        "instruction": "de-DE"
+      },
+      {
+        "ui": "de-DE",
+        "instruction": "el-GR"
+      }
+    ],
+    "nativeReview": "PENDING"
+  },
+  "developerBoundary": {
+    "deliberateEntry": true,
+    "exactDiagnosticFactsRetained": 8,
+    "engineeringCatalogRetained": 8,
+    "noChildDiagnosticDOM": true
+  },
+  "sourceHashes": {
+    "tests/integration/phase3c-child-ux.test.ts": "bb37e93d590a74c870a9125e2dedaac1f934da60d3494ba088686ebaab719cba",
+    "tests/integration/helpers/phase3c-child-oracle.ts": "fe6183322aef72b404397ce82b01219d2fb58dc739dd4c4e8eae955e4ec7bd51",
+    "tests/browser/phase3c/main.tsx": "0a9d23fdfa8b0181cf6b36778182d39f6556d143dbed058670c9bc5c3e6ff2da",
+    "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+    "tests/browser/phase3c/runtime.ts": "83c6476187cb8673d794f69f62711f6d9aa27889dd87a1cc0779a25c0d7e1623",
+    "tests/browser/phase3c/shell.css": "81f3bc4c1a8f47fc8720de6190d4c6652c92838a6e7ca42fb588f60ea0385287",
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+    "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+    "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+    "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+    "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+    "src/ui/synthetic-loop/slice.css": "92a9f9913250ad7efa0ebaab8cd8dad3c079daec87aacc8fa2905c023b25ca90",
+    "src/application/synthetic-loop/answer.ts": "bfbfe1cd7ad660985afd6b338a858816969a5bf987eb0b70f2de926bf824d02b",
+    "src/application/synthetic-loop/session.ts": "ddb0572fa50aae4a8561e8e8c2a3eb471ccb92cb599816c1b132582ffe0809fd",
+    "src/application/synthetic-loop/record.ts": "60e572d86215e2b4844cc28a8f3f9ced3d9aacfea1cf6d43716c33dbe32efde8",
+    "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+    "vite.slice.config.ts": "fd8da3d86f408800b13cb057f5f5b13bc4fc027ab20486a9d2358aea20dbaf23",
+    "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458"
+  },
+  "sourcesStable": true,
+  "artifacts": [
+    {
+      "path": "child-site/assets/index-BRMmCez1.js",
+      "bytes": 652674,
+      "sha256": "9c6096f09497470bf5e2797fcc32403394541c8c14bde83d672e0ea876ff7b9b"
+    },
+    {
+      "path": "child-site/assets/index-CGUFQC3T.css",
+      "bytes": 14636,
+      "sha256": "9076da6ee17a882269cb9c6c84d5ddcf0142ddf919cd78fda6e36b718cd5e36f"
+    },
+    {
+      "path": "child-site/icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "child-site/index.html",
+      "bytes": 724,
+      "sha256": "4cd6e2cdb6b692b1b3a6f677dac1d12e702cf24e468f4a2b95f7089774f90b46"
+    },
+    {
+      "path": "child-site/learner-reader.json",
+      "bytes": 92,
+      "sha256": "ddf50ce505975737ab6c208383f265e16fcaba65d3560035fa2db7d5767a0447"
+    },
+    {
+      "path": "child-site/manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "child-site/release.json",
+      "bytes": 1452,
+      "sha256": "3cd21b7b05859807a0daabe42233c4cb2a20bcbb010ab1e8f4c50a154d643011"
+    },
+    {
+      "path": "child-site/sw.js",
+      "bytes": 22636,
+      "sha256": "bb560d7c3c54a4dec2161f4eed7c8e982b90123d582f87208c8cdb8ea717ec4b"
+    },
+    {
+      "path": "child-site/THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "network": {
+    "externalAttempts": 0,
+    "outboundLearnerRequests": 0,
+    "pageErrors": 0,
+    "receivedRequests": 229,
+    "droppedObservations": 0
+  }
+}

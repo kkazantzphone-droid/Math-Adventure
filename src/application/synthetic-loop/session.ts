@@ -279,12 +279,22 @@ export function createSyntheticLoopSession(
   async function selectProfile(
     profile: SyntheticProfileId,
     createOperation?: string,
+    initialPreferences?: LoopPreferences,
   ): Promise<ApplicationResult<SyntheticLoopState>> {
     if (!SYNTHETIC_PROFILE_IDS.includes(profile) || frozen)
       return failure('invalid_record_id');
+    const initial = syntheticLoopCodec.decode({
+      ...initialSyntheticLoop(profile),
+      ...(initialPreferences === undefined
+        ? {}
+        : { preferences: initialPreferences }),
+    });
+    if (!initial.ok) return failure(initial.error.code);
     fence += 1;
     const token = fence;
-    record = initialSyntheticLoop(profile);
+    // First-entry settings initialise only a new/unsaved profile. A successful
+    // load below always restores that profile's own persisted preferences.
+    record = initial.value;
     snapshot = null;
     saved = false;
     uncertain = false;
@@ -321,7 +331,7 @@ export function createSyntheticLoopSession(
         operationId: op.value,
         recordId: id.value,
         storageEpoch: epoch.value,
-        payload: initialSyntheticLoop(profile),
+        payload: initial.value,
       };
       return await execute(command, token);
     } catch {

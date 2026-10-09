@@ -1,6 +1,14 @@
 # Decision register
 
-Current Goal **D52** requests full evidence-backed Phase 3C and Phase 3 closure
+Current Goal **D54** authorizes the existing synthetic child journey in draft
+el-GR/en-GB/de-DE: discoverable native-name language choice, retained independent
+preferences, eight-family content/help/feedback, unchanged mathematics and
+optional exact-local speech. [Design](MULTILINGUAL_CHILD_DESIGN.md) and
+[current evidence](MULTILINGUAL_CHILD_COMPLETION_REPORT.md) record this focused
+increment. No general Phase 4/5, official pack, real-child use or release is
+authorized; unchanged V2 applies only after every candidate gate passes.
+
+Historical Goal **D52** requests full evidence-backed Phase 3C and Phase 3 closure
 after observed owner merge of PR #13 at protected-main
 `ce4eccb87b731a15034950db66c01be9d94e07c8`. [Closure evidence](PHASE_3_COMPLETION_REPORT.md)
 now records the owner's bounded actual Chrome 200% zoom, Windows 11 / Chrome /
@@ -120,6 +128,7 @@ No Phase 3 implementation or real-child use follows from this certification.
 | D51 | Owner confirms the reconciled eight-family child presentation and authorizes publication of the narrowed playable synthetic loop plus child UX milestone | ACCEPTED bounded owner product confirmation and workflow authorization 2026-10-07; PHASE 3C PLAYABLE SYNTHETIC LOOP + CHILD UX — ENGINEERING/OWNER PASS; Q19 closed | [Owner confirmation](evidence/phase3c-child-ux/owner-confirmation.json), [current report](PHASE_3C_COMPLETION_REPORT.md). Direct answers, progressive visual help, badge identities, simple navigation and separate adult diagnostics accepted. Reconcile docs, rerun current full/fresh, push existing feature branch, open/update non-draft PR and repair ordinary CI until exact-head `verify (ubuntu-24.04)` and `verify (windows-2025)` both SUCCESS. `owner_merge` remains; FULL PHASE 3C DEVICE/AT CERTIFICATION — PENDING EXTERNAL EVIDENCE. No representative child research, educational/WCAG/native-language/real-child certification, automatic merge, release/deployment or next phase |
 | D52 | Owner requests full evidence-backed Phase 3C completion and formal Phase 3 closure after the owner-confirmed milestone is merged | ACCEPTED task scope 2026-10-07; mandatory owner observations subsequently supplied under D53 | [Closure report](PHASE_3_COMPLETION_REPORT.md). Preserve approved UX/engine and accepted gates; required final full/fresh, independent, privacy/integrity and exact-head hosted checks precede guarded protected merge. `merge_policy: automatic_when_eligible` under unchanged V2. No Phase 4, real-child use, release/deployment, telemetry/backend or policy/access expansion |
 | D53 | Owner reports completed prepared protocol on the current bound production surface: Chrome native 200% zoom, Windows 11 / Chrome / Narrator actual delivery and physically disconnected-device restart with required synthetic persistence/reopen all PASS | RECORDED bounded owner observation 2026-10-07, not a product/privacy/educational policy change or broad certification | [Faithful aggregate receipt](evidence/phase3c-closure/owner-observation.json). No invented per-family subresults, versions, counts, locale/profile details or timestamps. Closes the previously absent 3C observations within that tested environment; final local/fresh/independent/hosted/protected merge gates remain mandatory. No general device, WCAG, language, educational or real-child claim |
+| D54 | Owner authorizes a focused multilingual increment over the existing eight-family synthetic child journey in draft el-GR/en-GB/de-DE | ACCEPTED bounded owner task scope 2026-10-09; engineering/product evidence recorded separately | [Design](MULTILINGUAL_CHILD_DESIGN.md), [completion](MULTILINGUAL_CHILD_COMPLETION_REPORT.md). Discoverable simple choice plus independent roles, retained badge preferences, coherent help/feedback/recovery/offline and semantic local-only speech. Preserve Space, math/replay/adaptation/privacy/persistence/update guarantees. Draft native review may remain pending; no official pack promotion, catalogue expansion, broader Phase 4/5, real-child data/trials, accepted policy/access change, release/deployment/backend/telemetry. Standing V2 automatic_when_eligible only after all required exact-head gates |
 
 D49's initial automatic-when-eligible scope is preserved in the engine milestone;
 D50 set `owner_merge` and required child UX reconciliation; D51 records the later

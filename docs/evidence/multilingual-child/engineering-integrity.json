@@ -1,0 +1,55 @@
+{
+  "schema": "multilingual-engineering-integrity-v1",
+  "date": "2026-10-09",
+  "sourceFiles": 390,
+  "allFreshSourceBytesMatch": true,
+  "changedPaths": [],
+  "artifactsMatch": true,
+  "originalLockUnchanged": true,
+  "lockSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "nodePin": "24.21.0",
+  "pnpmPin": "pnpm@12.9.1",
+  "normalArtifacts": [
+    {
+      "path": "assets/index-Cqw6cjjL.css",
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    {
+      "path": "assets/index-xWWwqr9h.js",
+      "bytes": 328892,
+      "sha256": "0cbae297c4e02cd86124dc68838250f84a07675df53cfecf4efc0de919168271"
+    },
+    {
+      "path": "icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 795,
+      "sha256": "79f69fdc221664e42d08cf9e9393d1bf9ecc05eec5753e54c649d4f974e740ab"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1300,
+      "sha256": "f31c05e2f4d22feb989553511052acf2ec25c451b8b59d8ab8054274fb25ae0d"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 22518,
+      "sha256": "4794bd767cead58aa8f1210671c270997e9ee1c397cd34aa28e98afa0405726e"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "scope": "Exact copied synthetic candidate; frozen install and canonical verify observed separately; no global/device/release certification"
+}

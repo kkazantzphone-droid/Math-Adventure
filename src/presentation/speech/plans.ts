@@ -1,3 +1,5 @@
+import { childCopy } from '../localisation/child-copy';
+import type { ChildTextId } from '../localisation/child-copy';
 import {
   isLocale,
   isPrototypeLocale,
@@ -21,9 +23,45 @@ export const speechKinds = [
   'cardinalFive',
   'cardinalSix',
   'cardinalSixteen',
+  'activityAddition',
+  'activityShape',
+  'activityLength',
+  'activityNumeral',
+  'activityCounting',
+  'activityComparison',
+  'activitySubtraction',
+  'activityMissing',
 ] as const;
 
 export type SpeechKind = (typeof speechKinds)[number];
+
+const childActivityKinds = {
+  evaluateExpression: 'activityAddition',
+  classifyGeometry: 'activityShape',
+  measureGeometry: 'activityLength',
+  numeralRecognition: 'activityNumeral',
+  countItems: 'activityCounting',
+  compareQuantities: 'activityComparison',
+  subtractItems: 'activitySubtraction',
+  missingNumber: 'activityMissing',
+} as const satisfies Readonly<Record<string, SpeechKind>>;
+
+export type ChildActivityKind = keyof typeof childActivityKinds;
+type ChildActivitySpeechKind = (typeof childActivityKinds)[ChildActivityKind];
+type PrototypeSpeechKind = Exclude<SpeechKind, ChildActivitySpeechKind>;
+
+const childActivityPromptIds: Readonly<
+  Record<ChildActivitySpeechKind, ChildTextId>
+> = {
+  activityAddition: 'addition',
+  activityShape: 'shape',
+  activityLength: 'length',
+  activityNumeral: 'numeral',
+  activityCounting: 'counting',
+  activityComparison: 'comparison',
+  activitySubtraction: 'subtraction',
+  activityMissing: 'missing',
+};
 
 export interface UtteranceSegment {
   readonly locale: Locale;
@@ -40,7 +78,7 @@ export interface UtterancePlan {
  * This catalogue describes visible relationships; it never evaluates mathematics.
  */
 const phrases: Readonly<
-  Record<PrototypeLocale, Readonly<Record<SpeechKind, string>>>
+  Record<PrototypeLocale, Readonly<Record<PrototypeSpeechKind, string>>>
 > = {
   'el-GR': {
     childInstructions: 'Διάλεξε και ξεκίνα.',
@@ -96,6 +134,14 @@ const phrases: Readonly<
   },
 };
 
+function cataloguePhrase(kind: SpeechKind, locale: PrototypeLocale): string {
+  if (Object.hasOwn(childActivityPromptIds, kind))
+    return childCopy(locale)[
+      childActivityPromptIds[kind as ChildActivitySpeechKind]
+    ];
+  return phrases[locale][kind as PrototypeSpeechKind];
+}
+
 export function buildUtterancePlan(
   kind: SpeechKind,
   locale: Locale,
@@ -105,9 +151,22 @@ export function buildUtterancePlan(
     kind,
     locale,
     segments: Object.freeze([
-      Object.freeze({ locale, text: phrases[locale][kind] }),
+      Object.freeze({ locale, text: cataloguePhrase(kind, locale) }),
     ]),
   });
+}
+
+/** Current activity meaning only: no arbitrary utterance, operands or answer. */
+export function buildChildActivityUtterancePlan(
+  taskKind: ChildActivityKind,
+  locale: Locale,
+): UtterancePlan | null {
+  if (
+    typeof taskKind !== 'string' ||
+    !Object.hasOwn(childActivityKinds, taskKind)
+  )
+    return null;
+  return buildUtterancePlan(childActivityKinds[taskKind], locale);
 }
 
 function dataObject(
@@ -152,7 +211,7 @@ export function isCatalogueUtterancePlan(
     return (
       dataObject(segment, ['locale', 'text']) &&
       segment.locale === value.locale &&
-      segment.text === phrases[value.locale][value.kind as SpeechKind]
+      segment.text === cataloguePhrase(value.kind as SpeechKind, value.locale)
     );
   } catch {
     return false;

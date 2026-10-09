@@ -1,0 +1,27 @@
+{
+  "restoredSha256": "0a9d23fdfa8b0181cf6b36778182d39f6556d143dbed058670c9bc5c3e6ff2da",
+  "originalSha256": "0a9d23fdfa8b0181cf6b36778182d39f6556d143dbed058670c9bc5c3e6ff2da",
+  "exitCode": 1,
+  "exactRestoration": true,
+  "baseline": "8 selected Chrome cases PASS",
+  "mutation": "saved-language-focus-restoration-removed",
+  "expectedDetection": "held write keyboard focus assertion",
+  "observation": {
+    "skippedTests": 47,
+    "expected": true,
+    "testFilesFailed": 1,
+    "totalDiscoveredTests": 48,
+    "assertionLineAtMutation": 721,
+    "vitestDurationSeconds": 2.06,
+    "assertionPurpose": "Saved English language button remains the active element after the first held preference write is released",
+    "observed": false,
+    "scope": "Installed Chrome; one selected native synthetic test; restoration call removed temporarily",
+    "vitestExitCode": 1,
+    "failedTests": 1,
+    "testName": "keeps useful keyboard focus after a saved language choice and respects deliberate focus moves during its write",
+    "selectedTests": 1,
+    "testFile": "tests/integration/multilingual-child.test.ts",
+    "failure": "AssertionError: expected false to be true",
+    "result": "DETECTED — intended saved-language focus assertion"
+  }
+}

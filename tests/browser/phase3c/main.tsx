@@ -24,7 +24,9 @@ import {
   resolvePrototypeLocale,
   SUPPORTED_LOCALES,
   isLocale,
+  isPrototypeLocale,
 } from '../../../src/presentation/localisation/locales';
+import { defaultLanguagePreferences } from '../../../src/presentation/localisation/preferences';
 import {
   formatMessage,
   getPrototypeCopy,
@@ -33,12 +35,21 @@ import {
   formatSlice,
   sliceOfflineCopy,
 } from '../../../src/presentation/localisation/slice-copy';
-import { buildUtterancePlan } from '../../../src/presentation/speech/plans';
+import {
+  buildUtterancePlan,
+  buildChildActivityUtterancePlan,
+} from '../../../src/presentation/speech/plans';
 import { TaskView } from '../../../src/ui/synthetic-loop/TaskView';
 import { ChildTaskView } from '../../../src/ui/synthetic-loop/ChildTaskView';
+import { ChildLanguageControls } from '../../../src/ui/synthetic-loop/LanguageControls';
+import {
+  languageNames,
+  languageControlCopy,
+} from '../../../src/presentation/localisation/language-controls-copy';
 import type { LoopPresentation } from '../../../src/ui/synthetic-loop/TaskView';
 import { OfflineControls } from '../../../src/ui/offline/OfflineControls';
 import { SpeechControls } from '../../../src/ui/speech/SpeechControls';
+import { SpeechAvailabilityNotice } from '../../../src/ui/speech/SpeechAvailabilityNotice';
 import { createSliceRuntime } from './runtime';
 import {
   BadgeProfiles,
@@ -122,6 +133,9 @@ function generate(
 }
 
 function App() {
+  const [entryPreferences, setEntryPreferences] = useState<LoopPreferences>(
+    defaultLanguagePreferences,
+  );
   const [view, setView] = useState<'child' | 'developer'>(() => {
     return location.hash === '#developer' ? 'developer' : 'child';
   });
@@ -143,6 +157,10 @@ function App() {
   const [save, setSave] = useState(true);
   const [deleteRequested, setDeleteRequested] = useState(false);
   const actionGeneration = useRef(0);
+  const languageFocus = useRef<{
+    readonly session: ReturnType<typeof runtime.session>;
+    readonly locale: string;
+  } | null>(null);
   const answerSubmission = useRef<{
     readonly session: ReturnType<typeof runtime.session>;
     readonly seed: string;
@@ -155,15 +173,12 @@ function App() {
   const session = runtime.session();
   const state = session.state();
   const record = state.record;
-  const preferences: LoopPreferences = record?.preferences ?? {
-    uiLocale: 'el-GR',
-    instructionLocale: 'el-GR',
-    numberSpeechLocale: 'el-GR',
-  };
+  const preferences: LoopPreferences = record?.preferences ?? entryPreferences;
   const locale = preferences.uiLocale;
   const effective = resolvePrototypeLocale(locale).effectiveLocale;
   const copy = getPrototypeCopy(locale);
   const childCopy = childShellCopy(locale);
+  const languageCopy = languageControlCopy(locale);
   const disabled = state.busy || state.frozen || runtime.recovery().recovering;
   const playDisabled =
     disabled || state.readOnly || state.uncertain || record?.pending != null;
@@ -188,6 +203,25 @@ function App() {
           } as const
         )[task.task.numeral.numerator as '2' | '3' | '4' | '5']
       : undefined;
+  const instructionPlan = !record?.sessionActive
+    ? null
+    : feedback === 'correct'
+      ? buildUtterancePlan('positiveFeedback', preferences.instructionLocale)
+      : view === 'child'
+        ? task && task.task.kind !== 'equation'
+          ? buildChildActivityUtterancePlan(
+              task.task.kind,
+              preferences.instructionLocale,
+            )
+          : null
+        : buildUtterancePlan(
+            'childInstructions',
+            preferences.instructionLocale,
+          );
+  const numberPlan =
+    numeralSpeech && record?.sessionActive
+      ? buildUtterancePlan(numeralSpeech, preferences.numberSpeechLocale)
+      : null;
   const refresh = () => {
     runtime.notify();
     render((value) => value + 1);
@@ -209,6 +243,25 @@ function App() {
       !state.busy && !state.uncertain && !record?.pending,
     );
   }, [state.busy, state.uncertain, record?.pending]);
+  useLayoutEffect(() => {
+    const requested = languageFocus.current;
+    if (!requested || state.busy) return;
+    languageFocus.current = null;
+    if (view !== 'child' || requested.session !== session) return;
+    // A save may disable and blur the initiating button. Restore it only if
+    // the child has not deliberately moved to another control meanwhile.
+    const active = document.activeElement;
+    if (
+      active !== document.body &&
+      active?.getAttribute('data-child-language') !== requested.locale
+    )
+      return;
+    const button = document.querySelector<HTMLButtonElement>(
+      `[data-child-language="${requested.locale}"]`,
+    );
+    if (button && !button.disabled) button.focus({ preventScroll: true });
+    else document.querySelector<HTMLElement>('[data-save-state]')?.focus();
+  }, [state.busy, state.error, preferences, session, view]);
   useLayoutEffect(() => {
     if (focusRequested.current) {
       focusRequested.current = false;
@@ -447,6 +500,31 @@ function App() {
         id="offline-interaction-surface"
         inert={offline?.snapshot().frozen ?? false}
       >
+        {view === 'child' && (
+          <ChildLanguageControls
+            preferences={preferences}
+            disabled={playDisabled}
+            onChoose={(selected) => {
+              const next = {
+                uiLocale: selected,
+                instructionLocale: selected,
+                numberSpeechLocale: selected,
+              };
+              if (record) {
+                if (
+                  document.activeElement?.getAttribute(
+                    'data-child-language',
+                  ) === selected
+                )
+                  languageFocus.current = { session, locale: selected };
+                void run(() => session.setPreferences(next, operation()));
+              } else {
+                speech.cancel();
+                setEntryPreferences(next);
+              }
+            }}
+          />
+        )}
         {view === 'child' ? (
           <BadgeProfiles
             locale={locale}
@@ -454,7 +532,13 @@ function App() {
             disabled={state.frozen || runtime.recovery().recovering}
             onChoose={(profile) =>
               void run(
-                () => runtime.selectProfile(profile, operation(), save),
+                () =>
+                  runtime.selectProfile(
+                    profile,
+                    operation(),
+                    save,
+                    preferences,
+                  ),
                 true,
               )
             }
@@ -474,7 +558,13 @@ function App() {
                   aria-pressed={record?.profileId === profile}
                   onClick={() =>
                     void run(
-                      () => runtime.selectProfile(profile, operation(), save),
+                      () =>
+                        runtime.selectProfile(
+                          profile,
+                          operation(),
+                          save,
+                          preferences,
+                        ),
                       true,
                     )
                   }
@@ -709,14 +799,19 @@ function App() {
                 <SpeechControls
                   speech={speech}
                   snapshot={speech.snapshot()}
-                  plan={buildUtterancePlan(
-                    feedback === 'correct'
-                      ? 'positiveFeedback'
-                      : 'childInstructions',
-                    preferences.instructionLocale,
-                  )}
+                  plan={instructionPlan}
                   copy={copy}
                 />
+                {view === 'child' && record.sessionActive && (
+                  <SpeechAvailabilityNotice
+                    locale={preferences.instructionLocale}
+                    plan={instructionPlan}
+                    snapshot={speech.snapshot()}
+                    unavailable={languageCopy.unavailable}
+                    loading={languageCopy.loading}
+                    speechRole="question"
+                  />
+                )}
               </section>
               {numeralSpeech && (
                 <section
@@ -733,17 +828,28 @@ function App() {
                   <SpeechControls
                     speech={speech}
                     snapshot={speech.snapshot()}
-                    plan={buildUtterancePlan(
-                      numeralSpeech,
-                      preferences.numberSpeechLocale,
-                    )}
+                    plan={numberPlan}
                     copy={copy}
                   />
+                  {view === 'child' &&
+                    record.sessionActive &&
+                    preferences.numberSpeechLocale !==
+                      preferences.instructionLocale && (
+                      <SpeechAvailabilityNotice
+                        locale={preferences.numberSpeechLocale}
+                        plan={numberPlan}
+                        snapshot={speech.snapshot()}
+                        unavailable={languageCopy.numberUnavailable}
+                        loading={languageCopy.loading}
+                        speechRole="number"
+                      />
+                    )}
                 </section>
               )}
               <p
                 className="slice-save-status"
                 role="status"
+                tabIndex={-1}
                 data-save-state={
                   state.busy
                     ? 'saving'
@@ -843,8 +949,11 @@ function App() {
                       }}
                     >
                       {SUPPORTED_LOCALES.map((tag) => (
-                        <option key={tag} value={tag}>
-                          {tag}
+                        <option key={tag} value={tag} lang={tag}>
+                          {languageNames[tag]}
+                          {isPrototypeLocale(tag)
+                            ? ''
+                            : ` — ${languageCopy.planned}`}
                         </option>
                       ))}
                     </select>

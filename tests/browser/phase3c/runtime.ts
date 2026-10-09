@@ -3,7 +3,10 @@ import {
   syntheticLoopCodec,
   syntheticLoopRecordId,
 } from '../../../src/application/synthetic-loop';
-import type { SyntheticLoopRecord } from '../../../src/application/synthetic-loop';
+import type {
+  LoopPreferences,
+  SyntheticLoopRecord,
+} from '../../../src/application/synthetic-loop';
 import type { SyntheticProfileId } from '../../../src/domain/adaptation/types';
 import { SYNTHETIC_PROFILE_IDS } from '../../../src/domain/adaptation/types';
 import type { AtomicRecordRepository } from '../../../src/application/ports/repository';
@@ -327,6 +330,7 @@ export function createSliceRuntime(baseURL: URL) {
       profile: SyntheticProfileId,
       operation: string,
       save: boolean,
+      initialPreferences?: LoopPreferences,
     ) {
       if (recovering || attempt) return;
       let releaseSelection = () => {};
@@ -351,6 +355,7 @@ export function createSliceRuntime(baseURL: URL) {
         const pending = session.selectProfile(
           profile,
           save ? operation : undefined,
+          initialPreferences,
         );
         notify();
         await pending;

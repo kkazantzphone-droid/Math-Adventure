@@ -1,7 +1,68 @@
 import { resolvePrototypeLocale } from './locales';
-import type { Locale } from './locales';
+import type { Locale, PrototypeLocale } from './locales';
 
-// Prototype drafts. No official/native-language or educational claim.
+export const CHILD_MESSAGE_SCHEMA = 'child-messages-v1';
+export const CHILD_PACK_VERSION = '0.1.0-child-draft';
+
+/** Required child wording, independent of mathematical content and replay IDs. */
+export const CHILD_TEXT_IDS = [
+  'addition',
+  'shape',
+  'length',
+  'numeral',
+  'counting',
+  'comparison',
+  'subtraction',
+  'missing',
+  'left',
+  'right',
+  'part',
+  'all',
+  'group',
+  'dot',
+  'removed',
+  'empty',
+  'square',
+  'rectangle',
+  'parallelogram',
+  'fewer',
+  'same',
+  'more',
+  'step',
+  'start',
+  'firstStep',
+  'nextStep',
+  'lastStep',
+  'again',
+  'outline',
+  'line',
+  'answers',
+  'retry',
+  'success',
+  'wait',
+  'unavailable',
+  'help',
+] as const;
+
+export const CHILD_HELP_IDS = [
+  'additionHelp',
+  'shapeHelp',
+  'lengthHelp',
+  'numeralHelp',
+  'countingHelp',
+  'comparisonHelp',
+  'subtractionHelp',
+  'missingHelp',
+] as const;
+
+export type ChildTextId = (typeof CHILD_TEXT_IDS)[number];
+export type ChildHelpId = (typeof CHILD_HELP_IDS)[number];
+export type ChildMessages = Readonly<
+  Record<ChildTextId, string> &
+    Record<ChildHelpId, readonly [string, string, string]>
+>;
+
+// Draft child content. Completeness does not confer linguistic review.
 const copy = {
   'el-GR': {
     addition: 'Πόσα είναι όλα μαζί;',
@@ -18,7 +79,7 @@ const copy = {
     all: 'Όλα μαζί',
     group: 'Ομάδα',
     dot: 'Κουκκίδα',
-    removed: 'Έφυγε',
+    removed: 'Κουκκίδα που έφυγε',
     empty: 'Καμία κουκκίδα',
     square: 'Τετράγωνο',
     rectangle: 'Ορθογώνιο',
@@ -85,7 +146,7 @@ const copy = {
     addition: 'How many altogether?',
     shape: 'Which shape matches?',
     length: 'How many steps along the line?',
-    numeral: 'Which dots match?',
+    numeral: 'Which group matches?',
     counting: 'How many dots?',
     comparison: 'Where are there more dots?',
     subtraction: 'How many are left?',
@@ -96,7 +157,7 @@ const copy = {
     all: 'Altogether',
     group: 'Group',
     dot: 'Dot',
-    removed: 'Taken away',
+    removed: 'Removed dot',
     empty: 'No dots',
     square: 'Square',
     rectangle: 'Rectangle',
@@ -163,7 +224,7 @@ const copy = {
     addition: 'Wie viele sind es zusammen?',
     shape: 'Welche Form passt?',
     length: 'Wie viele Schritte hat die Linie?',
-    numeral: 'Welche Punkte passen?',
+    numeral: 'Welche Gruppe passt?',
     counting: 'Wie viele Punkte?',
     comparison: 'Wo sind mehr Punkte?',
     subtraction: 'Wie viele bleiben übrig?',
@@ -174,7 +235,7 @@ const copy = {
     all: 'Zusammen',
     group: 'Gruppe',
     dot: 'Punkt',
-    removed: 'Weggenommen',
+    removed: 'Weggenommener Punkt',
     empty: 'Keine Punkte',
     square: 'Quadrat',
     rectangle: 'Rechteck',
@@ -198,47 +259,71 @@ const copy = {
     help: 'Zeig es mir',
     additionHelp: [
       'Lege beide Gruppen zusammen.',
-      'Schau jeden Punkt an.',
+      'Schau dir jeden Punkt an.',
       'Berühre die Punkte einzeln.',
     ],
     shapeHelp: [
-      'Schau die Ecken an.',
+      'Schau dir die Ecken an.',
       'Folge den Seiten.',
-      'Schau auch die Karten an.',
+      'Schau dir auch die Karten an.',
     ],
     lengthHelp: [
-      'Schau die gleichen Schritte an.',
+      'Schau auf die gleich langen Schritte.',
       'Folge der Linie.',
       'Berühre jeden Schritt einmal.',
     ],
     numeralHelp: [
-      'Schau die Zahl und die Gruppen an.',
-      'Ordne die Punkte in einer Reihe.',
+      'Schau auf die Zahl und die Gruppen.',
+      'Lege die Punkte in eine Reihe.',
       'Zähle jede Gruppe einzeln.',
     ],
     countingHelp: [
-      'Ordne die Punkte in einer Reihe.',
+      'Lege die Punkte in eine Reihe.',
       'Berühre jeden Punkt.',
-      'Suche noch nicht berührte Punkte.',
+      'Suche die Punkte ohne Häkchen.',
     ],
     comparisonHelp: [
       'Lege die Gruppen nebeneinander.',
-      'Ordne jedem Punkt einen zu.',
-      'Suche übrige Punkte.',
+      'Paare die Punkte aus beiden Gruppen.',
+      'Suche die Punkte ohne Partner.',
     ],
     subtractionHelp: [
       'Durchgestrichene Punkte sind weg.',
-      'Schau nur die übrigen Punkte an.',
+      'Schau nur auf die übrigen Punkte.',
       'Berühre die übrigen Punkte einzeln.',
     ],
     missingHelp: [
-      'Schau die Lücke und Bekanntes an.',
+      'Schau auf die Lücke und die Zahlen.',
       'Teile ergeben das Ganze.',
       'Nutze die bekannten Punkte.',
     ],
   },
-} as const;
+} as const satisfies Readonly<Record<PrototypeLocale, ChildMessages>>;
 
-export function childCopy(locale: Locale) {
+// Speech catalogue validation shares these exact phrases. Keep runtime callers
+// from changing the allowed wording through an otherwise readonly reference.
+for (const messages of Object.values(copy)) {
+  for (const id of CHILD_HELP_IDS) Object.freeze(messages[id]);
+  Object.freeze(messages);
+}
+Object.freeze(copy);
+
+/** These manifests describe wording only; generator/content IDs are unchanged. */
+export const childPackManifests = Object.freeze(
+  (['el-GR', 'en-GB', 'de-DE'] as const).map((locale) =>
+    Object.freeze({
+      locale,
+      packVersion: CHILD_PACK_VERSION,
+      messageSchemaVersion: CHILD_MESSAGE_SCHEMA,
+      completeness: 'complete-eight-family-child-content',
+      status: 'draft',
+      reviewStatus: 'native-review-pending',
+      reviewers: Object.freeze([]),
+      official: false,
+    }),
+  ),
+);
+
+export function childCopy(locale: Locale): ChildMessages {
   return copy[resolvePrototypeLocale(locale).effectiveLocale];
 }

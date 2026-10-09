@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "originalSha256": "ddb0572fa50aae4a8561e8e8c2a3eb471ccb92cb599816c1b132582ffe0809fd",
+      "intendedAssertion": "First selected badge must have chosen detached preferences in its first atomic create command.",
+      "exitCode": 1,
+      "name": "initial-preferences-dropped",
+      "detected": true,
+      "exactRestoration": true,
+      "restoredSha256": "ddb0572fa50aae4a8561e8e8c2a3eb471ccb92cb599816c1b132582ffe0809fd",
+      "observedAssertionFailure": "Expected all first-entry preferences en-GB; received el-GR from default create payload.",
+      "failedTests": 7
+    },
+    {
+      "originalSha256": "ddb0572fa50aae4a8561e8e8c2a3eb471ccb92cb599816c1b132582ffe0809fd",
+      "intendedAssertion": "Every persisted mathematical wire field and replay seed must remain unchanged during preference changes.",
+      "exitCode": 1,
+      "name": "language-change-advances-task",
+      "detected": true,
+      "exactRestoration": true,
+      "restoredSha256": "ddb0572fa50aae4a8561e8e8c2a3eb471ccb92cb599816c1b132582ffe0809fd",
+      "observedAssertionFailure": "Exact canonical non-preference record comparison failed: taskOrdinal changed from 1 to 2 (and from 0 to 1 in response-recovery case).",
+      "failedTests": 2
+    }
+  ],
+  "candidateSource": "src/application/synthetic-loop/session.ts",
+  "schema": "multilingual-preferences-mutations-v1",
+  "scope": "Fixed synthetic unit fixtures; no native or linguistic certification",
+  "restoredVerification": {
+    "exitCode": 0,
+    "command": "corepack pnpm exec vitest run tests/unit/multilingual-preferences.test.ts tests/unit/synthetic-loop-review.test.ts tests/unit/synthetic-loop.test.ts",
+    "passedFiles": 3,
+    "passedTests": 40
+  }
+}
