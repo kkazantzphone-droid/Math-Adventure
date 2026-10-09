@@ -1,5 +1,16 @@
 # Development
 
+The [multilingual child increment](MULTILINGUAL_CHILD_DESIGN.md) uses the same
+deliberate synthetic slice build/loopback origin described below. Three native
+language names are reachable before selecting a badge and during play. New
+badges inherit that choice; existing badges restore their own saved UI,
+instruction and number-speech preferences. A simple choice reunifies the roles;
+independent choices remain in Grown-ups. Planned packs are labelled there and
+absent from the playable selector. Native linguistic review is pending.
+The installed-browser slice command also includes the new 24 family/locale
+journeys and switching/reopen/failure/offline checks; exact results belong in the
+[current report](MULTILINGUAL_CHILD_COMPLETION_REPORT.md).
+
 Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
 The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
 reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator

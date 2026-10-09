@@ -1,0 +1,406 @@
+{
+  "result": "PASS — INDEPENDENT PRODUCTION RENDERED REVIEW",
+  "channel": "chrome",
+  "browserVersion": "154.0.8037.58",
+  "renderer": "NODE_ENV=production; separate production artifact",
+  "sourceHashes": {
+    "tests/browser/phase3c/main.tsx": "0a9d23fdfa8b0181cf6b36778182d39f6556d143dbed058670c9bc5c3e6ff2da",
+    "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+    "tests/browser/phase3c/runtime.ts": "83c6476187cb8673d794f69f62711f6d9aa27889dd87a1cc0779a25c0d7e1623",
+    "tests/browser/phase3c/shell.css": "81f3bc4c1a8f47fc8720de6190d4c6652c92838a6e7ca42fb588f60ea0385287",
+    "src/ui/synthetic-loop/LanguageControls.tsx": "bb770f24e1b584c50bece2b0bdfd6039aa231c07fdfdf96740b6f7ee80afe228",
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+    "src/ui/synthetic-loop/slice.css": "92a9f9913250ad7efa0ebaab8cd8dad3c079daec87aacc8fa2905c023b25ca90",
+    "src/ui/styles.css": "b8c0fcc773ec3a0719e538131b297cca5dcb57ed083a816db88c45136634c986",
+    "src/ui/speech/SpeechControls.tsx": "c25167d990339e2265d924b29fa918df33d4bb1f806d175e74a069506969a93e",
+    "src/ui/speech/SpeechAvailabilityNotice.tsx": "63aa4ad0dc0330a243e53e59809a3109db7b594952705513ebae554c89049474",
+    "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+    "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+    "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+    "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+    "src/presentation/localisation/slice-copy.ts": "047f47b13490a8f4cde1d7e2d65e1de5b499f340740f51c26ecd762540bbc299",
+    "src/presentation/localisation/locales.ts": "2bdb28a467d5b3d902a9361099b8c03a1dd5945e6b647d44cbd2cd0dd5cffec8",
+    "src/presentation/localisation/language-controls-copy.ts": "29ca51792c5d060ad454d12c1b9f8e69900899e19028955cb5ae225e41edb1e2",
+    "src/presentation/speech/plans.ts": "89e08ee624e76ee3dd04ced6a077dc95e81100ac37de78d5ef77720a269b8417",
+    "src/application/synthetic-loop/session.ts": "ddb0572fa50aae4a8561e8e8c2a3eb471ccb92cb599816c1b132582ffe0809fd",
+    "src/application/synthetic-loop/record.ts": "60e572d86215e2b4844cc28a8f3f9ced3d9aacfea1cf6d43716c33dbe32efde8",
+    "src/application/synthetic-loop/seed.ts": "8fba60803e697922951efc7f5f64d483c7a9b23e4b51ca8d590234ffbd9e8d0e",
+    "src/application/synthetic-loop/answer.ts": "bfbfe1cd7ad660985afd6b338a858816969a5bf987eb0b70f2de926bf824d02b",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7c8e7867ec9b7fcec7bb3cbca7f42ce8b8e4d762b25ddc91a8595c836b629c4",
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+    "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+    "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+    "src/infrastructure/speech/browserSpeech.ts": "c0f0112ed72d2aacd8e0a13e0ce36d4c43963e23784c4487bb03667b04b0fb29",
+    "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+    "vite.slice.config.ts": "fd8da3d86f408800b13cb057f5f5b13bc4fc027ab20486a9d2358aea20dbaf23",
+    "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458"
+  },
+  "sourcesStable": true,
+  "artifacts": [
+    {
+      "path": "site/assets/index-C-m9jShJ.js",
+      "bytes": 426570,
+      "sha256": "6f2b80928494ff85a1a75a531f3c7eb57e0fc90eeae22039a851f8993434d84d"
+    },
+    {
+      "path": "site/assets/index-CGUFQC3T.css",
+      "bytes": 14636,
+      "sha256": "9076da6ee17a882269cb9c6c84d5ddcf0142ddf919cd78fda6e36b718cd5e36f"
+    },
+    {
+      "path": "site/icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "site/index.html",
+      "bytes": 732,
+      "sha256": "5d231e56e43f844810510138438d1b672628ea0f7361db9a08bb89fe4d1fa80e"
+    },
+    {
+      "path": "site/learner-reader.json",
+      "bytes": 92,
+      "sha256": "ddf50ce505975737ab6c208383f265e16fcaba65d3560035fa2db7d5767a0447"
+    },
+    {
+      "path": "site/manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "site/release.json",
+      "bytes": 1452,
+      "sha256": "f8ef0ec8b6c1a801a6d2565afd7c2633e3f1a10b53a7bb6e52520a2069300afc"
+    },
+    {
+      "path": "site/sw.js",
+      "bytes": 22636,
+      "sha256": "0eab0b8d36f6a4da638d7c0f809509cdabe0b5ec1d32f047f413ed2abbf99ffa"
+    },
+    {
+      "path": "site/THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  ],
+  "observations": [
+    {
+      "locale": "el-GR",
+      "family": "number.addition",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "el-GR",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "el-GR",
+      "family": "geometry.quadrilateral",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "el-GR",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "el-GR",
+      "family": "measurement.unit-length",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "el-GR",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "el-GR",
+      "family": "number.numeral",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "el-GR",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "el-GR",
+      "family": "number.counting",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "el-GR",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "el-GR",
+      "family": "number.comparison",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "el-GR",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "el-GR",
+      "family": "number.subtraction",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "el-GR",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "el-GR",
+      "family": "number.missing",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "el-GR",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "en-GB",
+      "family": "number.addition",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "en-GB",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "en-GB",
+      "family": "geometry.quadrilateral",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "en-GB",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "en-GB",
+      "family": "measurement.unit-length",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "en-GB",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "en-GB",
+      "family": "number.numeral",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "en-GB",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "en-GB",
+      "family": "number.counting",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "en-GB",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "en-GB",
+      "family": "number.comparison",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "en-GB",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "en-GB",
+      "family": "number.subtraction",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "en-GB",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "en-GB",
+      "family": "number.missing",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "en-GB",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "de-DE",
+      "family": "number.addition",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "de-DE",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "de-DE",
+      "family": "geometry.quadrilateral",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "de-DE",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "de-DE",
+      "family": "measurement.unit-length",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "de-DE",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "de-DE",
+      "family": "number.numeral",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "de-DE",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "de-DE",
+      "family": "number.counting",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "de-DE",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "de-DE",
+      "family": "number.comparison",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "de-DE",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "de-DE",
+      "family": "number.subtraction",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "de-DE",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    },
+    {
+      "locale": "de-DE",
+      "family": "number.missing",
+      "viewport": "375x812",
+      "text": "root32px deliberate 200%",
+      "tier": 3,
+      "language": "de-DE",
+      "overflow": false,
+      "minimumTargets": true,
+      "contained": true,
+      "textNotClipped": true
+    }
+  ],
+  "externalRequests": 0,
+  "pageErrors": 0,
+  "actualAT": "UNAVAILABLE",
+  "nativeZoom": "UNAVAILABLE: deliberate text scaling only",
+  "nativeReview": "UNAVAILABLE: draft copy",
+  "screenshots": "Fixed synthetic badge/task views in ignored cache only; no real learner media",
+  "visualInspection": {
+    "findings": [],
+    "entryImages": 3,
+    "familyLocaleImages": 24,
+    "retryAndSuccessImages": 6,
+    "limits": [
+      "This is visual/model engineering review, not native-language review or owner product acceptance.",
+      "Screenshots at375px use deliberate root text32px; no native browser zoom claim.",
+      "No actual screen-reader delivery, physical-disconnection restart, speech pronunciation or offline voice claim."
+    ],
+    "reviewer": "browser_acceptance agent",
+    "desktopImages": 3,
+    "inspectedImageCount": 36,
+    "observations": [
+      "All three autonym language choices are discoverable before badges with no flags or locale-code prerequisites.",
+      "All eight families in all three draft locales retain visible prompts, choices and progressive visual help.",
+      "Long German and Greek words remain readable; measured narrow/200% text targets are contained and unclipped.",
+      "Shape proportions, equal unit intervals, quantity groups and missing-part diagrams remain coherent.",
+      "English and German activity, help, feedback, navigation, saving and missing-question-speech text show no unexplained Greek.",
+      "Retry and success use supportive text and useful controls; Space dark-blue/mint identity remains coherent."
+    ]
+  }
+}

@@ -5,8 +5,14 @@ export type {
   SpeechVoiceSummary,
 } from './controller';
 export {
+  buildChildActivityUtterancePlan,
   buildUtterancePlan,
   isCatalogueUtterancePlan,
   speechKinds,
 } from './plans';
-export type { SpeechKind, UtterancePlan, UtteranceSegment } from './plans';
+export type {
+  ChildActivityKind,
+  SpeechKind,
+  UtterancePlan,
+  UtteranceSegment,
+} from './plans';

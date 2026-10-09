@@ -1,0 +1,190 @@
+// Authored child-language contract, separate from the production copy lookup.
+// These words are draft acceptance expectations, never native-language approval.
+export const PLAYABLE_CHILD_LOCALES = ['el-GR', 'en-GB', 'de-DE'] as const;
+export type PlayableChildLocale = (typeof PLAYABLE_CHILD_LOCALES)[number];
+
+export const CHILD_LANGUAGE_EXPECTATIONS = {
+  'el-GR': {
+    name: 'Ελληνικά',
+    badges: ['Αστέρι', 'Τρίγωνο'],
+    navigation: ['Παίξε', 'Σχήματα', 'Εξερεύνησε'],
+    help: 'Δείξε μου',
+    retry: 'Ξαναδοκίμασε',
+    success: 'Ναι, το βρήκες!',
+    group: 'Ομάδα',
+    dot: 'Κουκκίδα',
+    empty: 'Καμία κουκκίδα',
+    shapes: ['Τετράγωνο', 'Ορθογώνιο', 'Πλάγιο σχήμα'],
+    comparison: ['Πιο πολλά δεξιά', 'Ίδιες', 'Πιο πολλά αριστερά'],
+    prompts: [
+      'Πόσα είναι όλα μαζί;',
+      'Ποιο σχήμα ταιριάζει;',
+      'Πόσα βήματα έχει η γραμμή;',
+      'Ποια ομάδα ταιριάζει;',
+      'Πόσες κουκκίδες βλέπεις;',
+      'Πού έχει πιο πολλά;',
+      'Πόσες μένουν;',
+      'Τι μπαίνει στο κενό;',
+    ],
+    hints: [
+      [
+        'Βάλε τις δύο ομάδες μαζί.',
+        'Κοίτα κάθε κουκκίδα.',
+        'Άγγιξε τις κουκκίδες μία μία.',
+      ],
+      ['Κοίτα τις γωνίες.', 'Ακολούθησε τις πλευρές.', 'Κοίτα και τις κάρτες.'],
+      [
+        'Κοίτα τα ίσα βήματα.',
+        'Ακολούθησε τη γραμμή.',
+        'Άγγιξε κάθε βήμα μία φορά.',
+      ],
+      [
+        'Κοίτα τον αριθμό και τις ομάδες.',
+        'Βάλε τις κουκκίδες σε σειρά.',
+        'Μέτρα κάθε ομάδα μία μία.',
+      ],
+      [
+        'Βάλε τις κουκκίδες σε σειρά.',
+        'Άγγιξε κάθε κουκκίδα.',
+        'Κοίτα όσες δεν άγγιξες ακόμη.',
+      ],
+      [
+        'Βάλε τις ομάδες δίπλα δίπλα.',
+        'Ταίριαξε μία με μία.',
+        'Κοίτα όσα μένουν μόνα.',
+      ],
+      [
+        'Οι διαγραμμένες κουκκίδες έφυγαν.',
+        'Κοίτα μόνο όσες μένουν.',
+        'Άγγιξε όσες μένουν μία μία.',
+      ],
+      [
+        'Κοίτα το κενό και όσα ξέρεις.',
+        'Τα μέρη φτιάχνουν το σύνολο.',
+        'Μέτρα όσα ξέρεις.',
+      ],
+    ],
+  },
+  'en-GB': {
+    name: 'English',
+    badges: ['Star', 'Triangle'],
+    navigation: ['Play', 'Shapes', 'Explore'],
+    help: 'Show me',
+    retry: 'Try again',
+    success: 'Yes, you found it!',
+    group: 'Group',
+    dot: 'Dot',
+    empty: 'No dots',
+    shapes: ['Square', 'Rectangle', 'Leaning shape'],
+    comparison: ['More on the right', 'Same', 'More on the left'],
+    prompts: [
+      'How many altogether?',
+      'Which shape matches?',
+      'How many steps along the line?',
+      'Which group matches?',
+      'How many dots?',
+      'Where are there more dots?',
+      'How many are left?',
+      'What goes in the gap?',
+    ],
+    hints: [
+      [
+        'Bring both groups together.',
+        'Look at every dot.',
+        'Touch the dots one at a time.',
+      ],
+      ['Look at the corners.', 'Follow the sides.', 'Look at the cards too.'],
+      ['Look at the equal steps.', 'Follow the line.', 'Touch each step once.'],
+      [
+        'Look at the number and the groups.',
+        'Line up the dots.',
+        'Count each group one at a time.',
+      ],
+      [
+        'Line up the dots.',
+        'Touch each dot.',
+        'Look for dots you have not touched.',
+      ],
+      [
+        'Put the groups side by side.',
+        'Match one with one.',
+        'Look for any dots left over.',
+      ],
+      [
+        'Crossed-out dots have gone.',
+        'Look only at dots left.',
+        'Touch those left one at a time.',
+      ],
+      [
+        'Look at the gap and what you know.',
+        'Parts make the whole.',
+        'Use the dots you know.',
+      ],
+    ],
+  },
+  'de-DE': {
+    name: 'Deutsch',
+    badges: ['Stern', 'Dreieck'],
+    navigation: ['Spielen', 'Formen', 'Entdecken'],
+    help: 'Zeig es mir',
+    retry: 'Noch einmal',
+    success: 'Ja, du hast es gefunden!',
+    group: 'Gruppe',
+    dot: 'Punkt',
+    empty: 'Keine Punkte',
+    shapes: ['Quadrat', 'Rechteck', 'Schräge Form'],
+    comparison: ['Rechts mehr', 'Gleich viele', 'Links mehr'],
+    prompts: [
+      'Wie viele sind es zusammen?',
+      'Welche Form passt?',
+      'Wie viele Schritte hat die Linie?',
+      'Welche Gruppe passt?',
+      'Wie viele Punkte?',
+      'Wo sind mehr Punkte?',
+      'Wie viele bleiben übrig?',
+      'Was kommt in die Lücke?',
+    ],
+    hints: [
+      [
+        'Lege beide Gruppen zusammen.',
+        'Schau dir jeden Punkt an.',
+        'Berühre die Punkte einzeln.',
+      ],
+      [
+        'Schau dir die Ecken an.',
+        'Folge den Seiten.',
+        'Schau dir auch die Karten an.',
+      ],
+      [
+        'Schau auf die gleich langen Schritte.',
+        'Folge der Linie.',
+        'Berühre jeden Schritt einmal.',
+      ],
+      [
+        'Schau auf die Zahl und die Gruppen.',
+        'Lege die Punkte in eine Reihe.',
+        'Zähle jede Gruppe einzeln.',
+      ],
+      [
+        'Lege die Punkte in eine Reihe.',
+        'Berühre jeden Punkt.',
+        'Suche die Punkte ohne Häkchen.',
+      ],
+      [
+        'Lege die Gruppen nebeneinander.',
+        'Paare die Punkte aus beiden Gruppen.',
+        'Suche die Punkte ohne Partner.',
+      ],
+      [
+        'Durchgestrichene Punkte sind weg.',
+        'Schau nur auf die übrigen Punkte.',
+        'Berühre die übrigen Punkte einzeln.',
+      ],
+      [
+        'Schau auf die Lücke und die Zahlen.',
+        'Teile ergeben das Ganze.',
+        'Nutze die bekannten Punkte.',
+      ],
+    ],
+  },
+} as const;

@@ -1,0 +1,120 @@
+{
+  "schema": "multilingual-independent-source-review-v1",
+  "reviewer": "independent_review subagent; no implementation authorship",
+  "reviewBase": "de16cc7bfae8f339368c44f1dceae1124ae1b7fb",
+  "sourceBindings": [
+    {
+      "sha256": "ddb0572fa50aae4a8561e8e8c2a3eb471ccb92cb599816c1b132582ffe0809fd",
+      "path": "src/application/synthetic-loop/session.ts"
+    },
+    {
+      "sha256": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+      "path": "src/presentation/localisation/child-copy.ts"
+    },
+    {
+      "sha256": "29ca51792c5d060ad454d12c1b9f8e69900899e19028955cb5ae225e41edb1e2",
+      "path": "src/presentation/localisation/language-controls-copy.ts"
+    },
+    {
+      "sha256": "fd5e8d34b9008951cb443ad5d39ab8ab9b98b632ab1794d072ae248bdc151b2c",
+      "path": "src/presentation/speech/index.ts"
+    },
+    {
+      "sha256": "89e08ee624e76ee3dd04ced6a077dc95e81100ac37de78d5ef77720a269b8417",
+      "path": "src/presentation/speech/plans.ts"
+    },
+    {
+      "sha256": "63aa4ad0dc0330a243e53e59809a3109db7b594952705513ebae554c89049474",
+      "path": "src/ui/speech/SpeechAvailabilityNotice.tsx"
+    },
+    {
+      "sha256": "bb770f24e1b584c50bece2b0bdfd6039aa231c07fdfdf96740b6f7ee80afe228",
+      "path": "src/ui/synthetic-loop/LanguageControls.tsx"
+    },
+    {
+      "sha256": "0a9d23fdfa8b0181cf6b36778182d39f6556d143dbed058670c9bc5c3e6ff2da",
+      "path": "tests/browser/phase3c/main.tsx"
+    },
+    {
+      "sha256": "83c6476187cb8673d794f69f62711f6d9aa27889dd87a1cc0779a25c0d7e1623",
+      "path": "tests/browser/phase3c/runtime.ts"
+    },
+    {
+      "sha256": "81f3bc4c1a8f47fc8720de6190d4c6652c92838a6e7ca42fb588f60ea0385287",
+      "path": "tests/browser/phase3c/shell.css"
+    },
+    {
+      "sha256": "477d6d5a64807c069fb36a6cc47d9002a17a3e8f408526691fd7870dcfe7f52e",
+      "path": "tests/unit/synthetic-loop-review.test.ts"
+    },
+    {
+      "sha256": "314107b29d37cbd35d8ca75bbbbc53ed1a39f77df0ee03da854527f6ab773c4d",
+      "path": "tests/unit/child-localisation.test.tsx"
+    },
+    {
+      "sha256": "c3a388e6a87a22af2d8b4af491b0ca707099bd087d5e031c8c0532fbef88ae41",
+      "path": "tests/unit/child-speech.test.ts"
+    },
+    {
+      "sha256": "6f6e0510aacbb970a4639d2ef9e9d0916206041be2e93e5c7b2fb03c57b3616d",
+      "path": "tests/unit/child-speech-availability.test.tsx"
+    },
+    {
+      "sha256": "35f269c5a63ad154e90cb71e0a40a8d9a29b554fa24f051ff04908ed3025ac76",
+      "path": "tests/unit/multilingual-preferences.test.ts"
+    },
+    {
+      "sha256": "6c042c15aa5c8778a70521f36df99959ee317f1cd7073633491c76ff3d8f9271",
+      "path": "tests/integration/multilingual-child.test.ts"
+    },
+    {
+      "sha256": "1362301321f1e3db2168e26bfd448810c035fd9ac7449ee5b147547ec9055439",
+      "path": "tests/integration/helpers/multilingual-child-expectations.ts"
+    },
+    {
+      "sha256": "fd8da3d86f408800b13cb057f5f5b13bc4fc027ab20486a9d2358aea20dbaf23",
+      "path": "vite.slice.config.ts"
+    }
+  ],
+  "date": "2026-10-09 Europe/Athens",
+  "evidenceReferences": [
+    ".cache/multilingual-child-browser/focus-mutation.json",
+    ".cache/multilingual-preferences-mutations.json"
+  ],
+  "method": "Read owner attachment, operating model, quality/UI skills, accepted locale/privacy/persistence ADRs, full tracked diff and all new source/tests. Reinspect repairs. No source mutation.",
+  "evidenceLimits": [
+    "Current source review is not full/fresh canonical verification, audit or hosted-CI evidence",
+    "Full Chrome/Edge matrices, independent production rendered review, complete report/links/artifacts/privacy and exact-head hosted gates remain separate",
+    "Native language review, delivered AT, native zoom, physical disconnected restart and pronunciation/offline voice certification are not claimed",
+    "D53 historical physical evidence is source-bound and does not certify changed multilingual controls"
+  ],
+  "checks": [
+    "No domain, schema, dependency, pin, lockfile or infrastructure source change",
+    "Preferences reuse codec and fenced atomic command; successful existing profile load restores persisted preferences",
+    "Language choice does not regenerate/reset task, response, hint/support state, feedback, replay or adaptation",
+    "Draft three-locale eight-family completeness and authored expected wording; four planned locales not child-playable",
+    "Fixed catalogue activity speech has no arbitrary utterance, operands, answers, identities or personal fields; exact-local adapter unchanged",
+    "Effective UI/instruction part language remains accurate; role-specific speech availability includes fixed-plan availability",
+    "Held-save focus restoration is session/view scoped and respects deliberate focus moves",
+    "Changed candidate source/tests inspected as explicitly synthetic; no new media, private export/database, secret or identifying log found"
+  ],
+  "result": "NO OUTSTANDING SOURCE FINDINGS; complete candidate gates pending",
+  "closedFindings": [
+    {
+      "closure": "Child selector now child-only; native child initial Tab traversal added",
+      "title": "Developer first Tab regression"
+    },
+    {
+      "closure": "Question-specific copy and plan+capability notice; five SSR cases plus native targeted checks",
+      "title": "Mixed/planned speech availability"
+    },
+    {
+      "closure": "Scoped restore effect; 8 selected Chrome cases pass, removing restore detects intended held-write focus assertion, exact main bytes restored",
+      "title": "Saved-language focus"
+    },
+    {
+      "closure": "language-controls-copy and new notice included in current sourceFiles; earlier finding was stale read",
+      "title": "Native source binding"
+    }
+  ]
+}

@@ -1,5 +1,15 @@
 # Localisation and speech
 
+The current [focused multilingual increment](MULTILINGUAL_CHILD_DESIGN.md)
+brings native-name language choices into the existing synthetic child entry and
+uses the existing fenced record for independent per-badge preferences. Its
+[completion evidence](MULTILINGUAL_CHILD_COMPLETION_REPORT.md) binds current
+eight-family draft content, optional semantic activity prompts and cached
+operation. All three playable languages remain draft/native-review pending;
+the four planned packs remain incomplete and absent from the child selector.
+Historical prototype/transient and generic-speech descriptions below retain
+their original composition/evidence scope.
+
 Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
 The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
 reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator

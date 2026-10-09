@@ -39,6 +39,7 @@ export default defineConfig({
     include: [
       'tests/integration/phase3c-loop.test.ts',
       'tests/integration/phase3c-child-ux.test.ts',
+      'tests/integration/multilingual-child.test.ts',
     ],
     testTimeout: 30_000,
     hookTimeout: 60_000,

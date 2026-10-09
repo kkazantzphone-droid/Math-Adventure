@@ -96,6 +96,43 @@ beforeEach(() => {
 });
 
 describe('Independent synthetic developer runtime boundaries', () => {
+  it('forwards first-entry language into new profiles and restores persisted choices on return', async () => {
+    const runtime = createSliceRuntime(new URL('http://127.0.0.1:4200/'));
+    const english = {
+      uiLocale: 'en-GB',
+      instructionLocale: 'en-GB',
+      numberSpeechLocale: 'en-GB',
+    } as const;
+    const german = {
+      uiLocale: 'de-DE',
+      instructionLocale: 'de-DE',
+      numberSpeechLocale: 'de-DE',
+    } as const;
+    await runtime.selectProfile(
+      player1,
+      'language-runtime-create',
+      true,
+      english,
+    );
+    expect(runtime.session().state().record?.preferences).toEqual(english);
+    await runtime.selectProfile(
+      player2,
+      'language-runtime-unsaved',
+      false,
+      german,
+    );
+    expect(runtime.session().state().record?.preferences).toEqual(german);
+    expect(runtime.session().state().saved).toBe(false);
+    await runtime.selectProfile(
+      player1,
+      'language-runtime-return',
+      true,
+      german,
+    );
+    expect(runtime.session().state().record?.preferences).toEqual(english);
+    expect(runtime.session().state().snapshot?.revision).toBe(1);
+  });
+
   it('explicit saved play resumes persistence after choosing an unsaved profile', async () => {
     const runtime = createSliceRuntime(new URL('http://127.0.0.1:4200/'));
     await runtime.selectProfile(player1, 'review-create-one', true);

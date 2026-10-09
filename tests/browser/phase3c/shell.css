@@ -112,6 +112,25 @@
   font-size: 1.25em;
   margin-block: 0.75rem;
 }
+.child-languages h2 {
+  font-size: 1em;
+  margin-block: 0.5rem;
+}
+.child-language-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.child-language-choices button {
+  flex: 1 1 7rem;
+  min-block-size: 48px;
+  overflow-wrap: anywhere;
+}
+.child-language-note {
+  color: #dce6ff;
+  font-size: 0.875em;
+  margin-block: 0.5rem;
+}
 .child-badge-choices {
   display: flex;
   flex-wrap: wrap;
