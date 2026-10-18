@@ -17,9 +17,13 @@ export default defineConfig({
           type: 'asset',
           fileName: 'learner-reader.json',
           source: JSON.stringify({
-            schema: 'phase3c-learner-reader-v1',
+            schema: 'growing-world-learner-reader-v2',
             layout: 2,
             recordSchema: 'phase3c-synthetic-loop-v1',
+            payloadSchemas: [
+              'phase3c-synthetic-loop-v1',
+              'growing-world-synthetic-loop-v2',
+            ],
           }),
         });
       },
@@ -40,6 +44,9 @@ export default defineConfig({
       'tests/integration/phase3c-loop.test.ts',
       'tests/integration/phase3c-child-ux.test.ts',
       'tests/integration/multilingual-child.test.ts',
+      'tests/integration/growing-world.test.ts',
+      'tests/integration/growing-world-capacity.test.ts',
+      'tests/integration/growing-world-provenance.test.ts',
     ],
     testTimeout: 30_000,
     hookTimeout: 60_000,

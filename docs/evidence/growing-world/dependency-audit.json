@@ -1,0 +1,27 @@
+{
+  "schema": "growing-world-dependency-audit-v1",
+  "observedDate": "2026-10-18",
+  "command": "corepack pnpm audit --json",
+  "exitCode": 0,
+  "result": "PASS — no observed advisories",
+  "node": "24.21.0",
+  "corepack": "0.36.0",
+  "pnpm": "12.9.1",
+  "lockfileSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "dependencyChanges": false,
+  "advisories": {},
+  "vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "graph": {
+    "dependencies": 3,
+    "devDependencies": 201,
+    "optionalDependencies": 27,
+    "totalDependencies": 204
+  },
+  "limit": "Observed advisory-registry result on this date, not a guarantee against unknown vulnerabilities. Frozen dependency pins, lockfile, workflow and install policy are unchanged."
+}

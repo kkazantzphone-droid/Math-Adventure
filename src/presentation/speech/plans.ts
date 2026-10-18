@@ -1,5 +1,7 @@
 import { childCopy } from '../localisation/child-copy';
 import type { ChildTextId } from '../localisation/child-copy';
+import { getGrowingWorldCopy } from '../localisation/growing-world-copy';
+import type { ChapterTask } from '../../domain/growing-world/content';
 import {
   isLocale,
   isPrototypeLocale,
@@ -31,6 +33,12 @@ export const speechKinds = [
   'activityComparison',
   'activitySubtraction',
   'activityMissing',
+  'chapterMakeTen',
+  'chapterMissingPart',
+  'chapterEqualGroups',
+  'chapterMissingGroup',
+  'chapterArrayArea',
+  'chapterSquareSide',
 ] as const;
 
 export type SpeechKind = (typeof speechKinds)[number];
@@ -48,7 +56,20 @@ const childActivityKinds = {
 
 export type ChildActivityKind = keyof typeof childActivityKinds;
 type ChildActivitySpeechKind = (typeof childActivityKinds)[ChildActivityKind];
-type PrototypeSpeechKind = Exclude<SpeechKind, ChildActivitySpeechKind>;
+const chapterSpeechKinds = {
+  makeTen: 'chapterMakeTen',
+  missingPart: 'chapterMissingPart',
+  equalGroups: 'chapterEqualGroups',
+  missingGroup: 'chapterMissingGroup',
+  arrayArea: 'chapterArrayArea',
+  squareSide: 'chapterSquareSide',
+} as const;
+type ChapterSpeechKind =
+  (typeof chapterSpeechKinds)[keyof typeof chapterSpeechKinds];
+type PrototypeSpeechKind = Exclude<
+  SpeechKind,
+  ChildActivitySpeechKind | ChapterSpeechKind
+>;
 
 const childActivityPromptIds: Readonly<
   Record<ChildActivitySpeechKind, ChildTextId>
@@ -135,11 +156,27 @@ const phrases: Readonly<
 };
 
 function cataloguePhrase(kind: SpeechKind, locale: PrototypeLocale): string {
+  for (const [taskKind, speechKind] of Object.entries(chapterSpeechKinds)) {
+    if (speechKind === kind)
+      return getGrowingWorldCopy(locale).prompts[
+        taskKind as ChapterTask['kind']
+      ];
+  }
   if (Object.hasOwn(childActivityPromptIds, kind))
     return childCopy(locale)[
       childActivityPromptIds[kind as ChildActivitySpeechKind]
     ];
   return phrases[locale][kind as PrototypeSpeechKind];
+}
+
+/** Fixed nonpersonal relationship prompt; never a generated operand or answer. */
+export function buildChapterUtterancePlan(
+  kind: ChapterTask['kind'],
+  locale: Locale,
+): UtterancePlan | null {
+  if (typeof kind !== 'string' || !Object.hasOwn(chapterSpeechKinds, kind))
+    return null;
+  return buildUtterancePlan(chapterSpeechKinds[kind], locale);
 }
 
 export function buildUtterancePlan(

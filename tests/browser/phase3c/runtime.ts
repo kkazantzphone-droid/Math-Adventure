@@ -19,6 +19,7 @@ import type {
 import {
   openSyntheticLoopDatabase,
   validateSyntheticLoopDatabase,
+  SYNTHETIC_LOOP_RECEIPT_LIMIT,
 } from '../../../src/infrastructure/persistence/synthetic-loop-database';
 import type {
   LearnerDataLifecycle,
@@ -98,7 +99,7 @@ export function createSliceRuntime(baseURL: URL) {
     const created = createIndexedDbRepository(
       opened.value,
       syntheticLoopCodec,
-      { receiptCapacity: 256, fault: () => fault },
+      { receiptCapacity: SYNTHETIC_LOOP_RECEIPT_LIMIT, fault: () => fault },
     );
     if (!created.ok) {
       opened.value.close();
@@ -196,9 +197,13 @@ export function createSliceRuntime(baseURL: URL) {
       return (
         text ===
         JSON.stringify({
-          schema: 'phase3c-learner-reader-v1',
+          schema: 'growing-world-learner-reader-v2',
           layout: 2,
           recordSchema: syntheticLoopCodec.schema,
+          payloadSchemas: [
+            'phase3c-synthetic-loop-v1',
+            'growing-world-synthetic-loop-v2',
+          ],
         })
       );
     }

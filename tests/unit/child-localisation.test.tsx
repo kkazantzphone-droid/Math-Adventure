@@ -2,7 +2,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { createFamilyProof } from '../../src/application/family-proof';
 import { createSliceFamily } from '../../src/application/slice-family';
-import type { LoopFamilyId } from '../../src/application/synthetic-loop';
+import type { LegacyLoopFamilyId } from '../../src/application/synthetic-loop';
 import {
   CHILD_HELP_IDS,
   CHILD_TEXT_IDS,
@@ -79,14 +79,17 @@ const families = [
     'Was kommt in die Lücke?',
   ],
 ] as const satisfies readonly (readonly [
-  LoopFamilyId,
+  LegacyLoopFamilyId,
   ChildHelpId,
   string,
   string,
   string,
 ])[];
 
-function presentation(family: LoopFamilyId, taskSeed = seed): LoopPresentation {
+function presentation(
+  family: LegacyLoopFamilyId,
+  taskSeed = seed,
+): LoopPresentation {
   const result =
     family === 'number.addition' ||
     family === 'geometry.quadrilateral' ||

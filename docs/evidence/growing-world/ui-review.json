@@ -1,0 +1,1970 @@
+{
+  "schema": "growing-world-ui-review-v1",
+  "recordedDate": "2026-10-18",
+  "verdict": "PASS — bounded independent production UI engineering review",
+  "authorship": "Fresh reviewer did not author the feature; after rendered findings, reviewer made coordinated ordinary CSS/markup repairs, then repeated the complete source-stable review.",
+  "renderer": "NODE_ENV=production; Vite mode production; separate installed Chrome/Edge through playwright-core; owned loopback server; disposable synthetic contexts",
+  "sourceHashes": {
+    "scripts/growing-world-ui-review.mjs": "c735cd69584ee2e447e1793bf837818f00f9e0439f07669aef39a53e3440bf70",
+    "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+    "src/domain/growing-world/explore.ts": "6c1028346dfbc6d9bdd6f8c9fb1bf2ce5f1a224ea4d1ac041d92168b36e40354",
+    "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+    "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+    "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+    "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+    "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+    "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+    "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+    "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+    "src/application/synthetic-loop/index.ts": "5f1d4ae43923aafdbe52b73b04ad6f8791e73f247c3438bc89f3ffcd852b2d05",
+    "src/ui/synthetic-loop/ChapterTaskView.tsx": "0a7176da59d5ff11035a09339cbb66815e6106072df8174c630eaf0f1e096e5c",
+    "src/ui/synthetic-loop/ExploreWorld.tsx": "44e137fa74acbc6961b8a2eb73ee1fa8ff09cf257326a2624877c6ba8f861559",
+    "src/ui/synthetic-loop/GrowthJourney.tsx": "66b2641de69ed9f1a0fcca78081dcc434cd674bb1e0fbd92dfb5124a103266d1",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/growing-world.css": "c3a9cf0e8dc7a12640840f14865348bdb299dec5f465253b76eb39c496229ecd",
+    "src/presentation/localisation/growing-world-copy.ts": "f87444b355aae8782d7e43913574620811af0c618c949efae34c99d14afe83ca",
+    "src/presentation/speech/plans.ts": "6096ad5d7d75e6fb4f17f2fda32d0d7198dd5dcc7fc01ca51ffa431feba143eb",
+    "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+    "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+    "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+    "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a"
+  },
+  "artifactHashes": {
+    "assets/index-B2si80u6.css": "cefd2871abaea5eb2735aeadd08a2077ebab75c9eb1e5b8555878887af28416c",
+    "assets/index-DFeDmSRI.js": "e56c71cb72a8d4127c78d2d3767e526b04dbe83e218fc1de9984043f105610ef",
+    "icons/math-adventure.svg": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6",
+    "index.html": "22b26809e1f52a76e4cb33788e0144dde2c0191c0e31a4e27b5d1d6e1278d2db",
+    "learner-reader.json": "002bf3c71f2888fbcad92f3b8c2e7c13cfce49ccb31da71567786f97643c9463",
+    "manifest.webmanifest": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c",
+    "release.json": "983fae8f98c4249f011e0f7a8949187fc222317bfdee9dc25cb060da913b9706",
+    "sw.js": "41b57d451b9a6a50382449c38599e3935fb6647ce78960091b463b65ca2518d9",
+    "THIRD_PARTY_NOTICES.txt": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+  },
+  "sourcesStable": true,
+  "pageErrors": 0,
+  "externalRequests": 0,
+  "mechanism": "NODE_ENV=production and Vite production mode; 375x850 CSS px with deliberate 32px root font (200% of default 16px), 320x850 CSS px at both default 16px and 32px root text, 1280x900 desktop and 850x375 landscape at default text. Reduced-motion request. Installed browser channels through playwright-core, owned ephemeral 127.0.0.1 server, disposable synthetic contexts; no browser download or normal learner profile.",
+  "matrix": [
+    {
+      "channel": "chrome",
+      "browserVersion": "155.0.8059.84",
+      "passedCases": 21,
+      "cases": [
+        {
+          "locale": "el-GR",
+          "family": "number.make-ten",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 377.703125,
+            "bottom": 471.296875
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.part-whole"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "family": "number.part-whole",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 21,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 4176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 688
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 377.78125,
+            "bottom": 471.375
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.make-ten", "groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "family": "groups.equal",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2576
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 5176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 888
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 377.8125,
+            "bottom": 471.40625
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.missing", "measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "family": "groups.missing",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 380.96875,
+            "bottom": 474.5625
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "family": "measurement.array-area",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 3579.03125
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 5955.1875
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 1050.140625
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 553.703125,
+            "bottom": 647.296875
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            },
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal", "powers.square-side"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "family": "powers.square-side",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 7,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 776
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1376
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 288
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 464.140625,
+            "bottom": 557.734375
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "scope": "Explore",
+          "recordUnchanged": true,
+          "keyboardActions": "both workshops/all mathematical actions/undo/reset/symbols/side/separate practice",
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "number.make-ten",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 377.703125,
+            "bottom": 471.296875
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.part-whole"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "number.part-whole",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 21,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 4176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 688
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 377.921875,
+            "bottom": 471.515625
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.make-ten", "groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "groups.equal",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2576
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 5176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 888
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 378.671875,
+            "bottom": 472.265625
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.missing", "measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "groups.missing",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 381.359375,
+            "bottom": 474.953125
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "measurement.array-area",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 3173.59375
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 5176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 909.65625
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 506.5625,
+            "bottom": 600.15625
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            },
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal", "powers.square-side"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "powers.square-side",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 7,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 776
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1376
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 288
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 464,
+            "bottom": 557.59375
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "scope": "Explore",
+          "recordUnchanged": true,
+          "keyboardActions": "both workshops/all mathematical actions/undo/reset/symbols/side/separate practice",
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "number.make-ten",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": false,
+            "top": -0.4375,
+            "bottom": 141.15625
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.part-whole"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "number.part-whole",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 21,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 4176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 688
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 354.640625,
+            "bottom": 496.234375
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.make-ten", "groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "groups.equal",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2576
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 5176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 888
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 353.953125,
+            "bottom": 495.546875
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.missing", "measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "groups.missing",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 447.96875,
+            "bottom": 589.5625
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "measurement.array-area",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 3579.03125
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 5176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 1050.140625
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 530.5625,
+            "bottom": 672.15625
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            },
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal", "powers.square-side"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "powers.square-side",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 7,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 776
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 1376
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 288
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 187,
+            "bottom": 328.59375
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "scope": "Explore",
+          "recordUnchanged": true,
+          "keyboardActions": "both workshops/all mathematical actions/undo/reset/symbols/side/separate practice",
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "channel": "msedge",
+      "browserVersion": "155.0.4283.45",
+      "passedCases": 21,
+      "cases": [
+        {
+          "locale": "el-GR",
+          "family": "number.make-ten",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 377.703125,
+            "bottom": 471.296875
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.part-whole"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "family": "number.part-whole",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 21,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 4176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 688
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 377.78125,
+            "bottom": 471.375
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.make-ten", "groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "family": "groups.equal",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2576
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 5176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 888
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 377.8125,
+            "bottom": 471.40625
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.missing", "measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "family": "groups.missing",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 380.96875,
+            "bottom": 474.5625
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "family": "measurement.array-area",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 3579.03125
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 5955.1875
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 1050.140625
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 553.703125,
+            "bottom": 647.296875
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            },
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal", "powers.square-side"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "family": "powers.square-side",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 7,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 776
+          },
+          "targets320Text200": {
+            "minimumWidth": 203.09375,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1376
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 288
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 464.140625,
+            "bottom": 557.734375
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "el-GR",
+          "scope": "Explore",
+          "recordUnchanged": true,
+          "keyboardActions": "both workshops/all mathematical actions/undo/reset/symbols/side/separate practice",
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "number.make-ten",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 377.703125,
+            "bottom": 471.296875
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.part-whole"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "number.part-whole",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 21,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 4176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 688
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 377.921875,
+            "bottom": 471.515625
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.make-ten", "groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "groups.equal",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2576
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 5176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 888
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 378.671875,
+            "bottom": 472.265625
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.missing", "measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "groups.missing",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 381.359375,
+            "bottom": 474.953125
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "measurement.array-area",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 3173.59375
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 5176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 909.65625
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 506.5625,
+            "bottom": 600.15625
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            },
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal", "powers.square-side"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "family": "powers.square-side",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 7,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 776
+          },
+          "targets320Text200": {
+            "minimumWidth": 198.046875,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1376
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 288
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 464,
+            "bottom": 557.59375
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "en-GB",
+          "scope": "Explore",
+          "recordUnchanged": true,
+          "keyboardActions": "both workshops/all mathematical actions/undo/reset/symbols/side/separate practice",
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "number.make-ten",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 354.5625,
+            "bottom": 496.15625
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.part-whole"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "number.part-whole",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 21,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 4176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 688
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 354.640625,
+            "bottom": 496.234375
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["number.make-ten", "groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "groups.equal",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 2576
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 5176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 888
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 353.953125,
+            "bottom": 495.546875
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.missing", "measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "groups.missing",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 11,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 1176
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 2176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 388
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 356.96875,
+            "bottom": 498.5625
+          },
+          "help2ContiguousGrids": [],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "measurement.array-area",
+          "representations": ["relational", "concrete"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 26,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 3579.03125
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 5176
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 1050.140625
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 530.5625,
+            "bottom": 672.15625
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            },
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["groups.equal", "powers.square-side"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "family": "powers.square-side",
+          "representations": ["concrete", "relational"],
+          "states": [
+            "initial",
+            "help1",
+            "help2",
+            "help3-worked",
+            "replay",
+            "wrong",
+            "retry",
+            "success",
+            "connected-practice"
+          ],
+          "keyboardFocus": "PASS",
+          "numericAnswerTabCount": 7,
+          "targets375Text200": {
+            "minimumWidth": 134.5,
+            "minimumHeight": 93.59375,
+            "answerGridHeight": 776
+          },
+          "targets320Text200": {
+            "minimumWidth": 206,
+            "minimumHeight": 141.59375,
+            "answerGridHeight": 1376
+          },
+          "targets320DefaultText": {
+            "minimumWidth": 79.328125,
+            "minimumHeight": 48.78125,
+            "answerGridHeight": 288
+          },
+          "helpFocus": {
+            "outlineWidth": "3px",
+            "outlineStyle": "solid",
+            "outlineColour": "rgb(255, 244, 200)",
+            "visible": true,
+            "fullyVisible": true,
+            "top": 440,
+            "bottom": 581.59375
+          },
+          "help2ContiguousGrids": [
+            {
+              "rowGap": "0px",
+              "columnGap": "0px"
+            }
+          ],
+          "durableHelpBeforeAssessment": true,
+          "connections": ["measurement.array-area"],
+          "result": "PASS"
+        },
+        {
+          "locale": "de-DE",
+          "scope": "Explore",
+          "recordUnchanged": true,
+          "keyboardActions": "both workshops/all mathematical actions/undo/reset/symbols/side/separate practice",
+          "result": "PASS"
+        }
+      ]
+    }
+  ],
+  "measuredSummary": {
+    "chapterCases": 36,
+    "workshopCases": 6,
+    "representationCases": 72,
+    "layoutSamples": 228,
+    "horizontalOverflowSamples": 0,
+    "clippedControls": 0,
+    "smallTargets": 0,
+    "distortedSquareTiles": 0,
+    "minimumTargetWidth": 65.5,
+    "minimumTargetHeight": 48.78125,
+    "sampledNormalTextMinimumContrast": 12.12801683112451,
+    "sampledEssentialTileMinimumContrast": 10.62272209289537,
+    "contrastSamples": 264,
+    "maximumNumericAnswerButtons": 26,
+    "maximumAnswerGridHeight320Text200": 5955.1875,
+    "fullyVisibleHelpFocusCases": 35,
+    "partlyVisibleHelpFocusCases": 1,
+    "entirelyObscuredHelpFocusCases": 0
+  },
+  "actualVisualInspection": {
+    "mechanism": "Screenshots opened through view_image, not inferred only from DOM assertions. Synthetic screenshots remain under ignored.cache/growing-world-production-review; no media is retained in repository evidence.",
+    "coverage": [
+      "Six family picture screenshots in each of el-GR/en-GB/de-DE at375px with32px root text; alternate concrete/relational pictures in all three draft languages.",
+      "English worked pictures and desktop task/answer controls; German full320px task samples; actual English badge-focus landing and top-of-document English/Greek layouts.",
+      "Both Explore workshop pictures and square symbols in all three draft languages at320px/32px root; repaired touching-row area picture in all three languages.",
+      "Concrete area help2 diagnosed in an installed Chrome screenshot with7px gaps, then repaired alternate-help2 screenshots directly inspected on the final build; default-text320px area grid and26answer-card layout inspected separately."
+    ],
+    "observations": [
+      "Making ten preserves separate filled/vacant ten-frame slots and a patterned second part. Relational mode adds a part bar. The narrow upward arrow now points from second part towards the first ten frame.",
+      "Missing parts use whole/known tile counts with one consistent tile size, or a known/unknown part bar. Unknown response remains a question mark before worked help.",
+      "Equal groups show separated group boxes versus a contiguous rectangular array/repeated addition. Sharing begins with a whole and empty groups; child-controlled distribution follows help, and worked help is explicitly labelled.",
+      "Area uses touching square units for both complete rectangle and labelled-row scaffold. Row labels remain separate from the surface; unit labels distinguish square-unit area from edge length.",
+      "Square side uses a tiled square or area-labelled square; one top bracket contains only a compact question mark/numeral. Worked help highlights the top side only and states the principal nonnegative root; no second solution claim appears.",
+      "Explore keeps visual parts/arrays before optional symbols. Pattern, outlines, captions and numbers carry meaning beyond colour. Single top-side highlight remains meaningful alongside full square total.",
+      "The normal badge/family selection focuses the mathematical heading and exposes the question/answers without requiring traversal through the discovery board. The top of the page still offers language, badges, navigation and compact invitation. Long boundary/experimental detail is inside explicit discoveries."
+    ]
+  },
+  "sourceAndRenderedSemantics": [
+    "Native answer/workshop/connection buttons have visible names; answer buttons are reached in numeric Tab order, including every one of26choices where present. Enter activates help, answers, retry, connections and workshop actions.",
+    "Help keeps its control focus with visible3px outline; retry moves to task heading and success to next. One outcome-status purpose handles chapter feedback; Explore relationship status has a separate discovery purpose.",
+    "Pre-answer text/diagram names describe given quantities/groups/area rather than inserting a hidden expected-response label. Worked help intentionally reveals an explicitly labelled answer. Domain/controller remains the answer judge.",
+    "Controls and task language roles follow authored effective locale attributes. All exercised flows work with audio off; no speech or AT delivery claim is drawn from names/roles or screenshots.",
+    "The final durable-help refresh saves maximum support tier3 before showing the worked picture, while the rendered-browser checks confirm completedCount, legacy event count and chapter event count stay unchanged by help. In the exercised child chapter views, help controls retain focus across the asynchronous support save."
+  ],
+  "finalRefresh": {
+    "scope": "Fresh production build and complete42-case repeat after durable mathematical support, asynchronous help-focus restoration, finite-edge invitation ordering and singular square-unit wording changes.",
+    "observed": "Rendered help still advances through all three tiers and replay, with no answer observation submitted merely by requesting support. Native answer/retry/next and both workshops retain their measured behavior. English one-unit helper now uses square unit.",
+    "finiteEdgeLimit": "Initial/ordinary invitation controls are exercised in the installed browsers. Finite-edge ready-target ordering also has separate source/SSR tests; this review does not fabricate an exhaustive rendered all-family readiness history."
+  },
+  "repairsAndRechecks": [
+    {
+      "finding": "Narrow stacked make-ten arrow pointed down, opposite to required transfer.",
+      "repair": "Rotate left arrow90degrees at400px and below.",
+      "recheck": "Final full production matrix and direct repaired screenshots."
+    },
+    {
+      "finding": "One-tile side bracket broke One side1 into a vertical word tower at320px/200%text.",
+      "repair": "Keep compact numeral/question mark on bracket; surrounding descriptions retain side meaning.",
+      "recheck": "Worked one-tile screenshot plus all square/workshop matrix cases."
+    },
+    {
+      "finding": "Missing-part whole/known pictures shrank to different label widths and used inconsistent tile sizes.",
+      "repair": "Equal flex world-part wrappers for whole/known and helped parts.",
+      "recheck": "Final screenshots with whole15 and known1 demonstrate equal unit squares; full matrix passes."
+    },
+    {
+      "finding": "Area row scaffold had visible gaps under rectangle-coverage prompt.",
+      "repair": "Touch rows and unit tiles, preserving row labels and square-unit edges.",
+      "recheck": "All three locale row pictures directly inspected; both representations, full browser matrix."
+    },
+    {
+      "finding": "The generic help2 spacing rule overrode contiguous concrete array grids and introduced measured7px gaps.",
+      "repair": "Keep world-array-picture tile gap0 at help2 with an explicit scoped override.",
+      "recheck": "Zero computed row/column gaps asserted in both representations across the final matrix; repaired concrete area help2 screenshot directly inspected."
+    }
+  ],
+  "remainingOwnerObservation": {
+    "status": "Owner UX acceptance remains separate; no engineering blocker observed.",
+    "largeAnswerGrid": "Equal-groups and area offer0through25 as26native numeric cards. At320px and deliberate200%text the grid becomes one long column. All targets, numeric Tab order, scroll reachability, wrong/retry/success and reflow pass; that establishes operability, not child cognitive or motor usability.",
+    "protocol": [
+      "Use this source/build-bound synthetic surface without real learner information. In all six new families inspect initial and worked views, make one wrong choice/retry, and complete a fresh task; assess whether quantity, unknown and useful next action are clear.",
+      "Specifically observe whether26choices and the narrow one-column grid permit comfortable finding of larger answers. If this is burdensome, commission a bounded response-control revision and repeat affected keyboard/reflow/truth checks.",
+      "Inspect the compact invitation, explicit guided-practice choice, related discoveries and both workshops. Move/change units, undo/reset, reveal symbols and start separate practice; confirm exploration is understood as unassessed and reversible.",
+      "For actual accessibility evidence repeat changed views using native browser200%zoom and target screen reader; report delivered prompt, unit/side meaning, focus and one useful outcome. Browser names/roles do not substitute for this.",
+      "For changed-surface physical offline evidence repeat the prepared disconnected-device restart/reopen protocol with synthetic badges/preferences and new chapter task; distinguish cached gameplay from speech availability."
+    ]
+  },
+  "limits": [
+    "Draft locale rendering/structural language attributes are reviewed; no native-language correctness, pronunciation or official translation claim.",
+    "No native zoom, real assistive-technology delivery, touch hardware/motor observation or physical disconnection was performed by this review. Deliberate root text scaling and CSS viewport changes are named precisely.",
+    "Sampled contrast/geometry/keyboard checks are bounded engineering evidence, not complete WCAG conformance or broader device certification. Partly visible help controls remain in the viewport; full-button visibility is separately counted.",
+    "No owner/representative child acceptance, educational effectiveness, validated mastery/retention or real-learner policy claim. New family evidence remains limited and experimental.",
+    "This review covers rendered production UI. Persistence, cached offline/root/subpath, mutation, canonical/fresh and exact-head hosted gates remain separate evidence owned by the main task."
+  ]
+}

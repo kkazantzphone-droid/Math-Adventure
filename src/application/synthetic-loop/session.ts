@@ -1,6 +1,12 @@
 import { SYNTHETIC_PROFILE_IDS } from '../../domain/adaptation/types';
 import type { SyntheticProfileId } from '../../domain/adaptation/types';
 import type { SyntheticSnapshot } from '../../domain/adaptation/types';
+import { CHAPTER_FAMILY_IDS } from '../../domain/growing-world/content';
+import {
+  chapterSupportCase,
+  chapterSupportTier,
+  rememberChapterSupport,
+} from '../../domain/growing-world/support';
 import { canonicalize } from '../../domain/replay/canonical';
 import {
   advanceRevision,
@@ -22,6 +28,7 @@ import {
   completePendingSyntheticLoop,
   deriveSyntheticLoop,
   initialSyntheticLoop,
+  enterGrowingWorld,
   loopPreferencesFromInput,
   syntheticLoopCodec,
 } from './record';
@@ -32,6 +39,7 @@ import type {
   SyntheticLoopRecord,
   SyntheticLoopState,
 } from './types';
+import { GROWING_LOOP_SCHEMA, SYNTHETIC_LOOP_EVENT_LIMIT } from './types';
 
 export function syntheticLoopRecordId(profileId: SyntheticProfileId) {
   return recordId(profileId.toLowerCase());
@@ -343,6 +351,33 @@ export function createSyntheticLoopSession(
     }
   }
 
+  async function requestChapterSupport(
+    replay: unknown,
+    tier: 1 | 2 | 3,
+    operation: string,
+  ): Promise<ApplicationResult<SyntheticLoopState>> {
+    const key = chapterSupportCase(replay);
+    if (
+      !record ||
+      !record.sessionActive ||
+      !key.ok ||
+      record.selectedFamily !== key.value.familyId
+    )
+      return failure('invalid_command');
+    const support = rememberChapterSupport(
+      record.schema === GROWING_LOOP_SCHEMA ? record.chapterSupport : [],
+      replay,
+      tier,
+    );
+    if (!support.ok) return failure('invalid_command');
+    return mutate(operation, (current) => {
+      const entered = enterGrowingWorld(current);
+      return entered.schema === GROWING_LOOP_SCHEMA
+        ? { ...entered, chapterSupport: support.value }
+        : entered;
+    });
+  }
+
   async function reload(): Promise<ApplicationResult<SyntheticLoopState>> {
     if (!record || inFlight || unsaved) return failure('invalid_command');
     lastRetry = null;
@@ -464,7 +499,8 @@ export function createSyntheticLoopSession(
     if (!prepared.ok) return failure(prepared.error.code);
     if (prepared.value.kind === 'sessionOnly') {
       sessionOnlyCompletion = prepared.value.completion;
-      explorationCount = Math.min(64, explorationCount + 1);
+      if (prepared.value.exploratory)
+        explorationCount = Math.min(64, explorationCount + 1);
       saved = false;
       error = null;
       return applicationSuccess(state());
@@ -579,6 +615,11 @@ export function createSyntheticLoopSession(
     submit,
     retryPending,
     deleteProfile,
+    requestChapterSupport,
+    chapterHintTier: (replay: unknown) =>
+      record?.schema === GROWING_LOOP_SCHEMA
+        ? chapterSupportTier(record.chapterSupport, replay)
+        : 0,
     setMode: (mode: SyntheticLoopMode, operation: string) =>
       mutate(operation, (current) => ({ ...current, mode })),
     setPreferences: (preferences: LoopPreferences, operation: string) =>
@@ -588,7 +629,9 @@ export function createSyntheticLoopSession(
       })),
     setActivity: (family: LoopFamilyId, operation: string) =>
       mutate(operation, (current) => ({
-        ...current,
+        ...(CHAPTER_FAMILY_IDS.some((id) => id === family)
+          ? enterGrowingWorld(current)
+          : current),
         selectedFamily: family,
         taskOrdinal: Math.min(1_000_001, current.taskOrdinal + 1),
       })),
@@ -602,6 +645,8 @@ export function createSyntheticLoopSession(
       sessionOnlyCompletion = null;
       return mutate(operation, (current) => {
         if (!current.sessionActive) return current;
+        if (current.events.length >= SYNTHETIC_LOOP_EVENT_LIMIT)
+          return { ...enterGrowingWorld(current), sessionActive: false };
         const events =
           current.mode === 'synthetic-policy'
             ? [
@@ -629,6 +674,12 @@ export function createSyntheticLoopSession(
               ...current,
               sessionActive: true,
               sessionOrdinal: current.sessionOrdinal + 1,
+              ...(current.schema === GROWING_LOOP_SCHEMA
+                ? {
+                    chapterSupport: [],
+                    taskOrdinal: Math.min(1_000_001, current.taskOrdinal + 1),
+                  }
+                : {}),
             },
       ),
     useUnsaved: () => {

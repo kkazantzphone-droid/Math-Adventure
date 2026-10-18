@@ -1,0 +1,110 @@
+{
+  "schema": "growing-world-independent-browser-provenance-v1",
+  "marker": "synthetic-only",
+  "result": "PASS",
+  "observedDate": "2026-10-18",
+  "reviewer": "independent-whole-candidate-review-agent",
+  "independence": "Reviewer did not author the product or the provenance repair; independently authored these five browser scenarios after finding the original navigation/reset defect.",
+  "scope": "Durable current-session mathematical help provenance, delayed/failed saves, keyboard focus and explicit new-session boundaries in installed Chrome and Edge.",
+  "sourceHashes": {
+    "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+    "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+    "src/application/synthetic-loop/index.ts": "5f1d4ae43923aafdbe52b73b04ad6f8791e73f247c3438bc89f3ffcd852b2d05",
+    "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+    "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+    "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+    "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+    "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+    "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+    "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+    "src/ui/synthetic-loop/ChapterTaskView.tsx": "0a7176da59d5ff11035a09339cbb66815e6106072df8174c630eaf0f1e096e5c",
+    "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+    "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+    "tests/integration/growing-world-provenance.test.ts": "ffce1f2802501aa89b7c44b422f08ae9d8db084d65ed3f983bc0dbb176b88c5b",
+    "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a"
+  },
+  "sourcesStableAcrossBothChannels": true,
+  "channels": [
+    {
+      "channel": "chrome",
+      "browserVersion": "155.0.8059.84",
+      "rawEvidenceSha256": "bb6750aff74e36a2f88b1301324eda027a63df944aed2ab1cca4766f59ea823f",
+      "testsPassed": 5,
+      "cases": [
+        {
+          "name": "preserves unsubmitted worked help through same-badge, other-badge and reload paths",
+          "outcome": "pass"
+        },
+        {
+          "name": "preserves semantic help across fresh activity and alternate representation without contaminating other cases",
+          "outcome": "pass"
+        },
+        {
+          "name": "reveals worked help only after commit and restores keyboard focus without stealing a deliberate move",
+          "outcome": "pass"
+        },
+        {
+          "name": "keeps a failed support save from exposing a worked answer or losing the persisted lower tier",
+          "outcome": "pass"
+        },
+        {
+          "name": "clears session support only on explicit new session and still makes no mastery claim",
+          "outcome": "pass"
+        }
+      ],
+      "externalRequests": 0,
+      "pageErrors": 0
+    },
+    {
+      "channel": "msedge",
+      "browserVersion": "155.0.4283.45",
+      "rawEvidenceSha256": "f3435a31e46cd8cd8eaa25a62e26ca6d3fc94677a6fd41683478c216a7849994",
+      "testsPassed": 5,
+      "cases": [
+        {
+          "name": "preserves unsubmitted worked help through same-badge, other-badge and reload paths",
+          "outcome": "pass"
+        },
+        {
+          "name": "preserves semantic help across fresh activity and alternate representation without contaminating other cases",
+          "outcome": "pass"
+        },
+        {
+          "name": "reveals worked help only after commit and restores keyboard focus without stealing a deliberate move",
+          "outcome": "pass"
+        },
+        {
+          "name": "keeps a failed support save from exposing a worked answer or losing the persisted lower tier",
+          "outcome": "pass"
+        },
+        {
+          "name": "clears session support only on explicit new session and still makes no mastery claim",
+          "outcome": "pass"
+        }
+      ],
+      "externalRequests": 0,
+      "pageErrors": 0
+    }
+  ],
+  "commands": [
+    "PHASE3C_BROWSER=chrome corepack pnpm exec vitest run --config vite.slice.config.ts tests/integration/growing-world-provenance.test.ts",
+    "PHASE3C_BROWSER=msedge corepack pnpm exec vitest run --config vite.slice.config.ts tests/integration/growing-world-provenance.test.ts"
+  ],
+  "mechanism": "Actual installed browsers through playwright-core; owned loopback server; separate per-channel test build directories; disposable synthetic browser contexts and native IndexedDB; NODE_ENV=test renderer.",
+  "observations": [
+    "Unsubmitted worked help survives selecting the same badge, switching away and back, reloading, and revisiting the same semantic case through another representation. A different semantic case and the other badge retain their own context.",
+    "Viewing help creates no assessment observation, completion count or mastery evidence. A subsequent correct answer preserves saved maximum assistance and worked-solution exposure.",
+    "A held tier-three save leaves tier two visible until commit. The initiating keyboard help focus returns after commit, while a deliberate move to another available control remains respected.",
+    "An aborted tier-three save reveals no worked answer; reloading restores the previously committed tier two.",
+    "An explicit new v2 session clears current-session support and changes the replay seed without adding assessment or completions. A later fresh answer remains limited evidence and does not satisfy readiness by itself."
+  ],
+  "verificationIncident": "The first sandboxed Chrome attempt was blocked at initial owned-loopback navigation by ERR_NETWORK_ACCESS_DENIED before product assertions. The same unchanged checks passed with scoped tool permission; Edge used that same scoped permission. No assertion or source was weakened.",
+  "privacy": "Only synthetic badges and fixed mathematical fixtures; retained data is paths, hashes, browser versions, named test outcomes and aggregate observations. No browser profile, record/database dump, identifying content, screenshot, trace or audio is retained.",
+  "limits": [
+    "This verifies bounded browser behavior in the test renderer; independent production rendering and the full browser matrices remain separate evidence.",
+    "No physical device restart/disconnection, native zoom, actual assistive-technology delivery, native-language review, owner/child UX acceptance or educational validity is inferred.",
+    "Per-session fresh-task recovery is an explicit engineering hypothesis, not a time-based retention or mastery claim.",
+    "Full local/fresh gates, audit, final complete-candidate privacy review and exact-head hosted/merge eligibility belong to the main quality gate."
+  ]
+}

@@ -1,5 +1,15 @@
 # Architecture
 
+The D55 [growing-world chapter](GROWING_WORLD_DESIGN.md) adds pure domain modules
+for bounded content, experimental invitations, reversible workspaces and semantic
+support context. A stateless application facade regenerates new replay families;
+the synthetic session coordinates atomic support/answer commands. A discriminated
+v2 payload preserves exact v1 decoding, old journals/derived state and preferences.
+Support context is current-session metadata, separate from assessment evidence.
+Presentation owns draft wording and concrete diagrams; correctness remains domain
+truth. The normal product composition still cannot enable synthetic persistence.
+Accepted ADRs, original replay identities and the frozen Phase 3B policy remain.
+
 Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
 The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
 reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator

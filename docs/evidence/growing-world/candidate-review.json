@@ -1,0 +1,755 @@
+{
+  "schema": "growing-world-independent-candidate-review-v1",
+  "marker": "synthetic-only",
+  "status": "PASS — bounded independent whole-candidate source, documentation and privacy review",
+  "reviewDate": "2026-10-18",
+  "baseRevision": "71b57b9f2c812de482e1162102ac5aee5bc78116",
+  "checkoutHeadAtReview": "96c59764fa3f179a7fcee3891c7b3389a92ecc97",
+  "independence": "Reviewer did not author product implementation or its repairs. Reviewer independently traced the full candidate and authored the finite-recovery, invitation-view and installed-browser provenance regression files.",
+  "binding": "SHA256 binds the reviewed working-tree source, tests, configuration and current design/overview documentation. Final completion prose is separately hashed and assessed below. Checkout HEAD is provenance only, not a claim that uncommitted files belong to that commit. Evidence receipts are excluded from the source hash graph to avoid cycles; the source proof is independent of this receipt's own hash. Later executable changes require appropriate revalidation; later documentation changes require claim/hash reconciliation.",
+  "sourceHashes": {
+    "README.md": "1149579206dfd8d3a0b71dd446e07addaf066f16203fe8b36904ae72bfe6814c",
+    "docs/ARCHITECTURE.md": "37ef109cd373d664d97cba0c259934a95b839b2b0b68021f537ba50cc84e6ba0",
+    "docs/DECISION_REGISTER.md": "1628789104cf8a8d60f8f16451b61dfc53da0d2e3a1164a2b10f2413ee2f25bc",
+    "docs/DEVELOPMENT.md": "58f229bd641763eda70d462f7afe1780c9ae79b9e7916eedbaf3b7d97569aacd",
+    "docs/GROWING_WORLD_DESIGN.md": "96809c15b979ddf263f4d08509e96d081c01f0d32e2c1a3e8190944810b76e9c",
+    "docs/REPOSITORY_STRUCTURE.md": "6e550edb834175c637b494b463a60c83b19bfe77c50b366bfba02022d939f1c5",
+    "docs/ROADMAP.md": "5bf51bcb592a8c3b6d03b3dd5b4042311a0d9fa1ddc49ba534eb188cdb5e7538",
+    "scripts/growing-world-integrity-mutations.mjs": "3395546fa074027fbde563dd82a680c457ba8898eedd161fdd0822452d5dc360",
+    "scripts/growing-world-mutations.mjs": "1a195d48c4a17ba02465932a9273203a1457fc8fc4661d10ebd61ead586712f3",
+    "scripts/growing-world-ui-review.mjs": "c735cd69584ee2e447e1793bf837818f00f9e0439f07669aef39a53e3440bf70",
+    "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+    "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+    "src/application/synthetic-loop/index.ts": "5f1d4ae43923aafdbe52b73b04ad6f8791e73f247c3438bc89f3ffcd852b2d05",
+    "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+    "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+    "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+    "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+    "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+    "src/domain/growing-world/explore.ts": "6c1028346dfbc6d9bdd6f8c9fb1bf2ce5f1a224ea4d1ac041d92168b36e40354",
+    "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+    "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+    "src/presentation/localisation/growing-world-copy.ts": "f87444b355aae8782d7e43913574620811af0c618c949efae34c99d14afe83ca",
+    "src/presentation/speech/plans.ts": "6096ad5d7d75e6fb4f17f2fda32d0d7198dd5dcc7fc01ca51ffa431feba143eb",
+    "src/ui/synthetic-loop/ChapterTaskView.tsx": "0a7176da59d5ff11035a09339cbb66815e6106072df8174c630eaf0f1e096e5c",
+    "src/ui/synthetic-loop/ExploreWorld.tsx": "44e137fa74acbc6961b8a2eb73ee1fa8ff09cf257326a2624877c6ba8f861559",
+    "src/ui/synthetic-loop/GrowthJourney.tsx": "66b2641de69ed9f1a0fcca78081dcc434cd674bb1e0fbd92dfb5124a103266d1",
+    "src/ui/synthetic-loop/growing-world.css": "c3a9cf0e8dc7a12640840f14865348bdb299dec5f465253b76eb39c496229ecd",
+    "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+    "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+    "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+    "tests/fixtures/synthetic/growing-world-capacity.ts": "7ed7284dfd8563d1e5e829fe0008e856fb389102e57cd8d8914cd1d5321579bc",
+    "tests/integration/growing-world-capacity.test.ts": "17f2f0a78cee01b414823155b60ae21a9f7bf7e772790ea8161fba2b75b8abc9",
+    "tests/integration/growing-world-provenance.test.ts": "ffce1f2802501aa89b7c44b422f08ae9d8db084d65ed3f983bc0dbb176b88c5b",
+    "tests/integration/growing-world.test.ts": "11ac176094aa822306b631a6d12b93399a3051d3cd1a14ed254c683418061892",
+    "tests/integration/multilingual-child.test.ts": "2654ed4b2e26e57f368ccc6d2aa031639ca4e94b41cf6081e01eb902db407308",
+    "tests/integration/phase3c-child-ux.test.ts": "f3973db3f7a4b2e4d8c0171861cb730b6541bc2709ac3d112a0d70a409ff95b1",
+    "tests/integration/phase3c-loop.test.ts": "05067ef806bf62792e3e4b6174bb695778ce57fc2bbe02d70006d233aa669f4a",
+    "tests/oracle/growing-world.ts": "2e8a051980b8177d42302abc3d550118272e36ba21c16c95debb2e8101ab7e7c",
+    "tests/unit/child-localisation.test.tsx": "78e188930cf067358a9de7417dd43a558165e96126d90afd466083cf9c44d17d",
+    "tests/unit/child-ux-contract.test.ts": "e1fac25c8e03d1363c54de67a508acc7c2670df538abb311d4df73147f0b5a5e",
+    "tests/unit/child-ux-evidence.test.ts": "41dbcd8871281b61ff9aa01f43654aa1ce01d2cdb97094b247e1e8ecf19f9015",
+    "tests/unit/domain/growing-world-content.test.ts": "298cc28d9bea9efa49b7cd73c542886d88148c788eb0ca653eecc2eb9653aa33",
+    "tests/unit/domain/growing-world-explore.test.ts": "8899b88159606f84f55f77c23d1262c4261a383e1028d5cf41352f31b6069ba1",
+    "tests/unit/domain/growing-world-independent.test.ts": "a1507c0f3c85f2d8198e549de436ffa80448750de1b97582f140eb467830781f",
+    "tests/unit/growing-world-candidate-review.test.ts": "6c2a56fc1b081359be6afc2c4376ec0b93fecc7c6c4ca9c12dbb0e418ce697e9",
+    "tests/unit/growing-world-integrity-review.test.ts": "9fff14e2019a1a0d49a2f3932bf3d3cb92bbe7fb548832d5f88e9f1b5456cdea",
+    "tests/unit/growing-world-invitation-view.test.tsx": "2c2d887b4882fce576db5b211a52e65cc2c7ce4b0e321e8aa8295d5a58162afe",
+    "tests/unit/growing-world-journey.test.ts": "bb109982f1d4b479d38a731012a6538318d5d4c0af8e202f18c23946858fdc2c",
+    "tests/unit/growing-world-markup.test.tsx": "de1e9f6f390f15da4828b4093515d090f21bd9f2b6a0e9ffa0b32df6c2b4901c",
+    "tests/unit/growing-world-speech.test.ts": "6641b66eb012caddc34b552aac6f947341aea1c0660fa8e24e8df4348516a664",
+    "tests/unit/growing-world-support-review.test.ts": "89e9dd663495d0fcefca0fd9b73e3fbed2846d2db4ee250f8ef686cae349630f",
+    "tests/unit/growing-world-support.test.ts": "35f8b1ada603c67e235e5c827b70d3fb87f8d3c6f5f72d6d78e4666eae738f83",
+    "tests/unit/synthetic-loop-review.test.ts": "43c4ee6b06a071517ad1d1f3fb836923decfad76b63d9d25aa60f7d300972eb2",
+    "tests/unit/synthetic-loop.test.ts": "ef6be359f08c6067361de3441cd37fca3343665db1fc0d5d6e92775f4b29cdb8",
+    "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a"
+  },
+  "reviewedFiles": [
+    {
+      "path": "README.md",
+      "bytes": 13320
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bytes": 18133
+    },
+    {
+      "path": "docs/DECISION_REGISTER.md",
+      "bytes": 40126
+    },
+    {
+      "path": "docs/DEVELOPMENT.md",
+      "bytes": 27369
+    },
+    {
+      "path": "docs/GROWING_WORLD_COMPLETION_REPORT.md",
+      "bytes": 14225
+    },
+    {
+      "path": "docs/GROWING_WORLD_DESIGN.md",
+      "bytes": 8126
+    },
+    {
+      "path": "docs/REPOSITORY_STRUCTURE.md",
+      "bytes": 13572
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "bytes": 12303
+    },
+    {
+      "path": "docs/evidence/growing-world/browser-matrix.json",
+      "bytes": 100391
+    },
+    {
+      "path": "docs/evidence/growing-world/dependency-audit.json",
+      "bytes": 821
+    },
+    {
+      "path": "docs/evidence/growing-world/integrity-mutations.json",
+      "bytes": 7415
+    },
+    {
+      "path": "docs/evidence/growing-world/integrity-review.json",
+      "bytes": 27034
+    },
+    {
+      "path": "docs/evidence/growing-world/math-review.json",
+      "bytes": 7294
+    },
+    {
+      "path": "docs/evidence/growing-world/native-capacity.json",
+      "bytes": 10382
+    },
+    {
+      "path": "docs/evidence/growing-world/provenance.json",
+      "bytes": 7391
+    },
+    {
+      "path": "docs/evidence/growing-world/ui-review.json",
+      "bytes": 69103
+    },
+    {
+      "path": "scripts/growing-world-integrity-mutations.mjs",
+      "bytes": 8630
+    },
+    {
+      "path": "scripts/growing-world-mutations.mjs",
+      "bytes": 9375
+    },
+    {
+      "path": "scripts/growing-world-ui-review.mjs",
+      "bytes": 27917
+    },
+    {
+      "path": "src/application/growing-world.ts",
+      "bytes": 1445
+    },
+    {
+      "path": "src/application/synthetic-loop/answer.ts",
+      "bytes": 7538
+    },
+    {
+      "path": "src/application/synthetic-loop/index.ts",
+      "bytes": 752
+    },
+    {
+      "path": "src/application/synthetic-loop/record.ts",
+      "bytes": 21952
+    },
+    {
+      "path": "src/application/synthetic-loop/seed.ts",
+      "bytes": 1688
+    },
+    {
+      "path": "src/application/synthetic-loop/session.ts",
+      "bytes": 24626
+    },
+    {
+      "path": "src/application/synthetic-loop/types.ts",
+      "bytes": 5417
+    },
+    {
+      "path": "src/domain/growing-world/content.ts",
+      "bytes": 14971
+    },
+    {
+      "path": "src/domain/growing-world/explore.ts",
+      "bytes": 4731
+    },
+    {
+      "path": "src/domain/growing-world/journey.ts",
+      "bytes": 10904
+    },
+    {
+      "path": "src/domain/growing-world/support.ts",
+      "bytes": 5646
+    },
+    {
+      "path": "src/infrastructure/persistence/synthetic-loop-database.ts",
+      "bytes": 9567
+    },
+    {
+      "path": "src/presentation/localisation/growing-world-copy.ts",
+      "bytes": 26873
+    },
+    {
+      "path": "src/presentation/speech/plans.ts",
+      "bytes": 8516
+    },
+    {
+      "path": "src/ui/synthetic-loop/ChapterTaskView.tsx",
+      "bytes": 20599
+    },
+    {
+      "path": "src/ui/synthetic-loop/ExploreWorld.tsx",
+      "bytes": 14549
+    },
+    {
+      "path": "src/ui/synthetic-loop/GrowthJourney.tsx",
+      "bytes": 5166
+    },
+    {
+      "path": "src/ui/synthetic-loop/growing-world.css",
+      "bytes": 6496
+    },
+    {
+      "path": "tests/browser/phase3c/main.tsx",
+      "bytes": 48766
+    },
+    {
+      "path": "tests/browser/phase3c/runtime.ts",
+      "bytes": 12555
+    },
+    {
+      "path": "tests/browser/phase3c/shell.css",
+      "bytes": 5233
+    },
+    {
+      "path": "tests/fixtures/synthetic/growing-world-capacity.ts",
+      "bytes": 14360
+    },
+    {
+      "path": "tests/integration/growing-world-capacity.test.ts",
+      "bytes": 10347
+    },
+    {
+      "path": "tests/integration/growing-world-provenance.test.ts",
+      "bytes": 15548
+    },
+    {
+      "path": "tests/integration/growing-world.test.ts",
+      "bytes": 19940
+    },
+    {
+      "path": "tests/integration/multilingual-child.test.ts",
+      "bytes": 44740
+    },
+    {
+      "path": "tests/integration/phase3c-child-ux.test.ts",
+      "bytes": 53280
+    },
+    {
+      "path": "tests/integration/phase3c-loop.test.ts",
+      "bytes": 59477
+    },
+    {
+      "path": "tests/oracle/growing-world.ts",
+      "bytes": 9021
+    },
+    {
+      "path": "tests/unit/child-localisation.test.tsx",
+      "bytes": 10533
+    },
+    {
+      "path": "tests/unit/child-ux-contract.test.ts",
+      "bytes": 18171
+    },
+    {
+      "path": "tests/unit/child-ux-evidence.test.ts",
+      "bytes": 12060
+    },
+    {
+      "path": "tests/unit/domain/growing-world-content.test.ts",
+      "bytes": 11140
+    },
+    {
+      "path": "tests/unit/domain/growing-world-explore.test.ts",
+      "bytes": 4426
+    },
+    {
+      "path": "tests/unit/domain/growing-world-independent.test.ts",
+      "bytes": 20064
+    },
+    {
+      "path": "tests/unit/growing-world-candidate-review.test.ts",
+      "bytes": 5740
+    },
+    {
+      "path": "tests/unit/growing-world-integrity-review.test.ts",
+      "bytes": 17237
+    },
+    {
+      "path": "tests/unit/growing-world-invitation-view.test.tsx",
+      "bytes": 7116
+    },
+    {
+      "path": "tests/unit/growing-world-journey.test.ts",
+      "bytes": 18700
+    },
+    {
+      "path": "tests/unit/growing-world-markup.test.tsx",
+      "bytes": 5898
+    },
+    {
+      "path": "tests/unit/growing-world-speech.test.ts",
+      "bytes": 1688
+    },
+    {
+      "path": "tests/unit/growing-world-support-review.test.ts",
+      "bytes": 25691
+    },
+    {
+      "path": "tests/unit/growing-world-support.test.ts",
+      "bytes": 21186
+    },
+    {
+      "path": "tests/unit/synthetic-loop-review.test.ts",
+      "bytes": 15788
+    },
+    {
+      "path": "tests/unit/synthetic-loop.test.ts",
+      "bytes": 26919
+    },
+    {
+      "path": "vite.slice.config.ts",
+      "bytes": 1664
+    }
+  ],
+  "unchangedBaseline": [
+    {
+      "path": ".node-version",
+      "sha256": "73fb1b615e2043a933be1c0895cde4358036acc28d785692509b822aa53c761f",
+      "unchanged": true
+    },
+    {
+      "path": "package.json",
+      "sha256": "1aed13d60f17d3f7e7c9d7e74db60fc577b5d9983751b61d3a20f910cffca06a",
+      "unchanged": true
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+      "unchanged": true
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "9d183ccf627334b0e05978fbf7588448dcc4b5212856bbcdf46515af656fe973",
+      "unchanged": true
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "unchanged": true
+    },
+    {
+      "path": "public/THIRD_PARTY_NOTICES.txt",
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab",
+      "unchanged": true
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "14dbc95e374c28b8f621b5e5d1edb6600a251d36081bdff5aae9cf176c6b9173",
+      "unchanged": true
+    },
+    {
+      "path": "docs/CODEX_OPERATING_MODEL.md",
+      "sha256": "c529c4e4edb38a48db3bf2f1cd355808a622102694b67f01774c591a25bb8e56",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0001.md",
+      "sha256": "21508266ebf1be7bde03d58642aaa25dc5fd51a828ca59ced741fdf25eb5f7ef",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0002.md",
+      "sha256": "23ef56101d46eb01d871cc6eea050492b96615db88a69648048af79db30b1c42",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0003.md",
+      "sha256": "ca14a4d62f87e20c5884e2bfbb28ef58eba79c4d4f57a785a472035f8e9b275e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0004.md",
+      "sha256": "15a473e00b9f145ab6e210f9845f59a237f2ba3e56f6c0087699361637349b0e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0005.md",
+      "sha256": "5cf0349919dcc96759e01f02d8ab8f6f16bfe06e26cd611d8f64d6766cfa0037",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0006.md",
+      "sha256": "30c10ba4788ea67aeb832e5c0861f36f5e161f37c4ae6e55725b0a23ed0ea3fb",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0007.md",
+      "sha256": "2938df88ab854fa30e5c5215fb05d119d3e25065cdd587999013c21d62c8c6ed",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0008.md",
+      "sha256": "7e71598be875677692e1f706137c5cc2690673a8f028656be44e193c49fd86b2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0009.md",
+      "sha256": "811dff110e440fa31eeba7fda7969dd29f9488a9af315edca1ce3b9ddcaef1de",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0010.md",
+      "sha256": "15fa0b3b7a256fe6552150c98fbe39862a48e6f045f00c0897040d407f866a46",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0011.md",
+      "sha256": "ed31bde74071c89b481ef93bbcebe5c73453588100b48d0400a50bce49840187",
+      "unchanged": true
+    },
+    {
+      "path": "docs/adr/ADR-0012.md",
+      "sha256": "553014553fa86a6e0a4f80c54df28e9ec530bceb85c181b34594b89898d705a0",
+      "unchanged": true
+    }
+  ],
+  "finalDocumentationReview": {
+    "status": "PASS — final completion claims independently reconciled",
+    "path": "docs/GROWING_WORLD_COMPLETION_REPORT.md",
+    "sha256": "9035756b06eea3d4233ef881522c86743ebd1518ace13f53ab26b4b4a7c64b62",
+    "bytes": 14225,
+    "observations": [
+      "The report distinguishes bounded engineering delivery from owner UX acceptance, educational effectiveness, official language review, actual assistive-technology delivery, native zoom, physical disconnected restart, real learner readiness and release/deployment.",
+      "The math740 parameter/representation tuples,191 semantic cases,1074 Explore transitions and11 truth mutations match the independent oracle receipt. Eight integrity mutations and exact restoration match the separate integrity receipt.",
+      "The browser139 cases per channel/60 combined bindings and production42 cases/72 representation cases/228 layout samples/264 contrast samples match the current sanitized receipts. The complete raw receipt audit and ordinary8/playable9 output reconciliation are recorded above.",
+      "The native fixture is explicitly artificial. Its232 support cases,64 legacy/72 chapter observations,2084 receipts and4096 bound agree with the proof. Maximum103213 is correctly identified as a canonical payload/command representation, separately from prepared103006/final102939 payloads.",
+      "The dependency advisory claim is dated and bounded:204 graph entries, zero observed advisories, unchanged manifest/pins/lock. It is not a security certification.",
+      "Previously failing diagnostic/timing runs remain disclosed. No failed command is represented as passing, no unchanged assertion deadline was silently waived, and later successful sequential gates remain distinct.",
+      "The product/browser/UI/config proof remains exact across the follow-up because only three unit-test files and documentation/evidence changed. The changed tests have separate assertion/operation preservation review and freshly repeated integrity mutations. The earlier design-format carryforward contains only whitespace and Markdown delimiter widths, with explicit candidate-review authorship of that reconciliation."
+    ],
+    "coordinatorOwnedVerification": {
+      "canonical": "Coordinator reported complete corepack pnpm verify PASS on integrated source96c5976:1399 tests/77 files,32 fixture scenarios, four TypeScript projects, formatting/lint and normal build. The report labels this revision and does not relabel it as the follow-up result.",
+      "isolatedFresh": "Coordinator reported clean isolated exact-commit96c5976 clone, frozen install and complete verify PASS:1399 tests/77 files, lockfile unchanged. The follow-up changes only three unit-test files and documentation/evidence; its full1407-case gate remains a separate required observation.",
+      "executionBoundary": "This reviewer owns independent source/claim/hash/privacy reconciliation and the recorded targeted regression checks, not the coordinator's complete gate executions. The follow-up committed head still receives its own full local/fresh and exact-head PR-specific hosted checks before publication/merge. Windows96c5976 timeout failures remain disclosed and are not waived."
+    },
+    "publicationAndMergeClaim": "No current hosted success, completed merge, owner UX acceptance, release or deployment is asserted. The report directs exact committed-head gate/hosted/merge observations to the corresponding PR after they actually occur."
+  },
+  "findings": [
+    {
+      "id": "finite-case-readiness-starvation",
+      "resolution": "REPAIRED",
+      "cause": "After all four make-ten relationships first succeeded in one session/representation, permanent repeat exclusion prevented any later session/representation diversity and could trap invitations forever.",
+      "repair": "Bounded clean later-session confirmations supply coverage without adding independent cases. Same-session repetitions, assistance, solutions and inaccessible cases cannot supply clean confirmation.",
+      "evidence": [
+        "tests/unit/growing-world-candidate-review.test.ts",
+        "docs/evidence/growing-world/integrity-mutations.json"
+      ]
+    },
+    {
+      "id": "concrete-unit-area-help-created-gaps",
+      "resolution": "REPAIRED",
+      "cause": "The general second-help spacing rule overrode the concrete unit-grid gap rule, contradicting coverage with contiguous equal square units.",
+      "repair": "Scoped zero-gap override preserves contiguous area/square grids; independent UI reviewer reproduced the defect and added a rendered help-two gap assertion.",
+      "evidence": [
+        "scripts/growing-world-ui-review.mjs",
+        "docs/evidence/growing-world/ui-review.json"
+      ]
+    },
+    {
+      "id": "unsubmitted-worked-help-lost-on-navigation",
+      "resolution": "REPAIRED",
+      "cause": "Selecting a badge or reopening reset React hint flags on an unchanged replay, allowing an already revealed answer to appear unassisted.",
+      "repair": "A bounded known-case current-session support context is saved before revealing help, survives badge/activity/reload boundaries, and overrides underreported answer/pending provenance. Explicit new v2 sessions clear the context and advance to a fresh replay.",
+      "evidence": [
+        "tests/unit/growing-world-support-review.test.ts",
+        "tests/integration/growing-world-provenance.test.ts",
+        "docs/evidence/growing-world/integrity-mutations.json"
+      ]
+    },
+    {
+      "id": "compact-invitation-pinned-to-ready-target",
+      "resolution": "REPAIRED",
+      "cause": "Fixed-order connected suggestions kept selecting the earliest already-ready target, preventing the compact journey from advancing as evidence grew.",
+      "repair": "Support remains first; connected not-yet-ready targets follow, then another untried target. At the finite edge the free chooser remains without a fabricated growth invitation.",
+      "evidence": ["tests/unit/growing-world-invitation-view.test.tsx"]
+    },
+    {
+      "id": "help-save-disabled-keyboard-focus",
+      "resolution": "REPAIRED",
+      "cause": "Persisting help disables the initiating button long enough for installed Chrome to move focus to BODY; re-enabling alone does not restore it.",
+      "repair": "A view/session/replay-scoped focus request restores the same hint control after the command, while preserving a deliberate move to another control. Both child and developer hint buttons use the guarded path.",
+      "evidence": [
+        "tests/integration/growing-world-provenance.test.ts",
+        "tests/integration/phase3c-loop.test.ts",
+        "tests/integration/phase3c-child-ux.test.ts"
+      ]
+    }
+  ],
+  "sourceConclusions": [
+    "The six bounded conceptual families form a coherent decomposition/inverse/equal-unit chapter. Shapes, unit measurement and powers/root choices remain independently reachable; there is no global level, speed gate, sibling ranking or punitive error mechanism.",
+    "New replay/generator/content identities are separate. Historical random/replay/math/family/adaptation files and the v1 codec body retain exact behavior; the v2 payload preserves prior journals, derived state, preferences and accomplishments.",
+    "Pure domain code decides mathematical correctness. UI pictures, draft wording and optional fixed local speech do not supply verdicts. Area uses explicit square-unit DTOs; square-side questions retain principal positive-root meaning.",
+    "Invitation thresholds and later-session confirmations remain explicitly experimental and limited evidence. Cross-family connections create opportunities, not transferred mastery. Manual play and reversible Explore remain outside assessment journals; Explore has no answer-submission API.",
+    "New support metadata is distinct from both evidence journals. Its bounded reader admits only known semantic cases. Saved maximum assistance is enforced at answer and pending-codec boundaries; failed or held saves cannot expose an unrecorded worked answer.",
+    "The three legacy browser test updates wait for real save completion and assert exact support-only record/revision changes. They preserve original truth, replay, keyboard, language, profile, retry and isolation assertions; no failing assertion, timeout or required case was silently waived.",
+    "No dependency, lockfile, pin, install-script, licence, accepted ADR, workflow policy or authority expansion is present. New assets are native source/CSS/text; third-party notices remain exact.",
+    "The pre-existing full64-event wire-capacity test retains exact overflow-codec rejection and now explicitly verifies the intended unscored continuation: no answer write, revision or wire change; no exploration increment; safe explicit Next and Stop; old journal and derived data preserved. The new29 browser helper waits for the correct next durable support tier without weakening explicit tier assertions."
+  ],
+  "verificationOwnedByReviewer": [
+    {
+      "command": "corepack pnpm exec vitest run tests/unit/growing-world-candidate-review.test.ts --maxWorkers 1 --no-fileParallelism",
+      "result": "PASS",
+      "assertions": 6
+    },
+    {
+      "command": "corepack pnpm exec vitest run tests/unit/growing-world-invitation-view.test.tsx --maxWorkers 1 --no-fileParallelism",
+      "result": "PASS",
+      "assertions": 4
+    },
+    {
+      "command": "corepack pnpm exec eslint tests/integration/growing-world-provenance.test.ts tests/unit/growing-world-candidate-review.test.ts --max-warnings 0",
+      "result": "PASS"
+    },
+    {
+      "command": "git -c core.fsmonitor=false diff --check 71b57b9",
+      "result": "PASS"
+    }
+  ],
+  "proportionalEvidence": {
+    "mathematicalGroundTruth": "docs/evidence/growing-world/math-review.json",
+    "policyAndIntegrity": "docs/evidence/growing-world/integrity-review.json",
+    "restoredMutations": "docs/evidence/growing-world/integrity-mutations.json",
+    "nativeCapacity": "docs/evidence/growing-world/native-capacity.json",
+    "renderedProduction": "docs/evidence/growing-world/ui-review.json",
+    "browserProvenance": "docs/evidence/growing-world/provenance.json",
+    "installedBrowserMatrix": "docs/evidence/growing-world/browser-matrix.json",
+    "dependencyAdvisorySnapshot": "docs/evidence/growing-world/dependency-audit.json"
+  },
+  "artifactReview": {
+    "status": "PASS — final normal product build independently inspected",
+    "normalProductFiles": [
+      {
+        "path": "assets/index-Cqw6cjjL.css",
+        "bytes": 21440,
+        "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+      },
+      {
+        "path": "assets/index-GGVBWNUO.js",
+        "bytes": 352556,
+        "sha256": "ea419cd85df7461a6a7775df4db9cf23fef19e2dddc6a0bf71b84d7de7d7b7f4"
+      },
+      {
+        "path": "icons/math-adventure.svg",
+        "bytes": 431,
+        "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+      },
+      {
+        "path": "index.html",
+        "bytes": 795,
+        "sha256": "98e174673ef2096a3bbd3f84b31d4c3fd8c8f2a6330dda1efa4254a27da75d15"
+      },
+      {
+        "path": "manifest.webmanifest",
+        "bytes": 440,
+        "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+      },
+      {
+        "path": "release.json",
+        "bytes": 1300,
+        "sha256": "98149befb355edc5d2c7f57d05d9e085751c3a053a28b04827ae289d002b2d28"
+      },
+      {
+        "path": "sw.js",
+        "bytes": 22518,
+        "sha256": "67b6e98dff53edd136112733407875ac09c52e5336a27291994fcf37e8c5a4be"
+      },
+      {
+        "path": "THIRD_PARTY_NOTICES.txt",
+        "bytes": 1384,
+        "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+      }
+    ],
+    "thirdPartyNoticesExact": true,
+    "ordinaryProductSyntheticDatabaseOrIndexedDbImplementationFound": false,
+    "limitation": "Final normal product build inspected after root reported corepack pnpm build PASS on frozen product source; independent synthetic production rendering and hosted candidate remain separate evidence."
+  },
+  "privacyReview": {
+    "result": "PASS — bounded complete-candidate inspection",
+    "reviewedFiles": 65,
+    "reviewedBytes": 1131651,
+    "binaryFiles": [],
+    "credentialPatternFiles": [],
+    "observations": "Full candidate filenames and text contents were reviewed with targeted credential patterns and semantic inspection. Only visibly synthetic fixtures, source, documentation and sanitized counts/hashes are retained. No real learner content, private export/database/log, browser profile, media, trace, credential or external asset was observed. Ignored caches are not proposed public evidence.",
+    "limits": "A bounded source/artifact inspection is not a universal secret-detection or security-conformance claim."
+  },
+  "localLinks": {
+    "result": "PASS",
+    "checked": 237,
+    "completionFileDeferred": false,
+    "broken": []
+  },
+  "authority": {
+    "objective": "Owner D55 focused synthetic chapter, visible experimental journey and reversible exploration over protected-main base; no general later phase or accepted educational/privacy policy.",
+    "publication": "Standing Class B applies only after required local/fresh/independent/privacy checks and task/base conditions.",
+    "merge": "automatic_when_eligible under unchanged V2 only; current exact-head PR-specific Ubuntu/Windows SUCCESS, full eligibility and guarded protected squash remain separate mandatory observations. This reviewer performs no merge.",
+    "exclusions": "No release, tag, deployment, real learner use/trials, backend/telemetry, account/access/security setting or authority-expanding governance action is authorized by this review."
+  },
+  "unresolvedSourceFindings": [],
+  "limits": [
+    "This bounded independent candidate review does not itself authenticate exact-head hosted GitHub checks, protection state, merge eligibility or actual merge. Those remain coordinator-owned mandatory observations under unchanged V2.",
+    "Independent UI review owns rendered production evidence. Unit/SSR/memory checks cannot establish browser behavior, actual AT delivery, native zoom, physical offline restart, native language or child/owner UX acceptance.",
+    "No educational effectiveness, validated mastery/retention, official translation, broad WCAG/device certification, real-learner readiness or release-readiness claim follows.",
+    "Any executable source/test/config change requires hash reconciliation and appropriate revalidation. Subsequent documentation changes require claim/hash reconciliation; no prior-head hosted result may be relabelled current."
+  ],
+  "evidenceReconciliation": {
+    "result": "PASS — current-source per-suite receipts independently reconciled",
+    "evidenceAudit": [
+      {
+        "path": "docs/evidence/growing-world/browser-matrix.json",
+        "sourceBindings": 60,
+        "current": true
+      },
+      {
+        "path": "docs/evidence/growing-world/dependency-audit.json",
+        "sourceBindings": 0,
+        "current": true
+      },
+      {
+        "path": "docs/evidence/growing-world/integrity-mutations.json",
+        "sourceBindings": 9,
+        "current": true
+      },
+      {
+        "path": "docs/evidence/growing-world/integrity-review.json",
+        "sourceBindings": 30,
+        "current": true
+      },
+      {
+        "path": "docs/evidence/growing-world/math-review.json",
+        "sourceBindings": 7,
+        "current": true
+      },
+      {
+        "path": "docs/evidence/growing-world/native-capacity.json",
+        "sourceBindings": 18,
+        "current": true
+      },
+      {
+        "path": "docs/evidence/growing-world/provenance.json",
+        "sourceBindings": 16,
+        "current": true
+      },
+      {
+        "path": "docs/evidence/growing-world/ui-review.json",
+        "sourceBindings": 23,
+        "current": true
+      }
+    ],
+    "browserMatrix": {
+      "channels": 2,
+      "suitesPerChannel": 6,
+      "passingCasesPerChannel": 139,
+      "totalCurrentSourceBindings": 60,
+      "rawReceiptHashesVerified": 12,
+      "failedRunMisrepresentedAsPass": false,
+      "qualification": "The matrix explicitly retains the original saved-help test-helper failure and subsequent full29-case repeats in both channels. Passing unaffected suites retain exact current product/test/config bindings. This is aggregate per-suite evidence, not an assertion that the earlier failing six-suite command exited successfully."
+    },
+    "output": {
+      "normalProductFiles": 8,
+      "playableProductFiles": 9,
+      "hashesMatchCurrentFiles": true,
+      "playableHashesMatchIndependentProductionUi": true
+    },
+    "privacy": "Matrix contains synthetic assertion names, counts and hashes plus bounded network counters. No raw profile, task payload, database, trace, screenshot or browser directory is retained."
+  },
+  "testOnlyCiRepairReview": {
+    "result": "PASS — independent assertion and operation preservation review",
+    "comparisonBase": "96c5976",
+    "motivation": "Coordinator reports three Windows PR timeout failures at the unchanged default five-second deadline in combined full64-journal tests; the prior local/fresh1399-case passes and Ubuntu result cannot waive the failed Windows gate.",
+    "files": [
+      {
+        "path": "tests/unit/synthetic-loop.test.ts",
+        "previousSha256": "aa54aa9cb829da417045f5c65b9264feec4457babd5375db05c788c32097a20f",
+        "currentSha256": "ef6be359f08c6067361de3441cd37fca3343665db1fc0d5d6e92775f4b29cdb8"
+      },
+      {
+        "path": "tests/unit/growing-world-support.test.ts",
+        "previousSha256": "71be75d5e05187c19a1a0c755ea02eb2321e7cafaea09f6d2f6cf9ce51e0415f",
+        "currentSha256": "35f8b1ada603c67e235e5c827b70d3fb87f8d3c6f5f72d6d78e4666eae738f83"
+      },
+      {
+        "path": "tests/unit/growing-world-support-review.test.ts",
+        "previousSha256": "ba73e926bfb774be21330fb3eb7518c7ed0924b249de305469a3d19b9f976a1f",
+        "currentSha256": "89e9dd663495d0fcefca0fd9b73e3fbed2846d2db4ee250f8ef686cae349630f"
+      }
+    ],
+    "methods": "Compared the complete three-file diff and every moved assertion/application call to96c5976, traced actual skip/end/start transformations to validate arranged boundary states, and inspected test hooks, deadlines and fixture isolation. Supporting TypeScript AST inventory counts expectation calls and verifies none occur in hooks; counts alone are not proof of preserved behavior.",
+    "assertionInventory": [
+      {
+        "path": "tests/unit/synthetic-loop.test.ts",
+        "previousExpectCalls": 130,
+        "currentExpectCalls": 135,
+        "expectCallsInHooks": 0
+      },
+      {
+        "path": "tests/unit/growing-world-support.test.ts",
+        "previousExpectCalls": 65,
+        "currentExpectCalls": 66,
+        "expectCallsInHooks": 0
+      },
+      {
+        "path": "tests/unit/growing-world-support-review.test.ts",
+        "previousExpectCalls": 60,
+        "currentExpectCalls": 62,
+        "expectCallsInHooks": 0
+      }
+    ],
+    "observations": [
+      "All original semantic assertions and submit/Next/Stop/start operations remain covered. No default timeout, explicit timeout, test configuration or workflow changes; no skipped/only/todo tests, swallowed failures or assertion-bearing hooks.",
+      "Shared beforeAll work constructs only validated immutable full/closed wire preconditions. Every asserted operation runs inside its own test against an isolated real synthetic repository and application session.",
+      "Actual Stop results are additionally compared with the arranged stopped payloads used for restart. The Next result is the original full payload with taskOrdinal65; the Stop test arranges that exact payload and additionally checks taskOrdinal65/completedCount64.",
+      "The original cumulative two writes are decomposed into an actual one-write Next test and an actual one-additional-write Stop test; unscored submit still checks zero writes. No synthetic counter substitutes for an executed operation.",
+      "This is operation-boundary coverage with explicit valid preconditions, not the unchanged original end-to-end same-session chain. Existing independent native-browser lifecycle/capacity coverage retains current source bindings and was not altered.",
+      "The test count grows1399 to1407 in the same77 files. The final report labels1399 as observed on96c5976 and explicitly requires full/fresh and both hosted jobs for the follow-up head; it does not claim those later gates already passed."
+    ],
+    "evidenceCarryforward": {
+      "unchangedScopes": [
+        "src",
+        "tests/browser",
+        "tests/integration",
+        "tests/fixtures",
+        "scripts",
+        "vite.slice.config.ts",
+        "package.json",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        ".node-version",
+        ".github"
+      ],
+      "executableProductAndBrowserHarnessDiffEmpty": true,
+      "browserSourceBindings": 60,
+      "productionUiSourceBindings": 23,
+      "normalArtifacts": 8,
+      "playableArtifacts": 9,
+      "currentSourceAndArtifactAudit": "PASS",
+      "integrityMutationRevalidation": "Eight focused integrity mutations repeated after the repair, detected by assertions and exactly restored; current receipt/test hashes independently reconciled."
+    },
+    "remainingWorkflow": "Coordinator must run complete local/fresh1407-case gates and observe required exact follow-up head Ubuntu/Windows success before any merge. This reviewer performs no publication or merge."
+  }
+}

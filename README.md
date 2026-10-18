@@ -1,5 +1,17 @@
 # Math Adventure
 
+Current synthetic chapter: **Build and take apart**, under owner Goal D55.
+Six new families connect making ten, missing parts, equal groups, inverse
+sharing, square-unit area and square sides. A visible journey offers experimental
+invitations; reversible Explore workshops create no assessment evidence.
+Greek, British English and German remain authored drafts. Use the deliberate
+local synthetic build described in [development](docs/DEVELOPMENT.md).
+[Design](docs/GROWING_WORLD_DESIGN.md) and
+[current completion evidence](docs/GROWING_WORLD_COMPLETION_REPORT.md) distinguish
+engineering verification from owner UX acceptance and real-learner readiness.
+No public release, deployment or real-child use is enabled. Earlier status
+paragraphs below retain the scope and evidence of their recorded milestones.
+
 Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
 The owner's 2026-10-07 [observation](docs/evidence/phase3c-closure/owner-observation.json)
 reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator

@@ -17,13 +17,24 @@ import type { SyntheticProfileId } from '../../domain/adaptation/types';
 import { parseSeed } from '../../domain/random/xoshiro';
 import { PROOF_FAMILY_IDS } from '../../domain/families/proofs';
 import { SLICE_FAMILY_IDS } from '../../domain/families/slice';
+import { CHAPTER_FAMILY_IDS } from '../../domain/growing-world/content';
+import {
+  chapterObservationFromInput,
+  deriveGrowingJourney,
+  GROWING_JOURNEY_POLICY,
+} from '../../domain/growing-world/journey';
 import { canonicalize } from '../../domain/replay/canonical';
+import { chapterSupportFromInput } from '../../domain/growing-world/support';
 import { operationId, revision, storageEpoch } from '../core/integrity';
 import { applicationFailure, applicationSuccess } from '../core/result';
 import type { ApplicationResult } from '../core/result';
 import type { RecordCodec } from '../ports/repository';
 import { detachedData } from '../repository/validation';
-import { SYNTHETIC_LOOP_EVENT_LIMIT, SYNTHETIC_LOOP_SCHEMA } from './types';
+import {
+  GROWING_LOOP_SCHEMA,
+  SYNTHETIC_LOOP_EVENT_LIMIT,
+  SYNTHETIC_LOOP_SCHEMA,
+} from './types';
 import type {
   LoopDerivedState,
   LoopEvidenceEvent,
@@ -300,7 +311,8 @@ function pendingFromInput(
   return row as unknown as LoopPending;
 }
 
-export const syntheticLoopCodec: RecordCodec<SyntheticLoopRecord> = {
+/** Frozen v1 payload decoder. A v2 envelope never changes this replay meaning. */
+export const legacySyntheticLoopCodec: RecordCodec<SyntheticLoopRecord> = {
   schema: SYNTHETIC_LOOP_SCHEMA,
   decode(input: unknown): ApplicationResult<SyntheticLoopRecord> {
     const detached = detachedData(input);
@@ -443,6 +455,159 @@ export const syntheticLoopCodec: RecordCodec<SyntheticLoopRecord> = {
   },
 };
 
+/** Repository namespace stays stable; payload compatibility is explicit/versioned.
+ * Decoding returns the exact old/new wire identity and never performs an upgrade.
+ */
+export const syntheticLoopCodec: RecordCodec<SyntheticLoopRecord> = {
+  schema: SYNTHETIC_LOOP_SCHEMA,
+  decode(input: unknown): ApplicationResult<SyntheticLoopRecord> {
+    const detached = detachedData(input);
+    if (!detached.ok) return detached;
+    const row = dataRecord(detached.value, 16);
+    if (row?.schema !== GROWING_LOOP_SCHEMA)
+      return legacySyntheticLoopCodec.decode(input);
+    const events = dataArray(
+      row.chapterEvents,
+      GROWING_JOURNEY_POLICY.eventLimit,
+    );
+    if (!events) return applicationFailure('invalid_record');
+    const chapterEvents = events.map(chapterObservationFromInput);
+    if (chapterEvents.some((event) => event === undefined))
+      return applicationFailure('invalid_record');
+    const support = chapterSupportFromInput(row.chapterSupport);
+    if (!support.ok) return applicationFailure('invalid_record');
+    const {
+      chapterEvents: omittedEvents,
+      chapterSupport: omittedSupport,
+      ...base
+    } = row;
+    void omittedEvents;
+    void omittedSupport;
+    const selectedChapter = CHAPTER_FAMILY_IDS.some(
+      (family) => family === row.selectedFamily,
+    );
+    let pending = row.pending;
+    let chapterPending = null;
+    if (pending !== null) {
+      const prepared = dataRecord(pending, 7);
+      if (!prepared) return applicationFailure('invalid_record');
+      if (Object.hasOwn(prepared, 'chapterObservation')) {
+        const { chapterObservation, ...oldPending } = prepared;
+        chapterPending = chapterObservationFromInput(chapterObservation);
+        if (chapterPending === undefined)
+          return applicationFailure('invalid_record');
+        pending = oldPending;
+      }
+    }
+    const legacy = legacySyntheticLoopCodec.decode({
+      ...base,
+      schema: SYNTHETIC_LOOP_SCHEMA,
+      selectedFamily: selectedChapter ? 'number.addition' : row.selectedFamily,
+      pending,
+    });
+    if (!legacy.ok) return legacy;
+    const record = row as unknown as SyntheticLoopRecord;
+    if (record.schema !== GROWING_LOOP_SCHEMA)
+      return applicationFailure('invalid_record');
+    if (
+      record.pending &&
+      ((selectedChapter &&
+        record.mode === 'synthetic-policy' &&
+        !chapterPending) ||
+        record.chapterEvents.some(
+          (event) => event.id === `SYNTHETIC-${record.pending?.operationId}`,
+        ) ||
+        record.events.some(
+          (event) =>
+            event.kind === 'observation' &&
+            event.input.id === `SYNTHETIC-${record.pending?.operationId}`,
+        ))
+    )
+      return applicationFailure('invalid_record');
+    if (
+      record.chapterEvents.some(
+        (event) => event.sessionOrdinal > record.sessionOrdinal,
+      )
+    )
+      return applicationFailure('invalid_record');
+    const derived = deriveGrowingJourney(record.chapterEvents);
+    if (
+      !derived.ok ||
+      record.chapterEvents.length +
+        record.events.filter((event) => event.kind === 'observation').length >
+        record.completedCount ||
+      record.chapterEvents.some((event) =>
+        record.events.some(
+          (old) => old.kind === 'observation' && old.input.id === event.id,
+        ),
+      )
+    )
+      return applicationFailure('invalid_record');
+    if (chapterPending) {
+      const savedTier =
+        support.value.find(
+          (entry) =>
+            entry.familyId === chapterPending.familyId &&
+            entry.fingerprint === chapterPending.fingerprint,
+        )?.maxHintTier ?? 0;
+      if (
+        !selectedChapter ||
+        record.mode !== 'synthetic-policy' ||
+        !record.pending ||
+        record.pending.evidenceKind !== 'limitedEvidence' ||
+        record.pending.observation !== null ||
+        chapterPending.familyId !== record.selectedFamily ||
+        chapterPending.correct !== record.pending.correct ||
+        chapterPending.id !== `SYNTHETIC-${record.pending.operationId}` ||
+        chapterPending.sessionOrdinal !== record.sessionOrdinal ||
+        chapterPending.mathematicalHintTier < savedTier ||
+        (savedTier === 3 && !chapterPending.solutionExposed) ||
+        !deriveGrowingJourney([...record.chapterEvents, chapterPending]).ok
+      )
+        return applicationFailure('invalid_record');
+    }
+    if (record.pending?.observation) {
+      const observation = record.pending.observation.input;
+      const familyId = SYNTHETIC_LOOP_CATALOG.scopes.find(
+        (scope) => scope.conceptId === observation.concept,
+      )?.familyId;
+      const savedTier =
+        support.value.find(
+          (entry) =>
+            entry.familyId === familyId &&
+            entry.fingerprint === observation.evidenceFingerprint,
+        )?.maxHintTier ?? 0;
+      if (observation.mathematicalHintTier < savedTier)
+        return applicationFailure('invalid_record');
+    }
+    return applicationSuccess(freezeData(record));
+  },
+};
+
+/** A deliberate chapter entry is the lossless next-write migration boundary.
+ * Prepared legacy survivors finish under their original schema before entry.
+ */
+export function enterGrowingWorld(
+  record: SyntheticLoopRecord,
+): SyntheticLoopRecord {
+  return record.schema === GROWING_LOOP_SCHEMA || record.pending !== null
+    ? record
+    : freezeData({
+        ...record,
+        schema: GROWING_LOOP_SCHEMA,
+        chapterEvents: [],
+        chapterSupport: [],
+      });
+}
+
+export function growingJourneyForRecord(record: SyntheticLoopRecord) {
+  const legacy = deriveSyntheticLoop(record.profileId, record.events);
+  return deriveGrowingJourney(
+    record.schema === GROWING_LOOP_SCHEMA ? record.chapterEvents : [],
+    legacy.ok ? legacy.value.snapshot : null,
+  );
+}
+
 /** Terminal payload is deterministic and contains no journal/raw answer. */
 export function completePendingSyntheticLoop(
   record: SyntheticLoopRecord,
@@ -482,5 +647,13 @@ export function completePendingSyntheticLoop(
       reasonCode: observation?.reasonCode ?? null,
     },
   };
+  if (pending.chapterObservation) {
+    if (record.schema !== GROWING_LOOP_SCHEMA)
+      return applicationFailure('invalid_record');
+    return syntheticLoopCodec.decode({
+      ...payload,
+      chapterEvents: [...record.chapterEvents, pending.chapterObservation],
+    });
+  }
   return syntheticLoopCodec.decode(payload);
 }

@@ -5,11 +5,17 @@ import {
   PROOF_FAMILY_IDS,
 } from '../../../src/application/family-proof';
 import { createSliceFamily } from '../../../src/application/slice-family';
+import {
+  createChapterTask,
+  isChapterFamilyId,
+} from '../../../src/application/growing-world';
+import type { ChapterPresentation } from '../../../src/application/growing-world';
 import type {
   LoopFamilyId,
   LoopPreferences,
 } from '../../../src/application/synthetic-loop';
 import { syntheticLoopTaskSeed } from '../../../src/application/synthetic-loop';
+import { growingJourneyForRecord } from '../../../src/application/synthetic-loop';
 import type { SyntheticProfileId } from '../../../src/domain/adaptation/types';
 import { SLICE_FAMILY_IDS } from '../../../src/domain/families/slice';
 import type { SliceFamilyId } from '../../../src/domain/families/slice';
@@ -38,9 +44,14 @@ import {
 import {
   buildUtterancePlan,
   buildChildActivityUtterancePlan,
+  buildChapterUtterancePlan,
 } from '../../../src/presentation/speech/plans';
 import { TaskView } from '../../../src/ui/synthetic-loop/TaskView';
 import { ChildTaskView } from '../../../src/ui/synthetic-loop/ChildTaskView';
+import { ChapterTaskView } from '../../../src/ui/synthetic-loop/ChapterTaskView';
+import { ExploreWorld } from '../../../src/ui/synthetic-loop/ExploreWorld';
+import { GrowthJourney } from '../../../src/ui/synthetic-loop/GrowthJourney';
+import { getGrowingWorldCopy } from '../../../src/presentation/localisation/growing-world-copy';
 import { ChildLanguageControls } from '../../../src/ui/synthetic-loop/LanguageControls';
 import {
   languageNames,
@@ -116,16 +127,26 @@ const labels: Readonly<
   'number.subtraction': 'slice.subtractActivity',
   'number.missing': 'slice.missingActivity',
 };
+type WorldPresentation = LoopPresentation | ChapterPresentation;
+function chapterPresentation(
+  value: WorldPresentation | null,
+): value is ChapterPresentation {
+  return value !== null && isChapterFamilyId(value.familyId);
+}
 const operation = () => `synthetic-${crypto.randomUUID()}`;
-let publicPresentation: LoopPresentation | null = null;
+let publicPresentation: WorldPresentation | null = null;
 
 function generate(
   family: LoopFamilyId,
   ordinal: number,
   profile: SyntheticProfileId,
-): LoopPresentation | null {
+): WorldPresentation | null {
   const seed = syntheticLoopTaskSeed(profile, family, ordinal);
   if (!seed.ok) return null;
+  if (isChapterFamilyId(family)) {
+    const result = createChapterTask(family, seed.value);
+    return result.ok ? result.value : null;
+  }
   const result = PROOF_FAMILY_IDS.some((id) => id === family)
     ? createFamilyProof(family as ProofFamilyId, seed.value)
     : createSliceFamily(family as SliceFamilyId, seed.value);
@@ -140,7 +161,8 @@ function App() {
     return location.hash === '#developer' ? 'developer' : 'child';
   });
   const [, render] = useState(0);
-  const [task, setTask] = useState<LoopPresentation | null>(null);
+  const [task, setTask] = useState<WorldPresentation | null>(null);
+  const [journeyOpen, setJourneyOpen] = useState(false);
   const [response, setResponse] = useState('');
   const [classes, setClasses] = useState<readonly string[]>([]);
   const [hintTier, setHintTier] = useState<0 | 1 | 2 | 3>(0);
@@ -161,6 +183,11 @@ function App() {
     readonly session: ReturnType<typeof runtime.session>;
     readonly locale: string;
   } | null>(null);
+  const helpFocus = useRef<{
+    readonly session: ReturnType<typeof runtime.session>;
+    readonly seed: string;
+    readonly view: 'child' | 'developer';
+  } | null>(null);
   const answerSubmission = useRef<{
     readonly session: ReturnType<typeof runtime.session>;
     readonly seed: string;
@@ -178,6 +205,7 @@ function App() {
   const effective = resolvePrototypeLocale(locale).effectiveLocale;
   const copy = getPrototypeCopy(locale);
   const childCopy = childShellCopy(locale);
+  const worldCopy = getGrowingWorldCopy(locale);
   const languageCopy = languageControlCopy(locale);
   const disabled = state.busy || state.frozen || runtime.recovery().recovering;
   const playDisabled =
@@ -203,23 +231,29 @@ function App() {
           } as const
         )[task.task.numeral.numerator as '2' | '3' | '4' | '5']
       : undefined;
-  const instructionPlan = !record?.sessionActive
-    ? null
-    : feedback === 'correct'
-      ? buildUtterancePlan('positiveFeedback', preferences.instructionLocale)
-      : view === 'child'
-        ? task && task.task.kind !== 'equation'
-          ? buildChildActivityUtterancePlan(
-              task.task.kind,
+  const instructionPlan =
+    !record?.sessionActive || playMode === 'exploration'
+      ? null
+      : feedback === 'correct'
+        ? buildUtterancePlan('positiveFeedback', preferences.instructionLocale)
+        : view === 'child'
+          ? chapterPresentation(task)
+            ? buildChapterUtterancePlan(
+                task.task.kind,
+                preferences.instructionLocale,
+              )
+            : task && task.task.kind !== 'equation'
+              ? buildChildActivityUtterancePlan(
+                  task.task.kind,
+                  preferences.instructionLocale,
+                )
+              : null
+          : buildUtterancePlan(
+              'childInstructions',
               preferences.instructionLocale,
-            )
-          : null
-        : buildUtterancePlan(
-            'childInstructions',
-            preferences.instructionLocale,
-          );
+            );
   const numberPlan =
-    numeralSpeech && record?.sessionActive
+    numeralSpeech && record?.sessionActive && playMode !== 'exploration'
       ? buildUtterancePlan(numeralSpeech, preferences.numberSpeechLocale)
       : null;
   const refresh = () => {
@@ -262,6 +296,22 @@ function App() {
     if (button && !button.disabled) button.focus({ preventScroll: true });
     else document.querySelector<HTMLElement>('[data-save-state]')?.focus();
   }, [state.busy, state.error, preferences, session, view]);
+  useLayoutEffect(() => {
+    const requested = helpFocus.current;
+    if (!requested || state.busy) return;
+    helpFocus.current = null;
+    if (
+      requested.view !== view ||
+      requested.session !== session ||
+      requested.seed !== task?.replay.seedHex
+    )
+      return;
+    const active = document.activeElement;
+    if (active !== document.body && !active?.matches('.hint-button')) return;
+    const button = document.querySelector<HTMLButtonElement>('.hint-button');
+    if (button && !button.disabled) button.focus({ preventScroll: true });
+    else document.querySelector<HTMLElement>('[data-save-state]')?.focus();
+  }, [state.busy, state.error, session, task, view]);
   useLayoutEffect(() => {
     if (focusRequested.current) {
       focusRequested.current = false;
@@ -306,7 +356,10 @@ function App() {
   }
 
   function navigateChild(destination: ChildDestination) {
+    speech.cancel();
     setPlayMode(destination === 'explore' ? 'exploration' : 'practice');
+    setJourneyOpen(false);
+    if (destination === 'explore') return;
     const family =
       destination === 'shapes'
         ? 'geometry.quadrilateral'
@@ -318,14 +371,17 @@ function App() {
   }
 
   function anotherChildActivity() {
-    const numberFamilies = families.filter(
-      (family) => family !== 'geometry.quadrilateral',
+    speech.cancel();
+    setJourneyOpen(true);
+    requestAnimationFrame(() =>
+      document.getElementById('growth-journey-heading')?.focus(),
     );
-    const current = numberFamilies.findIndex(
-      (family) => family === record?.selectedFamily,
-    );
-    const next = numberFamilies[(current + 1) % numberFamilies.length];
-    if (next) void run(() => session.setActivity(next, operation()), true);
+  }
+
+  function chooseDiscovery(family: LoopFamilyId) {
+    setPlayMode('practice');
+    setJourneyOpen(false);
+    void run(() => session.setActivity(family, operation()), true);
   }
 
   function presentCurrent() {
@@ -344,7 +400,11 @@ function App() {
     setTask(publicPresentation);
     setResponse('');
     setClasses([]);
-    setHintTier(0);
+    setHintTier(
+      publicPresentation
+        ? runtime.session().chapterHintTier(publicPresentation.replay)
+        : 0,
+    );
     setSupport(false);
     setAttempts(1);
     setFeedback('none');
@@ -360,6 +420,49 @@ function App() {
     await pending;
     refresh();
     if (present && token === actionGeneration.current) presentCurrent();
+  }
+
+  function showMathematicalHelp(singleStep = false) {
+    if (!task || hintTier === 3) return;
+    const nextTier: 1 | 2 | 3 = singleStep
+      ? 1
+      : hintTier === 2
+        ? 3
+        : hintTier === 1
+          ? 2
+          : 1;
+    const assessed =
+      chapterPresentation(task) ||
+      PROOF_FAMILY_IDS.some((family) => family === task.familyId);
+    if (!assessed) {
+      setHintTier(nextTier);
+      return;
+    }
+    const selectedSession = session;
+    const selectedReplay = task.replay;
+    if (document.activeElement?.matches('.hint-button'))
+      helpFocus.current = {
+        session: selectedSession,
+        seed: selectedReplay.seedHex,
+        view,
+      };
+    // A worked picture is revealed only after its non-assessment support
+    // context is saved. Navigation/reopen cannot turn that picture into a
+    // fresh independent answer to the same mathematical relationship.
+    void run(async () => {
+      const result = await selectedSession.requestChapterSupport(
+        selectedReplay,
+        nextTier,
+        operation(),
+      );
+      if (
+        runtime.session() !== selectedSession ||
+        publicPresentation?.replay.seedHex !== selectedReplay.seedHex
+      )
+        return;
+      if (result.ok) setHintTier(nextTier);
+      else setFeedback('unavailable');
+    });
   }
 
   async function submit(
@@ -421,7 +524,7 @@ function App() {
         answer,
         mathematicalHintTier: hintTier,
         meaningfulAttempts: attempts,
-        solutionExposed: false,
+        solutionExposed: chapterPresentation(task) && hintTier === 3,
         accessibilitySupports: support ? ['alternateControls'] : [],
         // A single shape match is narrower than exact attribute classification.
         // The unchanged engine records it outside accessible assessment evidence.
@@ -470,13 +573,15 @@ function App() {
   }
 
   const familyLabel = (family: LoopFamilyId) =>
-    family === 'number.addition'
-      ? formatMessage(locale, 'proof.number')
-      : family === 'geometry.quadrilateral'
-        ? formatMessage(locale, 'proof.geometry')
-        : family === 'measurement.unit-length'
-          ? formatMessage(locale, 'proof.measurement')
-          : formatSlice(locale, labels[family]);
+    isChapterFamilyId(family)
+      ? worldCopy.familyLabels[family]
+      : family === 'number.addition'
+        ? formatMessage(locale, 'proof.number')
+        : family === 'geometry.quadrilateral'
+          ? formatMessage(locale, 'proof.geometry')
+          : family === 'measurement.unit-length'
+            ? formatMessage(locale, 'proof.measurement')
+            : formatSlice(locale, labels[family]);
 
   return (
     <main
@@ -617,6 +722,27 @@ function App() {
                   manual={record.mode === 'manual'}
                   exploration={playMode === 'exploration'}
                 />
+                {record.sessionActive && playMode !== 'exploration' && (
+                  <GrowthJourney
+                    record={record}
+                    preferences={preferences}
+                    open={journeyOpen}
+                    disabled={playDisabled}
+                    onOpen={() => setJourneyOpen((current) => !current)}
+                    onChoose={chooseDiscovery}
+                    familyLabel={familyLabel}
+                    onMode={() =>
+                      void run(() =>
+                        session.setMode(
+                          record.mode === 'manual'
+                            ? 'synthetic-policy'
+                            : 'manual',
+                          operation(),
+                        ),
+                      )
+                    }
+                  />
+                )}
               </>
             ) : (
               <section
@@ -667,7 +793,43 @@ function App() {
             <section className="slice-panel" data-task-family={task?.familyId}>
               {record.sessionActive ? (
                 <>
-                  {view === 'child' ? (
+                  {view === 'child' && (
+                    <div hidden={playMode !== 'exploration'}>
+                      <ExploreWorld
+                        contextKey={record.profileId}
+                        preferences={preferences}
+                        disabled={playDisabled || playMode !== 'exploration'}
+                        onPractice={chooseDiscovery}
+                      />
+                    </div>
+                  )}
+                  {view === 'child' &&
+                  playMode === 'exploration' ? null : chapterPresentation(
+                      task,
+                    ) ? (
+                    <ChapterTaskView
+                      key={task.replay.seedHex}
+                      presentation={task}
+                      preferences={preferences}
+                      hintTier={hintTier}
+                      feedback={feedback}
+                      disabled={playDisabled || finished}
+                      retryDisabled={playDisabled}
+                      onPractice={chooseDiscovery}
+                      onAnswer={(answer: StructuredAnswer) =>
+                        void submit(answer, true)
+                      }
+                      onHint={() => showMathematicalHelp()}
+                      onRetry={() => {
+                        focusRequested.current = true;
+                        setFinished(false);
+                        setFeedback('none');
+                        setAttempts((value) =>
+                          value === 3 ? 3 : value === 2 ? 3 : 2,
+                        );
+                      }}
+                    />
+                  ) : view === 'child' ? (
                     <ChildTaskView
                       key={task?.replay.seedHex ?? 'empty'}
                       contextKey={record.profileId}
@@ -680,17 +842,7 @@ function App() {
                       onAnswer={(answer: StructuredAnswer) =>
                         void submit(answer, true)
                       }
-                      onHint={() =>
-                        setHintTier((current) =>
-                          current === 3
-                            ? 3
-                            : current === 2
-                              ? 3
-                              : current === 1
-                                ? 2
-                                : 1,
-                        )
-                      }
+                      onHint={() => showMathematicalHelp()}
                       onRetry={() => {
                         focusRequested.current = true;
                         setFinished(false);
@@ -721,9 +873,7 @@ function App() {
                             : current.filter((value) => value !== id),
                         )
                       }
-                      onHint={() =>
-                        setHintTier((current) => (current === 0 ? 1 : current))
-                      }
+                      onHint={() => showMathematicalHelp(true)}
                       onSubmit={() => void submit()}
                       onRetry={() => {
                         setFinished(false);
@@ -736,29 +886,35 @@ function App() {
                     />
                   )}
                   <div className="slice-actions">
-                    {finished && (
+                    {finished && playMode !== 'exploration' && (
                       <button
                         type="button"
                         data-action="next"
-                        onClick={presentCurrent}
+                        onClick={() =>
+                          state.sessionOnlyCompletion && playMode === 'practice'
+                            ? void run(() => session.skip(operation()), true)
+                            : presentCurrent()
+                        }
                       >
                         {copy.continue}
                       </button>
                     )}
-                    <button
-                      type="button"
-                      data-action="skip"
-                      disabled={playDisabled}
-                      onClick={() =>
-                        view === 'child'
-                          ? anotherChildActivity()
-                          : void run(() => session.skip(operation()), true)
-                      }
-                    >
-                      {view === 'child'
-                        ? childCopy.anotherActivity
-                        : formatSlice(locale, 'slice.skip')}
-                    </button>
+                    {playMode !== 'exploration' && (
+                      <button
+                        type="button"
+                        data-action="skip"
+                        disabled={playDisabled}
+                        onClick={() =>
+                          view === 'child'
+                            ? anotherChildActivity()
+                            : void run(() => session.skip(operation()), true)
+                        }
+                      >
+                        {view === 'child'
+                          ? childCopy.anotherActivity
+                          : formatSlice(locale, 'slice.skip')}
+                      </button>
+                    )}
                     <button
                       type="button"
                       data-action="stop"
@@ -878,6 +1034,10 @@ function App() {
               <details className="slice-panel" data-developer-controls>
                 <summary>{formatSlice(locale, 'slice.adultHeading')}</summary>
                 <p>{formatSlice(locale, 'slice.languageDraft')}</p>
+                <p>{worldCopy.experimental}</p>
+                <pre data-growing-inspection>
+                  {JSON.stringify(growingJourneyForRecord(record), null, 2)}
+                </pre>
                 <label>
                   <input
                     type="checkbox"
@@ -1128,7 +1288,10 @@ if (offline) void offline.start();
 Object.defineProperty(window, 'phase3cProof', {
   value: {
     state: () => runtime.session().state(),
-    presentation: () => publicPresentation,
+    presentation: () =>
+      chapterPresentation(publicPresentation) ? null : publicPresentation,
+    chapterTask: () =>
+      chapterPresentation(publicPresentation) ? publicPresentation : null,
     offline: () => offline?.snapshot() ?? null,
     fault: (value: Parameters<typeof runtime.fault>[0]) => runtime.fault(value),
     holdWrites: (value: boolean) => runtime.holdWrites(value),

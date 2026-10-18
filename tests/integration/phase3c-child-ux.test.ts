@@ -18,7 +18,12 @@ import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { relative, resolve } from 'node:path';
 import { startProofServer } from '../../scripts/browser-proof/server.mjs';
 import type { ProofServer } from '../../scripts/browser-proof/server.mjs';
-import type { LoopFamilyId } from '../../src/application/synthetic-loop';
+import type {
+  LoopFamilyId,
+  SyntheticLoopState,
+} from '../../src/application/synthetic-loop';
+import { PROOF_FAMILY_IDS } from '../../src/domain/families/proofs';
+import { proofEvidence } from '../../src/domain/families/proof-evidence';
 import type { LoopPresentation } from '../../src/ui/synthetic-loop/TaskView';
 import {
   CHILD_FAMILIES,
@@ -233,6 +238,73 @@ async function state(page: Page) {
   return page.evaluate(() => window.phase3cProof.state());
 }
 
+function assertHelpChange(
+  before: SyntheticLoopState,
+  after: SyntheticLoopState,
+  task: LoopPresentation,
+  tier: 1 | 2 | 3,
+): void {
+  if (!before.record || !after.record)
+    throw new Error('Synthetic help record missing');
+  if (!PROOF_FAMILY_IDS.some((family) => family === task.familyId)) {
+    expect(after.record).toEqual(before.record);
+    expect(after.snapshot).toEqual(before.snapshot);
+  } else {
+    const evidence = proofEvidence(task.replay);
+    if (!evidence.ok) throw new Error('Synthetic assessed help scope missing');
+    const previous =
+      before.record.schema === 'growing-world-synthetic-loop-v2'
+        ? before.record.chapterSupport
+        : [];
+    const matching = previous.find(
+      (entry) =>
+        entry.familyId === task.familyId &&
+        entry.fingerprint === evidence.value.fingerprint,
+    );
+    const expected = [
+      ...previous.filter((entry) => entry !== matching),
+      {
+        familyId: task.familyId,
+        fingerprint: evidence.value.fingerprint,
+        maxHintTier: Math.max(matching?.maxHintTier ?? 0, tier),
+      },
+    ];
+    if (after.record.schema !== 'growing-world-synthetic-loop-v2')
+      throw new Error('Synthetic help migration missing');
+    const ordered = (
+      entries: readonly {
+        readonly familyId: string;
+        readonly fingerprint: string;
+        readonly maxHintTier: number;
+      }[],
+    ) =>
+      [...entries].sort((left, right) =>
+        `${left.familyId}|${left.fingerprint}`.localeCompare(
+          `${right.familyId}|${right.fingerprint}`,
+        ),
+      );
+    expect(ordered(after.record.chapterSupport)).toEqual(ordered(expected));
+    expect(after.record.chapterSupport.length).toBeLessThanOrEqual(256);
+    expect(after.record).toEqual({
+      ...before.record,
+      schema: 'growing-world-synthetic-loop-v2',
+      chapterEvents:
+        before.record.schema === 'growing-world-synthetic-loop-v2'
+          ? before.record.chapterEvents
+          : [],
+      chapterSupport: after.record.chapterSupport,
+    });
+    if (before.snapshot) {
+      expect(after.snapshot?.recordId).toBe(before.snapshot.recordId);
+      expect(after.snapshot?.storageEpoch).toBe(before.snapshot.storageEpoch);
+      expect(after.snapshot?.revision).toBe(before.snapshot.revision + 1);
+      expect(after.snapshot?.payload).toEqual(after.record);
+    } else expect(after.snapshot).toBeNull();
+  }
+  expect(after.adaptation).toEqual(before.adaptation);
+  expect(after.explorationCount).toBe(before.explorationCount);
+}
+
 async function presentation(page: Page): Promise<LoopPresentation> {
   const task = await page.evaluate(() => window.phase3cProof.presentation());
   if (!task || !('task' in task) || 'answerContract' in task)
@@ -363,10 +435,20 @@ async function progressiveHelp(
     beforeState = await state(page);
   const help = page.locator('.hint-button');
   expect(await help.getAttribute('aria-controls')).toBe('slice-hint');
-  expect(await help.getAttribute('aria-expanded')).toBe('false');
-  for (const tier of [1, 2, 3]) {
+  const restoredTier = Number(
+    await page.locator('.child-task').getAttribute('data-child-hint-tier'),
+  );
+  expect([0, 1, 2, 3]).toContain(restoredTier);
+  expect(await help.getAttribute('aria-expanded')).toBe(
+    String(restoredTier > 0),
+  );
+  for (const tier of [1, 2, 3] as const) {
+    if (tier <= restoredTier) continue;
+    const beforeHelp = await state(page);
     await help.focus();
     await page.keyboard.press('Enter');
+    await settled(page);
+    await page.locator(`.child-task[data-child-hint-tier="${tier}"]`).waitFor();
     expect(await page.locator('#slice-hint').isVisible()).toBe(true);
     expect(await help.getAttribute('aria-expanded')).toBe('true');
     expect(
@@ -383,7 +465,7 @@ async function progressiveHelp(
       1,
     );
     expect(await presentation(page)).toEqual(before);
-    expect((await state(page)).record).toEqual(beforeState.record);
+    assertHelpChange(beforeHelp, await state(page), before, tier);
     expect((await state(page)).explorationCount).toBe(
       beforeState.explorationCount,
     );
@@ -409,8 +491,11 @@ async function progressiveHelp(
       }
     }
   }
+  const maximumHelp = await state(page);
+  await help.focus();
   for (const stage of [1, 2, 3, 1]) {
     await page.keyboard.press('Enter');
+    await settled(page);
     expect(
       await help.evaluate((button) => document.activeElement === button),
     ).toBe(true);
@@ -449,7 +534,8 @@ async function progressiveHelp(
       1,
     );
     expect(await presentation(page)).toEqual(before);
-    expect((await state(page)).record).toEqual(beforeState.record);
+    expect((await state(page)).record).toEqual(maximumHelp.record);
+    expect((await state(page)).snapshot).toEqual(maximumHelp.snapshot);
     expect(await page.locator('#slice-feedback').textContent()).toBe('');
   }
 }
@@ -650,6 +736,8 @@ describe(`installed ${channel} child presentation`, () => {
           .count(),
       ).toBe(0);
       await page.locator('.hint-button').click();
+      await settled(page);
+      await page.locator('#slice-hint').waitFor({ state: 'visible' });
       await answer(page, expected);
       expect((await state(page)).record?.lastCompletion).toMatchObject({
         correct: true,
@@ -701,6 +789,8 @@ describe(`installed ${channel} child presentation`, () => {
     await policy(page);
     await activity(page, 'number.addition');
     await page.locator('.hint-button').click();
+    await settled(page);
+    await page.locator('#slice-hint').waitFor({ state: 'visible' });
     await answer(page, childAnswerKey(await presentation(page)));
     expect((await state(page)).record?.lastCompletion).toMatchObject({
       correct: true,
@@ -803,25 +893,30 @@ describe(`installed ${channel} child presentation`, () => {
     ).toContain('δεν μετρούν');
   });
 
-  it('uses Explore as honest session-only exposure without storing an observation', async () => {
+  it('uses the reversible Explore workspace without answers or stored observations', async () => {
     const page = await open();
     await profile(page);
     await policy(page);
     await page.locator('[data-child-nav=explore]').click();
     await settled(page);
     const before = await state(page);
-    await answer(page, childAnswerKey(await presentation(page)));
+    expect(await page.locator('[data-child-answer]').count()).toBe(0);
+    await page.locator('[data-world-action=moveLeft]').click();
+    await page.locator('[data-world-action=add]').click();
+    await page.locator('[data-world-action=undo]').click();
     const after = await state(page);
-    expect(after.sessionOnlyCompletion).toMatchObject({
-      correct: true,
-      evidence: 'sessionOnly',
-    });
-    expect(after.explorationCount).toBe(1);
+    expect(after.sessionOnlyCompletion).toBeNull();
+    expect(after.explorationCount).toBe(before.explorationCount);
     expect(after.record).toEqual(before.record);
+    expect(after.snapshot?.revision).toBe(before.snapshot?.revision);
     expect(
       await page.locator('[data-child-evidence-mode]').innerText(),
     ).toContain('δεν μετρούν');
-    await profile(page, 1);
+    // Explore remains a workspace when changing badge; no question heading is
+    // expected until the child deliberately returns to Play.
+    await page.locator('[data-profile]').nth(1).click();
+    await settled(page);
+    expect((await state(page)).record?.profileId).toBe('SYNTHETIC-PLAYER-2');
     expect((await state(page)).explorationCount).toBe(0);
     expect((await state(page)).record?.events).toHaveLength(0);
   });
@@ -977,12 +1072,16 @@ describe(`installed ${channel} child presentation`, () => {
           .locator('#slice-task-heading')
           .evaluate((heading) => document.activeElement === heading),
       ).toBe(true);
-      const beforeHelp = (await state(page)).record,
-        help = page.locator('.hint-button');
-      for (const tier of [1, 2, 3]) {
+      const help = page.locator('.hint-button');
+      for (const tier of [1, 2, 3] as const) {
+        const beforeHelp = await state(page);
         await help.tap();
+        await settled(page);
+        await page
+          .locator(`.child-task[data-child-hint-tier="${tier}"]`)
+          .waitFor();
         expect(await presentation(page)).toEqual(task);
-        expect((await state(page)).record).toEqual(beforeHelp);
+        assertHelpChange(beforeHelp, await state(page), task, tier);
         expect(await page.locator('#slice-feedback').textContent()).toBe('');
         expect(await page.locator('#slice-hint').isVisible()).toBe(true);
         expect(
@@ -1035,7 +1134,8 @@ describe(`installed ${channel} child presentation`, () => {
       wrongRejected: true,
       oracleAccepted: true,
       oneCompletionPerAnswerGesture: true,
-      visualHelpPreservesTaskAndRecord: true,
+      visualHelpPreservesTaskAndAssessment: true,
+      assessedHelpChangesOnlySupportContextAndRevision: true,
       helpRetryAndNextFocus: true,
       manualObservations: 0,
       physicalTouchDevice: 'UNOBSERVED: browser emulation only',
@@ -1055,6 +1155,8 @@ describe(`installed ${channel} child presentation`, () => {
       for (const family of CHILD_FAMILIES) {
         await activity(page, family);
         await page.locator('.hint-button').click();
+        await settled(page);
+        await page.locator('#slice-hint').waitFor({ state: 'visible' });
         for (const size of [
           { width: 320, height: 780, rootTextPx: 16 },
           { width: 320, height: 780, rootTextPx: 32 },

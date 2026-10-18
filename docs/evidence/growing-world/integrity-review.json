@@ -1,0 +1,404 @@
+{
+  "schema": "growing-world-integrity-review-v1",
+  "marker": "synthetic-only",
+  "reviewDate": "2026-10-18",
+  "reviewer": "independent-integrity-agent",
+  "independence": "Reviewer did not author the product implementation; authored focused integrity/support tests and the mutation runner. Product repairs were performed by implementing agents after independent findings.",
+  "scope": "Proportional experimental policy, saved-payload compatibility, durable current-session mathematical-support provenance, interrupted-command recovery, profile/manual/Explore containment, finite capacity and visible reason truth review. Not whole-task certification.",
+  "status": "PASS",
+  "baseRevision": "71b57b9f2c812de482e1162102ac5aee5bc78116",
+  "checkoutHeadAtReview": "96c59764fa3f179a7fcee3891c7b3389a92ecc97",
+  "binding": "Full implementation reviewed against base71b57b9, with a unit-only Windows CI timeout repair over96c59764. Product sources are unchanged; current hashes bind the three uncommitted test repairs and the refreshed mutation source/test set. Required exact-head local/fresh/hosted completion belongs to the main quality gate. Later changes require reconciliation.",
+  "sources": [
+    {
+      "path": "docs/GROWING_WORLD_DESIGN.md",
+      "sha256": "96809c15b979ddf263f4d08509e96d081c01f0d32e2c1a3e8190944810b76e9c"
+    },
+    {
+      "path": "src/application/growing-world.ts",
+      "sha256": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31"
+    },
+    {
+      "path": "src/application/synthetic-loop/answer.ts",
+      "sha256": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46"
+    },
+    {
+      "path": "src/application/synthetic-loop/index.ts",
+      "sha256": "5f1d4ae43923aafdbe52b73b04ad6f8791e73f247c3438bc89f3ffcd852b2d05"
+    },
+    {
+      "path": "src/application/synthetic-loop/record.ts",
+      "sha256": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907"
+    },
+    {
+      "path": "src/application/synthetic-loop/seed.ts",
+      "sha256": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa"
+    },
+    {
+      "path": "src/application/synthetic-loop/session.ts",
+      "sha256": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4"
+    },
+    {
+      "path": "src/application/synthetic-loop/types.ts",
+      "sha256": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed"
+    },
+    {
+      "path": "src/domain/growing-world/content.ts",
+      "sha256": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6"
+    },
+    {
+      "path": "src/domain/growing-world/explore.ts",
+      "sha256": "6c1028346dfbc6d9bdd6f8c9fb1bf2ce5f1a224ea4d1ac041d92168b36e40354"
+    },
+    {
+      "path": "src/domain/growing-world/journey.ts",
+      "sha256": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6"
+    },
+    {
+      "path": "src/infrastructure/persistence/adapter.ts",
+      "sha256": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c"
+    },
+    {
+      "path": "src/infrastructure/persistence/synthetic-loop-database.ts",
+      "sha256": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1"
+    },
+    {
+      "path": "src/presentation/localisation/growing-world-copy.ts",
+      "sha256": "f87444b355aae8782d7e43913574620811af0c618c949efae34c99d14afe83ca"
+    },
+    {
+      "path": "src/presentation/speech/plans.ts",
+      "sha256": "6096ad5d7d75e6fb4f17f2fda32d0d7198dd5dcc7fc01ca51ffa431feba143eb"
+    },
+    {
+      "path": "src/ui/synthetic-loop/ChapterTaskView.tsx",
+      "sha256": "0a7176da59d5ff11035a09339cbb66815e6106072df8174c630eaf0f1e096e5c"
+    },
+    {
+      "path": "src/ui/synthetic-loop/ExploreWorld.tsx",
+      "sha256": "44e137fa74acbc6961b8a2eb73ee1fa8ff09cf257326a2624877c6ba8f861559"
+    },
+    {
+      "path": "src/ui/synthetic-loop/GrowthJourney.tsx",
+      "sha256": "66b2641de69ed9f1a0fcca78081dcc434cd674bb1e0fbd92dfb5124a103266d1"
+    },
+    {
+      "path": "tests/browser/phase3c/main.tsx",
+      "sha256": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923"
+    },
+    {
+      "path": "tests/browser/phase3c/runtime.ts",
+      "sha256": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da"
+    },
+    {
+      "path": "tests/integration/growing-world.test.ts",
+      "sha256": "11ac176094aa822306b631a6d12b93399a3051d3cd1a14ed254c683418061892"
+    },
+    {
+      "path": "tests/unit/growing-world-journey.test.ts",
+      "sha256": "bb109982f1d4b479d38a731012a6538318d5d4c0af8e202f18c23946858fdc2c"
+    },
+    {
+      "path": "tests/unit/growing-world-integrity-review.test.ts",
+      "sha256": "9fff14e2019a1a0d49a2f3932bf3d3cb92bbe7fb548832d5f88e9f1b5456cdea"
+    },
+    {
+      "path": "scripts/growing-world-integrity-mutations.mjs",
+      "sha256": "3395546fa074027fbde563dd82a680c457ba8898eedd161fdd0822452d5dc360"
+    },
+    {
+      "path": "vite.slice.config.ts",
+      "sha256": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a"
+    },
+    {
+      "path": "src/domain/growing-world/support.ts",
+      "sha256": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118"
+    },
+    {
+      "path": "tests/unit/growing-world-support-review.test.ts",
+      "sha256": "89e9dd663495d0fcefca0fd9b73e3fbed2846d2db4ee250f8ef686cae349630f"
+    },
+    {
+      "path": "tests/unit/growing-world-candidate-review.test.ts",
+      "sha256": "6c2a56fc1b081359be6afc2c4376ec0b93fecc7c6c4ca9c12dbb0e418ce697e9"
+    },
+    {
+      "path": "tests/unit/synthetic-loop.test.ts",
+      "sha256": "ef6be359f08c6067361de3441cd37fca3343665db1fc0d5d6e92775f4b29cdb8"
+    },
+    {
+      "path": "tests/unit/growing-world-support.test.ts",
+      "sha256": "35f8b1ada603c67e235e5c827b70d3fb87f8d3c6f5f72d6d78e4666eae738f83"
+    }
+  ],
+  "observations": [
+    {
+      "id": "policy-containment",
+      "result": "PASS",
+      "detail": "Growing invitations use their own experimental version, four distinct independent semantic relationships, two representations and two explicit sessions. A later-session unassisted first attempt may confirm missing coverage once per case/representation without adding a distinct case. Same-session repeats and help cannot supply that coverage. limitedEvidence and educator review remain; existing Phase3B policy/catalogue code and accepted ADRs are unchanged. Links neither duplicate mastery nor gate other domains."
+    },
+    {
+      "id": "legacy-wire-identity",
+      "result": "PASS",
+      "detail": "The extracted legacy v1 decode-method body is exactly equal to the base after CRLF-to-LF normalization only: 4702 characters, SHA256 4d05d2490eb2b4c19f3bdcf44b7c30ee34dda7c98e1f4fa7455da9e76e2dde36. Combined dispatch preserves canonical v1 identity, rejects chapter fields under v1 and v2 under the legacy reader, and does not upgrade during decoding."
+    },
+    {
+      "id": "migration-boundary",
+      "result": "PASS",
+      "detail": "Chapter selection, explicit mathematical-help requests in original assessed families, or explicit Stop at the full legacy-journal edge upgrade to v2 through a write. Legacy pending commands settle first. Prior events/derived state, preferences, counts and integrity envelope survive. Full-legacy Stop closes without appending an impossible 65th legacy event; the next v2 session clears support and advances the task ordinal."
+    },
+    {
+      "id": "pending-integrity",
+      "result": "PASS",
+      "detail": "v2 policy chapter pending requires a non-null bounded observation matching selected family, correctness, operation and session. Pending IDs cannot already exist in either journal. The maximum saved help tier is enforced by preparation and pending decoding; chapter worked help forces solutionExposed. Legacy support matching derives its actual family from the observation catalogue scope, so changing selectedFamily cannot evade assistance. Original-family tier3 remains mathematicalSupport without inventing worked-solution exposure. Unknown/raw-answer fields and future-session/foreign-scope evidence are rejected."
+    },
+    {
+      "id": "retry-and-profile-isolation",
+      "result": "PASS",
+      "detail": "Focused application tests cover aborted final write, committed write with lost response, one logical completion after reconciliation, former-profile response suppression after a switch, and global deletion-fence rejection of surviving pending writes."
+    },
+    {
+      "id": "reader-and-capacity",
+      "result": "PASS",
+      "detail": "The stable repository namespace/layout remain distinct from payload version. New reader metadata declares both payloads under a new reader schema, and exact matching rejects old/incompatible targets. Synthetic adapter and full-database validator share a 4096-receipt bound with no pruning. There are 232 known support contexts: two profiles requesting all three increasing tiers plus136 answers at two writes each need 1936 writes before ordinary control writes; the conservative 256-context ceiling gives 2080. A 4096 limit provides bounded margin, not unlimited controls or production retention. Native 2084-receipt/full-map reopen remains separate browser evidence."
+    },
+    {
+      "id": "manual-and-explore",
+      "result": "PASS",
+      "detail": "Discovery selection and Explore-to-practice preserve explicit manual mode. A separate visible child control changes whether practice guides invitations. Manual completions enter neither assessment journal. Exploration/NumberLab are session-only, and the workshop has no assessment submission API; separate practice generates a fresh task."
+    },
+    {
+      "id": "visible-reasons",
+      "result": "PASS",
+      "detail": "Legacy bridges need three distinct independent cases in frozen single-representation scopes. Repaired child connected-readiness copy says a related idea was tried independently without claiming multiple representations; chapter readiness labels still require actual representation/session diversity. All families remain selectable."
+    },
+    {
+      "id": "candidate-containment",
+      "result": "PASS",
+      "detail": "Reviewed base-to-candidate diff plus newly added modules/tests and retained synthetic evidence. No accepted policy/authority expansion, real learner material, telemetry/backend, new dependency/lockfile change, credential, binary export or raw database/browser-profile artifact observed in this reviewed candidate. Main quality review owns final artifact/privacy certification."
+    },
+    {
+      "id": "durable-support-context",
+      "result": "PASS",
+      "detail": "A bounded nonassessment semantic map records maximum requested help before UI reveal and is keyed by mathematical case, independent of seed/representation. It survives saved-profile switches, activity changes and reopen in the same session. Aborted/lost-response support writes fail closed in the requesting UI; committed metadata is recovered by reopen. Stale profile results and global-deletion-fenced writes are rejected. An explicit new v2 session alone clears context and generates a fresh replay; historical observations are never reclassified."
+    },
+    {
+      "id": "legacy-full-capacity",
+      "result": "PASS",
+      "detail": "Both v1 and v2 records with 64 legacy events return sessionOnly unscored completion without a write for further old-assessed answers. Explicit Stop remains available by upgrading if necessary and preserving exact legacy journal/derived bytes. Resume advances the explicit session/task ordinal and clears only support metadata. Separate fixtures retain 64 legacy plus 72 chapter observations alongside all 232 finite support contexts under unchanged canonical limits."
+    },
+    {
+      "id": "legacy-capacity-regression-reconciliation",
+      "result": "PASS",
+      "detail": "The existing bounded-wire regression now expects the authorized unscored continuation while preserving its independent exact65th-event codec rejection. A new saved-session regression verifies canonical payload and journal unchanged, same revision and zero writes during unscored play, correct sessionOnly completion with no exploratory exposure increment, and Next/Stop preserving history and derived state."
+    }
+  ],
+  "findings": [
+    {
+      "id": "legacy-bridge-overstated-representation-evidence",
+      "resolution": "REPAIRED",
+      "verification": "All three draft connected-readiness reason strings reviewed against single-representation legacy bridges."
+    },
+    {
+      "id": "chapter-pending-could-drop-required-observation",
+      "resolution": "REPAIRED",
+      "verification": "Independent absent/null pending evidence regression fails against the defect, passes repaired source; restored mutation detected by intended assertion."
+    },
+    {
+      "id": "pending-id-could-collide-with-other-journal",
+      "resolution": "REPAIRED",
+      "verification": "Independent both-direction pending ID regressions pass; cross-journal mutation detected by intended assertion. Prevents accepted survivors that cannot complete."
+    },
+    {
+      "id": "combined-history-outgrew-synthetic-receipt-capacity",
+      "resolution": "REPAIRED",
+      "verification": "Adapter and database validator now share4096 receipts after the additional help-write budget review; native persisted full-history/reopen is separate evidence."
+    },
+    {
+      "id": "discovery-silently-overrode-manual-mode",
+      "resolution": "REPAIRED",
+      "verification": "Removed automatic policy enrollment; explicit child mode control and mode-preserving selection reviewed. Integrated browser regression authored by implementing agent is separate evidence."
+    },
+    {
+      "id": "finite-scope-invitation-starvation",
+      "resolution": "REPAIRED",
+      "verification": "Bounded later-session confirmation supplies representation/session coverage without adding mathematical cases. Independent finite-scope scenarios and intended assertion mutation pass."
+    },
+    {
+      "id": "unsubmitted-help-provenance-loss",
+      "resolution": "REPAIRED",
+      "verification": "Saved semantic support survives badge/activity/reopen before answer submission and preparation enforces its maximum tier. Independent recovery/race/forgery tests and direct pending-field mutation assertion pass."
+    },
+    {
+      "id": "legacy-pending-support-scope-confusion",
+      "resolution": "REPAIRED",
+      "verification": "A forged selected legacy family cannot bypass saved help for the actual observation concept. Independent raw-payload assertion and executable mutation detect the defect."
+    },
+    {
+      "id": "help-write-budget-outgrew-receipts",
+      "resolution": "REPAIRED",
+      "verification": "Shared synthetic bound expanded to4096 after explicit finite write-budget analysis; no silent pruning/real-use retention rule. Native capacity/reopen evidence owned separately."
+    },
+    {
+      "id": "full-legacy-journal-blocked-session-close",
+      "resolution": "REPAIRED",
+      "verification": "Independent v1/v2 full64-event cases verify unscored continuation, explicit Stop/Resume, exact historical preservation, fresh ordinal and support reset without extending test deadlines."
+    }
+  ],
+  "verification": [
+    {
+      "command": "corepack pnpm exec vitest run tests/unit/growing-world-integrity-review.test.ts tests/unit/growing-world-journey.test.ts tests/unit/growing-world-candidate-review.test.ts --maxWorkers 1 --no-fileParallelism",
+      "result": "PASS",
+      "files": 3,
+      "assertions": 30
+    },
+    {
+      "command": "corepack pnpm exec node scripts/growing-world-integrity-mutations.mjs",
+      "result": "PASS",
+      "assertionMutations": 8,
+      "exactBufferRestoration": true,
+      "evidence": "docs/evidence/growing-world/integrity-mutations.json"
+    },
+    {
+      "method": "Exact extracted decode method body comparison after CRLF-to-LF normalization only",
+      "result": "PASS",
+      "baseRevision": "71b57b9f2c812de482e1162102ac5aee5bc78116",
+      "chars": 4702,
+      "sha256": "4d05d2490eb2b4c19f3bdcf44b7c30ee34dda7c98e1f4fa7455da9e76e2dde36"
+    },
+    {
+      "command": "corepack pnpm exec eslint tests/unit/growing-world-support-review.test.ts scripts/growing-world-integrity-mutations.mjs --max-warnings 0",
+      "result": "PASS"
+    },
+    {
+      "command": "corepack pnpm exec prettier --check tests/unit/growing-world-support-review.test.ts scripts/growing-world-integrity-mutations.mjs docs/evidence/growing-world/integrity-mutations.json",
+      "result": "PASS"
+    },
+    {
+      "command": "git -c core.fsmonitor=false diff --check",
+      "result": "PASS"
+    },
+    {
+      "command": "corepack pnpm exec eslint tests/unit/synthetic-loop.test.ts --max-warnings 0",
+      "result": "PASS"
+    },
+    {
+      "command": "corepack pnpm exec vitest run tests/unit/growing-world-support-review.test.ts tests/unit/growing-world-support.test.ts tests/unit/synthetic-loop.test.ts --maxWorkers 1 --no-fileParallelism",
+      "result": "PASS",
+      "files": 3,
+      "assertions": 54,
+      "note": "Post-mutation-restoration run, original per-test and hook deadlines unchanged;24.41seconds for the complete three-file run."
+    },
+    {
+      "command": "corepack pnpm exec eslint tests/unit/growing-world-support-review.test.ts --max-warnings 0",
+      "result": "PASS"
+    },
+    {
+      "command": "corepack pnpm exec prettier --check tests/unit/growing-world-support-review.test.ts",
+      "result": "PASS"
+    }
+  ],
+  "sizing": {
+    "result": "PASS",
+    "fixture": "64 historical observations plus 72 chapter observations and all 232 finite support contexts at maximum help tier3; synthetic wire-capacity fixture, not a learner trajectory.",
+    "payloadCanonicalChars": 95313,
+    "commandFingerprintCanonicalChars": 95525,
+    "unchangedCanonicalOutputLimit": 262144,
+    "unchangedCanonicalNodeLimit": 10000,
+    "separateMaximumOperationFixture": {
+      "operationChars": 80,
+      "historicalEvents": 64,
+      "chapterEvents": 72,
+      "result": "PASS within unchanged canonical/command bounds in the retained integrity suite"
+    },
+    "method": "Retained capacity regressions pass the original canonical codec. Ignored task-local Vitest numeric-matcher instrumentation measured actual length assertions without changing candidate source. All fixture wire characters are ASCII, so string lengths equal UTF8 bytes.",
+    "limit": "Full-capacity bounded fixtures are not exhaustive enumeration of every permitted semantic distribution and do not prove native durability. The all-context fixture uses compact operation IDs; the separate fixture exercises80-character IDs."
+  },
+  "verificationIncident": "An earlier default-worker run failed before collection in sandbox temporary SSR cache; task-local ignored TMP/TEMP and single-worker reruns passed unchanged assertions. One combined full-capacity schema-loop test exceeded its original 5-second deadline under contention without assertion failure; fixture derivation was reused and schema cases split, preserving deadlines and assertions.",
+  "unresolvedFindings": [],
+  "limits": [
+    "Memory repository/application tests do not establish native IndexedDB crash, transaction, browser lifecycle or physical offline restart behavior. Main browser evidence must establish those separately.",
+    "Review does not accept educational hypotheses, validate effectiveness, native language quality, screen-reader delivery, device support, owner UX acceptance, real-learner use or release readiness.",
+    "Full local/fresh gates, audit, final complete artifact/privacy review and exact-head hosted/merge eligibility belong to the main quality gate.",
+    "Mutations bound to their own recorded source/test hashes still match these candidate bytes at review time; no mutation source remains."
+  ],
+  "sourceReconciliation": [
+    {
+      "path": "tests/browser/phase3c/main.tsx",
+      "previousSha256": "021be36568404072938985373ee3b094ba074187667699ce305a64e6b7a4aecd",
+      "currentSha256": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+      "reason": "Reviewed asynchronous help-save focus restoration guarded by session, seed, view and deliberate alternate-focus preservation. Awaited support save and selected-session/replay reveal guard remain intact; no mathematical or persisted-payload rule changes."
+    },
+    {
+      "path": "tests/integration/growing-world.test.ts",
+      "previousSha256": "5e74152b158712e21882591d3adec850e24e51bff6731f4d130a5f00cf92418e",
+      "currentSha256": "aa40e4574f29ad0a2c9efe8593fb109609b80afa0141408884d0bb7766c95399",
+      "reason": "Reviewed complete current installed-browser harness: explicit help action waits for saved-session settlement and expected DOM tier; independent integer answer oracle and existing policy, Explore, manual, locale, reflow and cached-reopen assertions remain. This source review does not assert native execution success."
+    },
+    {
+      "path": "tests/integration/growing-world.test.ts",
+      "previousSha256": "aa40e4574f29ad0a2c9efe8593fb109609b80afa0141408884d0bb7766c95399",
+      "currentSha256": "11ac176094aa822306b631a6d12b93399a3051d3cd1a14ed254c683418061892",
+      "reason": "Exact whole-file reconstruction proves only help() changed: default expectation now advances from the validated currently visible maximum tier, capped at3, while explicit1/2/3 expectations remain strict. The click, saved-session settlement wait and DOM-tier assertion remain. This aligns the harness with persistent same-semantic help; it changes no product source or acceptance assertion.",
+      "proof": "Replaced the current helper in memory with its previously reviewed bytes and recovered the exact prior SHA256; no source file was written."
+    },
+    {
+      "path": "docs/GROWING_WORLD_DESIGN.md",
+      "previousSha256": "4ae5090388dde151bae4f0df6376551cf25f1e981689d7e0e41055156dd367e4",
+      "currentSha256": "96809c15b979ddf263f4d08509e96d081c01f0d32e2c1a3e8190944810b76e9c",
+      "reviewer": "independent-candidate-review-agent",
+      "reason": "Coordinator-authorized documentation-only carryforward after forced Prettier formatting. Direct diff is limited to spaces and Markdown table separator dash widths; all table cell text and all other non-whitespace characters are equal. No executable source, independent oracle or mutation source changed. The original integrity reviewer authorship and substantive findings remain unchanged.",
+      "proof": "Compared exact prior design bytes retained in the isolated fresh checkout to the current design; confirmed old SHA256, then compared non-whitespace text after excluding Markdown table delimiter rows."
+    },
+    {
+      "path": "tests/unit/growing-world-support-review.test.ts",
+      "previousSha256": "ba73e926bfb774be21330fb3eb7518c7ed0924b249de305469a3d19b9f976a1f",
+      "currentSha256": "89e9dd663495d0fcefca0fd9b73e3fbed2846d2db4ee250f8ef686cae349630f",
+      "reason": "Windows CI timeout repair only: each full-journal test now executes one logical application command against an isolated real synthetic repository. Immutable wire fixtures are prepared once and exact closed/Next states link the split scenarios. Existing correctness, no-pruning, count, revision, exploration, fresh-replay and support-reset assertions remain; no product source, deadline, skip or weakened repository mock was introduced."
+    },
+    {
+      "path": "tests/unit/growing-world-support.test.ts",
+      "previousSha256": "71be75d5e05187c19a1a0c755ea02eb2321e7cafaea09f6d2f6cf9ce51e0415f",
+      "currentSha256": "35f8b1ada603c67e235e5c827b70d3fb87f8d3c6f5f72d6d78e4666eae738f83",
+      "reason": "Windows CI timeout repair only: each full-journal test now executes one logical application command against an isolated real synthetic repository. Immutable wire fixtures are prepared once and exact closed/Next states link the split scenarios. Existing correctness, no-pruning, count, revision, exploration, fresh-replay and support-reset assertions remain; no product source, deadline, skip or weakened repository mock was introduced."
+    },
+    {
+      "path": "tests/unit/synthetic-loop.test.ts",
+      "previousSha256": "aa54aa9cb829da417045f5c65b9264feec4457babd5375db05c788c32097a20f",
+      "currentSha256": "ef6be359f08c6067361de3441cd37fca3343665db1fc0d5d6e92775f4b29cdb8",
+      "reason": "Windows CI timeout repair only: each full-journal test now executes one logical application command against an isolated real synthetic repository. Immutable wire fixtures are prepared once and exact closed/Next states link the split scenarios. Existing correctness, no-pruning, count, revision, exploration, fresh-replay and support-reset assertions remain; no product source, deadline, skip or weakened repository mock was introduced."
+    }
+  ],
+  "focusedAssertions": {
+    "result": "PASS",
+    "assertions": 84,
+    "files": 6,
+    "commands": "30 unchanged integrity/journey/candidate assertions plus54 post-repair support-review/support/synthetic-loop assertions",
+    "mutations": 8,
+    "note": "Focused source-bound review evidence; this is not an aggregate, native-browser or hosted-CI verdict."
+  },
+  "ciTestRepair": {
+    "result": "PASS — focused repair evidence",
+    "scope": "Only three unit-test files changed after96c59764; the mutation runner temporarily altered protected source during sensitivity tests and restored exact Buffer bytes before focused verification.",
+    "reportedFailure": "Coordinator-observed Windows PR CI at96c59764 had5-second full-journal test timeouts while Ubuntu passed; no correctness assertion failed in those timed-out cases. CI run39088474649, job117559931402.",
+    "publicLog": "https://github.com/kkazantzphone-droid/Math-Adventure/actions/runs/39088474649/job/117559931402",
+    "repair": "Decompose long unscored/Next/Stop/resume sequences into one-operation tests with immutable shared setup. Preserve every prior assertion and assert exact intermediate fixture equality; retain actual application/repository validation. No deadline increase, fake storage shortcut, skipped check or source change.",
+    "ownedAssertionCarryforward": {
+      "result": "PASS",
+      "path": "tests/unit/growing-world-support-review.test.ts",
+      "sourceBase": "96c59764fa3f179a7fcee3891c7b3389a92ecc97",
+      "priorExpectMatcherCalls": 60,
+      "currentExpectMatcherCalls": 62,
+      "missingPriorAssertions": 0,
+      "assertionsInBeforeAll": 0,
+      "method": "TypeScript AST matcher-call multiset comparison with whitespace-normalized text, followed by raw logical scenario review; no assertion was moved into fixture hooks."
+    },
+    "mutationRefresh": {
+      "result": "PASS",
+      "cases": 8,
+      "exactBufferRestoration": true,
+      "evidence": "docs/evidence/growing-world/integrity-mutations.json"
+    },
+    "limit": "Current Windows/Ubuntu hosted and complete local/fresh gates must still succeed for the repaired commit; focused local evidence does not turn the failed earlier run into success."
+  }
+}

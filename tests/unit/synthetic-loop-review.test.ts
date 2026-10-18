@@ -25,6 +25,7 @@ const adapter = vi.hoisted(() => ({
 }));
 
 vi.mock('../../src/infrastructure/persistence/synthetic-loop-database', () => ({
+  SYNTHETIC_LOOP_RECEIPT_LIMIT: 4096,
   openSyntheticLoopDatabase: () =>
     Promise.resolve(
       adapter.openFailure
