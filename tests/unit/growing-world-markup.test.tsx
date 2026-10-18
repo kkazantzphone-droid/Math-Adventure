@@ -129,7 +129,16 @@ describe('growing world authored markup, with browser behavior verified separate
         expect(initial).toContain('id="slice-task-heading"');
         expect(initial).toContain('id="slice-feedback"');
         expect(initial).not.toContain('data-world-worked');
-        expect(initial).not.toMatch(/<input|<select|draggable/);
+        expect(initial).not.toMatch(/<input|draggable/);
+        if (
+          ['missingPart', 'equalGroups', 'arrayArea'].includes(
+            created.value.task.kind,
+          )
+        ) {
+          expect(initial).toContain('data-answer-select');
+          expect(initial).toContain('data-answer-submit');
+          expect(initial).toContain('data-direct-answers');
+        } else expect(initial).not.toContain('<select');
         const helped = renderToStaticMarkup(
           <ChapterTaskView {...props} hintTier={3} />,
         );

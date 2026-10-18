@@ -1,0 +1,24 @@
+{
+  "schema": "math-adventure.clear-answers-audit-v1",
+  "marker": "synthetic-only-engineering-evidence",
+  "date": "2026-10-18",
+  "command": "corepack pnpm audit --json",
+  "result": "PASS",
+  "knownAdvisories": 0,
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0
+    },
+    "dependencies": 3,
+    "devDependencies": 201,
+    "optionalDependencies": 27,
+    "totalDependencies": 204
+  },
+  "manifestSHA256": "1aed13d60f17d3f7e7c9d7e74db60fc577b5d9983751b61d3a20f910cffca06a",
+  "lockfileSHA256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "limitation": "Observed registry advisory result for the pinned graph on this date; not a security certification"
+}

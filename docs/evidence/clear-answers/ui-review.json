@@ -1,0 +1,166 @@
+{
+  "schema": "clear-answers-ui-review-v1",
+  "recordedDate": "2026-10-18",
+  "verdict": "PASS — bounded production answer-UI engineering review",
+  "authorship": [
+    "Reviewer independently inspected answer-entry source and the served production candidate, identified the mixed-route response mismatch, extended the existing production UI harness and ran the final source-stable installed-browser review.",
+    "Reviewer authored the journey mode/invitation/adult-copy changes and their focused tests; those portions are implementation-supported observations, not claimed independent review. Separate candidate/integrity review covers the journey."
+  ],
+  "renderer": "NODE_ENV=production; Vite mode production; separate installed Chrome/Edge through playwright-core; owned loopback server; disposable synthetic contexts",
+  "sourceHashes": {
+    "scripts/growing-world-ui-review.mjs": "3cd97ac478fb1f52c2044d353b656d681e68e8183358a46088cfb7a3fe34f6e6",
+    "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+    "src/domain/growing-world/explore.ts": "6c1028346dfbc6d9bdd6f8c9fb1bf2ce5f1a224ea4d1ac041d92168b36e40354",
+    "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+    "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+    "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+    "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+    "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+    "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+    "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+    "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+    "src/application/synthetic-loop/index.ts": "5f1d4ae43923aafdbe52b73b04ad6f8791e73f247c3438bc89f3ffcd852b2d05",
+    "src/ui/synthetic-loop/ChapterTaskView.tsx": "4e6e5c9c888aadcdd7a641e4cc8a3b0662d8c0390882c66838b85516c28f66a6",
+    "src/ui/synthetic-loop/ChapterAnswerEntry.tsx": "bdad6d604fa1e0f68834dfbdf4d5627baa81a390e0ef00125903a3df6953bcca",
+    "src/ui/synthetic-loop/chapter-answers.ts": "49d94319d25769039484eca5131e06e33c921cdeb3956822622248f5fd5d4fad",
+    "src/ui/synthetic-loop/chapter-answer-entry.css": "88bc1d2ea97a9817850c3a3a570fa29c25ea3f09c3b8bf5272e24aa124c3e0e8",
+    "src/ui/synthetic-loop/ExploreWorld.tsx": "44e137fa74acbc6961b8a2eb73ee1fa8ff09cf257326a2624877c6ba8f861559",
+    "src/ui/synthetic-loop/GrowthJourney.tsx": "903b7c44e13e2493e7728e3c982ac09d3b54d6c2acf4fb762e4b0f9e15aafbca",
+    "src/ui/synthetic-loop/growth-journey.css": "0c8fca13c0cd8d1163bc4fbd2d81231cf8c7ad813c8fc127e9d447b3f3830b34",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+    "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+    "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+    "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+    "src/ui/synthetic-loop/LanguageControls.tsx": "bb770f24e1b584c50bece2b0bdfd6039aa231c07fdfdf96740b6f7ee80afe228",
+    "src/ui/synthetic-loop/slice.css": "92a9f9913250ad7efa0ebaab8cd8dad3c079daec87aacc8fa2905c023b25ca90",
+    "src/ui/synthetic-loop/growing-world.css": "538721eb3f0d0297b52300fa185e1845d897cb9fdfa3a736bec2a4a7da658d52",
+    "src/ui/styles.css": "b8c0fcc773ec3a0719e538131b297cca5dcb57ed083a816db88c45136634c986",
+    "src/presentation/localisation/answer-entry-copy.ts": "b8d75a385db82d9766398a035b7f3d5602f0c917407f150dd71dfb3210d75657",
+    "src/presentation/localisation/growing-world-copy.ts": "979445fc46e668096b86d760277ce87536d587108275a29600598cbfab401e40",
+    "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+    "src/presentation/localisation/language-controls-copy.ts": "29ca51792c5d060ad454d12c1b9f8e69900899e19028955cb5ae225e41edb1e2",
+    "src/presentation/speech/plans.ts": "6096ad5d7d75e6fb4f17f2fda32d0d7198dd5dcc7fc01ca51ffa431feba143eb",
+    "tests/browser/phase3c/main.tsx": "908d9ae1786c4a56ab22a67d0d7545bc93b570cd7481a0240bd425a9ac20d910",
+    "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+    "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+    "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+    "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a"
+  },
+  "artifactHashes": {
+    "assets/index-BxX2dHCX.js": "ee81324ffe1eea322925114087dc01f2d6a70c82da837303b412f9e489cfffea",
+    "assets/index-CTxXavKt.css": "9f66caf18367d501f15840f795f3a6b7f5b883b3d1285c8926ca427a2b459de2",
+    "icons/math-adventure.svg": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6",
+    "index.html": "50e8ed7a213cc019968b6d8c9aca0ed179f59743ffb7b3de4c57f73f5e8dd93c",
+    "learner-reader.json": "002bf3c71f2888fbcad92f3b8c2e7c13cfce49ccb31da71567786f97643c9463",
+    "manifest.webmanifest": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c",
+    "release.json": "10ca06dc1ab4ad4ff88fd6abde7f42d056caa82bdd0fa64b062624d7d3b725f9",
+    "sw.js": "fe35ffe236fadc17034ced621d106bf46971d538e3380ee6ec859d18f2739695",
+    "THIRD_PARTY_NOTICES.txt": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+  },
+  "sourcesStable": true,
+  "matrix": [
+    {
+      "channel": "chrome",
+      "browserVersion": "155.0.8059.84",
+      "passedCases": 24,
+      "locales": [
+        "el-GR",
+        "en-GB",
+        "de-DE"
+      ],
+      "scope": "Six chapter families, both Explore workshops and adult explanation"
+    },
+    {
+      "channel": "msedge",
+      "browserVersion": "155.0.4283.45",
+      "passedCases": 24,
+      "locales": [
+        "el-GR",
+        "en-GB",
+        "de-DE"
+      ],
+      "scope": "Six chapter families, both Explore workshops and adult explanation"
+    }
+  ],
+  "counts": {
+    "productionCases": 48,
+    "sourceBindings": 38,
+    "retainedLayoutSamples": 234,
+    "contrastSamples": 456,
+    "pageErrors": 0,
+    "externalRequests": 0,
+    "smallTargets": 0,
+    "clippedControls": 0,
+    "wrappedOrOverflowingNumerals": 0
+  },
+  "observedMinima": {
+    "textAndMeasuredGraphicContrastRatio": 10.62272209289537,
+    "targetWidthCssPx": 101.03125,
+    "targetHeightCssPx": 44,
+    "note": "Width and height minima may come from different controls; disabled controls are excluded from contrast samples."
+  },
+  "assertedStates": [
+    "Initial task, alternate concrete/relational representation, help tiers 1–3, saved worked-help provenance, picture replay, wrong answer, retry, success and connected practice.",
+    "All original direct numeric cards traversed in keyboard order; native select and direct disclosure included in rendered layout checks. Compact selection/submission and exhaustive route-equivalence evidence belong to the separate burden review.",
+    "Both explicit mode choices retain initiating keyboard focus through saving; changing activity remains a separate action.",
+    "Entering Explore places focus on its heading. Mathematical moves, turns, symbols, undo and reset leave the complete saved record unchanged; starting practice is explicit.",
+    "Adult explanation is absent from child view and receives heading focus when opened. One-shot adult focus routing was inspected in source; Stop/Resume regression belongs to the full installed-browser suite."
+  ],
+  "fixedFindings": [
+    {
+      "finding": "Direct cards submitted a different value while the compact current-response display retained the previous selection.",
+      "repair": "The shared answer path updates the displayed response before submitting the same bounded DTO.",
+      "evidence": "Source review and final direct-answer screenshot show response 25 matching the submitted answer; the separate burden review checks mixed-route retry."
+    },
+    {
+      "finding": "The asynchronous mode save blurred the initiating guidance button.",
+      "repair": "Session/generation-bound focus restoration preserves the initiating button unless focus deliberately moved elsewhere.",
+      "evidence": "An actual installed-browser keyboard assertion first failed, then both mode focus assertions passed in the final 48 cases."
+    },
+    {
+      "finding": "Two-digit direct-card numerals wrapped onto separate lines.",
+      "repair": "Wider responsive cards and nonwrapping numeric text preserve the original direct route at the existing font size.",
+      "evidence": "Final Range-based single-line/content-fit assertions pass; the desktop direct-fallback screenshot displays 10–25 as intact numerals."
+    },
+    {
+      "finding": "Grown-ups navigation skipped the explanatory heading; broad focus routing then disturbed Stop/Resume.",
+      "repair": "A one-shot adult-entry request focuses the explanation heading only when switching into the adult view.",
+      "evidence": "Adult heading entry passes in all three locales and both channels; full Stop/Resume evidence is separate."
+    },
+    {
+      "finding": "Explore navigation retained focus on the old navigation control.",
+      "repair": "Entering Explore focuses its actual workshop heading.",
+      "evidence": "The final installed-browser run asserts the rendered heading focus."
+    }
+  ],
+  "visualInspection": {
+    "compactSamples": 9,
+    "activities": [
+      "groups.equal",
+      "measurement.array-area",
+      "number.part-whole"
+    ],
+    "locales": [
+      "el-GR",
+      "en-GB",
+      "de-DE"
+    ],
+    "artifact": "assets/index-BxX2dHCX.js",
+    "artifactSha256": "ee81324ffe1eea322925114087dc01f2d6a70c82da837303b412f9e489cfffea",
+    "observations": [
+      "All nine final compact answer screenshots retain readable labels, native response control, submission control and the optional direct-number disclosure. Area samples keep the square-unit label associated with the response.",
+      "Enlarged wording wraps without hiding overflow or reducing the font. Vertical scrolling remains necessary for some enlarged states; expanded direct choices remain intentionally long.",
+      "The repaired default desktop fallback shows every numeric choice, with two-digit values intact."
+    ],
+    "media": "Synthetic screenshots remain only in ignored local cache; none is retained in the repository."
+  },
+  "mechanism": "375 CSS px with deliberate 32px root font (200% default text), 320 CSS px at both default 16px and 32px text, 1280x900 desktop and 850x375 landscape at default text; reduced-motion request",
+  "limits": [
+    "Deliberate 32px root text scaling is distinct from native browser zoom.",
+    "No actual screen-reader delivery, physical disconnection/restart, native-language or pronunciation review, owner UX acceptance, educational effectiveness, complete WCAG conformance or real-child readiness is inferred.",
+    "The finite chapter-edge rendered fixture is covered by the separate native-capacity/edge review, not by this production UI script.",
+    "This receipt is source/artifact-bound engineering evidence; local gates, final commit identity, hosted CI and merge eligibility remain separate."
+  ],
+  "unresolvedFindings": []
+}

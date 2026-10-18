@@ -10,6 +10,14 @@ const english = {
     'This familiar practice has reached its current edge. Keep playing or choose a new discovery.',
   chooseGuidedPractice: 'Let practice guide invitations',
   guidedPractice: 'Practice guides invitations · choose just play',
+  guidedMode: 'Guided practice',
+  manualMode: 'Just play',
+  modeChoice: 'How would you like to play?',
+  guidedExplanation:
+    'Practice can shape the next invitation. Every activity stays available.',
+  manualExplanation:
+    'Answers do not add practice evidence. Every activity stays available.',
+  activityChoiceHint: 'Choosing an activity keeps this choice.',
   chapterTitle: 'A world of connections',
   chapterIntro:
     'Make a whole. Build equal groups. Discover what connects them.',
@@ -17,10 +25,12 @@ const english = {
   chooseDiscovery: 'Choose a discovery',
   closeDiscoveries: 'Back to the activity',
   experimentalNotice:
-    'Practice helps us suggest discoveries. You can always choose something else.',
+    'Choose any activity, or follow the invitation. You can change your mind any time.',
   familiarTitle: 'Return to something familiar',
   chapterEnd:
-    'This is the current edge of the chapter. Revisit, try another representation, or explore freely.',
+    'These are all the activities in this chapter for now. Revisit an activity, try another picture, or Explore.',
+  revisitChapter: 'Revisit an activity',
+  exploreChapter: 'Explore freely',
   capacityReached:
     'This synthetic history is full. Unscored play and Explore are still available.',
   readyLabel: 'Tried independently in different ways',
@@ -35,6 +45,15 @@ const english = {
     'This chapter explores parts up to 20, arrays up to 5 by 5, and square sides up to 6. More mathematics belongs beyond this chapter.',
   experimental:
     'Synthetic chapter · experimental invitations · no educational effectiveness claim',
+  adultHeading: 'About this review experience',
+  adultSaving:
+    'Star and Triangle are synthetic review badges. With saving enabled, each badge keeps its own preferences, practice notes and accomplishments in this browser. Reopen the same local address to return to saved state. Stop ends the session; it does not delete saved state.',
+  adultEvidence:
+    'Guided practice offers experimental invitations, not a proven measure of mastery. Independent first attempts stay distinct from supported answers and retries. Within the saved session, requested mathematical help remains recorded for the same relationship when you return or reopen. Changing the picture or language, or switching badges and back, cannot turn a worked example into independent evidence.',
+  adultExploration:
+    'Explore is unassessed. Moving tiles, turning an array, revealing symbols, Undo and Start again add no practice evidence and change no readiness. A separate practice button starts a fresh task. Workshop arrangements stay only in the open experience.',
+  adultLimits:
+    'All fourteen activities remain available. The current chapter contains parts up to 20, equal groups and area from 2 by 2 to 5 by 5, and square sides from 1 to 6. These are content limits, not learner limits. When a synthetic practice history is full, play continues without adding evidence. Real household saved or adaptive use still needs separate owner decisions and review.',
   reasons: {
     ready:
       'You have shown this in different ways. Here is a connected idea to try.',
@@ -178,16 +197,26 @@ const greek: GrowingWorldCopy = {
     'Αυτή η γνώριμη εξάσκηση έφτασε στο σημερινό της όριο. Συνέχισε να παίζεις ή διάλεξε μια νέα ανακάλυψη.',
   chooseGuidedPractice: 'Η εξάσκηση να προτείνει ανακαλύψεις',
   guidedPractice: 'Η εξάσκηση προτείνει · παίξε χωρίς καταγραφή',
+  guidedMode: 'Καθοδηγούμενη εξάσκηση',
+  manualMode: 'Απλό παιχνίδι',
+  modeChoice: 'Πώς θέλεις να παίξεις;',
+  guidedExplanation:
+    'Η εξάσκηση μπορεί να αλλάξει την επόμενη πρόταση. Όλες οι δραστηριότητες παραμένουν διαθέσιμες.',
+  manualExplanation:
+    'Οι απαντήσεις δεν προσθέτουν στοιχεία εξάσκησης. Όλες οι δραστηριότητες παραμένουν διαθέσιμες.',
+  activityChoiceHint: 'Η αλλαγή δραστηριότητας κρατά αυτή την επιλογή.',
   chapterTitle: 'Ένας κόσμος που συνδέεται',
   chapterIntro: 'Φτιάξε ένα όλο. Χτίσε ίσες ομάδες. Δες τι τις συνδέει.',
   journey: 'Διάλεξε την επόμενη ανακάλυψη',
   chooseDiscovery: 'Διάλεξε μια ανακάλυψη',
   closeDiscoveries: 'Πίσω στη δραστηριότητα',
   experimentalNotice:
-    'Η εξάσκηση μας βοηθά να προτείνουμε ανακαλύψεις. Μπορείς πάντα να διαλέξεις κάτι άλλο.',
+    'Διάλεξε όποια δραστηριότητα θέλεις ή ακολούθησε την πρόταση. Μπορείς πάντα να αλλάξεις γνώμη.',
   familiarTitle: 'Γύρισε σε κάτι γνώριμο',
   chapterEnd:
-    'Αυτή είναι η τωρινή άκρη του κεφαλαίου. Γύρισε πίσω, δοκίμασε άλλη εικόνα ή εξερεύνησε ελεύθερα.',
+    'Αυτές είναι όλες οι δραστηριότητες του κεφαλαίου προς το παρόν. Γύρισε σε μια δραστηριότητα, δοκίμασε άλλη εικόνα ή Εξερεύνησε.',
+  revisitChapter: 'Γύρισε σε μια δραστηριότητα',
+  exploreChapter: 'Εξερεύνησε ελεύθερα',
   capacityReached:
     'Το συνθετικό ιστορικό γέμισε. Παραμένουν διαθέσιμα το παιχνίδι χωρίς αξιολόγηση και η Εξερεύνηση.',
   readyLabel: 'Δοκιμάστηκε ανεξάρτητα με διαφορετικούς τρόπους',
@@ -202,6 +231,15 @@ const greek: GrowingWorldCopy = {
     'Εδώ εξερευνούμε μέρη έως το 20, σειρές έως 5 επί 5 και πλευρές τετραγώνου έως το 6. Πέρα από αυτό το κεφάλαιο υπάρχουν κι άλλα μαθηματικά.',
   experimental:
     'Συνθετικό κεφάλαιο · πειραματικές προτάσεις · χωρίς ισχυρισμό εκπαιδευτικής αποτελεσματικότητας',
+  adultHeading: 'Για αυτή τη δοκιμαστική εμπειρία',
+  adultSaving:
+    'Το Αστέρι και το Τρίγωνο είναι συνθετικά σήματα για τη δοκιμή. Με ενεργή αποθήκευση, κάθε σήμα κρατά χωριστά τις προτιμήσεις, τα στοιχεία εξάσκησης και τα επιτεύγματά του σε αυτό το πρόγραμμα περιήγησης. Ανοίξτε ξανά την ίδια τοπική διεύθυνση για να επιστρέψετε στην αποθηκευμένη κατάσταση. Η Διακοπή κλείνει τη συνεδρία· δεν διαγράφει την αποθηκευμένη κατάσταση.',
+  adultEvidence:
+    'Η καθοδηγούμενη εξάσκηση δίνει πειραματικές προτάσεις, όχι αποδεδειγμένη μέτρηση γνώσεων. Οι ανεξάρτητες πρώτες προσπάθειες διακρίνονται από τις απαντήσεις με βοήθεια και τις επαναλήψεις. Στην ίδια αποθηκευμένη συνεδρία, η μαθηματική βοήθεια παραμένει καταγεγραμμένη για την ίδια σχέση όταν επιστρέφετε ή ανοίγετε ξανά. Η αλλαγή εικόνας ή γλώσσας, ή η αλλαγή σήματος και επιστροφή, δεν κάνει ένα λυμένο παράδειγμα ανεξάρτητο στοιχείο.',
+  adultExploration:
+    'Η Εξερεύνηση δεν αξιολογείται. Η μετακίνηση πλακιδίων, η περιστροφή σειρών, η εμφάνιση συμβόλων, η Αναίρεση και η Νέα αρχή δεν προσθέτουν στοιχεία εξάσκησης ούτε αλλάζουν την ετοιμότητα. Ένα χωριστό κουμπί εξάσκησης ανοίγει νέα δραστηριότητα. Οι διατάξεις του εργαστηρίου μένουν μόνο στην ανοιχτή εμπειρία.',
+  adultLimits:
+    'Και οι δεκατέσσερις δραστηριότητες παραμένουν διαθέσιμες. Το τωρινό κεφάλαιο περιλαμβάνει μέρη έως το 20, ίσες ομάδες και εμβαδά από 2 επί 2 έως 5 επί 5 και πλευρές τετραγώνου από 1 έως 6. Αυτά είναι όρια περιεχομένου, όχι όρια του μαθητή. Όταν γεμίσει ένα συνθετικό ιστορικό εξάσκησης, το παιχνίδι συνεχίζεται χωρίς νέα στοιχεία. Η πραγματική αποθηκευμένη ή προσαρμοστική οικιακή χρήση χρειάζεται ακόμη χωριστές αποφάσεις και έλεγχο του ιδιοκτήτη.',
   reasons: {
     ready:
       'Το έδειξες με διαφορετικούς τρόπους. Δοκίμασε μια ιδέα που συνδέεται.',
@@ -340,6 +378,14 @@ const german: GrowingWorldCopy = {
     'Diese vertraute Übung hat ihre jetzige Grenze erreicht. Spiele weiter oder wähle eine neue Entdeckung.',
   chooseGuidedPractice: 'Übungen für neue Vorschläge nutzen',
   guidedPractice: 'Übungen geben Vorschläge · einfach spielen wählen',
+  guidedMode: 'Begleitetes Üben',
+  manualMode: 'Einfach spielen',
+  modeChoice: 'Wie möchtest du spielen?',
+  guidedExplanation:
+    'Üben kann den nächsten Vorschlag ändern. Alle Aufgaben bleiben verfügbar.',
+  manualExplanation:
+    'Antworten ergänzen keine Übungsnachweise. Alle Aufgaben bleiben verfügbar.',
+  activityChoiceHint: 'Eine andere Aufgabe behält diese Auswahl bei.',
   chapterTitle: 'Eine Welt voller Verbindungen',
   chapterIntro:
     'Bilde ein Ganzes. Baue gleiche Gruppen. Entdecke ihre Verbindungen.',
@@ -347,10 +393,12 @@ const german: GrowingWorldCopy = {
   chooseDiscovery: 'Wähle eine Entdeckung',
   closeDiscoveries: 'Zurück zur Aufgabe',
   experimentalNotice:
-    'Üben hilft uns, Entdeckungen vorzuschlagen. Du kannst immer etwas anderes wählen.',
+    'Wähle eine beliebige Aufgabe oder folge dem Vorschlag. Du kannst dich jederzeit anders entscheiden.',
   familiarTitle: 'Zu etwas Vertrautem zurückkehren',
   chapterEnd:
-    'Hier endet das aktuelle Kapitel. Kehre zurück, probiere eine andere Darstellung oder entdecke frei.',
+    'Das sind vorerst alle Aufgaben in diesem Kapitel. Kehre zu einer Aufgabe zurück, probiere ein anderes Bild oder entdecke frei.',
+  revisitChapter: 'Eine Aufgabe wiederholen',
+  exploreChapter: 'Frei entdecken',
   capacityReached:
     'Dieser synthetische Verlauf ist voll. Spielen ohne Wertung und Entdecken bleiben möglich.',
   readyLabel: 'Auf verschiedene Arten selbstständig versucht',
@@ -365,6 +413,15 @@ const german: GrowingWorldCopy = {
     'Hier entdecken wir Teile bis 20, Anordnungen bis 5 mal 5 und Quadratseiten bis 6. Dahinter gibt es noch mehr Mathematik.',
   experimental:
     'Synthetisches Kapitel · experimentelle Vorschläge · keine Aussage zur pädagogischen Wirksamkeit',
+  adultHeading: 'Über diese Testumgebung',
+  adultSaving:
+    'Stern und Dreieck sind synthetische Testzeichen. Wenn Speichern aktiv ist, behält jedes Zeichen seine eigenen Einstellungen, Übungsnachweise und Erfolge in diesem Browser. Öffnen Sie dieselbe lokale Adresse erneut, um zum gespeicherten Stand zurückzukehren. Stopp beendet die Sitzung und löscht den gespeicherten Stand nicht.',
+  adultEvidence:
+    'Begleitetes Üben bietet experimentelle Vorschläge, keine bewiesene Messung von Beherrschung. Selbstständige erste Versuche bleiben von Antworten mit Hilfe und Wiederholungen getrennt. Innerhalb der gespeicherten Sitzung bleibt erbetene mathematische Hilfe für dieselbe Beziehung vermerkt, auch nach Rückkehr oder erneutem Öffnen. Ein Wechsel von Bild oder Sprache oder zu einem anderen Zeichen und zurück macht ein gelöstes Beispiel nicht zum selbstständigen Nachweis.',
+  adultExploration:
+    'Entdecken wird nicht bewertet. Plättchen bewegen, eine Anordnung drehen, Zeichen zeigen, Rückgängig und Neu beginnen ergänzen keine Übungsnachweise und ändern keine Bereitschaft. Eine getrennte Übungsschaltfläche beginnt eine neue Aufgabe. Werkstattanordnungen bleiben nur in der geöffneten Testumgebung.',
+  adultLimits:
+    'Alle vierzehn Aufgaben bleiben verfügbar. Das aktuelle Kapitel enthält Teile bis 20, gleiche Gruppen und Flächen von 2 mal 2 bis 5 mal 5 sowie Quadratseiten von 1 bis 6. Das sind Inhaltsgrenzen, keine Lernergrenzen. Ist ein synthetischer Übungsverlauf voll, geht das Spielen ohne neue Nachweise weiter. Für echte gespeicherte oder adaptive Nutzung zu Hause sind weiterhin getrennte Entscheidungen und Prüfungen des Eigentümers nötig.',
   reasons: {
     ready:
       'Du hast es auf verschiedene Arten gezeigt. Probiere eine verbundene Idee.',

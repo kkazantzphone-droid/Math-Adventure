@@ -1,6 +1,13 @@
 # Roadmap
 
-Current owner Goal D55 is the [growing mathematical world](GROWING_WORLD_DESIGN.md):
+Current owner Goal D56 is [Clear answers & coherent discovery](CLEAR_ANSWERS_DESIGN.md),
+a unified interaction/presentation improvement over all fourteen existing
+activities. It adds no curriculum or accepted evidence/educational policy. Its
+[completion record](CLEAR_ANSWERS_COMPLETION_REPORT.md) separates current
+engineering/publication proof from pending owner UX acceptance. Existing
+real-use decisions are summarized in the [owner brief](CLEAR_ANSWERS_OWNER_DECISIONS.md).
+
+Merged owner Goal D55 is the [growing mathematical world](GROWING_WORLD_DESIGN.md):
 a coherent synthetic Build and take apart chapter with mathematical relationships,
 evidence-driven invitations and reversible exploration. This explicitly authorized
 focused content scope may advance work historically scheduled later without

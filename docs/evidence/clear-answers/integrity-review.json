@@ -1,0 +1,98 @@
+{
+  "schema": "math-adventure.clear-answers-integrity-review-v1",
+  "marker": "synthetic-only",
+  "reviewDate": "2026-10-18",
+  "result": "PASS",
+  "independentAuthor": "Independent integrity reviewer; did not author answer-entry product changes",
+  "binding": "Working-tree hashes, not a claim that uncommitted source is committed",
+  "baselineRevision": "f74b60550fec4cbd2ff592a878759993b834ff5b",
+  "sourceHashes": {
+    "src/ui/synthetic-loop/chapter-answers.ts": "49d94319d25769039484eca5131e06e33c921cdeb3956822622248f5fd5d4fad",
+    "src/ui/synthetic-loop/ChapterAnswerEntry.tsx": "bdad6d604fa1e0f68834dfbdf4d5627baa81a390e0ef00125903a3df6953bcca",
+    "src/ui/synthetic-loop/ChapterTaskView.tsx": "4e6e5c9c888aadcdd7a641e4cc8a3b0662d8c0390882c66838b85516c28f66a6",
+    "src/presentation/localisation/answer-entry-copy.ts": "b8d75a385db82d9766398a035b7f3d5602f0c917407f150dd71dfb3210d75657",
+    "tests/browser/phase3c/main.tsx": "908d9ae1786c4a56ab22a67d0d7545bc93b570cd7481a0240bd425a9ac20d910",
+    "tests/unit/clear-answers-integrity-review.test.ts": "47a2e8b94093b1fe8c00296d952f71003b29ff6f0d2191f9ed826cc574bf4b76",
+    "tests/oracle/growing-world.ts": "2e8a051980b8177d42302abc3d550118272e36ba21c16c95debb2e8101ab7e7c",
+    "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+    "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+    "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+    "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+    "scripts/clear-answers-mutations.mjs": "212fdcaef4b97a11a7b9f4ddda76e5e1011f3a17d3d6db883bf3a22a5d9091a2"
+  },
+  "oracle": {
+    "importsProductionTruth": false,
+    "method": "Existing separate cardinality/equation/grid-cell oracle; fixed historical UI ranges; independently constructed old direct-answer DTOs",
+    "finiteParameterRepresentationTuples": 740,
+    "allPermittedResponseTuples": 14852,
+    "applicationResponseHelpAttemptContexts": 1224,
+    "localesWithCompleteOptionsAndDirectCards": [
+      "el-GR",
+      "en-GB",
+      "de-DE"
+    ]
+  },
+  "baselineTests": 22,
+  "mutations": [
+    {
+      "id": "drop-permitted-response-twenty-five",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingTests": 7,
+      "tests": [
+        "keeps every original direct answer and every compact whole-number option in el-GR",
+        "keeps every original direct answer and every compact whole-number option in en-GB",
+        "keeps every original direct answer and every compact whole-number option in de-DE",
+        "preserves every permitted response across every finite task tuple: groups.equal",
+        "preserves every permitted response across every finite task tuple: measurement.array-area",
+        "keeps direct-card evidence identical for every response with saved help and retry: groups.equal",
+        "keeps direct-card evidence identical for every response with saved help and retry: measurement.array-area"
+      ],
+      "mutantSha256": "f54e5d3c9fc4898e5518b6e1c77d1d4b8c9ae1316cfecae07e935122b0e1d1b6"
+    },
+    {
+      "id": "submit-a-different-whole-number",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingTests": 12,
+      "tests": [
+        "preserves every permitted response across every finite task tuple: number.make-ten",
+        "preserves every permitted response across every finite task tuple: number.part-whole",
+        "preserves every permitted response across every finite task tuple: groups.equal",
+        "preserves every permitted response across every finite task tuple: groups.missing",
+        "preserves every permitted response across every finite task tuple: measurement.array-area",
+        "preserves every permitted response across every finite task tuple: powers.square-side",
+        "keeps direct-card evidence identical for every response with saved help and retry: number.make-ten",
+        "keeps direct-card evidence identical for every response with saved help and retry: number.part-whole",
+        "keeps direct-card evidence identical for every response with saved help and retry: groups.equal",
+        "keeps direct-card evidence identical for every response with saved help and retry: groups.missing",
+        "keeps direct-card evidence identical for every response with saved help and retry: measurement.array-area",
+        "keeps direct-card evidence identical for every response with saved help and retry: powers.square-side"
+      ],
+      "mutantSha256": "8c3a621d2471c4086a81a69eec2557f69736002813a82808dff3e390e9326830"
+    },
+    {
+      "id": "misclassify-square-unit-area-as-length",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingTests": 2,
+      "tests": [
+        "preserves every permitted response across every finite task tuple: measurement.array-area",
+        "keeps direct-card evidence identical for every response with saved help and retry: measurement.array-area"
+      ],
+      "mutantSha256": "086b46bd6c3d9e2213a6bf6d9c4dffe1ed7c09b47c99c23d7d3bc67b594f7da9"
+    }
+  ],
+  "restoredTests": 22,
+  "exactRestoration": true,
+  "findings": [
+    {
+      "id": "submitted-direct-answer-visible-selection",
+      "result": "REPAIRED_SOURCE_REVIEW",
+      "detail": "Shared choose now updates the visible response before submitting a direct card, avoiding a previously selected compact value being misrepresented",
+      "browserReverification": "Required separately on the production candidate"
+    }
+  ],
+  "limits": [
+    "Complete finite parameter/representation and response coverage, not all 128-bit seeds",
+    "Mathematical and wire/evidence compatibility only; no new assessed skill or policy is certified by browser-free tests",
+    "Rendered keyboard/focus/native-select behavior, actual assistive technology, physical offline, language quality and owner UX acceptance require their separate evidence"
+  ]
+}
