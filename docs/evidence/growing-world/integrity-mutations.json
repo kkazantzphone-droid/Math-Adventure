@@ -1,0 +1,183 @@
+{
+  "schema": "growing-world-integrity-mutations-v1",
+  "marker": "synthetic-only",
+  "mechanism": "focused-vitest-assertions",
+  "node": "24.21.0",
+  "sources": [
+    {
+      "path": "src/domain/growing-world/journey.ts",
+      "sha256": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6"
+    },
+    {
+      "path": "src/application/synthetic-loop/record.ts",
+      "sha256": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907"
+    },
+    {
+      "path": "src/application/synthetic-loop/answer.ts",
+      "sha256": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46"
+    },
+    {
+      "path": "src/application/synthetic-loop/session.ts",
+      "sha256": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4"
+    },
+    {
+      "path": "src/domain/growing-world/support.ts",
+      "sha256": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118"
+    },
+    {
+      "path": "tests/unit/growing-world-journey.test.ts",
+      "sha256": "bb109982f1d4b479d38a731012a6538318d5d4c0af8e202f18c23946858fdc2c"
+    },
+    {
+      "path": "tests/unit/growing-world-integrity-review.test.ts",
+      "sha256": "9fff14e2019a1a0d49a2f3932bf3d3cb92bbe7fb548832d5f88e9f1b5456cdea"
+    },
+    {
+      "path": "tests/unit/growing-world-candidate-review.test.ts",
+      "sha256": "6c2a56fc1b081359be6afc2c4376ec0b93fecc7c6c4ca9c12dbb0e418ce697e9"
+    },
+    {
+      "path": "tests/unit/growing-world-support-review.test.ts",
+      "sha256": "ba73e926bfb774be21330fb3eb7518c7ed0924b249de305469a3d19b9f976a1f"
+    }
+  ],
+  "baselines": [
+    {
+      "test": "refuses prepared chapter or legacy pending payloads that understate saved help",
+      "result": "PASS"
+    },
+    {
+      "test": "refuses prepared chapter or legacy pending payloads that understate saved help",
+      "result": "PASS"
+    },
+    {
+      "test": "clears support only at an explicit new session while preserving historical observations",
+      "result": "PASS"
+    },
+    {
+      "test": "recovers after all four relationships first succeed in one session and representation",
+      "result": "PASS"
+    },
+    {
+      "test": "keeps help/retry/exposed/incorrect experiences separate from independent evidence",
+      "result": "PASS"
+    },
+    {
+      "test": "repetition cannot inflate distinct cases and confirmations are bounded",
+      "result": "PASS"
+    },
+    {
+      "test": "rejects absent/null chapter evidence in synthetic-policy chapter pending payloads",
+      "result": "PASS"
+    },
+    {
+      "test": "rejects a historical pending ID already used by a chapter observation",
+      "result": "PASS"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "saved-help-tier-ignored-on-answer",
+      "source": "src/application/synthetic-loop/answer.ts",
+      "originalSha256": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+      "mutantSha256": "ec41c891c5bbe235db7ac35d997f1974430d6b851df08b0b90e9bc7db7abc70a",
+      "test": "refuses prepared chapter or legacy pending payloads that understate saved help",
+      "result": "DETECTED_BY_ASSERTION"
+    },
+    {
+      "id": "legacy-pending-support-scope-confusion",
+      "source": "src/application/synthetic-loop/record.ts",
+      "originalSha256": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+      "mutantSha256": "2f0381204069ea7e1c35c22d1b3d84a098cbeccf5f41e70b8aeff21a8dc29a0c",
+      "test": "refuses prepared chapter or legacy pending payloads that understate saved help",
+      "result": "DETECTED_BY_ASSERTION"
+    },
+    {
+      "id": "new-session-retains-old-support-context",
+      "source": "src/application/synthetic-loop/session.ts",
+      "originalSha256": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+      "mutantSha256": "8dfa84065062afd7f68431737d0cef4f2a1f44f626ce24ea0be682feea67f3d1",
+      "test": "clears support only at an explicit new session while preserving historical observations",
+      "result": "DETECTED_BY_ASSERTION"
+    },
+    {
+      "id": "finite-scope-confirmation-starvation",
+      "source": "src/domain/growing-world/journey.ts",
+      "originalSha256": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+      "mutantSha256": "5f3f19ca06a090defb100d042f4c602e50314c1e1e83c0d40ba0b9fe502e6daf",
+      "test": "recovers after all four relationships first succeed in one session and representation",
+      "result": "DETECTED_BY_ASSERTION"
+    },
+    {
+      "id": "hint-counts-independent",
+      "source": "src/domain/growing-world/journey.ts",
+      "originalSha256": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+      "mutantSha256": "f47976a6b0bff195cca5e73e074d0158f2bc8ec586a4f33e26e45e568cc37f3d",
+      "test": "keeps help/retry/exposed/incorrect experiences separate from independent evidence",
+      "result": "DETECTED_BY_ASSERTION"
+    },
+    {
+      "id": "repeat-counts-independent",
+      "source": "src/domain/growing-world/journey.ts",
+      "originalSha256": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+      "mutantSha256": "32037399a451e9bde952f408bc4e34cbb9202443cf49dcdb15c6d25e00b3e616",
+      "test": "repetition cannot inflate distinct cases and confirmations are bounded",
+      "result": "DETECTED_BY_ASSERTION"
+    },
+    {
+      "id": "chapter-pending-without-observation",
+      "source": "src/application/synthetic-loop/record.ts",
+      "originalSha256": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+      "mutantSha256": "99f824ff034ec5b11814d782da40e82ce4ae600bfe4f6dee10584952c6903a1d",
+      "test": "rejects absent/null chapter evidence in synthetic-policy chapter pending payloads",
+      "result": "DETECTED_BY_ASSERTION"
+    },
+    {
+      "id": "cross-journal-pending-id-reuse",
+      "source": "src/application/synthetic-loop/record.ts",
+      "originalSha256": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+      "mutantSha256": "2c0370ae633d3cb67451781bc992ee6f87493738d1699cd04708feb57b09d2d7",
+      "test": "rejects a historical pending ID already used by a chapter observation",
+      "result": "DETECTED_BY_ASSERTION"
+    }
+  ],
+  "restored": [
+    {
+      "test": "refuses prepared chapter or legacy pending payloads that understate saved help",
+      "result": "PASS"
+    },
+    {
+      "test": "refuses prepared chapter or legacy pending payloads that understate saved help",
+      "result": "PASS"
+    },
+    {
+      "test": "clears support only at an explicit new session while preserving historical observations",
+      "result": "PASS"
+    },
+    {
+      "test": "recovers after all four relationships first succeed in one session and representation",
+      "result": "PASS"
+    },
+    {
+      "test": "keeps help/retry/exposed/incorrect experiences separate from independent evidence",
+      "result": "PASS"
+    },
+    {
+      "test": "repetition cannot inflate distinct cases and confirmations are bounded",
+      "result": "PASS"
+    },
+    {
+      "test": "rejects absent/null chapter evidence in synthetic-policy chapter pending payloads",
+      "result": "PASS"
+    },
+    {
+      "test": "rejects a historical pending ID already used by a chapter observation",
+      "result": "PASS"
+    }
+  ],
+  "limits": [
+    "No native transaction, browser, educational or real-learner certification."
+  ],
+  "result": "PASS",
+  "exactBufferRestoration": true
+}

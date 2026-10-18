@@ -18,9 +18,12 @@ import { relative, resolve } from 'node:path';
 import { startProofServer } from '../../scripts/browser-proof/server.mjs';
 import type { ProofServer } from '../../scripts/browser-proof/server.mjs';
 import type {
-  LoopFamilyId,
+  LegacyLoopFamilyId,
   SyntheticLoopRecord,
+  SyntheticLoopState,
 } from '../../src/application/synthetic-loop';
+import { PROOF_FAMILY_IDS } from '../../src/domain/families/proofs';
+import { proofEvidence } from '../../src/domain/families/proof-evidence';
 import type { LoopPresentation } from '../../src/ui/synthetic-loop/TaskView';
 import {
   CHILD_FAMILIES,
@@ -260,6 +263,73 @@ async function state(page: Page) {
   return page.evaluate(() => window.phase3cProof.state());
 }
 
+function assertHelpChange(
+  before: SyntheticLoopState,
+  after: SyntheticLoopState,
+  task: LoopPresentation,
+  tier: 1 | 2 | 3,
+): void {
+  if (!before.record || !after.record)
+    throw new Error('Synthetic help record missing');
+  if (!PROOF_FAMILY_IDS.some((family) => family === task.familyId)) {
+    expect(after.record).toEqual(before.record);
+    expect(after.snapshot).toEqual(before.snapshot);
+  } else {
+    const evidence = proofEvidence(task.replay);
+    if (!evidence.ok) throw new Error('Synthetic assessed help scope missing');
+    const previous =
+      before.record.schema === 'growing-world-synthetic-loop-v2'
+        ? before.record.chapterSupport
+        : [];
+    const matching = previous.find(
+      (entry) =>
+        entry.familyId === task.familyId &&
+        entry.fingerprint === evidence.value.fingerprint,
+    );
+    const expected = [
+      ...previous.filter((entry) => entry !== matching),
+      {
+        familyId: task.familyId,
+        fingerprint: evidence.value.fingerprint,
+        maxHintTier: Math.max(matching?.maxHintTier ?? 0, tier),
+      },
+    ];
+    if (after.record.schema !== 'growing-world-synthetic-loop-v2')
+      throw new Error('Synthetic help migration missing');
+    const ordered = (
+      entries: readonly {
+        readonly familyId: string;
+        readonly fingerprint: string;
+        readonly maxHintTier: number;
+      }[],
+    ) =>
+      [...entries].sort((left, right) =>
+        `${left.familyId}|${left.fingerprint}`.localeCompare(
+          `${right.familyId}|${right.fingerprint}`,
+        ),
+      );
+    expect(ordered(after.record.chapterSupport)).toEqual(ordered(expected));
+    expect(after.record.chapterSupport.length).toBeLessThanOrEqual(256);
+    expect(after.record).toEqual({
+      ...before.record,
+      schema: 'growing-world-synthetic-loop-v2',
+      chapterEvents:
+        before.record.schema === 'growing-world-synthetic-loop-v2'
+          ? before.record.chapterEvents
+          : [],
+      chapterSupport: after.record.chapterSupport,
+    });
+    if (before.snapshot) {
+      expect(after.snapshot?.recordId).toBe(before.snapshot.recordId);
+      expect(after.snapshot?.storageEpoch).toBe(before.snapshot.storageEpoch);
+      expect(after.snapshot?.revision).toBe(before.snapshot.revision + 1);
+      expect(after.snapshot?.payload).toEqual(after.record);
+    } else expect(after.snapshot).toBeNull();
+  }
+  expect(after.adaptation).toEqual(before.adaptation);
+  expect(after.explorationCount).toBe(before.explorationCount);
+}
+
 async function presentation(page: Page): Promise<LoopPresentation> {
   const task = await page.evaluate(() => window.phase3cProof.presentation());
   if (!task || !('task' in task) || 'answerContract' in task)
@@ -302,7 +372,7 @@ async function view(page: Page, target: 'child' | 'developer'): Promise<void> {
   ).toBe(target);
 }
 
-async function activity(page: Page, family: LoopFamilyId): Promise<void> {
+async function activity(page: Page, family: LegacyLoopFamilyId): Promise<void> {
   await view(page, 'developer');
   await page.locator(`[data-family="${family}"]`).click();
   await ready(page);
@@ -388,7 +458,7 @@ async function assertLanguage(
 
 async function assertPromptAndOptions(
   page: Page,
-  family: LoopFamilyId,
+  family: LegacyLoopFamilyId,
   locale: PlayableChildLocale,
 ): Promise<void> {
   const expected = CHILD_LANGUAGE_EXPECTATIONS[locale];
@@ -541,9 +611,14 @@ describe(`installed ${channel} multilingual child journey`, () => {
         const expectedAnswer = childAnswerKey(beforeTask);
         expect(await page.locator('#slice-feedback').textContent()).toBe('');
         const help = page.locator('[data-child-help]');
-        for (const tier of [1, 2, 3]) {
+        for (const tier of [1, 2, 3] as const) {
+          const beforeHelp = await state(page);
           await help.focus();
           await page.keyboard.press('Enter');
+          await ready(page);
+          await page
+            .locator(`.child-task[data-child-hint-tier="${tier}"]`)
+            .waitFor();
           expect(await page.locator('#slice-hint p').innerText()).toBe(
             CHILD_LANGUAGE_EXPECTATIONS[locale].hints[
               CHILD_FAMILIES.indexOf(family)
@@ -560,7 +635,7 @@ describe(`installed ${channel} multilingual child journey`, () => {
             ),
           ).toBe(true);
           expect(await presentation(page)).toEqual(beforeTask);
-          expect((await state(page)).record).toEqual(before.record);
+          assertHelpChange(beforeHelp, await state(page), beforeTask, tier);
         }
         await answer(page, wrongChildAnswer(expectedAnswer));
         expect((await state(page)).record?.lastCompletion).toMatchObject({
@@ -611,8 +686,15 @@ describe(`installed ${channel} multilingual child journey`, () => {
       const page = await open();
       await profile(page);
       await activity(page, family);
-      for (let stage = 0; stage < 4; stage++)
+      for (let stage = 0; stage < 4; stage++) {
         await page.locator('[data-child-help]').click();
+        await ready(page);
+        await page
+          .locator(
+            `#slice-hint[data-hint-tier="${stage === 3 ? 1 : stage + 1}"]`,
+          )
+          .waitFor();
+      }
       expect(
         await page.locator('.child-task').getAttribute('data-child-hint-tier'),
       ).toBe('3');
@@ -906,6 +988,8 @@ describe(`installed ${channel} multilingual child journey`, () => {
         ),
       ).toBe(true);
       await page.locator('[data-child-help]').click();
+      await ready(page);
+      await page.locator('#slice-hint').waitFor({ state: 'visible' });
       await answer(page, childAnswerKey(await presentation(page)));
       expect((await state(page)).record?.lastCompletion?.correct).toBe(true);
       expect(
@@ -1009,8 +1093,13 @@ describe(`installed ${channel} multilingual child journey`, () => {
       let count = 0;
       for (const family of CHILD_FAMILIES) {
         await activity(page, family);
-        for (let tier = 0; tier < 3; tier++)
+        for (let tier = 0; tier < 3; tier++) {
           await page.locator('[data-child-help]').click();
+          await ready(page);
+          await page
+            .locator(`.child-task[data-child-hint-tier="${tier + 1}"]`)
+            .waitFor();
+        }
         for (const size of [
           { width: 320, height: 720, text: 16 },
           { width: 375, height: 812, text: 32 },

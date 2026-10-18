@@ -1,5 +1,27 @@
 # Development
 
+Goal D55 adds the synthetic [Build and take apart chapter](GROWING_WORLD_DESIGN.md).
+The child discovery chooser exposes all fourteen activities and an explicit
+choice of guided invitations or just play. Mathematical help in assessed
+activities saves its separate current-session support context before revealing
+the picture; this is not an assessment event. Explore has reversible number and
+array workshops with no assessment API. Ordinary composition remains contained.
+
+For the actual cached playable surface, use the pinned process-local Corepack
+settings below, then build and serve the synthetic production shell:
+
+```powershell
+corepack pnpm exec vite build --config vite.slice.config.ts
+corepack pnpm exec vite preview --config vite.slice.config.ts --host 127.0.0.1 --port 4178 --strictPort
+```
+
+Open `http://127.0.0.1:4178/`. The development server command in historical
+instructions is useful for editing; cached offline checks require the production
+build. Installed-browser slice tests now also cover the new chapter, durable
+support provenance and native combined-history/receipt capacity at root/subpath.
+[Current evidence](GROWING_WORLD_COMPLETION_REPORT.md) records exact observations
+and device/language/educational limitations. Stop the owned server with Ctrl+C.
+
 The [multilingual child increment](MULTILINGUAL_CHILD_DESIGN.md) uses the same
 deliberate synthetic slice build/loopback origin described below. Three native
 language names are reachable before selecting a badge and during play. New

@@ -669,6 +669,8 @@ describe(`installed ${channel} synthetic playable loop`, () => {
     await p.locator('[data-action=next]').click();
     await activity(p, 'number.addition');
     await p.locator('.hint-button').click();
+    await settled(p);
+    await p.locator('#slice-hint').waitFor({ state: 'visible' });
     expect(await p.locator('.hint-button').getAttribute('aria-expanded')).toBe(
       'true',
     );
@@ -1184,6 +1186,8 @@ describe(`installed ${channel} synthetic playable loop`, () => {
           minimumTarget: metrics.minimumTarget,
         });
         await p.locator('.hint-button').click();
+        await settled(p);
+        await p.locator('#slice-hint').waitFor({ state: 'visible' });
         expect(await p.locator('#slice-hint').isVisible()).toBe(true);
       }
     }
@@ -1272,6 +1276,8 @@ describe(`installed ${channel} synthetic playable loop`, () => {
         .evaluate((button) => button === document.activeElement),
     ).toBe(true);
     await p.keyboard.press('Space');
+    await settled(p);
+    await p.locator('#slice-hint').waitFor({ state: 'visible' });
     expect(await p.locator('#slice-hint').isVisible()).toBe(true);
     expect(
       await p

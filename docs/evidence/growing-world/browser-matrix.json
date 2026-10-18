@@ -1,0 +1,1764 @@
+{
+  "schema": "growing-world-final-browser-matrix-v1",
+  "observedDate": "2026-10-18",
+  "result": "PASS",
+  "binding": "All per-suite source/test/config hashes were checked against this final candidate. No source change occurred between the passing original suites and the final new-chapter repeat. Both full six-suite runs passed110 unaffected cases and28 new cases; the one failed saved-help test helper was repaired, then all29 new-chapter cases repeated in each channel. No failed case is counted as passing.",
+  "mechanisms": "Installed Chrome155 and Edge155, playwright-core, disposable synthetic profiles; native IndexedDB, service-worker cache, browser network disable; NODE_ENV=test interaction renderer. Separate production UI review certifies the actual production rendering sample.",
+  "sourceHashes": {
+    "tests/integration/phase3c-loop.test.ts": "05067ef806bf62792e3e4b6174bb695778ce57fc2bbe02d70006d233aa669f4a",
+    "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+    "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+    "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+    "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+    "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+    "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+    "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+    "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+    "src/ui/offline/OfflineControls.tsx": "3e4a56f4cf05764bacb44fbbb57a0610c886928dd280a57ad92691eaacdc69b8",
+    "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+    "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+    "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+    "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+    "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+    "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+    "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+    "tests/oracle/slice-families.ts": "63b32b0d3359fa66aa403eb413074a903cbabe5eb2f73e01fc1e7ce6867a0ce7",
+    "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+    "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458",
+    "tests/integration/phase3c-child-ux.test.ts": "f3973db3f7a4b2e4d8c0171861cb730b6541bc2709ac3d112a0d70a409ff95b1",
+    "tests/integration/helpers/phase3c-child-oracle.ts": "fe6183322aef72b404397ce82b01219d2fb58dc739dd4c4e8eae955e4ec7bd51",
+    "src/ui/synthetic-loop/slice.css": "92a9f9913250ad7efa0ebaab8cd8dad3c079daec87aacc8fa2905c023b25ca90",
+    "tests/integration/multilingual-child.test.ts": "2654ed4b2e26e57f368ccc6d2aa031639ca4e94b41cf6081e01eb902db407308",
+    "tests/integration/helpers/multilingual-child-expectations.ts": "1362301321f1e3db2168e26bfd448810c035fd9ac7449ee5b147547ec9055439",
+    "src/ui/synthetic-loop/LanguageControls.tsx": "bb770f24e1b584c50bece2b0bdfd6039aa231c07fdfdf96740b6f7ee80afe228",
+    "src/ui/styles.css": "b8c0fcc773ec3a0719e538131b297cca5dcb57ed083a816db88c45136634c986",
+    "src/ui/speech/SpeechControls.tsx": "c25167d990339e2265d924b29fa918df33d4bb1f806d175e74a069506969a93e",
+    "src/ui/speech/SpeechAvailabilityNotice.tsx": "63aa4ad0dc0330a243e53e59809a3109db7b594952705513ebae554c89049474",
+    "src/presentation/localisation/slice-copy.ts": "047f47b13490a8f4cde1d7e2d65e1de5b499f340740f51c26ecd762540bbc299",
+    "src/presentation/localisation/locales.ts": "2bdb28a467d5b3d902a9361099b8c03a1dd5945e6b647d44cbd2cd0dd5cffec8",
+    "src/presentation/localisation/language-controls-copy.ts": "29ca51792c5d060ad454d12c1b9f8e69900899e19028955cb5ae225e41edb1e2",
+    "src/presentation/speech/plans.ts": "6096ad5d7d75e6fb4f17f2fda32d0d7198dd5dcc7fc01ca51ffa431feba143eb",
+    "src/infrastructure/speech/browserSpeech.ts": "c0f0112ed72d2aacd8e0a13e0ce36d4c43963e23784c4487bb03667b04b0fb29",
+    "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+    "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+    "src/domain/growing-world/explore.ts": "6c1028346dfbc6d9bdd6f8c9fb1bf2ce5f1a224ea4d1ac041d92168b36e40354",
+    "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+    "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+    "src/ui/synthetic-loop/ChapterTaskView.tsx": "0a7176da59d5ff11035a09339cbb66815e6106072df8174c630eaf0f1e096e5c",
+    "src/ui/synthetic-loop/ExploreWorld.tsx": "44e137fa74acbc6961b8a2eb73ee1fa8ff09cf257326a2624877c6ba8f861559",
+    "src/ui/synthetic-loop/GrowthJourney.tsx": "66b2641de69ed9f1a0fcca78081dcc434cd674bb1e0fbd92dfb5124a103266d1",
+    "src/ui/synthetic-loop/growing-world.css": "c3a9cf0e8dc7a12640840f14865348bdb299dec5f465253b76eb39c496229ecd",
+    "src/presentation/localisation/growing-world-copy.ts": "f87444b355aae8782d7e43913574620811af0c618c949efae34c99d14afe83ca",
+    "tests/integration/growing-world.test.ts": "11ac176094aa822306b631a6d12b93399a3051d3cd1a14ed254c683418061892",
+    "src/application/repository/validation.ts": "33a1823b16d0cc93e53f91a26ebd2b23fea293dcf82d1a06bb8f7c415cf9f376",
+    "src/domain/replay/canonical.ts": "d4eef381fbc6c46e4ce77d555943b5f7aa99a22d26e47c9ea110f0e7a48b232e",
+    "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+    "src/infrastructure/persistence/layout.ts": "ad3c8c253baa964cb569a4e612bd51c04a2d277ee3c00ba42cc0a4e5f9afd143",
+    "tests/fixtures/synthetic/growing-world-capacity.ts": "7ed7284dfd8563d1e5e829fe0008e856fb389102e57cd8d8914cd1d5321579bc",
+    "tests/integration/growing-world-capacity.test.ts": "17f2f0a78cee01b414823155b60ae21a9f7bf7e772790ea8161fba2b75b8abc9",
+    "src/application/synthetic-loop/index.ts": "5f1d4ae43923aafdbe52b73b04ad6f8791e73f247c3438bc89f3ffcd852b2d05",
+    "tests/integration/growing-world-provenance.test.ts": "ffce1f2802501aa89b7c44b422f08ae9d8db084d65ed3f983bc0dbb176b88c5b"
+  },
+  "channels": [
+    {
+      "channel": "chrome",
+      "isolatedCheckout": false,
+      "testsPassed": 139,
+      "suites": [
+        {
+          "suite": "original-loop-offline-update",
+          "testsPassed": 36,
+          "sourceStable": true,
+          "rawReceiptSha256": "3314609ed7e786a888e04ec80ca49db2278454383888c201b42a73a718b30234",
+          "sourceHashes": {
+            "tests/integration/phase3c-loop.test.ts": "05067ef806bf62792e3e4b6174bb695778ce57fc2bbe02d70006d233aa669f4a",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+            "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+            "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+            "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+            "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+            "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+            "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+            "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+            "src/ui/offline/OfflineControls.tsx": "3e4a56f4cf05764bacb44fbbb57a0610c886928dd280a57ad92691eaacdc69b8",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+            "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+            "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+            "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+            "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+            "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+            "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+            "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+            "tests/oracle/slice-families.ts": "63b32b0d3359fa66aa403eb413074a903cbabe5eb2f73e01fc1e7ce6867a0ce7",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+            "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458"
+          },
+          "cases": [
+            {
+              "name": "preserves an immediate first profile selection across initial worker controller acquisition",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps storage unopened until explicit fixed-profile selection",
+              "outcome": "pass"
+            },
+            {
+              "name": "reaches every numeral/count quantity in sixteen deterministic examples for each fixed profile",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.addition, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders geometry.quadrilateral, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders measurement.unit-length, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.numeral, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.counting, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.comparison, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.subtraction, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.missing, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps mathematical hint support distinct from accessible unit traversal",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps all five catalog increments limitedEvidence in proposed-policy mode",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps exploration transient and clears its memory across profiles and reload",
+              "outcome": "pass"
+            },
+            {
+              "name": "isolates evidence, adaptation, preferences and pending callbacks during profile switch",
+              "outcome": "pass"
+            },
+            {
+              "name": "persists completion after commit, reloads without advancing session, and starts explicitly",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps independent locale roles and truthful planned-locale fallback",
+              "outcome": "pass"
+            },
+            {
+              "name": "reconciles a durable pending completion on reload with exactly one explicit retry",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps speech explicit and cancels changed contexts using only exposed exact local voices",
+              "outcome": "pass"
+            },
+            {
+              "name": "honours explicit unsaved selection even after a saved profile was opened",
+              "outcome": "pass"
+            },
+            {
+              "name": "fences a native committed answer with withheld completion delivery across profile switch and update",
+              "outcome": "pass"
+            },
+            {
+              "name": "reflows all eight families at 320px with deliberate 200% text and reduced motion",
+              "outcome": "pass"
+            },
+            {
+              "name": "selects, hints and answers through keyboard with visible focus and semantic outcome",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps quota failure unsaved and resumes only by explicit choice",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps abort failure unsaved and resumes only by explicit choice",
+              "outcome": "pass"
+            },
+            {
+              "name": "rejects a stale tab and reconciles explicitly without duplicating observations",
+              "outcome": "pass"
+            },
+            {
+              "name": "fences a held answer on deletion and preserves the surviving profile",
+              "outcome": "pass"
+            },
+            {
+              "name": "falls back visibly when IndexedDB is unavailable without claiming a save",
+              "outcome": "pass"
+            },
+            {
+              "name": "refuses a future native database schema and leaves it untouched",
+              "outcome": "pass"
+            },
+            {
+              "name": "handles an actually blocked native upgrade without erasing the old store",
+              "outcome": "pass"
+            },
+            {
+              "name": "reloads cached / shell offline with separately saved learner state",
+              "outcome": "pass"
+            },
+            {
+              "name": "blocks / activation while another client holds a learner write, then recovers coherently",
+              "outcome": "pass"
+            },
+            {
+              "name": "blocks / update with incompatible learner reader declaration",
+              "outcome": "pass"
+            },
+            {
+              "name": "reloads cached /math-adventure/ shell offline with separately saved learner state",
+              "outcome": "pass"
+            },
+            {
+              "name": "blocks /math-adventure/ activation while another client holds a learner write, then recovers coherently",
+              "outcome": "pass"
+            },
+            {
+              "name": "blocks /math-adventure/ update with incompatible learner reader declaration",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalAttempts": 0,
+            "outboundLearnerRequests": 0,
+            "pageErrors": 0,
+            "receivedRequests": 569,
+            "droppedObservations": 0
+          },
+          "artifactCount": 27,
+          "artifactManifestSha256": "25064981e56ad8e6422da198de31e87550004bd2e378472fea5691dfd06ce6ed"
+        },
+        {
+          "suite": "original-child-interaction",
+          "testsPassed": 19,
+          "sourceStable": true,
+          "rawReceiptSha256": "425a73dfb1915c8387abbf5ca9e19a8538b63b65d80770699564c746a97fcbbf",
+          "sourceHashes": {
+            "tests/integration/phase3c-child-ux.test.ts": "f3973db3f7a4b2e4d8c0171861cb730b6541bc2709ac3d112a0d70a409ff95b1",
+            "tests/integration/helpers/phase3c-child-oracle.ts": "fe6183322aef72b404397ce82b01219d2fb58dc739dd4c4e8eae955e4ec7bd51",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+            "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+            "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+            "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+            "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+            "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+            "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+            "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+            "src/ui/synthetic-loop/slice.css": "92a9f9913250ad7efa0ebaab8cd8dad3c079daec87aacc8fa2905c023b25ca90",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+            "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+            "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+            "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458"
+          },
+          "cases": [
+            {
+              "name": "starts with fixed badge identities and no learner store, catalog or diagnostics",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.addition uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "geometry.quadrilateral uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "measurement.unit-length uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.numeral uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.counting uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.comparison uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.subtraction uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.missing uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "never credits child shape matching as full quadrilateral classification evidence",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps mathematical visual help separate from neutral unit traversal",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps all five increments limited and a fresh other badge manual with no evidence",
+              "outcome": "pass"
+            },
+            {
+              "name": "uses the reversible Explore workspace without answers or stored observations",
+              "outcome": "pass"
+            },
+            {
+              "name": "supports keyboard cards, visible focus, safe retry and simple navigation",
+              "outcome": "pass"
+            },
+            {
+              "name": "accepts touch-emulated direct answers in all eight families without duplicate completions or assessment evidence in manual mode",
+              "outcome": "pass"
+            },
+            {
+              "name": "reflows all eight families at / at 320/375/768/1024px, portrait, landscape and 200% text",
+              "outcome": "pass"
+            },
+            {
+              "name": "reflows all eight families at /math-adventure/ at 320/375/768/1024px, portrait, landscape and 200% text",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps three draft locales and UI/instruction roles independent without child settings controls",
+              "outcome": "pass"
+            },
+            {
+              "name": "retains exact quadrilateral diagnostics behind deliberate developer entry",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalAttempts": 0,
+            "outboundLearnerRequests": 0,
+            "pageErrors": 0,
+            "receivedRequests": 215,
+            "droppedObservations": 0
+          },
+          "artifactCount": 9,
+          "artifactManifestSha256": "3e51ed5399061ec62de07eeb539e4478af001019247167b0ec83971d6de36833"
+        },
+        {
+          "suite": "draft-multilingual-child",
+          "testsPassed": 48,
+          "sourceStable": true,
+          "rawReceiptSha256": "04382ec0d4f5f897bce8b49f2712ad27f5d2de558ac4150ed91f795ddd094775",
+          "sourceHashes": {
+            "tests/integration/multilingual-child.test.ts": "2654ed4b2e26e57f368ccc6d2aa031639ca4e94b41cf6081e01eb902db407308",
+            "tests/integration/helpers/multilingual-child-expectations.ts": "1362301321f1e3db2168e26bfd448810c035fd9ac7449ee5b147547ec9055439",
+            "tests/integration/helpers/phase3c-child-oracle.ts": "fe6183322aef72b404397ce82b01219d2fb58dc739dd4c4e8eae955e4ec7bd51",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+            "src/ui/synthetic-loop/LanguageControls.tsx": "bb770f24e1b584c50bece2b0bdfd6039aa231c07fdfdf96740b6f7ee80afe228",
+            "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+            "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+            "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+            "src/ui/synthetic-loop/slice.css": "92a9f9913250ad7efa0ebaab8cd8dad3c079daec87aacc8fa2905c023b25ca90",
+            "src/ui/styles.css": "b8c0fcc773ec3a0719e538131b297cca5dcb57ed083a816db88c45136634c986",
+            "src/ui/speech/SpeechControls.tsx": "c25167d990339e2265d924b29fa918df33d4bb1f806d175e74a069506969a93e",
+            "src/ui/speech/SpeechAvailabilityNotice.tsx": "63aa4ad0dc0330a243e53e59809a3109db7b594952705513ebae554c89049474",
+            "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+            "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+            "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+            "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+            "src/presentation/localisation/slice-copy.ts": "047f47b13490a8f4cde1d7e2d65e1de5b499f340740f51c26ecd762540bbc299",
+            "src/presentation/localisation/locales.ts": "2bdb28a467d5b3d902a9361099b8c03a1dd5945e6b647d44cbd2cd0dd5cffec8",
+            "src/presentation/localisation/language-controls-copy.ts": "29ca51792c5d060ad454d12c1b9f8e69900899e19028955cb5ae225e41edb1e2",
+            "src/presentation/speech/plans.ts": "6096ad5d7d75e6fb4f17f2fda32d0d7198dd5dcc7fc01ca51ffa431feba143eb",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+            "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+            "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+            "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+            "src/infrastructure/speech/browserSpeech.ts": "c0f0112ed72d2aacd8e0a13e0ce36d4c43963e23784c4487bb03667b04b0fb29",
+            "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+            "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458"
+          },
+          "cases": [
+            {
+              "name": "offers understandable keyboard language choices before badges without planned playable claims",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.addition has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR geometry.quadrilateral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR measurement.unit-length has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.numeral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.counting has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.comparison has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.subtraction has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.missing has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.addition has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB geometry.quadrilateral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB measurement.unit-length has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.numeral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.counting has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.comparison has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.subtraction has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.missing has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.addition has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE geometry.quadrilateral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE measurement.unit-length has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.numeral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.counting has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.comparison has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.subtraction has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.missing has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.addition preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "geometry.quadrilateral preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "measurement.unit-length preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.numeral preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.counting preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.comparison preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.subtraction preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.missing preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "persists each badge language independently across reload and reopen without altering progress",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps useful keyboard focus after a saved language choice and respects deliberate focus moves during its write",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps advanced interface, instruction and speech roles independent with accurate child language regions",
+              "outcome": "pass"
+            },
+            {
+              "name": "shows accurate fallback language and no unsupported instruction replay for all four planned packs",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR remains usable with truthful local speech availability and no automatic playback",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB remains usable with truthful local speech availability and no automatic playback",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE remains usable with truthful local speech availability and no automatic playback",
+              "outcome": "pass"
+            },
+            {
+              "name": "switches cached / child languages offline, reloads and reopens without network or progress loss",
+              "outcome": "pass"
+            },
+            {
+              "name": "switches cached /math-adventure/ child languages offline, reloads and reopens without network or progress loss",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR retains committed language and mathematics on failed preference save and exposes localized adult recovery",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB retains committed language and mathematics on failed preference save and exposes localized adult recovery",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE retains committed language and mathematics on failed preference save and exposes localized adult recovery",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR language controls and all families retain readable reflow, keyboard targets and focus at narrow and enlarged text sizes",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB language controls and all families retain readable reflow, keyboard targets and focus at narrow and enlarged text sizes",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE language controls and all families retain readable reflow, keyboard targets and focus at narrow and enlarged text sizes",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalAttempts": 0,
+            "outboundLearnerRequests": 0,
+            "pageErrors": 0,
+            "receivedRequests": 532,
+            "droppedObservations": 0
+          },
+          "artifactCount": 9,
+          "artifactManifestSha256": "9e5009b4b1f35173b46747d4e87c7dffd97da3cf37d2bc14be05c281e3f62106"
+        },
+        {
+          "suite": "growing-world-integrated",
+          "testsPassed": 29,
+          "sourceStable": true,
+          "rawReceiptSha256": "f156a4f38123199fe903cbc06ef190e678cfeee22c61a70d030cafbd46ca2408",
+          "sourceHashes": {
+            "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+            "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+            "src/domain/growing-world/explore.ts": "6c1028346dfbc6d9bdd6f8c9fb1bf2ce5f1a224ea4d1ac041d92168b36e40354",
+            "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+            "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+            "src/ui/synthetic-loop/ChapterTaskView.tsx": "0a7176da59d5ff11035a09339cbb66815e6106072df8174c630eaf0f1e096e5c",
+            "src/ui/synthetic-loop/ExploreWorld.tsx": "44e137fa74acbc6961b8a2eb73ee1fa8ff09cf257326a2624877c6ba8f861559",
+            "src/ui/synthetic-loop/GrowthJourney.tsx": "66b2641de69ed9f1a0fcca78081dcc434cd674bb1e0fbd92dfb5124a103266d1",
+            "src/ui/synthetic-loop/growing-world.css": "c3a9cf0e8dc7a12640840f14865348bdb299dec5f465253b76eb39c496229ecd",
+            "src/presentation/localisation/growing-world-copy.ts": "f87444b355aae8782d7e43913574620811af0c618c949efae34c99d14afe83ca",
+            "src/presentation/speech/plans.ts": "6096ad5d7d75e6fb4f17f2fda32d0d7198dd5dcc7fc01ca51ffa431feba143eb",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+            "tests/integration/growing-world.test.ts": "11ac176094aa822306b631a6d12b93399a3051d3cd1a14ed254c683418061892"
+          },
+          "cases": [
+            {
+              "name": "preserves explicit just-play choice through discovery and Explore-to-practice navigation",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.make-ten: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.part-whole: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR groups.equal: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR groups.missing: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR measurement.array-area: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR powers.square-side: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.make-ten: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.part-whole: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB groups.equal: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB groups.missing: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB measurement.array-area: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB powers.square-side: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.make-ten: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.part-whole: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE groups.equal: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE groups.missing: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE measurement.array-area: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE powers.square-side: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "different actual synthetic histories invite a connected inverse or useful support, independently of badge identity",
+              "outcome": "pass"
+            },
+            {
+              "name": "live language changes preserve new mathematical task, maximum help and evidence; badges reopen independently",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR: reversible Explore conserves totals, changes arrays, keeps all saved evidence unchanged",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB: reversible Explore conserves totals, changes arrays, keeps all saved evidence unchanged",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE: reversible Explore conserves totals, changes arrays, keeps all saved evidence unchanged",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR: new controls reflow at 320px and deliberate 200% text with keyboard focus",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB: new controls reflow at 320px and deliberate 200% text with keyboard focus",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE: new controls reflow at 320px and deliberate 200% text with keyboard focus",
+              "outcome": "pass"
+            },
+            {
+              "name": "/: new saved chapter and preferences reopen from actual worker cache with browser network disabled",
+              "outcome": "pass"
+            },
+            {
+              "name": "/math-adventure/: new saved chapter and preferences reopen from actual worker cache with browser network disabled",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalRequests": 0,
+            "pageErrors": 0
+          }
+        },
+        {
+          "suite": "native-capacity",
+          "testsPassed": 2,
+          "sourceStable": true,
+          "rawReceiptSha256": "bcff98e40b66493c05d13ce537772ea80efe83cf111b8f0c2f862af6e63c6cfe",
+          "sourceHashes": {
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+            "src/application/repository/validation.ts": "33a1823b16d0cc93e53f91a26ebd2b23fea293dcf82d1a06bb8f7c415cf9f376",
+            "src/domain/replay/canonical.ts": "d4eef381fbc6c46e4ce77d555943b5f7aa99a22d26e47c9ea110f0e7a48b232e",
+            "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+            "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+            "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+            "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+            "src/infrastructure/persistence/layout.ts": "ad3c8c253baa964cb569a4e612bd51c04a2d277ee3c00ba42cc0a4e5f9afd143",
+            "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+            "tests/fixtures/synthetic/growing-world-capacity.ts": "7ed7284dfd8563d1e5e829fe0008e856fb389102e57cd8d8914cd1d5321579bc",
+            "tests/integration/growing-world-capacity.test.ts": "17f2f0a78cee01b414823155b60ae21a9f7bf7e772790ea8161fba2b75b8abc9"
+          },
+          "cases": [
+            {
+              "name": "/ full legacy/chapter journals survive shared receipt allowance and reject an old payload-reader target",
+              "outcome": "pass"
+            },
+            {
+              "name": "/math-adventure/ full legacy/chapter journals survive shared receipt allowance and reject an old payload-reader target",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalRequests": 0,
+            "pageErrors": 0
+          }
+        },
+        {
+          "suite": "saved-help-provenance",
+          "testsPassed": 5,
+          "sourceStable": true,
+          "rawReceiptSha256": "bb6750aff74e36a2f88b1301324eda027a63df944aed2ab1cca4766f59ea823f",
+          "sourceHashes": {
+            "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/application/synthetic-loop/index.ts": "5f1d4ae43923aafdbe52b73b04ad6f8791e73f247c3438bc89f3ffcd852b2d05",
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+            "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+            "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+            "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+            "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+            "src/ui/synthetic-loop/ChapterTaskView.tsx": "0a7176da59d5ff11035a09339cbb66815e6106072df8174c630eaf0f1e096e5c",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "tests/integration/growing-world-provenance.test.ts": "ffce1f2802501aa89b7c44b422f08ae9d8db084d65ed3f983bc0dbb176b88c5b",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a"
+          },
+          "cases": [
+            {
+              "name": "preserves unsubmitted worked help through same-badge, other-badge and reload paths",
+              "outcome": "pass"
+            },
+            {
+              "name": "preserves semantic help across fresh activity and alternate representation without contaminating other cases",
+              "outcome": "pass"
+            },
+            {
+              "name": "reveals worked help only after commit and restores keyboard focus without stealing a deliberate move",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps a failed support save from exposing a worked answer or losing the persisted lower tier",
+              "outcome": "pass"
+            },
+            {
+              "name": "clears session support only on explicit new session and still makes no mastery claim",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalRequests": 0,
+            "pageErrors": 0
+          }
+        }
+      ]
+    },
+    {
+      "channel": "msedge",
+      "isolatedCheckout": true,
+      "testsPassed": 139,
+      "suites": [
+        {
+          "suite": "original-loop-offline-update",
+          "testsPassed": 36,
+          "sourceStable": true,
+          "rawReceiptSha256": "dea9eee7c55174bef3a94c6e391b2c0228b50a8967429dfa469ab3b46e1dc6ce",
+          "sourceHashes": {
+            "tests/integration/phase3c-loop.test.ts": "05067ef806bf62792e3e4b6174bb695778ce57fc2bbe02d70006d233aa669f4a",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+            "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+            "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+            "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+            "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+            "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+            "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+            "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+            "src/ui/offline/OfflineControls.tsx": "3e4a56f4cf05764bacb44fbbb57a0610c886928dd280a57ad92691eaacdc69b8",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+            "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+            "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+            "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+            "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+            "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+            "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+            "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+            "tests/oracle/slice-families.ts": "63b32b0d3359fa66aa403eb413074a903cbabe5eb2f73e01fc1e7ce6867a0ce7",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+            "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458"
+          },
+          "cases": [
+            {
+              "name": "preserves an immediate first profile selection across initial worker controller acquisition",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps storage unopened until explicit fixed-profile selection",
+              "outcome": "pass"
+            },
+            {
+              "name": "reaches every numeral/count quantity in sixteen deterministic examples for each fixed profile",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.addition, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders geometry.quadrilateral, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders measurement.unit-length, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.numeral, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.counting, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.comparison, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.subtraction, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "renders number.missing, rejects an independent wrong answer, and accepts the oracle",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps mathematical hint support distinct from accessible unit traversal",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps all five catalog increments limitedEvidence in proposed-policy mode",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps exploration transient and clears its memory across profiles and reload",
+              "outcome": "pass"
+            },
+            {
+              "name": "isolates evidence, adaptation, preferences and pending callbacks during profile switch",
+              "outcome": "pass"
+            },
+            {
+              "name": "persists completion after commit, reloads without advancing session, and starts explicitly",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps independent locale roles and truthful planned-locale fallback",
+              "outcome": "pass"
+            },
+            {
+              "name": "reconciles a durable pending completion on reload with exactly one explicit retry",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps speech explicit and cancels changed contexts using only exposed exact local voices",
+              "outcome": "pass"
+            },
+            {
+              "name": "honours explicit unsaved selection even after a saved profile was opened",
+              "outcome": "pass"
+            },
+            {
+              "name": "fences a native committed answer with withheld completion delivery across profile switch and update",
+              "outcome": "pass"
+            },
+            {
+              "name": "reflows all eight families at 320px with deliberate 200% text and reduced motion",
+              "outcome": "pass"
+            },
+            {
+              "name": "selects, hints and answers through keyboard with visible focus and semantic outcome",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps quota failure unsaved and resumes only by explicit choice",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps abort failure unsaved and resumes only by explicit choice",
+              "outcome": "pass"
+            },
+            {
+              "name": "rejects a stale tab and reconciles explicitly without duplicating observations",
+              "outcome": "pass"
+            },
+            {
+              "name": "fences a held answer on deletion and preserves the surviving profile",
+              "outcome": "pass"
+            },
+            {
+              "name": "falls back visibly when IndexedDB is unavailable without claiming a save",
+              "outcome": "pass"
+            },
+            {
+              "name": "refuses a future native database schema and leaves it untouched",
+              "outcome": "pass"
+            },
+            {
+              "name": "handles an actually blocked native upgrade without erasing the old store",
+              "outcome": "pass"
+            },
+            {
+              "name": "reloads cached / shell offline with separately saved learner state",
+              "outcome": "pass"
+            },
+            {
+              "name": "blocks / activation while another client holds a learner write, then recovers coherently",
+              "outcome": "pass"
+            },
+            {
+              "name": "blocks / update with incompatible learner reader declaration",
+              "outcome": "pass"
+            },
+            {
+              "name": "reloads cached /math-adventure/ shell offline with separately saved learner state",
+              "outcome": "pass"
+            },
+            {
+              "name": "blocks /math-adventure/ activation while another client holds a learner write, then recovers coherently",
+              "outcome": "pass"
+            },
+            {
+              "name": "blocks /math-adventure/ update with incompatible learner reader declaration",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalAttempts": 0,
+            "outboundLearnerRequests": 0,
+            "pageErrors": 0,
+            "receivedRequests": 578,
+            "droppedObservations": 0
+          },
+          "artifactCount": 27,
+          "artifactManifestSha256": "cb9b547ea4fdf40a9a822b1c72934101b2a0689ffbb2811913ae203427c27a0f"
+        },
+        {
+          "suite": "original-child-interaction",
+          "testsPassed": 19,
+          "sourceStable": true,
+          "rawReceiptSha256": "8f96245487b9fea54ed646a65f7ae5129558b7a352ab90833dd7546d055e9b7b",
+          "sourceHashes": {
+            "tests/integration/phase3c-child-ux.test.ts": "f3973db3f7a4b2e4d8c0171861cb730b6541bc2709ac3d112a0d70a409ff95b1",
+            "tests/integration/helpers/phase3c-child-oracle.ts": "fe6183322aef72b404397ce82b01219d2fb58dc739dd4c4e8eae955e4ec7bd51",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+            "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+            "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+            "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+            "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+            "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+            "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+            "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+            "src/ui/synthetic-loop/slice.css": "92a9f9913250ad7efa0ebaab8cd8dad3c079daec87aacc8fa2905c023b25ca90",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+            "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+            "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+            "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458"
+          },
+          "cases": [
+            {
+              "name": "starts with fixed badge identities and no learner store, catalog or diagnostics",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.addition uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "geometry.quadrilateral uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "measurement.unit-length uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.numeral uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.counting uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.comparison uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.subtraction uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.missing uses immediate direct cards, independent truth and progressive visual help",
+              "outcome": "pass"
+            },
+            {
+              "name": "never credits child shape matching as full quadrilateral classification evidence",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps mathematical visual help separate from neutral unit traversal",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps all five increments limited and a fresh other badge manual with no evidence",
+              "outcome": "pass"
+            },
+            {
+              "name": "uses the reversible Explore workspace without answers or stored observations",
+              "outcome": "pass"
+            },
+            {
+              "name": "supports keyboard cards, visible focus, safe retry and simple navigation",
+              "outcome": "pass"
+            },
+            {
+              "name": "accepts touch-emulated direct answers in all eight families without duplicate completions or assessment evidence in manual mode",
+              "outcome": "pass"
+            },
+            {
+              "name": "reflows all eight families at / at 320/375/768/1024px, portrait, landscape and 200% text",
+              "outcome": "pass"
+            },
+            {
+              "name": "reflows all eight families at /math-adventure/ at 320/375/768/1024px, portrait, landscape and 200% text",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps three draft locales and UI/instruction roles independent without child settings controls",
+              "outcome": "pass"
+            },
+            {
+              "name": "retains exact quadrilateral diagnostics behind deliberate developer entry",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalAttempts": 0,
+            "outboundLearnerRequests": 0,
+            "pageErrors": 0,
+            "receivedRequests": 229,
+            "droppedObservations": 0
+          },
+          "artifactCount": 9,
+          "artifactManifestSha256": "5dd52f7792e07273dad863894917155ded8e2fdace39e4ee8f8233ebeedf1942"
+        },
+        {
+          "suite": "draft-multilingual-child",
+          "testsPassed": 48,
+          "sourceStable": true,
+          "rawReceiptSha256": "9e5c4d67516f636c02d524b7a128bf94d81df303baddf67b5758f07ba1627aee",
+          "sourceHashes": {
+            "tests/integration/multilingual-child.test.ts": "2654ed4b2e26e57f368ccc6d2aa031639ca4e94b41cf6081e01eb902db407308",
+            "tests/integration/helpers/multilingual-child-expectations.ts": "1362301321f1e3db2168e26bfd448810c035fd9ac7449ee5b147547ec9055439",
+            "tests/integration/helpers/phase3c-child-oracle.ts": "fe6183322aef72b404397ce82b01219d2fb58dc739dd4c4e8eae955e4ec7bd51",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+            "src/ui/synthetic-loop/LanguageControls.tsx": "bb770f24e1b584c50bece2b0bdfd6039aa231c07fdfdf96740b6f7ee80afe228",
+            "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+            "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+            "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+            "src/ui/synthetic-loop/slice.css": "92a9f9913250ad7efa0ebaab8cd8dad3c079daec87aacc8fa2905c023b25ca90",
+            "src/ui/styles.css": "b8c0fcc773ec3a0719e538131b297cca5dcb57ed083a816db88c45136634c986",
+            "src/ui/speech/SpeechControls.tsx": "c25167d990339e2265d924b29fa918df33d4bb1f806d175e74a069506969a93e",
+            "src/ui/speech/SpeechAvailabilityNotice.tsx": "63aa4ad0dc0330a243e53e59809a3109db7b594952705513ebae554c89049474",
+            "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+            "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+            "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+            "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+            "src/presentation/localisation/slice-copy.ts": "047f47b13490a8f4cde1d7e2d65e1de5b499f340740f51c26ecd762540bbc299",
+            "src/presentation/localisation/locales.ts": "2bdb28a467d5b3d902a9361099b8c03a1dd5945e6b647d44cbd2cd0dd5cffec8",
+            "src/presentation/localisation/language-controls-copy.ts": "29ca51792c5d060ad454d12c1b9f8e69900899e19028955cb5ae225e41edb1e2",
+            "src/presentation/speech/plans.ts": "6096ad5d7d75e6fb4f17f2fda32d0d7198dd5dcc7fc01ca51ffa431feba143eb",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+            "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+            "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+            "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+            "src/infrastructure/speech/browserSpeech.ts": "c0f0112ed72d2aacd8e0a13e0ce36d4c43963e23784c4487bb03667b04b0fb29",
+            "tests/oracle/family-proof.ts": "6399af9e222f0d4c763a1ecf08db5c3d003b062684e55eb7a762800f01ae3c40",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+            "scripts/pwa-build.ts": "ff36ed396edd93d3bff03c24db9e97bbe31a2775c8cade04770ce776a7579458"
+          },
+          "cases": [
+            {
+              "name": "offers understandable keyboard language choices before badges without planned playable claims",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.addition has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR geometry.quadrilateral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR measurement.unit-length has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.numeral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.counting has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.comparison has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.subtraction has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.missing has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.addition has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB geometry.quadrilateral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB measurement.unit-length has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.numeral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.counting has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.comparison has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.subtraction has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.missing has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.addition has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE geometry.quadrilateral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE measurement.unit-length has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.numeral has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.counting has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.comparison has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.subtraction has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.missing has coherent prompts, choices, progressive help and truth-based retry/success",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.addition preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "geometry.quadrilateral preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "measurement.unit-length preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.numeral preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.counting preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.comparison preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.subtraction preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "number.missing preserves replay, maximum help, current visual stage and feedback through live language switches",
+              "outcome": "pass"
+            },
+            {
+              "name": "persists each badge language independently across reload and reopen without altering progress",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps useful keyboard focus after a saved language choice and respects deliberate focus moves during its write",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps advanced interface, instruction and speech roles independent with accurate child language regions",
+              "outcome": "pass"
+            },
+            {
+              "name": "shows accurate fallback language and no unsupported instruction replay for all four planned packs",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR remains usable with truthful local speech availability and no automatic playback",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB remains usable with truthful local speech availability and no automatic playback",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE remains usable with truthful local speech availability and no automatic playback",
+              "outcome": "pass"
+            },
+            {
+              "name": "switches cached / child languages offline, reloads and reopens without network or progress loss",
+              "outcome": "pass"
+            },
+            {
+              "name": "switches cached /math-adventure/ child languages offline, reloads and reopens without network or progress loss",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR retains committed language and mathematics on failed preference save and exposes localized adult recovery",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB retains committed language and mathematics on failed preference save and exposes localized adult recovery",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE retains committed language and mathematics on failed preference save and exposes localized adult recovery",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR language controls and all families retain readable reflow, keyboard targets and focus at narrow and enlarged text sizes",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB language controls and all families retain readable reflow, keyboard targets and focus at narrow and enlarged text sizes",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE language controls and all families retain readable reflow, keyboard targets and focus at narrow and enlarged text sizes",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalAttempts": 0,
+            "outboundLearnerRequests": 0,
+            "pageErrors": 0,
+            "receivedRequests": 579,
+            "droppedObservations": 0
+          },
+          "artifactCount": 9,
+          "artifactManifestSha256": "34aacae0400b9b764c01c4292fd921143d4f4c5e9d1c3d1e67584d124adf7039"
+        },
+        {
+          "suite": "growing-world-integrated",
+          "testsPassed": 29,
+          "sourceStable": true,
+          "rawReceiptSha256": "256c7909100c80fe247c5a32327251723d684e70ec0c26f94f3fdaa71dd389b1",
+          "sourceHashes": {
+            "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+            "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+            "src/domain/growing-world/explore.ts": "6c1028346dfbc6d9bdd6f8c9fb1bf2ce5f1a224ea4d1ac041d92168b36e40354",
+            "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+            "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+            "src/ui/synthetic-loop/ChapterTaskView.tsx": "0a7176da59d5ff11035a09339cbb66815e6106072df8174c630eaf0f1e096e5c",
+            "src/ui/synthetic-loop/ExploreWorld.tsx": "44e137fa74acbc6961b8a2eb73ee1fa8ff09cf257326a2624877c6ba8f861559",
+            "src/ui/synthetic-loop/GrowthJourney.tsx": "66b2641de69ed9f1a0fcca78081dcc434cd674bb1e0fbd92dfb5124a103266d1",
+            "src/ui/synthetic-loop/growing-world.css": "c3a9cf0e8dc7a12640840f14865348bdb299dec5f465253b76eb39c496229ecd",
+            "src/presentation/localisation/growing-world-copy.ts": "f87444b355aae8782d7e43913574620811af0c618c949efae34c99d14afe83ca",
+            "src/presentation/speech/plans.ts": "6096ad5d7d75e6fb4f17f2fda32d0d7198dd5dcc7fc01ca51ffa431feba143eb",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+            "tests/integration/growing-world.test.ts": "11ac176094aa822306b631a6d12b93399a3051d3cd1a14ed254c683418061892"
+          },
+          "cases": [
+            {
+              "name": "preserves explicit just-play choice through discovery and Explore-to-practice navigation",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.make-ten: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR number.part-whole: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR groups.equal: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR groups.missing: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR measurement.array-area: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR powers.square-side: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.make-ten: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB number.part-whole: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB groups.equal: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB groups.missing: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB measurement.array-area: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB powers.square-side: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.make-ten: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE number.part-whole: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE groups.equal: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE groups.missing: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE measurement.array-area: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE powers.square-side: independent task, visual help, retry and worked distinction",
+              "outcome": "pass"
+            },
+            {
+              "name": "different actual synthetic histories invite a connected inverse or useful support, independently of badge identity",
+              "outcome": "pass"
+            },
+            {
+              "name": "live language changes preserve new mathematical task, maximum help and evidence; badges reopen independently",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR: reversible Explore conserves totals, changes arrays, keeps all saved evidence unchanged",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB: reversible Explore conserves totals, changes arrays, keeps all saved evidence unchanged",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE: reversible Explore conserves totals, changes arrays, keeps all saved evidence unchanged",
+              "outcome": "pass"
+            },
+            {
+              "name": "el-GR: new controls reflow at 320px and deliberate 200% text with keyboard focus",
+              "outcome": "pass"
+            },
+            {
+              "name": "en-GB: new controls reflow at 320px and deliberate 200% text with keyboard focus",
+              "outcome": "pass"
+            },
+            {
+              "name": "de-DE: new controls reflow at 320px and deliberate 200% text with keyboard focus",
+              "outcome": "pass"
+            },
+            {
+              "name": "/: new saved chapter and preferences reopen from actual worker cache with browser network disabled",
+              "outcome": "pass"
+            },
+            {
+              "name": "/math-adventure/: new saved chapter and preferences reopen from actual worker cache with browser network disabled",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalRequests": 0,
+            "pageErrors": 0
+          }
+        },
+        {
+          "suite": "native-capacity",
+          "testsPassed": 2,
+          "sourceStable": true,
+          "rawReceiptSha256": "66869fd2ff46764c72c64e62f6c919a5aff10ca94cc2126788badd9cc5ca191b",
+          "sourceHashes": {
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+            "src/application/repository/validation.ts": "33a1823b16d0cc93e53f91a26ebd2b23fea293dcf82d1a06bb8f7c415cf9f376",
+            "src/domain/replay/canonical.ts": "d4eef381fbc6c46e4ce77d555943b5f7aa99a22d26e47c9ea110f0e7a48b232e",
+            "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+            "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+            "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+            "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+            "src/infrastructure/persistence/layout.ts": "ad3c8c253baa964cb569a4e612bd51c04a2d277ee3c00ba42cc0a4e5f9afd143",
+            "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+            "tests/fixtures/synthetic/growing-world-capacity.ts": "7ed7284dfd8563d1e5e829fe0008e856fb389102e57cd8d8914cd1d5321579bc",
+            "tests/integration/growing-world-capacity.test.ts": "17f2f0a78cee01b414823155b60ae21a9f7bf7e772790ea8161fba2b75b8abc9"
+          },
+          "cases": [
+            {
+              "name": "/ full legacy/chapter journals survive shared receipt allowance and reject an old payload-reader target",
+              "outcome": "pass"
+            },
+            {
+              "name": "/math-adventure/ full legacy/chapter journals survive shared receipt allowance and reject an old payload-reader target",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalRequests": 0,
+            "pageErrors": 0
+          }
+        },
+        {
+          "suite": "saved-help-provenance",
+          "testsPassed": 5,
+          "sourceStable": true,
+          "rawReceiptSha256": "f3435a31e46cd8cd8eaa25a62e26ca6d3fc94677a6fd41683478c216a7849994",
+          "sourceHashes": {
+            "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+            "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+            "src/application/synthetic-loop/index.ts": "5f1d4ae43923aafdbe52b73b04ad6f8791e73f247c3438bc89f3ffcd852b2d05",
+            "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+            "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+            "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+            "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+            "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+            "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+            "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+            "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+            "src/ui/synthetic-loop/ChapterTaskView.tsx": "0a7176da59d5ff11035a09339cbb66815e6106072df8174c630eaf0f1e096e5c",
+            "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+            "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+            "tests/integration/growing-world-provenance.test.ts": "ffce1f2802501aa89b7c44b422f08ae9d8db084d65ed3f983bc0dbb176b88c5b",
+            "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a"
+          },
+          "cases": [
+            {
+              "name": "preserves unsubmitted worked help through same-badge, other-badge and reload paths",
+              "outcome": "pass"
+            },
+            {
+              "name": "preserves semantic help across fresh activity and alternate representation without contaminating other cases",
+              "outcome": "pass"
+            },
+            {
+              "name": "reveals worked help only after commit and restores keyboard focus without stealing a deliberate move",
+              "outcome": "pass"
+            },
+            {
+              "name": "keeps a failed support save from exposing a worked answer or losing the persisted lower tier",
+              "outcome": "pass"
+            },
+            {
+              "name": "clears session support only on explicit new session and still makes no mastery claim",
+              "outcome": "pass"
+            }
+          ],
+          "network": {
+            "externalRequests": 0,
+            "pageErrors": 0
+          }
+        }
+      ]
+    }
+  ],
+  "ordinaryProductionArtifacts": [
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    },
+    {
+      "path": "assets/index-Cqw6cjjL.css",
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    {
+      "path": "assets/index-GGVBWNUO.js",
+      "bytes": 352556,
+      "sha256": "ea419cd85df7461a6a7775df4db9cf23fef19e2dddc6a0bf71b84d7de7d7b7f4"
+    },
+    {
+      "path": "icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 795,
+      "sha256": "98e174673ef2096a3bbd3f84b31d4c3fd8c8f2a6330dda1efa4254a27da75d15"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1300,
+      "sha256": "98149befb355edc5d2c7f57d05d9e085751c3a053a28b04827ae289d002b2d28"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 22518,
+      "sha256": "67b6e98dff53edd136112733407875ac09c52e5336a27291994fcf37e8c5a4be"
+    }
+  ],
+  "playableProductionArtifacts": [
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    },
+    {
+      "path": "assets/index-B2si80u6.css",
+      "bytes": 20607,
+      "sha256": "cefd2871abaea5eb2735aeadd08a2077ebab75c9eb1e5b8555878887af28416c"
+    },
+    {
+      "path": "assets/index-DFeDmSRI.js",
+      "bytes": 491363,
+      "sha256": "e56c71cb72a8d4127c78d2d3767e526b04dbe83e218fc1de9984043f105610ef"
+    },
+    {
+      "path": "icons/math-adventure.svg",
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 709,
+      "sha256": "22b26809e1f52a76e4cb33788e0144dde2c0191c0e31a4e27b5d1d6e1278d2db"
+    },
+    {
+      "path": "learner-reader.json",
+      "bytes": 179,
+      "sha256": "002bf3c71f2888fbcad92f3b8c2e7c13cfce49ccb31da71567786f97643c9463"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    {
+      "path": "release.json",
+      "bytes": 1453,
+      "sha256": "983fae8f98c4249f011e0f7a8949187fc222317bfdee9dc25cb060da913b9706"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 22637,
+      "sha256": "41b57d451b9a6a50382449c38599e3935fb6647ce78960091b463b65ca2518d9"
+    }
+  ],
+  "limits": [
+    "No actual AT delivery, native zoom, physical disconnected restart, mobile hardware, native language acceptance, educational effectiveness, owner UX acceptance or real learner use is certified.",
+    "Raw task-local profiles, databases, images and traces are ignored and are not published evidence. Only synthetic case names, counts, source/output hashes and bounded observations are retained."
+  ]
+}

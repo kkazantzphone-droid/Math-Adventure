@@ -1,5 +1,6 @@
 import { PROOF_FAMILY_IDS } from '../../domain/families/proofs';
 import { SLICE_FAMILY_IDS } from '../../domain/families/slice';
+import { CHAPTER_FAMILY_IDS } from '../../domain/growing-world/content';
 import { SYNTHETIC_PROFILE_IDS } from '../../domain/adaptation/types';
 import type { SyntheticProfileId } from '../../domain/adaptation/types';
 import { applicationFailure, applicationSuccess } from '../core/result';
@@ -17,7 +18,11 @@ export function syntheticLoopTaskSeed(
   family: LoopFamilyId,
   ordinal: number,
 ): ApplicationResult<string> {
-  const index = [...PROOF_FAMILY_IDS, ...SLICE_FAMILY_IDS].indexOf(family);
+  const index = [
+    ...PROOF_FAMILY_IDS,
+    ...SLICE_FAMILY_IDS,
+    ...CHAPTER_FAMILY_IDS,
+  ].indexOf(family);
   if (
     !SYNTHETIC_PROFILE_IDS.includes(profile) ||
     index < 0 ||

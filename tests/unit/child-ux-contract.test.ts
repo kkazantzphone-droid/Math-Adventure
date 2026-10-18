@@ -12,7 +12,7 @@ import {
   submitSliceFamily,
 } from '../../src/application/slice-family';
 import { syntheticLoopTaskSeed } from '../../src/application/synthetic-loop';
-import type { LoopFamilyId } from '../../src/application/synthetic-loop';
+import type { LegacyLoopFamilyId } from '../../src/application/synthetic-loop';
 import type { ExactPoint } from '../../src/domain/geometry/scene';
 import type { RationalDto } from '../../src/domain/math/rational';
 import { defaultLanguagePreferences } from '../../src/presentation/localisation';
@@ -70,7 +70,10 @@ function shapeClasses(presentation: LoopPresentation): readonly string[] {
   return answer;
 }
 
-function presentation(family: LoopFamilyId, ordinal: number): LoopPresentation {
+function presentation(
+  family: LegacyLoopFamilyId,
+  ordinal: number,
+): LoopPresentation {
   const seed = value(
     syntheticLoopTaskSeed('SYNTHETIC-PLAYER-1', family, ordinal),
   );

@@ -1,0 +1,186 @@
+{
+  "schema": "growing-world-synthetic-native-capacity-evidence-v1",
+  "outcome": "PASS",
+  "observedDate": "2026-10-18",
+  "scope": "Artificial wire-capacity fixture in disposable native-browser IndexedDB; not an actual learner trajectory",
+  "commands": [
+    "PHASE3C_BROWSER=chrome corepack pnpm exec vitest run --config vite.slice.config.ts tests/integration/growing-world-capacity.test.ts",
+    "PHASE3C_BROWSER=msedge corepack pnpm exec vitest run --config vite.slice.config.ts tests/integration/growing-world-capacity.test.ts"
+  ],
+  "sourceHashes": {
+    "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+    "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+    "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+    "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+    "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+    "src/application/repository/validation.ts": "33a1823b16d0cc93e53f91a26ebd2b23fea293dcf82d1a06bb8f7c415cf9f376",
+    "src/domain/replay/canonical.ts": "d4eef381fbc6c46e4ce77d555943b5f7aa99a22d26e47c9ea110f0e7a48b232e",
+    "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+    "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+    "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c",
+    "src/infrastructure/persistence/layout.ts": "ad3c8c253baa964cb569a4e612bd51c04a2d277ee3c00ba42cc0a4e5f9afd143",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+    "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+    "tests/browser/phase3c/main.tsx": "9bc453fe606c45df42e507554bf616291f481b96577aab9ffedf515fa5592923",
+    "vite.slice.config.ts": "84ec8cdf5d7313c3464f00ffc7a069713b4d329bada82dc479f369ea53451d4a",
+    "tests/fixtures/synthetic/growing-world-capacity.ts": "7ed7284dfd8563d1e5e829fe0008e856fb389102e57cd8d8914cd1d5321579bc",
+    "tests/integration/growing-world-capacity.test.ts": "17f2f0a78cee01b414823155b60ae21a9f7bf7e772790ea8161fba2b75b8abc9"
+  },
+  "sourcesStableAcrossBothChannels": true,
+  "channels": [
+    {
+      "channel": "chrome",
+      "browserVersion": "155.0.8059.84",
+      "rawEvidenceSha256": "bcff98e40b66493c05d13ce537772ea80efe83cf111b8f0c2f862af6e63c6cfe",
+      "testsPassed": 2,
+      "cases": [
+        {
+          "name": "/ full legacy/chapter journals survive shared receipt allowance and reject an old payload-reader target",
+          "outcome": "pass"
+        },
+        {
+          "name": "/math-adventure/ full legacy/chapter journals survive shared receipt allowance and reject an old payload-reader target",
+          "outcome": "pass"
+        }
+      ],
+      "summaries": [
+        {
+          "marker": "synthetic-only-wire-capacity",
+          "legacyEvents": 64,
+          "chapterEvents": 72,
+          "supportContexts": 232,
+          "completedCount": 136,
+          "successfulCommands": 2084,
+          "receiptCount": 2084,
+          "receiptLimit": 4096,
+          "profileRevisions": [1044, 1040],
+          "storageEpoch": 0,
+          "preparedCanonicalLength": 103006,
+          "finalCanonicalLength": 102939,
+          "commandFingerprintLengths": [47401, 103213, 103210],
+          "canonicalOutputLimit": 262144,
+          "finalCanonicalSha256": "04e3c17750e69b25e250e23194226881d2cd747f8609d68eb15c344f329bba1d",
+          "legacyCanonicalSha256": "7f88060c255ae985f3cf9153bc49ead428b0bf081f3c49b223f08dde37135306",
+          "preservedLegacy": true,
+          "reopened": true,
+          "exactRetryDidNotReapply": true,
+          "otherProfilePreserved": true,
+          "oldNativeReaderError": "invalid_record",
+          "capacityReached": true,
+          "prefix": "/",
+          "oldTargetReaderBlocked": true
+        },
+        {
+          "marker": "synthetic-only-wire-capacity",
+          "legacyEvents": 64,
+          "chapterEvents": 72,
+          "supportContexts": 232,
+          "completedCount": 136,
+          "successfulCommands": 2084,
+          "receiptCount": 2084,
+          "receiptLimit": 4096,
+          "profileRevisions": [1044, 1040],
+          "storageEpoch": 0,
+          "preparedCanonicalLength": 103006,
+          "finalCanonicalLength": 102939,
+          "commandFingerprintLengths": [47401, 103213, 103210],
+          "canonicalOutputLimit": 262144,
+          "finalCanonicalSha256": "04e3c17750e69b25e250e23194226881d2cd747f8609d68eb15c344f329bba1d",
+          "legacyCanonicalSha256": "7f88060c255ae985f3cf9153bc49ead428b0bf081f3c49b223f08dde37135306",
+          "preservedLegacy": true,
+          "reopened": true,
+          "exactRetryDidNotReapply": true,
+          "otherProfilePreserved": true,
+          "oldNativeReaderError": "invalid_record",
+          "capacityReached": true,
+          "prefix": "/math-adventure/",
+          "oldTargetReaderBlocked": true
+        }
+      ],
+      "externalRequests": 0,
+      "pageErrors": 0
+    },
+    {
+      "channel": "msedge",
+      "browserVersion": "155.0.4283.45",
+      "rawEvidenceSha256": "66869fd2ff46764c72c64e62f6c919a5aff10ca94cc2126788badd9cc5ca191b",
+      "testsPassed": 2,
+      "cases": [
+        {
+          "name": "/ full legacy/chapter journals survive shared receipt allowance and reject an old payload-reader target",
+          "outcome": "pass"
+        },
+        {
+          "name": "/math-adventure/ full legacy/chapter journals survive shared receipt allowance and reject an old payload-reader target",
+          "outcome": "pass"
+        }
+      ],
+      "summaries": [
+        {
+          "marker": "synthetic-only-wire-capacity",
+          "legacyEvents": 64,
+          "chapterEvents": 72,
+          "supportContexts": 232,
+          "completedCount": 136,
+          "successfulCommands": 2084,
+          "receiptCount": 2084,
+          "receiptLimit": 4096,
+          "profileRevisions": [1044, 1040],
+          "storageEpoch": 0,
+          "preparedCanonicalLength": 103006,
+          "finalCanonicalLength": 102939,
+          "commandFingerprintLengths": [47401, 103213, 103210],
+          "canonicalOutputLimit": 262144,
+          "finalCanonicalSha256": "04e3c17750e69b25e250e23194226881d2cd747f8609d68eb15c344f329bba1d",
+          "legacyCanonicalSha256": "7f88060c255ae985f3cf9153bc49ead428b0bf081f3c49b223f08dde37135306",
+          "preservedLegacy": true,
+          "reopened": true,
+          "exactRetryDidNotReapply": true,
+          "otherProfilePreserved": true,
+          "oldNativeReaderError": "invalid_record",
+          "capacityReached": true,
+          "prefix": "/",
+          "oldTargetReaderBlocked": true
+        },
+        {
+          "marker": "synthetic-only-wire-capacity",
+          "legacyEvents": 64,
+          "chapterEvents": 72,
+          "supportContexts": 232,
+          "completedCount": 136,
+          "successfulCommands": 2084,
+          "receiptCount": 2084,
+          "receiptLimit": 4096,
+          "profileRevisions": [1044, 1040],
+          "storageEpoch": 0,
+          "preparedCanonicalLength": 103006,
+          "finalCanonicalLength": 102939,
+          "commandFingerprintLengths": [47401, 103213, 103210],
+          "canonicalOutputLimit": 262144,
+          "finalCanonicalSha256": "04e3c17750e69b25e250e23194226881d2cd747f8609d68eb15c344f329bba1d",
+          "legacyCanonicalSha256": "7f88060c255ae985f3cf9153bc49ead428b0bf081f3c49b223f08dde37135306",
+          "preservedLegacy": true,
+          "reopened": true,
+          "exactRetryDidNotReapply": true,
+          "otherProfilePreserved": true,
+          "oldNativeReaderError": "invalid_record",
+          "capacityReached": true,
+          "prefix": "/math-adventure/",
+          "oldTargetReaderBlocked": true
+        }
+      ],
+      "externalRequests": 0,
+      "pageErrors": 0
+    }
+  ],
+  "mechanism": "Installed browser via playwright-core; native IndexedDB adapter execute/close/reopen; artificial bounded synthetic wire fixtures; verified waiting old-reader shell rejected",
+  "compatibility": "Both root and subpath execute 2081 artificial small commands across two synthetic profiles, save 64 legacy events, save all 232 valid semantic support contexts plus 71 chapter events and a recoverable pending command, then finalize the 72nd chapter event. All 2084 shared success receipts validate after native close/reopen, and an exact final retry adds neither receipt nor revision. Every payload/command is accepted within unchanged canonical traversal/output bounds. Old codec native reads return invalid_record; a verified waiting shell with a v1-only payload-reader declaration is blocked while release identity and the entire saved snapshot remain unchanged.",
+  "supportContextScope": "232 distinct finite cases comprise 191 chapter cases, 21 original addition cases, 12 original quadrilateral cases and 8 original unit-length cases; all carry maximum tier3 in this artificial fixture. This context is separate from historical assessment observations and preserves exact legacy events/derived bytes.",
+  "privacy": "Only synthetic fixture data. Receipt retains counts, hashes, source paths, named test outcomes and browser versions; no database, raw record, learner trajectory, identifying content, screenshot or browser profile is retained.",
+  "limits": [
+    "The receipt crosses the historical 256 and 1024 shared-success allowances and stays below the explicit 4096 synthetic bound; it does not claim execution at the 4096-receipt boundary or define real-learner retention.",
+    "Repeated semantic observations intentionally exercise wire capacity and preserve historical derived state; they establish no independent readiness, retention or educational effectiveness.",
+    "Native close/reopen is an IndexedDB connection lifecycle, not a physical device/browser cold restart or offline-disconnection claim."
+  ]
+}

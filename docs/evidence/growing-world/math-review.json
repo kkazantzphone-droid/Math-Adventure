@@ -1,0 +1,168 @@
+{
+  "schema": "math-adventure.growing-world-math-review-v1",
+  "scope": "synthetic finite content and pure Explore transitions",
+  "result": "PASS",
+  "reviewDate": "2026-10-18",
+  "independentAuthor": "Independent review agent; did not author production content or Explore modules",
+  "binding": "Working-tree source hashes; the parent/base revision is not a claim that uncommitted implementation is committed",
+  "baseRevision": "71b57b9f2c812de482e1162102ac5aee5bc78116",
+  "sourceHashes": {
+    "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+    "src/domain/growing-world/explore.ts": "6c1028346dfbc6d9bdd6f8c9fb1bf2ce5f1a224ea4d1ac041d92168b36e40354",
+    "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+    "tests/oracle/growing-world.ts": "2e8a051980b8177d42302abc3d550118272e36ba21c16c95debb2e8101ab7e7c",
+    "tests/oracle/xoshiro-reference.ts": "077700eb339866f29a5581927197ebf6c8dcca4ae504cfd62a4aa42fb73338a3",
+    "tests/unit/domain/growing-world-independent.test.ts": "a1507c0f3c85f2d8198e549de436ffa80448750de1b97582f140eb467830781f",
+    "scripts/growing-world-mutations.mjs": "1a195d48c4a17ba02465932a9273203a1457fc8fc4661d10ebd61ead586712f3"
+  },
+  "oracle": {
+    "importsProductionCode": false,
+    "method": "Token cardinalities, finite equation search, equal-bucket sharing and logical grid-cell enumeration; separately authored BigInt PRNG reference supplies deterministic tuple witnesses",
+    "parameterRepresentationCases": {
+      "number.make-ten": 52,
+      "number.part-whole": 580,
+      "groups.equal": 32,
+      "groups.missing": 32,
+      "measurement.array-area": 32,
+      "powers.square-side": 12,
+      "total": 740
+    },
+    "semanticFingerprintCases": {
+      "number.make-ten": 4,
+      "number.part-whole": 145,
+      "groups.equal": 10,
+      "groups.missing": 16,
+      "measurement.array-area": 10,
+      "powers.square-side": 6,
+      "total": 191
+    },
+    "explore": {
+      "splitStates": 231,
+      "splitTransitions": 924,
+      "arrayStates": 25,
+      "arrayTransitions": 150
+    },
+    "limits": [
+      "Parameter/representation and semantic-case coverage is exhaustive; the 128-bit seed space is not exhausted",
+      "Two missing-part unknown positions and both concrete/relational representations are separate parameter cases, not independent mathematical evidence",
+      "This review certifies bounded logical unit-square cardinality and principal positive square sides, not general polygon measurement, arbitrary roots or a curriculum",
+      "No browser, actual offline/device, accessibility delivery, native-language, educational-effectiveness, retention or learner-outcome claims"
+    ]
+  },
+  "baselineTests": 13,
+  "mutations": [
+    {
+      "id": "make-ten-wrong-filler",
+      "source": "src/domain/growing-world/content.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 1,
+      "tests": [
+        "exhausts independent parameter/representation witnesses: number.make-ten"
+      ],
+      "mutantSha256": "210d2b3bba209aea44c7bade121560fc14086f03dbb85132dfac3f63792d83a4"
+    },
+    {
+      "id": "missing-part-adds-known",
+      "source": "src/domain/growing-world/content.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 1,
+      "tests": [
+        "exhausts independent parameter/representation witnesses: number.part-whole"
+      ],
+      "mutantSha256": "69933c4d2002d74d8d7fd13cb54c9d499359c2f7ce3a2dfb49baa9bb786cf481"
+    },
+    {
+      "id": "equal-groups-adds-instead-of-counting-cells",
+      "source": "src/domain/growing-world/content.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 1,
+      "tests": [
+        "exhausts independent parameter/representation witnesses: groups.equal"
+      ],
+      "mutantSha256": "dee5692b72e3ad5fc0e54f659a2046ccffb47cd79b0275e72fd57b4c873026e3"
+    },
+    {
+      "id": "missing-group-returns-count-of-groups",
+      "source": "src/domain/growing-world/content.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 1,
+      "tests": [
+        "exhausts independent parameter/representation witnesses: groups.missing"
+      ],
+      "mutantSha256": "ea7585a35553e57b2989888c3888b3dab86e9b53d16b54dc01bc482dea088e5e"
+    },
+    {
+      "id": "array-area-counts-only-one-row",
+      "source": "src/domain/growing-world/content.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 1,
+      "tests": [
+        "exhausts independent parameter/representation witnesses: measurement.array-area"
+      ],
+      "mutantSha256": "54550246943538d212dfa0246ac440d3838d0e6d7d980bb1e8b4706072fd75da"
+    },
+    {
+      "id": "principal-square-side-negative-root",
+      "source": "src/domain/growing-world/content.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 1,
+      "tests": [
+        "exhausts independent parameter/representation witnesses: powers.square-side"
+      ],
+      "mutantSha256": "b8f72f0369738e7aec8eba007c1ff031fbce2604a92b8e5239e82af9ebeaebd8"
+    },
+    {
+      "id": "area-unit-identity-ignored",
+      "source": "src/domain/growing-world/content.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 1,
+      "tests": [
+        "rejects malformed exact answers, forged contracts, unit changes and unsupported replay tuples"
+      ],
+      "mutantSha256": "f1e590525fa8267bf1a55080a565804e437bc9bf69c09e99908b0e9216722c09"
+    },
+    {
+      "id": "rotated-products-create-new-evidence",
+      "source": "src/domain/growing-world/content.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 2,
+      "tests": [
+        "exhausts independent parameter/representation witnesses: groups.equal",
+        "exhausts independent parameter/representation witnesses: measurement.array-area"
+      ],
+      "mutantSha256": "fe90aecd9430ffadced8a0071db12800ffed01bfe070b8be9d84c14cf58f930a"
+    },
+    {
+      "id": "explore-move-unit-loses-part-total",
+      "source": "src/domain/growing-world/explore.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 1,
+      "tests": [
+        "exhausts all 231 split states and 924 single-action transitions"
+      ],
+      "mutantSha256": "e0818459b2102cf3fc3862a857a06b7a53375851ae450fd9f26b56c67a10e712"
+    },
+    {
+      "id": "explore-principal-side-off-by-one",
+      "source": "src/domain/growing-world/explore.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 1,
+      "tests": [
+        "exhausts all 25 equal-unit arrays and 150 single-action transitions"
+      ],
+      "mutantSha256": "8f1d2011d82d26c6cc173ded1a53346bc8f0821cbda8e99db8a60d2976160677"
+    },
+    {
+      "id": "explore-turn-changes-cell-cardinality",
+      "source": "src/domain/growing-world/explore.ts",
+      "result": "DETECTED_BY_MATHEMATICAL_ASSERTION",
+      "failingTests": 1,
+      "tests": [
+        "exhausts all 25 equal-unit arrays and 150 single-action transitions"
+      ],
+      "mutantSha256": "3156e1736b80967ea7cfb57f66f58644abd584c078cb1d9d9e60132195de6e4f"
+    }
+  ],
+  "restoredTests": 13,
+  "exactRestoration": true
+}

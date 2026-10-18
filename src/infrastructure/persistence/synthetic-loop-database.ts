@@ -23,6 +23,9 @@ import { nativeStorageCode } from './adapter';
 /** Fixed owned namespace. Only the separate loopback developer entry imports it. */
 export const SYNTHETIC_LOOP_DATABASE =
   'math-adventure.synthetic.phase3c.loop-v1';
+/** Bounded synthetic capacity for two combined legacy/chapter histories.
+ * This is not a real-learner retention or receipt retirement policy. */
+export const SYNTHETIC_LOOP_RECEIPT_LIMIT = 4096;
 
 /** One native snapshot checks every owned row/receipt, including unsupported
  * extra rows. Neither an unknown row nor a newer schema becomes an empty start.
@@ -113,7 +116,7 @@ export function validateSyntheticLoopDatabase(
               return;
             }
             if (
-              ++receipts > 256 ||
+              ++receipts > SYNTHETIC_LOOP_RECEIPT_LIMIT ||
               !SYNTHETIC_PROFILE_IDS.some((profile) => {
                 const id = syntheticLoopRecordId(profile);
                 return id.ok && id.value === receipt.value.recordId;

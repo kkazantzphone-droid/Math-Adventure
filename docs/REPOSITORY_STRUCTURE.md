@@ -1,5 +1,15 @@
 # Repository structure and versioning
 
+Current D55 additions: `src/domain/growing-world/` contains new content identities,
+exact validators, experimental invitation rules, reversible Explore transitions
+and bounded support context; `src/application/growing-world.ts` exposes answer-free
+presentation. `src/ui/synthetic-loop/{ChapterTaskView,ExploreWorld,GrowthJourney}`
+and typed draft copy adapt the contained child journey. Synthetic-loop v1/v2
+compatibility remains in application; browser storage/shell readers remain in
+infrastructure and the deliberate `tests/browser/phase3c/` composition. Independent
+oracles, provenance/capacity browser tests and sanitized evidence belong to this
+chapter's [completion record](GROWING_WORLD_COMPLETION_REPORT.md).
+
 Current Phase 3C and Phase 3 acceptance: **PASS — bounded synthetic scope**.
 The owner's 2026-10-07 [observation](evidence/phase3c-closure/owner-observation.json)
 reports current Chrome native 200% zoom, delivered Windows 11 / Chrome / Narrator

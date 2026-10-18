@@ -1,6 +1,14 @@
 # Roadmap
 
-Current owner Goal D54 is the [focused multilingual child increment](MULTILINGUAL_CHILD_DESIGN.md)
+Current owner Goal D55 is the [growing mathematical world](GROWING_WORLD_DESIGN.md):
+a coherent synthetic Build and take apart chapter with mathematical relationships,
+evidence-driven invitations and reversible exploration. This explicitly authorized
+focused content scope may advance work historically scheduled later without
+authorizing a general later phase. Its [completion evidence](GROWING_WORLD_COMPLETION_REPORT.md)
+separates engineering verification, publication and owner UX acceptance. Proposed
+educational policy and real-learner boundaries remain unchanged.
+
+Merged owner Goal D54 delivered the [focused multilingual child increment](MULTILINGUAL_CHILD_DESIGN.md)
 over the existing synthetic eight-family Space journey. It authorizes draft
 el-GR/en-GB/de-DE child operation, retained independent language roles and bounded
 verification, without starting general Phase 4/5 work. Its

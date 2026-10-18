@@ -8,7 +8,7 @@ import {
 } from '../../src/application/synthetic-loop';
 import type {
   LoopAnswerRequest,
-  LoopFamilyId,
+  LegacyLoopFamilyId,
   SyntheticLoopRecord,
 } from '../../src/application/synthetic-loop';
 import { completePendingSyntheticLoop } from '../../src/application/synthetic-loop/record';
@@ -30,7 +30,10 @@ function value<T>(result: {
   return result.value;
 }
 
-function presentation(family: LoopFamilyId, ordinal: number): LoopPresentation {
+function presentation(
+  family: LegacyLoopFamilyId,
+  ordinal: number,
+): LoopPresentation {
   const seed = value(
     syntheticLoopTaskSeed('SYNTHETIC-PLAYER-1', family, ordinal),
   );

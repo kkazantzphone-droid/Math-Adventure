@@ -16,14 +16,23 @@ import type { StructuredAnswer } from '../../domain/puzzles/contracts';
 import type { ReplayDescriptor } from '../../domain/replay/descriptor';
 import type { ProofFamilyId } from '../../domain/families/proofs';
 import type { SliceFamilyId } from '../../domain/families/slice';
+import type { ChapterFamilyId } from '../../domain/growing-world/content';
+import type { ChapterObservation } from '../../domain/growing-world/journey';
+import type { ChapterSupport } from '../../domain/growing-world/support';
 import type { ApplicationErrorCode } from '../core/result';
 import type { RecordSnapshot } from '../ports/repository';
 
 export const SYNTHETIC_LOOP_SCHEMA = 'phase3c-synthetic-loop-v1';
+export const GROWING_LOOP_SCHEMA = 'growing-world-synthetic-loop-v2';
+export const SYNTHETIC_LOOP_PAYLOAD_SCHEMAS = Object.freeze([
+  SYNTHETIC_LOOP_SCHEMA,
+  GROWING_LOOP_SCHEMA,
+] as const);
 /** Synthetic engineering capacity, never a production retention/default policy. */
 export const SYNTHETIC_LOOP_EVENT_LIMIT = 64;
 export type SyntheticLoopMode = 'manual' | 'synthetic-policy';
-export type LoopFamilyId = ProofFamilyId | SliceFamilyId;
+export type LegacyLoopFamilyId = ProofFamilyId | SliceFamilyId;
+export type LoopFamilyId = LegacyLoopFamilyId | ChapterFamilyId;
 export type LoopLocale =
   'el-GR' | 'en-GB' | 'de-DE' | 'fr-FR' | 'es-ES' | 'it-IT' | 'pt-PT';
 export interface LoopPreferences {
@@ -92,10 +101,11 @@ export interface LoopPending {
     LoopEvidenceEvent,
     { kind: 'observation' }
   > | null;
+  /** Present only under the explicit growing-world-v2 payload schema. */
+  readonly chapterObservation?: ChapterObservation | null;
 }
 
-export interface SyntheticLoopRecord {
-  readonly schema: typeof SYNTHETIC_LOOP_SCHEMA;
+interface SyntheticLoopRecordBase {
   readonly marker: 'synthetic-only';
   readonly profileId: SyntheticProfileId;
   readonly mode: SyntheticLoopMode;
@@ -110,6 +120,16 @@ export interface SyntheticLoopRecord {
   readonly pending: LoopPending | null;
   readonly lastCompletion: LoopCompletion | null;
 }
+
+export type SyntheticLoopRecord = SyntheticLoopRecordBase &
+  (
+    | { readonly schema: typeof SYNTHETIC_LOOP_SCHEMA }
+    | {
+        readonly schema: typeof GROWING_LOOP_SCHEMA;
+        readonly chapterEvents: readonly ChapterObservation[];
+        readonly chapterSupport: readonly ChapterSupport[];
+      }
+  );
 
 export interface SyntheticLoopState {
   readonly record: SyntheticLoopRecord | null;

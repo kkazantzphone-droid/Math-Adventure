@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { applicationFailure } from '../../src/application/core/result';
+import { revision, storageEpoch } from '../../src/application/core/integrity';
 import {
   createSyntheticLoopSession,
   deriveSyntheticLoop,
@@ -56,6 +57,37 @@ function request(correct = true): LoopAnswerRequest {
     clockCertain: true,
     revisit: false,
   };
+}
+
+let fullCapacityFixture: SyntheticLoopRecord | undefined;
+function capacityRecord(): SyntheticLoopRecord {
+  if (fullCapacityFixture) return fullCapacityFixture;
+  const initial = value(
+    syntheticLoopCodec.decode({
+      ...initialSyntheticLoop(player1),
+      mode: 'synthetic-policy',
+    }),
+  );
+  const prepared = value(
+    prepareSyntheticLoopAnswer(initial, request(), 'answer-0', 1, 0),
+  );
+  if (prepared.kind !== 'pending' || !prepared.pending.observation)
+    throw new Error('Expected prepared observation');
+  const observation = prepared.pending.observation;
+  const events = Array.from({ length: 64 }, (_, ordinal) => ({
+    ...observation,
+    input: { ...observation.input, id: `SYNTHETIC-answer-${ordinal}` },
+  }));
+  fullCapacityFixture = value(
+    syntheticLoopCodec.decode({
+      ...initial,
+      completedCount: 64,
+      taskOrdinal: 64,
+      events,
+      derived: value(deriveSyntheticLoop(player1, events)).derived,
+    }),
+  );
+  return fullCapacityFixture;
 }
 
 function repository() {
@@ -499,40 +531,41 @@ describe('Synthetic loop atomic application integration', () => {
     ).toBe(false);
   });
 
-  it('bounded wire remains canonical at capacity and refuses further evidence without pruning', () => {
-    const initial = value(
-      syntheticLoopCodec.decode({
-        ...initialSyntheticLoop(player1),
-        mode: 'synthetic-policy',
-      }),
-    );
-    const prepared = value(
-      prepareSyntheticLoopAnswer(initial, request(), 'answer-0', 1, 0),
-    );
-    if (prepared.kind !== 'pending' || !prepared.pending.observation)
-      throw new Error('Expected prepared observation');
-    const observation = prepared.pending.observation;
-    const events = Array.from({ length: 64 }, (_, ordinal) => ({
-      ...observation,
-      input: { ...observation.input, id: `SYNTHETIC-answer-${ordinal}` },
-    }));
-    const derived = value(deriveSyntheticLoop(player1, events));
-    const record = value(
-      syntheticLoopCodec.decode({
-        ...initial,
-        completedCount: 64,
-        taskOrdinal: 64,
-        events,
-        derived: derived.derived,
-      }),
-    );
+  it('bounded wire remains canonical at capacity and continues unscored without pruning', () => {
+    const record = capacityRecord();
     expect(record.events).toHaveLength(64);
     expect(value(canonicalize(record)).length).toBeLessThan(262_144);
     expect(
       value(deriveSyntheticLoop(player1, record.events)).snapshot.receipts,
     ).toHaveLength(64);
-    const overflow = value(
+    const continuation = value(
       prepareSyntheticLoopAnswer(record, request(), 'answer-overflow', 1, 0),
+    );
+    expect(continuation).toEqual({
+      kind: 'sessionOnly',
+      exploratory: false,
+      completion: {
+        operationId: 'answer-overflow',
+        correct: true,
+        evidence: 'sessionOnly',
+        reasonCode: 'nonPractice',
+      },
+    });
+    // The preparation API refuses to create a 65th observation. A pending
+    // command prepared against the prior valid 63-event record still cannot be
+    // transplanted into a full journal to bypass its exact codec bound.
+    const priorEvents = record.events.slice(0, -1);
+    const prior = value(
+      syntheticLoopCodec.decode({
+        ...record,
+        events: priorEvents,
+        derived: value(deriveSyntheticLoop(player1, priorEvents)).derived,
+        completedCount: 63,
+        taskOrdinal: 63,
+      }),
+    );
+    const overflow = value(
+      prepareSyntheticLoopAnswer(prior, request(), 'answer-overflow', 1, 0),
     );
     if (overflow.kind !== 'pending')
       throw new Error('Expected pending overflow probe');
@@ -559,5 +592,63 @@ describe('Synthetic loop atomic application integration', () => {
     expect(completed.completedCount).toBe(65);
     expect(completed.events).toHaveLength(64);
     expect(completed.lastCompletion?.evidence).toBe('manual');
+  });
+
+  it('at capacity keeps the saved record unchanged during unscored play and safely permits Next and Stop', async () => {
+    const record = capacityRecord();
+    const underlying = value(
+      createSyntheticRepository(syntheticLoopCodec, {
+        epoch: value(storageEpoch(0)),
+        records: [
+          {
+            recordId: value(syntheticLoopRecordId(player1)),
+            revision: value(revision(1)),
+            storageEpoch: value(storageEpoch(0)),
+            payload: record,
+          },
+        ],
+      }),
+    );
+    let writes = 0;
+    const session = createSyntheticLoopSession({
+      ...underlying,
+      execute: (command) => {
+        writes += 1;
+        return underlying.execute(command);
+      },
+    });
+    value(await session.selectProfile(player1));
+    const before = value(canonicalize(session.state().record));
+    const priorExploration = session.state().explorationCount;
+    value(await session.submit(request(), 'capacity-unscored'));
+    expect(session.state().sessionOnlyCompletion).toEqual({
+      operationId: 'capacity-unscored',
+      correct: true,
+      evidence: 'sessionOnly',
+      reasonCode: 'nonPractice',
+    });
+    expect(value(canonicalize(session.state().record))).toBe(before);
+    expect(session.state().snapshot?.revision).toBe(1);
+    expect(session.state().explorationCount).toBe(priorExploration);
+    expect(writes).toBe(0);
+    const saved = value(
+      await underlying.load(value(syntheticLoopRecordId(player1))),
+    );
+    expect(value(canonicalize(saved.payload))).toBe(before);
+    expect(saved.revision).toBe(1);
+    value(await session.skip('capacity-next'));
+    expect(session.state().record?.taskOrdinal).toBe(65);
+    expect(session.state().record?.completedCount).toBe(64);
+    expect(session.state().record?.events).toEqual(record.events);
+    expect(session.state().record?.derived).toEqual(record.derived);
+    value(await session.endSession('capacity-stop'));
+    expect(session.state().record?.sessionActive).toBe(false);
+    expect(session.state().record?.schema).toBe(
+      'growing-world-synthetic-loop-v2',
+    );
+    expect(session.state().record?.events).toEqual(record.events);
+    expect(session.state().record?.derived).toEqual(record.derived);
+    expect(session.state().explorationCount).toBe(priorExploration);
+    expect(writes).toBe(2);
   });
 });

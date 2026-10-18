@@ -1,6 +1,20 @@
 # Decision register
 
-Current Goal **D54** authorizes the existing synthetic child journey in draft
+Current Goal **D55**, owner-commissioned 2026-10-18, authorizes a substantial
+synthetic growing mathematical world: conceptual growth, visible explainable
+adaptive invitations and genuine reversible unassessed exploration together.
+[Chapter design](GROWING_WORLD_DESIGN.md) chooses Build and take apart: six new
+immutable families linking decomposition, inverse groups, unit area and square
+sides. Existing evidence/replay meanings remain; new invitation hypotheses are
+separately versioned and retain limited evidence. This focused authorization
+supersedes historical scheduling restrictions only for the commissioned work.
+It accepts no real-use educational/retention policy and authorizes no real-child
+use, trials, release, deployment, backend, telemetry or general later phase.
+`automatic_when_eligible` applies under unchanged V2; engineering evidence is
+separate from owner UX acceptance and is recorded in the
+[completion report](GROWING_WORLD_COMPLETION_REPORT.md).
+
+Merged Goal **D54** authorized the existing synthetic child journey in draft
 el-GR/en-GB/de-DE: discoverable native-name language choice, retained independent
 preferences, eight-family content/help/feedback, unchanged mathematics and
 optional exact-local speech. [Design](MULTILINGUAL_CHILD_DESIGN.md) and
@@ -129,6 +143,7 @@ No Phase 3 implementation or real-child use follows from this certification.
 | D52 | Owner requests full evidence-backed Phase 3C completion and formal Phase 3 closure after the owner-confirmed milestone is merged | ACCEPTED task scope 2026-10-07; mandatory owner observations subsequently supplied under D53 | [Closure report](PHASE_3_COMPLETION_REPORT.md). Preserve approved UX/engine and accepted gates; required final full/fresh, independent, privacy/integrity and exact-head hosted checks precede guarded protected merge. `merge_policy: automatic_when_eligible` under unchanged V2. No Phase 4, real-child use, release/deployment, telemetry/backend or policy/access expansion |
 | D53 | Owner reports completed prepared protocol on the current bound production surface: Chrome native 200% zoom, Windows 11 / Chrome / Narrator actual delivery and physically disconnected-device restart with required synthetic persistence/reopen all PASS | RECORDED bounded owner observation 2026-10-07, not a product/privacy/educational policy change or broad certification | [Faithful aggregate receipt](evidence/phase3c-closure/owner-observation.json). No invented per-family subresults, versions, counts, locale/profile details or timestamps. Closes the previously absent 3C observations within that tested environment; final local/fresh/independent/hosted/protected merge gates remain mandatory. No general device, WCAG, language, educational or real-child claim |
 | D54 | Owner authorizes a focused multilingual increment over the existing eight-family synthetic child journey in draft el-GR/en-GB/de-DE | ACCEPTED bounded owner task scope 2026-10-09; engineering/product evidence recorded separately | [Design](MULTILINGUAL_CHILD_DESIGN.md), [completion](MULTILINGUAL_CHILD_COMPLETION_REPORT.md). Discoverable simple choice plus independent roles, retained badge preferences, coherent help/feedback/recovery/offline and semantic local-only speech. Preserve Space, math/replay/adaptation/privacy/persistence/update guarantees. Draft native review may remain pending; no official pack promotion, catalogue expansion, broader Phase 4/5, real-child data/trials, accepted policy/access change, release/deployment/backend/telemetry. Standing V2 automatic_when_eligible only after all required exact-head gates |
+| D55 | Owner commissions conceptual mathematical growth, a visible synthetic adaptive journey and genuine unassessed exploration together | ACCEPTED focused implementation Goal 2026-10-18; candidate certification recorded separately | [Design](GROWING_WORLD_DESIGN.md), [completion](GROWING_WORLD_COMPLETION_REPORT.md). Build and take apart adds six new replay families, separately versioned experimental invitations, no-loss synthetic payload upgrade and two reversible workshops. Preserve prior accomplishment meanings and limited-evidence classifications. `automatic_when_eligible` under unchanged V2, with no owner UX acceptance inferred from engineering gates. No real learners/trials, accepted educational policy, general later phase, accounts/backend/telemetry, release or deployment |
 
 D49's initial automatic-when-eligible scope is preserved in the engine milestone;
 D50 set `owner_merge` and required child UX reconciliation; D51 records the later

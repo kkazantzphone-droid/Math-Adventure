@@ -230,3 +230,43 @@
     transition: none !important;
   }
 }
+.growth-journey {
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 1px solid #819cc5;
+  border-radius: 1rem;
+  background: #122647;
+}
+
+.growth-journey h2,
+.growth-journey h3 {
+  margin-block: 0.25rem 0.75rem;
+}
+.growth-journey p {
+  max-width: 65ch;
+}
+.growth-evidence-notice {
+  font-size: 0.9rem;
+}
+.growth-invitation {
+  margin-block: 0.75rem;
+}
+.growth-opportunities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 0.75rem;
+  margin-block: 1rem;
+}
+.growth-opportunities button {
+  min-height: 4rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.growth-opportunities span,
+.growth-opportunities small {
+  display: block;
+}
+.growth-opportunities small {
+  margin-top: 0.4rem;
+  font-size: 0.8em;
+}
