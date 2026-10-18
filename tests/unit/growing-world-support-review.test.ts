@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import { applicationFailure } from '../../src/application/core/result';
 import {
   operationId,
@@ -546,20 +546,42 @@ describe('Independent saved mathematical-support boundary review', () => {
     expect(latest.chapterEvents[1]?.mathematicalHintTier).toBe(0);
   });
 
-  it.each([false, true])(
-    'permits explicit Stop and a fresh support context after a full legacy journal, preserving frozen v1 history (upgraded=%s)',
-    async (upgraded) => {
+  describe('Full legacy journal operation boundaries', () => {
+    const scenarios = new Map<
+      boolean,
+      {
+        readonly historical: SyntheticLoopRecord;
+        readonly payload: SyntheticLoopRecord;
+        readonly closed: SyntheticLoopRecord;
+      }
+    >();
+
+    beforeAll(() => {
       const historical = fullLegacyRecord();
-      const payload = upgraded
-        ? value(
-            syntheticLoopCodec.decode({
-              ...enterGrowingWorld(historical),
-              chapterSupport: value(
-                rememberChapterSupport([], historicalRequest().replay, 3),
-              ),
-            }),
-          )
-        : historical;
+      for (const upgraded of [false, true]) {
+        const payload = upgraded
+          ? value(
+              syntheticLoopCodec.decode({
+                ...enterGrowingWorld(historical),
+                chapterSupport: value(
+                  rememberChapterSupport([], historicalRequest().replay, 3),
+                ),
+              }),
+            )
+          : historical;
+        const closed = value(
+          syntheticLoopCodec.decode({
+            ...enterGrowingWorld(payload),
+            sessionActive: false,
+          }),
+        );
+        scenarios.set(upgraded, { historical, payload, closed });
+      }
+    });
+
+    async function loadFull(upgraded: boolean, closed = false) {
+      const fixture = scenarios.get(upgraded);
+      if (!fixture) throw new Error('Expected prepared capacity fixture');
       const repository = value(
         createSyntheticRepository(syntheticLoopCodec, {
           epoch: value(storageEpoch(0)),
@@ -568,39 +590,70 @@ describe('Independent saved mathematical-support boundary review', () => {
               recordId: value(syntheticLoopRecordId('SYNTHETIC-PLAYER-1')),
               revision: value(revision(1)),
               storageEpoch: value(storageEpoch(0)),
-              payload,
+              payload: closed ? fixture.closed : fixture.payload,
             },
           ],
         }),
       );
       const session = createSyntheticLoopSession(repository);
       value(await session.selectProfile('SYNTHETIC-PLAYER-1'));
-      value(
-        await session.submit(
-          historicalRequest(),
-          `support-full-unscored-${String(upgraded)}`,
-        ),
-      );
-      expect(session.state().record).toEqual(payload);
-      expect(session.state().snapshot?.revision).toBe(1);
-      expect(session.state().sessionOnlyCompletion?.evidence).toBe(
-        'sessionOnly',
-      );
-      value(await session.endSession(`support-full-end-${String(upgraded)}`));
-      expect(session.state().record?.schema).toBe(
-        'growing-world-synthetic-loop-v2',
-      );
-      expect(session.state().record?.sessionActive).toBe(false);
-      expect(session.state().record?.events).toEqual(historical.events);
-      expect(session.state().record?.derived).toEqual(historical.derived);
-      value(await session.startSession(`support-full-new-${String(upgraded)}`));
-      expect(session.state().record?.sessionOrdinal).toBe(2);
-      expect(session.state().record?.taskOrdinal).toBe(65);
-      expect(session.chapterHintTier(historicalRequest().replay)).toBe(0);
-      expect(session.state().record?.events).toEqual(historical.events);
-      expect(session.state().record?.derived).toEqual(historical.derived);
-    },
-  );
+      return { ...fixture, session };
+    }
+
+    it.each([false, true])(
+      'continues unscored without changing a full saved journal (upgraded=%s)',
+      async (upgraded) => {
+        const { session, payload } = await loadFull(upgraded);
+        value(
+          await session.submit(
+            historicalRequest(),
+            `support-full-unscored-${String(upgraded)}`,
+          ),
+        );
+        expect(session.state().record).toEqual(payload);
+        expect(session.state().snapshot?.revision).toBe(1);
+        expect(session.state().sessionOnlyCompletion?.evidence).toBe(
+          'sessionOnly',
+        );
+        expect(session.state()).toMatchObject({
+          readOnly: false,
+          uncertain: false,
+          frozen: false,
+          busy: false,
+        });
+      },
+    );
+
+    it.each([false, true])(
+      'explicit Stop preserves full frozen history and its support context (upgraded=%s)',
+      async (upgraded) => {
+        const { session, historical, closed } = await loadFull(upgraded);
+        value(await session.endSession(`support-full-end-${String(upgraded)}`));
+        expect(session.state().record?.schema).toBe(
+          'growing-world-synthetic-loop-v2',
+        );
+        expect(session.state().record?.sessionActive).toBe(false);
+        expect(session.state().record?.events).toEqual(historical.events);
+        expect(session.state().record?.derived).toEqual(historical.derived);
+        expect(session.state().record).toEqual(closed);
+      },
+    );
+
+    it.each([false, true])(
+      'a new session clears support and advances replay without rewriting full history (upgraded=%s)',
+      async (upgraded) => {
+        const { session, historical } = await loadFull(upgraded, true);
+        value(
+          await session.startSession(`support-full-new-${String(upgraded)}`),
+        );
+        expect(session.state().record?.sessionOrdinal).toBe(2);
+        expect(session.state().record?.taskOrdinal).toBe(65);
+        expect(session.chapterHintTier(historicalRequest().replay)).toBe(0);
+        expect(session.state().record?.events).toEqual(historical.events);
+        expect(session.state().record?.derived).toEqual(historical.derived);
+      },
+    );
+  });
 
   it('round-trips all finite support contexts beside full64+72 journals within unchanged canonical and command bounds', () => {
     const initial = record();

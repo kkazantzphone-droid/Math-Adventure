@@ -135,8 +135,8 @@ SHA once observed. No older-head result is represented as current hosted success
 
 | Gate                             | Observed result                                                                                                                                                           |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Canonical `corepack pnpm verify` | PASS: formatting, zero-warning lint, four TypeScript projects, 32 fixture scenarios, 1,399 tests in 77 files, normal production build                                     |
-| Isolated fresh candidate         | PASS: byte-matched candidate after `corepack pnpm install --frozen-lockfile`, then the same complete verify; 1,399 tests, lockfile unchanged                              |
+| Canonical `corepack pnpm verify` | PASS on integrated source 96c5976: formatting, zero-warning lint, four TypeScript projects, 32 fixture scenarios, 1,399 tests in 77 files, normal production build        |
+| Isolated fresh candidate         | PASS on exact commit 96c5976: clean isolated clone after `corepack pnpm install --frozen-lockfile`, then the same complete verify; 1,399 tests, lockfile unchanged        |
 | Installed browser integration    | PASS: 139 cases per channel in Chrome 155 / Edge 155, including original child/language/offline/update behavior, new journey/Explore, native capacity and help provenance |
 | Separate production rendering    | PASS: 42 cases, 72 representation cases, 228 layout samples, 264 contrast samples; all three draft locales, narrow/portrait/landscape/200% text and keyboard states       |
 | Independent math/integrity       | PASS: separate exact oracle and finite enumeration; eleven truth mutations and eight integrity mutations detected, exact original bytes restored                          |
@@ -151,9 +151,17 @@ bindings match the candidate. The actual playable production JavaScript is
 `assets/index-DFeDmSRI.js`, SHA256
 `e56c71cb72a8d4127c78d2d3767e526b04dbe83e218fc1de9984043f105610ef`;
 all nine production artifacts match the independent production UI inventory.
-The final source/test/config proof is unchanged by this completion prose and
-sanitized receipt reconciliation. The committed head receives its own complete
-local/fresh gates before publication; those exact-head results belong in the PR.
+The integrated product source and all browser/UI/configuration proof bindings
+remain unchanged by the subsequent test-only CI repair. Three long full-journal
+unit scenarios were reorganized into focused tests for each operation, increasing
+the suite to 1,407 cases in the same 77 files. Pure immutable fixture setup is
+shared; actual application operations and assertions remain in the tests. No
+deadline, application behavior, dependency, browser harness or workflow changed.
+This separates unscored play, Next, Stop and resume checks; it does not claim the
+reorganized tests are an unchanged end-to-end command sequence. The native browser
+lifecycle proof remains independently source-bound. The follow-up committed head
+receives its own complete local/fresh and hosted gates; exact results belong in
+the PR, and a prior-head hosted success never satisfies that requirement.
 
 Ordinary findings were repaired: conserved/contiguous unit pictures, finite-scope
 later-session confirmation, honest edge invitations, explicit mode preservation,
@@ -161,8 +169,12 @@ durable help across navigation/reload, saved-help keyboard focus, pending suppor
 provenance, combined receipt capacity and full-journal unscored continuation.
 The old raw codec-overflow assertion remains. Browser helpers now await saved
 help and respect existing semantic help; failed diagnostic snapshots are not
-counted as passing. Two aggregate fixtures exceeded their original deadlines
-under concurrent heavy checks; sequential unchanged-deadline full gates pass.
+counted as passing. Although the initial exact-commit local/fresh gates passed,
+the Windows PR job for `96c5976` exceeded the unchanged five-second deadline in
+three combined full-journal tests. That failure was diagnosed rather than
+waived. The test-only repair separates those long scenarios and repeats the
+affected independent mutation evidence. Fresh current-head Ubuntu and Windows
+success remains mandatory before protected squash merge.
 
 ## Evidence limits and owner observation
 

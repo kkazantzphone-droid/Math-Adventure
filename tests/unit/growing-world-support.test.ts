@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import {
   createSyntheticLoopSession,
   enterGrowingWorld,
@@ -427,74 +427,108 @@ describe('bounded durable mathematical support context', () => {
     expect(session.state().record?.completedCount).toBe(0);
   });
 
-  it('keeps full historical journals unscored and closes/restarts with exact old bytes and a fresh v2 replay', async () => {
-    const full = growingWorldCapacityFixture(3).legacy;
-    const repository = value(
-      createSyntheticRepository(syntheticLoopCodec, {
-        epoch: value(storageEpoch(0)),
-        records: [
-          {
-            recordId: value(syntheticLoopRecordId(full.profileId)),
-            revision: value(revision(1)),
-            storageEpoch: value(storageEpoch(0)),
-            payload: full,
-          },
-        ],
-      }),
-    );
-    const session = createSyntheticLoopSession(repository);
-    value(await session.selectProfile(full.profileId));
-    const before = value(
-      canonicalize({ events: full.events, derived: full.derived }),
-    );
-    value(
-      await session.submit(
-        request(replay('number.addition')),
-        'support-full-unscored',
-      ),
-    );
-    expect(session.state().record?.completedCount).toBe(64);
-    expect(session.state().sessionOnlyCompletion).toMatchObject({
-      evidence: 'sessionOnly',
-      reasonCode: 'nonPractice',
+  describe('full historical journal boundaries', () => {
+    let full: SyntheticLoopRecord;
+    let stopped: SyntheticLoopRecord;
+    let historicalBytes: string;
+
+    beforeAll(() => {
+      // Immutable wire fixtures are shared; each test still creates an isolated
+      // repository and executes the application operation it certifies.
+      full = growingWorldCapacityFixture(3).legacy;
+      stopped = value(
+        syntheticLoopCodec.decode({
+          ...enterGrowingWorld(full),
+          sessionActive: false,
+        }),
+      );
+      historicalBytes = value(
+        canonicalize({ events: full.events, derived: full.derived }),
+      );
     });
-    expect(session.state().snapshot?.revision).toBe(1);
-    expect(session.state().explorationCount).toBe(0);
-    value(await session.endSession('support-full-end'));
-    const ended = session.state().record;
-    expect(ended?.schema).toBe('growing-world-synthetic-loop-v2');
-    expect(ended?.sessionActive).toBe(false);
-    expect(
-      value(canonicalize({ events: ended?.events, derived: ended?.derived })),
-    ).toBe(before);
-    value(await session.startSession('support-full-start'));
-    const restarted = session.state().record;
-    if (!restarted) throw new Error('Missing full restarted record');
-    expect(restarted.taskOrdinal).toBe(full.taskOrdinal + 1);
-    expect(restarted.completedCount).toBe(64);
-    expect(restarted.sessionOrdinal).toBe(2);
-    expect(
+
+    async function fullSession(payload: SyntheticLoopRecord) {
+      const repository = value(
+        createSyntheticRepository(syntheticLoopCodec, {
+          epoch: value(storageEpoch(0)),
+          records: [
+            {
+              recordId: value(syntheticLoopRecordId(payload.profileId)),
+              revision: value(revision(1)),
+              storageEpoch: value(storageEpoch(0)),
+              payload,
+            },
+          ],
+        }),
+      );
+      const session = createSyntheticLoopSession(repository);
+      value(await session.selectProfile(payload.profileId));
+      return session;
+    }
+
+    it('keeps a full historical journal unscored without a write or exploration count', async () => {
+      const session = await fullSession(full);
       value(
-        canonicalize({ events: restarted.events, derived: restarted.derived }),
-      ),
-    ).toBe(before);
-    expect(
-      value(
-        syntheticLoopTaskSeed(
-          restarted.profileId,
-          restarted.selectedFamily,
-          restarted.taskOrdinal,
+        await session.submit(
+          request(replay('number.addition')),
+          'support-full-unscored',
         ),
-      ),
-    ).not.toBe(
-      value(
-        syntheticLoopTaskSeed(
-          full.profileId,
-          full.selectedFamily,
-          full.taskOrdinal,
+      );
+      expect(session.state().record?.completedCount).toBe(64);
+      expect(session.state().sessionOnlyCompletion).toMatchObject({
+        evidence: 'sessionOnly',
+        reasonCode: 'nonPractice',
+      });
+      expect(session.state().snapshot?.revision).toBe(1);
+      expect(session.state().explorationCount).toBe(0);
+    });
+
+    it('closes a full historical journal through a lossless v2 entry', async () => {
+      const session = await fullSession(full);
+      value(await session.endSession('support-full-end'));
+      const ended = session.state().record;
+      expect(ended?.schema).toBe('growing-world-synthetic-loop-v2');
+      expect(ended?.sessionActive).toBe(false);
+      expect(
+        value(canonicalize({ events: ended?.events, derived: ended?.derived })),
+      ).toBe(historicalBytes);
+      expect(ended).toEqual(stopped);
+    });
+
+    it('starts a fresh v2 replay after a full journal was closed, preserving exact history and counts', async () => {
+      const session = await fullSession(stopped);
+      value(await session.startSession('support-full-start'));
+      const restarted = session.state().record;
+      if (!restarted) throw new Error('Missing full restarted record');
+      expect(restarted.taskOrdinal).toBe(full.taskOrdinal + 1);
+      expect(restarted.completedCount).toBe(64);
+      expect(restarted.sessionOrdinal).toBe(2);
+      expect(
+        value(
+          canonicalize({
+            events: restarted.events,
+            derived: restarted.derived,
+          }),
         ),
-      ),
-    );
+      ).toBe(historicalBytes);
+      expect(
+        value(
+          syntheticLoopTaskSeed(
+            restarted.profileId,
+            restarted.selectedFamily,
+            restarted.taskOrdinal,
+          ),
+        ),
+      ).not.toBe(
+        value(
+          syntheticLoopTaskSeed(
+            full.profileId,
+            full.selectedFamily,
+            full.taskOrdinal,
+          ),
+        ),
+      );
+    });
   });
 
   for (const family of ['number.make-ten', 'number.addition'] as const)

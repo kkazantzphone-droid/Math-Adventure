@@ -100,6 +100,32 @@ async function selected(repo = repository()) {
   return { session, repo };
 }
 
+async function selectedAtCapacity(record = capacityRecord()) {
+  const underlying = value(
+    createSyntheticRepository(syntheticLoopCodec, {
+      epoch: value(storageEpoch(0)),
+      records: [
+        {
+          recordId: value(syntheticLoopRecordId(player1)),
+          revision: value(revision(1)),
+          storageEpoch: value(storageEpoch(0)),
+          payload: record,
+        },
+      ],
+    }),
+  );
+  let writes = 0;
+  const session = createSyntheticLoopSession({
+    ...underlying,
+    execute: (command) => {
+      writes += 1;
+      return underlying.execute(command);
+    },
+  });
+  value(await session.selectProfile(player1));
+  return { session, underlying, writes: () => writes };
+}
+
 describe('Synthetic loop atomic application integration', () => {
   it('regenerates correct/incorrect truth and manual play never creates evidence or recommendation', async () => {
     const { session } = await selected();
@@ -594,30 +620,8 @@ describe('Synthetic loop atomic application integration', () => {
     expect(completed.lastCompletion?.evidence).toBe('manual');
   });
 
-  it('at capacity keeps the saved record unchanged during unscored play and safely permits Next and Stop', async () => {
-    const record = capacityRecord();
-    const underlying = value(
-      createSyntheticRepository(syntheticLoopCodec, {
-        epoch: value(storageEpoch(0)),
-        records: [
-          {
-            recordId: value(syntheticLoopRecordId(player1)),
-            revision: value(revision(1)),
-            storageEpoch: value(storageEpoch(0)),
-            payload: record,
-          },
-        ],
-      }),
-    );
-    let writes = 0;
-    const session = createSyntheticLoopSession({
-      ...underlying,
-      execute: (command) => {
-        writes += 1;
-        return underlying.execute(command);
-      },
-    });
-    value(await session.selectProfile(player1));
+  it('at capacity keeps the saved record unchanged during unscored play without a write', async () => {
+    const { session, underlying, writes } = await selectedAtCapacity();
     const before = value(canonicalize(session.state().record));
     const priorExploration = session.state().explorationCount;
     value(await session.submit(request(), 'capacity-unscored'));
@@ -630,17 +634,37 @@ describe('Synthetic loop atomic application integration', () => {
     expect(value(canonicalize(session.state().record))).toBe(before);
     expect(session.state().snapshot?.revision).toBe(1);
     expect(session.state().explorationCount).toBe(priorExploration);
-    expect(writes).toBe(0);
+    expect(writes()).toBe(0);
     const saved = value(
       await underlying.load(value(syntheticLoopRecordId(player1))),
     );
     expect(value(canonicalize(saved.payload))).toBe(before);
     expect(saved.revision).toBe(1);
+  });
+
+  it('at capacity Next after unscored play preserves all evidence in one write', async () => {
+    const record = capacityRecord();
+    const { session, writes } = await selectedAtCapacity(record);
+    const priorExploration = session.state().explorationCount;
+    value(await session.submit(request(), 'capacity-unscored'));
+    expect(writes()).toBe(0);
     value(await session.skip('capacity-next'));
     expect(session.state().record?.taskOrdinal).toBe(65);
     expect(session.state().record?.completedCount).toBe(64);
     expect(session.state().record?.events).toEqual(record.events);
     expect(session.state().record?.derived).toEqual(record.derived);
+    expect(session.state().explorationCount).toBe(priorExploration);
+    expect(writes()).toBe(1);
+  });
+
+  it('at capacity Stop after Next preserves all evidence in one additional write', async () => {
+    // Arrange the exact state asserted by the separate Next transition above.
+    // Each independent test exercises one full-journal mutating command.
+    const record = value(
+      syntheticLoopCodec.decode({ ...capacityRecord(), taskOrdinal: 65 }),
+    );
+    const { session, writes } = await selectedAtCapacity(record);
+    const priorExploration = session.state().explorationCount;
     value(await session.endSession('capacity-stop'));
     expect(session.state().record?.sessionActive).toBe(false);
     expect(session.state().record?.schema).toBe(
@@ -648,7 +672,9 @@ describe('Synthetic loop atomic application integration', () => {
     );
     expect(session.state().record?.events).toEqual(record.events);
     expect(session.state().record?.derived).toEqual(record.derived);
+    expect(session.state().record?.taskOrdinal).toBe(65);
+    expect(session.state().record?.completedCount).toBe(64);
     expect(session.state().explorationCount).toBe(priorExploration);
-    expect(writes).toBe(2);
+    expect(writes()).toBe(1);
   });
 });
