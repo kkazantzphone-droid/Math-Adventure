@@ -19,7 +19,10 @@ import type { ChapterFamilyId } from '../../src/domain/growing-world/content';
 import { GROWING_JOURNEY_POLICY } from '../../src/domain/growing-world/journey';
 import type { ChapterObservation } from '../../src/domain/growing-world/journey';
 import { getGrowingWorldCopy } from '../../src/presentation/localisation/growing-world-copy';
-import { GrowthJourney } from '../../src/ui/synthetic-loop/GrowthJourney';
+import {
+  GrowthJourney,
+  GrowingWorldAdultExplanation,
+} from '../../src/ui/synthetic-loop/GrowthJourney';
 
 function value<T>(
   result:
@@ -151,17 +154,18 @@ function record(
   );
 }
 
-function render(current: SyntheticLoopRecord): string {
+function render(current: SyntheticLoopRecord, open = true): string {
   return renderToStaticMarkup(
     <GrowthJourney
       record={current}
       preferences={current.preferences}
-      open
+      open={open}
       disabled={false}
       onOpen={() => undefined}
       onChoose={() => undefined}
       familyLabel={(family) => family}
       onMode={() => undefined}
+      onExplore={() => undefined}
     />,
   );
 }
@@ -204,4 +208,74 @@ describe('Independent candidate review — visible invitation progression', () =
     expect(html).toContain('data-invitation-reason="support"');
     expect(html).not.toContain('data-invitation-family="number.part-whole"');
   });
+});
+
+describe('Discovery choices and adult explanations', () => {
+  it.each(['el-GR', 'en-GB', 'de-DE'] as const)(
+    'keeps both explicit play modes visible when discoveries are closed in %s',
+    (locale) => {
+      const current = record([]);
+      const copy = getGrowingWorldCopy(locale);
+      for (const mode of ['manual', 'synthetic-policy'] as const) {
+        const html = render(
+          {
+            ...current,
+            mode,
+            preferences: { ...current.preferences, uiLocale: locale },
+          },
+          false,
+        );
+        expect(html).toContain(copy.modeChoice);
+        expect(html).toContain(copy.guidedMode);
+        expect(html).toContain(copy.manualMode);
+        expect(html).toContain(copy.activityChoiceHint);
+        expect(html).toMatch(
+          new RegExp(
+            `data-journey-mode="[^"]*" aria-pressed="${mode === 'synthetic-policy'}"`,
+          ),
+        );
+        expect(html).toMatch(
+          new RegExp(
+            `data-journey-manual="[^"]*" aria-pressed="${mode === 'manual'}"`,
+          ),
+        );
+        expect(html).not.toContain('data-discovery-family=');
+        expect(html).not.toContain('data-adult-experience');
+      }
+    },
+  );
+
+  it('associates the suggested activity with its visible reason', () => {
+    const html = render(record(['number.make-ten']), false);
+    expect(html).toContain(getGrowingWorldCopy('en-GB').invitation);
+    expect(html).toContain('id="growth-invitation-reason"');
+    expect(html).toContain('aria-describedby="growth-invitation-reason"');
+    expect(html).toContain('data-invitation-family="number.part-whole"');
+  });
+
+  it('offers available revisit and Explore actions at the finite chapter edge', () => {
+    const html = render(record(CHAPTER_FAMILY_IDS), false);
+    expect(html).toContain('data-chapter-edge');
+    expect(html).toContain('data-chapter-revisit');
+    expect(html).toContain('data-chapter-explore');
+    expect(html).not.toContain('data-invitation-family=');
+    expect(html).toContain('aria-controls="growth-discoveries"');
+  });
+
+  it.each(['el-GR', 'en-GB', 'de-DE'] as const)(
+    'provides synthetic saving, evidence, Explore and content-limit explanations in %s',
+    (locale) => {
+      const copy = getGrowingWorldCopy(locale);
+      const html = renderToStaticMarkup(
+        <GrowingWorldAdultExplanation locale={locale} />,
+      );
+      expect(html).toContain(`lang="${locale}"`);
+      expect(html).toContain(copy.adultHeading);
+      expect(html).toContain(copy.adultSaving);
+      expect(html).toContain(copy.adultEvidence);
+      expect(html).toContain(copy.adultExploration);
+      expect(html).toContain(copy.adultLimits);
+      expect(html).not.toContain('data-child-answer');
+    },
+  );
 });

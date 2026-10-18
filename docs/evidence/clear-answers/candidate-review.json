@@ -1,0 +1,158 @@
+{
+  "schema": "math-adventure.clear-answers-candidate-review-v1",
+  "marker": "synthetic-only-engineering-evidence",
+  "date": "2026-10-18",
+  "reviewer": "Fresh independent final candidate reviewer; authored no product, test or proof-script changes in this candidate",
+  "result": "PASS - bounded independent candidate/source/evidence review",
+  "reviewBase": "f74b60550fec4cbd2ff592a878759993b834ff5b",
+  "observedHead": "f74b60550fec4cbd2ff592a878759993b834ff5b",
+  "branch": "codex/clear-answers-coherent-discovery",
+  "identityLimit": "Review binds working-tree file hashes; it does not represent these uncommitted changes as a committed head or certify later changes.",
+  "scope": [
+    "Full base-to-working-tree diff, tracked and untracked candidate files; all changed product, test, proof-script, documentation and retained evidence content.",
+    "Owner Goal attachment, current design/completion draft, operating model, decision register, relevant accepted invariants, historical Growing World design and evidence limits.",
+    "Independent source/privacy/authority review; inspection of raw production receipts and retained synthetic screenshots. No duplicate full regression/browser suite was run by this reviewer."
+  ],
+  "sourceHashes": {
+    "scripts/clear-answers-burden-review.mjs": "143f56b0cb18cbb4f71168f9a5509c06ee197867b65c5efddcc282cd09661987",
+    "scripts/clear-answers-landscape-review.mjs": "cb69991ee5b06fda0fa04617cdc5f8a1db88cff73acc11df42d16d5251e85624",
+    "scripts/clear-answers-mutations.mjs": "212fdcaef4b97a11a7b9f4ddda76e5e1011f3a17d3d6db883bf3a22a5d9091a2",
+    "scripts/growing-world-ui-review.mjs": "3cd97ac478fb1f52c2044d353b656d681e68e8183358a46088cfb7a3fe34f6e6",
+    "src/presentation/localisation/answer-entry-copy.ts": "b8d75a385db82d9766398a035b7f3d5602f0c917407f150dd71dfb3210d75657",
+    "src/presentation/localisation/growing-world-copy.ts": "979445fc46e668096b86d760277ce87536d587108275a29600598cbfab401e40",
+    "src/ui/synthetic-loop/chapter-answer-entry.css": "88bc1d2ea97a9817850c3a3a570fa29c25ea3f09c3b8bf5272e24aa124c3e0e8",
+    "src/ui/synthetic-loop/chapter-answers.ts": "49d94319d25769039484eca5131e06e33c921cdeb3956822622248f5fd5d4fad",
+    "src/ui/synthetic-loop/ChapterAnswerEntry.tsx": "bdad6d604fa1e0f68834dfbdf4d5627baa81a390e0ef00125903a3df6953bcca",
+    "src/ui/synthetic-loop/ChapterTaskView.tsx": "4e6e5c9c888aadcdd7a641e4cc8a3b0662d8c0390882c66838b85516c28f66a6",
+    "src/ui/synthetic-loop/growing-world.css": "538721eb3f0d0297b52300fa185e1845d897cb9fdfa3a736bec2a4a7da658d52",
+    "src/ui/synthetic-loop/growth-journey.css": "0c8fca13c0cd8d1163bc4fbd2d81231cf8c7ad813c8fc127e9d447b3f3830b34",
+    "src/ui/synthetic-loop/GrowthJourney.tsx": "903b7c44e13e2493e7728e3c982ac09d3b54d6c2acf4fb762e4b0f9e15aafbca",
+    "tests/browser/phase3c/main.tsx": "908d9ae1786c4a56ab22a67d0d7545bc93b570cd7481a0240bd425a9ac20d910",
+    "tests/fixtures/synthetic/clear-answers-edge.ts": "7170ab10cf86cbd81b2147276a96babeb63cd0471bdd55bc9267040ea6122542",
+    "tests/integration/growing-world-capacity.test.ts": "be82fd8737b742a6e4e59848466e20ba7e1b7f04de31bf032288db2d3e6e10f9",
+    "tests/integration/growing-world.test.ts": "57fec27bca906015204d74452368fe4ab2c1bf4d2aa4e871cb347828b7c8ce4a",
+    "tests/unit/clear-answers-integrity-review.test.ts": "47a2e8b94093b1fe8c00296d952f71003b29ff6f0d2191f9ed826cc574bf4b76",
+    "tests/unit/growing-world-invitation-view.test.tsx": "dd3fd400a968e6b76aadee1a316c6abcfb66b07c5aa280040df15d3d4386a79d",
+    "tests/unit/growing-world-markup.test.tsx": "61b35670cca2b9c0a773cf6386f51c06818df33517b18189ed8f9e79a407d1e3"
+  },
+  "reviewedDocumentation": [
+    "docs/CLEAR_ANSWERS_DESIGN.md",
+    "docs/CLEAR_ANSWERS_OWNER_DECISIONS.md",
+    "docs/CLEAR_ANSWERS_COMPLETION_REPORT.md",
+    "docs/DECISION_REGISTER.md",
+    "docs/DEVELOPMENT.md",
+    "docs/ROADMAP.md"
+  ],
+  "candidateIntegrity": {
+    "scopeContamination": "None found in the complete candidate reviewed to date.",
+    "product": "Existing fourteen activities and Space direction retained. Large answer sets use complete native whole-numeral choices plus separate Check; every original direct card remains available. Small sets retain direct answers. No expected answer determines options, order or initial selection.",
+    "mathematics": "Domain/application/replay/persistence modules are unchanged. The shared UI mapping preserves exact rational DTOs and square-unit area dimension; finite independent oracle and old-DTO comparisons are meaningful checks rather than self-referential expected values.",
+    "state": "Selection alone is UI state. Help/attempt provenance, same-task language changes, profile/task reset keys, explicit activity choice and guidance mode are preserved by the reviewed routes. Explore actions retain their separate unassessed path.",
+    "dependencies": "No manifest, lockfile, dependency lifecycle, tool pin, build configuration, workflow, skill or governance authority change. Node 24.21.0 and pnpm 12.9.1 remain pinned.",
+    "license": "No new external asset or runtime dependency. Normal and synthetic output retain identical third-party notice SHA256 d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab.",
+    "privacy": "Reviewed new/changed files are text source, authored documentation and sanitized engineering JSON. Fixed disposable synthetic profiles/fixtures and public-safe hashes/counts only; no real child data, database, private export, recording, screenshot attachment or credential was found. Synthetic media remains in ignored local cache.",
+    "whitespace": "git diff --check against the review base passed.",
+    "localLinks": "Final read-only local Markdown file-link inspection passed across all six changed/new documentation files after landscape/evidence reconciliation.",
+    "originalCoverage": "Existing behavioral assertions are retained. Selector adaptations follow the new interaction; retained direct routes remain separately exercised. New finite-response, help-context, capacity and browser checks test meaningful contracts."
+  },
+  "ownerBrief": {
+    "result": "PASS - bounded source review",
+    "sources": [
+      "docs/OPEN_QUESTIONS.md",
+      "docs/DECISION_REGISTER.md",
+      "docs/LEARNER_DATA_MODEL.md",
+      "docs/ADAPTIVE_LEARNING_MODEL.md",
+      "docs/PHASE_3_IMPLEMENTATION_PLAN.md",
+      "docs/CHILD_SAFETY_AND_PRIVACY.md"
+    ],
+    "assessment": "Correctly distinguishes accepted local/profile/privacy/speech constraints from existing open Q03-Q05,Q08-Q10,Q12-Q13,Q16 decisions. Proposed numeric retention, educational thresholds, real-use controls, device/language evidence and backup/recovery remain unaccepted. No new governance framework, household authorization or accepted policy is introduced."
+  },
+  "observations": {
+    "productionUi": "Retained UI receipt reports source-stable 38-input/nine-artifact production review, 48 cases, 234 layout/456 contrast samples, no clipped controls, small targets or broken numerals. Its authorship distinction is explicit: independent answer review, implementation-supported journey observations, with this separate reviewer inspecting journey/source/evidence.",
+    "visualInspection": "Independently inspected retained actual-production en-GB journey landing, de-DE initial journey and adult explanation, and compact area answer screenshot. This is visual review of bound synthetic observations, not a new independent browser/device/AT execution or native-language certification.",
+    "methodology": "The initial overbroad universal whole-document-shrink assertion failed and was not counted as acceptance. Independently reviewed correction follows the actual task: all answer regions and worst narrow/enlarged full pages must shrink while every page delta and visibility limit is reported. Final actual production rerun passed unchanged target, clipping, semantic evidence and keyboard checks. Hidden closed-details descendants are correctly excluded from painted-control counts; all original direct choices remain in the DOM and separately exercised.",
+    "productionBurden": "Final actual PASS receipt inspected: four baseline/candidate installed-browser matrices, 90 paired measurements, all 73 numeric responses across baseline direct/candidate select/candidate retained direct (219 fresh-context submissions). All paired answer regions shrink; worst 320px/32px answer regions shrink 75.9-83.4% and whole pages shrink 1670-3281px. Five default-text whole-page increases of 23-48px repeat per browser and remain disclosed. Greek/German area Check and German help need scrolling at the fixed 96px answer alignment; scrolling is permitted and keyboard focus recovery passes.",
+    "productionLandscape": "Actual final supplement inspected: all 18 maximal-concrete activity/locale/browser cases pass at 850x375 CSS px and 32px root text. All 39 current source hashes match, source/artifact stability passes, all 126 focus targets fit the viewport, collapsed/expanded disclosure and native keyboard wrong/retry/correct paths pass, with zero page errors/external requests. Vertical scrolling remains allowed.",
+    "browserRegression": "Reviewed current browser-matrix/source-review receipts and independently matched all 120 product-source hashes. Full 145-case runs per browser precede a disclosed test-only capacity extension; final 8-case reruns supersede that capacity scope only. Both final capacity receipts pass with stable 28-input bindings, the original full-wire counters explicitly precede subsequent UI continuation, and all other product/proof inputs remain unchanged."
+  },
+  "findings": [
+    {
+      "id": "full-journal-changed-route-proof",
+      "severity": "evidence",
+      "status": "CLOSED - both current installed-browser results observed",
+      "detail": "Reviewed actual final Chrome and Edge receipts: 8/8 cases each, stable 28-source bindings, zero external requests/page errors. Root/subpath groups and area compact submissions preserve the full snapshot and yield correct sessionOnly completions with Next focus; Stop/reload preserves full journals and old-reader update rejection remains. The two setup repairs await loaded state and return to the existing adult-only update controls without weakening assertions/deadlines. Wire counters explicitly describe the stage before subsequent UI continuation."
+    },
+    {
+      "id": "integrity-main-source-binding",
+      "severity": "evidence",
+      "status": "CLOSED - actual refreshed mutation receipt and all current bindings observed",
+      "detail": "Refreshed unchanged integrity runner actually passed 22 baseline and 22 restored tests, detected all three intended defects by assertions, and restored exact helper bytes. Independently checked all 12 current receipt source hashes, including main.tsx 908d9a..., with no mismatch. Original historical input identity was not silently relabelled."
+    },
+    {
+      "id": "documented-install-environment-order",
+      "severity": "documentation",
+      "status": "REPAIRED - source reviewed",
+      "detail": "Completion instructions initially set production mode before frozen installation, risking omitted build dependencies. The reviewed instructions now install first and set production mode for the build afterward."
+    },
+    {
+      "id": "proof-script-formatting",
+      "severity": "quality-gate",
+      "status": "CLOSED - definitive formatted source-bound proof observed",
+      "detail": "Targeted formatting check caught the burden script before definitive proof. The formatted/linted script 143f56b0... actually completed the full stable production comparison: 90 paired conditions and all 73 responses across three routes. No product change, weakened target/clipping/evidence/recovery assertion or gate waiver."
+    },
+    {
+      "id": "large-text-short-landscape-observation",
+      "severity": "evidence",
+      "status": "CLOSED - all 18 actual production observations verified",
+      "detail": "Focused supplement closes the enlarged-control/short-height interaction without repeating the complete before/after or response-exhaustion run. Actual existing immutable build, both installed browsers, all three drafts/changed activities, exact selection-only snapshots, disclosure, keyboard recovery and 126 fully visible focused targets pass."
+    }
+  ],
+  "unresolvedProductFindings": [],
+  "limits": [
+    "This candidate review is not overall Goal acceptance or a full/fresh/hosted result.",
+    "Native popup usability, actual assistive-technology delivery, native zoom, physical disconnection/restart, native-language review and educational effectiveness are not established by source, screenshot or automated DOM evidence.",
+    "Owner UX acceptance remains pending; engineering or protected merge is not real-child readiness, release or deployment.",
+    "No reviewer publication, merge, account/access, repository protection or machine-wide action was performed."
+  ],
+  "supportingProofDelta": {
+    "path": "scripts/clear-answers-landscape-review.mjs",
+    "sha256": "cb69991ee5b06fda0fa04617cdc5f8a1db88cff73acc11df42d16d5251e85624",
+    "relation": "Added after the completed primary burden run source-stability interval; not imported by its producer or any product/build input. Primary 157-input manifest remains historical to its actual run, not relabelled. The separate supplement binds its own script plus the same 38 production UI sources and nine immutable artifacts.",
+    "review": "Complete new source inspected; existing proof server/Playwright and existing artifacts only, no new verification framework, build, fixture injection or product/config change."
+  },
+  "documentationReview": {
+    "result": "PASS - final current completion/design/owner brief and tracked documentation delta reviewed",
+    "assessment": "Current final completion accurately records 90 paired measurements, 219 response submissions, explicit small page/visibility tradeoffs, 18-case/126-focus landscape supplement, exact production artifact, renderer distinctions, meaningful restored mutations and closed review findings. Reproducible run commands clear process-local production mode before frozen installation, then build/serve the explicit synthetic capability. Owner walkthrough is concise. Final repository/fresh/publication gates remain explicitly in progress, and owner UX acceptance remains pending.",
+    "authority": "D56 status/context additions do not change accepted architecture, mathematical/evidence/retention policy, V2 authority, protected-merge eligibility, real-child scope or release/deployment boundaries."
+  },
+  "separateRequiredGates": [
+    "Root must observe final complete local gate and isolated fresh frozen install/verification for the final candidate and reconcile final artifact/documentation state.",
+    "Before eligible merge, root must observe exact-head required PR-specific hosted checks, current protected-main/base/protection/review state and all unchanged V2 conditions. This independent review does not supply those observations.",
+    "Later observational documentation/evidence changes require their own bounded delta review and applicable exact-head verification; this receipt certifies only its recorded input hashes."
+  ],
+  "unresolvedReviewFindings": [],
+  "reviewedDocumentationHashes": {
+    "docs/CLEAR_ANSWERS_DESIGN.md": "7b533c2c94bbc86b1017d849892b4b4754b67962cbe513f08653a092fa900ad4",
+    "docs/CLEAR_ANSWERS_OWNER_DECISIONS.md": "0f9bfc842684e4e77f4df6877134e2d33116056acb92f189ed304962afb3243a",
+    "docs/CLEAR_ANSWERS_COMPLETION_REPORT.md": "2f5e66ff3e65b5605e3b68f4252e237538569c4f111d7ce91fa85852a6f07dff",
+    "docs/DECISION_REGISTER.md": "94556c7581c7bfc2772a7995b4051c1ad73a0dd7b6e70f1e62c593f94b53178f",
+    "docs/DEVELOPMENT.md": "3f2a0ac8ea07fd00ad162e6294090b7b3c97261212dd0fc420540a6ffe29add3",
+    "docs/ROADMAP.md": "2666492bee39c9baa9a691942d356cdb908e7973e6ed2a0c7ebf7f28a602806d"
+  },
+  "reviewedEvidenceHashes": {
+    "docs/evidence/clear-answers/browser-matrix.json": "65973666ac880d168672b36276d9a8d918c22d61d549b56ce2815f9b05d73c71",
+    "docs/evidence/clear-answers/burden-review.json": "b708b2380b20fa77e10234bc4acb488b7528d04cd2404ab3e7c47dab57bdcd37",
+    "docs/evidence/clear-answers/dependency-audit.json": "ded5f42ae425b5d14456211f50a34fd4af9899271ec0a91ed1c11fa5a168db0b",
+    "docs/evidence/clear-answers/integrity-review.json": "b84eca019aeb1f04c8517ee26b373150c8ef1968ee38588072e504342309e145",
+    "docs/evidence/clear-answers/landscape-text-review.json": "0e3f0a57b306ba7338d7185e53449059d775bc484b744b2edc37f5491087995d",
+    "docs/evidence/clear-answers/source-review.json": "8328a4d2e56ef0ef216fe78ef2c5d5269a5cc57011a7a525f945f9f6e68c267c",
+    "docs/evidence/clear-answers/ui-review.json": "ad595ebe148138f985cec682415e8769c85a44fca235887d7ee5560503da8e6c",
+    "docs/evidence/clear-answers/line-ending-mapping.json": "6d833d4e3e7eb4ce22c598d7d54f5b14dfcee1015a8280b1fe77374e030198f6"
+  },
+  "lineEndingMapping": {
+    "receipt": "docs/evidence/clear-answers/line-ending-mapping.json",
+    "receiptSha256": "6d833d4e3e7eb4ce22c598d7d54f5b14dfcee1015a8280b1fe77374e030198f6",
+    "checkpoint": "77d7f25de002b7b08dfd6f1b73f1c550cce08e9c",
+    "scope": "Exact original raw CRLF-to-checkpoint LF mapping for candidate review, audit and UI receipts, followed by this disclosed candidate metadata update only. Original raw identities are preserved in the mapping; no producer input or runtime observation is relabelled."
+  }
+}

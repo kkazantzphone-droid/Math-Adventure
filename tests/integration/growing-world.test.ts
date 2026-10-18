@@ -235,7 +235,10 @@ function answer(presentation: ChapterPresentation): number {
   }
 }
 async function respond(page: Page, value: number) {
-  await page.locator(`[data-child-answer="${value}"]`).click();
+  if (await page.locator('[data-answer-select]').count()) {
+    await page.locator('[data-answer-select]').selectOption(String(value));
+    await page.locator('[data-answer-submit]').click();
+  } else await page.locator(`[data-child-answer="${value}"]`).click();
   await settled(page);
   await page.waitForFunction(
     () =>
@@ -480,6 +483,8 @@ describe('growing mathematical world — integrated bounded evidence', () => {
       });
       for (const family of families) {
         await choose(page, family);
+        const direct = page.locator('[data-direct-answers]');
+        if (await direct.count()) await direct.locator('summary').click();
         expect(
           await page.evaluate(
             () => document.documentElement.scrollWidth <= innerWidth,

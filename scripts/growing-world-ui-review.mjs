@@ -34,13 +34,28 @@ const sources = [
   'src/application/synthetic-loop/types.ts',
   'src/application/synthetic-loop/index.ts',
   'src/ui/synthetic-loop/ChapterTaskView.tsx',
+  'src/ui/synthetic-loop/ChapterAnswerEntry.tsx',
+  'src/ui/synthetic-loop/chapter-answers.ts',
+  'src/ui/synthetic-loop/chapter-answer-entry.css',
   'src/ui/synthetic-loop/ExploreWorld.tsx',
   'src/ui/synthetic-loop/GrowthJourney.tsx',
+  'src/ui/synthetic-loop/growth-journey.css',
   'src/ui/synthetic-loop/ChildPrimitives.tsx',
+  'src/ui/synthetic-loop/ChildTaskView.tsx',
+  'src/ui/synthetic-loop/child-answers.ts',
+  'src/ui/synthetic-loop/child-layout.ts',
+  'src/ui/synthetic-loop/child-task.css',
+  'src/ui/synthetic-loop/LanguageControls.tsx',
+  'src/ui/synthetic-loop/slice.css',
   'src/ui/synthetic-loop/growing-world.css',
+  'src/ui/styles.css',
+  'src/presentation/localisation/answer-entry-copy.ts',
   'src/presentation/localisation/growing-world-copy.ts',
+  'src/presentation/localisation/child-copy.ts',
+  'src/presentation/localisation/language-controls-copy.ts',
   'src/presentation/speech/plans.ts',
   'tests/browser/phase3c/main.tsx',
+  'tests/browser/phase3c/ChildShell.tsx',
   'tests/browser/phase3c/runtime.ts',
   'tests/browser/phase3c/shell.css',
   'vite.slice.config.ts',
@@ -86,6 +101,18 @@ async function choose(page, family) {
   await page.locator(`[data-chapter-family="${family}"]`).waitFor();
 }
 async function keyboardClick(page, selector) {
+  if (
+    selector.startsWith('[data-child-answer=') &&
+    (await page.locator('[data-direct-answers]').count())
+  ) {
+    if (
+      !(
+        (await page.locator('[data-direct-answers]').getAttribute('open')) !==
+        null
+      )
+    )
+      await page.locator('[data-direct-answers] summary').click();
+  }
   await page.locator(selector).focus();
   await page.keyboard.press('Enter');
   await settled(page);
@@ -114,7 +141,10 @@ function solution(presentation) {
 }
 async function layout(page, scope = '.growing-world') {
   const result = await page.evaluate((scope) => {
-    const controls = [...document.querySelectorAll(`${scope} button`)].filter(
+    const selectors = ['button', 'select', 'summary']
+      .map((element) => `${scope} ${element}`)
+      .join(', ');
+    const controls = [...document.querySelectorAll(selectors)].filter(
       (item) => item.getClientRects().length,
     );
     const boxes = controls.map((item) => {
@@ -122,11 +152,36 @@ async function layout(page, scope = '.growing-world') {
       return {
         width: rect.width,
         height: rect.height,
-        name: item.textContent.trim(),
-        clipped: item.scrollWidth > item.clientWidth + 1,
+        element: item.tagName.toLowerCase(),
+        name:
+          item.tagName === 'SELECT'
+            ? item.options[item.selectedIndex]?.textContent.trim()
+            : item.textContent.trim(),
+        clipped:
+          item.scrollWidth > item.clientWidth + 1 ||
+          item.scrollHeight > item.clientHeight + 1,
       };
     });
     const picture = document.querySelector('[data-world-task-picture]');
+    const numeralErrors = [
+      ...document.querySelectorAll('.world-answer-cards .child-answer-number'),
+    ]
+      .filter((node) => node.getClientRects().length)
+      .flatMap((node) => {
+        const card = node.closest('button');
+        const style = getComputedStyle(card);
+        const available =
+          card.clientWidth -
+          Number.parseFloat(style.paddingLeft) -
+          Number.parseFloat(style.paddingRight);
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        const textWidth = range.getBoundingClientRect().width;
+        const lines = range.getClientRects().length;
+        return lines !== 1 || textWidth > available + 1
+          ? [{ value: node.textContent, lines, textWidth, available }]
+          : [];
+      });
     return {
       viewport: innerWidth,
       rootFontSize: getComputedStyle(document.documentElement).fontSize,
@@ -136,6 +191,7 @@ async function layout(page, scope = '.growing-world') {
       minTargetHeight: Math.min(...boxes.map((item) => item.height)),
       smallTargets: boxes.filter((item) => item.width < 44 || item.height < 44),
       clippedControls: boxes.filter((item) => item.clipped),
+      numeralErrors,
       answerCount: document.querySelectorAll('[data-child-answer]').length,
       answerGridHeight:
         document.querySelector('.world-answer-cards')?.getBoundingClientRect()
@@ -152,6 +208,7 @@ async function layout(page, scope = '.growing-world') {
   assert.ok(result.scrollWidth <= result.viewport, JSON.stringify(result));
   assert.equal(result.smallTargets.length, 0, JSON.stringify(result));
   assert.equal(result.clippedControls.length, 0, JSON.stringify(result));
+  assert.equal(result.numeralErrors.length, 0, JSON.stringify(result));
   assert.equal(result.squareTileErrors, 0, JSON.stringify(result));
   return result;
 }
@@ -184,7 +241,12 @@ async function contiguousGrids(page) {
   return grids;
 }
 async function tabAnswers(page) {
-  await page.locator('[data-child-help]').focus();
+  const direct = page.locator('[data-direct-answers]');
+  if (await direct.count()) {
+    if ((await direct.getAttribute('open')) === null)
+      await direct.locator('summary').click();
+    await direct.locator('summary').focus();
+  } else await page.locator('[data-child-help]').focus();
   const count = await page.locator('[data-child-answer]').count();
   for (let index = 0; index < count; index++) {
     await page.keyboard.press('Tab');
@@ -228,11 +290,17 @@ async function contrast(page) {
       '[data-world-task-picture] p',
       '[data-child-help]',
       '[data-child-answer]',
+      '[data-answer-select]',
+      '[data-answer-submit]',
+      '[data-direct-answers] summary',
       '[data-world-unassessed]',
       '[data-world-relationship]',
       '[data-world-action="symbols"]',
       '[data-growing-journey] p',
       '[data-journey-mode]',
+      '[data-journey-manual]',
+      '[data-invitation-family]',
+      '[data-adult-experience] p',
     ];
     const samples = selectors.flatMap((selector) => {
       const node = document.querySelector(selector);
@@ -352,6 +420,22 @@ try {
               ),
             });
           await keyboardClick(page, '[data-action="discoveries"]');
+          await keyboardClick(page, '[data-journey-mode]');
+          await focusIs(page, '[data-journey-mode]');
+          assert.equal(
+            await page
+              .locator('[data-journey-mode]')
+              .getAttribute('aria-pressed'),
+            'true',
+          );
+          await keyboardClick(page, '[data-journey-manual]');
+          await focusIs(page, '[data-journey-manual]');
+          assert.equal(
+            await page
+              .locator('[data-journey-manual]')
+              .getAttribute('aria-pressed'),
+            'true',
+          );
           await keyboardClick(page, '[data-journey-mode]');
           await keyboardClick(page, '[data-action="discoveries"]');
           for (const family of families) {
@@ -605,6 +689,9 @@ try {
             });
           }
           await keyboardClick(page, '[data-child-nav="explore"]');
+          await page.waitForFunction(() =>
+            document.activeElement?.matches('[data-explore-world] h2'),
+          );
           const before = await page.evaluate(
             () => window.phase3cProof.state().record,
           );
@@ -702,6 +789,32 @@ try {
             recordUnchanged: true,
             keyboardActions:
               'both workshops/all mathematical actions/undo/reset/symbols/side/separate practice',
+          });
+          await keyboardClick(page, '[data-action="presentation-view"]');
+          assert.equal(
+            await page.locator('[data-adult-experience]').count(),
+            1,
+          );
+          await focusIs(page, '#adult-experience-heading');
+          const adultLayout = await layout(page, '[data-adult-experience]');
+          const adultContrast = await contrast(page);
+          if (channel === 'chrome')
+            await screenshot(
+              page,
+              `${channel}-${locale}-adult-explanation-320`,
+              '[data-adult-experience]',
+            );
+          await keyboardClick(page, '[data-action="presentation-view"]');
+          assert.equal(
+            await page.locator('[data-adult-experience]').count(),
+            0,
+          );
+          channelCases.push({
+            locale,
+            scope: 'Adult explanation',
+            adultLayout,
+            adultContrast,
+            absentFromChildView: true,
           });
         } finally {
           await context.close();

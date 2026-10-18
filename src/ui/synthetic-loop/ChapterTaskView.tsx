@@ -3,9 +3,7 @@ import { deriveChapterHelp } from '../../application/growing-world';
 import type {
   ChapterFamilyId,
   ChapterPresentation,
-  ChapterTask,
 } from '../../application/growing-world';
-import { identifier } from '../../domain/core/identifiers';
 import type { StructuredAnswer } from '../../domain/puzzles/contracts';
 import type { LanguagePreferences } from '../../presentation/localisation';
 import { resolvePrototypeLocale } from '../../presentation/localisation';
@@ -13,35 +11,10 @@ import {
   getGrowingWorldCopy,
   growingWorldText,
 } from '../../presentation/localisation/growing-world-copy';
-import { ChildAnswerCard } from './ChildPrimitives';
+import { ChapterAnswerEntry } from './ChapterAnswerEntry';
 import { WorldTiles } from './ExploreWorld';
 import type { LoopFeedback } from './TaskView';
 import './growing-world.css';
-
-function numberAnswer(
-  task: ChapterTask,
-  value: number,
-): StructuredAnswer | null {
-  const rational = {
-    schema: 'rational-v1' as const,
-    numerator: String(value),
-    denominator: '1',
-  };
-  if (task.kind !== 'arrayArea') return { kind: 'exactValue', value: rational };
-  const unit = identifier('unit', task.unitId);
-  return unit.ok
-    ? {
-        kind: 'quantity',
-        quantity: {
-          schema: 'quantity-v1',
-          kind: 'exact',
-          magnitude: rational,
-          unitId: unit.value,
-          dimension: 'area',
-        },
-      }
-    : null;
-}
 
 function answerNumber(answer: StructuredAnswer | null): string | null {
   return answer?.kind === 'exactValue'
@@ -92,14 +65,6 @@ export function ChapterTaskView({
   const rounds = sharing.scope === scope ? sharing.rounds : 0;
   const helped = hintTier === 3 ? deriveChapterHelp(replay, 3) : null;
   const worked = helped?.ok ? answerNumber(helped.value.workedAnswer) : null;
-  const max =
-    task.kind === 'makeTen' || task.kind === 'missingGroup'
-      ? 10
-      : task.kind === 'missingPart'
-        ? 20
-        : task.kind === 'squareSide'
-          ? 6
-          : 25;
   const squareSide =
     task.kind === 'squareSide'
       ? (Array.from({ length: 6 }, (_, index) => index + 1).find(
@@ -533,28 +498,14 @@ export function ChapterTaskView({
           )}
         </div>
       )}
-      <div
-        className="world-answer-cards child-answer-cards"
-        role="group"
-        aria-label={copy.answers}
-      >
-        {Array.from({ length: max + 1 }, (_, value) => (
-          <ChildAnswerCard
-            key={value}
-            value={String(value)}
-            disabled={disabled}
-            onChoose={() => {
-              const answer = numberAnswer(task, value);
-              if (answer) onAnswer(answer);
-            }}
-          >
-            <span className="child-answer-number">{value}</span>
-            {task.kind === 'arrayArea' && (
-              <span className="world-answer-unit">{copy.unit}</span>
-            )}
-          </ChildAnswerCard>
-        ))}
-      </div>
+      <ChapterAnswerEntry
+        key={scope}
+        task={task}
+        uiLocale={uiLocale}
+        instructionLocale={instructionLocale}
+        disabled={disabled}
+        onAnswer={onAnswer}
+      />
       <div
         className="child-feedback"
         id="slice-feedback"

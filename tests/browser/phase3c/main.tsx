@@ -50,7 +50,10 @@ import { TaskView } from '../../../src/ui/synthetic-loop/TaskView';
 import { ChildTaskView } from '../../../src/ui/synthetic-loop/ChildTaskView';
 import { ChapterTaskView } from '../../../src/ui/synthetic-loop/ChapterTaskView';
 import { ExploreWorld } from '../../../src/ui/synthetic-loop/ExploreWorld';
-import { GrowthJourney } from '../../../src/ui/synthetic-loop/GrowthJourney';
+import {
+  GrowthJourney,
+  GrowingWorldAdultExplanation,
+} from '../../../src/ui/synthetic-loop/GrowthJourney';
 import { getGrowingWorldCopy } from '../../../src/presentation/localisation/growing-world-copy';
 import { ChildLanguageControls } from '../../../src/ui/synthetic-loop/LanguageControls';
 import {
@@ -183,6 +186,11 @@ function App() {
     readonly session: ReturnType<typeof runtime.session>;
     readonly locale: string;
   } | null>(null);
+  const modeFocus = useRef<{
+    readonly session: ReturnType<typeof runtime.session>;
+    readonly selector: string;
+    readonly generation: number;
+  } | null>(null);
   const helpFocus = useRef<{
     readonly session: ReturnType<typeof runtime.session>;
     readonly seed: string;
@@ -197,6 +205,7 @@ function App() {
     readonly seed: string;
   } | null>(null);
   const focusRequested = useRef(false);
+  const adultFocusRequested = useRef(false);
   const session = runtime.session();
   const state = session.state();
   const record = state.record;
@@ -297,6 +306,25 @@ function App() {
     else document.querySelector<HTMLElement>('[data-save-state]')?.focus();
   }, [state.busy, state.error, preferences, session, view]);
   useLayoutEffect(() => {
+    const requested = modeFocus.current;
+    if (!requested || state.busy) return;
+    modeFocus.current = null;
+    if (
+      view !== 'child' ||
+      requested.session !== session ||
+      requested.generation !== actionGeneration.current
+    )
+      return;
+    const active = document.activeElement;
+    if (active !== document.body && !active?.matches(requested.selector))
+      return;
+    const button = document.querySelector<HTMLButtonElement>(
+      requested.selector,
+    );
+    if (button && !button.disabled) button.focus({ preventScroll: true });
+    else document.querySelector<HTMLElement>('[data-save-state]')?.focus();
+  }, [state.busy, state.error, record?.mode, session, view]);
+  useLayoutEffect(() => {
     const requested = helpFocus.current;
     if (!requested || state.busy) return;
     helpFocus.current = null;
@@ -315,7 +343,12 @@ function App() {
   useLayoutEffect(() => {
     if (focusRequested.current) {
       focusRequested.current = false;
+      const adultTarget = adultFocusRequested.current
+        ? document.getElementById('adult-experience-heading')
+        : null;
+      adultFocusRequested.current = false;
       const target =
+        adultTarget ??
         document.getElementById('slice-task-heading') ??
         document.querySelector<HTMLButtonElement>('[data-action="resume"]') ??
         document.querySelector<HTMLButtonElement>('[data-profile]');
@@ -332,7 +365,10 @@ function App() {
       return;
     // Preserve a deliberate move to another control during an asynchronous save.
     const active = document.activeElement;
-    if (active !== document.body && !active?.hasAttribute('data-child-answer'))
+    if (
+      active !== document.body &&
+      !active?.matches('[data-child-answer], [data-answer-submit]')
+    )
       return;
     const target =
       feedback === 'retry' || feedback === 'incorrect'
@@ -352,6 +388,7 @@ function App() {
     history.replaceState(null, '', url);
     childFeedbackFocus.current = null;
     focusRequested.current = true;
+    adultFocusRequested.current = nextView === 'developer';
     setView(nextView);
   }
 
@@ -359,7 +396,12 @@ function App() {
     speech.cancel();
     setPlayMode(destination === 'explore' ? 'exploration' : 'practice');
     setJourneyOpen(false);
-    if (destination === 'explore') return;
+    if (destination === 'explore') {
+      requestAnimationFrame(() =>
+        document.querySelector<HTMLElement>('[data-explore-world] h2')?.focus(),
+      );
+      return;
+    }
     const family =
       destination === 'shapes'
         ? 'geometry.quadrilateral'
@@ -382,6 +424,26 @@ function App() {
     setPlayMode('practice');
     setJourneyOpen(false);
     void run(() => session.setActivity(family, operation()), true);
+  }
+
+  function changeGuidanceMode() {
+    const selector = document.activeElement?.matches('[data-journey-mode]')
+      ? '[data-journey-mode]'
+      : document.activeElement?.matches('[data-journey-manual]')
+        ? '[data-journey-manual]'
+        : null;
+    if (selector)
+      modeFocus.current = {
+        session,
+        selector,
+        generation: actionGeneration.current + 1,
+      };
+    void run(() =>
+      session.setMode(
+        record?.mode === 'manual' ? 'synthetic-policy' : 'manual',
+        operation(),
+      ),
+    );
   }
 
   function presentCurrent() {
@@ -515,7 +577,9 @@ function App() {
     const submission = { session, seed: task.replay.seedHex };
     const retainChildAnswerFocus =
       childSubmission &&
-      document.activeElement?.hasAttribute('data-child-answer') === true;
+      document.activeElement?.matches(
+        '[data-child-answer], [data-answer-submit]',
+      ) === true;
     answerSubmission.current = submission;
     const selected = record?.profileId;
     const pending = session.submit(
@@ -601,6 +665,7 @@ function App() {
           <p>{formatSlice(locale, 'slice.syntheticNotice')}</p>
         )}
       </header>
+      {view === 'developer' && <GrowingWorldAdultExplanation locale={locale} />}
       <div
         id="offline-interaction-surface"
         inert={offline?.snapshot().frozen ?? false}
@@ -731,16 +796,8 @@ function App() {
                     onOpen={() => setJourneyOpen((current) => !current)}
                     onChoose={chooseDiscovery}
                     familyLabel={familyLabel}
-                    onMode={() =>
-                      void run(() =>
-                        session.setMode(
-                          record.mode === 'manual'
-                            ? 'synthetic-policy'
-                            : 'manual',
-                          operation(),
-                        ),
-                      )
-                    }
+                    onExplore={() => navigateChild('explore')}
+                    onMode={changeGuidanceMode}
                   />
                 )}
               </>

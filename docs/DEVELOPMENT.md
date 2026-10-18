@@ -1,5 +1,15 @@
 # Development
 
+Goal D56 improves [clear answers and discovery](CLEAR_ANSWERS_DESIGN.md) within
+the same fourteen-activity synthetic surface. Missing parts, equal groups and
+area offer a complete native number chooser and explicit Check action; Show all
+numbers retains the original immediate direct cards. Smaller activities keep
+their direct answers. Guided practice and Just play are explicit persistent mode
+choices, independent of activity choice. Current source/build verification and
+the short owner walkthrough belong in the
+[completion record](CLEAR_ANSWERS_COMPLETION_REPORT.md). Owner UX acceptance and
+the [real-use decisions](CLEAR_ANSWERS_OWNER_DECISIONS.md) remain separate.
+
 Goal D55 adds the synthetic [Build and take apart chapter](GROWING_WORLD_DESIGN.md).
 The child discovery chooser exposes all fourteen activities and an explicit
 choice of guided invitations or just play. Mathematical help in assessed
