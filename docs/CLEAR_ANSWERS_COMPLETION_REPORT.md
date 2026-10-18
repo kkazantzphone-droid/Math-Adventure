@@ -1,9 +1,11 @@
 # Clear answers & coherent discovery — completion evidence
 
-2026-10-18, Europe/Athens. **Final repository verification in progress**;
-production, mathematical and independent review evidence is complete. Final
-current-head/fresh-checkout and publication gates remain.
-Owner UX acceptance remains pending.
+2026-10-18, Europe/Athens. **Engineering evidence PASS** for the bounded synthetic
+experience. Owner UX acceptance remains pending. The live
+[PR #17 verification/publication record](https://github.com/kkazantzphone-droid/Math-Adventure/pull/17)
+records the final exact feature head, its own local/fresh/required hosted checks
+and protected squash-merge observations after they occur; this report does not
+infer them from an earlier head.
 
 The [D56 design](CLEAR_ANSWERS_DESIGN.md) records the authorized scope and fetched
 clean protected-main base `f74b60550fec4cbd2ff592a878759993b834ff5b` (PR #16).
@@ -106,13 +108,23 @@ the recorded checks; no clipped controls, small targets or broken numerals were
 observed. All nine compact activity/locale screenshots were inspected locally.
 Synthetic media stays in ignored cache, outside the public candidate.
 
-The complete canonical gate currently passes 1,437 tests in 78 files, formatting,
-zero-warning lint, four TypeScript projects, 32 engineering/governance fixture
-scenarios and the normal production build. The
+Source checkpoint `77d7f25de002b7b08dfd6f1b73f1c550cce08e9c` passes the complete
+canonical gate: 1,437 tests in 78 files, formatting, zero-warning lint, four
+TypeScript projects, 32 engineering/governance fixture scenarios and the normal
+production build. An isolated local clone of that exact checkpoint also passes
+`corepack pnpm install --frozen-lockfile` followed by the complete gate, with a
+clean tracked state and unchanged lock SHA256
+`62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964`.
+The [repository gate receipt](evidence/clear-answers/repository-gates.json)
+records those observations and reproduced artifacts. The
 [observed dependency audit](evidence/clear-answers/dependency-audit.json) reports
-zero advisories across 204 graph entries. Final fresh/current-head and hosted
-results will be recorded after observation; historical Growing World receipts
-are not current proof.
+zero advisories across 204 graph entries. The final follow-up changes only
+observational documentation/evidence. Its own full/fresh and PR-specific hosted
+checks remain required and are recorded in PR #17 after observation. Historical
+Growing World receipts are not current proof. The
+[line-ending mapping](evidence/clear-answers/line-ending-mapping.json) preserves
+original raw receipt hashes and proves Git's LF normalization changes no JSON
+content or producer input.
 
 The [installed-browser matrix](evidence/clear-answers/browser-matrix.json) records
 the complete regression suite passing 145 cases per channel.
@@ -146,14 +158,18 @@ Remove-Item Env:NODE_ENV -ErrorAction SilentlyContinue
 corepack pnpm install --frozen-lockfile
 $env:NODE_ENV = 'production'
 corepack pnpm exec vite build --config vite.slice.config.ts
-corepack pnpm exec vite preview --config vite.slice.config.ts --host 127.0.0.1 --port 4178 --strictPort
+corepack pnpm exec vite preview --config vite.slice.config.ts --host 127.0.0.1 --port 4186 --strictPort
 ```
 
-Open [the local synthetic experience](http://127.0.0.1:4178/). Preserve an existing
-listener; use another deliberate loopback port if 4178 is already occupied.
-An existing cached shell may require the normal explicit safe update action;
-do not clear saved state to obtain the new interface. This is local review,
-not deployment. Stop the owned server with Ctrl+C.
+Open [the local synthetic experience](http://127.0.0.1:4186/). The current candidate
+is served there with its JavaScript hash verified over HTTP. The earlier preview
+on 4178 belongs to another checkout and remains untouched. Browser storage is
+per origin: 4186 has its own synthetic state; nothing is copied, migrated or
+erased from 4178. Preserve existing listeners; reuse this running candidate or
+choose another deliberately unused loopback port. At an existing origin, a
+cached shell may require the normal explicit safe update action; do not clear
+saved state to obtain the new interface. This is local review, not deployment.
+Stop the owned server with Ctrl+C.
 
 1. Choose a badge and draft language. Try the two explicit play modes, then pick
    a discovery or its invitation; the selected mode stays visible.

@@ -1,0 +1,250 @@
+{
+  "schema": "math-adventure.clear-answers-repository-gates-v1",
+  "marker": "synthetic-only-engineering-evidence",
+  "date": "2026-10-18",
+  "result": "PASS — observed source-checkpoint local and isolated fresh gates",
+  "sourceCheckpoint": "77d7f25de002b7b08dfd6f1b73f1c550cce08e9c",
+  "checkpointTree": "34eabdf67f21c66bd9a5fa5ddf3b794657dafd19",
+  "toolchain": {
+    "node": "24.21.0",
+    "pnpm": "12.9.1",
+    "corepack": "0.36.0",
+    "machineWideChanges": false
+  },
+  "canonicalCommand": "corepack pnpm verify",
+  "local": {
+    "exitCode": 0,
+    "tests": 1437,
+    "files": 78,
+    "testDurationSeconds": 82.54,
+    "format": "PASS",
+    "lint": "PASS — zero warnings",
+    "typeScriptProjects": 4,
+    "fixtureScenarios": 32,
+    "productionBuild": "PASS"
+  },
+  "isolatedFresh": {
+    "method": "git clone --no-hardlinks --single-branch --branch codex/clear-answers-coherent-discovery . <ignored-local-directory>",
+    "install": "corepack pnpm install --frozen-lockfile",
+    "installExitCode": 0,
+    "verifyExitCode": 0,
+    "tests": 1437,
+    "files": 78,
+    "testDurationSeconds": 77.13,
+    "cleanTrackedState": true,
+    "separateNodeModulesAndStore": true,
+    "lockUnchanged": true
+  },
+  "lockSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+  "normalArtifactInventory": {
+    "assets/index-ChbhntfK.js": {
+      "bytes": 360368,
+      "sha256": "ee7f7e2b8f326817fa0511c39022b8ecf22251feb60a078ac7452b7017e42731"
+    },
+    "assets/index-Cqw6cjjL.css": {
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    "icons/math-adventure.svg": {
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    "index.html": {
+      "bytes": 795,
+      "sha256": "18431862747625b28388a8eeed1c423bffd340902ec775ef46547a0cce345ca2"
+    },
+    "manifest.webmanifest": {
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    "release.json": {
+      "bytes": 1300,
+      "sha256": "dd63a82e7da1d87b18418019c4c76599491bbce42ebefea4dd6e50784943786e"
+    },
+    "sw.js": {
+      "bytes": 22518,
+      "sha256": "17ef5b52ad3bb12f2cf27b3ae6ea63fee40a51f4151d596164b60d0ded7967ea"
+    },
+    "THIRD_PARTY_NOTICES.txt": {
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  },
+  "syntheticArtifactInventory": {
+    "assets/index-BxX2dHCX.js": {
+      "bytes": 503791,
+      "sha256": "ee81324ffe1eea322925114087dc01f2d6a70c82da837303b412f9e489cfffea"
+    },
+    "assets/index-CTxXavKt.css": {
+      "bytes": 22020,
+      "sha256": "9f66caf18367d501f15840f795f3a6b7f5b883b3d1285c8926ca427a2b459de2"
+    },
+    "icons/math-adventure.svg": {
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    "index.html": {
+      "bytes": 709,
+      "sha256": "50e8ed7a213cc019968b6d8c9aca0ed179f59743ffb7b3de4c57f73f5e8dd93c"
+    },
+    "learner-reader.json": {
+      "bytes": 179,
+      "sha256": "002bf3c71f2888fbcad92f3b8c2e7c13cfce49ccb31da71567786f97643c9463"
+    },
+    "manifest.webmanifest": {
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    "release.json": {
+      "bytes": 1453,
+      "sha256": "10ca06dc1ab4ad4ff88fd6abde7f42d056caa82bdd0fa64b062624d7d3b725f9"
+    },
+    "sw.js": {
+      "bytes": 22637,
+      "sha256": "fe35ffe236fadc17034ced621d106bf46971d538e3380ee6ec859d18f2739695"
+    },
+    "THIRD_PARTY_NOTICES.txt": {
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  },
+  "artifactComparison": "All eight normal and nine synthetic artifact bytes agree across the reviewed worktree and fresh checkpoint installation. Synthetic hashes also equal the actual production browser receipt. Third-party notice remains identical.",
+  "unchangedProductSourceHashes": {
+    "tests/browser/phase3/index.html": "6c0ad37165cf41561f00af02749532e6f5faad9497b8abb94fb3d826770e6efa",
+    "tests/browser/phase3/harness.ts": "7fcfc79d60eeb69a187e6794e30480ce29cc112264e9055a9538578e86956efd",
+    "tests/browser/phase3/adaptation-proof.ts": "2e5b0443f29f9f804791ae2ef8bc4cf0ffcebbb27fba8418073759b335be4304",
+    "tests/browser/phase3c/index.html": "e67f6d4eee41ad382233571c991a5ca3caa880422b79c98c2d22b51b15ee453b",
+    "tests/browser/phase3c/ChildShell.tsx": "26ee25831c829bdb9c8b1ca24e38a91f07d8701e7fb962458b3044011a328e40",
+    "tests/browser/phase3c/main.tsx": "908d9ae1786c4a56ab22a67d0d7545bc93b570cd7481a0240bd425a9ac20d910",
+    "tests/browser/phase3c/runtime.ts": "14545ecc2314069c2c85c7ae703f8427d483278297cbe5c651dad8fc0d46e0da",
+    "tests/browser/phase3c/shell.css": "692fa55738f23b6af51f267dc9e887743e2e9894fa80ccd907f87f887452fe78",
+    "src/ui/synthetic-loop/ChapterAnswerEntry.tsx": "bdad6d604fa1e0f68834dfbdf4d5627baa81a390e0ef00125903a3df6953bcca",
+    "src/ui/synthetic-loop/chapter-answers.ts": "49d94319d25769039484eca5131e06e33c921cdeb3956822622248f5fd5d4fad",
+    "src/ui/synthetic-loop/chapter-answer-entry.css": "88bc1d2ea97a9817850c3a3a570fa29c25ea3f09c3b8bf5272e24aa124c3e0e8",
+    "src/ui/styles.css": "b8c0fcc773ec3a0719e538131b297cca5dcb57ed083a816db88c45136634c986",
+    "src/ui/synthetic-loop/TaskView.tsx": "c69e8faf98a2a221e3249561c7b9979fed4fc7b24c0da7a715ad3c7fa960393a",
+    "src/ui/synthetic-loop/slice.css": "92a9f9913250ad7efa0ebaab8cd8dad3c079daec87aacc8fa2905c023b25ca90",
+    "src/ui/synthetic-loop/LanguageControls.tsx": "bb770f24e1b584c50bece2b0bdfd6039aa231c07fdfdf96740b6f7ee80afe228",
+    "src/ui/synthetic-loop/GrowthJourney.tsx": "903b7c44e13e2493e7728e3c982ac09d3b54d6c2acf4fb762e4b0f9e15aafbca",
+    "src/ui/synthetic-loop/growth-journey.css": "0c8fca13c0cd8d1163bc4fbd2d81231cf8c7ad813c8fc127e9d447b3f3830b34",
+    "src/ui/synthetic-loop/growing-world.css": "538721eb3f0d0297b52300fa185e1845d897cb9fdfa3a736bec2a4a7da658d52",
+    "src/ui/synthetic-loop/ExploreWorld.tsx": "44e137fa74acbc6961b8a2eb73ee1fa8ff09cf257326a2624877c6ba8f861559",
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "40cc37476415a779d7b4fe80f28c24cc984d3b77b96e7c77ab03204ea7b6d78b",
+    "src/ui/synthetic-loop/ChildPrimitives.tsx": "422aea6a5dd17eab0097b5ffaf83075934a8dc059bd36a7b6273d270432b94da",
+    "src/ui/synthetic-loop/child-task.css": "bd877d53fc9db616c76444bd175188febf618952190ccff097d43dc408840dcf",
+    "src/ui/synthetic-loop/child-layout.ts": "bcdcacead780243e253a64cd0fa075cc9da0fa9d485a7b5a0b5f56884e775882",
+    "src/ui/synthetic-loop/child-answers.ts": "bc8268461dc385e9216ceeec27e8728539e9d3c48a28ed9e597cb165de8c9641",
+    "src/ui/synthetic-loop/ChapterTaskView.tsx": "4e6e5c9c888aadcdd7a641e4cc8a3b0662d8c0390882c66838b85516c28f66a6",
+    "src/application/synthetic-loop/types.ts": "fae2c9a6f74fb33bb81dd76333c01ccef147b9105ec20f699cce4c050fdeaaed",
+    "src/application/synthetic-loop/session.ts": "2a5c4a8273251ed37d76f23e33a712953bdf9852f034a503d7d04ae4054b36c4",
+    "src/application/synthetic-loop/seed.ts": "33b20ffe876691d8afb536a5df4b6a94e03b01602130ec6f0274bae796551faa",
+    "src/application/synthetic-loop/record.ts": "f88176065d7d1baa2984e151fa2119cb1983ae5ccfcc4d63b2a6dfbc0b60b907",
+    "src/application/synthetic-loop/index.ts": "5f1d4ae43923aafdbe52b73b04ad6f8791e73f247c3438bc89f3ffcd852b2d05",
+    "src/application/synthetic-loop/answer.ts": "31732e31c8c4ad7634aff34356168a0a4315959304145417d13087c815f8cc46",
+    "src/application/slice-family.ts": "e7b5632e6afb80b1af95d29aa86ecde36f8f91a4143a57d785b8bf4be727d7e5",
+    "src/presentation/speech/plans.ts": "6096ad5d7d75e6fb4f17f2fda32d0d7198dd5dcc7fc01ca51ffa431feba143eb",
+    "src/presentation/speech/index.ts": "fd5e8d34b9008951cb443ad5d39ab8ab9b98b632ab1794d072ae248bdc151b2c",
+    "src/presentation/speech/controller.ts": "0050807c8d2dd2112f0b3c3236db3b339b35128c661d376eb0efc6669b64f0f0",
+    "src/domain/replay/descriptor.ts": "0825ab9b291915cd6c2346cfc649bf5f81a629b6788fcc9a94533cb3cecdab84",
+    "src/domain/replay/canonical.ts": "d4eef381fbc6c46e4ce77d555943b5f7aa99a22d26e47c9ea110f0e7a48b232e",
+    "src/domain/README.md": "7a829cb5c9be4d3a3619618d6ffc34b6c44ad4e82a0e9825cc6169aede5e7b5b",
+    "src/application/repository/validation.ts": "33a1823b16d0cc93e53f91a26ebd2b23fea293dcf82d1a06bb8f7c415cf9f376",
+    "src/application/README.md": "0f58dbac3acda1d6c1be1d42d147a4f3c9863b26318b5656ed00e93833131372",
+    "src/ui/prototype/speech-context.ts": "035a97b7c240551e8953e1718f6442d459cfc043b2833b1d12476a09efbe6168",
+    "src/ui/prototype/PrototypeExperience.tsx": "d4a65e22b8682d6a4e2db17a92a7f9a57cea0944420438ebc9f137f2407c5bd9",
+    "src/ui/prototype/prototype.css": "5b3be638a4ad4e7d3cbe920a95aa31257c43691aed5c5fc14dc8c002a52ccf45",
+    "src/ui/prototype/options.ts": "2be1bb37316ffa8ad379d21f4cfce24f8acb9927d927f075567251f452d7c334",
+    "src/ui/prototype/model.ts": "319973893373ccf4758976779bfd1e3ab191eab15955ac78822df49255db0f3c",
+    "src/ui/prototype/fixtures.ts": "2b2c66982ec9413cae4c5ec177798fbadef8c2ab6af1f4ee60b8193a483c60f8",
+    "src/ui/prototype/copy.ts": "b8f9b9695d68b978993bd7d66f5a5a8466cc2b89337b5e90b7bcef4c2363b8b2",
+    "src/ui/speech/VoiceCheck.tsx": "33d72c17d2f798cc3e92d12f844258df7e84e74580d85753217fc2fc9fb67c6e",
+    "src/ui/speech/SpeechControls.tsx": "c25167d990339e2265d924b29fa918df33d4bb1f806d175e74a069506969a93e",
+    "src/ui/speech/SpeechAvailabilityNotice.tsx": "63aa4ad0dc0330a243e53e59809a3109db7b594952705513ebae554c89049474",
+    "src/application/ports/speech.ts": "6be77110a7f631a4ab8c6e15c79dbf371577b4e7a6a438f7c5e78ff7836dcf6b",
+    "src/application/ports/repository.ts": "464c16cdfb7dd53c685e0be7a130e69a3e00f8e57eb350dcd57aeab17e8e299f",
+    "src/application/ports/capability-validation.ts": "b5ccf36d65fa61db0f83982c09c331a81d614c493b96c7003bca8aadbabeba72",
+    "src/application/ports/capabilities.ts": "46796bee4166345a7a7c39fa4b35bd19c816c8e898f071350fca8e2b0ea07b30",
+    "src/application/growing-world.ts": "153deea44757e9fbb1cf68452afe5e0936c7e15b5ed945486baf40534c904a31",
+    "src/application/family-proof.ts": "cbe111a42fb46f57b4de70bfee2ceebf51b9e8b366cf98c79dbb9ccb9daf95ee",
+    "src/presentation/offline/copy.ts": "4ba38efa06be3f6946d879ab7e88d9a5ee2a46c07035b16ea886812c43c1797c",
+    "src/presentation/offline/controller.ts": "9dbac47624a266a797deda2cf0e5c8b5b4a18dfdf23c73f584d6042e96d0a5b7",
+    "src/ui/offline/OfflineControls.tsx": "3e4a56f4cf05764bacb44fbbb57a0610c886928dd280a57ad92691eaacdc69b8",
+    "src/ui/offline/offline.css": "be050d90c22dc8b8a602c34b85129bc7942b3260807f9f13ab2552d14bf54daa",
+    "src/domain/families/slice.ts": "ccc2b160d81826b4dfc176f15018117b4641959840a0f574fd04454aa3dde1bb",
+    "src/domain/families/proofs.ts": "6bc2d6d15b1f08d7da0e21f849531d251ea8bbb68a992bf3aee5ab0c8e558600",
+    "src/domain/families/proof-evidence.ts": "441facccaf5318daf45d0f422bb649cd636cbecf76c4092c0ec069a1c329483c",
+    "src/domain/families/concepts.ts": "483558c9a3220c9789d347e8254a5638a0a6a4ab1b60f0fd27a0f4eedb085d18",
+    "src/domain/random/xoshiro.ts": "dc16be244747b4a5b419050bd37091214bb272fa3269f339f123c3192b247e9a",
+    "src/application/core/result.ts": "2006bcb75110f688e4d6e072c6f2594f773005d1de606906a9affe84e8cd190b",
+    "src/application/core/integrity.ts": "5289629c52f97ed3b995b5b711434ca82489126daba2a26f0ac53ed22981f0c8",
+    "src/domain/expressions/expression.ts": "0d3d88b49a30d2740b7739e0cde0988f15a14fd5f36779cc2906de9ccc000da0",
+    "src/domain/adaptation/types.ts": "8914c101ddecc93f266c813e403302227ab3c0aa9ae3d2902bc6970b312e1f1e",
+    "src/domain/adaptation/state.ts": "754c638485e5f0c5f239b28fd542a5e19882d4ec74721d9d15a14ce9381cee77",
+    "src/domain/adaptation/selection.ts": "10819a7fac989461b899cd5e3789ba554307a84d1df30b32f4315cef6ba6cc5e",
+    "src/domain/adaptation/policy.ts": "816d4dd43a48e5b869d971a7a30dd09863678e0d0028d451ca7dedd48482d687",
+    "src/domain/adaptation/catalog.ts": "60fd387a5e3cc76b8ba7f420b4d000d9feb4efe9be3338117e0bbf2d1f7e6b3a",
+    "src/ui/App.tsx": "0f68e4b2e7f4270cc28ecd54af7a90120126de4fdb80baeff06ba2af91191cff",
+    "src/domain/core/data.ts": "bbac1706b8ff3f432ea2c4dc9db140486625d9c5009d64e6161ba63fdd8f8fc4",
+    "src/domain/core/result.ts": "61c1a3d469effe6aff17caa9378bd9088706f27e0ac8362275fa3b1d8c9ab456",
+    "src/domain/core/identifiers.ts": "d5f25942761ee413c4b31417f65be4e1ee7eb3c9be0efe7addc58b3ceb70aade",
+    "src/composition/main.tsx": "d5eb1ef0c2847be4aa6dfa51ef279726b84af0f3327d5cae99139dd9e3509c8a",
+    "src/ui/family-proof/answers.ts": "dfc164712019bf2c09b852bd3d4036848bbd83fdc3f18463dbb89d4c25e894ae",
+    "src/ui/family-proof/family-proof.css": "7f19fdec0a048f1a640df8dcfe27440023470f48dc575a65722e3a734c4d8614",
+    "src/ui/family-proof/FamilyProofExperience.tsx": "8ff36b23875dbb9caadda0b42e31092c14ed44a9f837f30cd16b9379b6401d5a",
+    "src/ui/family-proof/options.ts": "c179f157a4733ebb5f35756dbde491c4cf60a5eaa1c96c3c2754e3cb81746247",
+    "src/ui/family-proof/FamilyProofScreen.tsx": "c4a479a46122c2f01f6b18673f741f9d9e849ab5da8185c53852400c7b89674f",
+    "src/domain/growing-world/support.ts": "1aaa548f076255e6e1a601fff238b002089d427ed59ce90939fd055039743118",
+    "src/domain/growing-world/journey.ts": "d89fc7752880c4999ffe034b983bb526990fdae6f6fc0d2b44fc7494b8fd1cd6",
+    "src/domain/growing-world/explore.ts": "6c1028346dfbc6d9bdd6f8c9fb1bf2ce5f1a224ea4d1ac041d92168b36e40354",
+    "src/domain/growing-world/content.ts": "6b8ae7e48e15b4f6e8cbc51441a1a31465ac55ebd4a0844994a7563de01eebc6",
+    "src/domain/puzzles/family.ts": "1b6e2b10de255bf5f5f6ce328176aae805e09215409669c5de02e00d58992dfc",
+    "src/domain/puzzles/contracts.ts": "363976bdfb7f97639d54c6cdd9b47b3bddae8da8fe2bcd27ed90ca44fc33b330",
+    "src/presentation/localisation/slice-copy.ts": "047f47b13490a8f4cde1d7e2d65e1de5b499f340740f51c26ecd762540bbc299",
+    "src/presentation/localisation/preferences.ts": "fab995d4e02d44636fdebac1433613a79cc1ceb17fe329f60cd73769e2ff809a",
+    "src/presentation/localisation/packs.ts": "e7a5a713d5b0e802489527507caf7b524839f940d7a6e9ce0afc2dcdd66d1fa9",
+    "src/presentation/localisation/messages.ts": "c1ef6a0706046c55ce7a79450f20daee77564fe56e55a05050a5edf041ba44b0",
+    "src/presentation/localisation/locales.ts": "2bdb28a467d5b3d902a9361099b8c03a1dd5945e6b647d44cbd2cd0dd5cffec8",
+    "src/presentation/localisation/language-controls-copy.ts": "29ca51792c5d060ad454d12c1b9f8e69900899e19028955cb5ae225e41edb1e2",
+    "src/presentation/localisation/index.ts": "3a5af9b918c0c75da06f312185c108476afcdf50a469468f399c623428cb376f",
+    "src/presentation/localisation/growing-world-copy.ts": "979445fc46e668096b86d760277ce87536d587108275a29600598cbfab401e40",
+    "src/presentation/localisation/format.ts": "f0f373b767672460b357fb19f9af88a8501fc396611b1c33258c112e452ddccd",
+    "src/presentation/localisation/child-copy.ts": "0e80f5f8c94cf05df1760ffbf1670060f759891a0a7a8a201d6d5d98313005ac",
+    "src/presentation/localisation/answer-entry-copy.ts": "b8d75a385db82d9766398a035b7f3d5602f0c917407f150dd71dfb3210d75657",
+    "src/domain/measurement/quantity.ts": "cd9fd2093e58cca24bff76e6a4a88d917bd518a5ebb56317c863b2bcaf7dde37",
+    "src/domain/math/rational.ts": "7a47c91abcad53914e92fbade8851cf71b566319b38cc49645a72fecc330acde",
+    "src/domain/math/powers.ts": "514c02f27542ce301a397bae9c42d7b713849d15536b565326392615f5dd35cb",
+    "src/domain/math/integer.ts": "21ed142c5d5e0ae1adf59d850ec9267755675be76622fe5d75782114ce74d030",
+    "src/domain/math/integer-dto.ts": "f2da083d643a2fc634026f89094f102304d17fa6308a780a0debd4ecbfe77750",
+    "src/domain/math/decimal.ts": "c1beb5eeaff49b839895ceae8ecda3d0bf0d43b2d5ca7869466e8231a055a3e3",
+    "src/domain/math/bounds.ts": "bf727363ea30032576a2f80c0b744472d23897bf09bff7a3a0d0b071b9ae5f31",
+    "src/domain/geometry/scene.ts": "f5f470dde5382ff578a5c2c07c3c9386bf9168b7838447c01ae404e3967b9ecb",
+    "src/domain/concepts/graph.ts": "4e806395702d4458259239e7386fe086f65f445b2976b10e45c6126c5966980f",
+    "src/infrastructure/speech/browserSpeech.ts": "c0f0112ed72d2aacd8e0a13e0ce36d4c43963e23784c4487bb03667b04b0fb29",
+    "src/infrastructure/offline/worker-entry.ts": "ecd4027b108cf27afd8908a3880299c6faa0e9c747de9627fcf4098e179f4bbc",
+    "src/infrastructure/offline/shell-worker.ts": "4cf086ce871b33c40acd99735271051e625d91a0ca8c04473d640c1f45827679",
+    "src/infrastructure/offline/shell-policy.ts": "b4ef78a46a44c00dc2900e82161e58b9974911177ac42166b067d507fb13d55b",
+    "src/infrastructure/offline/cache-lock.ts": "87d34990bd703453fb137bde04de03892a3d04d78dc29d7d6ac5ebf5328ef356",
+    "src/infrastructure/offline/browserOffline.ts": "1e92d15f6f709539c4fe633ee0f9152cc7b1afc1a8d31408177034f385f0ba3f",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+    "src/infrastructure/persistence/maintenance.ts": "50d51691846954ea724e80b7a4995096b53c18bf65d98b53a497b4927b4db3ca",
+    "src/infrastructure/persistence/layout.ts": "ad3c8c253baa964cb569a4e612bd51c04a2d277ee3c00ba42cc0a4e5f9afd143",
+    "src/infrastructure/persistence/envelope.ts": "7c0626d67ddc9ac4afe2218f01d89da916304439b570050bb9bf69f56450c1df",
+    "src/infrastructure/persistence/adapter.ts": "5af7845fe985d9aa544bcbc4e194616f2c1a511a669c95a28ae7f691ce35eb2c"
+  },
+  "ownerPreview": {
+    "url": "http://127.0.0.1:4186/",
+    "servedJavaScriptSha256": "ee81324ffe1eea322925114087dc01f2d6a70c82da837303b412f9e489cfffea",
+    "verifiedBy": "Actual HTTP response SHA256 after verifying HTML script reference",
+    "earlierPreview": "Existing4178 listener from another checkout preserved; per-origin state is separate; no database read/copy/clear"
+  },
+  "followup": {
+    "classification": "Observational documentation/evidence only; no product, proof, test, build/configuration, policy or authority change",
+    "requiredFinalGates": "The documentation follow-up requires its own full local and isolated fresh verification and exact-head PR-specific required hosted jobs. Their observed final-head results and protected squash state are recorded in PR17, not inferred from this source checkpoint.",
+    "publicationRecord": "https://github.com/kkazantzphone-droid/Math-Adventure/pull/17"
+  },
+  "limits": [
+    "This receipt reports actual completed checkpoint commands, not a future-head pass.",
+    "Working-tree/source-map and exact artifact reuse does not replace final-head local/fresh/hosted checks.",
+    "Owner UX acceptance remains pending. No real learner use, release or deployment."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "math-adventure.clear-answers-line-ending-mapping-v1",
+  "marker": "synthetic-only-engineering-evidence",
+  "date": "2026-10-18",
+  "result": "PASS - bounded canonical line-ending reconciliation",
+  "checkpoint": "77d7f25de002b7b08dfd6f1b73f1c550cce08e9c",
+  "authority": "Observational documentation follow-up requested by root; no product, proof, test, configuration, policy or runtime behavior change.",
+  "gitNormalization": "The unchanged .gitattributes declares * text=auto eol=lf and *.json text. Git stored LF blobs at the checkpoint while these three original observed working receipts retained CRLF.",
+  "method": "Read original working bytes and exact Git checkpoint blob buffers. For every file, replacing CRLF pairs with LF produces the checkpoint buffer exactly, byte-count difference equals CRLF-pair count, canonical bytes contain no carriage returns, and parsed JSON is deeply equal.",
+  "files": [
+    {
+      "path": "docs/evidence/clear-answers/candidate-review.json",
+      "observedRawSha256": "61ef9cc9b6155aa282cde243e35a472176f54829024df544e2ef2b3fa53e8338",
+      "observedRawBytes": 16977,
+      "observedCrlfPairs": 151,
+      "checkpointBlobObjectId": "816fe4f1d7aa1cf6549e4e362049229d712d9a8d",
+      "canonicalLfSha256": "3e7f2c6ebb9d41f7c6ab77ebe0515b6015726be76f70f755c5c0b4f56d551405",
+      "canonicalLfBytes": 16826,
+      "exactCrlfToLfOnly": true,
+      "parsedJsonUnchanged": true
+    },
+    {
+      "path": "docs/evidence/clear-answers/dependency-audit.json",
+      "observedRawSha256": "7418e2708e45fb11cf4658c03864bf81e6c3a632ff6adbe09e800042f5040af8",
+      "observedRawBytes": 790,
+      "observedCrlfPairs": 23,
+      "checkpointBlobObjectId": "8560e2ceea2afcfa0851d4c4aba08238aa255911",
+      "canonicalLfSha256": "ded5f42ae425b5d14456211f50a34fd4af9899271ec0a91ed1c11fa5a168db0b",
+      "canonicalLfBytes": 767,
+      "exactCrlfToLfOnly": true,
+      "parsedJsonUnchanged": true
+    },
+    {
+      "path": "docs/evidence/clear-answers/ui-review.json",
+      "observedRawSha256": "308d2827204bae53ef2ff93e49dd58c8c1f2eca91a0881f3466758bb3cb4fd20",
+      "observedRawBytes": 12056,
+      "observedCrlfPairs": 166,
+      "checkpointBlobObjectId": "a71a8e746bfca11d1a5d0fbd7c7f9d17121c618d",
+      "canonicalLfSha256": "ad595ebe148138f985cec682415e8769c85a44fca235887d7ee5560503da8e6c",
+      "canonicalLfBytes": 11890,
+      "exactCrlfToLfOnly": true,
+      "parsedJsonUnchanged": true
+    }
+  ],
+  "operations": [
+    "Normalize all three working JSON files to the exact recorded checkpoint LF buffers without changing parsed JSON.",
+    "Then update only candidate-review evidence references for audit/UI from their preserved observed raw hashes to the canonical LF hashes and add this explicit mapping reference. Other source/evidence references and all previously reviewed documentation hashes remain unchanged.",
+    "Write this mapping and the metadata-updated candidate review as UTF-8 LF. The original raw hash identities above remain historical observations and are not represented as originally LF."
+  ],
+  "producerIntegrity": {
+    "trackedProducerAndConfigurationFilesObserved": 287,
+    "allProducerHashesUnchanged": true
+  },
+  "limits": [
+    "The candidate-review row describes its original observed bytes and the checkpoint canonical bytes before this follow-up metadata update; it is not a hash of the newly updated candidate-review file.",
+    "No new mathematical, browser, audit, full/fresh or hosted run is inferred from line-ending equality. Root separately owns actual final verification and publication gates.",
+    "Existing reviewedDocumentationHashes intentionally retain their original review identities until a separately reviewed final documentation supplement."
+  ]
+}

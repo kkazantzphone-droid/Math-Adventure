@@ -142,10 +142,17 @@
   "reviewedEvidenceHashes": {
     "docs/evidence/clear-answers/browser-matrix.json": "65973666ac880d168672b36276d9a8d918c22d61d549b56ce2815f9b05d73c71",
     "docs/evidence/clear-answers/burden-review.json": "b708b2380b20fa77e10234bc4acb488b7528d04cd2404ab3e7c47dab57bdcd37",
-    "docs/evidence/clear-answers/dependency-audit.json": "7418e2708e45fb11cf4658c03864bf81e6c3a632ff6adbe09e800042f5040af8",
+    "docs/evidence/clear-answers/dependency-audit.json": "ded5f42ae425b5d14456211f50a34fd4af9899271ec0a91ed1c11fa5a168db0b",
     "docs/evidence/clear-answers/integrity-review.json": "b84eca019aeb1f04c8517ee26b373150c8ef1968ee38588072e504342309e145",
     "docs/evidence/clear-answers/landscape-text-review.json": "0e3f0a57b306ba7338d7185e53449059d775bc484b744b2edc37f5491087995d",
     "docs/evidence/clear-answers/source-review.json": "8328a4d2e56ef0ef216fe78ef2c5d5269a5cc57011a7a525f945f9f6e68c267c",
-    "docs/evidence/clear-answers/ui-review.json": "308d2827204bae53ef2ff93e49dd58c8c1f2eca91a0881f3466758bb3cb4fd20"
+    "docs/evidence/clear-answers/ui-review.json": "ad595ebe148138f985cec682415e8769c85a44fca235887d7ee5560503da8e6c",
+    "docs/evidence/clear-answers/line-ending-mapping.json": "6d833d4e3e7eb4ce22c598d7d54f5b14dfcee1015a8280b1fe77374e030198f6"
+  },
+  "lineEndingMapping": {
+    "receipt": "docs/evidence/clear-answers/line-ending-mapping.json",
+    "receiptSha256": "6d833d4e3e7eb4ce22c598d7d54f5b14dfcee1015a8280b1fe77374e030198f6",
+    "checkpoint": "77d7f25de002b7b08dfd6f1b73f1c550cce08e9c",
+    "scope": "Exact original raw CRLF-to-checkpoint LF mapping for candidate review, audit and UI receipts, followed by this disclosed candidate metadata update only. Original raw identities are preserved in the mapping; no producer input or runtime observation is relabelled."
   }
 }
