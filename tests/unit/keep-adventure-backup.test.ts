@@ -459,6 +459,20 @@ describe(
       ).toBe('damaged');
     });
 
+    it('refuses a changed checksum and a valid-looking edit made without recomputing it', async () => {
+      const text = await fileText();
+      const { checksum } = JSON.parse(text) as {
+        checksum: { value: string };
+      };
+      const flipped = `${checksum.value.slice(0, -1)}${checksum.value.endsWith('0') ? '1' : '0'}`;
+      expect(code(text.replace(checksum.value, flipped))).toBe('damaged');
+      // Still canonical and semantically acceptable, but not as the app made it.
+      const edited = text.replace('"uiLocale":"el-GR"', '"uiLocale":"de-DE"');
+      expect(edited).not.toBe(text);
+      expect(code(rewrite(edited, () => undefined))).toBe('ok');
+      expect(code(edited)).toBe('damaged');
+    });
+
     it('detects every single-character change', async () => {
       const text = await fileText();
       fc.assert(

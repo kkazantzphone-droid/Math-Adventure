@@ -54,7 +54,22 @@ unsaved in-memory play.
 
 Observation and chapter-observation IDs embed the source answer's random
 operation token. They are preserved as profile-internal evidence identities and
-are never presented as destination repository operation IDs or receipts.
+are never presented as destination repository operation IDs or receipts. Import
+accepts only the shape this app creates (`SYNTHETIC-synthetic-` plus a UUID), so
+a file cannot use these IDs to carry other text into the destination. They do
+link copies of one world to each other; that is acceptable for synthetic data
+and a design question for any future real export.
+
+Session ordinal, open/stopped state and the saved help context are learner
+history, not control identity. Phase 3B made session ordinals explicit evidence
+inputs, and saved help binds a task's provenance until an explicit new session
+clears it. No boot, tab or command session token exists in the payload; every
+destination write is authorized only by the destination epoch and revision.
+Restoring an open session therefore imports no active-session identity as write
+authority. Closing it during restore was rejected: that would either invent a
+policy checkpoint event or skip one, changing evidence history, and could
+release help provenance early. Continuing the same session number elsewhere can
+only under-count distinct sessions, the conservative direction.
 
 The envelope is canonical JSON (`canonical-json-v1` key order and number
 spelling) with `format: math-adventure-synthetic-backup`, `formatVersion: 1`,
@@ -65,7 +80,13 @@ versions, all fourteen generator IDs, RNG, task-seed and canonicalization
 versions. Import requires exact equality; a mismatch is refused as incompatible
 rather than reinterpreted. The checksum detects accidental damage only. It is
 not authentication, encryption or proof of authorship: anyone who edits a file
-can recompute it. Files carry no clock time, device, browser or origin data.
+and recomputes it can change its provenance, which this contract cannot detect.
+The compatibility block also carries a `semantics` SHA-256 over the exact
+adaptation policy values, invitation policy values and legacy evidence scopes,
+so a changed value is refused even if a version name were reused. The file adds
+no export time, device, browser or origin data; observation coarse days and
+clock-certainty flags are existing history fields, fixed at day 100 and
+uncertain in this capability.
 
 ## Untrusted import
 
@@ -113,13 +134,27 @@ bootstrap), then one native `readwrite` transaction over every store, in order:
 4. write every record at revision 1 and its create receipt together; resolve
    only on transaction completion; abort or quota leaves every store unchanged.
 
-Success is shown only after a separate read-only readback confirms the epoch,
-each record's exact payload, revision and receipt. An ambiguous outcome is
-reconciled by readback: an exact match is reported as restored and checked; an
-empty destination remains restorable with the same idempotent plan; any other
-state is reported without overwriting. Restore closes the badge open in the
-restoring window and is blocked while that window is saving or an update is in
-progress. It never resets or deletes a database to recover.
+Records are written with native `add`, never `put`, and the transaction asks
+for strict durability; both are guards and flush hints, not crash-durability
+claims. Success is shown only after a separate read-only readback confirms the
+epoch, each record's exact payload, revision and receipt. A pure mapping turns
+the commit result and readback into what the parent is told: only an exact
+readback is "restored and checked" (including after a lost commit report); a
+transaction that aborted proves this attempt wrote nothing; otherwise the panel
+states what is saved now (`differs` or `absent`) instead of claiming nothing
+was restored. A retry after an unconfirmed attempt reuses its operation IDs, so
+exact receipts recognise an earlier commit; the empty-destination rule
+separately forbids a second commit. Only a verified restore closes the badge
+open in the restoring window (including play that was not being saved); a
+failed restore leaves that window as it was. Restore is blocked while the
+window is saving, uncertain, selecting or updating, and the update lifecycle
+waits for a running restore. A failed restore into a never-used browser can
+leave the empty owned database that choosing a badge would also create, with no
+learner rows. Nothing resets or deletes a database to recover.
+
+Restored values keep the record codec's existing bounds. A world already at the
+synthetic 1,000,000 task bound stays at that bound after restore, exactly as at
+its source.
 
 ## Experience
 
@@ -129,7 +164,12 @@ and is not inside, that the file is a private copy outside the app's control,
 that a started download is not proof of safe storage and that app deletion
 cannot erase exported copies. States: preparing, ready to save, save requested,
 nothing saved yet, checking file, preview, restoring, checking restore,
-restored and checked, refused and uncertain. Browser saving, the external
+restored and checked, refused, not restored (with a reason or what is saved
+now) and uncertain. The preview reports independent successes, successes with
+help or another try, worked examples, later confirmations of an existing case,
+not-yet answers and other answers not counted, using the engine's own frozen
+classifications; practice states are labelled experimental and not a mastery
+measure. Browser saving, the external
 backup file, cached offline operation and optional offline speech remain
 distinct statements. The fourteen activities and answer controls are unchanged.
 
