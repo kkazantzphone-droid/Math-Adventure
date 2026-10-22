@@ -54,13 +54,22 @@ const mutations = [
     after: '  if (body === null)',
   },
   {
-    id: 'export-unsettled-pending-answer',
+    id: 'replay-pending-answer-as-completed-success',
     file: backup,
     suite: 'unit',
-    before:
-      '  const { derived, pending, lastCompletion, ...portable } = record;',
-    after:
-      '  const { derived, lastCompletion, ...portable } = record;\n  const pending = null;',
+    edits: [
+      {
+        before: "  SYNTHETIC_LOOP_CATALOG,\n} from './record';",
+        after:
+          "  SYNTHETIC_LOOP_CATALOG,\n  completePendingSyntheticLoop,\n} from './record';",
+      },
+      {
+        before:
+          "    if (!record.ok) return fail('invalid_contents');\n    records.push(record.value);\n  }\n  records.sort(",
+        after:
+          "    if (!record.ok) return fail('invalid_contents');\n    const settled = record.value.pending\n      ? completePendingSyntheticLoop(record.value)\n      : null;\n    records.push(settled?.ok ? settled.value : record.value);\n  }\n  records.sort(",
+      },
+    ],
   },
   {
     id: 'accept-incompatible-provenance',
@@ -226,20 +235,20 @@ try {
     evidence.baseline[suite] = passing(run(suite));
   for (const mutation of mutations) {
     assert(restore());
-    const text = originals
+    let text = originals
       .get(mutation.file)
       .toString('utf8')
       .replaceAll('\r\n', '\n');
-    assert.equal(
-      text.split(mutation.before).length - 1,
-      1,
-      `${mutation.id} anchor must occur once`,
-    );
-    try {
-      writeFileSync(
-        mutation.file,
-        text.replace(mutation.before, mutation.after),
+    for (const edit of mutation.edits ?? [mutation]) {
+      assert.equal(
+        text.split(edit.before).length - 1,
+        1,
+        `${mutation.id} anchor must occur once`,
       );
+      text = text.replace(edit.before, edit.after);
+    }
+    try {
+      writeFileSync(mutation.file, text);
       const observed = run(mutation.suite);
       const failures = observed.assertions.filter(
         (test) => test.status === 'failed',
