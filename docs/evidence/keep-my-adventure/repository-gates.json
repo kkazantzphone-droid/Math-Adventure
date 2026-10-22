@@ -1,0 +1,141 @@
+{
+  "schema": "math-adventure.keep-adventure-repository-gates-v1",
+  "marker": "synthetic-only-engineering-evidence",
+  "date": "2026-10-22",
+  "result": "PASS — observed local and isolated fresh gates at the recorded heads",
+  "toolchain": {
+    "node": "24.21.0",
+    "pnpm": "12.9.1",
+    "corepack": "0.36.0",
+    "machineWideChanges": false
+  },
+  "canonicalCommand": "corepack pnpm verify",
+  "sourceCheckpoint": {
+    "head": "e0d0a443229ba352b530ac627208eac8d1322a39",
+    "tree": "c5841b0e46467a054a0fb9eb9fb3fba50a9d5d29",
+    "local": {
+      "exitCode": 0,
+      "tests": 1460,
+      "files": 80
+    },
+    "isolatedFresh": {
+      "method": "git clone --no-hardlinks --single-branch --branch codex/keep-my-adventure . <ignored-local-directory>",
+      "install": "corepack pnpm install --frozen-lockfile",
+      "installExitCode": 0,
+      "verifyExitCode": 0,
+      "tests": 1460,
+      "files": 80,
+      "cleanTrackedState": true,
+      "lockUnchanged": true
+    },
+    "lockSha256": "62bdfc25b5442d746e019e83b4bbdccbce77e83c5ebc09c73af482647c162964",
+    "audit": "six advisories, all vite 8.3.2 dev server (GHSA-698v-4r3x-3vcv, GHSA-r825-w8mm-5pxw, GHSA-587h-7wmj-h5pm, GHSA-9jrq-w75r-8gcw, GHSA-rq7h-c2jc-7f22, GHSA-vfpm-58rq-9qcg)"
+  },
+  "dependencyPatchHead": {
+    "head": "c918c2412780b2b09c8c2af0536d307ad44e52e4",
+    "tree": "3ccd57cf1b09943db7df700d14e013d2f55b17fe",
+    "change": "devDependency vite 8.3.2 -> 8.3.3 (exact); lock delta is only vite version and registry integrity sha512-cTAldKPImjg6c+gk48U19POPn3GCBzZwpdsN8ZMEEcbpes+6/wvfqUd0C2y3qYY4wsj8PwgFwrZ/1jBPVttMSg==; vite 8.3.3 published 2026-10-06",
+    "local": {
+      "exitCode": 0,
+      "tests": 1460,
+      "files": 80
+    },
+    "isolatedFresh": {
+      "installExitCode": 0,
+      "verifyExitCode": 0,
+      "tests": 1460,
+      "files": 80,
+      "cleanTrackedState": true,
+      "lockUnchanged": true
+    },
+    "lockSha256": "651b5abda6fa5bdc7f1ee3ab64b58ba19c4c6286e63c2dbe494fa615f4630b20",
+    "audit": "zero advisories, 204 graph entries",
+    "byteIdentity": {
+      "ordinaryProductBuildEqualsD56Inventory": true,
+      "productionSliceBuildUnchangedFrom832": true,
+      "testRendererSliceBuildUnchangedFrom832": true,
+      "backupSuiteChromeOn833": "9 passed"
+    }
+  },
+  "normalArtifactInventory": {
+    "assets/index-ChbhntfK.js": {
+      "bytes": 360368,
+      "sha256": "ee7f7e2b8f326817fa0511c39022b8ecf22251feb60a078ac7452b7017e42731"
+    },
+    "assets/index-Cqw6cjjL.css": {
+      "bytes": 21440,
+      "sha256": "0727e557389437b5e8347bbc13e789678fb843546f6bd11d83d5018dbd535584"
+    },
+    "icons/math-adventure.svg": {
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    "index.html": {
+      "bytes": 795,
+      "sha256": "18431862747625b28388a8eeed1c423bffd340902ec775ef46547a0cce345ca2"
+    },
+    "manifest.webmanifest": {
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    "release.json": {
+      "bytes": 1300,
+      "sha256": "dd63a82e7da1d87b18418019c4c76599491bbce42ebefea4dd6e50784943786e"
+    },
+    "sw.js": {
+      "bytes": 22518,
+      "sha256": "17ef5b52ad3bb12f2cf27b3ae6ea63fee40a51f4151d596164b60d0ded7967ea"
+    },
+    "THIRD_PARTY_NOTICES.txt": {
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  },
+  "productionSliceArtifactInventory": {
+    "assets/index-DAvA5CEN.css": {
+      "bytes": 23850,
+      "sha256": "44857874bbfe6ffbe381e485d0904314b4d1772d38a2555849256a00f0fdbe47"
+    },
+    "assets/index-Uvs4SefU.js": {
+      "bytes": 559046,
+      "sha256": "369394894a7b03e7882e9517b4d10c29187148ed1d0f720dfb2dac384d211e7d"
+    },
+    "icons/math-adventure.svg": {
+      "bytes": 431,
+      "sha256": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6"
+    },
+    "index.html": {
+      "bytes": 709,
+      "sha256": "00b7d088dc92acc88ecdd2b0cb8b3dcc260005a6ddef1fd4bce0e53d3ad1d479"
+    },
+    "learner-reader.json": {
+      "bytes": 179,
+      "sha256": "002bf3c71f2888fbcad92f3b8c2e7c13cfce49ccb31da71567786f97643c9463"
+    },
+    "manifest.webmanifest": {
+      "bytes": 440,
+      "sha256": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c"
+    },
+    "release.json": {
+      "bytes": 1453,
+      "sha256": "83c9e4048a722517b251dc137d168a8aabb70d8a7a15203045f2aa0a761ae6eb"
+    },
+    "sw.js": {
+      "bytes": 22637,
+      "sha256": "1f8ac1ee2ffd230dae708f37db16c35d47e6976fa7ad74bbd6fe88d527533ab1"
+    },
+    "THIRD_PARTY_NOTICES.txt": {
+      "bytes": 1384,
+      "sha256": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab"
+    }
+  },
+  "newTests": {
+    "unit": 23,
+    "unitFiles": 2,
+    "browserCasesPerChannel": 9
+  },
+  "limits": [
+    "Local gates observe the recorded heads; the final documentation head and hosted checks are recorded on the PR",
+    "Audit reflects the registry advisories observed on this date only"
+  ]
+}

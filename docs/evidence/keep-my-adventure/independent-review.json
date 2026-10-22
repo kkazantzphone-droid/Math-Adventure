@@ -1,0 +1,109 @@
+{
+  "schema": "math-adventure.keep-adventure-independent-review-v1",
+  "marker": "synthetic-only-engineering-evidence",
+  "date": "2026-10-22",
+  "reviewedRevision": "cee2420",
+  "method": "Three fresh read-only reviewers given the owner task and raw candidate diff, not a desired verdict; each returned findings with severity and checked areas",
+  "scopes": [
+    "imported-data validation and privacy",
+    "atomicity, transaction ordering, concurrency, deletion fences and profile separation",
+    "help/evidence provenance, pending handling and UI truthfulness"
+  ],
+  "criticalOrHigh": 0,
+  "verifiedSound": [
+    "Pure SHA-256 matched node:crypto on 711 boundary inputs including padding boundaries, multibyte text, lone surrogates and about 1 MiB inputs",
+    "File size, text length, UTF-8 length and bracket depth are bounded before JSON.parse; later walks are capped",
+    "Plain-data readers never invoke accessors; prototype-shaped keys stay data",
+    "Exact canonical spelling and checksum reject whitespace, duplicate or reordered keys and rounded numbers",
+    "Portable rows have exactly the documented keys; derived, pending and lastCompletion cannot be supplied",
+    "One readwrite transaction checks epoch, receipts, emptiness and capacity before writing; success only on completion",
+    "Readback is separate and exact; probe and readback never create storage",
+    "Staging only adds pending, so exporting without it yields the last settled state"
+  ],
+  "findings": [
+    {
+      "id": "committed-restore-reported-as-nothing-restored",
+      "severity": "medium",
+      "resolution": "REPAIRED — pure restoreOutcomeFrom mapping; success only from exact readback; nothing-written only from an aborted transaction; differs/absent otherwise; unit table plus browser lost-report and change-before-readback cases"
+    },
+    {
+      "id": "failed-restore-closed-open-badge",
+      "severity": "low",
+      "resolution": "REPAIRED — only a verified restore closes the window's badge; restore blocked while a save is uncertain"
+    },
+    {
+      "id": "restoring-did-not-disable-shell-controls",
+      "severity": "low",
+      "resolution": "REPAIRED — shell disabled state includes restoring"
+    },
+    {
+      "id": "reopen-not-fenced-against-running-restore",
+      "severity": "low (speculative)",
+      "resolution": "REPAIRED — update reopen awaits a running restore"
+    },
+    {
+      "id": "session-state-vs-active-session-rule",
+      "severity": "medium (specification reconciliation)",
+      "resolution": "RECONCILED IN DESIGN — session ordinal, open state and saved help are learner history, not write authority; closing on restore would invent or skip a checkpoint event"
+    },
+    {
+      "id": "confirmations-in-not-counted",
+      "severity": "low",
+      "resolution": "REPAIRED — separate confirmations count; unit test with a same-session repeat and later-session confirmation"
+    },
+    {
+      "id": "help-label-for-stopped-session",
+      "severity": "low",
+      "resolution": "REPAIRED — label reads help saved in the latest session"
+    },
+    {
+      "id": "pending-advice-impossible-for-stranded-answer",
+      "severity": "low-medium",
+      "resolution": "REPAIRED — copy states the last completed save is kept and the unfinished answer stays at the source; unit tests for legacy and stranded pending"
+    },
+    {
+      "id": "checksum-and-checked-wording-implied-tamper-detection",
+      "severity": "low",
+      "resolution": "REPAIRED — damaged/not exactly as made, read back successfully, passed this version's checks"
+    },
+    {
+      "id": "experimental-states-read-as-mastery",
+      "severity": "low",
+      "resolution": "REPAIRED — experimental practice states, not a mastery measure; plain state labels"
+    },
+    {
+      "id": "unpinned-evidence-scope-values",
+      "severity": "low (future change)",
+      "resolution": "REPAIRED — compatibility semantics digest over exact policy values and evidence scopes"
+    },
+    {
+      "id": "free-text-in-imported-evidence-ids",
+      "severity": "low (privacy)",
+      "resolution": "REPAIRED — import accepts only app-created synthetic UUID evidence IDs"
+    },
+    {
+      "id": "put-instead-of-add-and-default-durability",
+      "severity": "info",
+      "resolution": "REPAIRED — native add; strict durability requested as a hint only"
+    },
+    {
+      "id": "german-still-being-saved-wording",
+      "severity": "low",
+      "resolution": "REPAIRED — deren Speicherung noch nicht abgeschlossen war"
+    },
+    {
+      "id": "evidence-ids-link-copies-and-hand-edited-files",
+      "severity": "info",
+      "resolution": "BOUNDED — disclosed in design; checksum is not authentication; real-use design question"
+    },
+    {
+      "id": "inherited-1000000-task-bound",
+      "severity": "low",
+      "resolution": "BOUNDED — restore keeps the existing codec bound exactly as at the source"
+    }
+  ],
+  "limits": [
+    "Review is source inspection plus the observed tests listed in the completion record",
+    "No native-language, educational, accessibility-technology or legal review is implied"
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "result": "PASS",
+  "channel": "msedge",
+  "browserVersion": "155.0.4283.62",
+  "sourceHashes": {
+    "src/application/synthetic-loop/backup.ts": "d0feea1a92ac1447442a4e4626543961f3ac1b49dc444ef022cbc05818139a74",
+    "src/application/synthetic-loop/digest.ts": "6b9dd73d9cb07d2164e5c3f2941065bfa7bb4900ed05938c6f1208d3d5adcd3d",
+    "src/application/synthetic-loop/record.ts": "3208d9b37d2c5700353a917007d0967ea88fedb59a7ba1d5f78fdbea6bc9e81a",
+    "src/infrastructure/persistence/synthetic-loop-backup.ts": "71410aa79057f3937a6051d82bac1a3233f584c05a3a169e296d042a0a6b0ef2",
+    "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
+    "src/presentation/localisation/backup-copy.ts": "b41849a7b0782a4bf5e9a6fee06fbb13ec0306d7962eae71f0ee49ec39d281e3",
+    "src/ui/synthetic-loop/BackupRestore.tsx": "0ecffa5d96d3c1155888782d3a9703bfd703a9ddabeee680cde61549f0099810",
+    "src/ui/synthetic-loop/backup-restore.css": "de8e6bbaaf5b09656a7bccbd5c3ce7e61da9376205c18b41d2c000a5cc8075dc",
+    "tests/browser/phase3c/main.tsx": "a03a3e801e1bade5e46694fe167129763e52a15b8580dc1ba744d39f9300fbf6",
+    "tests/browser/phase3c/runtime.ts": "9890334cfab3c13270bc095dbea254f93ec97da7c9f8b11f5e2f19c517aae760",
+    "vite.slice.config.ts": "94e6aef32bfb6a49af0b719fe5c6074b4db085fa0f7f00a3167c3793fb9fe33d",
+    "tests/integration/keep-adventure.test.ts": "da1ebac704b6360a6a840cd0c74b7600715ea41e79b4cce9726d38211d32c86d"
+  },
+  "sourcesStable": true,
+  "site": "prebuilt NODE_ENV=production slice",
+  "siteArtifacts": {
+    "index.html": "00b7d088dc92acc88ecdd2b0cb8b3dcc260005a6ddef1fd4bce0e53d3ad1d479",
+    "learner-reader.json": "002bf3c71f2888fbcad92f3b8c2e7c13cfce49ccb31da71567786f97643c9463",
+    "manifest.webmanifest": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c",
+    "release.json": "83c9e4048a722517b251dc137d168a8aabb70d8a7a15203045f2aa0a761ae6eb",
+    "sw.js": "1f8ac1ee2ffd230dae708f37db16c35d47e6976fa7ad74bbd6fe88d527533ab1",
+    "THIRD_PARTY_NOTICES.txt": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab",
+    "icons/math-adventure.svg": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6",
+    "assets/index-DAvA5CEN.css": "44857874bbfe6ffbe381e485d0904314b4d1772d38a2555849256a00f0fdbe47",
+    "assets/index-Uvs4SefU.js": "369394894a7b03e7882e9517b4d10c29187148ed1d0f720dfb2dac384d211e7d"
+  },
+  "cases": [
+    {
+      "name": "exports a real file, restores it into a fresh subpath origin, reopens and continues with separate provenance",
+      "outcome": "pass"
+    },
+    {
+      "name": "refuses damaged, malformed, future, incompatible and oversized files without creating storage",
+      "outcome": "pass"
+    },
+    {
+      "name": "repeated import and a nonempty destination are refused with existing data byte-identical",
+      "outcome": "pass"
+    },
+    {
+      "name": "rolls back injected abort/quota, a native request error and controlled native quota, then the same file restores",
+      "outcome": "pass"
+    },
+    {
+      "name": "a create after preview, a deletion while confirmation waits and a stale writer cannot overwrite, merge or resurrect",
+      "outcome": "pass"
+    },
+    {
+      "name": "a lost commit report and a change between commit and readback are reported truthfully",
+      "outcome": "pass"
+    },
+    {
+      "name": "excludes an answer still saving from the backup and never replays it in the restored copy",
+      "outcome": "pass"
+    },
+    {
+      "name": "backs up and restores in browser-controlled offline mode after verified caching",
+      "outcome": "pass"
+    },
+    {
+      "name": "adult controls are keyboard operable and reflow at 320px with doubled text in all three drafts",
+      "outcome": "pass"
+    }
+  ],
+  "observations": {
+    "journey": {
+      "sourceSchemas": [
+        "growing-world-synthetic-loop-v2",
+        "phase3c-synthetic-loop-v1"
+      ],
+      "sourceRevisions": [
+        30,
+        14
+      ],
+      "destinationRevisions": [
+        1,
+        1
+      ],
+      "sourceReceipts": 44,
+      "destinationReceipts": 2,
+      "fileBytes": 9342,
+      "fileSha256": "6eae168a2273520af5114e635458bc5c2e531dfe8bef3bb032b2d82f0c44024c",
+      "destinationPath": "/math-adventure/"
+    },
+    "refusals": [
+      {
+        "name": "corrupted",
+        "expected": "damaged"
+      },
+      {
+        "name": "truncated",
+        "expected": "damaged"
+      },
+      {
+        "name": "malformed",
+        "expected": "not_backup"
+      },
+      {
+        "name": "unrelated",
+        "expected": "not_backup"
+      },
+      {
+        "name": "future",
+        "expected": "newer_version"
+      },
+      {
+        "name": "incompatible",
+        "expected": "incompatible"
+      },
+      {
+        "name": "extra-field",
+        "expected": "invalid_contents"
+      },
+      {
+        "name": "deep",
+        "expected": "not_backup"
+      },
+      {
+        "name": "oversized",
+        "expected": "too_large"
+      }
+    ],
+    "repeated": {
+      "secondImport": "occupied",
+      "oneBadge": "occupied"
+    },
+    "failures": {
+      "reasons": {
+        "abort": "unavailable",
+        "quota": "quota",
+        "write": "unavailable",
+        "nativeQuota": "quota"
+      },
+      "nativeQuota": "CDP Storage.overrideQuotaForOrigin(1 byte) after relaunching a disposable persistent profile; service workers blocked"
+    },
+    "concurrency": {
+      "createdAfterPreview": "occupied",
+      "deletionDuringRestore": "changed",
+      "staleWriter": "epoch_conflict",
+      "restoredEpoch": 3
+    },
+    "ambiguity": {
+      "lostReport": "restored by exact readback",
+      "changedBeforeReadback": "differs; restored rows present"
+    },
+    "pending": {
+      "excluded": 1,
+      "restoredPending": null
+    },
+    "offline": {
+      "mechanism": "BrowserContext.setOffline after verified cached shell",
+      "source": "/math-adventure/",
+      "destination": "/"
+    },
+    "adultUi": [
+      {
+        "locale": "el-GR",
+        "words": 645,
+        "oversizedWords": [
+          "αποθηκευμένα",
+          "διαγράφονται",
+          "περιλαμβάνονται",
+          "αποθηκευμένο",
+          "Ολοκληρωμένες",
+          "δραστηριότητες",
+          "δραστηριότητα",
+          "μεταγενέστερη",
+          "χρησιμοποιήσει.",
+          "αποθηκεύεται",
+          "απενεργοποιημένη",
+          "αποθηκευόταν",
+          "προγράμματος",
+          "επαναφέρεται",
+          "λογαριασμούς",
+          "κρυπτογράφηση",
+          "Καθοδηγούμενη",
+          "Επαναλαμβανόμενες",
+          "δραστηριότητας)",
+          "math-adventure-synthetic-backup.json"
+        ],
+        "overflow": 0,
+        "right": 296,
+        "viewport": 320,
+        "rootFont": "32px",
+        "smallestTarget": 113.59375,
+        "contrast": {
+          "body": 14.779975217447607,
+          "term": 11.828100621786431,
+          "saveLink": 13.600458609989445
+        }
+      },
+      {
+        "locale": "en-GB",
+        "words": 600,
+        "oversizedWords": [
+          "math-adventure-synthetic-backup.json"
+        ],
+        "overflow": 0,
+        "right": 296,
+        "viewport": 320,
+        "rootFont": "32px",
+        "smallestTarget": 113.59375,
+        "contrast": {
+          "body": 14.779975217447607,
+          "term": 11.828100621786431,
+          "saveLink": 13.600458609989445
+        }
+      },
+      {
+        "locale": "de-DE",
+        "words": 604,
+        "oversizedWords": [
+          "Offline-Nutzung",
+          "Sicherungsdatei",
+          "Offline-Sprachausgabe",
+          "Spracheinstellungen.",
+          "Abgeschlossene",
+          "Entdeckungen,",
+          "Versionsangaben,",
+          "Entdecken-Werkstatt.",
+          "ausgeschaltetem",
+          "abgeschlossen",
+          "Speicherzähler",
+          "Sicherheitsvermerke",
+          "wiederhergestellte",
+          "Offline-Dateien",
+          "Bildschirmsprache",
+          "Längeneinheiten:",
+          "math-adventure-synthetic-backup.json",
+          "wiederherstellen",
+          "Wiederherstellen",
+          "Wiederhergestellt",
+          "weiterzumachen."
+        ],
+        "overflow": 0,
+        "right": 296,
+        "viewport": 320,
+        "rootFont": "32px",
+        "smallestTarget": 113.59375,
+        "contrast": {
+          "body": 14.779975217447607,
+          "term": 11.828100621786431,
+          "saveLink": 13.600458609989445
+        }
+      }
+    ]
+  },
+  "externalRequests": 0,
+  "pageErrors": 0,
+  "mechanism": "Installed browser via playwright-core; disposable loopback origins and fresh contexts; actual download and file chooser; raw IndexedDB rows compared by test-only code; injected abort/quota and CDP quota override labelled separately; browser-controlled offline mode; deliberate 32px root text",
+  "limits": "No physical device, OS-level disconnection, actual screen-reader delivery, native zoom, native-language review or real learner data"
+}

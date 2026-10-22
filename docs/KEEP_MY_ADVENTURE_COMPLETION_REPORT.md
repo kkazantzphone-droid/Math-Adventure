@@ -1,7 +1,11 @@
 # Keep my adventure — completion evidence
 
-2026-10-22, Europe/Athens. Status: **IN PROGRESS** — gate results below are
-filled in from observations before publication.
+2026-10-22, Europe/Athens. **Engineering evidence PASS** for the bounded
+synthetic backup, restore and recovery delivery. Owner UX acceptance and any real
+household saved use remain separate decisions. The live
+[PR #18](https://github.com/kkazantzphone-droid/Math-Adventure/pull/18) record
+holds the final head's own local/fresh and hosted checks and merge observations;
+this report does not infer them from an earlier head.
 
 The [D57 design](KEEP_MY_ADVENTURE_DESIGN.md) binds the work to protected-main
 base `c362eaecbaca90b3ae01a5ae79ead335509e64a1` (merged PR #17) on branch
@@ -120,3 +124,98 @@ existing review previews on 4178 or 4186; do not point these steps at them.
 
 Stop each server with Ctrl+C. The downloaded file is synthetic review data;
 keep it out of the repository and delete it when you no longer need it.
+
+## Evidence
+
+**Contract and unit proof.** 23 new tests in two files. An independent canonical
+spelling and `node:crypto` SHA-256 oracle (FIPS vectors plus 1,500 generated
+Unicode strings) checks the file; 2,000 generated single-character changes are
+all refused; future, incompatible, extra-field, free-text-ID, oversized and deep
+inputs give their stable codes; exclusions, exact reconstruction, legacy and
+stranded pending answers, confirmations and repeats, saved-help provenance,
+restore plans and the outcome mapping table are asserted. Scripted fixture
+expectations are stated from the documented rules, not production code.
+
+**Installed browsers.** Each run uses disposable loopback origins and fresh
+contexts; raw IndexedDB rows are read by test-only code. Against the
+`NODE_ENV=production` slice (`assets/index-Uvs4SefU.js`, SHA-256
+`369394894a7b03e7882e9517b4d10c29187148ed1d0f720dfb2dac384d211e7d`) all nine
+cases pass in Chrome 155.0.8059.84 and Edge 155.0.4283.62 with no external
+request or page error ([Chrome](evidence/keep-my-adventure/browser-production-chrome.json),
+[Edge](evidence/keep-my-adventure/browser-production-msedge.json)):
+
+- Two badges built through the real child surface (Star: Greek, guided,
+  original then growing world, independent, helped, retried and worked answers,
+  two sessions, open worked-help context; Triangle: German, original activities
+  only, an unsuccessful first try, stopped) export an actual download of 9,342
+  bytes. Source revisions 30 and 14 with 44 receipts become revisions 1 and 1
+  with two fresh restore receipts in a fresh origin served at
+  `/math-adventure/`. Portable meaning and rebuilt derived state equal the
+  source exactly; preview and Cancel create no database.
+- Reopening continues Star in Greek on the same task with worked help still
+  applied (the answer is recorded as worked, not independent) and Triangle in
+  German, still a legacy payload; the source world is unchanged.
+- Corrupted, truncated, malformed, unrelated, future, incompatible, extra-field,
+  deeply nested and oversized files are refused without creating storage.
+- A repeated import and a destination with one badge are refused byte-for-byte.
+- Injected abort, injected quota, a native request error and a controlled native
+  `QuotaExceededError` (CDP quota override after relaunching a throwaway
+  persistent profile) leave no records or receipts; the same file then restores.
+- A create after preview is refused as occupied; a deletion while confirmation
+  waits is fenced (`changed`); a stale pre-deletion writer gets `epoch_conflict`
+  and cannot overwrite restored rows.
+- A lost commit report is still "restored" by exact readback; a change between
+  commit and readback is reported as `differs` with restored rows present.
+- An answer still being saved is excluded and never replayed; the source keeps it.
+- Backup and restore work in browser-controlled offline mode after the shell is
+  cached, at root and subpath.
+- Keyboard-only file choice, preview focus, restore and save, at 320 CSS px with
+  32px root text in el-GR, en-GB and de-DE: no overflow, targets at least 44px,
+  contrast 11.8–14.8:1. Long Greek/German words wider than one line (20 and 21;
+  the file name in English) split because this Windows browser does not
+  hyphenate them; nothing is clipped.
+
+The complete installed-browser slice regression passes 154 tests in seven files
+in each browser ([matrix](evidence/keep-my-adventure/browser-matrix.json)). The
+existing Phase 3C guard now forbids text inputs everywhere and any file input
+outside the Grown-ups backup panel, which must hold exactly one JSON chooser.
+
+**Restored mutations.** Thirteen plausible defects in the critical paths are each
+detected by assertions and exact bytes restored: skipped checksum, pending
+replayed as a completed success, accepted incompatible provenance, supported
+answers previewed as independent, wrong destination epoch, free-text evidence
+IDs, miscounted confirmations, success claimed without readback, a probe that
+creates storage, an ignored deletion fence, overwriting a nonempty destination,
+a swallowed abort and a readback that accepts any rows
+([receipt](evidence/keep-my-adventure/mutations-chrome.json)).
+
+**Repository gates.** Source checkpoint `e0d0a44` passed `corepack pnpm verify`
+(1,460 tests in 80 files) locally and in an isolated fresh clone after a frozen
+install, with the lockfile unchanged. Its audit then reported six newly published
+advisories, all in the dev-only Vite 8.3.2 server. The exact patch pin to Vite
+8.3.3 changes only Vite's lock entry and integrity, clears all six (zero
+advisories, 204 graph entries) and leaves the ordinary product build, the
+production slice build and the test-renderer build byte-identical; the backup
+suite passes again on it. At that head, `c918c24`, the canonical gate passes
+locally and in an isolated fresh clone (1,460 tests in 80 files) with a clean
+tree and unchanged lockfile. The ordinary product build still equals the recorded
+D56 inventory, so it contains none of this capability. Gate details are in the
+[repository receipt](evidence/keep-my-adventure/repository-gates.json) and
+[audit receipt](evidence/keep-my-adventure/dependency-audit.json).
+
+## Limits and remaining real-use decisions
+
+- Desktop Windows Chrome and Edge only. Offline evidence is browser-controlled,
+  not physical disconnection; doubled text is root sizing, not native zoom;
+  no screen-reader delivery was observed. Native quota used a controlled engine
+  override, not natural exhaustion.
+- Greek and German remain drafts pending native review, including where long
+  words split at extreme sizes.
+- The checksum is not authentication; anyone may edit and re-checksum a file.
+  Evidence IDs link copies of one world. Exported files are private and outlive
+  app deletion; the app cannot erase them.
+- Restore supports only a destination with no saved badges and keeps fixed
+  synthetic slots. Ordinary-product export, identity remapping, merge or
+  overwrite policy, domain migration, eviction/cleared-storage response,
+  retention and real household use remain the open decisions listed in the
+  [owner brief](CLEAR_ANSWERS_OWNER_DECISIONS.md). Nothing here accepts them.
