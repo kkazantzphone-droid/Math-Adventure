@@ -8,26 +8,26 @@
     "src/application/synthetic-loop/record.ts": "3208d9b37d2c5700353a917007d0967ea88fedb59a7ba1d5f78fdbea6bc9e81a",
     "src/infrastructure/persistence/synthetic-loop-backup.ts": "71410aa79057f3937a6051d82bac1a3233f584c05a3a169e296d042a0a6b0ef2",
     "src/infrastructure/persistence/synthetic-loop-database.ts": "b7bac6bb437a0caf76162865d39d68b0753bc9aadcede6eb445698e7b94101c1",
-    "src/presentation/localisation/backup-copy.ts": "b41849a7b0782a4bf5e9a6fee06fbb13ec0306d7962eae71f0ee49ec39d281e3",
-    "src/ui/synthetic-loop/BackupRestore.tsx": "0ecffa5d96d3c1155888782d3a9703bfd703a9ddabeee680cde61549f0099810",
+    "src/presentation/localisation/backup-copy.ts": "c40cc94dd566917492b5798132cec69ec7c57476fc0a16296a5d012295d7cffd",
+    "src/ui/synthetic-loop/BackupRestore.tsx": "ae235d88e932ca3ec79a2a5da4085017f5754e40fa8d2c9bf9ed042c8ce05244",
     "src/ui/synthetic-loop/backup-restore.css": "de8e6bbaaf5b09656a7bccbd5c3ce7e61da9376205c18b41d2c000a5cc8075dc",
-    "tests/browser/phase3c/main.tsx": "a03a3e801e1bade5e46694fe167129763e52a15b8580dc1ba744d39f9300fbf6",
-    "tests/browser/phase3c/runtime.ts": "9890334cfab3c13270bc095dbea254f93ec97da7c9f8b11f5e2f19c517aae760",
+    "tests/browser/phase3c/main.tsx": "23178f48f64f1f3f02c825fc6553feff8a98f298581104bc89aa37ebef8fdd37",
+    "tests/browser/phase3c/runtime.ts": "096442a5563c0c564c221c6f5047809a721ea3824c9a8b1396d655608e0a8802",
     "vite.slice.config.ts": "94e6aef32bfb6a49af0b719fe5c6074b4db085fa0f7f00a3167c3793fb9fe33d",
-    "tests/integration/keep-adventure.test.ts": "da1ebac704b6360a6a840cd0c74b7600715ea41e79b4cce9726d38211d32c86d"
+    "tests/integration/keep-adventure.test.ts": "583667bb222e9430a3e1aebcee2c788566ed649a6205d9358e4c2926cc0f0b5b"
   },
   "sourcesStable": true,
   "site": "prebuilt NODE_ENV=production slice",
   "siteArtifacts": {
-    "index.html": "00b7d088dc92acc88ecdd2b0cb8b3dcc260005a6ddef1fd4bce0e53d3ad1d479",
+    "index.html": "ec6b10f7a737089b6faaa20d727d16a9f13f434ce5ebf8a8529e62b7e7d8db6d",
     "learner-reader.json": "002bf3c71f2888fbcad92f3b8c2e7c13cfce49ccb31da71567786f97643c9463",
     "manifest.webmanifest": "4f45a4ff805e952157734f81f8501eba54f4f2e5d0c8c0ef041c19f0657d034c",
-    "release.json": "83c9e4048a722517b251dc137d168a8aabb70d8a7a15203045f2aa0a761ae6eb",
-    "sw.js": "1f8ac1ee2ffd230dae708f37db16c35d47e6976fa7ad74bbd6fe88d527533ab1",
+    "release.json": "dba312e225d5781bbc776960f3cf6e75b03282f204c2f1869ef29b8cc74cff49",
+    "sw.js": "dd103b0bc4ba7c7441e641e4b6194bb7f328904c8c700172eea094aeb0115dd2",
     "THIRD_PARTY_NOTICES.txt": "d79545965a59895fc431b6f519fe411bc32a26415c656b7d531dd7dfcd453aab",
     "icons/math-adventure.svg": "a3149c53ce3dd32ac89cce807b2c756b3e6bfe86ae13e941a437e8196f804da6",
-    "assets/index-DAvA5CEN.css": "44857874bbfe6ffbe381e485d0904314b4d1772d38a2555849256a00f0fdbe47",
-    "assets/index-Uvs4SefU.js": "369394894a7b03e7882e9517b4d10c29187148ed1d0f720dfb2dac384d211e7d"
+    "assets/index-BA9z_BbK.js": "7a3b77a2f477c0baef66141e905d09db90a4a5426cf5425025e45e4f6835cdac",
+    "assets/index-DAvA5CEN.css": "44857874bbfe6ffbe381e485d0904314b4d1772d38a2555849256a00f0fdbe47"
   },
   "cases": [
     {
@@ -84,7 +84,7 @@
       "sourceReceipts": 44,
       "destinationReceipts": 2,
       "fileBytes": 9342,
-      "fileSha256": "6eae168a2273520af5114e635458bc5c2e531dfe8bef3bb032b2d82f0c44024c",
+      "fileSha256": "08ac9af767727c923e19977c05860f92102c64d0d3306ffd102073f16acfee9c",
       "destinationPath": "/math-adventure/"
     },
     "refusals": [

@@ -105,5 +105,60 @@
   "limits": [
     "Review is source inspection plus the observed tests listed in the completion record",
     "No native-language, educational, accessibility-technology or legal review is implied"
-  ]
+  ],
+  "repairVerification": {
+    "reviewedRange": "cee2420..47ebf72",
+    "method": "Fresh read-only reviewer checked each REPAIRED finding for closure and new defects",
+    "closed": [
+      "restore outcome truthfulness",
+      "add/durability usage",
+      "app-shaped evidence IDs reject no app-created ID",
+      "semantics digest determinism",
+      "three-language copy keys",
+      "free-text and file-input guard not weakened",
+      "mutation script fails closed"
+    ],
+    "followUps": [
+      {
+        "id": "check-restore-not-registered-for-reopen",
+        "severity": "low (new)",
+        "resolution": "REPAIRED — readback check registered as restore work; reopen waits"
+      },
+      {
+        "id": "fenced-window-unfrozen-after-restore",
+        "severity": "low",
+        "resolution": "REPAIRED — replacement session stays frozen while an update fence holds"
+      },
+      {
+        "id": "lost-report-seam-modelled-as-abort",
+        "severity": "test seam",
+        "resolution": "REPAIRED — a lost report is an unknown commit outcome"
+      },
+      {
+        "id": "profile-and-delete-controls-ignored-restoring",
+        "severity": "low",
+        "resolution": "REPAIRED — disabled while restoring"
+      },
+      {
+        "id": "panel-without-catch-for-rejection",
+        "severity": "low (pre-existing)",
+        "resolution": "REPAIRED — unexpected rejection shown as uncertain"
+      },
+      {
+        "id": "blocked-copy-for-uncertain-save",
+        "severity": "low",
+        "resolution": "REPAIRED — all three drafts say a save may need checking"
+      },
+      {
+        "id": "no-mutant-for-badge-timing-or-commit-then-difference",
+        "severity": "coverage",
+        "resolution": "REPAIRED — browser proof keeps an unsaved badge through failed restores; two mutants added"
+      },
+      {
+        "id": "greek-mastery-wording",
+        "severity": "info",
+        "resolution": "BOUNDED — matches existing draft wording; native review pending"
+      }
+    ]
+  }
 }

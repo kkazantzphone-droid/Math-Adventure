@@ -137,5 +137,10 @@
   "limits": [
     "Local gates observe the recorded heads; the final documentation head and hosted checks are recorded on the PR",
     "Audit reflects the registry advisories observed on this date only"
-  ]
+  ],
+  "repairCheckpoint": {
+    "head": "3417768edffb6734b39a1fb08b739abb734bc997",
+    "note": "Repair-verification follow-ups; ordinary product build still equals the D56 inventory; final documentation head gates are recorded on PR #18",
+    "ordinaryProductBuildEqualsD56Inventory": true
+  }
 }

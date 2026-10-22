@@ -85,6 +85,16 @@ exclusion held. Material findings were repaired and re-verified:
 - The session-state finding is reconciled in the design: session ordinal,
   open state and saved help are learner history, not write authority.
 
+A fourth fresh reviewer then checked every repair. All were closed; it found
+one new low-severity race (a successful "Check again" during an update reopen
+could leave the window frozen) and small gaps. The readback check now registers
+as restore work so reopen waits, a fenced window stays frozen after a verified
+restore, a lost commit report is modelled as an unknown outcome, profile and
+delete controls are disabled while restoring, an unexpected rejection is shown
+as uncertain, the blocked message covers a save that needs checking, and a
+browser proof keeps an unsaved badge open through failed restores. Two more
+mutants cover badge-close timing and a commit followed by a difference.
+
 ## Run and owner walkthrough
 
 From this repository, with the exact installed Node `24.21.0` and the
@@ -138,8 +148,8 @@ expectations are stated from the documented rules, not production code.
 
 **Installed browsers.** Each run uses disposable loopback origins and fresh
 contexts; raw IndexedDB rows are read by test-only code. Against the
-`NODE_ENV=production` slice (`assets/index-Uvs4SefU.js`, SHA-256
-`369394894a7b03e7882e9517b4d10c29187148ed1d0f720dfb2dac384d211e7d`) all nine
+`NODE_ENV=production` slice (`assets/index-BA9z_BbK.js`, SHA-256
+`7a3b77a2f477c0baef66141e905d09db90a4a5426cf5425025e45e4f6835cdac`) all nine
 cases pass in Chrome 155.0.8059.84 and Edge 155.0.4283.62 with no external
 request or page error ([Chrome](evidence/keep-my-adventure/browser-production-chrome.json),
 [Edge](evidence/keep-my-adventure/browser-production-msedge.json)):
@@ -180,12 +190,13 @@ in each browser ([matrix](evidence/keep-my-adventure/browser-matrix.json)). The
 existing Phase 3C guard now forbids text inputs everywhere and any file input
 outside the Grown-ups backup panel, which must hold exactly one JSON chooser.
 
-**Restored mutations.** Thirteen plausible defects in the critical paths are each
+**Restored mutations.** Fifteen plausible defects in the critical paths are each
 detected by assertions and exact bytes restored: skipped checksum, pending
 replayed as a completed success, accepted incompatible provenance, supported
 answers previewed as independent, wrong destination epoch, free-text evidence
-IDs, miscounted confirmations, success claimed without readback, a probe that
-creates storage, an ignored deletion fence, overwriting a nonempty destination,
+IDs, miscounted confirmations, success claimed without readback, a commit
+followed by a difference reported as nothing restored, a badge closed before
+the restore is verified, a probe that creates storage, an ignored deletion fence, overwriting a nonempty destination,
 a swallowed abort and a readback that accepts any rows
 ([receipt](evidence/keep-my-adventure/mutations-chrome.json)).
 
@@ -198,7 +209,10 @@ advisories, 204 graph entries) and leaves the ordinary product build, the
 production slice build and the test-renderer build byte-identical; the backup
 suite passes again on it. At that head, `c918c24`, the canonical gate passes
 locally and in an isolated fresh clone (1,460 tests in 80 files) with a clean
-tree and unchanged lockfile. The ordinary product build still equals the recorded
+tree and unchanged lockfile. After the repair-verification follow-ups (`3417768`),
+the production and full browser runs above were repeated and pass, and the
+ordinary product build still equals the D56 inventory. The final head's own
+local, fresh and hosted results are recorded on PR #18. The ordinary product build still equals the recorded
 D56 inventory, so it contains none of this capability. Gate details are in the
 [repository receipt](evidence/keep-my-adventure/repository-gates.json) and
 [audit receipt](evidence/keep-my-adventure/dependency-audit.json).

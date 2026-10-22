@@ -2,14 +2,15 @@
   "schema": "math-adventure.keep-adventure-browser-matrix-v1",
   "marker": "synthetic-only-engineering-evidence",
   "date": "2026-10-22",
-  "sourceCheckpoint": "e0d0a443229ba352b530ac627208eac8d1322a39",
+  "sourceCheckpoint": "3417768edffb6734b39a1fb08b739abb734bc997",
   "productionSite": {
     "build": "NODE_ENV=production vite build --config vite.slice.config.ts",
-    "javascript": "assets/index-Uvs4SefU.js",
+    "javascript": "assets/index-BA9z_BbK.js",
     "receipts": [
       "browser-production-chrome.json",
       "browser-production-msedge.json"
-    ]
+    ],
+    "javascriptSha256": "7a3b77a2f477c0baef66141e905d09db90a4a5426cf5425025e45e4f6835cdac"
   },
   "channels": {
     "chrome": {
@@ -46,7 +47,7 @@
   "mutations": {
     "channel": "chrome",
     "receipt": "mutations-chrome.json",
-    "detected": 13,
+    "detected": 15,
     "exactRestoration": true
   },
   "limits": [
