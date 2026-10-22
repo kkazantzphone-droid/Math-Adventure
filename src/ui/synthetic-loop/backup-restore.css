@@ -1,0 +1,105 @@
+/* Adult prose keeps whole words where they fit and hyphenates by the
+   panel's lang; only a word wider than the line may still break. */
+.backup-restore {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.slice-panel.backup-restore {
+  padding-inline: clamp(0.5rem, 2vw, 1.5rem);
+}
+.backup-restore h2 {
+  font-size: 1.2em;
+  line-height: 1.25;
+}
+.backup-restore h3 {
+  margin-block: 1.5rem 0.5rem;
+  font-size: 1.08em;
+}
+.backup-restore h4,
+.backup-restore h5 {
+  margin-block: 1rem 0.4rem;
+  font-size: 1em;
+}
+.backup-restore .backup-status:not(:empty) {
+  border-inline-start: 0.3rem solid #ffdc76;
+  padding-inline-start: 0.8rem;
+}
+/* Controls shrink to the line; only an overlong single word may split. */
+.backup-restore button,
+.backup-restore .backup-save-link {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.backup-restore .backup-save-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.65rem 1rem;
+  border: 2px solid #d3def9;
+  border-radius: 0.8rem;
+  color: #132043;
+  background: #e5edff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.backup-restore .backup-file-choice {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.backup-restore input[type='file'] {
+  max-width: 100%;
+  min-height: 44px;
+  padding: 0.4rem;
+  border: 2px dashed #d3def9;
+  border-radius: 0.6rem;
+  color: #fff;
+  font: inherit;
+}
+.backup-restore input[type='file']::file-selector-button {
+  min-height: 44px;
+  margin-inline-end: 0.75rem;
+  padding: 0.5rem 0.9rem;
+  border: 2px solid #d3def9;
+  border-radius: 0.6rem;
+  color: #132043;
+  background: #e5edff;
+  font: inherit;
+}
+.backup-restore .backup-preview {
+  margin-block: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #8da4d8;
+  border-radius: 0.9rem;
+}
+.backup-restore .backup-profile {
+  margin-block: 0.75rem;
+}
+.backup-restore dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+}
+.backup-restore dl > div {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  justify-content: space-between;
+  border-block-end: 1px solid #3a4f86;
+  padding-block: 0.25rem;
+}
+.backup-restore dl > div > * {
+  min-width: 0;
+}
+.backup-restore dt {
+  color: #dce6ff;
+}
+.backup-restore dd {
+  margin: 0;
+  font-weight: 700;
+}
+.backup-restore code {
+  overflow-wrap: anywhere;
+}

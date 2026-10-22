@@ -1,4 +1,6 @@
 import {
+  createSyntheticLoopBackup,
+  createSyntheticLoopRestorePlan,
   createSyntheticLoopSession,
   syntheticLoopCodec,
   syntheticLoopRecordId,
@@ -6,7 +8,21 @@ import {
 import type {
   LoopPreferences,
   SyntheticLoopRecord,
+  ValidatedSyntheticBackup,
 } from '../../../src/application/synthetic-loop';
+import type { RepositoryCommand } from '../../../src/application/ports/repository';
+import type {
+  BackupPreparation,
+  DestinationCheck,
+  RestoreOutcome,
+} from '../../../src/ui/synthetic-loop/BackupRestore';
+import {
+  destinationEpoch,
+  probeSyntheticLoopDestination,
+  readSyntheticLoopWorld,
+  restoreSyntheticLoopWorld,
+  verifySyntheticLoopRestore,
+} from '../../../src/infrastructure/persistence/synthetic-loop-backup';
 import type { SyntheticProfileId } from '../../../src/domain/adaptation/types';
 import { SYNTHETIC_PROFILE_IDS } from '../../../src/domain/adaptation/types';
 import type { AtomicRecordRepository } from '../../../src/application/ports/repository';
@@ -40,6 +56,15 @@ export function createSliceRuntime(baseURL: URL) {
   let recovering = false;
   let recoveryError: string | null = null;
   let compatible = false;
+  let restoring = false;
+  let restoreHold = false;
+  let restoreHeld: (() => void)[] = [];
+  // Same destination operation IDs for an identical retry/check: exact receipts
+  // make a repeated commit impossible. Cleared only after verified readback.
+  let unresolvedRestore: {
+    readonly backup: ValidatedSyntheticBackup;
+    readonly plan: readonly RepositoryCommand<SyntheticLoopRecord>[];
+  } | null = null;
   const selections = new Set<Promise<void>>();
   const commands = new Set<Promise<unknown>>();
   const listeners = new Set<() => void>();
@@ -221,6 +246,7 @@ export function createSliceRuntime(baseURL: URL) {
       if (
         !matches(identity) ||
         recovering ||
+        restoring ||
         selections.size ||
         commands.size ||
         held.length ||
@@ -246,6 +272,7 @@ export function createSliceRuntime(baseURL: URL) {
         matches(identity) &&
         compatible &&
         !recovering &&
+        !restoring &&
         !selections.size &&
         !commands.size &&
         !held.length &&
@@ -321,10 +348,198 @@ export function createSliceRuntime(baseURL: URL) {
     },
   };
 
+  function restoreBlocked(): boolean {
+    const state = session.state();
+    return (
+      recovering ||
+      restoring ||
+      attempt !== null ||
+      selections.size > 0 ||
+      commands.size > 0 ||
+      held.length > 0 ||
+      state.busy ||
+      state.record?.pending != null
+    );
+  }
+
+  async function withOwnedDatabase<R>(
+    bootstrap: boolean,
+    use: (database: IDBDatabase) => Promise<R>,
+    unavailable: R,
+  ): Promise<R> {
+    const opened = await openSyntheticLoopDatabase({ bootstrap });
+    if (!opened.ok) return unavailable;
+    try {
+      const valid = await validateSyntheticLoopDatabase(opened.value);
+      return valid.ok ? await use(opened.value) : unavailable;
+    } finally {
+      opened.value.close();
+    }
+  }
+
+  /** Read-only native snapshot; unsaved play and other windows' writes in
+   * progress cannot enter it. Nothing is written or repaired. */
+  async function prepareBackup(): Promise<BackupPreparation> {
+    const destination = await probeSyntheticLoopDestination();
+    if (!destination.ok) return { kind: 'failed' };
+    if (destination.value.kind !== 'occupied') return { kind: 'nothing-saved' };
+    return withOwnedDatabase<BackupPreparation>(
+      false,
+      async (database) => {
+        const world = await readSyntheticLoopWorld(database);
+        if (!world.ok) return { kind: 'failed' };
+        const file = createSyntheticLoopBackup(world.value.records);
+        return file.ok
+          ? { kind: 'ready', file: file.value }
+          : file.error.code === 'nothing_saved'
+            ? { kind: 'nothing-saved' }
+            : { kind: 'failed' };
+      },
+      { kind: 'failed' },
+    );
+  }
+
+  async function inspectDestination(): Promise<DestinationCheck> {
+    const probe = await probeSyntheticLoopDestination();
+    if (!probe.ok) return { kind: 'unavailable' };
+    if (probe.value.kind === 'occupied')
+      return { kind: 'occupied', profiles: probe.value.profiles };
+    const epoch = destinationEpoch(probe.value);
+    return epoch.ok
+      ? {
+          kind: 'available',
+          epoch: epoch.value,
+          fresh: probe.value.kind === 'absent',
+        }
+      : { kind: 'unavailable' };
+  }
+
+  async function readback(
+    plan: readonly RepositoryCommand<SyntheticLoopRecord>[],
+    knownPresent: boolean,
+  ) {
+    // Probing first keeps a check in a never-used browser from creating storage.
+    const probe = knownPresent ? null : await probeSyntheticLoopDestination();
+    if (probe?.ok && probe.value.kind === 'absent')
+      return { ok: true as const, value: 'absent' as const };
+    return withOwnedDatabase(
+      false,
+      (database) => verifySyntheticLoopRestore(database, plan),
+      applicationFailure('storage_unavailable'),
+    );
+  }
+
+  async function restore(
+    backup: ValidatedSyntheticBackup,
+    epoch: number,
+  ): Promise<RestoreOutcome> {
+    if (restoreBlocked()) return { kind: 'not-restored', reason: 'blocked' };
+    restoring = true;
+    // Restore is an explicit parent boundary: close this window's open badge
+    // and fence obsolete callbacks. It never reuses the closed session.
+    ++generation;
+    session.invalidate();
+    handle?.close();
+    handle = null;
+    selected = null;
+    session = createSyntheticLoopSession(null);
+    notify();
+    try {
+      let plan =
+        unresolvedRestore?.backup === backup &&
+        unresolvedRestore.plan[0]?.storageEpoch === epoch
+          ? unresolvedRestore.plan
+          : null;
+      if (!plan) {
+        const created = createSyntheticLoopRestorePlan(
+          backup,
+          epoch,
+          backup.profiles.map(() => `synthetic-restore-${crypto.randomUUID()}`),
+        );
+        if (!created.ok) return { kind: 'not-restored', reason: 'unavailable' };
+        plan = created.value;
+      }
+      unresolvedRestore = { backup, plan };
+      if (restoreHold)
+        await new Promise<void>((resolve) => restoreHeld.push(resolve));
+      const selectedPlan = plan;
+      // Explicit parent confirmation is the bootstrap authority for a browser
+      // that never saved. Restore itself never deletes or resets a database.
+      const committed = await withOwnedDatabase(
+        true,
+        (database) =>
+          restoreSyntheticLoopWorld(database, selectedPlan, {
+            receiptCapacity: SYNTHETIC_LOOP_RECEIPT_LIMIT,
+            fault: () => fault,
+          }),
+        applicationFailure('storage_unavailable'),
+      );
+      const checked = await readback(selectedPlan, true);
+      if (checked.ok && checked.value === 'restored') {
+        unresolvedRestore = null;
+        return { kind: 'restored' };
+      }
+      if (!committed.ok) {
+        const code = committed.error.code;
+        return {
+          kind: 'not-restored',
+          reason:
+            code === 'record_already_exists'
+              ? 'occupied'
+              : code === 'epoch_conflict' || code === 'operation_conflict'
+                ? 'changed'
+                : code === 'quota_exceeded'
+                  ? 'quota'
+                  : 'unavailable',
+        };
+      }
+      return checked.ok && checked.value === 'different'
+        ? { kind: 'not-restored', reason: 'changed' }
+        : { kind: 'uncertain' };
+    } finally {
+      restoring = false;
+      notify();
+    }
+  }
+
+  async function checkRestore(): Promise<RestoreOutcome> {
+    const pending = unresolvedRestore;
+    if (!pending || restoreBlocked())
+      return { kind: 'not-restored', reason: 'blocked' };
+    restoring = true;
+    notify();
+    try {
+      const checked = await readback(pending.plan, false);
+      if (!checked.ok) return { kind: 'uncertain' };
+      if (checked.value === 'restored') {
+        unresolvedRestore = null;
+        return { kind: 'restored' };
+      }
+      return {
+        kind: 'not-restored',
+        reason: checked.value === 'absent' ? 'unavailable' : 'changed',
+      };
+    } finally {
+      restoring = false;
+      notify();
+    }
+  }
+
   return {
     learnerData,
     session: () => session,
     recovery: () => ({ recovering, error: recoveryError }),
+    restoring: () => restoring,
+    backup: { prepareBackup, inspectDestination, restore, checkRestore },
+    holdRestore(value: boolean) {
+      restoreHold = value;
+      if (!value) {
+        const pending = restoreHeld;
+        restoreHeld = [];
+        for (const release of pending) release();
+      }
+    },
+    restoreHeld: () => restoreHeld.length,
     subscribe(listener: () => void) {
       listeners.add(listener);
       return () => {
@@ -337,7 +552,7 @@ export function createSliceRuntime(baseURL: URL) {
       save: boolean,
       initialPreferences?: LoopPreferences,
     ) {
-      if (recovering || attempt) return;
+      if (recovering || attempt || restoring) return;
       let releaseSelection = () => {};
       const done = new Promise<void>((resolve) => {
         releaseSelection = resolve;

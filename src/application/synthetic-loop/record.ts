@@ -148,6 +148,21 @@ function eventFromInput(input: unknown): LoopEvidenceEvent | undefined {
   });
 }
 
+/** Exact bounded legacy journal reader for backup reconstruction; no repair. */
+export function syntheticLoopEventsFromInput(
+  input: unknown,
+): readonly LoopEvidenceEvent[] | undefined {
+  const rows = dataArray(input, SYNTHETIC_LOOP_EVENT_LIMIT);
+  if (!rows) return undefined;
+  const events: LoopEvidenceEvent[] = [];
+  for (const raw of rows) {
+    const event = eventFromInput(raw);
+    if (!event) return undefined;
+    events.push(event);
+  }
+  return events;
+}
+
 /** Replay the unchanged named candidate engine, including frozen classifications.
  * The log holds scoped observations/checkpoints, never submitted answers/tasks.
  */

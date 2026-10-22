@@ -56,6 +56,7 @@ import {
 } from '../../../src/ui/synthetic-loop/GrowthJourney';
 import { getGrowingWorldCopy } from '../../../src/presentation/localisation/growing-world-copy';
 import { ChildLanguageControls } from '../../../src/ui/synthetic-loop/LanguageControls';
+import { BackupRestore } from '../../../src/ui/synthetic-loop/BackupRestore';
 import {
   languageNames,
   languageControlCopy,
@@ -1295,6 +1296,23 @@ function App() {
             )}
           </>
         )}
+        {view === 'developer' && (
+          <BackupRestore
+            locale={locale}
+            disabled={disabled}
+            badgeOpen={record !== null}
+            actions={runtime.backup}
+            familyLabel={familyLabel}
+            onRestored={() => {
+              // The restoring window's badge was closed; nothing stale remains.
+              publicPresentation = null;
+              setTask(null);
+              setFeedback('none');
+              setFinished(false);
+              refresh();
+            }}
+          />
+        )}
       </div>
       {offline && view === 'developer' && (
         <OfflineControls
@@ -1353,6 +1371,9 @@ Object.defineProperty(window, 'phase3cProof', {
     fault: (value: Parameters<typeof runtime.fault>[0]) => runtime.fault(value),
     holdWrites: (value: boolean) => runtime.holdWrites(value),
     held: runtime.held,
+    holdRestore: (value: boolean) => runtime.holdRestore(value),
+    restoreHeld: runtime.restoreHeld,
+    restoring: runtime.restoring,
     refresh: runtime.notify,
   },
   writable: false,
