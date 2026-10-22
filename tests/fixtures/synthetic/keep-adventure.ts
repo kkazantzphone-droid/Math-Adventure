@@ -41,6 +41,11 @@ export function value<T>(
   return result.value;
 }
 
+/** Answer operations use the app's `synthetic-` + UUID shape; evidence IDs
+ * derived from them are the only shape a backup may carry. */
+export const answerOperation = (index: number) =>
+  `synthetic-00000000-0000-4000-8000-${String(index).padStart(12, '0')}`;
+
 /** The app's own per-profile task seeds, skipping repeated semantic cases so
  * each scripted answer is a distinct relationship (fixture selection only). */
 function seeds(
@@ -200,7 +205,7 @@ export async function syntheticBackupWorld(): Promise<SyntheticBackupWorld> {
           legacyAnswer('number.addition', replay, true),
           index === 3 ? { mathematicalHintTier: 1 } : {},
         ),
-        `kma-star-addition-${index}`,
+        answerOperation(index + 1),
       ),
     );
   }
@@ -216,7 +221,7 @@ export async function syntheticBackupWorld(): Promise<SyntheticBackupWorld> {
   value(
     await star.submit(
       request(independent.replay, exact(chapterAnswer(independent.task))),
-      'kma-star-make-ten-0',
+      answerOperation(10),
     ),
   );
   value(
@@ -224,7 +229,7 @@ export async function syntheticBackupWorld(): Promise<SyntheticBackupWorld> {
       request(retried.replay, exact(chapterAnswer(retried.task)), {
         meaningfulAttempts: 2,
       }),
-      'kma-star-make-ten-1',
+      answerOperation(11),
     ),
   );
   value(await star.requestChapterSupport(worked.replay, 3, 'kma-star-help-1'));
@@ -232,7 +237,7 @@ export async function syntheticBackupWorld(): Promise<SyntheticBackupWorld> {
     await star.submit(
       // Underreported help is still raised to the saved worked tier.
       request(worked.replay, exact(chapterAnswer(worked.task))),
-      'kma-star-make-ten-2',
+      answerOperation(12),
     ),
   );
   value(await star.setActivity('groups.equal', 'kma-star-groups'));
@@ -264,7 +269,7 @@ export async function syntheticBackupWorld(): Promise<SyntheticBackupWorld> {
           replay,
           legacyAnswer('measurement.unit-length', replay, index !== 0),
         ),
-        `kma-triangle-measure-${index}`,
+        answerOperation(20 + index),
       ),
     );
   }
@@ -281,7 +286,7 @@ export async function syntheticBackupWorld(): Promise<SyntheticBackupWorld> {
 }
 
 /** A stored record whose answer was staged but never completed. */
-export function withPendingAnswer(record: SyntheticLoopRecord) {
+export function withPendingAnswer(record: SyntheticLoopRecord, epoch = 0) {
   const family = record.selectedFamily;
   let answer: LoopAnswerRequest;
   if (family === 'groups.equal' || family === 'number.make-ten') {
@@ -295,7 +300,7 @@ export function withPendingAnswer(record: SyntheticLoopRecord) {
     answer = request(replay, legacyAnswer('number.addition', replay, true));
   }
   const prepared = value(
-    prepareSyntheticLoopAnswer(record, answer, 'kma-pending-answer', 2, 0),
+    prepareSyntheticLoopAnswer(record, answer, answerOperation(99), 2, epoch),
   );
   if (prepared.kind !== 'pending')
     throw new Error('Synthetic backup fixture: expected pending answer');

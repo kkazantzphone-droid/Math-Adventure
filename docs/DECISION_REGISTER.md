@@ -1,12 +1,23 @@
 # Decision register
 
-Current Goal **D56**, owner-commissioned 2026-10-18, authorizes
+Current Goal **D57**, owner-commissioned 2026-10-22, authorizes
+[Keep my adventure](KEEP_MY_ADVENTURE_DESIGN.md): parent-controlled local backup,
+validated preview, fresh-destination restore and recovery for the existing saved
+synthetic world, inside the explicit loopback synthetic capability only. Main was
+fetched and observed at merged PR #17 `c362eaecbaca90b3ae01a5ae79ead335509e64a1`.
+`automatic_when_eligible` applies under unchanged V2. Engineering, publication
+and merge observations belong in the
+[completion record](KEEP_MY_ADVENTURE_COMPLETION_REPORT.md). Ordinary-product
+learner persistence stays disabled; owner UX acceptance and any real household
+saved use remain separate decisions.
+
+Merged Goal **D56**, owner-commissioned 2026-10-18, authorizes
 [Clear answers & coherent discovery](CLEAR_ANSWERS_DESIGN.md): a unified
 presentation/interaction improvement across the existing fourteen activities,
 with unchanged mathematical, evidence, state and educational policy. Main was
 fetched and observed at merged PR #16 `f74b60550fec4cbd2ff592a878759993b834ff5b`.
-`automatic_when_eligible` applies under unchanged V2. Current engineering,
-publication and owner-review status belong in the
+`automatic_when_eligible` applies under unchanged V2. Engineering, publication
+and owner-review status belong in the
 [completion record](CLEAR_ANSWERS_COMPLETION_REPORT.md); owner UX acceptance is
 pending. The [owner decision brief](CLEAR_ANSWERS_OWNER_DECISIONS.md) summarizes
 existing open real-use decisions without accepting them.
@@ -123,7 +134,7 @@ No Phase 3 implementation or real-child use follows from this certification.
 | D21 | Operator/territories/lawful basis/profiling/ePrivacy/PECR/DPIA and notices | NEEDS HUMAN DECISION | Professional/owner review before trials/public launch as applicable |
 | D22 | Official-pack reviewers, accessibility/education maintainers, real private security channel, maintainer/security responsibilities, Code of Conduct/moderation and maintenance window | NEEDS HUMAN DECISION | Public-onboarding responsibilities before public contributions; specialist capacity before official support; maintenance window before release |
 | D23 | Browser/OS minimums and actual offline voice/storage capability | DEFERRED | Phase1 candidates, playable-slice actual-device tests |
-| D24 | Parent local export/import and shared-origin/custom-domain migration | DEFERRED | Contract now; implemented/reviewed before relying on backup/migration |
+| D24 | Parent local export/import and shared-origin/custom-domain migration | DEFERRED for real use; synthetic-capability backup/restore implemented under D57 | Contract now; implemented/reviewed before relying on backup/migration. D57 covers the fixed synthetic world only; ordinary-product export, identity remapping, domain migration and real-use reliance remain open |
 | D25 | WCAG2.2 AA target with >=44px child targets and modality-scoped evidence | PROPOSED | Actual accessibility review before support claim |
 | D26 | Explicit Phase 1A entry approved: checkpoints 1–3 and initial CI foundation only | ACCEPTED, bounded | Owner request 2026-10-05; [Phase 1 plan](PHASE_1_IMPLEMENTATION_PLAN.md); later checkpoints/game implementation require separate approval |
 | D27 | Optional Python research tools, future AI wording/sync/network | DEFERRED | Never runtime or child data by default; new requirement/ADR/privacy analysis |
@@ -156,6 +167,7 @@ No Phase 3 implementation or real-child use follows from this certification.
 | D54 | Owner authorizes a focused multilingual increment over the existing eight-family synthetic child journey in draft el-GR/en-GB/de-DE | ACCEPTED bounded owner task scope 2026-10-09; engineering/product evidence recorded separately | [Design](MULTILINGUAL_CHILD_DESIGN.md), [completion](MULTILINGUAL_CHILD_COMPLETION_REPORT.md). Discoverable simple choice plus independent roles, retained badge preferences, coherent help/feedback/recovery/offline and semantic local-only speech. Preserve Space, math/replay/adaptation/privacy/persistence/update guarantees. Draft native review may remain pending; no official pack promotion, catalogue expansion, broader Phase 4/5, real-child data/trials, accepted policy/access change, release/deployment/backend/telemetry. Standing V2 automatic_when_eligible only after all required exact-head gates |
 | D55 | Owner commissions conceptual mathematical growth, a visible synthetic adaptive journey and genuine unassessed exploration together | ACCEPTED focused implementation Goal 2026-10-18; candidate certification recorded separately | [Design](GROWING_WORLD_DESIGN.md), [completion](GROWING_WORLD_COMPLETION_REPORT.md). Build and take apart adds six new replay families, separately versioned experimental invitations, no-loss synthetic payload upgrade and two reversible workshops. Preserve prior accomplishment meanings and limited-evidence classifications. `automatic_when_eligible` under unchanged V2, with no owner UX acceptance inferred from engineering gates. No real learners/trials, accepted educational policy, general later phase, accounts/backend/telemetry, release or deployment |
 | D56 | Owner commissions comfortable clear answers and coherent discovery across the existing fourteen-activity synthetic experience | ACCEPTED focused interaction/presentation Goal 2026-10-18; candidate gates recorded separately | [Design](CLEAR_ANSWERS_DESIGN.md), [completion](CLEAR_ANSWERS_COMPLETION_REPORT.md), [owner brief](CLEAR_ANSWERS_OWNER_DECISIONS.md). Preserve every permitted response, compatible direct route, help/evidence/replay/state semantics, three draft language roles and unassessed Explore. `automatic_when_eligible` under unchanged V2. Owner UX acceptance remains pending; no new content/bounds, accepted policy, real learners, ordinary persistence, release, deployment or access expansion |
+| D57 | Owner commissions parent-controlled local backup, preview, restore and recovery for the saved synthetic world | ACCEPTED focused Goal 2026-10-22; candidate gates recorded separately | [Design](KEEP_MY_ADVENTURE_DESIGN.md), [completion](KEEP_MY_ADVENTURE_COMPLETION_REPORT.md). Versioned canonical file of settled portable state; source revisions/epochs/receipts, unsettled answers, last-answer feedback and Explore excluded; derived state rebuilt by the unchanged engine. Restore only where no badge is saved, atomically under the destination fence, with readback before success. Fixed synthetic slots are kept because they define task seeds. `automatic_when_eligible` under unchanged V2. No real learners, ordinary persistence, retention policy, new evidence interpretation, remote storage, release or deployment |
 
 D49's initial automatic-when-eligible scope is preserved in the engine milestone;
 D50 set `owner_merge` and required child UX reconciliation; D51 records the later

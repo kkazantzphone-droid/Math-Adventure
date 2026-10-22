@@ -5,8 +5,8 @@ import { chromium } from 'playwright-core';
 import type { Browser, BrowserContext, Page } from 'playwright-core';
 import { build } from 'vite';
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { relative, resolve, sep } from 'node:path';
 import { startProofServer } from '../../scripts/browser-proof/server.mjs';
 import type { ProofServer } from '../../scripts/browser-proof/server.mjs';
 import type { ChapterPresentation } from '../../src/application/growing-world';
@@ -21,7 +21,13 @@ const channel = process.env.PHASE3C_BROWSER ?? 'chrome';
 const directory = resolve('.cache/keep-adventure-browser', channel);
 const database = 'math-adventure.synthetic.phase3c.loop-v1';
 const locales = ['el-GR', 'en-GB', 'de-DE'] as const;
-const expectedCases = 8;
+const expectedCases = 9;
+// Optional prebuilt NODE_ENV=production slice; otherwise a test-renderer build.
+const prebuilt = process.env.KEEP_ADVENTURE_SITE
+  ? resolve(process.env.KEEP_ADVENTURE_SITE)
+  : null;
+const site = prebuilt ?? resolve(directory, 'site');
+let siteArtifacts: Record<string, string> = {};
 const sourceFiles = [
   'src/application/synthetic-loop/backup.ts',
   'src/application/synthetic-loop/digest.ts',
@@ -46,6 +52,9 @@ interface KeepProof {
   held(): number;
   holdRestore(value: boolean): void;
   restoreHeld(): number;
+  holdReadback(value: boolean): void;
+  readbackHeld(): number;
+  loseRestoreReport(value: boolean): void;
   restoring(): boolean;
 }
 interface RawRow {
@@ -87,7 +96,7 @@ async function hashes(): Promise<Record<string, string>> {
 /** Each loopback origin is a separate disposable storage partition. */
 async function server(): Promise<ProofServer> {
   const started = await startProofServer({
-    distDirectory: resolve(directory, 'site'),
+    distDirectory: site,
     fixtureDirectory: resolve('tests/e2e/fixtures'),
   });
   servers.push(started);
@@ -101,11 +110,28 @@ beforeAll(async () => {
   await mkdir(resolve(directory, 'files'), { recursive: true });
   await mkdir(resolve(directory, 'screens'), { recursive: true });
   initialHashes = await hashes();
-  await build({
-    configFile: 'vite.slice.config.ts',
-    logLevel: 'error',
-    build: { outDir: resolve(directory, 'site') },
-  });
+  if (!prebuilt)
+    await build({
+      configFile: 'vite.slice.config.ts',
+      logLevel: 'error',
+      build: { outDir: site },
+    });
+  const files = await readdir(site, { recursive: true, withFileTypes: true });
+  siteArtifacts = Object.fromEntries(
+    await Promise.all(
+      files
+        .filter((entry) => entry.isFile())
+        .map(async (entry): Promise<readonly [string, string]> => {
+          const path = resolve(entry.parentPath, entry.name);
+          return [
+            relative(site, path).split(sep).join('/'),
+            createHash('sha256')
+              .update(await readFile(path))
+              .digest('hex'),
+          ];
+        }),
+    ),
+  );
   browser = await chromium.launch({ channel, headless: true, timeout: 15_000 });
 }, 120_000);
 
@@ -158,12 +184,14 @@ afterAll(async () => {
         sourceHashes,
         sourcesStable:
           JSON.stringify(initialHashes) === JSON.stringify(sourceHashes),
+        site: prebuilt ? 'prebuilt NODE_ENV=production slice' : 'test build',
+        siteArtifacts,
         cases,
         observations,
         externalRequests,
         pageErrors,
         mechanism:
-          'Installed browser via playwright-core and NODE_ENV=test renderer; disposable loopback origins and fresh contexts; actual download and file chooser; raw IndexedDB rows compared by test-only code; injected abort/quota and CDP quota override labelled separately; browser-controlled offline mode; deliberate 32px root text',
+          'Installed browser via playwright-core; disposable loopback origins and fresh contexts; actual download and file chooser; raw IndexedDB rows compared by test-only code; injected abort/quota and CDP quota override labelled separately; browser-controlled offline mode; deliberate 32px root text',
         limits:
           'No physical device, OS-level disconnection, actual screen-reader delivery, native zoom, native-language review or real learner data',
       },
@@ -890,7 +918,7 @@ describe('Keep my adventure — real served backup, restore and recovery', () =>
     };
   }, 180_000);
 
-  it('a concurrent create, a deletion during restore and a stale writer cannot overwrite, merge or resurrect', async () => {
+  it('a create after preview, a deletion while confirmation waits and a stale writer cannot overwrite, merge or resurrect', async () => {
     const origin = await server();
     const context = await newContext();
     const restorer = await context.newPage();
@@ -964,6 +992,59 @@ describe('Keep my adventure — real served backup, restore and recovery', () =>
       deletionDuringRestore: 'changed',
       staleWriter: 'epoch_conflict',
       restoredEpoch: restored.control?.storageEpoch,
+    };
+  }, 180_000);
+
+  it('a lost commit report and a change between commit and readback are reported truthfully', async () => {
+    const origin = await server();
+    // A lost report: the readback finds the exact restore, so it is restored.
+    const first = await (await newContext()).newPage();
+    await open(first, origin.origin);
+    await grownUps(first);
+    await choose(first, backupFile);
+    await first.evaluate(() =>
+      (window.phase3cProof as unknown as KeepProof).loseRestoreReport(true),
+    );
+    await act(first, 'confirm');
+    await first.evaluate(() =>
+      (window.phase3cProof as unknown as KeepProof).loseRestoreReport(false),
+    );
+    expect(await restoreState(first)).toBe('restored');
+    expect(bySlot(await rawWorld(first)).map((row) => row.revision)).toEqual([
+      1, 1,
+    ]);
+    // A change after commit but before readback is never called nothing.
+    const context = await newContext();
+    const restorer = await context.newPage();
+    const other = await context.newPage();
+    await open(restorer, origin.origin);
+    await open(other, origin.origin);
+    await grownUps(restorer);
+    await choose(restorer, backupFile);
+    await restorer.evaluate(() =>
+      (window.phase3cProof as unknown as KeepProof).holdReadback(true),
+    );
+    await restorer.locator('[data-restore-action="confirm"]').click();
+    await restorer.waitForFunction(
+      () => (window.phase3cProof as unknown as KeepProof).readbackHeld() === 1,
+    );
+    await badge(other, 0);
+    await respond(other, chapterAnswer(await chapterTask(other)));
+    await restorer.evaluate(() =>
+      (window.phase3cProof as unknown as KeepProof).holdReadback(false),
+    );
+    await waitRestore(restorer);
+    expect(await restoreState(restorer)).toBe('not-restored');
+    expect(await restoreReason(restorer)).toBe('differs');
+    const status = await restorer.locator('[data-restore-state]').textContent();
+    expect(status).not.toMatch(/Nothing was restored|nichts wiederhergestellt/);
+    expect(status).not.toMatch(/Δεν έγινε επαναφορά/);
+    const world = bySlot(await rawWorld(restorer));
+    // The restore did commit; only the other window's answer followed it.
+    expect(world.map((row) => row.revision)).toEqual([3, 1]);
+    observations.ambiguity = {
+      lostReport: 'restored by exact readback',
+      changedBeforeReadback: 'differs; restored rows present',
     };
   }, 180_000);
 

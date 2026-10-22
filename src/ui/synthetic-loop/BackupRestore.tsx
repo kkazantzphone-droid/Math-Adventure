@@ -22,7 +22,10 @@ import {
   resolvePrototypeLocale,
   type Locale,
 } from '../../presentation/localisation/locales';
+import type { RestoreFailure, RestoreOutcome } from './backup-outcome';
 import './backup-restore.css';
+
+export type { RestoreFailure, RestoreOutcome } from './backup-outcome';
 
 export const SYNTHETIC_BACKUP_FILE_NAME =
   'math-adventure-synthetic-backup.json';
@@ -42,13 +45,6 @@ export type DestinationCheck =
       readonly profiles: readonly SyntheticProfileId[];
     }
   | { readonly kind: 'unavailable' };
-export type RestoreFailure =
-  'occupied' | 'changed' | 'quota' | 'unavailable' | 'blocked';
-export type RestoreOutcome =
-  | { readonly kind: 'restored' }
-  | { readonly kind: 'not-restored'; readonly reason: RestoreFailure }
-  | { readonly kind: 'uncertain' };
-
 /** Composition supplies storage operations; this view never writes itself. */
 export interface BackupRestoreActions {
   prepareBackup(): Promise<BackupPreparation>;
@@ -118,6 +114,7 @@ export function BackupProfileSummary({
     [copy.fields.independent, summary.independent, 'independent'],
     [copy.fields.supported, summary.supported, 'supported'],
     [copy.fields.worked, summary.worked, 'worked'],
+    [copy.fields.confirmations, summary.confirmations, 'confirmations'],
     [copy.fields.notYet, summary.notYet, 'not-yet'],
     [copy.fields.notCounted, summary.notCounted, 'not-counted'],
     [copy.fields.help, summary.helpContexts, 'help'],

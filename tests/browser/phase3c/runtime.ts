@@ -11,6 +11,7 @@ import type {
   ValidatedSyntheticBackup,
 } from '../../../src/application/synthetic-loop';
 import type { RepositoryCommand } from '../../../src/application/ports/repository';
+import { restoreOutcomeFrom } from '../../../src/ui/synthetic-loop/backup-outcome';
 import type {
   BackupPreparation,
   DestinationCheck,
@@ -59,8 +60,16 @@ export function createSliceRuntime(baseURL: URL) {
   let restoring = false;
   let restoreHold = false;
   let restoreHeld: (() => void)[] = [];
-  // Same destination operation IDs for an identical retry/check: exact receipts
-  // make a repeated commit impossible. Cleared only after verified readback.
+  // A retry or check after an unconfirmed attempt reuses its destination
+  // operation IDs, so a commit whose report was lost is recognised by its exact
+  // receipts rather than applied again; the empty-destination rule separately
+  // forbids a second commit. Cleared only after a verified readback.
+  let restoreWork: Promise<unknown> | null = null;
+  // Fixed synthetic proof seams: pause between commit and readback, or drop a
+  // committed report, to rehearse races and ambiguous outcomes truthfully.
+  let readbackHold = false;
+  let readbackHeld: (() => void)[] = [];
+  let loseRestoreReport = false;
   let unresolvedRestore: {
     readonly backup: ValidatedSyntheticBackup;
     readonly plan: readonly RepositoryCommand<SyntheticLoopRecord>[];
@@ -296,6 +305,7 @@ export function createSliceRuntime(baseURL: URL) {
       notify();
       await Promise.allSettled([...selections]);
       await Promise.allSettled([...commands]);
+      if (restoreWork) await Promise.allSettled([restoreWork]);
       const token = ++generation;
       const reader = await targetReader(shell);
       if (token !== generation) return false;
@@ -358,6 +368,7 @@ export function createSliceRuntime(baseURL: URL) {
       commands.size > 0 ||
       held.length > 0 ||
       state.busy ||
+      state.uncertain ||
       state.record?.pending != null
     );
   }
@@ -429,22 +440,25 @@ export function createSliceRuntime(baseURL: URL) {
     );
   }
 
-  async function restore(
-    backup: ValidatedSyntheticBackup,
-    epoch: number,
-  ): Promise<RestoreOutcome> {
-    if (restoreBlocked()) return { kind: 'not-restored', reason: 'blocked' };
-    restoring = true;
-    // Restore is an explicit parent boundary: close this window's open badge
-    // and fence obsolete callbacks. It never reuses the closed session.
+  /** The world in this browser changed: close this window's badge (including
+   * any unsaved play) and fence its obsolete callbacks. Only after success. */
+  function closeOpenBadge(): void {
     ++generation;
     session.invalidate();
     handle?.close();
     handle = null;
     selected = null;
     session = createSyntheticLoopSession(null);
+  }
+
+  async function restore(
+    backup: ValidatedSyntheticBackup,
+    epoch: number,
+  ): Promise<RestoreOutcome> {
+    if (restoreBlocked()) return { kind: 'not-restored', reason: 'blocked' };
+    restoring = true;
     notify();
-    try {
+    const work = (async (): Promise<RestoreOutcome> => {
       let plan =
         unresolvedRestore?.backup === backup &&
         unresolvedRestore.plan[0]?.storageEpoch === epoch
@@ -465,7 +479,7 @@ export function createSliceRuntime(baseURL: URL) {
       const selectedPlan = plan;
       // Explicit parent confirmation is the bootstrap authority for a browser
       // that never saved. Restore itself never deletes or resets a database.
-      const committed = await withOwnedDatabase(
+      let committed = await withOwnedDatabase(
         true,
         (database) =>
           restoreSyntheticLoopWorld(database, selectedPlan, {
@@ -474,34 +488,32 @@ export function createSliceRuntime(baseURL: URL) {
           }),
         applicationFailure('storage_unavailable'),
       );
+      if (committed.ok && loseRestoreReport)
+        committed = applicationFailure('storage_unavailable');
+      if (readbackHold)
+        await new Promise<void>((resolve) => readbackHeld.push(resolve));
       const checked = await readback(selectedPlan, true);
-      if (checked.ok && checked.value === 'restored') {
+      const outcome = restoreOutcomeFrom(
+        committed.ok ? { ok: true } : { ok: false, code: committed.error.code },
+        checked.ok ? checked.value : null,
+      );
+      if (outcome.kind === 'restored') {
         unresolvedRestore = null;
-        return { kind: 'restored' };
+        closeOpenBadge();
       }
-      if (!committed.ok) {
-        const code = committed.error.code;
-        return {
-          kind: 'not-restored',
-          reason:
-            code === 'record_already_exists'
-              ? 'occupied'
-              : code === 'epoch_conflict' || code === 'operation_conflict'
-                ? 'changed'
-                : code === 'quota_exceeded'
-                  ? 'quota'
-                  : 'unavailable',
-        };
-      }
-      return checked.ok && checked.value === 'different'
-        ? { kind: 'not-restored', reason: 'changed' }
-        : { kind: 'uncertain' };
+      return outcome;
+    })();
+    restoreWork = work;
+    try {
+      return await work;
     } finally {
+      restoreWork = null;
       restoring = false;
       notify();
     }
   }
 
+  /** Readback only: the earlier commit outcome is unknown here. */
   async function checkRestore(): Promise<RestoreOutcome> {
     const pending = unresolvedRestore;
     if (!pending || restoreBlocked())
@@ -510,15 +522,15 @@ export function createSliceRuntime(baseURL: URL) {
     notify();
     try {
       const checked = await readback(pending.plan, false);
-      if (!checked.ok) return { kind: 'uncertain' };
-      if (checked.value === 'restored') {
+      const outcome = restoreOutcomeFrom(
+        null,
+        checked.ok ? checked.value : null,
+      );
+      if (outcome.kind === 'restored') {
         unresolvedRestore = null;
-        return { kind: 'restored' };
+        closeOpenBadge();
       }
-      return {
-        kind: 'not-restored',
-        reason: checked.value === 'absent' ? 'unavailable' : 'changed',
-      };
+      return outcome;
     } finally {
       restoring = false;
       notify();
@@ -540,6 +552,18 @@ export function createSliceRuntime(baseURL: URL) {
       }
     },
     restoreHeld: () => restoreHeld.length,
+    holdReadback(value: boolean) {
+      readbackHold = value;
+      if (!value) {
+        const pending = readbackHeld;
+        readbackHeld = [];
+        for (const release of pending) release();
+      }
+    },
+    readbackHeld: () => readbackHeld.length,
+    loseRestoreReport(value: boolean) {
+      loseRestoreReport = value;
+    },
     subscribe(listener: () => void) {
       listeners.add(listener);
       return () => {

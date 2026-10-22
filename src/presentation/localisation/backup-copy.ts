@@ -18,7 +18,7 @@ const english = {
   containsHeading: 'What a backup contains',
   contains: [
     'Each saved badge, Star or Triangle, with its language choices.',
-    'Finished activities and practice notes: which answers were independent, which used help, a worked example or another try, and which need another look.',
+    'Finished activities and, for practice that counts as evidence, which answers were independent, which used help, a worked example or another try, and which need another look.',
     'Discoveries, invitation progress, the play choice and the activity to continue with.',
     'Version details, so that a later version can check the file before using it.',
   ],
@@ -39,9 +39,9 @@ const english = {
   nothingSaved:
     'No badge is saved in this browser yet, so there is nothing to back up.',
   backupFailed: 'The backup could not be prepared. Nothing was changed.',
-  ready: 'The backup is ready and checked. It includes:',
+  ready: 'The backup is ready and was read back successfully. It includes:',
   pendingExcluded:
-    'An answer that was still being saved is not included. To include it, open that badge and check its save first, then prepare the backup again.',
+    'An answer that was still being saved is not included. The backup holds that badge’s last completed save; the unfinished answer stays only in this browser.',
   saveFile: 'Save backup file',
   fileName: 'File name',
   saveRequested:
@@ -58,7 +58,7 @@ const english = {
     not_backup:
       'This file is not a Math Adventure backup. Nothing was changed.',
     damaged:
-      'This backup is damaged or was changed after it was saved. Nothing was changed.',
+      'This backup is damaged or is not exactly as the app made it. Nothing was changed.',
     newer_version:
       'This backup was made by a newer version of the app. Nothing was changed.',
     incompatible:
@@ -67,7 +67,8 @@ const english = {
       'This backup contains something this version cannot accept. Nothing was changed.',
   },
   previewHeading: 'Check before restoring',
-  previewIntro: 'The file was checked. Nothing has been restored yet.',
+  previewIntro:
+    'The file passed this version’s checks. Nothing has been restored yet.',
   worlds: { original: 'Original activities', growing: 'Growing world' },
   fields: {
     world: 'Saved world',
@@ -81,19 +82,22 @@ const english = {
     independent: 'Independent successes',
     supported: 'Successes with help or another try',
     worked: 'Worked examples (learning with help, not independent)',
+    confirmations:
+      'Repeat independent successes confirming a relationship (no new case)',
     notYet: 'Not yet',
-    notCounted: 'Other answers not counted as practice evidence',
-    accomplishments: 'Experimental practice notes',
+    notCounted:
+      'Answers not counted as evidence (for example repeats or a simpler version of an activity)',
+    accomplishments: 'Experimental practice states (not a mastery measure)',
     discoveries: 'Discoveries tried independently in different ways',
-    help: 'Help kept for the open session',
+    help: 'Help saved in the latest session',
   },
   modes: { manual: 'Just play', 'synthetic-policy': 'Guided practice' },
   sessionOpen: 'open',
   sessionStopped: 'stopped',
   states: {
-    Emerging: 'emerging',
-    Developing: 'developing',
-    Secure: 'secure in practice',
+    Emerging: 'practice started',
+    Developing: 'developing in practice',
+    Secure: 'steady in practice (experimental rule)',
   },
   none: 'none',
   destination: {
@@ -106,13 +110,13 @@ const english = {
       'Saving is not available in this browser right now, so restore cannot start. Nothing was changed.',
   },
   closesBadge:
-    'A badge open in this window will close. Choose a badge again afterwards.',
+    'After restoring, a badge open in this window closes and play that was not being saved is lost. Choose a badge again afterwards.',
   restore: 'Restore these badges',
   cancel: 'Cancel',
   cancelled: 'Restore cancelled. Nothing was changed.',
   restoring: 'Restoring. Keep this page open…',
   restored:
-    'Restored and checked. These badges are saved in this browser again. Choose a badge to continue. Your backup file is still a separate copy.',
+    'Restored and checked. These badges are now saved in this browser. Choose a badge to continue. Your backup file is still a separate copy.',
   notRestored: {
     occupied:
       'A badge was saved here in another window first. Nothing was restored or replaced.',
@@ -123,8 +127,11 @@ const english = {
     unavailable: 'The restore could not be saved. Nothing was restored.',
     blocked:
       'Saving or an update is still in progress. Wait for it to finish, then try again.',
+    differs:
+      'Saved badges here are different from this backup, for example because play continued after restoring or another window changed them. Restoring never replaces saved badges. Choose a badge to see what is saved.',
+    absent:
+      'No badge from this backup is saved in this browser now, and nothing was replaced. Check this browser again before restoring.',
   },
-  tryAgain: 'Try again',
   checkBrowser: 'Check this browser again',
   uncertain:
     'The result could not be confirmed. Nothing was overwritten. Check again to see what is saved.',
@@ -148,7 +155,7 @@ const greek: BackupCopy = {
   containsHeading: 'Τι περιέχει ένα αντίγραφο ασφαλείας',
   contains: [
     'Κάθε αποθηκευμένο σήμα, Αστέρι ή Τρίγωνο, με τις επιλογές γλώσσας του.',
-    'Ολοκληρωμένες δραστηριότητες και στοιχεία εξάσκησης: ποιες απαντήσεις ήταν ανεξάρτητες, ποιες χρειάστηκαν βοήθεια, λυμένο παράδειγμα ή νέα προσπάθεια και ποιες θέλουν άλλη μια ματιά.',
+    'Ολοκληρωμένες δραστηριότητες και, για την εξάσκηση που μετρά ως στοιχείο, ποιες απαντήσεις ήταν ανεξάρτητες, ποιες χρειάστηκαν βοήθεια, λυμένο παράδειγμα ή νέα προσπάθεια και ποιες θέλουν άλλη μια ματιά.',
     'Ανακαλύψεις, πρόοδο προτάσεων, την επιλογή παιχνιδιού και τη δραστηριότητα για να συνεχίσετε.',
     'Στοιχεία έκδοσης, ώστε μια μεταγενέστερη έκδοση να ελέγχει το αρχείο πριν το χρησιμοποιήσει.',
   ],
@@ -170,9 +177,10 @@ const greek: BackupCopy = {
     'Δεν υπάρχει ακόμη αποθηκευμένο σήμα σε αυτό το πρόγραμμα περιήγησης, οπότε δεν υπάρχει κάτι για αντίγραφο ασφαλείας.',
   backupFailed:
     'Δεν ήταν δυνατή η προετοιμασία του αντιγράφου. Δεν άλλαξε τίποτα.',
-  ready: 'Το αντίγραφο ασφαλείας είναι έτοιμο και ελεγμένο. Περιλαμβάνει:',
+  ready:
+    'Το αντίγραφο ασφαλείας είναι έτοιμο και διαβάστηκε ξανά με επιτυχία. Περιλαμβάνει:',
   pendingExcluded:
-    'Μια απάντηση που αποθηκευόταν ακόμη δεν περιλαμβάνεται. Για να συμπεριληφθεί, ανοίξτε πρώτα εκείνο το σήμα και ελέγξτε την αποθήκευσή του και μετά ετοιμάστε ξανά το αντίγραφο.',
+    'Μια απάντηση που αποθηκευόταν ακόμη δεν περιλαμβάνεται. Το αντίγραφο κρατά την τελευταία ολοκληρωμένη αποθήκευση εκείνου του σήματος· η ημιτελής απάντηση μένει μόνο σε αυτό το πρόγραμμα περιήγησης.',
   saveFile: 'Αποθήκευση αρχείου αντιγράφου',
   fileName: 'Όνομα αρχείου',
   saveRequested:
@@ -189,7 +197,7 @@ const greek: BackupCopy = {
     not_backup:
       'Αυτό το αρχείο δεν είναι αντίγραφο ασφαλείας του Math Adventure. Δεν άλλαξε τίποτα.',
     damaged:
-      'Το αντίγραφο έχει φθαρεί ή άλλαξε μετά την αποθήκευσή του. Δεν άλλαξε τίποτα.',
+      'Το αντίγραφο έχει φθαρεί ή δεν είναι ακριβώς όπως το έφτιαξε η εφαρμογή. Δεν άλλαξε τίποτα.',
     newer_version:
       'Το αντίγραφο φτιάχτηκε από νεότερη έκδοση της εφαρμογής. Δεν άλλαξε τίποτα.',
     incompatible:
@@ -198,7 +206,8 @@ const greek: BackupCopy = {
       'Το αντίγραφο περιέχει κάτι που αυτή η έκδοση δεν μπορεί να δεχτεί. Δεν άλλαξε τίποτα.',
   },
   previewHeading: 'Έλεγχος πριν από την επαναφορά',
-  previewIntro: 'Το αρχείο ελέγχθηκε. Δεν έχει γίνει ακόμη επαναφορά.',
+  previewIntro:
+    'Το αρχείο πέρασε τους ελέγχους αυτής της έκδοσης. Δεν έχει γίνει ακόμη επαναφορά.',
   worlds: {
     original: 'Αρχικές δραστηριότητες',
     growing: 'Κόσμος που μεγαλώνει',
@@ -215,12 +224,15 @@ const greek: BackupCopy = {
     independent: 'Ανεξάρτητες επιτυχίες',
     supported: 'Επιτυχίες με βοήθεια ή νέα προσπάθεια',
     worked: 'Λυμένα παραδείγματα (μάθηση με βοήθεια, όχι ανεξάρτητα)',
+    confirmations:
+      'Επαναλαμβανόμενες ανεξάρτητες επιτυχίες που επιβεβαιώνουν μια σχέση (όχι νέα περίπτωση)',
     notYet: 'Όχι ακόμη',
-    notCounted: 'Άλλες απαντήσεις που δεν μετρούν ως στοιχεία εξάσκησης',
-    accomplishments: 'Πειραματικές σημειώσεις εξάσκησης',
+    notCounted:
+      'Απαντήσεις που δεν μετρούν ως στοιχεία (για παράδειγμα επαναλήψεις ή απλούστερη μορφή δραστηριότητας)',
+    accomplishments: 'Πειραματικές καταστάσεις εξάσκησης (όχι μέτρηση γνώσεων)',
     discoveries:
       'Ανακαλύψεις που δοκιμάστηκαν ανεξάρτητα με διαφορετικούς τρόπους',
-    help: 'Βοήθεια που διατηρείται για την ανοιχτή συνεδρία',
+    help: 'Βοήθεια που αποθηκεύτηκε στην τελευταία συνεδρία',
   },
   modes: {
     manual: 'Απλώς παιχνίδι',
@@ -229,9 +241,9 @@ const greek: BackupCopy = {
   sessionOpen: 'ανοιχτή',
   sessionStopped: 'σταματημένη',
   states: {
-    Emerging: 'αρχικό στάδιο',
-    Developing: 'σε ανάπτυξη',
-    Secure: 'σταθερό στην εξάσκηση',
+    Emerging: 'η εξάσκηση ξεκίνησε',
+    Developing: 'αναπτύσσεται στην εξάσκηση',
+    Secure: 'σταθερό στην εξάσκηση (πειραματικός κανόνας)',
   },
   none: 'καμία',
   destination: {
@@ -244,13 +256,13 @@ const greek: BackupCopy = {
       'Η αποθήκευση δεν είναι διαθέσιμη τώρα σε αυτό το πρόγραμμα περιήγησης, οπότε η επαναφορά δεν μπορεί να ξεκινήσει. Δεν άλλαξε τίποτα.',
   },
   closesBadge:
-    'Ένα σήμα ανοιχτό σε αυτό το παράθυρο θα κλείσει. Επιλέξτε ξανά σήμα μετά.',
+    'Μετά την επαναφορά, ένα σήμα ανοιχτό σε αυτό το παράθυρο κλείνει και ό,τι παίχτηκε χωρίς αποθήκευση χάνεται. Επιλέξτε ξανά σήμα μετά.',
   restore: 'Επαναφορά αυτών των σημάτων',
   cancel: 'Ακύρωση',
   cancelled: 'Η επαναφορά ακυρώθηκε. Δεν άλλαξε τίποτα.',
   restoring: 'Γίνεται επαναφορά. Κρατήστε αυτή τη σελίδα ανοιχτή…',
   restored:
-    'Η επαναφορά ολοκληρώθηκε και ελέγχθηκε. Αυτά τα σήματα είναι ξανά αποθηκευμένα σε αυτό το πρόγραμμα περιήγησης. Επιλέξτε σήμα για να συνεχίσετε. Το αρχείο αντιγράφου παραμένει χωριστό αντίγραφο.',
+    'Η επαναφορά ολοκληρώθηκε και ελέγχθηκε. Αυτά τα σήματα είναι τώρα αποθηκευμένα σε αυτό το πρόγραμμα περιήγησης. Επιλέξτε σήμα για να συνεχίσετε. Το αρχείο αντιγράφου παραμένει χωριστό αντίγραφο.',
   notRestored: {
     occupied:
       'Ένα σήμα αποθηκεύτηκε πρώτα εδώ από άλλο παράθυρο. Δεν έγινε επαναφορά ούτε αντικατάσταση.',
@@ -262,8 +274,11 @@ const greek: BackupCopy = {
       'Δεν ήταν δυνατή η αποθήκευση της επαναφοράς. Δεν έγινε επαναφορά.',
     blocked:
       'Μια αποθήκευση ή ενημέρωση βρίσκεται ακόμη σε εξέλιξη. Περιμένετε να ολοκληρωθεί και δοκιμάστε ξανά.',
+    differs:
+      'Τα αποθηκευμένα σήματα εδώ διαφέρουν από αυτό το αντίγραφο, για παράδειγμα επειδή το παιχνίδι συνεχίστηκε μετά την επαναφορά ή επειδή άλλο παράθυρο τα άλλαξε. Η επαναφορά δεν αντικαθιστά ποτέ αποθηκευμένα σήματα. Επιλέξτε σήμα για να δείτε τι είναι αποθηκευμένο.',
+    absent:
+      'Κανένα σήμα από αυτό το αντίγραφο δεν είναι τώρα αποθηκευμένο σε αυτό το πρόγραμμα περιήγησης και τίποτα δεν αντικαταστάθηκε. Ελέγξτε ξανά αυτό το πρόγραμμα περιήγησης πριν από την επαναφορά.',
   },
-  tryAgain: 'Δοκιμάστε ξανά',
   checkBrowser: 'Ελέγξτε ξανά αυτό το πρόγραμμα περιήγησης',
   uncertain:
     'Δεν ήταν δυνατή η επιβεβαίωση του αποτελέσματος. Δεν αντικαταστάθηκε τίποτα. Ελέγξτε ξανά για να δείτε τι είναι αποθηκευμένο.',
@@ -285,14 +300,14 @@ const german: BackupCopy = {
   containsHeading: 'Was eine Sicherung enthält',
   contains: [
     'Jedes gespeicherte Zeichen, Stern oder Dreieck, mit seinen Spracheinstellungen.',
-    'Abgeschlossene Aufgaben und Übungsnachweise: welche Antworten selbstständig waren, welche Hilfe, ein gelöstes Beispiel oder einen weiteren Versuch brauchten und welche noch einmal angeschaut werden sollten.',
+    'Abgeschlossene Aufgaben und, für Übung, die als Nachweis zählt, welche Antworten selbstständig waren, welche Hilfe, ein gelöstes Beispiel oder einen weiteren Versuch brauchten und welche noch einmal angeschaut werden sollten.',
     'Entdeckungen, Fortschritt bei Vorschlägen, die Spielwahl und die Aufgabe, mit der es weitergeht.',
     'Versionsangaben, damit eine spätere Version die Datei vor der Verwendung prüfen kann.',
   ],
   excludesHeading: 'Was eine Sicherung nicht enthält',
   excludes: [
     'Bewegungen in der Entdecken-Werkstatt. Entdecken wird nie gespeichert.',
-    'Spielen bei ausgeschaltetem Speichern und eine Antwort, die noch gespeichert wurde.',
+    'Spielen bei ausgeschaltetem Speichern und eine Antwort, deren Speicherung noch nicht abgeschlossen war.',
     'Die internen Speicherzähler und Sicherheitsvermerke dieses Browsers. Eine wiederhergestellte Kopie erhält neue.',
     'Stimmen, Offline-Dateien der App, Namen, Konten oder Daten anderer Websites.',
   ],
@@ -307,9 +322,10 @@ const german: BackupCopy = {
     'In diesem Browser ist noch kein Zeichen gespeichert, daher gibt es nichts zu sichern.',
   backupFailed:
     'Die Sicherung konnte nicht vorbereitet werden. Es wurde nichts geändert.',
-  ready: 'Die Sicherung ist bereit und geprüft. Sie enthält:',
+  ready:
+    'Die Sicherung ist bereit und wurde erfolgreich zurückgelesen. Sie enthält:',
   pendingExcluded:
-    'Eine Antwort, die noch gespeichert wurde, ist nicht enthalten. Um sie aufzunehmen, öffnen Sie zuerst dieses Zeichen, prüfen Sie seine Speicherung und bereiten Sie die Sicherung dann erneut vor.',
+    'Eine Antwort, deren Speicherung noch nicht abgeschlossen war, ist nicht enthalten. Die Sicherung enthält den letzten abgeschlossenen Speicherstand dieses Zeichens; die unvollständige Antwort bleibt nur in diesem Browser.',
   saveFile: 'Sicherungsdatei speichern',
   fileName: 'Dateiname',
   saveRequested:
@@ -327,7 +343,7 @@ const german: BackupCopy = {
     not_backup:
       'Diese Datei ist keine Math-Adventure-Sicherung. Es wurde nichts geändert.',
     damaged:
-      'Diese Sicherung ist beschädigt oder wurde nach dem Speichern verändert. Es wurde nichts geändert.',
+      'Diese Sicherung ist beschädigt oder nicht genau so, wie die App sie erstellt hat. Es wurde nichts geändert.',
     newer_version:
       'Diese Sicherung wurde mit einer neueren Version der App erstellt. Es wurde nichts geändert.',
     incompatible:
@@ -336,7 +352,8 @@ const german: BackupCopy = {
       'Diese Sicherung enthält etwas, das diese Version nicht annehmen kann. Es wurde nichts geändert.',
   },
   previewHeading: 'Vor dem Wiederherstellen prüfen',
-  previewIntro: 'Die Datei wurde geprüft. Noch wurde nichts wiederhergestellt.',
+  previewIntro:
+    'Die Datei hat die Prüfungen dieser Version bestanden. Noch wurde nichts wiederhergestellt.',
   worlds: { original: 'Ursprüngliche Aufgaben', growing: 'Wachsende Welt' },
   fields: {
     world: 'Gespeicherte Welt',
@@ -350,20 +367,23 @@ const german: BackupCopy = {
     independent: 'Selbstständige Erfolge',
     supported: 'Erfolge mit Hilfe oder weiterem Versuch',
     worked: 'Gelöste Beispiele (Lernen mit Hilfe, nicht selbstständig)',
+    confirmations:
+      'Wiederholte selbstständige Erfolge, die eine Beziehung bestätigen (kein neuer Fall)',
     notYet: 'Noch nicht',
-    notCounted: 'Andere Antworten, die nicht als Übungsnachweis zählen',
-    accomplishments: 'Experimentelle Übungsnotizen',
+    notCounted:
+      'Antworten, die nicht als Nachweis zählen (zum Beispiel Wiederholungen oder eine einfachere Form einer Aufgabe)',
+    accomplishments: 'Experimentelle Übungsstände (kein Maß für Beherrschung)',
     discoveries:
       'Entdeckungen, die selbstständig auf verschiedene Weise ausprobiert wurden',
-    help: 'Für die offene Sitzung behaltene Hilfe',
+    help: 'In der letzten Sitzung gespeicherte Hilfe',
   },
   modes: { manual: 'Einfach spielen', 'synthetic-policy': 'Begleitetes Üben' },
   sessionOpen: 'offen',
   sessionStopped: 'beendet',
   states: {
-    Emerging: 'im Entstehen',
-    Developing: 'in Entwicklung',
-    Secure: 'sicher beim Üben',
+    Emerging: 'Üben hat begonnen',
+    Developing: 'entwickelt sich beim Üben',
+    Secure: 'beständig beim Üben (experimentelle Regel)',
   },
   none: 'keine',
   destination: {
@@ -376,13 +396,13 @@ const german: BackupCopy = {
       'Speichern ist in diesem Browser gerade nicht verfügbar, daher kann das Wiederherstellen nicht beginnen. Es wurde nichts geändert.',
   },
   closesBadge:
-    'Ein in diesem Fenster geöffnetes Zeichen wird geschlossen. Wählen Sie danach wieder ein Zeichen.',
+    'Nach dem Wiederherstellen wird ein in diesem Fenster geöffnetes Zeichen geschlossen, und Spielen ohne Speichern geht verloren. Wählen Sie danach wieder ein Zeichen.',
   restore: 'Diese Zeichen wiederherstellen',
   cancel: 'Abbrechen',
   cancelled: 'Wiederherstellen abgebrochen. Es wurde nichts geändert.',
   restoring: 'Wird wiederhergestellt. Lassen Sie diese Seite geöffnet…',
   restored:
-    'Wiederhergestellt und geprüft. Diese Zeichen sind wieder in diesem Browser gespeichert. Wählen Sie ein Zeichen, um weiterzumachen. Ihre Sicherungsdatei bleibt eine getrennte Kopie.',
+    'Wiederhergestellt und geprüft. Diese Zeichen sind jetzt in diesem Browser gespeichert. Wählen Sie ein Zeichen, um weiterzumachen. Ihre Sicherungsdatei bleibt eine getrennte Kopie.',
   notRestored: {
     occupied:
       'In einem anderen Fenster wurde hier zuerst ein Zeichen gespeichert. Es wurde nichts wiederhergestellt oder ersetzt.',
@@ -394,8 +414,11 @@ const german: BackupCopy = {
       'Das Wiederherstellen konnte nicht gespeichert werden. Es wurde nichts wiederhergestellt.',
     blocked:
       'Ein Speichervorgang oder eine Aktualisierung läuft noch. Warten Sie, bis er fertig ist, und versuchen Sie es dann erneut.',
+    differs:
+      'Die hier gespeicherten Zeichen unterscheiden sich von dieser Sicherung, zum Beispiel weil nach dem Wiederherstellen weitergespielt wurde oder ein anderes Fenster sie geändert hat. Wiederherstellen ersetzt nie gespeicherte Zeichen. Wählen Sie ein Zeichen, um zu sehen, was gespeichert ist.',
+    absent:
+      'Kein Zeichen aus dieser Sicherung ist jetzt in diesem Browser gespeichert, und nichts wurde ersetzt. Prüfen Sie diesen Browser erneut, bevor Sie wiederherstellen.',
   },
-  tryAgain: 'Erneut versuchen',
   checkBrowser: 'Diesen Browser erneut prüfen',
   uncertain:
     'Das Ergebnis konnte nicht bestätigt werden. Es wurde nichts überschrieben. Prüfen Sie erneut, was gespeichert ist.',

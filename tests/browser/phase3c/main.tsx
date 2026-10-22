@@ -217,7 +217,11 @@ function App() {
   const childCopy = childShellCopy(locale);
   const worldCopy = getGrowingWorldCopy(locale);
   const languageCopy = languageControlCopy(locale);
-  const disabled = state.busy || state.frozen || runtime.recovery().recovering;
+  const disabled =
+    state.busy ||
+    state.frozen ||
+    runtime.recovery().recovering ||
+    runtime.restoring();
   const playDisabled =
     disabled || state.readOnly || state.uncertain || record?.pending != null;
   const recommendedFamily =
@@ -1373,6 +1377,9 @@ Object.defineProperty(window, 'phase3cProof', {
     held: runtime.held,
     holdRestore: (value: boolean) => runtime.holdRestore(value),
     restoreHeld: runtime.restoreHeld,
+    holdReadback: (value: boolean) => runtime.holdReadback(value),
+    readbackHeld: runtime.readbackHeld,
+    loseRestoreReport: (value: boolean) => runtime.loseRestoreReport(value),
     restoring: runtime.restoring,
     refresh: runtime.notify,
   },

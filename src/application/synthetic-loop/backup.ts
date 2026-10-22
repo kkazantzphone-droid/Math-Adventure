@@ -38,6 +38,7 @@ import {
   growingJourneyForRecord,
   syntheticLoopCodec,
   syntheticLoopEventsFromInput,
+  SYNTHETIC_LOOP_CATALOG,
 } from './record';
 import { SYNTHETIC_LOOP_SEED_VERSION } from './seed';
 import { syntheticLoopRecordId } from './session';
@@ -65,6 +66,14 @@ export const SYNTHETIC_BACKUP_LIMITS = Object.freeze({
   depth: CANONICAL_LIMITS.depth,
   profiles: SYNTHETIC_PROFILE_IDS.length,
 });
+/** Digest of the exact policy values and evidence scopes the rebuilt derived
+ * state depends on, so a changed value is refused even under an old name. */
+const semantics = canonicalize({
+  adaptationPolicy: ADAPTATION_POLICY,
+  evidenceScopes: SYNTHETIC_LOOP_CATALOG,
+  invitationPolicy: GROWING_JOURNEY_POLICY,
+});
+if (!semantics.ok) throw new Error('Synthetic backup semantics invalid');
 /** Exact provenance this build can restore without reinterpretation. */
 export const SYNTHETIC_BACKUP_COMPATIBILITY = Object.freeze({
   adaptationPolicy: ADAPTATION_POLICY.version,
@@ -83,8 +92,13 @@ export const SYNTHETIC_BACKUP_COMPATIBILITY = Object.freeze({
   invitationPolicy: GROWING_JOURNEY_POLICY.version,
   randomAlgorithm: RNG_ALGORITHM_ID,
   recordSchemas: Object.freeze([...SYNTHETIC_LOOP_PAYLOAD_SCHEMAS]),
+  semantics: sha256Hex(semantics.value),
   taskSeeds: SYNTHETIC_LOOP_SEED_VERSION,
 });
+/** Evidence IDs this app creates (`synthetic-` + random UUID operation). An
+ * imported file cannot use them to carry other text into the destination. */
+const APP_EVIDENCE_ID =
+  /^SYNTHETIC-synthetic-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 
 export type SyntheticBackupErrorCode =
   | 'nothing_saved'
@@ -182,7 +196,20 @@ export function syntheticRecordFromPortable(
   )
     return fail('invalid_contents');
   const events = syntheticLoopEventsFromInput(row.events);
-  if (!events) return fail('invalid_contents');
+  const chapterIds = dataArray(row.chapterEvents ?? [], 128)?.map(
+    (event) => dataRecord(event, 32)?.id,
+  );
+  if (
+    !events ||
+    !chapterIds ||
+    [
+      ...events.flatMap((event) =>
+        event.kind === 'observation' ? [event.input.id] : [],
+      ),
+      ...chapterIds,
+    ].some((id) => typeof id !== 'string' || !APP_EVIDENCE_ID.test(id))
+  )
+    return fail('invalid_contents');
   const derived = deriveSyntheticLoop(
     row.profileId as SyntheticProfileId,
     events,
@@ -431,6 +458,8 @@ export interface SyntheticBackupProfileSummary {
   readonly independent: number;
   readonly supported: number;
   readonly worked: number;
+  /** Later unassisted repeats confirming coverage; never a new case. */
+  readonly confirmations: number;
   readonly notYet: number;
   readonly notCounted: number;
   readonly accomplishments: readonly {
@@ -438,6 +467,7 @@ export interface SyntheticBackupProfileSummary {
     readonly state: Exclude<AttainedState, 'Unseen'>;
   }[];
   readonly discoveries: readonly ChapterFamilyId[];
+  /** Saved help for the latest session, kept until a new session starts. */
   readonly helpContexts: number;
 }
 
@@ -487,10 +517,13 @@ export function summarizeSyntheticLoopProfile(
       (item) =>
         item.outcome === 'excluded' && item.reason === 'solutionExposed',
     ),
+    confirmations: count((item) => item.reason === 'independentConfirmation'),
     notYet: count((item) => item.outcome === 'unsuccessful'),
     notCounted: count(
       (item) =>
-        item.outcome === 'excluded' && item.reason !== 'solutionExposed',
+        item.outcome === 'excluded' &&
+        item.reason !== 'solutionExposed' &&
+        item.reason !== 'independentConfirmation',
     ),
     accomplishments: Object.freeze(accomplishments),
     discoveries: Object.freeze(

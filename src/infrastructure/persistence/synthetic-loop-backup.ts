@@ -57,6 +57,7 @@ type Fail = (code: ApplicationErrorCode) => void;
 function run<R>(
   database: IDBDatabase,
   mode: IDBTransactionMode,
+  options: IDBTransactionOptions,
   queue: (
     transaction: IDBTransaction,
     complete: (value: R) => void,
@@ -68,7 +69,7 @@ function run<R>(
     let failure: ApplicationErrorCode | undefined;
     let transaction: IDBTransaction;
     try {
-      transaction = database.transaction([...STORE_NAMES], mode);
+      transaction = database.transaction([...STORE_NAMES], mode, options);
     } catch (error) {
       resolve(applicationFailure(nativeStorageCode(error)));
       return;
@@ -162,7 +163,7 @@ export function readSyntheticLoopWorld(database: IDBDatabase): Promise<
 > {
   if (database.name !== SYNTHETIC_LOOP_DATABASE || database.version !== 2)
     return Promise.resolve(applicationFailure('unsupported_schema'));
-  return run(database, 'readonly', (transaction, complete, fail) => {
+  return run(database, 'readonly', {}, (transaction, complete, fail) => {
     readyControl(database, transaction, fail, (epoch) => {
       const records: SyntheticLoopRecord[] = [];
       const cursor = transaction.objectStore('records').openCursor();
@@ -339,6 +340,8 @@ export function restoreSyntheticLoopWorld(
   return run<readonly OperationReceipt[]>(
     database,
     'readwrite',
+    // A flush hint only: readback checks content, never crash durability.
+    { durability: 'strict' },
     (transaction, complete, fail) => {
       readyControl(database, transaction, fail, (current) => {
         if (current !== epoch) {
@@ -386,7 +389,8 @@ export function restoreSyntheticLoopWorld(
             complete(plan.map((item) => item.receipt));
             let last: IDBRequest | undefined;
             for (const item of plan) {
-              records.put(
+              // add, never put: a native guard that no record is replaced.
+              records.add(
                 storedRecordData(
                   {
                     recordId: item.command.recordId,
@@ -441,6 +445,7 @@ export function verifySyntheticLoopRestore(
   return run<RestoreReadback>(
     database,
     'readonly',
+    {},
     (transaction, complete, fail) => {
       readyControl(database, transaction, fail, (current) => {
         const rows = plan.map((item) =>
