@@ -6,6 +6,8 @@ real-learner use. The current saved experience uses fixed synthetic profiles in
 an explicit local review capability. Ordinary-product learner persistence remains
 disabled. Engineering delivery and protected merge do not supply owner UX
 acceptance, educational validation or permission to start a household trial.
+Updated 2026-10-22 for Keep my adventure (D57): only the dependable saved state
+row below reflects that engineering gap; no decision listed here is accepted.
 
 ## Already decided
 
@@ -37,7 +39,7 @@ acceptance, educational validation or permission to start a household trial.
 | **Educational interpretation — Q08, D18 / proposed ADR-0006** | Independent educators/math/accessibility reviewers must evaluate concept/representation scope, finite-case diversity, invitation thresholds, support/revisit rules and fair opportunities. Agree any consented evaluation plan. Synthetic passing scenarios do not validate mastery, transfer, retention or learning effectiveness. |
 | **Accessible use on intended devices — Q10/Q13/Q16, D23/D25/D29/D30** | Choose supported browser/OS/device surfaces and obtain scoped accessible-geometry, notation, input, storage and optional-voice evidence. Historical D53 owner observations establish only their bound environment; changed screens need current evidence. Automated reflow and browser-offline tests do not establish actual AT delivery or physical disconnection. |
 | **Wording — Q09, D22** | Obtain proportionate native-language and spoken-wording review for the intended household use. Official pack promotion additionally needs the specified reviewer arrangements; schema completeness is insufficient. |
-| **Dependable saved state — Q12, D24** | Before relying on backup or migration, implement and review parent-controlled local export/import and recovery on intended surfaces, including deletion fences and failure paths. Decide the practical response to eviction, cleared storage and private exports that outlive app deletion. Existing synthetic persistence proof is bounded engineering evidence. |
+| **Dependable saved state — Q12, D24** | D57 now provides parent-controlled local backup, validated preview and restore into a browser with no saved badges for the synthetic world, with deletion fences, concurrency and failure paths proven in installed desktop Chrome and Edge ([evidence](KEEP_MY_ADVENTURE_COMPLETION_REPORT.md)). Still needed before relying on it for real use: evidence on intended household devices, the practical response to eviction and cleared storage, guidance for private exports that outlive app deletion, ordinary-product identity remapping and any merge/overwrite policy, and the retention decisions above. |
 
 These questions remain open in the [decision register](DECISION_REGISTER.md) and
 [open questions](OPEN_QUESTIONS.md). Their detail belongs in the

@@ -1,0 +1,59 @@
+{
+  "schema": "math-adventure.keep-adventure-browser-matrix-v1",
+  "marker": "synthetic-only-engineering-evidence",
+  "date": "2026-10-22",
+  "sourceCheckpoint": "3417768edffb6734b39a1fb08b739abb734bc997",
+  "productionSite": {
+    "build": "NODE_ENV=production vite build --config vite.slice.config.ts",
+    "javascript": "assets/index-BA9z_BbK.js",
+    "receipts": [
+      "browser-production-chrome.json",
+      "browser-production-msedge.json"
+    ],
+    "javascriptSha256": "7a3b77a2f477c0baef66141e905d09db90a4a5426cf5425025e45e4f6835cdac"
+  },
+  "channels": {
+    "chrome": {
+      "browserVersion": "155.0.8059.84",
+      "productionBackupSuite": {
+        "result": "PASS",
+        "cases": 9,
+        "externalRequests": 0,
+        "pageErrors": 0
+      },
+      "fullSliceRegression": {
+        "files": 7,
+        "tests": 154,
+        "failed": 0,
+        "renderer": "NODE_ENV=test builds owned by each suite"
+      }
+    },
+    "msedge": {
+      "browserVersion": "155.0.4283.62",
+      "productionBackupSuite": {
+        "result": "PASS",
+        "cases": 9,
+        "externalRequests": 0,
+        "pageErrors": 0
+      },
+      "fullSliceRegression": {
+        "files": 7,
+        "tests": 154,
+        "failed": 0,
+        "renderer": "NODE_ENV=test builds owned by each suite"
+      }
+    }
+  },
+  "mutations": {
+    "channel": "chrome",
+    "receipt": "mutations-chrome.json",
+    "detected": 15,
+    "exactRestoration": true
+  },
+  "limits": [
+    "Installed desktop Chrome and Edge on Windows 11 only",
+    "Browser-controlled offline mode, not physical disconnection",
+    "Deliberate 32px root text, not native zoom",
+    "No screen-reader delivery, native-language or educational review"
+  ]
+}

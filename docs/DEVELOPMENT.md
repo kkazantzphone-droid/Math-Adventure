@@ -1,5 +1,17 @@
 # Development
 
+Goal D57 adds [Keep my adventure](KEEP_MY_ADVENTURE_DESIGN.md) to the Grown-ups
+view of the same loopback synthetic build: prepare and save a local backup file,
+choose a file to preview its validated contents, then restore it into a browser
+with no saved badges. The installed-browser slice command includes
+`tests/integration/keep-adventure.test.ts` (real download, fresh subpath origin,
+reopen/continue, refusals, concurrency, quota, pending and offline cases).
+After it, with stable source and nothing else running, run serially
+`node scripts/keep-adventure-mutations.mjs` (optionally `PHASE3C_BROWSER=msedge`);
+every mutation must be detected and exact bytes restored. The
+[completion record](KEEP_MY_ADVENTURE_COMPLETION_REPORT.md) holds the walkthrough
+and observed results. Never point these tests at an existing owner preview origin.
+
 Goal D56 improves [clear answers and discovery](CLEAR_ANSWERS_DESIGN.md) within
 the same fourteen-activity synthetic surface. Missing parts, equal groups and
 area offer a complete native number chooser and explicit Check action; Show all

@@ -1,0 +1,25 @@
+{
+  "schema": "math-adventure.keep-adventure-audit-v1",
+  "marker": "synthetic-only-engineering-evidence",
+  "date": "2026-10-22",
+  "command": "corepack pnpm audit --json",
+  "result": "PASS",
+  "knownAdvisories": 0,
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0
+    },
+    "dependencies": 3,
+    "devDependencies": 201,
+    "optionalDependencies": 27,
+    "totalDependencies": 204
+  },
+  "manifestSHA256": "9d1c9846d774846c1bd789070b7b8476ac7989c950979773380609f0594efe9b",
+  "lockfileSHA256": "651b5abda6fa5bdc7f1ee3ab64b58ba19c4c6286e63c2dbe494fa615f4630b20",
+  "priorObservation": "At source checkpoint e0d0a44 (vite 8.3.2) the same command reported 1 high, 4 moderate and 1 low dev-server advisories, all patched in vite 8.3.3",
+  "limitation": "Observed registry advisory result for the pinned graph on this date; not a security certification"
+}

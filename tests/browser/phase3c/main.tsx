@@ -56,6 +56,7 @@ import {
 } from '../../../src/ui/synthetic-loop/GrowthJourney';
 import { getGrowingWorldCopy } from '../../../src/presentation/localisation/growing-world-copy';
 import { ChildLanguageControls } from '../../../src/ui/synthetic-loop/LanguageControls';
+import { BackupRestore } from '../../../src/ui/synthetic-loop/BackupRestore';
 import {
   languageNames,
   languageControlCopy,
@@ -216,7 +217,11 @@ function App() {
   const childCopy = childShellCopy(locale);
   const worldCopy = getGrowingWorldCopy(locale);
   const languageCopy = languageControlCopy(locale);
-  const disabled = state.busy || state.frozen || runtime.recovery().recovering;
+  const disabled =
+    state.busy ||
+    state.frozen ||
+    runtime.recovery().recovering ||
+    runtime.restoring();
   const playDisabled =
     disabled || state.readOnly || state.uncertain || record?.pending != null;
   const recommendedFamily =
@@ -699,7 +704,11 @@ function App() {
           <BadgeProfiles
             locale={locale}
             selected={record?.profileId ?? null}
-            disabled={state.frozen || runtime.recovery().recovering}
+            disabled={
+              state.frozen ||
+              runtime.recovery().recovering ||
+              runtime.restoring()
+            }
             onChoose={(profile) =>
               void run(
                 () =>
@@ -724,7 +733,11 @@ function App() {
                   key={profile}
                   data-profile={profile}
                   type="button"
-                  disabled={state.frozen || runtime.recovery().recovering}
+                  disabled={
+                    state.frozen ||
+                    runtime.recovery().recovering ||
+                    runtime.restoring()
+                  }
                   aria-pressed={record?.profileId === profile}
                   onClick={() =>
                     void run(
@@ -1250,7 +1263,11 @@ function App() {
                   <button
                     type="button"
                     data-action="delete"
-                    disabled={state.frozen || runtime.recovery().recovering}
+                    disabled={
+                      state.frozen ||
+                      runtime.recovery().recovering ||
+                      runtime.restoring()
+                    }
                     onClick={() => setDeleteRequested(true)}
                   >
                     {formatSlice(locale, 'slice.deleteProfile')}
@@ -1264,7 +1281,11 @@ function App() {
                         type="button"
                         data-action="confirm-delete"
                         aria-describedby="confirm-delete"
-                        disabled={state.frozen || runtime.recovery().recovering}
+                        disabled={
+                          state.frozen ||
+                          runtime.recovery().recovering ||
+                          runtime.restoring()
+                        }
                         onClick={() =>
                           void run(
                             () => session.deleteProfile(operation()),
@@ -1294,6 +1315,23 @@ function App() {
               </details>
             )}
           </>
+        )}
+        {view === 'developer' && (
+          <BackupRestore
+            locale={locale}
+            disabled={disabled}
+            badgeOpen={record !== null}
+            actions={runtime.backup}
+            familyLabel={familyLabel}
+            onRestored={() => {
+              // The restoring window's badge was closed; nothing stale remains.
+              publicPresentation = null;
+              setTask(null);
+              setFeedback('none');
+              setFinished(false);
+              refresh();
+            }}
+          />
         )}
       </div>
       {offline && view === 'developer' && (
@@ -1353,6 +1391,12 @@ Object.defineProperty(window, 'phase3cProof', {
     fault: (value: Parameters<typeof runtime.fault>[0]) => runtime.fault(value),
     holdWrites: (value: boolean) => runtime.holdWrites(value),
     held: runtime.held,
+    holdRestore: (value: boolean) => runtime.holdRestore(value),
+    restoreHeld: runtime.restoreHeld,
+    holdReadback: (value: boolean) => runtime.holdReadback(value),
+    readbackHeld: runtime.readbackHeld,
+    loseRestoreReport: (value: boolean) => runtime.loseRestoreReport(value),
+    restoring: runtime.restoring,
     refresh: runtime.notify,
   },
   writable: false,

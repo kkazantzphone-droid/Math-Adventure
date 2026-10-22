@@ -491,9 +491,16 @@ describe(`installed ${channel} synthetic playable loop`, () => {
     const p = await open();
     expect((await state(p)).record).toBeNull();
     expect(await p.locator('[data-profile]').count()).toBe(2);
+    expect(await p.locator('input[type=text], textarea').count()).toBe(0);
+    // D57 authorizes exactly one adult backup chooser; no other file input.
+    expect(await p.locator('input[type=file]').count()).toBe(1);
     expect(
-      await p.locator('input[type=text], input[type=file], textarea').count(),
-    ).toBe(0);
+      await p
+        .locator(
+          '[data-backup-restore] input[type=file][accept=".json,application/json"]',
+        )
+        .count(),
+    ).toBe(1);
     expect(
       await p.evaluate(async () =>
         (await indexedDB.databases()).some(

@@ -47,6 +47,7 @@ export default defineConfig({
       'tests/integration/growing-world.test.ts',
       'tests/integration/growing-world-capacity.test.ts',
       'tests/integration/growing-world-provenance.test.ts',
+      'tests/integration/keep-adventure.test.ts',
     ],
     testTimeout: 30_000,
     hookTimeout: 60_000,

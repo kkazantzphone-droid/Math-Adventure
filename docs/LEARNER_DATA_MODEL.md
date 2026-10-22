@@ -115,6 +115,13 @@ Before irreversible migration, prepare a bounded validated recovery checkpoint i
 
 ## Export/import — later feature, contract now
 
+D57 implements this contract for the explicit synthetic capability only; see
+[Keep my adventure](KEEP_MY_ADVENTURE_DESIGN.md). It uses a 1 MiB / depth-32 /
+two-fixed-slot engineering parser bound, keeps fixed synthetic slots instead of
+remapping and refuses any destination with a saved badge. The proposed numeric
+limits, expiry checks and ordinary-product identity remapping below remain
+unimplemented proposals.
+
 Parent-controlled local files only; no upload or cloud sync. Export is opt-in and clearly warns it contains private learner information. A versioned envelope contains formatVersion, schemaVersion, model/content/generator versions and validated records. Exclude incidental identifiers/logs; any inclusion of nicknames is previewed. A checksum detects accidental corruption, not authenticity or encryption.
 
 Before import: enforce proposed 5 MiB byte limit, depth <=20, <=10 profiles, <=500 observations per profile, bounded strings and safe integer/rational types; exact schema rejects unknown dangerous structures, prototype keys, executable content and remote URLs. Limits are configurable review hypotheses. Reject unknown/future versions before modifying data. Stage -> migrate -> validate -> preview identity/conflict choice -> confirm in parent mode -> atomic commit. Default is a new remapped local identity, not merging siblings. Restore cannot bypass a deletion fence silently.
