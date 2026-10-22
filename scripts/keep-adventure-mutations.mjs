@@ -31,6 +31,7 @@ const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const backup = 'src/application/synthetic-loop/backup.ts';
 const storage = 'src/infrastructure/persistence/synthetic-loop-backup.ts';
 const outcome = 'src/ui/synthetic-loop/backup-outcome.ts';
+const runtime = 'tests/browser/phase3c/runtime.ts';
 const suites = {
   unit: [
     'run',
@@ -116,6 +117,24 @@ const mutations = [
     before: "  if (readback === 'restored') return { kind: 'restored' };",
     after:
       "  if (readback === 'restored' || commit?.ok === true)\n    return { kind: 'restored' };",
+  },
+  {
+    id: 'commit-then-difference-reported-as-nothing-restored',
+    file: outcome,
+    suite: 'unit',
+    before:
+      "  if (readback === 'different')\n    return { kind: 'not-restored', reason: 'differs' };",
+    after:
+      "  if (readback === 'different')\n    return { kind: 'not-restored', reason: 'changed' };",
+  },
+  {
+    id: 'close-open-badge-before-restore-is-verified',
+    file: runtime,
+    suite: 'browser',
+    before:
+      '    restoring = true;\n    notify();\n    const work = (async (): Promise<RestoreOutcome> => {\n      let plan =',
+    after:
+      '    restoring = true;\n    closeOpenBadge();\n    notify();\n    const work = (async (): Promise<RestoreOutcome> => {\n      let plan =',
   },
   {
     id: 'probe-creates-absent-database',

@@ -704,7 +704,11 @@ function App() {
           <BadgeProfiles
             locale={locale}
             selected={record?.profileId ?? null}
-            disabled={state.frozen || runtime.recovery().recovering}
+            disabled={
+              state.frozen ||
+              runtime.recovery().recovering ||
+              runtime.restoring()
+            }
             onChoose={(profile) =>
               void run(
                 () =>
@@ -729,7 +733,11 @@ function App() {
                   key={profile}
                   data-profile={profile}
                   type="button"
-                  disabled={state.frozen || runtime.recovery().recovering}
+                  disabled={
+                    state.frozen ||
+                    runtime.recovery().recovering ||
+                    runtime.restoring()
+                  }
                   aria-pressed={record?.profileId === profile}
                   onClick={() =>
                     void run(
@@ -1255,7 +1263,11 @@ function App() {
                   <button
                     type="button"
                     data-action="delete"
-                    disabled={state.frozen || runtime.recovery().recovering}
+                    disabled={
+                      state.frozen ||
+                      runtime.recovery().recovering ||
+                      runtime.restoring()
+                    }
                     onClick={() => setDeleteRequested(true)}
                   >
                     {formatSlice(locale, 'slice.deleteProfile')}
@@ -1269,7 +1281,11 @@ function App() {
                         type="button"
                         data-action="confirm-delete"
                         aria-describedby="confirm-delete"
-                        disabled={state.frozen || runtime.recovery().recovering}
+                        disabled={
+                          state.frozen ||
+                          runtime.recovery().recovering ||
+                          runtime.restoring()
+                        }
                         onClick={() =>
                           void run(
                             () => session.deleteProfile(operation()),

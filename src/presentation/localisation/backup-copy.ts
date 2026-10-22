@@ -126,7 +126,7 @@ const english = {
       'There is not enough storage space in this browser. Nothing was restored.',
     unavailable: 'The restore could not be saved. Nothing was restored.',
     blocked:
-      'Saving or an update is still in progress. Wait for it to finish, then try again.',
+      'A save or an update is still in progress, or a save still needs checking. Wait, or open the badge to check its save, then try again.',
     differs:
       'Saved badges here are different from this backup, for example because play continued after restoring or another window changed them. Restoring never replaces saved badges. Choose a badge to see what is saved.',
     absent:
@@ -273,7 +273,7 @@ const greek: BackupCopy = {
     unavailable:
       'Δεν ήταν δυνατή η αποθήκευση της επαναφοράς. Δεν έγινε επαναφορά.',
     blocked:
-      'Μια αποθήκευση ή ενημέρωση βρίσκεται ακόμη σε εξέλιξη. Περιμένετε να ολοκληρωθεί και δοκιμάστε ξανά.',
+      'Μια αποθήκευση ή ενημέρωση βρίσκεται ακόμη σε εξέλιξη ή μια αποθήκευση χρειάζεται έλεγχο. Περιμένετε ή ανοίξτε το σήμα για να ελέγξετε την αποθήκευση και δοκιμάστε ξανά.',
     differs:
       'Τα αποθηκευμένα σήματα εδώ διαφέρουν από αυτό το αντίγραφο, για παράδειγμα επειδή το παιχνίδι συνεχίστηκε μετά την επαναφορά ή επειδή άλλο παράθυρο τα άλλαξε. Η επαναφορά δεν αντικαθιστά ποτέ αποθηκευμένα σήματα. Επιλέξτε σήμα για να δείτε τι είναι αποθηκευμένο.',
     absent:
@@ -413,7 +413,7 @@ const german: BackupCopy = {
     unavailable:
       'Das Wiederherstellen konnte nicht gespeichert werden. Es wurde nichts wiederhergestellt.',
     blocked:
-      'Ein Speichervorgang oder eine Aktualisierung läuft noch. Warten Sie, bis er fertig ist, und versuchen Sie es dann erneut.',
+      'Ein Speichervorgang oder eine Aktualisierung läuft noch, oder eine Speicherung muss noch geprüft werden. Warten Sie oder öffnen Sie das Zeichen, um die Speicherung zu prüfen, und versuchen Sie es dann erneut.',
     differs:
       'Die hier gespeicherten Zeichen unterscheiden sich von dieser Sicherung, zum Beispiel weil nach dem Wiederherstellen weitergespielt wurde oder ein anderes Fenster sie geändert hat. Wiederherstellen ersetzt nie gespeicherte Zeichen. Wählen Sie ein Zeichen, um zu sehen, was gespeichert ist.',
     absent:

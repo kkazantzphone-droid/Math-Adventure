@@ -306,14 +306,24 @@ export function BackupRestore({
     const token = ++restoreToken.current;
     const selected = restore.backup;
     setRestore({ step: 'restoring', backup: selected });
-    const outcome = await actions.restore(selected, restore.destination.epoch);
+    let outcome: RestoreOutcome;
+    try {
+      outcome = await actions.restore(selected, restore.destination.epoch);
+    } catch {
+      outcome = { kind: 'uncertain' };
+    }
     if (token === restoreToken.current) apply(selected, outcome);
   }
 
   async function check(selected: ValidatedSyntheticBackup) {
     const token = ++restoreToken.current;
     setRestore({ step: 'restoring', backup: selected });
-    const outcome = await actions.checkRestore();
+    let outcome: RestoreOutcome;
+    try {
+      outcome = await actions.checkRestore();
+    } catch {
+      outcome = { kind: 'uncertain' };
+    }
     if (token === restoreToken.current) apply(selected, outcome);
   }
 

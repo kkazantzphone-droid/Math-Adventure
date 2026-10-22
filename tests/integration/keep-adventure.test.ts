@@ -820,6 +820,25 @@ describe('Keep my adventure — real served backup, restore and recovery', () =>
     const page = await (await newContext()).newPage();
     await open(page, origin.origin);
     await grownUps(page);
+    // Unsaved play open in this window: a failed restore must keep it; only a
+    // verified restore closes it. Saving off creates no storage.
+    await page
+      .locator(
+        'section[aria-labelledby="profiles-heading"] input[type=checkbox]',
+      )
+      .uncheck();
+    await page.locator('[data-profile="SYNTHETIC-PLAYER-1"]').click();
+    await settled(page);
+    const openBadge = () =>
+      page.evaluate(() => {
+        const state = (window.phase3cProof as unknown as KeepProof).state();
+        return { profile: state.record?.profileId ?? null, saved: state.saved };
+      });
+    expect(await openBadge()).toEqual({
+      profile: 'SYNTHETIC-PLAYER-1',
+      saved: false,
+    });
+    expect((await rawWorld(page)).exists).toBe(false);
     await choose(page, backupFile);
     const reasons: Record<string, string | null> = {};
     // 'write' is a genuine engine-aborted transaction from a native
@@ -839,6 +858,7 @@ describe('Keep my adventure — real served backup, restore and recovery', () =>
       expect(world.records).toHaveLength(0);
       expect(world.receipts).toHaveLength(0);
       expect(world.control?.storageEpoch).toBe(0);
+      expect((await openBadge()).profile).toBe('SYNTHETIC-PLAYER-1');
     }
     await page.evaluate(() =>
       (window.phase3cProof as unknown as KeepProof).fault(undefined),
@@ -847,6 +867,7 @@ describe('Keep my adventure — real served backup, restore and recovery', () =>
     await act(page, 'confirm');
     expect(await restoreState(page)).toBe('restored');
     expect((await rawWorld(page)).records).toHaveLength(2);
+    expect((await openBadge()).profile).toBeNull();
 
     // Controlled engine quota condition, not natural exhaustion. Ephemeral
     // contexts ignore the override and Chrome caches an origin's quota after

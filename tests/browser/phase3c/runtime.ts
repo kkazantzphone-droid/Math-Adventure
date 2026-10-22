@@ -449,6 +449,8 @@ export function createSliceRuntime(baseURL: URL) {
     handle = null;
     selected = null;
     session = createSyntheticLoopSession(null);
+    // An update fence still holds: the replacement session stays frozen.
+    if (attempt !== null) session.freeze();
   }
 
   async function restore(
@@ -479,7 +481,7 @@ export function createSliceRuntime(baseURL: URL) {
       const selectedPlan = plan;
       // Explicit parent confirmation is the bootstrap authority for a browser
       // that never saved. Restore itself never deletes or resets a database.
-      let committed = await withOwnedDatabase(
+      const committed = await withOwnedDatabase(
         true,
         (database) =>
           restoreSyntheticLoopWorld(database, selectedPlan, {
@@ -488,13 +490,16 @@ export function createSliceRuntime(baseURL: URL) {
           }),
         applicationFailure('storage_unavailable'),
       );
-      if (committed.ok && loseRestoreReport)
-        committed = applicationFailure('storage_unavailable');
       if (readbackHold)
         await new Promise<void>((resolve) => readbackHeld.push(resolve));
       const checked = await readback(selectedPlan, true);
+      // A lost report leaves the commit outcome unknown, never "aborted".
       const outcome = restoreOutcomeFrom(
-        committed.ok ? { ok: true } : { ok: false, code: committed.error.code },
+        loseRestoreReport
+          ? null
+          : committed.ok
+            ? { ok: true }
+            : { ok: false, code: committed.error.code },
         checked.ok ? checked.value : null,
       );
       if (outcome.kind === 'restored') {
@@ -520,7 +525,7 @@ export function createSliceRuntime(baseURL: URL) {
       return { kind: 'not-restored', reason: 'blocked' };
     restoring = true;
     notify();
-    try {
+    const work = (async (): Promise<RestoreOutcome> => {
       const checked = await readback(pending.plan, false);
       const outcome = restoreOutcomeFrom(
         null,
@@ -531,7 +536,13 @@ export function createSliceRuntime(baseURL: URL) {
         closeOpenBadge();
       }
       return outcome;
+    })();
+    // Registered like a restore so an update reopen waits for it.
+    restoreWork = work;
+    try {
+      return await work;
     } finally {
+      restoreWork = null;
       restoring = false;
       notify();
     }
