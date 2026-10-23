@@ -1,0 +1,49 @@
+{
+  "schema": "math-adventure.varied-play-browser-matrix-v1",
+  "marker": "synthetic-only-engineering-evidence",
+  "date": "2026-10-23",
+  "sourceCommit": "b2990e08a1e2e36598a4688f3662fb03d6f0563c",
+  "command": "PHASE3C_BROWSER=<channel> corepack pnpm exec vitest run --config vite.slice.config.ts",
+  "channels": {
+    "chrome": {
+      "browserVersion": "155.0.8059.84",
+      "fullSliceRegression": {
+        "result": "PASS",
+        "files": 7,
+        "tests": 154,
+        "passed": 154,
+        "failed": 0,
+        "perFile": {
+          "tests/integration/growing-world-capacity.test.ts": 8,
+          "tests/integration/growing-world-provenance.test.ts": 5,
+          "tests/integration/growing-world.test.ts": 29,
+          "tests/integration/keep-adventure.test.ts": 9,
+          "tests/integration/multilingual-child.test.ts": 48,
+          "tests/integration/phase3c-child-ux.test.ts": 19,
+          "tests/integration/phase3c-loop.test.ts": 36
+        },
+        "renderer": "NODE_ENV=test builds owned by each suite"
+      }
+    },
+    "msedge": {
+      "browserVersion": "155.0.4283.62",
+      "fullSliceRegression": {
+        "result": "PASS",
+        "files": 7,
+        "tests": 154,
+        "passed": 154,
+        "failed": 0,
+        "perFile": {
+          "tests/integration/growing-world-capacity.test.ts": 8,
+          "tests/integration/growing-world-provenance.test.ts": 5,
+          "tests/integration/growing-world.test.ts": 29,
+          "tests/integration/keep-adventure.test.ts": 9,
+          "tests/integration/multilingual-child.test.ts": 48,
+          "tests/integration/phase3c-child-ux.test.ts": 19,
+          "tests/integration/phase3c-loop.test.ts": 36
+        },
+        "renderer": "NODE_ENV=test builds owned by each suite"
+      }
+    }
+  }
+}

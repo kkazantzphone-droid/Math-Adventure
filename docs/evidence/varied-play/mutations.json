@@ -1,0 +1,116 @@
+{
+  "schema": "math-adventure.varied-play-mutations-v1",
+  "marker": "synthetic-only",
+  "result": "PASS",
+  "binding": "Working-tree source hashes at run time; unit suites only",
+  "baselineRevision": "b2990e08a1e2e36598a4688f3662fb03d6f0563c",
+  "sourceHashes": {
+    "src/application/synthetic-loop/seed.ts": "d71cdad8e6507b0a136c989d617483e602ac4c9fe09d94f779ba3b5044622655",
+    "src/application/synthetic-loop/backup.ts": "1f0d11046281a6bcaf630e8a5dd93809828ba9ad372ab588e309d3110a6a11ef",
+    "src/ui/synthetic-loop/child-pictures.ts": "fcd8edc60e138aa114ff76bbb13b52c99edff1aa459363fb2b7fdf2aedb48e64",
+    "src/ui/synthetic-loop/ChildTaskView.tsx": "0bfe22e09a63204cd420016cb9366851d2b353c06641e6ea1eeb380de181bbe7",
+    "scripts/varied-play-mutations.mjs": "4e5080f42290d4934bd887a177e7c6fcb80d6809cd753d02deb2323af333e6eb"
+  },
+  "baseline": 60,
+  "mutations": [
+    {
+      "id": "reuse-v1-correlated-seeds",
+      "file": "src/application/synthetic-loop/seed.ts",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingTests": [
+        "matches an independent BigInt oracle for every family and boundary",
+        "pins literal v2 seeds, so reordering families or badges cannot change them under the same ID",
+        "gives every badge, family and ordinal its own nonzero, distinct-word state",
+        "shows more left, more right and equal groups to compare",
+        "matches the generator distribution of relations over a long run",
+        "takes away different amounts, not only none or everything",
+        "matches the generator rate of partial take-aways over a long run",
+        "hides different parts with unequal addends",
+        "adds unequal numbers to many different totals",
+        "shows squares, rectangles and parallelograms",
+        "varies every chapter activity beyond doubles and squares",
+        "changes the task from one example to the next"
+      ],
+      "mutantSha256": "edd73f278972d41907c5a64a2cf76c928e2270ec4fb04d65bb684b2ee0a463b4"
+    },
+    {
+      "id": "one-lane-constant-for-every-word",
+      "file": "src/application/synthetic-loop/seed.ts",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingTests": [
+        "matches an independent BigInt oracle for every family and boundary",
+        "pins literal v2 seeds, so reordering families or badges cannot change them under the same ID",
+        "gives every badge, family and ordinal its own nonzero, distinct-word state",
+        "shows more left, more right and equal groups to compare",
+        "matches the generator distribution of relations over a long run",
+        "takes away different amounts, not only none or everything",
+        "matches the generator rate of partial take-aways over a long run",
+        "hides different parts with unequal addends",
+        "adds unequal numbers to many different totals",
+        "shows squares, rectangles and parallelograms",
+        "varies every chapter activity beyond doubles and squares",
+        "changes the task from one example to the next"
+      ],
+      "mutantSha256": "bde8f3d7a9965da8660c5832db9292fa7f336e0a3a3c306799cb1a871a4e4cb6"
+    },
+    {
+      "id": "badges-share-one-seed-space",
+      "file": "src/application/synthetic-loop/seed.ts",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingTests": [
+        "matches an independent BigInt oracle for every family and boundary",
+        "pins literal v2 seeds, so reordering families or badges cannot change them under the same ID",
+        "gives every badge, family and ordinal its own nonzero, distinct-word state",
+        "varies every chapter activity beyond doubles and squares",
+        "changes the task from one example to the next"
+      ],
+      "mutantSha256": "620acadd099a231d650aae528a584ab4d5c54f85be921ed1286fb60557d7112b"
+    },
+    {
+      "id": "accept-any-seed-provenance",
+      "file": "src/application/synthetic-loop/backup.ts",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingTests": [
+        "distinguishes future, incompatible and invalid contents after the checksum"
+      ],
+      "mutantSha256": "a7d1b708b7031ee3a30b4637ea31a5c26409cab0cc047f99fa12d2b1b4be272b"
+    },
+    {
+      "id": "export-old-seed-provenance",
+      "file": "src/application/synthetic-loop/backup.ts",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingTests": [
+        "pins the exact compatibility provenance this build can restore",
+        "restores a file saved under the earlier seed selection with identical records"
+      ],
+      "mutantSha256": "e776a5348a0221c14390d8f5d67277e9dc65b63d2185036754c5210be38871ef"
+    },
+    {
+      "id": "always-draw-dots",
+      "file": "src/ui/synthetic-loop/child-pictures.ts",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingTests": [
+        "names whichever picture a task shows in el-GR, one picture per task",
+        "names whichever picture a task shows in en-GB, one picture per task",
+        "names whichever picture a task shows in de-DE, one picture per task"
+      ],
+      "mutantSha256": "3fdc9613cf28c6853bce1ffdad455698a3af4cf5b60c956194da104aa9a09bc2"
+    },
+    {
+      "id": "name-every-picture-a-dot",
+      "file": "src/ui/synthetic-loop/ChildTaskView.tsx",
+      "result": "DETECTED_BY_ASSERTION",
+      "failingTests": [
+        "describes empty groups, individual pictures and removed items in el-GR without preannouncing the answer",
+        "describes empty groups, individual pictures and removed items in en-GB without preannouncing the answer",
+        "describes empty groups, individual pictures and removed items in de-DE without preannouncing the answer",
+        "names whichever picture a task shows in el-GR, one picture per task",
+        "names whichever picture a task shows in en-GB, one picture per task",
+        "names whichever picture a task shows in de-DE, one picture per task"
+      ],
+      "mutantSha256": "d4f64b9631ab3125b671a7fc521651db20288ca9aa39b7d243afb51bd7fdb999"
+    }
+  ],
+  "restored": 60,
+  "exactRestoration": true
+}
