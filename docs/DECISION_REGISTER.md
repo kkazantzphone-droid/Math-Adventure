@@ -1,14 +1,17 @@
 # Decision register
 
-Current Goal **D58**, owner-commissioned 2026-10-23, authorizes
+Merged Goal **D58**, owner-commissioned 2026-10-23, authorizes
 [Varied play](VARIED_PLAY_DESIGN.md): the owner found the accepted interface
 monotonous because every comparison showed equal groups. Workflow seeds v1
 made each generator's second number repeat its first; v2 seeds restore the
 generators' intended variety, and counted items show one of five Space pictures
 per task. Main was fetched and observed at merged PR #18 `f5f3866`.
 `automatic_when_eligible` applies under unchanged V2. Generators, evidence and
-policy are unchanged; owner UX acceptance and real household use remain separate
-decisions. Evidence belongs in the
+policy are unchanged. The owner squash-merged PR #20 as `cd7ee6f` on
+2026-10-23 and, after playing it, accepted the result the same day: the games
+now feel varied enough and the monotony complaint is resolved. That is bounded
+owner UX acceptance, not educational validation; real household use remains a
+separate decision. Evidence belongs in the
 [completion record](VARIED_PLAY_COMPLETION_REPORT.md).
 
 Merged Goal **D57**, owner-commissioned 2026-10-22, authorizes
@@ -179,7 +182,7 @@ No Phase 3 implementation or real-child use follows from this certification.
 | D55 | Owner commissions conceptual mathematical growth, a visible synthetic adaptive journey and genuine unassessed exploration together | ACCEPTED focused implementation Goal 2026-10-18; candidate certification recorded separately | [Design](GROWING_WORLD_DESIGN.md), [completion](GROWING_WORLD_COMPLETION_REPORT.md). Build and take apart adds six new replay families, separately versioned experimental invitations, no-loss synthetic payload upgrade and two reversible workshops. Preserve prior accomplishment meanings and limited-evidence classifications. `automatic_when_eligible` under unchanged V2, with no owner UX acceptance inferred from engineering gates. No real learners/trials, accepted educational policy, general later phase, accounts/backend/telemetry, release or deployment |
 | D56 | Owner commissions comfortable clear answers and coherent discovery across the existing fourteen-activity synthetic experience | ACCEPTED focused interaction/presentation Goal 2026-10-18; candidate gates recorded separately | [Design](CLEAR_ANSWERS_DESIGN.md), [completion](CLEAR_ANSWERS_COMPLETION_REPORT.md), [owner brief](CLEAR_ANSWERS_OWNER_DECISIONS.md). Preserve every permitted response, compatible direct route, help/evidence/replay/state semantics, three draft language roles and unassessed Explore. `automatic_when_eligible` under unchanged V2. Owner UX acceptance remains pending; no new content/bounds, accepted policy, real learners, ordinary persistence, release, deployment or access expansion |
 | D57 | Owner commissions parent-controlled local backup, preview, restore and recovery for the saved synthetic world | ACCEPTED focused Goal 2026-10-22; candidate gates recorded separately | [Design](KEEP_MY_ADVENTURE_DESIGN.md), [completion](KEEP_MY_ADVENTURE_COMPLETION_REPORT.md). Versioned canonical file of settled portable state; source revisions/epochs/receipts, unsettled answers, last-answer feedback and Explore excluded; derived state rebuilt by the unchanged engine. Restore only where no badge is saved, atomically under the destination fence, with readback before success. Fixed synthetic slots are kept because they define task seeds. Audit repair pins dev-only Vite 8.3.3; production and test builds stay byte-identical. `automatic_when_eligible` under unchanged V2. No real learners, ordinary persistence, retention policy, new evidence interpretation, remote storage, release or deployment |
-| D58 | Owner commissions more varied play after finding the accepted activities monotonous | ACCEPTED focused Goal 2026-10-23; candidate gates recorded separately | [Design](VARIED_PLAY_DESIGN.md), [completion](VARIED_PLAY_COMPLETION_REPORT.md). Workflow seed selection `phase3c-session-seeds-v2` replaces v1 for new tasks (v1 frozen); backups read v1 or v2 provenance and write v2; one of five pictures per task with generic draft wording; framed comparison groups. Generator IDs, content, replay, evidence, policy and record schemas unchanged. `automatic_when_eligible` under unchanged V2. No new activities, changed bounds, accepted policy, real learners, release or deployment |
+| D58 | Owner commissions more varied play after finding the accepted activities monotonous | ACCEPTED focused Goal 2026-10-23; owner-merged as `cd7ee6f` (PR #20); **OWNER UX ACCEPTANCE 2026-10-23**, bounded | [Design](VARIED_PLAY_DESIGN.md), [completion](VARIED_PLAY_COMPLETION_REPORT.md). Workflow seed selection `phase3c-session-seeds-v2` replaces v1 for new tasks (v1 frozen); backups read v1 or v2 provenance and write v2; one of five pictures per task with generic draft wording; framed comparison groups. Generator IDs, content, replay, evidence, policy and record schemas unchanged. `automatic_when_eligible` under unchanged V2. Owner statement after playing: "the games now feel varied enough; the monotony complaint is resolved". Not representative child research, educational effectiveness or native-language approval. No new activities, changed bounds, accepted policy, real learners, release or deployment |
 
 D49's initial automatic-when-eligible scope is preserved in the engine milestone;
 D50 set `owner_merge` and required child UX reconciliation; D51 records the later

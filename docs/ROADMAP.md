@@ -1,10 +1,10 @@
 # Roadmap
 
-Current owner Goal D58 is [Varied play](VARIED_PLAY_DESIGN.md): it repairs the
+Merged owner Goal D58 is [Varied play](VARIED_PLAY_DESIGN.md): it repairs the
 workflow seeds that made every comparison equal and every array square, and
-varies the pictures children count, without new activities or policy. Merged
-Goal D57 added synthetic backup and restore. Owner UX acceptance and real
-household use remain separate decisions.
+varies the pictures children count, without new activities or policy. The owner
+accepted the result after playing it on 2026-10-23. Merged Goal D57 added
+synthetic backup and restore. Real household use remains a separate decision.
 
 Merged owner Goal D56 is [Clear answers & coherent discovery](CLEAR_ANSWERS_DESIGN.md),
 a unified interaction/presentation improvement over all fourteen existing
