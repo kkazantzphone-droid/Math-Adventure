@@ -1,10 +1,10 @@
 # Varied play — completion evidence
 
 2026-10-23, Europe/Athens. **Engineering evidence PASS** for the bounded D58
-Goal at source commit `b2990e0`. Owner UX acceptance and any real household use
-remain separate decisions. The live PR record holds the final head's own hosted
-checks and any merge observation; this report does not infer them from an
-earlier head.
+Goal at source commit `b2990e0`. Owner UX acceptance is recorded below; any
+real household use remains a separate decision. The live PR record holds the
+final head's own hosted checks and any merge observation; this report does not
+infer them from an earlier head.
 
 The [D58 design](VARIED_PLAY_DESIGN.md) binds the work to protected-main base
 `f5f3866` (merged PR #18) on branch `codex/varied-play`, with
@@ -102,6 +102,24 @@ production slice build, compare groups, counting and take away were played
 through in Greek. Pictures, names, the framed panels, help stage 3 pairing and
 the 320 CSS px / 32px-root layout were inspected; no horizontal overflow or
 clipped item was found.
+
+## Merge and owner acceptance
+
+Codex's guarded squash merge at head `e102bbb` was refused by the session's
+permission check. The owner then squash-merged PR #20 on GitHub as
+`cd7ee6f` (2026-10-23 12:57:57 UTC). Its single parent is `f5f3866`, and its
+tree equals the tested head `e102bbb`. The "Protect main" ruleset was
+unchanged, and no tag or release followed.
+
+After playing the merged result, the owner confirmed on 2026-10-23:
+
+> Yes: after trying it, the games now feel varied enough; the monotony
+> complaint is resolved.
+
+This is bounded owner UX acceptance for the synthetic experience. It is not
+representative child research, educational-effectiveness evidence,
+accessibility certification or native-language approval. It does not authorize
+real-child use.
 
 ## Limits
 
