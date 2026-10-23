@@ -40,7 +40,10 @@ import {
   syntheticLoopEventsFromInput,
   SYNTHETIC_LOOP_CATALOG,
 } from './record';
-import { SYNTHETIC_LOOP_SEED_VERSION } from './seed';
+import {
+  SYNTHETIC_LOOP_SEED_VERSION,
+  SYNTHETIC_LOOP_SEED_VERSIONS,
+} from './seed';
 import { syntheticLoopRecordId } from './session';
 import {
   GROWING_LOOP_SCHEMA,
@@ -95,6 +98,14 @@ export const SYNTHETIC_BACKUP_COMPATIBILITY = Object.freeze({
   semantics: sha256Hex(semantics.value),
   taskSeeds: SYNTHETIC_LOOP_SEED_VERSION,
 });
+/** Files this build restores. Seed selection only chooses which task an
+ * ordinal shows next: saved ordinals, journal seeds, help and evidence keep
+ * their exact meaning, so a v1-seeded file differs in that one field only. */
+const READABLE_COMPATIBILITY = Object.freeze(
+  SYNTHETIC_LOOP_SEED_VERSIONS.map((taskSeeds) =>
+    canonicalText({ ...SYNTHETIC_BACKUP_COMPATIBILITY, taskSeeds }),
+  ),
+);
 /** Evidence IDs this app creates (`synthetic-` + random UUID operation). An
  * imported file cannot use them to carry other text into the destination. */
 const APP_EVIDENCE_ID =
@@ -328,10 +339,8 @@ export function readSyntheticLoopBackup(
   const body = envelopeText(data.compatibility, profiles, null);
   if (body === null || sha256Hex(body) !== checksum.value)
     return fail('damaged');
-  if (
-    canonicalText(data.compatibility) !==
-    canonicalText(SYNTHETIC_BACKUP_COMPATIBILITY)
-  )
+  const compatibility = canonicalText(data.compatibility);
+  if (compatibility === null || !READABLE_COMPATIBILITY.includes(compatibility))
     return fail('incompatible');
   if (profiles.length === 0) return fail('invalid_contents');
   const records: SyntheticLoopRecord[] = [];

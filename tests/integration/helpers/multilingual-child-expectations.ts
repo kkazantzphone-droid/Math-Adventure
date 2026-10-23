@@ -12,26 +12,28 @@ export const CHILD_LANGUAGE_EXPECTATIONS = {
     retry: 'Ξαναδοκίμασε',
     success: 'Ναι, το βρήκες!',
     group: 'Ομάδα',
-    dot: 'Κουκκίδα',
-    empty: 'Καμία κουκκίδα',
+    pictures: {
+      dot: 'Κουκκίδα',
+      sun: 'Ήλιος',
+      planet: 'Πλανήτης',
+      moon: 'Φεγγάρι',
+      rocket: 'Πύραυλος',
+    },
+    empty: 'Δεν έχει τίποτα',
     shapes: ['Τετράγωνο', 'Ορθογώνιο', 'Πλάγιο σχήμα'],
-    comparison: ['Πιο πολλά δεξιά', 'Ίδιες', 'Πιο πολλά αριστερά'],
+    comparison: ['Πιο πολλά δεξιά', 'Ίσα', 'Πιο πολλά αριστερά'],
     prompts: [
       'Πόσα είναι όλα μαζί;',
       'Ποιο σχήμα ταιριάζει;',
       'Πόσα βήματα έχει η γραμμή;',
       'Ποια ομάδα ταιριάζει;',
-      'Πόσες κουκκίδες βλέπεις;',
+      'Πόσα βλέπεις;',
       'Πού έχει πιο πολλά;',
-      'Πόσες μένουν;',
+      'Πόσα μένουν;',
       'Τι μπαίνει στο κενό;',
     ],
     hints: [
-      [
-        'Βάλε τις δύο ομάδες μαζί.',
-        'Κοίτα κάθε κουκκίδα.',
-        'Άγγιξε τις κουκκίδες μία μία.',
-      ],
+      ['Βάλε τις δύο ομάδες μαζί.', 'Κοίτα το καθένα.', 'Άγγιξέ τα ένα ένα.'],
       ['Κοίτα τις γωνίες.', 'Ακολούθησε τις πλευρές.', 'Κοίτα και τις κάρτες.'],
       [
         'Κοίτα τα ίσα βήματα.',
@@ -40,28 +42,28 @@ export const CHILD_LANGUAGE_EXPECTATIONS = {
       ],
       [
         'Κοίτα τον αριθμό και τις ομάδες.',
-        'Βάλε τις κουκκίδες σε σειρά.',
+        'Βάλε κάθε ομάδα σε σειρά.',
         'Μέτρα κάθε ομάδα μία μία.',
       ],
       [
-        'Βάλε τις κουκκίδες σε σειρά.',
-        'Άγγιξε κάθε κουκκίδα.',
-        'Κοίτα όσες δεν άγγιξες ακόμη.',
+        'Βάλε τα σε σειρά.',
+        'Άγγιξε το καθένα.',
+        'Κοίτα όσα δεν άγγιξες ακόμη.',
       ],
       [
         'Βάλε τις ομάδες δίπλα δίπλα.',
-        'Ταίριαξε μία με μία.',
+        'Ταίριαξε ένα με ένα.',
         'Κοίτα όσα μένουν μόνα.',
       ],
       [
-        'Οι διαγραμμένες κουκκίδες έφυγαν.',
-        'Κοίτα μόνο όσες μένουν.',
-        'Άγγιξε όσες μένουν μία μία.',
+        'Όσα είναι διαγραμμένα έφυγαν.',
+        'Κοίτα μόνο όσα μένουν.',
+        'Άγγιξε όσα μένουν ένα ένα.',
       ],
       [
         'Κοίτα το κενό και όσα ξέρεις.',
         'Τα μέρη φτιάχνουν το σύνολο.',
-        'Μέτρα όσα ξέρεις.',
+        'Χρησιμοποίησε τα μέρη που ξέρεις.',
       ],
     ],
   },
@@ -73,8 +75,14 @@ export const CHILD_LANGUAGE_EXPECTATIONS = {
     retry: 'Try again',
     success: 'Yes, you found it!',
     group: 'Group',
-    dot: 'Dot',
-    empty: 'No dots',
+    pictures: {
+      dot: 'Dot',
+      sun: 'Sun',
+      planet: 'Planet',
+      moon: 'Moon',
+      rocket: 'Rocket',
+    },
+    empty: 'None here',
     shapes: ['Square', 'Rectangle', 'Leaning shape'],
     comparison: ['More on the right', 'Same', 'More on the left'],
     prompts: [
@@ -82,43 +90,43 @@ export const CHILD_LANGUAGE_EXPECTATIONS = {
       'Which shape matches?',
       'How many steps along the line?',
       'Which group matches?',
-      'How many dots?',
-      'Where are there more dots?',
+      'How many can you see?',
+      'Which side has more?',
       'How many are left?',
       'What goes in the gap?',
     ],
     hints: [
       [
         'Bring both groups together.',
-        'Look at every dot.',
-        'Touch the dots one at a time.',
+        'Look at each one.',
+        'Touch them one at a time.',
       ],
       ['Look at the corners.', 'Follow the sides.', 'Look at the cards too.'],
       ['Look at the equal steps.', 'Follow the line.', 'Touch each step once.'],
       [
         'Look at the number and the groups.',
-        'Line up the dots.',
+        'Line up each group.',
         'Count each group one at a time.',
       ],
       [
-        'Line up the dots.',
-        'Touch each dot.',
-        'Look for dots you have not touched.',
+        'Line them up.',
+        'Touch each one.',
+        'Look for any you have not touched.',
       ],
       [
         'Put the groups side by side.',
         'Match one with one.',
-        'Look for any dots left over.',
+        'Look for any left over.',
       ],
       [
-        'Crossed-out dots have gone.',
-        'Look only at dots left.',
+        'Crossed-out ones have gone.',
+        'Look only at the ones left.',
         'Touch those left one at a time.',
       ],
       [
         'Look at the gap and what you know.',
         'Parts make the whole.',
-        'Use the dots you know.',
+        'Use the parts you know.',
       ],
     ],
   },
@@ -130,8 +138,14 @@ export const CHILD_LANGUAGE_EXPECTATIONS = {
     retry: 'Noch einmal',
     success: 'Ja, du hast es gefunden!',
     group: 'Gruppe',
-    dot: 'Punkt',
-    empty: 'Keine Punkte',
+    pictures: {
+      dot: 'Punkt',
+      sun: 'Sonne',
+      planet: 'Planet',
+      moon: 'Mond',
+      rocket: 'Rakete',
+    },
+    empty: 'Hier ist nichts',
     shapes: ['Quadrat', 'Rechteck', 'Schräge Form'],
     comparison: ['Rechts mehr', 'Gleich viele', 'Links mehr'],
     prompts: [
@@ -139,16 +153,16 @@ export const CHILD_LANGUAGE_EXPECTATIONS = {
       'Welche Form passt?',
       'Wie viele Schritte hat die Linie?',
       'Welche Gruppe passt?',
-      'Wie viele Punkte?',
-      'Wo sind mehr Punkte?',
+      'Wie viele siehst du?',
+      'Auf welcher Seite sind mehr?',
       'Wie viele bleiben übrig?',
       'Was kommt in die Lücke?',
     ],
     hints: [
       [
         'Lege beide Gruppen zusammen.',
-        'Schau dir jeden Punkt an.',
-        'Berühre die Punkte einzeln.',
+        'Schau dir jedes einzeln an.',
+        'Berühre sie einzeln.',
       ],
       [
         'Schau dir die Ecken an.',
@@ -162,29 +176,40 @@ export const CHILD_LANGUAGE_EXPECTATIONS = {
       ],
       [
         'Schau auf die Zahl und die Gruppen.',
-        'Lege die Punkte in eine Reihe.',
+        'Lege jede Gruppe in eine Reihe.',
         'Zähle jede Gruppe einzeln.',
       ],
       [
-        'Lege die Punkte in eine Reihe.',
-        'Berühre jeden Punkt.',
-        'Suche die Punkte ohne Häkchen.',
+        'Lege sie in eine Reihe.',
+        'Berühre jedes einzeln.',
+        'Suche die, die noch kein Häkchen haben.',
       ],
       [
         'Lege die Gruppen nebeneinander.',
-        'Paare die Punkte aus beiden Gruppen.',
-        'Suche die Punkte ohne Partner.',
+        'Bilde Paare aus beiden Gruppen.',
+        'Welche haben keinen Partner?',
       ],
       [
-        'Durchgestrichene Punkte sind weg.',
-        'Schau nur auf die übrigen Punkte.',
-        'Berühre die übrigen Punkte einzeln.',
+        'Die durchgestrichenen sind weg.',
+        'Schau nur auf die übrigen.',
+        'Berühre die übrigen einzeln.',
       ],
       [
         'Schau auf die Lücke und die Zahlen.',
         'Teile ergeben das Ganze.',
-        'Nutze die bekannten Punkte.',
+        'Nutze, was du schon weißt.',
       ],
     ],
   },
 } as const;
+
+/** Independent restatement of the drawn-picture rule: the second seed word
+ * picks one picture for every countable item in a task. */
+const PICTURE_ORDER = ['dot', 'sun', 'planet', 'moon', 'rocket'] as const;
+export function expectedPicture(
+  seedHex: string,
+): (typeof PICTURE_ORDER)[number] {
+  return (
+    PICTURE_ORDER[Number(BigInt(`0x${seedHex.slice(8, 16)}`) % 5n)] ?? 'dot'
+  );
+}

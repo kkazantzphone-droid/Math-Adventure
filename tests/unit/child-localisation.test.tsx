@@ -19,8 +19,15 @@ import type { Locale } from '../../src/presentation/localisation/locales';
 import { ChildTaskView } from '../../src/ui/synthetic-loop/ChildTaskView';
 import type { ChildTaskViewProps } from '../../src/ui/synthetic-loop/ChildTaskView';
 import type { LoopPresentation } from '../../src/ui/synthetic-loop/TaskView';
+import {
+  CHILD_PICTURES,
+  childPictureFor,
+} from '../../src/ui/synthetic-loop/child-pictures';
 
 const seed = '0123456789abcdefdeadbeeffedcba98';
+// No item label may announce a count ("3 stars") before the child answers.
+const countedLabel =
+  /aria-label="\d+ [^"]*(?:dot|sun|planet|moon|rocket|Punkt|Sonne|Planet|Mond|Rakete|κουκκίδ|ήλι|πλανήτ|φεγγάρ|πύραυλ)/iu;
 const families = [
   [
     'number.addition',
@@ -53,21 +60,21 @@ const families = [
   [
     'number.counting',
     'countingHelp',
-    'Πόσες κουκκίδες βλέπεις;',
-    'How many dots?',
-    'Wie viele Punkte?',
+    'Πόσα βλέπεις;',
+    'How many can you see?',
+    'Wie viele siehst du?',
   ],
   [
     'number.comparison',
     'comparisonHelp',
     'Πού έχει πιο πολλά;',
-    'Where are there more dots?',
-    'Wo sind mehr Punkte?',
+    'Which side has more?',
+    'Auf welcher Seite sind mehr?',
   ],
   [
     'number.subtraction',
     'subtractionHelp',
-    'Πόσες μένουν;',
+    'Πόσα μένουν;',
     'How many are left?',
     'Wie viele bleiben übrig?',
   ],
@@ -218,7 +225,7 @@ describe('complete draft child activity wording — authored seam, no native/AT 
   );
 
   it.each(PROTOTYPE_LOCALES)(
-    'describes empty groups, individual dots and removed dots in %s without preannouncing the answer',
+    'describes empty groups, individual pictures and removed items in %s without preannouncing the answer',
     (locale) => {
       const copy = childCopy(locale);
       const empty = presentation(
@@ -226,20 +233,70 @@ describe('complete draft child activity wording — authored seam, no native/AT 
         '00000001000000020000000300000004',
       );
       expect(render(empty, locale)).toContain(copy.empty);
+      const picture = childPictureFor(seed);
       const count = render(presentation('number.counting'), locale, {
         hintTier: 3,
       });
-      expect(count).toContain(`aria-label="${copy.dot}"`);
-      expect(count).not.toMatch(/aria-label="\d+ (?:dots|Punkte|κουκκίδες)"/u);
-      const subtract = render(presentation('number.subtraction'), locale, {
-        hintTier: 2,
+      expect(count).toContain(`aria-label="${copy[picture]}"`);
+      expect(count).not.toMatch(countedLabel);
+      // A take-away that crosses at least one item out.
+      const removalSeed = Array.from(
+        { length: 64 },
+        (_, index) => `${index.toString(16).padStart(8, '0')}${seed.slice(8)}`,
+      ).find((candidate) => {
+        const task = presentation('number.subtraction', candidate).task;
+        return task.kind === 'subtractItems' && task.removedIds.length > 0;
       });
-      expect(subtract).toContain(`aria-label="${copy.removed}"`);
+      if (!removalSeed) throw new Error('No crossed-out example');
+      const removalPicture = childPictureFor(removalSeed);
+      const subtract = render(
+        presentation('number.subtraction', removalSeed),
+        locale,
+        { hintTier: 2 },
+      );
+      // Crossed-out items keep their picture's name; the tray is named apart.
+      expect(subtract).toContain(
+        `aria-label="${copy[removalPicture]}, ${copy.removed}"`,
+      );
+      expect(subtract).toContain(`aria-label="${copy.takenAway}"`);
+      expect(subtract).not.toContain(`aria-label="${copy.removed}"`);
       const numeral = render(presentation('number.numeral'), locale);
       expect(numeral).toContain(`aria-label="${copy.group} 1"`);
-      expect(numeral).not.toMatch(
-        /aria-label="\d+ (?:dots|Punkte|κουκκίδες)"/u,
-      );
+      expect(numeral).not.toMatch(countedLabel);
+    },
+  );
+
+  it.each(PROTOTYPE_LOCALES)(
+    'names whichever picture a task shows in %s, one picture per task',
+    (locale) => {
+      const copy = childCopy(locale);
+      const shown = new Set<string>();
+      for (const word of [
+        '00000000',
+        '00000001',
+        '00000002',
+        '00000003',
+        '00000004',
+      ]) {
+        const taskSeed = `01234567${word}deadbeeffedcba98`;
+        const picture = childPictureFor(taskSeed);
+        shown.add(picture);
+        // Group matching always shows items: its cards hold one to five.
+        const html = render(presentation('number.numeral', taskSeed), locale);
+        const labels = new Set(
+          [
+            ...html.matchAll(
+              /data-child-item="[^"]+"[^>]*aria-label="([^"]+)"|aria-label="([^"]+)"[^>]*data-child-item=/gu,
+            ),
+          ].map((match) => match[1] ?? match[2]),
+        );
+        // Every countable item in one task carries the same, named picture.
+        expect(labels).toEqual(new Set([copy[picture]]));
+        expect(html).toContain(
+          picture === 'dot' ? 'class="child-dot"' : `child-picture-${picture}`,
+        );
+      }
+      expect(shown).toEqual(new Set(CHILD_PICTURES));
     },
   );
 

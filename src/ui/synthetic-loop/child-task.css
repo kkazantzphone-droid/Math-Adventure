@@ -95,6 +95,53 @@
   font-size: 32px;
   line-height: 1;
 }
+/* One picture per task. Light tints keep at least 4.5:1 on every dark panel,
+   also when crossed out (0.65) or disabled (0.7); see child-pictures.test. */
+.child-picture {
+  display: block;
+  inline-size: 32px;
+  block-size: 32px;
+  fill: currentColor;
+  stroke: none;
+}
+.child-picture .child-picture-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+.child-picture .child-picture-window {
+  fill: #07152d;
+}
+.child-picture-sun {
+  color: #ffe08a;
+}
+.child-picture-planet {
+  color: #ffc9a8;
+}
+.child-picture-moon {
+  color: #e6ecff;
+}
+.child-picture-rocket {
+  color: #ffcdd9;
+}
+/* Left stays left and right stays right at any width: items wrap inside
+   each panel instead of the panels stacking. */
+.child-illustration .child-comparison-groups {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+.child-comparison-groups .child-comparison-side {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.25rem;
+  flex: 1 1 0;
+  min-inline-size: 0;
+  max-inline-size: 18rem;
+  padding: 0.4rem 0.3rem;
+  border: 2px solid #8aa4cf;
+  border-radius: 1rem;
+}
 .child-task button.child-token {
   background: #173057;
   color: #b6f4dc;
@@ -345,5 +392,18 @@
   .child-dot-mark {
     color: Canvas;
     background: CanvasText;
+  }
+  .child-picture {
+    fill: CanvasText;
+  }
+  .child-picture .child-picture-line {
+    fill: none;
+    stroke: CanvasText;
+  }
+  .child-picture .child-picture-window {
+    fill: Canvas;
+  }
+  .child-comparison-groups .child-comparison-side {
+    border-color: CanvasText;
   }
 }

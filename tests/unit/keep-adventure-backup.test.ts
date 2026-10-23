@@ -170,7 +170,7 @@ describe(
         ],
         semantics:
           '58d5bafe4cb4e2866898e7496fd84ca6a69113b4b93de1c2430e7a63abfc2490',
-        taskSeeds: 'phase3c-session-seeds-v1',
+        taskSeeds: 'phase3c-session-seeds-v2',
       });
       expect(SYNTHETIC_BACKUP_LIMITS).toEqual({
         bytes: 1_048_576,
@@ -489,6 +489,23 @@ describe(
       );
     });
 
+    it('restores a file saved under the earlier seed selection with identical records', async () => {
+      const text = await fileText();
+      const current = value(readSyntheticLoopBackup(text));
+      const earlier = rewrite(text, (data) => {
+        const compatibility = data.compatibility as Record<string, unknown>;
+        expect(compatibility.taskSeeds).toBe('phase3c-session-seeds-v2');
+        compatibility.taskSeeds = 'phase3c-session-seeds-v1';
+      });
+      expect(earlier).not.toBe(text);
+      const restored = value(readSyntheticLoopBackup(earlier));
+      // Seed selection only picks the next task for an ordinal; every saved
+      // ordinal, journal seed, help context and derived state is unchanged.
+      expect(oracleCanonical(restored.profiles)).toBe(
+        oracleCanonical(current.profiles),
+      );
+    });
+
     it('distinguishes future, incompatible and invalid contents after the checksum', async () => {
       const text = await fileText();
       expect(code(rewrite(text, (data) => (data.formatVersion = 2)))).toBe(
@@ -522,6 +539,22 @@ describe(
           }),
         ),
       ).toBe('incompatible');
+      for (const taskSeeds of [
+        'phase3c-session-seeds-v3',
+        'phase3c-session-seeds-v0',
+        '',
+      ])
+        expect(
+          code(
+            rewrite(text, (data) => {
+              const compatibility = data.compatibility as Record<
+                string,
+                unknown
+              >;
+              compatibility.taskSeeds = taskSeeds;
+            }),
+          ),
+        ).toBe('incompatible');
       const profileEdit =
         (
           edit: (

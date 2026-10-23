@@ -16,6 +16,7 @@ import {
   ChildTokens,
 } from './ChildPrimitives';
 import { childItems, childPoint, childViewport } from './child-layout';
+import { childPictureFor } from './child-pictures';
 import './child-task.css';
 
 export interface ChildTaskViewProps {
@@ -53,11 +54,15 @@ export function ChildTaskView(props: ChildTaskViewProps) {
     props.hintTier === 3 && guide.scope === scope
       ? guide.stage
       : props.hintTier;
+  const picture = childPictureFor(props.task?.replay.seedHex);
   const tokens = {
     scope: `${scope}:guide:${guide.scope === scope ? guide.replay : 0}`,
-    dotLabel: instruction.dot,
+    picture,
+    dotLabel: instruction[picture],
     emptyLabel: instruction.empty,
-    removedLabel: instruction.removed,
+    // A crossed-out item keeps its own name: "Moon, taken away".
+    removedLabel: `${instruction[picture]}, ${instruction.removed}`,
+    takenAwayLabel: instruction.takenAway,
     disabled: props.disabled,
     onSupport: props.onAccessibleSupport,
   };
@@ -193,7 +198,7 @@ export function ChildTaskView(props: ChildTaskViewProps) {
             {task.kind === 'compareQuantities' &&
               (tier === 0 ? (
                 <div className="child-comparison-groups">
-                  <div>
+                  <div className="child-comparison-side">
                     <h3>
                       <ChildSideLabel side="left" label={instruction.left} />
                     </h3>
@@ -203,7 +208,7 @@ export function ChildTaskView(props: ChildTaskViewProps) {
                       label={instruction.left}
                     />
                   </div>
-                  <div>
+                  <div className="child-comparison-side">
                     <h3>
                       <ChildSideLabel side="right" label={instruction.right} />
                     </h3>
@@ -557,7 +562,7 @@ export function ChildTaskView(props: ChildTaskViewProps) {
                           {choice.items.length === 0
                             ? instruction.empty
                             : choice.items
-                                .map(() => instruction.dot)
+                                .map(() => instruction[picture])
                                 .join('. ')}
                         </span>
                       </ChildAnswerCard>

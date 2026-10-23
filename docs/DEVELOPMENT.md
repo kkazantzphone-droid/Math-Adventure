@@ -1,5 +1,11 @@
 # Development
 
+Goal D58 ([Varied play](VARIED_PLAY_DESIGN.md)) changes workflow task seeds to
+`phase3c-session-seeds-v2` and draws one of five pictures per task. The unit
+suite `tests/unit/synthetic-loop-seed.test.ts` holds the independent seed oracle
+and the per-activity variety properties; the installed-browser slice command
+and `multilingual-child` expectations cover the rendered names and wording.
+
 Goal D57 adds [Keep my adventure](KEEP_MY_ADVENTURE_DESIGN.md) to the Grown-ups
 view of the same loopback synthetic build: prepare and save a local backup file,
 choose a file to preview its validated contents, then restore it into a browser
