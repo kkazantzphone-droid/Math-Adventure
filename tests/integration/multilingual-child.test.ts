@@ -33,6 +33,7 @@ import {
 import type { ChildAnswerKey } from './helpers/phase3c-child-oracle';
 import {
   CHILD_LANGUAGE_EXPECTATIONS,
+  expectedPicture,
   PLAYABLE_CHILD_LOCALES,
 } from './helpers/multilingual-child-expectations';
 import type { PlayableChildLocale } from './helpers/multilingual-child-expectations';
@@ -495,7 +496,11 @@ async function assertPromptAndOptions(
       expect(id).toBeTruthy();
       expect(await page.locator(`[id="${id}"]`).textContent()).toBe(
         choice.items.length
-          ? choice.items.map(() => expected.dot).join('. ')
+          ? choice.items
+              .map(
+                () => expected.pictures[expectedPicture(task.replay.seedHex)],
+              )
+              .join('. ')
           : expected.empty,
       );
     }

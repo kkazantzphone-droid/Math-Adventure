@@ -1,6 +1,12 @@
 # Roadmap
 
-Current owner Goal D56 is [Clear answers & coherent discovery](CLEAR_ANSWERS_DESIGN.md),
+Current owner Goal D58 is [Varied play](VARIED_PLAY_DESIGN.md): it repairs the
+workflow seeds that made every comparison equal and every array square, and
+varies the pictures children count, without new activities or policy. Merged
+Goal D57 added synthetic backup and restore. Owner UX acceptance and real
+household use remain separate decisions.
+
+Merged owner Goal D56 is [Clear answers & coherent discovery](CLEAR_ANSWERS_DESIGN.md),
 a unified interaction/presentation improvement over all fourteen existing
 activities. It adds no curriculum or accepted evidence/educational policy. Its
 [completion record](CLEAR_ANSWERS_COMPLETION_REPORT.md) separates current

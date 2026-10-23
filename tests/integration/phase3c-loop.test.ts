@@ -512,7 +512,10 @@ describe(`installed ${channel} synthetic playable loop`, () => {
     expect((await state(p)).saved).toBe(true);
   });
 
-  it('reaches every numeral/count quantity in sixteen deterministic examples for each fixed profile', async () => {
+  // Independent uniform draws (seed selection v2) cover all six values within
+  // 16 tasks only about 70% of the time; 40 makes a miss about 0.15% likely.
+  // v1 passed 16 by the luck of its fixed windows, not by construction.
+  it('reaches every numeral/count quantity within forty deterministic examples for each fixed profile', async () => {
     const p = await open();
     const samples: {
       profile: number;
@@ -525,12 +528,14 @@ describe(`installed ${channel} synthetic playable loop`, () => {
       for (const family of ['number.numeral', 'number.counting'] as const) {
         await activity(p, family);
         const quantities = new Set<number>();
-        for (let example = 0; example < 16; example++) {
+        let examples = 0;
+        for (let example = 0; example < 40; example++) {
           const emitted = await presentation(p),
             expected = oracle(emitted);
           if (typeof expected !== 'number')
             throw new Error('Finite quantity oracle required');
           quantities.add(expected);
+          examples = example + 1;
           if (family === 'number.numeral')
             expect(await p.locator('.slice-numeral').textContent()).toBe(
               String(expected),
@@ -539,7 +544,8 @@ describe(`installed ${channel} synthetic playable loop`, () => {
             expect(
               await p.locator('.slice-task .slice-token-group button').count(),
             ).toBe(expected);
-          if (example < 15) {
+          if (quantities.size === 6) break;
+          if (example < 39) {
             await p.locator('[data-action=skip]').click();
             await settled(p);
             await p.waitForFunction(
@@ -554,7 +560,7 @@ describe(`installed ${channel} synthetic playable loop`, () => {
         samples.push({
           profile: index + 1,
           family,
-          examples: 16,
+          examples,
           quantities: [...quantities].sort(),
         });
       }

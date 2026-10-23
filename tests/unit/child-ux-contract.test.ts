@@ -204,7 +204,7 @@ describe('independent direct child card contracts', () => {
       hintTier: 2,
     });
     expect(html).toContain('lang="en-GB"');
-    expect(html).toContain('How many dots?');
+    expect(html).toContain('How many can you see?');
     expect(html).toContain('lang="de-DE"');
     expect(html).toContain('Zeig es mir');
     expect(html).toContain('Noch einmal');

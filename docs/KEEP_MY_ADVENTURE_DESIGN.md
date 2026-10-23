@@ -39,7 +39,7 @@ unsaved in-memory play.
 | Payload schema (`phase3c-synthetic-loop-v1` legacy or `growing-world-synthetic-loop-v2`) and `synthetic-only`    | Legacy and growing-world meanings stay distinct; no upgrade     |
 | Fixed badge slot (`SYNTHETIC-PLAYER-1` Star, `SYNTHETIC-PLAYER-2` Triangle)                                      | Part of deterministic task-seed derivation; profiles stay apart |
 | UI, instruction and number-speech locale roles                                                                   | Independent learner preferences                                 |
-| Guided practice / Just play mode, selected activity, task ordinal, completed count                               | Continue at the same next replay task                           |
+| Guided practice / Just play mode, selected activity, task ordinal, completed count                               | Continue at the same next task number (D58: its numbers follow the current seed selection) |
 | Session ordinal and whether the session is open                                                                  | Session distinctness is evidence meaning                        |
 | Legacy observation/checkpoint journal and chapter observation journal, including IDs, hint tiers and attempts    | Independent, supported and worked provenance                    |
 | Saved current-session mathematical support context                                                               | A worked/helped task cannot become independent after restore    |
@@ -78,7 +78,9 @@ the canonical envelope without its checksum. The compatibility block names the
 record schemas, adaptation policy, evidence catalog, invitation policy, content
 versions, all fourteen generator IDs, RNG, task-seed and canonicalization
 versions. Import requires exact equality; a mismatch is refused as incompatible
-rather than reinterpreted. The checksum detects accidental damage only. It is
+rather than reinterpreted. [D58](VARIED_PLAY_DESIGN.md) amends one field:
+`taskSeeds` may name `phase3c-session-seeds-v1` or `-v2`, because seed selection
+only picks which numbers the next task number shows; exports write v2. The checksum detects accidental damage only. It is
 not authentication, encryption or proof of authorship: anyone who edits a file
 and recomputes it can change its provenance, which this contract cannot detect.
 The compatibility block also carries a `semantics` SHA-256 over the exact

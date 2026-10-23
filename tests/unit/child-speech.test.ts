@@ -44,21 +44,21 @@ const activities = [
   [
     'countItems',
     'activityCounting',
-    'Πόσες κουκκίδες βλέπεις;',
-    'How many dots?',
-    'Wie viele Punkte?',
+    'Πόσα βλέπεις;',
+    'How many can you see?',
+    'Wie viele siehst du?',
   ],
   [
     'compareQuantities',
     'activityComparison',
     'Πού έχει πιο πολλά;',
-    'Where are there more dots?',
-    'Wo sind mehr Punkte?',
+    'Which side has more?',
+    'Auf welcher Seite sind mehr?',
   ],
   [
     'subtractItems',
     'activitySubtraction',
-    'Πόσες μένουν;',
+    'Πόσα μένουν;',
     'How many are left?',
     'Wie viele bleiben übrig?',
   ],
@@ -184,7 +184,7 @@ describe('bounded child activity speech — wording draft, no voice certificatio
     ).toBe(false);
     expect(
       buildChildActivityUtterancePlan('countItems', 'en-GB')?.segments[0]?.text,
-    ).toBe('How many dots?');
+    ).toBe('How many can you see?');
     expect(
       isCatalogueUtterancePlan({
         kind: 'activityCounting',

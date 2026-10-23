@@ -30,7 +30,13 @@ export type {
   SyntheticBackupResult,
   ValidatedSyntheticBackup,
 } from './backup';
-export { syntheticLoopTaskSeed, SYNTHETIC_LOOP_SEED_VERSION } from './seed';
+export {
+  syntheticLoopTaskSeed,
+  syntheticLoopTaskSeedV1,
+  SYNTHETIC_LOOP_SEED_VERSION,
+  SYNTHETIC_LOOP_SEED_VERSION_V1,
+  SYNTHETIC_LOOP_SEED_VERSIONS,
+} from './seed';
 export type {
   LoopAnswerRequest,
   LoopCompletion,
