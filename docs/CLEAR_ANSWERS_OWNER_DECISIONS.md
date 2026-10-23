@@ -8,6 +8,9 @@ disabled. Engineering delivery and protected merge do not supply owner UX
 acceptance, educational validation or permission to start a household trial.
 Updated 2026-10-22 for Keep my adventure (D57): only the dependable saved state
 row below reflects that engineering gap; no decision listed here is accepted.
+The [household-use decision memo](HOUSEHOLD_USE_DECISION_MEMO.md), also
+2026-10-22, sets out concrete options and recommendations for these decisions
+and accepts none of them.
 
 ## Already decided
 
