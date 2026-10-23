@@ -513,7 +513,7 @@ describe(`installed ${channel} synthetic playable loop`, () => {
   });
 
   // Independent uniform draws (seed selection v2) cover all six values within
-  // 16 tasks only about 70% of the time; 40 makes a miss about 0.15% likely.
+  // 16 tasks only about 70% of the time; 40 makes a miss about 0.4% likely.
   // v1 passed 16 by the luck of its fixed windows, not by construction.
   it('reaches every numeral/count quantity within forty deterministic examples for each fixed profile', async () => {
     const p = await open();

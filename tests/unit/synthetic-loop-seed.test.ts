@@ -344,7 +344,8 @@ describe('a session of any activity varies', () => {
         )
           partial += 1;
       }
-    // Whole w uniform in 0..5, removed uniform in 0..w: mean (w-1)/(w+1) = 0.35.
+    // Whole w uniform in 0..5, removed uniform in 0..w: mean of
+    // max(0, w - 1) / (w + 1) is 0.35.
     expect(partial / 2400).toBeCloseTo(0.35, 1);
   });
 

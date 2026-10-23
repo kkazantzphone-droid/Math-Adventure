@@ -53,9 +53,13 @@ first. Its own comment claimed only that "first-draw tasks vary".
    seed. Evidence journals keep the seeds they were recorded with, saved help is
    keyed by the mathematical case rather than the seed, and derived adaptation
    state is rebuilt from journals. After the update a saved badge continues at
-   the same task number; the numbers on that next task come from v2. An answer
-   still saving when the update arrives settles with its own stored verdict and
-   seed; the page around it may briefly show the v2 task for that number.
+   the same task number; the numbers on that next task come from v2. An update
+   activates only when no answer is saving, so this needs a tab closed
+   mid-save. Such an answer still settles with its own stored verdict and
+   seed, but on reopen play waits beside the v2 task for that number until the
+   save is retried from the developer controls, and the old feedback then
+   appears beside it. Meaning is unchanged; the synthetic surface accepts this
+   brief mismatch.
 3. **Backups.** Export writes `taskSeeds: phase3c-session-seeds-v2`. Import
    accepts a file that is exact in every compatibility field and names either
    v1 or v2; any other value is still refused. A v1 file restores identical
@@ -67,10 +71,11 @@ first. Its own comment claimed only that "first-draw tasks vary".
    No picture copies a badge shape: a star would be confused with the Star
    badge shown above the task. Every item in a task shares the picture, so only
    the quantity differs. Each item is named for its picture, and a crossed-out
-   item keeps that name ("Moon, taken away") inside a separately named tray.
-   The pictures are decorative SVG with light tints (at least 4.7:1 on the
-   panels, including crossed-out and disabled states) and forced-colours
-   fallbacks. Neither truth,
+   item keeps that name ("Moon, taken away"), and once help separates them the
+   crossed-out items sit in their own named tray.
+   The pictures are decorative SVG with light tints (at least 4.5:1 on every
+   panel, including crossed-out and disabled states, pinned by a unit test)
+   and forced-colours fallbacks. Neither truth,
    evidence, replay nor saved state reads the choice.
 5. **Wording.** Prompts and help that said "dots" now speak of the items
    generically in all three drafts (for example "How many can you see?"), and
